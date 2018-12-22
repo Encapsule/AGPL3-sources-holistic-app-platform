@@ -1,9 +1,16 @@
 {
   "name": "encapsule_app_master",
   "version": "0.1.0",
-  "description": "Monorepo for building Node.js/HTML5 applications derived from Encapsule Project, and Facebook libraries.",
+  "description": "Monorepo for building Node.js/HTML5 applications derived from Encapsule Project and Facebook libraries.",
   "main": "index.js",
   "author": "Encapsule Project",
+  "contributors": [
+    {
+      "name": "Christopher D. Russell",
+      "email": "cdr@encapsule.io",
+      "url": "http://chrisrussell.net"
+    }
+  ],
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
@@ -14,6 +21,7 @@
     "arctools": "Encapsule/arctools",
     "chai": "^4.2.0",
     "commander": "^2.19.0",
+    "eslint": "^5.10.0",
     "handlebars": "^4.0.12",
     "mocha": "^5.2.0",
     "webpack": "^4.28.1",
