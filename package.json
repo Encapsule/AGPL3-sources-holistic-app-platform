@@ -1,7 +1,7 @@
 {
-  "name": "encapsule_master",
+  "name": "encapsule_app_master",
   "version": "0.1.0",
-  "description": "Monorepo for all Encapsule Project Node.js libraries, tools, and applications.",
+  "description": "Monorepo for building Node.js/HTML5 applications derived from Encapsule Project, and Facebook libraries.",
   "main": "index.js",
   "author": "Encapsule Project",
   "license": "UNLICENSED",
