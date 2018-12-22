@@ -1,0 +1,9 @@
+{
+  "name": "encapsule_master",
+  "version": "0.1.0",
+  "description": "Monorepo for all Encapsule Project Node.js libraries, tools, and applications.",
+  "main": "index.js",
+  "author": "Encapsule Project",
+  "license": "UNLICENSED",
+  "private": true
+}
