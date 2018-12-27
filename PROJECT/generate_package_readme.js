@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 const repoBuild = require('../BUILD/encapsule_repo_build');
+const packageDB = require('./package-db/');
 
 const handlebars = arctools.handlebars;
 const program = arctools.commander;
@@ -45,6 +46,15 @@ try {
     process.exit(1);
 }
     
+const packageData = packageDB[targetManifest.name];
+
+if (!packageData) {
+    console.error("The package '" + targetManifest.name + "' is not registered in the package DB.");
+    process.exit(1);
+}
+
+process.exit(1);
+
 const licenseTemplatePath = path.resolve(__dirname, 'LICENSES', (targetManifest.license + '.hbs'));
 const licenseTemplate = fs.readFileSync(licenseTemplatePath).toString('utf-8');
 const compiledLicenseTemplate = handlebars.compile(licenseTemplate);
