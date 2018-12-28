@@ -847,11 +847,11 @@ aproba@^1.0.3, aproba@^1.1.1:
 
 arccore@Encapsule/arccore:
   version "0.1.0"
-  resolved "https://codeload.github.com/Encapsule/arccore/tar.gz/9093e7b6fc8d1c5c094463ffbb41df8e9901627e"
+  resolved "https://codeload.github.com/Encapsule/arccore/tar.gz/8e8ddbb248160b260dae73dc03aa8ddc0413487d"
 
 arctools@Encapsule/arctools:
   version "0.1.0"
-  resolved "https://codeload.github.com/Encapsule/arctools/tar.gz/b5260006ba7cffc2145bdef99525617b9ea0c26b"
+  resolved "https://codeload.github.com/Encapsule/arctools/tar.gz/38722ba2cd97d903f6bbf0bbcaff592ab82f67fe"
   dependencies:
     chalk "^1.1.1"
     commander "^2.9.0"
