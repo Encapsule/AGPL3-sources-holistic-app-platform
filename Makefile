@@ -10,6 +10,8 @@ TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate_package_manifest.js
 TOOL_GEN_PACKAGE_LICENSE=$(DIR_PROJECT)/generate_package_license.js
 TOOL_GEN_PACKAGE_README=$(DIR_PROJECT)/generate_package_readme.js
 
+TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
+
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
@@ -27,6 +29,8 @@ package_holism: repo_build_info
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName holism > $(DIR_BUILD_LIB_HOLISM_STAGE1)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM_STAGE1)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISM_STAGE1)
+	mkdir -p $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs
+	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_STAGE1)/lib/http-server-filter-factory.js --output $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs/server-factory.md	
 
 clean_build:
 	rm -rfv $(DIR_BUILD)/*

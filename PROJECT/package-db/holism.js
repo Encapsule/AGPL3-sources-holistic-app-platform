@@ -1,21 +1,22 @@
 // PROJECT/package-db/holism.js
 
+const childProcess = require('child_process');
+
 module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Filter-extensible JSON-configured HTTP 1.1 REST frameowrk for Node.js.",
+        description: "Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.",
         keywords: [ "HTTP", "REST", "filter", "server", "framework", "node", "Encapsule" ],
         license: "MIT",
         main: "index.js"
     },
     packageReadme: {
-        DISABLE_summaryDescriptor: {
-            heading: "## Custom summary section",
-            markdown: [
-                "This is test content in the Summary/Custom summary section"
+        summaryDescriptor: {
+            markdown: [ 
             ]
         },
+
         documentationDescriptor: {
             heading: "## Documentation",
             markdown: [
