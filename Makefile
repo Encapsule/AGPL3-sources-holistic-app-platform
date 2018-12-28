@@ -22,7 +22,10 @@ DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
 
 DIR_BUILD_LIB_HOLISM_STAGE1=$(DIR_BUILD_LIB_HOLISM)/stage1
 
-package_holism: repo_build_info
+DIR_DISTS=$(DIR_ROOT)/DISTS
+DIR_DIST_HOLISM=$(DIR_DISTS)/holism
+
+package_holism: gen_repo_build_info
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM_STAGE1)
 	cp -rv $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM_STAGE1)/
@@ -31,9 +34,26 @@ package_holism: repo_build_info
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISM_STAGE1)
 	mkdir -p $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_STAGE1)/lib/http-server-filter-factory.js --output $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs/server-factory.md	
+	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_STAGE1)/lib/http-service-filter-factory.js --output $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs/service-factory.md	
+	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_STAGE1)/lib/http-integration-filters-factory.js --output $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs/integrations-factory.md	
+	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_STAGE1)/lib/http-response-write-filter.js --output $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs/server-response.md
+	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_STAGE1)/lib/http-response-serialize-filter.js --output $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs/service-result-response.md
+	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_STAGE1)/lib/http-response-error-filter.js --output $(DIR_BUILD_LIB_HOLISM_STAGE1)/docs/service-error-response.md
+
+publish_holism:
+	cp -rv $(DIR_BUILD_LIB_HOLISM_STAGE1)/* $(DIR_DIST_HOLISM)/
+
+clean: clean_build
 
 clean_build:
 	rm -rfv $(DIR_BUILD)/*
 
-repo_build_info:
+gen_repo_build_info:
 	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/encapsule_repo_build.json
+
+distributions_initialize: clean_distributions
+	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_HOLISM)
+
+clean_distributions:
+	rm -rfv $(DIR_DISTS)/*
+
