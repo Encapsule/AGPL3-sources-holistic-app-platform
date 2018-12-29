@@ -32,9 +32,9 @@ var filterFactoryResponse = filter.create({
             inBreakScope = true;
 
             // makeName utility function used to construct the name of implementation filters constructed inline below.
-            function makeName(filterType_) {
+            const makeName = function (filterType_) {
                 return ("HTTP " + factoryRequest.method + " " + factoryRequest.url + " " + filterType_ + " Processor");
-            }
+            };
 
             // ----------------------------------------------------------------------
             // RESULT FILTER
@@ -64,7 +64,7 @@ var filterFactoryResponse = filter.create({
             var errorFilterName = makeName("Error");
             var errorFilterID = identifier.irut.fromReference(errorFilterName).result;
             var errorFilterDesc = "Verifies/normalizes error data returned by the local HTTP transport filter.";
-            var filterFactoryResponse = filter.create({
+            filterFactoryResponse = filter.create({
                 operationID: errorFilterID,
                 operationName: errorFilterName,
                 operationDescription: errorFilterDesc,
@@ -83,7 +83,7 @@ var filterFactoryResponse = filter.create({
             // by the HTTP request transport.
             var requestFilterName = makeName("Request");
             var requestFilterID = identifier.irut.fromReference(requestFilterName).result;
-            var requestFilterDesc = "Verifies/normalizes input to HTTP request transport filter.";
+            // unused? var requestFilterDesc = "Verifies/normalizes input to HTTP request transport filter.";
             filterFactoryResponse = filter.create({
                 operationID: requestFilterID,
                 operationName: requestFilterName,

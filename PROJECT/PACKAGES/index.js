@@ -1,7 +1,8 @@
-// PROJECT/package-db/index.js
+// PROJECT/PACKAGES/index.js
 
 const packageDB = {
-    holism: require('./holism')
+    holism: require('./holism'),
+    hrequest: require('./hrequest')
 };
 
 module.exports = packageDB;

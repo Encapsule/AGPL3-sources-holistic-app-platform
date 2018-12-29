@@ -25,6 +25,8 @@
     "eslint": "^5.10.0",
     "handlebars": "^4.0.12",
     "mocha": "^5.2.0",
+    "query-string": "^6.2.0",
+    "request": "^2.88.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   }

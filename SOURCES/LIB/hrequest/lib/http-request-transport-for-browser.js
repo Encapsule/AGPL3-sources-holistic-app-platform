@@ -21,6 +21,8 @@ var filterFactoryResponse = arccore.filter.create({
             requestURL += "?" + queryStringSuffix;
         }
 
+        /*eslint no-undef: "error"*/
+        /*eslint-env browser*/
         var httpRequest = new XMLHttpRequest();
         httpRequest.open(request_.method, requestURL, true /*async*/);
         httpRequest.setRequestHeader("Content-Type", "application/json");
@@ -41,7 +43,7 @@ var filterFactoryResponse = arccore.filter.create({
                     } // end catch
 
                 } else {
-                    var errorDescriptor = {
+                    errorDescriptor = {
                         httpStatus: httpRequest.status,
                         appStatus: 0,
                         message: httpRequest.responseText

@@ -47,7 +47,7 @@ var filterFactoryResponse = arccore.filter.create({
                     return;
                 }
                 if (response_.statusCode !== 200) {
-                    var errorDescriptor = {
+                    errorDescriptor = {
                         httpStatus: response_.statusCode,
                         appStatus: 0,
                         message: ("HTTP Error " + response_.statusCode + " " + response_.statusMessage)

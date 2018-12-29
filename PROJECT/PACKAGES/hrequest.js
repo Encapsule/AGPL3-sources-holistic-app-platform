@@ -1,4 +1,4 @@
-// PROJECT/PACKAGES/holism.js
+// PROJECT/PACKAGES/hrequest.js
 
 const arccore = require('arccore');
 const arccoreVersion = arccore.__meta.version;
@@ -9,12 +9,14 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.",
-        keywords: [ "HTTP", "REST", "filter", "server", "framework", "node", "Encapsule" ],
+        description: "HTTP request filters for Node.js and browser clients.",
+        keywords: [ "HTTP", "request", "filter", "node", "browser", "Encapsule" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {
-            arccore: arccoreVersion
+            arccore: arccoreVersion,
+            "query-string": "^4.3.4",
+            request: "^2.78.0"            
         }
     },
     packageReadme: {
@@ -25,7 +27,7 @@ module.exports = {
         documentationDescriptor: {
             heading: "## Documentation",
             markdown: [
-                "Developer API and examples: [Encapsule Project holism documentation](https://encapsule.io/docs/holism)"
+                "Developer API and examples: [Encapsule Project holism documentation](https://encapsule.io/docs/hrequest)"
             ]
         },
         bodySections: [

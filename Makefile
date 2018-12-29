@@ -5,6 +5,7 @@ DIR_TOOLBIN=$(DIR_MODULES)/.bin
 TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
 
 DIR_PROJECT=$(DIR_ROOT)/PROJECT
+
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
 
 TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate_encapsule_build.js
@@ -17,14 +18,17 @@ TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
+DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
+DIR_BUILD_LIB_HREQUEST=$(DIR_BUILD_LIB)/hrequest
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
+DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 
 default: build_packages
 
@@ -48,6 +52,18 @@ build_package_holism:
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-serialize-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/service-result-response.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-error-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/service-error-response.md
 	@echo build_package_holism complete
+
+build_package_hrequest:
+	@echo build_package_holism start
+	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
+	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
+	cp $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
+	cp -rv $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName hrequest > $(DIR_BUILD_LIB_HREQUEST)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HREQUEST)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HREQUEST)
+	mkdir -p $(DIR_BUILD_LIB_HREQUEST)/docs
+	@echo build_package_request complete
 
 stage_packages: stage_package_holism
 

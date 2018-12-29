@@ -20,5 +20,5 @@ var factoryResponse = arccore.filter.create({
     }
 });
 if (factoryResponse.error)
-    throw new Error(factoryRespone.error);
+    throw new Error(factoryResponse.error);
 module.exports = factoryResponse.result;
