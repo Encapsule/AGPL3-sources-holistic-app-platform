@@ -27,7 +27,7 @@ module.exports = {
         documentationDescriptor: {
             heading: "## Documentation",
             markdown: [
-                "Developer API and examples: [Encapsule Project holism documentation](https://encapsule.io/docs/hrequest)"
+                "Developer API and examples: [Encapsule Project hrequest documentation](https://encapsule.io/docs/hrequest)"
             ]
         },
         bodySections: [

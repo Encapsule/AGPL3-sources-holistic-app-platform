@@ -32,7 +32,7 @@ DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 
 default: build_packages
 
-build_packages: generate_build_info build_package_holism
+build_packages: generate_build_info build_package_holism build_package_hrequest
 	@echo build_packages complete
 
 build_package_holism:
@@ -65,13 +65,20 @@ build_package_hrequest:
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)/docs
 	@echo build_package_request complete
 
-stage_packages: stage_package_holism
+stage_packages: build_packages stage_package_holism stage_package_hrequest
 
 stage_package_holism:
 	@echo stage_package_holism start
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
-	cp -rv $(DIR_BUILD_LIB_HOLISM)/* $(DIR_DIST_LIB_HOLISM)/
+	cp -rv $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
 	@echo stage_package_holism complete
+
+stage_package_hrequest:
+	@echo stage_package_hrequest start
+	mkdir -p $(DIR_DIST_LIB_HREQUEST)
+	cp -rv $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
+	@echo stage_package_hrequest complete
+
 
 clean: dir_build_clean
 
@@ -80,6 +87,7 @@ dir_build_clean:
 
 dir_distributions_initialize: dir_distributions_clean
 	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
+	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
 
 dir_distributions_clean:
 	rm -rfv $(DIR_DISTS)/*
