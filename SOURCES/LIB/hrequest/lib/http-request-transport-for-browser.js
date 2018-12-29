@@ -1,9 +1,9 @@
 // http-request-transport-for-browser.js
 //
 
-const arccore = require('arccore');
-const queryString = require('query-string');
-const httpRequestTransportSpecs = require('./http-request-transport-iospecs');
+const arccore = require("arccore");
+const queryString = require("query-string");
+const httpRequestTransportSpecs = require("./http-request-transport-iospecs");
 
 var filterFactoryResponse = arccore.filter.create({
 
@@ -23,7 +23,7 @@ var filterFactoryResponse = arccore.filter.create({
 
         var httpRequest = new XMLHttpRequest();
         httpRequest.open(request_.method, requestURL, true /*async*/);
-        httpRequest.setRequestHeader('Content-Type', 'application/json');
+        httpRequest.setRequestHeader("Content-Type", "application/json");
         httpRequest.onreadystatechange = function() {
             if (httpRequest.readyState === XMLHttpRequest.DONE) {
                 if (httpRequest.status === 200) {

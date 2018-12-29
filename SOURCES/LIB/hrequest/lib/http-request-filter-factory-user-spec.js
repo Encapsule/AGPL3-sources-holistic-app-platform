@@ -25,7 +25,7 @@ module.exports = {
         ____label: "HTTP Request Method",
         ____description: "The specific HTTP request method to make requests with.",
         ____accept: "jsString",
-        ____inValueSet: [ 'GET', 'POST' ] // on client we wrap XMLHttpRequest, on server `request` module.
+        ____inValueSet: [ "GET", "POST" ] // on client we wrap XMLHttpRequest, on server `request` module.
     },
     querySpec: {
         ____label: "HTTP Request Query Params Object Filter Spec",

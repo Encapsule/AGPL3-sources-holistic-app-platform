@@ -1,14 +1,14 @@
 // http-request-filter-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 const filter = arccore.filter;
 const identifier = arccore.identifier;
 
 // Make a deep copy of the public, developer-facing inputFilterSpec
-const inputFilterSpec = arccore.util.clone(require('./http-request-filter-factory-user-spec'));
+const inputFilterSpec = arccore.util.clone(require("./http-request-filter-factory-user-spec"));
 
 // Add the client vs server-specific transport object to this filter's input spec.
-inputFilterSpec['requestTransportFilter'] = {
+inputFilterSpec["requestTransportFilter"] = {
     ____label: "HTTP Transport Filter",
     ____description: "A reference to a a HTTP Request Transport Filter object allocated by either the client or server-specific factory.",
     ____accept: "jsObject"
@@ -183,7 +183,7 @@ var filterFactoryResponse = filter.create({
         } // end while (!inBreakScope)
 
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     },

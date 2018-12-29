@@ -10,7 +10,7 @@ module.exports = {
         },
         method: {
             ____accept: "jsString",
-            ____inValueSet: [ 'GET', 'POST' ]
+            ____inValueSet: [ "GET", "POST" ]
         },
         query: {
             ____accept: [ "jsUndefined", "jsObject" ]
