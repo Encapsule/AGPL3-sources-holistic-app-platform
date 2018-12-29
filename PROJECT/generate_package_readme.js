@@ -6,7 +6,7 @@ const fs = require('fs');
 
 // Information about the most recent build (contains no information specific to a package).
 const repoBuild = require('../BUILD/encapsule_repo_build');
-const packageDB = require('./package-db/');
+const packageDB = require('./PACKAGES/');
 
 const handlebars = arctools.handlebars;
 const program = arctools.commander;
