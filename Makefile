@@ -80,16 +80,22 @@ stage_package_hrequest:
 	@echo stage_package_hrequest complete
 
 
-clean: dir_build_clean
+clean: build_clean
 
-dir_build_clean:
+build_clean:
 	rm -rfv $(DIR_BUILD)/*
 
-dir_distributions_initialize: dir_distributions_clean
+distributions_initialize: distributions_clean
 	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
 	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
 
-dir_distributions_clean:
+distributions_status:
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_HOLISM) && git remote -v && git status
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
+
+distributions_clean:
 	rm -rfv $(DIR_DISTS)/*
 
 generate_build_info:
