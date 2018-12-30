@@ -4,7 +4,7 @@ const arctools = require('arctools');
 const path = require('path');
 const fs = require('fs');
 
-const repoBuild = require('../BUILD/encapsule_repo_build');
+const repoBuild = require('../BUILD/build');
 
 const handlebars = arctools.handlebars;
 const program = arctools.commander;

@@ -2,7 +2,7 @@
 
 const arctools = require('arctools');
 
-const repoBuild = require('../BUILD/encapsule_repo_build');
+const repoBuild = require('../BUILD/build');
 
 const packageDB = require('./PACKAGES/');
 

@@ -107,5 +107,5 @@ distributions_clean:
 	rm -rfv $(DIR_DISTS)/*
 
 generate_build_info:
-	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/encapsule_repo_build.json
+	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/build.json
 
