@@ -30,13 +30,14 @@ DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 
-default: build_packages
+default: stage_packages
+	@echo \'default\' Makefile target build complete.
 
-build_packages: generate_build_info build_package_holism build_package_hrequest
+build_packages: monorepo_initialize generate_build_info build_package_holism build_package_hrequest
 	@echo build_packages complete
 
 build_package_holism:
-	@echo build_package_holism start
+	@echo build_package_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
 	cp $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
@@ -51,10 +52,10 @@ build_package_holism:
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-write-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/server-response.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-serialize-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/service-result-response.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-error-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/service-error-response.md
-	@echo build_package_holism complete
+	@echo build_package_holism target complete.
 
 build_package_hrequest:
-	@echo build_package_holism start
+	@echo build_package_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
 	cp $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
@@ -68,44 +69,78 @@ build_package_hrequest:
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HREQUEST)/lib/http-request-filter-factory.js --output $(DIR_BUILD_LIB_HREQUEST)/docs/request-factory.md	
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HREQUEST)/lib/http-request-transport-for-node.js --output $(DIR_BUILD_LIB_HREQUEST)/docs/server-request-transport.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HREQUEST)/lib/http-request-transport-for-browser.js --output $(DIR_BUILD_LIB_HREQUEST)/docs/client-request-transport.md
-
-
-
-	@echo build_package_request complete
+	@echo build_package_request complete.
 
 stage_packages: build_packages stage_package_holism stage_package_hrequest
+	@echo Stage pacakges operation complete.
 
 stage_package_holism:
-	@echo stage_package_holism start
+	@echo stage_package_holism target starting...
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
 	cp -rv $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
-	@echo stage_package_holism complete
+	@echo stage_package_holism complete.
 
 stage_package_hrequest:
-	@echo stage_package_hrequest start
+	@echo stage_package_hrequest target starting...
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
 	cp -rv $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
-	@echo stage_package_hrequest complete
-
+	@echo stage_package_hrequest target complete.
 
 clean: build_clean
+	@echo Clean operation complete.
+
+scrub: build_clean distributions_clean monorepo_clean
+	@echo Scrub operation complete.
+
+nuke: build_clean distributions_nuke monorepo_nuke
+	@echo Nuke operation complete.
 
 build_clean:
+	@echo build_clean target starting...
 	rm -rfv $(DIR_BUILD)/*
+	@echo build_clean target complete.
 
 distributions_initialize: distributions_clean
+	@echo distributions_initialize target starting...
 	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
 	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
+	@echo distributions_initialize target complete.
 
 distributions_status:
+	@echo distributions_status target starting...
 	@echo ================================================================
 	cd $(DIR_DIST_LIB_HOLISM) && git remote -v && git status
 	@echo ================================================================
 	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
+	@echo distributions_status target complete.
 
-distributions_clean:
+distributions_clean: distributions_nuke
+	@echo Distributions clean operation complete.
+
+distributions_nuke:
+	@echo distributions_nuke target starting...
 	rm -rfv $(DIR_DISTS)/*
+	@echo distributions_nuke target complete.
 
 generate_build_info:
+	@echo generate_build_info target starting...
 	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/build.json
+	@echo generate_build_info target complete.
 
+monorepo_initialize:
+	@echo monorepo_initialize target starting...
+	yarn install --verbose
+	@echo monorepo_initialize target complete.
+
+monorepo_reinitialize: monorepo_nuke monorepo_initialize
+	@echo Your local yarn cache has been repopulated with fresh packages from the Internet. And the contents of $(DIR_MODULES) has been rewritten.
+
+monorepo_clean:
+	@echo monorepo_clean target starting...
+	rm -rfv $(DIR_MODULES)
+	@echo monorepo_clean target complete.
+
+monorepo_nuke: monorepo_clean
+	@echo monorepo_nuke target starting...
+	yarn cache clean
+	@echo monorepo_nuke target complete.
