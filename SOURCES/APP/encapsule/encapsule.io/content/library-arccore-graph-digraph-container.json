@@ -1,0 +1,342 @@
+{
+    "library.arccore.graph.digraph.container": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "See also: [Serialization Reference](./serialize)",
+                        "\n",
+
+                        "Container methods allow you to get and set the name and description of a `DirectedGraph` container instance, obtain counts and sets of",
+                        "vertices and edges in the container, serialize the contents of the container, and import another serialized `DirectedGraph` instance",
+                        "into an existing container instance.",
+                        "\n",
+
+
+                        "### DirectedGraph.setGraphName",
+                        "```javascript",
+                        "var response = digraph.setGraphName(\"WA State Driving Routes\");",
+                        "if (response.error)",
+                        "    console.error(response.error);",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "_string_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Response object with `error` and `result` properties.",
+                        "\n",
+                        "If `error` is not null, it is a string indicating what the problem was.",
+                        "\n",
+                        "If `error` is not null, then `result` is Boolean true.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "Typically the digraph name is set at container construction. See [Serialization Reference](./serialize).",
+
+
+
+                        "### DirectedGraph.getGraphName",
+                        "```javascript",
+                        "var name = digraph.getGraphName();",
+                        "console.log(name);",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns string that may be zero-length if no graph name was set.",
+
+
+
+                        "### DirectedGraph.setGraphDescription",
+                        "```javascript",
+                        "var response = digraph.setGraphDescription(\"Scenic WA driving routes digraph model\");",
+                        "if (response.error)",
+                        "    console.error(response.error);",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "_string_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Response object with `error` and `result` properties.",
+                        "\n",
+                        "If `error` is not null, it is a string indicating what the problem was.",
+                        "\n",
+                        "If `error` is not null, then `result` is Boolean true.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "Typically the digraph name is set at container construction. See [Serialization Reference](./serialize).",
+
+
+
+                        "### DirectedGraph.getGraphDescription",
+                        "```javascript",
+                        "var description = digraph.getGraphDescription();",
+                        "console.log(description);",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns string that may be zero-length if no graph description was set.",
+
+
+
+                        "### DirectedGraph.verticesCount",
+                        "```javascript",
+                        "var vertexCount = digraph.verticesCount();",
+                        "console.log(vertexCount + \" vertices\");",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Integer indicating the number of vertices in this graph.",
+
+
+
+
+                        "### DirectedGraph.getVertices",
+                        "```javascript",
+                        "var vertexSet = digraph.getVertices();",
+                        "console.log(JSON.stringify(vertices));",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns an array of string vertex identifiers.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "Do not count on the order of vertices in the set - it's not significant and might change in a future release.",
+
+
+
+                        "### DirectedGraph.edgesCount",
+                        "```javascript",
+                        "var edgeCount = digraph.edgesCount();",
+                        "console.log(edgeCount + \" edges\");",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Integer indicating the number of edges in this graph.",
+
+
+
+                        "### DirectedGraph.getEdges",
+                        "```javascript",
+                        "var edgeSet = digraph.getEdges();",
+                        "console.log(JSON.stringify(edgeSet));",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "Returns an array of edge descriptor objects with `u` and `v` properties.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "Do not count on the order of the edges in the set - it's not significant and might change in a future release.",
+
+
+
+                        "### DirectedGraph.rootVerticesCount",
+                        "```javascript",
+                        "var rootVertexCount = digraph.rootVerticesCount();",
+                        "console.log(rootVerticesCount + \" root vertices\");",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Integer count of the number of vertices with in-degree equal to zero (0).",
+
+
+                        "### DirectedGraph.getRootVertices",
+                        "```javascript",
+                        "var rootVertexSet = digraph.getRootVertices();",
+                        "console.log(JSON.stringify(rootVertexSet));",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns an array of identifier strings indicating the set of root vertices in the graph (i.e. the set of vertices with in-degree zero).",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "Do not count on the order of the vertices in the set - it's not significant and might change in a future release.",
+
+
+
+                        "### DirectedGraph.leafVerticesCount",
+                        "```javascript",
+                        "var leafVertexCount = digraph.leafVerticesCount();",
+                        "console.log(leafVertexCount + \" leaf vertices\");",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "**Response**",
+                        "\n",
+                        "Integer count of the number of vertices with out-degree equal to zero (0).",
+
+
+                        "### DirectedGraph.getLeafVertices",
+                        "```javascript",
+                        "var leafVertexSet = digraph.getLeafVertices();",
+                        "console.log(JSON.stringify(leafVertexSet));",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns an array of identifier strings indicating the set of leaf vertices in the graph (i.e. the set of vertices with out-degree zero).",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "Do not count on the order of the vertices in the set - it's not significant and might change in a future release.",
+
+
+
+                        "### DirectedGraph.toObject",
+                        "**Method `toObject` is a deprecated alias for `toJSON` that will be removed from a future release.**",
+                        "\n",
+
+
+                        "### DirectedGraph.toJSON",
+                        "See also: [Serialization Reference](./serialize)",
+                        "\n",
+
+                        "```javascript",
+                        "var serializedDigraph = digraph.toJSON()",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "No in-params",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns a serialized data object that contains the serialized contents of the `DirectedGraph` container.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "The object returned may be passed to the `DirectedGraph` constructor, or to method `fromObject`.",
+                        "\n",
+                        "The method does not return a JSON string because if you're holding a reference to a `DirectedGraph` in another structure,",
+                        "and, you call `JSON.stringify` on _that_ structure the expectation is that the returned JSON string will include the",
+                        "serialized `DirectedGraph`.",
+                        "\n",
+                        "If you want to obtain a JSON string directly from a `DirectedGraph` instance, call method `DirectedGraph.stringify` explained next.",
+
+                        "### DirectedGraph.stringify",
+                        "See also: [Serialization Reference](./serialize)",
+                        "\n",
+                        "```javascript",
+                        "var json = digraph.stringify(replacer,space);",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "- **replacer**: optional function.",
+                        "- **space**: optional integer number of indent spaces",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns a a serialized DirectedGraph as a JSON-encoded string.",
+                        "\n",
+                        "**Remarks:**",
+                        "\n",
+                        "See [JSON.stringify](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)",
+                        "(MDN) for further discussion on `replacer` and `space` in-params.",
+
+
+
+                        "### DirectedGraph.fromObject",
+                        "See also: [Serialization Reference](./serialize)",
+                        "\n",
+                        "```javascript",
+                        "var response = digraph.fromObject(object);",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "**object**: a serialized `DirectedGraph` object.",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "JavaScript object with the following properties:",
+                        "- **error**: null or a string explaining what went wrong",
+                        "- **result**: true to indicate success or null if error",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "`fromObject` parses the request object and uses `addVertex` and `addEdge` methods to add the additional vertices and edges to an existing container.",
+                        "The semantics are thus the same as if you called these methods directly yourself. This facility is useful for initializing or extending the",
+                        "the contents of a `DirectedGraph` container from multiple sources. Or, when building a `DirectedGraph` model algorithmically.",
+
+
+                        "### DirectedGraph.fromJSON",
+                        "Identical to `fromObject` except that the request is a JSON string instead of a serializable data object."
+
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-graph.svg" },
+                "pageTitle": "ARCcore.graph DirectedGraph Container Methods",
+                "pageDescription": "ARCcore.graph DirectedGraph container methods documentation.",
+                "contentTitle": "DirectedGraph Container Methods Documentation",
+                "contentSubtitle": "DirectedGraph container methods operate on the contents of the whole container.",
+                "name": "Container Methods",
+                "tooltip": "DirectedGraph container methods..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "container-methods",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "library.arccore.types.examples": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-types.svg" },
+                "pageTitle": "ARCcore.types Library Examples",
+                "pageDescription": "ARCcore.types library examples.",
+                "contentTitle": "ARCcore.types Library Examples",
+                "contentSubtitle": "JavaScript examples demonstrating the use of ARCcore.types function exports.",
+                "name": "Examples",
+                "tooltip":" ARCcore.types examples..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "examples",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "library.arccore.util.api": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-util.svg" },
+                "pageTitle": "ARCcore.util Library API Reference",
+                "pageDescription": "ARCcore.util library API reference.",
+                "contentTitle": "ARCcore.util Library API Reference",
+                "contentSubtitle": "ARCcore.util function exports API reference.",
+                "name": "API",
+                "tooltip":" ARCcore.util library API reference..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "api",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

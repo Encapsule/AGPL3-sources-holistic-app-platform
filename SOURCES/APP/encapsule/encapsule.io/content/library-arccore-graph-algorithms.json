@@ -1,0 +1,95 @@
+{
+    "library.arccore.graph.algorithms": {
+        "content": {
+            "data": {
+                "holisticView_Collection": {
+                    "markdownSource": [
+                        "**_\"Begin at the beginning,\" the King said very gravely. \"and go on till you come to the end: then stop.\"_ - Lewis Carroll, Alice in Wonderland**",
+                        "\n",
+                        "## Introduction",
+                        "ARCcore.graph bundles a small collection of powerful functions that operate on the data contained in a `DirectedGraph` container in useful ways.",
+                        "\n",
+                        "Terminology, naming, and conventions used here are",
+                        "taken from Chapter 23 \"Elementary Graph Algorithms\" of the book",
+                        "[Introduction To Algorithms](https://mitpress.mit.edu/books/introduction-algorithms) (MIT Press).",
+                        "\n",
+                        "The magic of graph algorithms is that deep insight can be derived from watching and analyzing how specific graph algorithms traverse specific",
+                        "graph interconnect typologies. However, graph traversal algorithms are hard to implement due to their complexity and most implementations",
+                        "are purpose-built, and/or have little facility for embedded re-use or extension in contexts their authors didn't anticipate.",
+                        "\n",
+                        "ARCcore.graph addresses this problem by copying the Boost Graph Library (BGL)'s fantastic use of the visitor pattern to encapsulate the",
+                        "specific goal strategies of graph traversal algorithms. The resulting API makes trivial re-use cases trivial and advanced use cases possible.",
+                        "\n",
+                        "Depending on your requirements, there are other open source JavaScript graph libraries that provide single-call graph algorithm functions",
+                        "that may better suit your needs. I couldn't find any that were as flexible and extensible as the",
+                        "[BGL](http://www.boost.org/doc/libs/1_63_0/libs/graph/doc/table_of_contents.html) with which I was familiar.",
+                        "So, I built ARCcore.graph to feel like the BGL. And, then wrote a [lot of tests](https://travis-ci.org/Encapsule/jsgraph).",
+                        "If you find a problem, **please report it**!",
+                        "\n",
+                        "In situations where you need to write your own custom algorithms, or derive sophisticated results from vertex, edge, and topology it makes",
+                        "sense to re-use the core visitor algorithms included here as the basis for your own complex data masterpiece. Or, write your own",
+                        "algorithms in this style using the `DirectedGraph` container's API to separate your concerns.",
+                        "\n",
+                        "Once you get used to the style, there's really just no substitute for the BGL visitor API style traversal algorithms.",
+                        "\n",
+                        "There are two types of algorithms included: **transforms** and **traversals**.",
+                        "\n",
+
+                        "### Transform Algorithms",
+                        "See: [Digraph Transpose](./algorithms/digraph-transpose) (others coming as I have time to document them)",
+                        "\n",
+                        "Transform algorithms generate new a `DirectedGraph` container instance from existing container(s) applying some prescribed filter,",
+                        "or transformation to the vertex and/or edge lists. Source `DirectedGraph` instance(s) are not mutated.",
+                        "\n",
+
+                        "### Traversal Algorithms",
+                        "See: [Digraph Breadth-First](./algorithms/digraph-bft), [Digraph Depth-First](./algorithms/digraph-dft), [Digraph Traversals](./algorithms/digraph-traverse)",
+                        "\n",
+
+                        "Traversal functions are miniature agent processes that traverse the topology of a `DirectedGraph` container issuing callbacks to your",
+                        "derived client code at specified event points (See also: [visitor pattern](https://en.wikipedia.org/wiki/Visitor_pattern)).",
+                        "Think of your graph as a maze with edge hallways and vertex intersections.",
+                        "\n",
+                        "As the algorithmic agent walks through the maze it keeps track of where it's been so as to be able to dig itself out of corners and dead-ends.",
+                        "(See also: [graph coloring](https://en.wikipedia.org/wiki/Graph_coloring)).",
+                        "Each algorithm implements a different specific agent with its own goal strategies for \"running the maze.\"",
+                        "\n",
+
+                        "Keeping track of traversal state is the primary function of the traversal algorithms bundled with this library. Typically, you will not",
+                        "have to worry very much about it at all and the visitor pattern callbacks will be the center of your attention.",
+                        "\n",
+                        "However, if you're building really advanced derived algorithms you should read [Digraph Traversals](./algorithms/digraph-traversal) that details",
+                        "how traversal state is managed and explains how you can control it in your derived code.",
+
+                        "## Bundled Algorithms Reference"
+
+
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-graph.svg" },
+                "pageTitle": "ARCcore.graph Algorithms Reference",
+                "pageDescription": "Developer documentation for ARCcore.graph bundled algorithms.",
+                "contentTitle": "ARCcore.graph Bundled Algorithms Reference",
+                "contentSubtitle": "Documentation and reference for graph algorithms bundled with ARCcore.graph.",
+                "name": "Algorithms",
+                "tooltip": "Bundled algorithms reference..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "library.arccore.graph.algorithms.digraph.transpose" },
+                { "reltype": "includes", "cnid": "library.arccore.graph.algorithms.digraph.bft" },
+                { "reltype": "includes", "cnid": "library.arccore.graph.algorithms.digraph.dft" },
+                { "reltype": "includes", "cnid": "library.arccore.graph.algorithms.digraph.traversal" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "algorithms",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

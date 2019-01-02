@@ -1,0 +1,148 @@
+{
+    "library.arccore.graph.algorithms.digraph.traversal": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "## Traversal Algorithms Overview",
+                        "Currently, ARCcore.graph bundles two traversal algorithms: [Breadth-First Visit/Search](./digraph-bft) and [Depth-First Visit/Search](./digraph-dft).",
+                        "\n",
+
+                        "### Traversal Request Object",
+                        "Traversal algorithms rely on a common request object structure and shared front-end request parser.",
+                        "\n",
+                        "A traversal algorithm request is a JavaScript object that looks like this:",
+                        "```javascript",
+                        "var traversalRequest = {",
+                        "    digraph: (required) DirectedGraph container reference",
+                        "    visitor: (required) visitor interface object reference",
+                        "    options: (optional) advanced config options object",
+                        "};",
+                        "```",
+                        "\n",
+                        "Pass a traversal request object to either `breadthFirstTraverse` or `depthFirstTraverse` and to initiate a traversal and obtain a response object.",
+
+                        "#### Traversal Options",
+                        "Most of the time you'll not need to worry about `request.options`. A few commonly hit exceptions are documented in the subsections below.",
+                        "\n",
+                        "When you do need to specify options, the following table explains:",
+                        "\n",
+
+
+                        "property | type | explanation",
+                        "-------- | ---- | -----------",
+                        "startVector | string or array of strings | one or more vertex ID string(s). defaults to root vertex set of container",
+                        "allowEmptyStartVector | Boolean | flag indicating if traversal with empty start vector is an error or not. default is false",
+                        "signalStart | Boolean | flag indicating if the algorithm should call the `startVertex` visitor interface callback. default is true.",
+                        "traverseContext | object | traversal context (advanced - see subsection below)",
+
+                        "##### Rootless directed graphs",
+                        "A rootless directed graph has no vertices with in-degree zero (0). That is every vertex in the graph has at least one edge directed at it.",
+                        "\n",
+                        "If you pass a rootless directed graph to a traversal algorithm, the call will return an error indicating that the traversal cannot start because",
+                        "the algorithm doesn't know at which vertex to start the traversal.",
+                        "\n",
+                        "Depending on what you're doing and what you're trying to learn by invoking the traversal, consider one of the following strategies:",
+                        "- Specify one or more start vertices explicitly via `request.options.startVector` array.",
+                        "- Override the empty start vector error via `request.options.allowEmptyStartVector` Boolean flag.",
+                        "\n",
+                        "Note that this advice also applies if your digraph is **empty** because a graph with no vertices has no root vertices.",
+
+                        "##### Visit vs. Search & The Starting Vertex Set",
+                        "In **Introduction to Algorithms** a graph _visit_ starts at a vertex and executes some stateful walk along edges. A _search_ is an ordered sequence of _visits_.",
+                        "\n",
+                        "The start or starting vertices for visit and search respectively are called the *start vertex set*.",
+                        "\n",
+                        "If the start vertex set contains a single vertex ID string, then the traversal algorithm executes an algorithm-specific graph visit.",
+                        "\n",
+                        "If the start vertex set contains more than one vertex ID string, then the traversal algorithm executes an algorithm-specific graph search.",
+                        "\n",
+                        "By default, all ARCcore.graph traversal algorithms call `DirectedGraph.getRootVertices` to obtain the start vertex set.",
+                        "\n",
+                        "This behavior can be overridden via `request.options.startVector` array.",
+                        "\n",
+                        "##### Overriding The Default Traversal Context (State)",
+                        "Traversal algorithms internally allocate a color map and some other private state used during the execution of the traversal.",
+                        "On success, the \"traversal context object\" is returned via `response.result`.",
+                        "\n",
+                        "**In advanced scenarios**, and sometimes in cases where you need fine-grained control over the color map values, use the export function",
+                        "`ARCcore.graph.directed.createTraversalContext` to default construct a traversal context, do what you need to it, and then attach it by",
+                        "reference to the traversal options object: `request.options.traversalContext`.",
+                        "\n",
+                        "```shell",
+                        "$ node",
+                        "> var arccore = require('arccore');",
+                        "undefined",
+                        "> var digraphToTraverse = arccore.graph.directed.create().result; // would typically be populated in a real-world example",
+                        "undefined",
+                        "> var traversalContext = arccore.graph.directed.createTraversalContext({ digraph: digraphToTraverse });",
+                        "undefined",
+                        "> traversalContext",
+                        "{ error: null,",
+                        "  result: { searchStatus: 'pending', colorMap: {}, undiscoveredMap: {} } }",
+                        ">",
+                        "```",
+
+                        "### Traversal response object",
+                        "Traversal algorithms return an error/result response object.",
+                        "```javascript",
+                        "var response = {",
+                        "    error: null or string explaining what went wrong",
+                        "    result: for traversal algorithms always a traversal context object or null if error",
+                        "};",
+                        "```",
+                        "\n",
+                        "A traversal context object looks like this:",
+                        "```javascript",
+                        "var traversalContext = {",
+                        "    searchStatus: string status",
+                        "    colorMap: dictionary",
+                        "    undiscoveredMap: dictionary",
+                        "};",
+                        "```",
+                        "\n",
+                        "It is often useful to determine if a traversal completed or was terminated by a **false** visitor callback response.",
+                        "\n",
+                        "Use the `response.searchStatus` string to discriminate the exit status of the traversal as follows:",
+                        "\n",
+                        "```javascript",
+                        "var response = ARCcore.graph.directed.exampleTraverse(request);",
+                        "if (!response.error) {",
+                        "    var traversalContext = response.result;",
+                        "    switch (traversalContext.searchStatus) {",
+                        "    case 'completed':",
+                        "        // traversal completed normally",
+                        "        break;",
+                        "    case 'terminated':",
+                        "        // traversal was terminated by a false visitor callback response",
+                        "        break;",
+                        "    default:",
+                        "        // unexpected",
+                        "        break;",
+                        "    }",
+                        "}",
+                        "```"
+
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-graph.svg" },
+                "pageTitle": "DirectedGraph Traversal Algorithms Reference",
+                "pageDescription": "Initializing and controlling traversal algorithm state.",
+                "contentTitle": "DirectedGraph Traversal Algorithms Reference",
+                "contentSubtitle": "Initializing and controlling traversal algorithm state for advanced developers.",
+                "name": "Digraph Traversals",
+                "tooltip": "Traversal algorithms reference..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "digraph-traversal",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

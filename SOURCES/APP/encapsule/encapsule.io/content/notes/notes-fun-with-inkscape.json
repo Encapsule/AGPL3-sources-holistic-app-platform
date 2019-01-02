@@ -1,0 +1,78 @@
+{
+    "notes.fun-with-inkscape-svg-icons": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "I created the Encapsule.io \"blue burst\" icon as an SVG while exploring the amazing",
+                        "application **[inkscape](https://inkscape.org/)**.",
+                        "\n",
+                        "Initially I was just screwing around. But later, I decided I really liked the look.",
+                        "So, I dove into inkscape and created a small collection",
+                        "of similar icons to badge Encapsule packages and libraries.",
+                        "\n",
+                        "SVG has been around _forever_ and is a mature and stable text file format. Besides being scalable, SVG is",
+                        "generally quite small when compared with a JPG or PNG which makes it attractive for use where size matter",
+                        "(so always). Also, support is solid (and quite fast) with all the major browser vendors providing out-of-the-box",
+                        "rendering of UTF8-encoded SVG text returned by your sever with the `Content-Type: image/svg+xml` header.",
+                        "\n",
+                        "Recently, I decided to test out the scaling performance on this site and added the background image you",
+                        "see behind all pages now. Cool!",
+                        "\n",
+                        "#### Encapsule.io Icon SVG",
+                        "Note that all of these images are built up from twisted and warped hexagons.",
+                        "\n",
+                        "![Encapsule.io](/images/blue-burst-encapsule.io-icon-v2.svg)",
+                        "\n",
+                        "#### Holism App Server Icon SVG",
+                        "[![Holism](/images/encapsule-holism.svg)](/docs/holism)",
+                        "\n",
+                        "#### Holistic App Model & Extension Icon SVG",
+                        "[![Holistic](/images/encapsule-holistic.svg)](/docs/holistic)",
+                        "\n",
+                        "#### Hrequest HTTP Filter Icon SVG",
+                        "[![Hrequest](/images/encapsule-hrequest.svg)](/docs/hrequest)",
+                        "\n",
+                        "#### ARCcore Data Run-time Icon SVG",
+                        "[![ARCcore](/images/encapsule-arccore.svg)](/docs/ARCcore)",
+                        "\n",
+                        "#### ARCcore.util Library Icon SVG",
+                        "[![ARCcore.util](/images/encapsule-arccore-util.svg)](/docs/ARCcore/util)",
+                        "\n",
+                        "#### ARCcore.types Library Icon SVG",
+                        "[![ARCcore.types](/images/encapsule-arccore-types.svg)](/docs/ARCcore/types)",
+                        "\n",
+                        "#### ARCcore.identifier Library Icon SVG",
+                        "[![ARCcore.identifier](/images/encapsule-arccore-identifier.svg)](/docs/ARCcore/identifier)",
+                        "\n",
+                        "#### ARCcore.graph Library Icon SVG",
+                        "[![ARCcore.graph](/images/encapsule-arccore-graph.svg)](/docs/ARCcore/graph)",
+                        "\n",
+                        "#### ARCcore.filter Library Icon SVG",
+                        "[![ARCcore.filter](/images/encapsule-arccore-filter.svg)](/docs/ARCcore/filter)",
+                        "\n",
+                        "#### ARCcore.discriminator Library Icon SVG",
+                        "[![ARCcore.discriminator](/images/encapsule-arccore-discriminator.svg)](/docs/ARCcore/discriminator)"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-document-icon.svg" },
+                "pageTitle": "Building SVG Icons for Encapsule.io",
+                "pageDescription": "A quick note about designing SVG icons for Encapsule.io with the inkscape application.",
+                "contentTitle": "Just For Fun: Building SVG Icons With inkscape",
+                "contentSubtitle": "The inkscape SVG editor application is really cool!",
+                "name": "SVG Icons",
+                "tooltip": "Creating SVG icons..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "svg-icons",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

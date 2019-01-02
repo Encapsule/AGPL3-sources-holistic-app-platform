@@ -1,0 +1,58 @@
+{
+    "library.arccore.types": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareLibrary": {
+                    "introMarkdownSource": [
+                        "ARCcore.types is a small utility library that provides a standard set of functions used by the other libraries",
+                        "bundled in the [ARCcore](/docs/ARCcore) package for JavaScript data type introspection and checking. In particular",
+                        "[ARCcore.filter](/docs/ARCcore/filter) relies heavily on this library. Typically you will not need to use `types`",
+                        "if you're using the filter library.",
+                        "\n",
+                        "#### ARCcore.types Exports",
+                        "```shell",
+                        "$ node",
+                        "> const arccore = require('arccore');",
+                        "undefined",
+                        "> arccore.types",
+                        "{ codes:",
+                        "   { __undefined: 0,",
+                        "     __null: 1,",
+                        "     __boolean: 2,",
+                        "     __string: 3,",
+                        "     __number: 4,",
+                        "     __object: 5,",
+                        "     __array: 6,",
+                        "     __function: 7,",
+                        "     __GUARD: 8 },",
+                        "  convert: [Function: t],",
+                        "  check: { inTypeSet: [Function], isJSON: [Function] } }",
+                        ">",
+                        "```"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-types.svg" },
+                "pageTitle": "ARCcore.types Library Documentation",
+                "pageDescription": "ARCcore.types is a JavaScript library for identifying and converting JavaScript and JSON types.",
+                "contentTitle": "ARCcore.types Library Documentation",
+                "contentSubtitle": "ARCcore.types library provides functions for identifying and validating the type of in-memory JavaScript values.",
+                "name": "types",
+                "tooltip":" ARCcore.types library documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "library.arccore.types.api" },
+                { "reltype": "includes", "cnid": "library.arccore.types.examples" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "types",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

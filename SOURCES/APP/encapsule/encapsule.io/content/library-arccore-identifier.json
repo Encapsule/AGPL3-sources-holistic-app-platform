@@ -1,0 +1,83 @@
+{
+    "library.arccore.identifier": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareLibrary": {
+                    "introMarkdownSource": [
+                        "ARCcore.identifier provides functions for generating 22-character, 128-bit unique identifiers called",
+                        "**I**nternet **R**outable **U**RI **T**okens (IRUT's) from in-memory data. Or, from a random",
+                        "[v4 UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).",
+                        "\n",
+                        "#### IRUT's",
+                        "When generating an IRUT from in-memory data, the [Murmur3](https://en.wikipedia.org/wiki/MurmurHash)",
+                        "non-cryptographic digest hash algorithm is used to create a 128-bit numerical value using the",
+                        "[murmurhash-js](https://www.npmjs.com/package/murmurhash-js) package.",
+                        "\n",
+                        "When generating a random IRUT, the 128-bit numerical value is obtained using the",
+                        "[uuid](https://www.npmjs.com/package/uuid) package.",
+                        "\n",
+                        "In both cases the 128-bit numerical value is converted to an IRUT by:",
+                        "- base64 encoding the numerical value",
+                        "- trimming insigificant `=` characters from the end of base64 string",
+                        "- globally substituting `/` characters with `_` (underscore)",
+                        "- globally substituting `+` characters with `-` (hypen)",
+                        "\n",
+                        "The character substitutions are made to ensure that IRUT strings do not contain any of",
+                        "the characters reserved by the Universal Resource Identifier specification. See:",
+                        "[RFC3986 (section 2.3)](https://tools.ietf.org/html/rfc3986#section-2.3).",
+                        "\n",
+                        "#### Short IRUT's",
+                        "Infrequently used but occasionally useful (e.g. tiny URL's), ARCcore.identifier additionally",
+                        "provides a variant of the algorithm above for generating 6-character, 32-bit unique IRUT strings.",
+                        "\n",
+                        "#### ARCcore.identifier Exports",
+                        "```shell",
+                        "$ node",
+                        "> const arccore = require('arccore');",
+                        "undefined",
+                        "> arccore.identifier",
+                        "{ hash:",
+                        "   { fromUTF8: [Function],",
+                        "     fromReference: [Function],",
+                        "     toIRUT: [Function] },",
+                        "  irut:",
+                        "   { fromEther: [Function],",
+                        "     fromReference: [Function],",
+                        "     isIRUT: [Function] } }",
+                        ">",
+                        "```",
+                        "\n",
+                        "Note that at present, the [ARCcore](/docs/ARCcore) distribution package bundles both the",
+                        "[murmurhash-js](https://www.npmjs.com/package/murmurhash-js) and [uuid](https://www.npmjs.com/package/uuid)",
+                        "packages via [webpack](https://webpack.github.io/) so as to maintain zero external dependencies. If you're",
+                        "using the ARCcore package, save space by picking up these dependencies via convenience export namespace",
+                        "`arccore.__bundle`."
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-identifier.svg" },
+                "pageTitle": "ARCcore.identifier Library Documentation",
+                "pageDescription": "ARCcore.identifier is a JavaScript library for creating UUID's and Murmur3-derived digest hashes.",
+                "contentTitle": "ARCcore.identifier Library Documentation",
+                "contentSubtitle": "ARCcore.identifier library provides functions for creating UUID's and Murmur-3 derived digest hashes.",
+                "name": "identifier",
+                "tooltip":" ARCcore.identifier library documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "library.arccore.identifier.api" },
+                { "reltype": "includes", "cnid": "library.arccore.identifier.examples" }
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "identifier",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

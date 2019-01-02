@@ -1,0 +1,36 @@
+{
+    "notes.collection": {
+        "content": {
+            "data": {
+                "holisticView_Collection": {
+                    "markdownSource": [
+                        "This section contains short articles about various aspects of designing and implementing this application."
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-folder-icon.svg" },
+                "pageTitle": "Design Notes",
+                "pageDescription": "Design and implementation notes.",
+                "contentTitle": "Design & Implementation Notes",
+                "contentSubtitle": "A collection of documents detailing architecture,design, implementation, and test strategies.",
+                "name": "Notes",
+                "tooltip": "Design & implementation notes..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "notes.app-design-process" },
+                { "reltype": "includes", "cnid": "notes.doc-feature-part1" },
+                { "reltype": "includes", "cnid": "notes.fun-with-inkscape-svg-icons" },
+                { "reltype": "includes", "cnid": "notes.d3-examples-page-data" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "notes",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

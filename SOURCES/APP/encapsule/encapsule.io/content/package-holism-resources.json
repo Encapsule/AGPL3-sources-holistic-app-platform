@@ -1,0 +1,27 @@
+{
+    "package.holism.resources": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-holism.svg" },
+                "pageTitle": "Holism Static Resources",
+                "pageDescription": "Details about serving static app data and media with Holism.",
+                "contentTitle": "Serving Application-Specific Static Resources",
+                "contentSubtitle": "Learn how to register and serve static app data and media resources from your Holism app server instance.",
+                "name": "Resources",
+                "tooltip": "Application-specific static data and media resources..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "resources",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,93 @@
+{
+    "package.hrequest": {
+        "content": {
+            "data": {
+                "holisticView_SoftwarePackage": {
+                    "packageDetails": {
+                        "distributionName": "hrequest",
+                        "distributionURL": "https://www.npmjs.com/package/hrequest",
+                        "distributionLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        },
+                        "sourceRepositoryName": "Encapsule/hrequest",
+                        "sourceRepository": "https://github.com/Encapsule/hrequest",
+                        "sourceLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        }
+                    },
+                    "introMarkdownSource": [
+                        "### 2017.04.01 Under Construction",
+                        "The Hrequest package leverages the [ARCcore.filter](/docs/ARCcore/filter) library to to provide data validation",
+                        "and normalization of HTTP request and response data messages in derived application-layer code.",
+                        "\n",
+                        "Hrequest package exports two filter factory functions that allow developers to construct Node.js and browser client-specific",
+                        "variants of Hrequest filters.",
+                        "\n",
+                        "The back-end Hrequest variant wraps the popular [request](https://www.npmjs.com/package/request) library package.",
+                        "\n",
+                        "And, the front-end Hrequest variant wraps the browser's",
+                        "[XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) API.",
+                        "\n",
+                        "#### Construction",
+                        "Constructing an Hrequest instance builds three [ARCcore.filter](/docs/ARCcore/filter) objects:",
+                        "- The main Hrequest filter that your application calls to initiate an asynchronous HTTP request.",
+                        "- A result filter that wraps your asynchronous result handler callback function.",
+                        "- An error filter that wraps your asynchronous error callback function handler.",
+                        "\n",
+                        "#### Implementation",
+                        "The library implementation validates and normalizes your request data using",
+                        "a [filter specification](/docs/ARCcore/filter/specs) and then delegates to either",
+                        "[request](https://www.npmjs.com/package/request) or",
+                        "[XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) depending",
+                        "on execution context.",
+                        "\n",
+                        "When the HTTP request completes, Hrequest examines the response and delegates to either the result or error filters",
+                        "that wrap the result and error callback functions you provide at construction.",
+                        "\n",
+                        "Not all successful HTTP requests return correct or expected information. For example, even small changes",
+                        "to the implementation of the remote HTTP server may invalidate some assumption that your application code",
+                        "relies on for correct operation.",
+                        "\n",
+                        "So, if Hrequest has trouble validating and normalizing a _successful_ HTTP response it is considered an",
+                        "application-level error and the error filter is called instead of the result filter.",
+                        "\n",
+                        "#### Use Cases",
+                        "Hrequest was designed primarily for use with the [Holism](/docs/holism) application server that uses",
+                        "similar patterns based on the [ARCcore.filter](/docs/ARCcore/filter) library to enforce API message contracts.",
+                        "\n",
+                        "But there's no reason that you cannot use Hrequest outside of this context as well.",
+                        "\n",
+                        "The main use cases for Hrequest are product stability, security, and developer experience.",
+                        "\n",
+                        "Hrequest catches and reports bugs and subtle problems (e.g. mismatched client / server versions) quickly",
+                        "allowing developers to diagnose and correct the issue(s) in their development environment. And, this is",
+                        "always significantly less time consuming and stressful than dealing with a broken production deployment.",
+                        "\n",
+                        "The last and perhaps most interesting use case for Hrequest involves publishing or making available via",
+                        "API's the [filter specification](/docs/ARccore/filter/specs) documents used to enforce critical internal",
+                        "messaging and external-facing API contracts."
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-hrequest.svg" },
+                "pageTitle": "Hrequest Package Documentation",
+                "pageDescription": "Documentation for hrequest filtered HTTP request package.",
+                "contentTitle": "Hrequest Filtered HTTP Request Package",
+                "contentSubtitle": "Encapsule hrequest module provides filtered HTTP request/response for both Node.js & browser clients.",
+                "name": "Hrequest",
+                "tooltip": "Hrequest package documentation..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "hrequest",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

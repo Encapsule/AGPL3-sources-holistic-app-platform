@@ -1,0 +1,107 @@
+{
+    "downloads.markdown": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "# Packages",
+                        "Encapsule Project JavaScript libraries and tools are published by [@ChrisRus](https://www.npmjs.com/~chrisrus) via",
+                        "[npmjs.org](https://npmjs.org) following [semantic versioning](http://semver.org/) conventions.",
+                        "\n",
+                        "Published packages are distributed in [CommonJS](https://en.wikipedia.org/wiki/CommonJS) format for immediate use",
+                        "in new or existing [Node.js](https://nodejs.org) projects. Additionally, several of these packages are designed",
+                        "to also be used in client-side JavaScript applications when bundled with the [webpack](https://webpack.github.io/)",
+                        "module bundler.",
+
+                        "\n",
+                        "## Encapsule/arccore Package",
+                        "The [ARCcore](/docs/ARCcore) package is a collection of six separately exported libraries that are",
+                        "typically used together to model and process in-memory data. The package is distributed in pre-built, tested, minimized,",
+                        "and bundled form for convenience, and to reduce its size (~90K minimized). (See \"Application Bundle Size\" section",
+                        "of the [ARCcore.filter Architecture](/docs/ARCcore/filter/architecture) page for additional discussion).",
+                        "\n",
+                        "ARCcore is self-contained: its two external dependencies [uuid](https://www.npmjs.com/package/uuid) and",
+                        "[murmurhash-js](https://www.npmjs.com/package/murmurhash-js) are included in the package bundle and exported",
+                        "via the package's `__bundle` export namespace. This ensures that each ARCcore package release functions in the wild",
+                        "just as it does when tested for release. And, reduces the risk of interoperability problems between separate applications",
+                        "that may leverage the ARCcore run-time.",
+                        "\n",
+                        "ARCcore is pure JavaScript and can be used directly in Node.js applications. And, in client-side JavaScript applications",
+                        "when bundled with the [webpack](https://webpack.github.io/) module bundler.",
+                        "\n",
+                        "**[ARCcore package](https://www.npmjs.com/package/arccore)** .::. **[ARCcore documentation](/docs/ARCcore)**",
+                        "\n",
+                        "```shell",
+                        "~/yourproject$ npm install arccore --save",
+                        "```",
+                        "\n",
+
+                        "## Encapsule/jsgraph Package",
+                        "To-date, the most popular package published by Encapsule Project is a library called **[Encapsule/jsgraph](https://github.com/Encapsule/jsgraph)**",
+                        "that provides a generic container class for in-memory mathematical directed graph datasets plus a collection of developer-extensible",
+                        "algorithms based on the [visitor pattern](https://en.wikipedia.org/wiki/Visitor_pattern) (Wikipedia).",
+                        "\n",
+                        "Encapsule/jsgraph has been around for several years and gets several thousand downloads/month on npm. In 2015, I migrated the code into",
+                        "ARCcore given that I typically never use this functionality without also using the other ARCcore libraries. But, ARCcore",
+                        "is just now getting documented in spring 2017 and nobody really knows about it yet.",
+                        "\n",
+                        "So, Encapsule/jsgraph will continue to be maintained and published as a standalone package for the foreseeable future as it's useful by",
+                        "itself. And, serves as a gateway drug for the rest of the libraries in ARCcore.",
+                        "\n",
+                        "**NOTE**: Regardless of if you use jsgraph or ARCcore.graph, the latest documentation for this library is posted on this site. Please ignore the",
+                        "bundled markdown documentation and refer instead to the [ARCcore.graph](/docs/ARCcore/graph) docs instead.",
+                        "\n",
+                        "jsgraph is pure JavaScript and can be used directly in Node.js applications. And, in client-side JavaScript applications",
+                        "when bundled with the [webpack](https://webpack.github.io/) module bundler.",
+                        "\n",
+                        "**[jsgraph package](https://www.npmjs.com/package/jsgraph)** .::. **[ARCcore.graph documentation](/docs/ARCcore/graph)**",
+                        "\n",
+                        "```shell",
+                        "~/yourproject$ npm install jsgraph --save",
+                        "```",
+                        "\n",
+
+                        "## Encapsule/holism & Encapsule/holistic",
+                        "[Encapsule/holism](/docs/holism) is a new application server package for Node.js that will be released later this spring.",
+                        "\n",
+                        "[Encapsule/holistic](/docs/holistic) is a collection of plug-in extensions for Holism that implement user/session management",
+                        "using a back-end [Redis](https://redis.io) noSQL store, server & client HTML rendering via [React](https://facebook.github.io/react/),",
+                        "and content management system built with [ARCcore.graph](/docs/ARCcore/graph).",
+                        "\n",
+                        "This website is a pre-release test that seems to be working pretty well. But, the documentation isn't complete yet. Stay tuned...",
+                        "\n",
+
+
+                        "# Sources",
+                        "All Encapsule Project sub-projects are available on GitHub **[@Encapsule](https://github.com/Encapsule)**.",
+                        "\n",
+
+                        "Generally, you'll want to leverage the pre-built and tested packages distributed via npmjs. If you're missing",
+                        "something you need to make progress please get in touch.",
+                        "\n",
+
+                        "# License",
+                        "Encapsule Project libraries and tools are published under the [MIT License](https://opensource.org/licenses/MIT)."
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": {},
+                "pageTitle": "Encapsule Project Source Code & Distribution Packages",
+                "pageDescription": "Links to Encapsule Project npm distribution packages, and source code repositories on GitHub",
+                "contentTitle": "Tools & Libraries for JavaScript App Builders",
+                "contentSubtitle": "Encapsule Project npm distribution packages and GitHub repo links.",
+                "name": "Code",
+                "tooltip": "Packages and repo links..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "code",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "library.arccore.util.examples": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-util.svg" },
+                "pageTitle": "ARCcore.util Library Examples",
+                "pageDescription": "ARCcore.util library examples.",
+                "contentTitle": "ARCcore.util Library Examples",
+                "contentSubtitle": "JavaScript examples demonstrating the use of ARCcore.util function exports.",
+                "name": "Examples",
+                "tooltip":" ARCcore.util examples..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "examples",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

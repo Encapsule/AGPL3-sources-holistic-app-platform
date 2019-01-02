@@ -1,0 +1,31 @@
+{
+    "notes.d3-examples-page-data": {
+        "content": {
+            "data": {
+                "appView_D3Examples": {
+                    "update": 0,
+                    "pieChartData": [ 10, 20, 30, 40, 20, 40, 60, 70, 10, 35, 40, 25, 100, 7, 27, 66, 99, 5, 75, 25, 10, 27, 20,
+                                      3, 35, 95, 35, 75, 60, 29, 100, 5, 15, 60, 40, 20 ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-document-icon.svg" },
+                "pageTitle": "D3js Data Visualization Examples",
+                "pageDescription": "A test and example of integrating D3js data visualizations into this website.",
+                "contentTitle": "D3js and React Data Visualization Examples",
+                "contentSubtitle": "Example data visualizations produced with D3js embedded in a React page.",
+                "name": "D3js Examples",
+                "tooltip": "D3js Examples..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "d3-examples",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+
+    }
+}

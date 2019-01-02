@@ -1,0 +1,83 @@
+{
+    "library.arccore.filter": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareLibrary": {
+                    "introMarkdownSource": [
+                        "ARCcore.filter automates the validation and normalization of JavaScript function request and response data using",
+                        "specially-formatted JavaScript objects called [filter specifications](/docs/ARCcore/filter/specs).",
+                        "\n",
+                        "The filter library exposes a software factory that \"wraps\" a developer-defined JavaScript function with automated",
+                        "data validation, normalization (default values), and error handling logic. The factory returns an object with method",
+                        "`request` that is called just as one would call the now encapsulated developer-defined `bodyFunction`.",
+                        "This topic is discussed in depth in the [filter API](/docs/ARCcore/filter/api) section.",
+                        "\n",
+                        "The following ASCII diagram depicts the flow of control through a filter's request method. This topic is discussed",
+                        "in depth in the [filter architecture](/docs/ARCcore/filter/architecture) section.",
+                        "\n",
+                        "```",
+                        "         Filter.request",
+                        "         +----------------------------------------------+",
+                        "         |           responseFilterSpec +               |",
+                        "         |                              |               |",
+                        "request -> [iFSP] -> [bodyFunction] -> [rFSP] -> [oFSP] -> response",
+                        "         |  |         |                           |     |",
+                        "         |  |         |                           |     |",
+                        "         +--|---------|---------------------------|-----+",
+                        "run-time    |         |                           |",
+                        " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+                        "factory     |         |                           |",
+                        "            |         +< bodyFunction             |",
+                        "            +< in filter spec    out filter spec >+",
+                        "```",
+                        "\n",
+                        "In the diagram above, the acronym \"FSP\" stands for **F**ilter **S**pec **P**rocessor which is a generic subsystem",
+                        "that is responsible for ensuring that the developer-defined `bodyFunction`...",
+                        "- never receives a bad `request` input (iFSP)",
+                        "- always returns a correctly formatted `response` (rFSP)",
+                        "- correctly formatted `response`'s always contain either a valid error or result (oFSP)",
+                        "\n",
+                        "Typically filters are used to \"bulkhead\" critical public and private subsystem API's. For example,",
+                        "HTTP request handlers, database and storage layer I/O, client-side message handlers and routers...",
+                        "where correctness is essential for product security, stability, and both developer and end-user experience.",
+                        "And, where implementing and maintaining the equivalent functionality in hand-written JavaScript product",
+                        "and test code is error prone, time-consuming, and consequently very expensive.",
+                        "\n",
+                        "#### ARCcore.filter Exports",
+                        "```shell",
+                        "$ node",
+                        "> const arccore = require('arccore');",
+                        "undefined",
+                        "> arccore.filter",
+                        "{ create: [Function] }",
+                        ">",
+                        "```"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-filter.svg" },
+                "pageTitle": "ARCcore.filter Library Documentation",
+                "pageDescription": "ARCcore.filter provides automated data message validation and normalization using declarative filter specifications.",
+                "contentTitle": "ARCcore.filter Library Documentation",
+                "contentSubtitle": "ARCcore.filter provides automated message validation and normalization using declarative filter specifications.",
+                "name": "filter",
+                "tooltip":" ARCcore.filter library documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "library.arccore.filter.api" },
+                { "reltype": "includes", "cnid": "library.arccore.filter.architecture" },
+                { "reltype": "includes", "cnid": "library.arccore.filter.specifications" },
+                { "reltype": "includes", "cnid": "library.arccore.filter.examples" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "filter",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

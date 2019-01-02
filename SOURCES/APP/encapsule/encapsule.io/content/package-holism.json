@@ -1,0 +1,259 @@
+{
+    "package.holism": {
+        "content": {
+            "data": {
+                "holisticView_SoftwarePackage": {
+                    "packageDetails": {
+                        "distributionName": "holism",
+                        "distributionURL": "https://www.npmjs.com/package/holism",
+                        "distributionLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        },
+                        "sourceRepositoryName": "Encapsule/holism",
+                        "sourceRepository": "https://github.com/Encapsule/holism",
+                        "sourceLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        }
+                    },
+                    "introMarkdownSource": [
+
+                        "The **holism** package implements an HTTP 1.1 web application server and REST framework for",
+                        "[Node.js](https://nodejs.org) that is designed to enable rapid prototyping and integration",
+                        "of plug-in features that are easily composed and reusable across projects.",
+                        "\n",
+
+                        "Holism works by routing HTTP requests through a declaratively configured processing pipeline",
+                        "that connects the Node.js [http.ClientRequest](https://nodejs.org/api/http.html#http_class_http_clientrequest) and",
+                        "[http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse) stream classes.",
+
+                        "```",
+                        "                      +-------------------+",
+                        "http.ClientRequest -> | Holism App Server | -> http.ServerResponse",
+                        "                      +-------------------+",
+                        "```",
+                        "\n",
+
+                        "Internally holism's request processing pipeline is defined as a series of intrinsic and developer-defined",
+                        "operations that are _specialized_ to handle application-specific data types using declarative",
+                        "[filter specifications](/docs/ARCcore/filter/specs) and [ARCcore.filter](/docs/ARCcore/filter) objects",
+                        "responsible for API contract enforcement and error handling.",
+                        "\n",
+
+                        "A simplied version of the holism request pipeline shown below.",
+                        "- Intrinsic operations are performed for every request and are implemented by holism.",
+                        "- Integration operations are performed for every request and are developer-defined.",
+                        "- Route operations are performed based on HTTP method (e.g. GET/POST/HEAD) and target resource URI.",
+                        "\n",
+
+                        "```",
+                        "                       +------------------+    #================#    +-------------+",
+                        " http.ClientRequest -> | Deserialization  | -> | User Authorize | -> |   Routing   | ---> (1)",
+                        "                       +------------------+    #================#    +-------------+",
+                        "",
+                        "                       ####################",
+                        "              (1) ---> | Static Resources | ---> (4)                 +-------------+",
+                        "                       ####################                          |  intrinsic  |",
+                        "                                                                     +-------------+",
+                        "                       ####################",
+                        "              (1) ---> | Plug-in Services | ---> (3)(4)              #=============#",
+                        "                       ####################                          | integration |",
+                        "                                                                     #=============#",
+                        "                       +------------------+",
+                        "              (*) ---> | Error Processing | ---> (3)                 ###############",
+                        "                       +------------------+                          |    route    |",
+                        "                                                                     ###############",
+                        "                       #==================#",
+                        "              (3) ---> | HTML Rendering   | ---> (4)",
+                        "                       #==================#",
+                        "",
+                        "                       +------------------+",
+                        "              (4) ---> | Serialization    | -> http.ServerResponse",
+                        "                       +------------------+",
+                        "```",
+                        "\n",
+
+                        "The entire request processing pipeline is built from and extended with [ARCcore.filter](/docs/ARCcore/filter)",
+                        "objects that rigorously scrutinize data passing through the pipeline providing:",
+                        "- Consistent and reliable reporting of error conditions during development.",
+                        "- High confidence that derived applications will not accept or produce invalid data.",
+                        "\n",
+                        "Additionally, because holism application server instances are _composed_ of decoupled plug-in components",
+                        "that are registered and configured declaratively its easy to automate the creation of derived applications",
+                        "and services from data. For example, a custom script could query a database and synthesize a",
+                        "customized application for interacting with the data.",
+
+
+                        "## Holism Instance Construction",
+                        "See [Holism Server Factory](./holism/factory) for complete discussion.",
+                        "\n",
+
+                        "An instance of a Holism app server is created by calling a software factory that requires three",
+                        "inputs that are explained in more detail below. If you provide these three inputs in the correct",
+                        "format and no error occurs in the factory, then the factory returns an object with method `listen`.",
+
+                        "```",
+                        "                                    +----------------+",
+                        " app integration filters ---------> |                |     +-------------------+",
+                        " static resources registrations --> | Holism Factory | --> | Holism App Server |",
+                        " service filter registrations ----> |                |     +-------------------+",
+                        "                                    +----------------+",
+                        "```",
+
+                        "Ignoring the details of the three factory input parameters for the moment, creating a new Holism app server",
+                        "instance is simple and prescriptive:",
+                        "\n",
+
+                        "```JavaScript",
+                        "const holism = require('holism');",
+                        "\n",
+                        "// Call the Holism app server factory to create a new instance.",
+                        "var factoryResponse = holism.server.create({",
+                        "    name: \"Test Server\",",
+                        "    description: \"Simple example server.\",",
+                        "    version: \"0.0.1\",",
+                        "    config: {",
+                        "        files: { /* dictionary of static resource registrations */ },",
+                        "        services: [ /* array of HTTP service filter registrations */ ]",
+                        "    },",
+                        "    integrations: { /* app integration filters descriptor object */ }",
+                        "});",
+                        "\n",
+                        "// Ensure that no error occurred in the factory.",
+                        "if (factoryResponse.error) {",
+                        "    throw new Error(factoryResponse.error); // GAME OVER. Thank you for playing.",
+                        "}",
+                        "\n",
+                        "// De-reference the Holism app server instance.",
+                        "var holismServer = filterResponse.result;",
+                        "```",
+                        "\n",
+
+                        "Once you have constructed Holism app server instance, start the service by calling the `listen` method",
+                        "specifying the TCP/IP port you want to receive incoming HTTP requests on:",
+                        "\n",
+
+                        "```javascript",
+                        "holismServer.listen(4771);",
+                        "```",
+                        "\n",
+
+                        "Assuming you're running on localhost, pointing your browser at `http://localhost:4771` should",
+                        "now load the homepage of your application.",
+                        "\n",
+
+                        "### HTTPS",
+                        "At present, Holism only supports HTTP. This decision was made to limit the scope of the",
+                        "v1 project and because typically Holism instance(s) are deployed on a private subnet behind",
+                        "a proxy/load balancer when used in a production environment.",
+                        "\n",
+                        "For example, this app is served by a Holism instance that communicates via HTTP over an",
+                        "[OpenVPN](https://openvpn.net/)-secured private subnet to an [HAProxy](http://haproxy.org)",
+                        "instance that handles both load balancing and HTTPS encryption functions. Another popular",
+                        "options is [NGINX](https://www.nginx.com/).",
+                        "\n",
+
+                        "### Holism Factory Input: Static Resources",
+                        "See [Holism Static Resources](./holism/resources) for complete discussion.",
+                        "\n",
+                        "Static resources are assets (e.g. files) that do not change during the lifespan of a Holism server instance.",
+                        "These resources are loaded at server instance startup and mapped to one or more unique URL's bound to HTTP",
+                        "method GET. For example, image resources such as the SVG-format icons used on this site are declared to the",
+                        "Holism server factory as static resources. As well, the JavaScript bundle produced with webpack that",
+                        "powers the client-side of this website is served as a static resource.",
+                        "\n",
+                        "Static resources are cached in memory when the server instance starts along with each resource's unique digest",
+                        "hash signature. When a new HTTP GET request for a specific resource is received by the Holism instance",
+                        "the server looks to see if the request contains the `If-None-Match` HTTP header with a current digest hash",
+                        "value for the resource. If it does, the server responds with HTTP response code 304 indicating that the client",
+                        "should use the copy of the resource stored in its local cache. If the HTTP request does not contain the",
+                        "`If-None-Match` header, or if the digest hash signature specified does not match the server instance's signature",
+                        "the server instance transfers the resource from its memory cache and attaches an `ETag` HTTP header to the",
+                        "response containing the current digest hash signature.",
+                        "\n",
+                        "This feature is very simple for developers to use but trades off memory for speed and convenience. If you need",
+                        "to serve a large number of big resources, you're better off serving them via a [service](./holism/services)",
+                        "that pulls the bits on demand from an external store (e.g. a database or purpose-built memory cache",
+                        "such as [RedisLabs](http://redislabs.com/) [Redis](https://redis.io) noSQL store).",
+                        "\n",
+                        "To see the caching behavior in action, open your debugger and audit network traffic. Then click",
+                        "[Bronze Wall (JPG)](/images/bronze-wall.jpg) to load an image of architect Frank Gehry's Experience Music",
+                        "Project building here in Seattle. Note the difference in HTTP response code (200 vs 304) and values of",
+                        "`If-None-Match` and `ETag` HTTP headers between the first and subsequent requests for the same resource.",
+
+
+                        "### Holism Factory Input: Application Integration Filters",
+                        "See [Holism Integration Filters Factory](./holism/integrations) for complete discussion.",
+                        "\n",
+
+                        "```",
+                        "                                            +-------------+",
+                        "org metadata filter specification --------> | Holism      |",
+                        "org metadata get function (sync) ---------> | Application |",
+                        "site metadata filter specification -------> | Integration |",
+                        "site metadata get function (sync) --------> | Filters     |",
+                        "page metadata filter specification -------> | Factory     |     #=========================#",
+                        "page metadata get function (sync) --------> |             | --> | app integration filters |",
+                        "user identity data filter specification --> |             |     #=========================#",
+                        "user identity access function (sync) -----> |             |",
+                        "user session data filter specification ---> |             |",
+                        "user session access function (async) -----> |             |",
+                        "HTML document render function (sync) -----> |             |",
+                        "app state context (opaque reference) -----> |             |",
+                        "                                            +-------------+",
+                        "```",
+
+                        "### Holism Factory Input: Application Service Filters",
+                        "See [Holism Service Filter Factory](./holism/services) for complete discussion.",
+                        "\n",
+
+                        "```",
+                        "                                               +---------+",
+                        "name ----------------------------------------> | Holism  |",
+                        "description ---------------------------------> | HTTP    |",
+                        "id ------------------------------------------> | Service |",
+                        "HTTP request content encoding ---------------> | Filter  |",
+                        "HTTP request content type -------------------> | Factory |",
+                        "HTTP request query filter specification -----> |         |     ######################",
+                        "HTTP request data filter specification ------> |         | --> |HTTP service filter |",
+                        "HTTP service filter options specification ---> |         |     ######################",
+                        "HTTP request handler function (async) -------> |         |",
+                        "HTTP response content encoding --------------> |         |",
+                        "HTTP response content type ------------------> |         |",
+                        "HTTP response result filter specification ---> |         |",
+                        "HTTP response error filter specification ----> |         |",
+                        "                                               +---------+",
+                        "```"
+
+
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-holism.svg" },
+                "pageTitle": "Holism Package Documentation",
+                "pageDescription": "Documentation for holism application server package for Node.js.",
+                "contentTitle": "Holism HTTP Application Server Package",
+                "contentSubtitle": "Encapsule Holism is a new application server for Node.js that is configured with JSON & extended with plug-in filters.",
+                "name": "Holism",
+                "tooltip": "Holism package documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "package.holism.factory" },
+                { "reltype": "includes", "cnid": "package.holism.integrations" },
+                { "reltype": "includes", "cnid": "package.holism.services" },
+                { "reltype": "includes", "cnid": "package.holism.resources" },
+                { "reltype": "includes", "cnid": "package.holism.model" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "holism",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

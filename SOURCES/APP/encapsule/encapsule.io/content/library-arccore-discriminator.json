@@ -1,0 +1,59 @@
+{
+    "library.arccore.discriminator": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareLibrary": {
+                    "introMarkdownSource": [
+                        "ARCcore.discriminator provides a software factory that accepts an array of [ARCcore.filter](/docs/ARCcore/filter)",
+                        "objects (minimum of two) and produces another filter object that routes its request data to 1:N",
+                        "of the original filters provided to the factory. Or, it rejects the message as non-routable.",
+                        "\n",
+                        "The ARCcore.discriminator filter factory internally leverages [ARCcore.graph](/docs/ARCcore/graph) to merge",
+                        "the input [filter specifications](/docs/ARCcore/filter/specs) of the N input filters and deduce",
+                        "the minimum number of empirical namespace and type checks that must be performed in order to \"discriminate\"",
+                        "an incoming request. This deduced set of checks is performed at run-time.",
+                        "\n",
+                        "Instances of `discriminator` are relatively expensive to construct for large sets of complex input filters",
+                        "given that the input filter specifications must be merged and analyzed via a graph coloring algorithm.",
+                        "But, run time overhead is minimal because all of this static analysis is performed in the filter factory",
+                        "at construction time.",
+                        "\n",
+
+                        "#### ARCcore.discriminator Exports",
+                        "```shell",
+                        "$ node",
+                        "> const arccore = require('arccore');",
+                        "undefined",
+                        "> arccore.discriminator",
+                        "{ create: [Function] }",
+                        ">",
+                        "```"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-discriminator.svg" },
+                "pageTitle": "ARCcore.discriminator Library Documentation",
+                "pageDescription": "ARCcore.discriminator provides automated message routing to 1:N filters based on message signature analysis.",
+                "contentTitle": "ARCcore.discriminator Library Documentation",
+                "contentSubtitle": "ARCcore.discriminator provides automated message routing to 1:N filters based on message signature analysis.",
+                "name": "discriminator",
+                "tooltip":" ARCcore.discriminator library documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "library.arccore.discriminator.api" },
+                { "reltype": "includes", "cnid": "library.arccore.discriminator.examples" }
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "discriminator",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

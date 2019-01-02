@@ -1,0 +1,143 @@
+{
+    "package.arccore": {
+        "content": {
+            "data": {
+                "holisticView_SoftwarePackage": {
+                    "packageDetails": {
+                        "distributionName": "arccore",
+                        "distributionURL": "https://www.npmjs.com/package/arccore",
+                        "distributionLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        },
+                        "sourceRepositoryName": "Encapsule/ARCcore",
+                        "sourceRepository": "https://github.com/Encapsule/ARCcore",
+                        "sourceLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        }
+                    },
+                    "introMarkdownSource": [
+                        "The ARCcore package is the core run-time of a larger and as-yet-to-be revealed project called **A**ddressable",
+                        "**R**esource **C**lass (ARC) that is intended to define a new standard for local and remote software subsystem",
+                        "communications based on a virtual message bus architecture and a run-time powered by semantic software routers.",
+                        "\n",
+                        "Purpose-built and backed by thousands of tests to support the ARC project, the ARCcore package bundles a collection of",
+                        "JavaScript libraries that provide data and process modeling, data run-time processing and routing functions,",
+                        "and a number of lower-level utility functions that are useful for building libraries, tools, and advanced data-driven",
+                        "web applications in JavaScript.",
+                        "\n",
+                        "For example, the new [Holism](/docs/holism) application server and its companion application model and integrations",
+                        "package, [Holistic](/docs/holistic), derive predominantly from ARCcore and make heavy use of its bundled",
+                        "[graph](/docs/ARCcore/graph) and [filter](/docs/ARCcore/filter) libraries.",
+                        "\n",
+                        "ARCcore package libraries are pure JavaScript and can be used directly in Node.js server applications. And, in",
+                        "browser client applications (e.g. via [webpack](https://webpack.github.io/)).",
+                        "\n",
+
+                        "### Usage",
+                        "If you're developing an ARCcore-derived application, take a run-time dependency on the ARCcore package:",
+                        "```shell",
+                        "$ npm install arccore --save",
+                        "```",
+                        "If you're developing an ARCcore-derived library, you should instead modify your `package.json` to declare",
+                        "a [peer dependency](https://nodejs.org/en/blog/npm/peer-dependencies/) on the ARCcore package.",
+                        "\n",
+                        "#### ARCcore Exports",
+                        "Here's a quick look at what's included in the ARCcore package.",
+                        "\n",
+                        "```JavaScript",
+                        "$ node",
+                        "> var arccore = require('arccore');",
+                        "undefined",
+                        "> arccore",
+                        "{ __meta:",
+                        "   { name: 'arccore',",
+                        "     version: '0.0.17',",
+                        "     codename: 'kestrel (pre-release)',",
+                        "     author: 'Encapsule',",
+                        "     buildID: 'N5QokcMISJuT8nY-os-q-A' },",
+                        "  __bundle:",
+                        "   { murmurhash_js: { [Function: i] murmur3: [Circular], murmur2: [Function: r] },",
+                        "     nodeuuid:",
+                        "      { [Function: c]",
+                        "        v1: [Function: l],",
+                        "        v4: [Circular],",
+                        "        parse: [Function: a],",
+                        "        unparse: [Function: u],",
+                        "        BufferClass: [Object],",
+                        "        _rng: [Function],",
+                        "        _mathRNG: undefined,",
+                        "        _nodeRNG: [Function],",
+                        "        _whatwgRNG: undefined } },",
+                        "  discriminator: { create: [Function] },",
+                        "  filter: { create: [Function] },",
+                        "  graph:",
+                        "   { directed:",
+                        "      { create: [Function: a],",
+                        "        transpose: [Function],",
+                        "        breadthFirstTraverse: [Function],",
+                        "        depthFirstTraverse: [Function],",
+                        "        colors: [Object],",
+                        "        createTraversalContext: [Function] } },",
+                        "  identifier:",
+                        "   { hash:",
+                        "      { fromUTF8: [Function],",
+                        "        fromReference: [Function],",
+                        "        toIRUT: [Function] },",
+                        "     irut:",
+                        "      { fromEther: [Function],",
+                        "        fromReference: [Function],",
+                        "        isIRUT: [Function] } },",
+                        "  types:",
+                        "   { codes:",
+                        "      { __undefined: 0,",
+                        "        __null: 1,",
+                        "        __boolean: 2,",
+                        "        __string: 3,",
+                        "        __number: 4,",
+                        "        __object: 5,",
+                        "        __array: 6,",
+                        "        __function: 7,",
+                        "        __GUARD: 8 },",
+                        "     convert: [Function: t],",
+                        "     check: { inTypeSet: [Function], isJSON: [Function] } },",
+                        "  util:",
+                        "   { deepCopy: [Function],",
+                        "     clone: [Function],",
+                        "     dictionaryLength: [Function],",
+                        "     getEpochTime: [Function] } }",
+                        "```"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore.svg" },
+                "pageTitle": "ARCcore Package Documentation",
+                "pageDescription": "Documentation for the ARCcore data modeling and processing runtime libraries package.",
+                "contentTitle": "ARCcore Run-time Libraries Package",
+                "contentSubtitle": "The ARCcore package aggregates JavaScript run-time libraries for building data-driven web apps.",
+                "name": "ARCcore",
+                "tooltip": "ARCcore package documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "library.arccore.identifier" },
+                { "reltype": "includes", "cnid": "library.arccore.graph" },
+                { "reltype": "includes", "cnid": "library.arccore.filter" },
+                { "reltype": "includes", "cnid": "library.arccore.discriminator" },
+                { "reltype": "includes", "cnid": "library.arccore.types" },
+                { "reltype": "includes", "cnid": "library.arccore.util" }
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "ARCcore",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

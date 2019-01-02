@@ -1,0 +1,74 @@
+{
+    "documentation.collection": {
+        "content": {
+            "data": {
+                "holisticView_Collection": {
+                    "markdownSource": [
+                        "## Introduction",
+                        "The Node.js packages documented here are used together as a platform to build custom full-stack JavaScript web applications.",
+                        "\n",
+                        "#### ARCcore",
+                        "Starting from the bottom of the stack, the **[ARCcore](/docs/ARCcore)** package is a collection of generic libraries",
+                        "for storing and processing in-memory directed graph datasets ([ARCcore.graph](/docs/ARCcore/graph)), validating",
+                        "and normalizing intra-subsystem and inter-process data messages ([ARCcore.filter](/docs/ARCcore/filter)),",
+                        "routing run-time data messages ([ARCcore.discriminator](/docs/ARCcore/discriminator)), and generating",
+                        "random and digest hash identifiers from run-time data ([ARCcore.identifier](/docs/ARCcore/identifier)).",
+                        "ARCcore additionally contains less-often used utility libraries [ARCcore.util](/docs/ARCcore/util) and",
+                        "[ARCcore.types](/docs/ARCcore/types) libraries.",
+                        "\n",
+                        "#### Hrequest",
+                        "The **[Hrequest](/docs/hrequest)** package is an [ARCcore.filter](/docs/ARCcore/filter)-derived HTTP client",
+                        "for use in Node.js and browser applications that provides strong validation, and normalization of HTTP request",
+                        "and response messages. Hrequest is useful for building client-side AJAX messaging systems,",
+                        "implementing back-end communication channels with other HTTP servers (e.g. 3rd-party API's),",
+                        "and building client access packages for clients of your custom API's. This application leverages",
+                        "Hrequest in the client to communicate with the back-end [Holism](/docs/holism) app server using",
+                        "shared [filter specifications](/docs/ARCcore/filter/specs).",
+                        "\n",
+                        "#### Holism",
+                        "The **[Holism](/docs/holism)** package is a JSON-configurable HTTP application server for",
+                        "[Node.js](https://nodejs.org) built with [ARCcore.filter](/docs/ARCcore/filter) that exposes",
+                        "an application-specific functional extension model based on ARCcore.filter-derived",
+                        "[service](/docs/holism/services) plug-ins. Concerns common to most web applications such as",
+                        "user/session management, and dynamic server-side rendering of HTML that directly impact the",
+                        "functionality of application-specific plug-in services are modeled as required services called",
+                        "[integrations](/docs/holism/integrations).",
+
+                        "\n",
+                        "#### Holistic",
+                        "The **[Holistic](/docs/holistic)** package is a collection of re-usable features and plug-in extensions",
+                        "for Holism that provides server-side HTML document rendering via [Facebook's React](https://facebook.github.io/react/),",
+                        "user and session management via [RedisLab's](https://redislabs.com/) [Redis](https://redis.io),",
+                        "and an evolving content management system based on linked JSON documents managed by the ARCcore/graph library.",
+                        "\n",
+
+                        "## Developer Docs"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": {},
+                "pageTitle": "Encapsule Project Documentation",
+                "pageDescription": "Encapsule Project packages, libraries, and tools reference documentation.",
+                "contentTitle": "Package, Libraries, & Tools References",
+                "contentSubtitle": "Packages, libraries, tools, documentation reference for JavaScript developers.",
+                "name": "Documentation",
+                "tooltip": "Technical reference & documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "package.holism" },
+                { "reltype": "includes", "cnid": "package.holistic" },
+                { "reltype": "includes", "cnid": "package.hrequest" },
+                { "reltype": "includes", "cnid": "package.arccore" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "docs",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

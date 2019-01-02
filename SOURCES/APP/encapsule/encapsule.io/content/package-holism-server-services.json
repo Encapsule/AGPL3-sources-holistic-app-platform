@@ -1,0 +1,27 @@
+{
+    "package.holism.services": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareFactory": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-holism.svg" },
+                "pageTitle": "Holism Service Filter Factory",
+                "pageDescription": "Details about functionally extensing Holism with service filters.",
+                "contentTitle": "Extending Holism w/Custom App Service Filters",
+                "contentSubtitle": "Learn how to author and register custom app services with your Holism app server instance.",
+                "name": "Services",
+                "tooltip": "Holism server service plug-ins..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "services",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

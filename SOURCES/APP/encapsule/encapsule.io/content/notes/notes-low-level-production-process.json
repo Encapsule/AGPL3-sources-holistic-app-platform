@@ -1,0 +1,62 @@
+{
+    "notes.app-design-process": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "Here is a very brief overview of the process used to create the web application you are interacting with currently.",
+                        "\n",
+                        "The JavaScript source code for this application is available on GitHub: [Encapsule/polytely](https://github.com/Encapsule/polytely)",
+                        "\n",
+                        "## Preparation",
+                        "- Define HTTP endpoints with JSON.",
+                        "- Model HTTP endpoint data I/O with JSON.",
+                        "- Implement custom HTTP services as simple JavaScript functions using a [software factory](/docs/holism).",
+                        "- Reuse HTTP services implemented by Encapsule Project and others for functions such as:",
+                        "    - user profile management",
+                        "    - user identity management",
+                        "    - user authorization",
+                        "    - user session management",
+                        "    - database/NoSQL integration",
+                        "    - UX rendering integration (e.g. React)",
+                        "- Define your application service architecture in JSON:",
+                        "    - Bind reusable to HTTP services to HTTP method/pathname (aka 'route') with JSON (typically 1:N relationship between HTTP service & N 'routes').",
+                        "    - Bind static file resources (e.g. JavaScript prepared w/webpack) to HTTP method/pathname with JSON.",
+                        "\n",
+                        "## Integration",
+                        "Pass application config JSON plus function references to a [software factory](/docs//holism) responsible for integrating your application run-time image:",
+                        "- Error check all the input JSON.",
+                        "- Synthesize new internal / intermediate message format constraint JSON.",
+                        "- Build all the HTTP server plumbing on top of Node.js HTTP request and response streams.",
+                        "- Wire everything together using generic data-driven message validation/routing logic.",
+                        "- Returns an application server object with method `listen`.",
+                        "\n",
+                        "## Execution",
+                        "- Call the `listen` method on your integrated application server specifying the port number.",
+                        "- All incoming [Node.js HttpServer.IncomingRequest](https://nodejs.org/api/http.html#http_class_http_incomingmessage) streams are",
+                        "[filtered](/docs/ARCcore/filter).",
+                        "- All outgoing [Node.js HttpServer.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse) streams",
+                        "are [filtered](/docs/ARCcore/filter)."
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-document-icon.svg" },
+                "pageTitle": "Overview of App Design & Implementation Process",
+                "pageDescription": "A brief overview of the design and implementation process used to develop this web application.",
+                "contentTitle": "High-Level Process Overview",
+                "contentSubtitle": "Overview of building a web app w/Holism app server.",
+                "name": "App Design Process",
+                "tooltip": "Overview of building apps with the Holism app server..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "design-process-overview",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "library.arccore.graph.examples": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "## Presentation",
+                        "[Graphs on Node.js w/Encapsule/jsgraph](https://prezi.com/q0y7csg0ke87/graphs-on-nodejs-wencapsulejsgraph/) - April, 2015 for",
+                        "[Seattle Node.js Meetup](https://www.meetup.com/Seattle-Node-js/).",
+                        "\n",
+                        "## Examples",
+                        "Examples for this talk are on GitHub:",
+                        "- [Encapsule-Annex/seanode-meetup-2015-apr-jsgraph](https://github.com/Encapsule-Annex/seanode-meetup-2015-apr-jsgraph)"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-graph.svg" },
+                "pageTitle": "ARCcore.graph Library Examples",
+                "pageDescription": "ARCcore.graph library examples.",
+                "contentTitle": "ARCcore.graph Library Examples",
+                "contentSubtitle": "JavaScript examples demonstrating the use of ARCcore.graph's DirectedGraph container class and algorithms.",
+                "name": "Examples",
+                "tooltip":" ARCcore.graph examples examples..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "examples",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

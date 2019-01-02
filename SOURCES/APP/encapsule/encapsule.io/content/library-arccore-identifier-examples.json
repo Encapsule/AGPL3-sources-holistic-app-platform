@@ -1,0 +1,31 @@
+{
+    "library.arccore.identifier.examples": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-identifier.svg" },
+                "pageTitle": "ARCcore.identifier Library Examples",
+                "pageDescription": "ARCcore.identifier library examples.",
+                "contentTitle": "ARCcore.identifier Library Examples",
+                "contentSubtitle": "JavaScript examples demonstrating the use of ARCcore.identifier function exports.",
+                "name": "Examples",
+                "tooltip":" ARCcore.identifier examples..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "examples",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

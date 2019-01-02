@@ -1,0 +1,56 @@
+{
+    "library.arccore.graph.algorithms.digraph.transpose": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "## ARCcore.graph.directed.transpose",
+                        "Transposing a directed graph is the process of reversing the direction of its edges.",
+                        "\n",
+                        "[ARCcore](/docs/ARCcore) package's export function `graph.directed.transpose` constructs a new `DirectedGraph` instance",
+                        "with the edges flipped:",
+                        "\n",
+                        "```javascript",
+                        "const arccore = require('arccore');",
+                        "var transposedDigraph;",
+                        "var resposne = arccore.graph.directed.transpose(originalDigraph);",
+                        "if (response.error)",
+                        "    console.error(response.error);",
+                        "else",
+                        "    transposedDigraph = response.result;",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "Reference to a `DirectedGraph` container instance.",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Response object with `error` and `result` properties.",
+                        "\n",
+                        "- **error**: If not null, then a string explaining what went wrong.",
+                        "- **result**: Iff `!error` then result is a reference to the new transposed `DirectedGraph` instance."
+
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-graph.svg" },
+                "pageTitle": "DirectedGraph Transpose Algorithm Reference",
+                "pageDescription": "ARCcore.graph.DirectedGraph transpose tranformation algorithm.",
+                "contentTitle": "DirectedGraph Transpose Algorithm Reference",
+                "contentSubtitle": "DirectedGraph transpose reverses the direction of edges creating a new DirectedGraph instance.",
+                "name": "Digraph Transpose",
+                "tooltip": "Digraph transpose algorithm..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "digraph-transpose",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

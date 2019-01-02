@@ -1,0 +1,28 @@
+{
+    "articles.collection": {
+        "content": {
+            "data": {
+                "holisticView_Collection": {
+                }
+            },
+            "metadata": {
+                "pageTitle": "Encapsule.io Articles",
+                "pageDescription": "Encapsule Project technical articles.",
+                "contentTitle": "Technical Articles & Concept Reference",
+                "contentSubtitle": "Encapsule Project technical articles, whitepapers, and concept references.",
+                "name": "Articles",
+                "tooltip": "Articles..."
+            }
+        },
+        "relations": {
+            "children": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "articles",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

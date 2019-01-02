@@ -1,0 +1,27 @@
+{
+    "package.holism.integrations": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareFactory": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-holism.svg" },
+                "pageTitle": "Holism Integration Filters Factory",
+                "pageDescription": "Details about defining your base application model with integration filters.",
+                "contentTitle": "Defining Your Application Model w/Integration Filters",
+                "contentSubtitle": "To construct a Holism app server instance you must encapsulate your base app model in filter plug-ins.",
+                "name": "Integrations",
+                "tooltip": "Holism integration filters factory..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "integrations",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

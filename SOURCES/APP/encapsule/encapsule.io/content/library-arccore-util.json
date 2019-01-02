@@ -1,0 +1,49 @@
+{
+    "library.arccore.util": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareLibrary": {
+                    "introMarkdownSource": [
+                        "ARCcore.util is a small collection of JavaScript helper functions that are used by other libraries in",
+                        "the [ARCcore](/docs/ARCcore) package. You're very unlikely to need any of these trivial functions in",
+                        "your own code.",
+                        "\n",
+                        "#### ARCcore.util Exports",
+                        "```shell",
+                        "$ node",
+                        "> const arccore = require('arccore');",
+                        "undefined",
+                        "> arccore.util",
+                        "{ deepCopy: [Function],",
+                        "  clone: [Function],",
+                        "  dictionaryLength: [Function],",
+                        "  getEpochTime: [Function] }",
+                        ">",
+                        "```"
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-util.svg" },
+                "pageTitle": "ARCcore.util Library Documentation",
+                "pageDescription": "ARCcore.util contains low-level JavaScript utility and helper functions.",
+                "contentTitle": "ARCcore.util Library Documentation",
+                "contentSubtitle": "ARCcore.util contains a small collection of trivial but useful JavaScript utlity functions.",
+                "name": "util",
+                "tooltip":" ARCcore.util library documentation..."
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "library.arccore.util.api" },
+                { "reltype": "includes", "cnid": "library.arccore.util.examples" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "util",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

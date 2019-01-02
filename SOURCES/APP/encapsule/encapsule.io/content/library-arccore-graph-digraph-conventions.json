@@ -1,0 +1,93 @@
+{
+    "library.arccore.graph.digraph.conventions": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "## Method notation",
+                        "For convenience we abbreviate functions defined on the `DirectedGraph` prototype object, e.g. `isVertex`, using the notation `DirectedGraph.isVertex`.",
+                        "\n",
+                        "But, you can't actually call `DirectedGraph.isVertex` using this syntax: `DirectedGraph` is the private constructor function and it's not exported.",
+                        "To construct a `DirectedGraph` instance call the software factory method `arccore.graph.directed.create`.",
+                        "\n",
+                        "```javascript",
+                        "const graph = require('arccore').graph;",
+                        "var digraph = graph.directed.create().result;",
+                        "var foundStartVertex = digraph.isVertex(\"startVertex\"); // e.g.",
+                        "```",
+                        "\n",
+
+
+                        "## Vertex & Edge Method Input Parameters",
+                        "See also: [Vertex Methods](/docs/ARCcore/graph/digraph/vertices), [EdgeMethods](/docs/ARCcore/graph/digraph/edges),",
+                        "[Serialization](/docs/ARCcore/graph/digraph/serialize)",
+                        "\n",
+                        "Methods of the `DirectedGraph` class that operate on vertices and edges in the container (there are many) accept as input",
+                        "one of four standardized in-parameter types based on two dimenions: target entity (vertex vs. edge), and operation (read vs. write).",
+                        "Read operations query the state of the container but do not mutate it. Write operations mutate the state of the container.",
+                        "\n",
+
+                        "### Vertex Read Request",
+                        "A _vertex read request_ is a string that is interpreted as the unique ID of a vertex in a container.",
+                        "\n",
+                        "```javascript",
+                        "var vertexReadRequest = \"vertexID\";",
+                        "var bool foundIt = digraph.isVertex(vertexReadRequest);",
+                        "```",
+                        "\n",
+
+                        "### Vertex Write Request",
+                        "A _vertex write request_ is an object with required string property `u` and optional data property `p`.",
+                        "\n",
+                        "```javascript",
+                        "var vertexWriteRequest = {",
+                        "    u: \"vertexID\",",
+                        "    p: { notes: \"data to associate with the 'vertexID' vertex in the container\" }",
+                        "};",
+                        "digraph.addVertex(vertexWriteRequest);",
+                        "```",
+                        "\n",
+
+                        "### Edge Read Request",
+                        "An _edge read request_ is an object with required string properties `u` and `v`.",
+                        "\n",
+                        "```javascript",
+                        "var edgeReadRequest = { u: \"Hello\", v: \"World\" };",
+                        "var boolFountIt = digraph.isEdge(edgeReadRequest);",
+                        "```",
+                        "\n",
+
+                        "### Edge Write Request",
+                        "An _edge write request_ is an object with required sub-object `e` and optional data property `p`.",
+                        "\n",
+                        "```javascript",
+                        "var edgeWriteRequest = {",
+                        "    e: { u: \"Hello\", v: \"World\" },",
+                        "    p: { notes: \"Some data to associate with the edge from 'Hello' to 'World'\" }",
+                        "};",
+                        "digraph.addEdge(edgeWriteRequest);",
+                        "```"
+
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-graph.svg" },
+                "pageTitle": "ARCcore.graph DirectedGraph API Parameter Objects",
+                "pageDescription": "ARCcore.graph DirectedGraph API standard parameter objects.",
+                "contentTitle": "DirectedGraph API Parameter Objects",
+                "contentSubtitle": "DirectedGraph container conventions, vertex and edge input parameter object types.",
+                "name": "API Objects",
+                "tooltip": "DirectedGraph API parameter objects..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "conventions",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "package.holism.factory": {
+        "content": {
+            "data": {
+                "holisticView_SoftwareFactory": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-holism.svg" },
+                "pageTitle": "Holism Application Server Factory",
+                "pageDescription": "Details about how to contruct a Holism application server instance.",
+                "contentTitle": "Constructing a Holism Server Instance",
+                "contentSubtitle": "To instantiate a Holism application server, you must construct an instance via the app server factory.",
+                "name": "Server",
+                "tooltip": "Holism server factory..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "factory",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

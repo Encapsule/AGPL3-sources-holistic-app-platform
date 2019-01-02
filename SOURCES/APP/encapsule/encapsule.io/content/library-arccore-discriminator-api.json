@@ -1,0 +1,31 @@
+{
+    "library.arccore.discriminator.api": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-discriminator.svg" },
+                "pageTitle": "ARCcore.discriminator Library API Reference",
+                "pageDescription": "ARCcore.discriminator library API reference.",
+                "contentTitle": "ARCcore.discriminator Library API Reference",
+                "contentSubtitle": "ARCcore.discriminator function exports API reference.",
+                "name": "API",
+                "tooltip":"ARCcore.discriminator library API reference..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "api",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

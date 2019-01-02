@@ -1,0 +1,31 @@
+{
+    "library.arccore.types.api": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-types.svg" },
+                "pageTitle": "ARCcore.types Library API Reference",
+                "pageDescription": "ARCcore.types library API reference.",
+                "contentTitle": "ARCcore.types Library API Reference",
+                "contentSubtitle": "ARCcore.types function exports API reference.",
+                "name": "API",
+                "tooltip":" ARCcore.types library API reference..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "api",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

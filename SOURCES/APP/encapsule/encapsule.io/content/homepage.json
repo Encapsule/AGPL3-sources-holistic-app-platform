@@ -1,0 +1,92 @@
+{
+    "home.markdown": {
+        "content": {
+            "metadata": {
+                "icons": {},
+                "pageTitle": "Encapsule Project Home",
+                "pageDescription": "MIT-licensed tools, libraries, and infrastructure for Node.js & HTML builders.",
+                "contentTitle": "Welcome to Encapsule Project",
+                "contentSubtitle": "MIT-licensed tools, libraries, and infrastructure for Node.js & HTML5 builders.",
+                "name": "Home",
+                "tooltip": "Home..."
+            },
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+                        "###### [GitHub](https://github.com/Encapsule) &bull; [Twitter](https://twitter.com/Encapsule)",
+                        "\n",
+                        "Welcome to Encapsule Project - Libraries & tools for building Node.js/HTML5 apps & services with declarative models & reusable JavaScript plug-ins.",
+
+                        "\n",
+                        "## Introduction",
+                        "\n",
+                        "This website is a demonstration of a new application server and REST framework codenamed",
+                        "**[Holism](/docs/holism)** build on top of the [Node.js](https://nodejs.org) [HTTP API](https://nodejs.org/api/http.html).",
+                        "\n",
+                        "Holism implements a plug-in architecture that routes HTTP requests through a series of developer-defined",
+                        "[ARCcore.filter](/docs/ARCcore/filter) objects that implement application-specific functions. Filter objects use",
+                        "JSON-encoded message schemas called [filter specifications](/docs/ARCcore/filter/specs) to define API contracts",
+                        "that are enforced generically by the run-time.",
+                        "\n",
+                        "Current builds of this application leverage Holism [services](/docs/holism/services) (filter plug-ins) that",
+                        "manage HTML document rendering via [Facebook's React](https://facebook.github.io/react/) library ,",
+                        "user profile and session management via [RedisLab's](https://redislabs.com/) [Redis](https://redis.io) noSQL store,",
+                        "and an evolving content management system based on [ARCcore.graph](/docs/ARCcore/graph).",
+                        "\n",
+
+
+                        "## Project Status",
+                        "The [Holism](/docs/holism) application server project started in late November, 2016 and become minimally viable",
+                        "in February, 2017.",
+                        "\n",
+                        "In early March, 2017 Encapsule.io (this site) was converted to a Holism-derived application replacing",
+                        "[Express](https://expressjs.com/) and 3rd-party middleware packages with [ARCcore.filter](/docs/ARCcore/filter)-derived",
+                        "plug-ins and JSON configuration files.",
+                        "\n",
+                        "Current work is focused on completing the [developer documentation](/docs), and preparing the Holism (server),",
+                        "Holistic (re-usable plug-in features), and ARCcore (data modeling and processing runtime) packages for v1 release.",
+                        "\n",
+
+                        "### News Items",
+                        "- May, 2017: To make it simpler for people to learn how to read and write [filter specifications](/docs/ARCcore/filter/specs)",
+                        " an [interactive filter demo and examples](/docs/ARCcore/filter/examples) app is now online.",
+                        "- May, 2017: I gave a short talk to 150 JavaScript developers at the [SeattleJS](http://seattlejs.com/) Meetup",
+                        "introducing [ARCcore.filter](/docs/ARCcore/filter). My presentation deck is available",
+                        "[here](https://github.com/Encapsule-Annex/seattlejs-meetup-2017-may-filter-lib).",
+                        "- Apr, 2017: Documentation for [ARCcore.filter](/docs/ARCcore/filter) and [ARCcore.graph](/docs/ARCcore/graph)",
+                        "were published here. Additionally, the stand-alone version of ARCcore.graph, [jsgraph](https://www.npmjs.com/package/jsgraph),",
+                        "was published replacing the old markdown documentation with links to the re-written docs posted on this site. The latest",
+                        "version of jsgraph is v0.7.1.",
+
+
+                        "## Updates",
+                        "Please follow [@Encapsule](https://twitter.com/Encapsule) on Twitter for announcements.",
+                        "\n",
+                        "## Comments & Questions",
+                        "Tweet [@Encapsule](https://twitter.com/Encapsule) or join the [Encapsule](https://discord.gg/BzgjxRk) chat room on Discord.",
+                        "\n",
+                        "Alternately, e-mail cdr at encapsule.io if there's something I can help you with directly.",
+                        "\n",
+                        "**Thank you for your interest!**",
+                        "\n",
+                        "# Content"
+
+                    ]
+                }
+            }
+        },
+        "relations": {
+            "children": [
+                { "reltype": "includes", "cnid": "downloads.markdown" },
+                { "reltype": "includes", "cnid": "documentation.collection" },
+                { "reltype": "includes", "cnid": "notes.collection" }
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "/",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

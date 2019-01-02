@@ -1,0 +1,27 @@
+{
+    "package.holism.model": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-holism.svg" },
+                "pageTitle": "Holism Application Model",
+                "pageDescription": "Discussion about Holism state data and functional concern separation model.",
+                "contentTitle": "Holism Application Model Discussion",
+                "contentSubtitle": "Separate all the concerns! A discussion of Holism state and function separation.",
+                "name": "App Model",
+                "tooltip": "Separate all the concerns!"
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "model",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,177 @@
+{
+    "library.arccore.graph.digraph.edges": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                    "markdownSource": [
+
+                        "See also: [API Objects](./conventions), [Vertex Methods](./vertices), [Container Methods](./container-methods), [Serialization](./serialize)",
+                        "\n",
+
+                        "Edge methods allow you to add and remove edges from a `DirectedGraph` container instance, and attach, query, and remove",
+                        "application-specific properties from edges. Generally, edge methods accept _edge read_ and _edge write_ objects as input",
+                        "parameters. These objects are explained in the [API Objects](./conventions) section.",
+                        "\n",
+
+
+                        "### DirectedGraph.addEdge",
+                        "```javascript",
+                        "var response = digraph.addEdge({ e: { u: string, v: string }, p: data });",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "_edge write request_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "JavaScript object with the following properties:",
+                        "- **error**: null or string explaining what went wrong",
+                        "- **result**: an edge read request object or null if error",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "If specified, property data should be serializable to JSON. If you need associate non-serializable data with an edge,",
+                        "use an external dictionary and a concatenation of the edge's `u` and `v` source and sink vertex identifiers.",
+                        "\n",
+                        "If the edge already exists in the container and property data is specified, then `addEdge` updates the edge's property data in the container.",
+                        "\n",
+                        "If the edge already exists and no property data was specified, `addEdge` does nothing (i.e. if there was property data assocaited with the edge",
+                        "it remains associated with the edge).",
+                        "\n",
+                        "If your intention is to disassociate the edge from property data, call `clearEdgeProperty` method.",
+                        "\n",
+                        "If you're calling `addEdge` to update property data associated with an edge (which is valid), you may wish to instead call the `setEdgeProperty` method",
+                        "instead to make your code more explicit. `setEdgeProperty` is just an alias for `addEdge`.",
+                        "\n",
+
+
+
+                        "### DirectedGraph.isEdge",
+                        "```javascript",
+                        "var response = digraph.isEdge({ u: string, v: string });",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "_edge read request_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Return true if the edge is part of the graph. Otherwise, false.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "`isEdge` will return false if you pass bad input.",
+                        "\n",
+
+
+                        "### DirectedGraph.removeEdge",
+                        "```javascript",
+                        "var response = digraph.removeEdge({ u: string, v: string });",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "_edge read request_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "JavaScript object with the following properties:",
+                        "\n",
+                        "- **error**: null or a string explaining what went wrong",
+                        "- **result**: an edge read request object or null if an error occurred",
+                        "\n",
+
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "Removing an edge has no impact on the edge's vertices or on any property data associated with the vertices connected by the removed edge.",
+                        "\n",
+
+
+                        "### DirectedGraph.getEdgeProperty",
+                        "```javascript",
+                        "var response = digraph.getEdgePropertyObject({ u: string, v: string });",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "_edge read request_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns a reference to the property data associated with the specified edge in the graph.",
+                        "\n",
+                        "If no property data is associated with the edge, the method returns `undefined`.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "`getEdgeProperty` will return `undefined` if passed bad input, or the edge does not exist, or the edge exists but has no associated property data.",
+                        "\n",
+
+
+                        "### DirectedGraph.setEdgeProperty",
+                        "`setEdgeProperty` is an alias for `addEdge`.",
+                        "\n",
+
+
+                        "### DirectedGraph.hasEdgeProperty",
+                        "```javascript",
+                        "var response = digraph.hasEdgeProperty({ u: string, v: string });",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "_edge read request_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns true if the specified edge has associated property data. Otherwise false.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "`hasEdgeProperty` will return false if passed input, or the edge does not exist in the graph, or if the edge exists but has no associated property data.",
+                        "\n",
+
+
+
+                        "### DirectedGraph.clearEdgeProperty",
+                        "```javascript",
+                        "var response = digraph.clearEdgeProperty({ u: string, v: string });",
+                        "```",
+                        "\n",
+                        "**Request**",
+                        "\n",
+                        "_edge read request_",
+                        "\n",
+                        "**Response**",
+                        "\n",
+                        "Returns true unless you pass bad input.",
+                        "\n",
+                        "**Notes**",
+                        "\n",
+                        "`clearEdgeProperty` will return false if passed bad input, or the specified edge does not exist."
+
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-graph.svg" },
+                "pageTitle": "ARCcore.graph DirectedGraph Edge Methods",
+                "pageDescription": "ARCcore.graph DirectedGraph edge methods documentation.",
+                "contentTitle": "DirectedGraph Edge Methods Documentation",
+                "contentSubtitle": "DirectedGraph container class edge access methods.",
+                "name": "Edge Methods",
+                "tooltip": "DirectedGraph edge methods..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "edges",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "library.arccore.discriminator.examples": {
+        "content": {
+            "data": {
+                "holisticView_Markdown": {
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-discriminator.svg" },
+                "pageTitle": "ARCcore.discriminator Library Examples",
+                "pageDescription": "ARCcore.discriminator library examples.",
+                "contentTitle": "ARCcore.discriminator Library Examples",
+                "contentSubtitle": "JavaScript examples demonstrating the use of the ARCcore.discriminator factory and runtime filter.",
+                "name": "Examples",
+                "tooltip":"ARCcore.discriminator library examples..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "examples",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "package.holistic": {
+        "content": {
+            "data": {
+                "holisticView_SoftwarePackage": {
+                    "packageDetails": {
+                        "distributionName": "holistic",
+                        "distributionURL": "https://npmjs.org.com/packages/holistic",
+                        "distributionLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        },
+                        "sourceRepositoryName": "Encapsule/holistic",
+                        "sourceRepository": "https://github.com/Encapsule/holistic",
+                        "sourceLicense": {
+                            "name": "MIT",
+                            "url": "https://opensource.org/licenses/MIT"
+                        }
+                    },
+                    "introMarkdownSource": [
+                        "### 2017.04.16 Under Construction",
+                        "\n",
+                        "The Encapsule/holistic git repository on GitHub is currently empty pending a refactoring of this application",
+                        "into a set of reference feature extensions for the [Holism](/docs/holism) application server package. Once",
+                        "this refactoring occurs, it will be quite simple for others to re-use the features developed for this",
+                        "specific application in other applications derived from [Holism](/docs/holism).",
+                        "\n",
+                        "The source for this application is published on GitHub at",
+                        "[https://github.com/Encapsule/polytely](https://github.com/Encapsule/polytely).",
+                        "\n",
+                        "Prior to v1 release, the following features will be extract from `polytely` and migrated into Encapsule/holistic",
+                        "so that others can easily leverage them in their own applications:",
+                        "- User and session management integration filters Redis",
+                        "- Server HTML rendering integration filter for React.",
+                        "- An evolving content management system based on [ARCcore.graph](/docs/ARCcore/graph) library."
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-holistic.svg" },
+                "pageTitle": "Holistic Package Documentation",
+                "pageDescription": "Documentation for holistic application model and runtime extensions for holism app server.",
+                "contentTitle": "Holistic Application Model & Integrations for Holism",
+                "contentSubtitle": "Encapsule Holistic application model and holism runtime integrations for Redis & React.",
+                "name": "Holistic",
+                "tooltip": "Holistic package documentation..."
+            }
+        },
+        "relations": {
+        },
+        "projection": {
+            "page": {
+                "uriToken": "holistic",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}

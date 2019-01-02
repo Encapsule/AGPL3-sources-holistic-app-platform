@@ -1,0 +1,144 @@
+{
+    "library.arccore.filter.examples": {
+        "content": {
+            "data": {
+                "appView_ARCcoreFilterExamples": {
+                    "inputFilterSpecs": [
+                        {
+                            "name": "Accept Any Request (undefined)",
+                            "description": "Specify no input filter specification (undefined) and accept any request regardless of type and value."
+                        },
+                        {
+                            "name": "Accept Any Request",
+                            "description": "Accept any request regardless of type or value. This is the default if the input filter spec is not specified.",
+                            "data": {
+                                "____opaque": true
+                            }
+                        },
+                        {
+                            "name": "Accept String or Array",
+                            "description": "Accept a string or an array of anything.",
+                            "data": {
+                                "____accept": [ "jsString", "jsArray" ]
+                            }
+                        },
+                        {
+                            "name": "Object w/Fixed Properties",
+                            "description": "Accept an object with fixed property values.",
+                            "data": {
+                                "____types": "jsObject",
+                                "x": { "____accept": "jsString" },
+                                "y": { "____accept": "jsNumber" }
+                            }
+                        },
+                        {
+                            "name": "Object as a Dictionary",
+                            "description": "Accept a dictionary of numbers between zero and one hundred.",
+                            "data": {
+                                "____types": "jsObject",
+                                "____asMap": true,
+                                "key": {
+                                    "____accept": "jsNumber",
+                                    "____inRangeInclusive": {
+                                        "begin": 0,
+                                        "end": 100
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "name": "Array of Strings",
+                            "description": "Accept an array of strings",
+                            "data": {
+                                "____types": "jsArray",
+                                "element": {
+                                    "____accept": "jsString"
+                                }
+                            }
+                        },
+                        {
+                            "name": "Default Values",
+                            "description": "Accept an object with default values.",
+                            "data": {
+                                "____types": "jsObject",
+                                "____defaultValue": {
+                                    "value1": "value1 set to default by its container",
+                                    "value2": "value2 set to default by its container"
+                                },
+                                "value1": {
+                                    "____accept": "jsString",
+                                    "____defaultValue": "value1 set itself to default"
+                                },
+                                "value2": {
+                                    "____accept": "jsString",
+                                    "____defaultValue": "value2 set itself to default"
+                                },
+                                "value3": {
+                                    "____accept": "jsNumber",
+                                    "____defaultValue": 0
+                                }
+                            }
+                        }
+                    ],
+                    "outputFilterSpecs": [
+                        {
+                            "name": "Accept Any Result (undefined)",
+                            "description": "Specify no output filter spec (undefined) to accept any result regardless of type and value."
+                        },
+                        {
+                            "name": "Accept Any Result (opaque)",
+                            "description": "Accept any result regardless of type and value. This is the default if the output filter spec is not specified.",
+                            "data": {
+                                "____opaque": true
+                            }
+                        },
+                        {
+                            "name": "Accept Numeric Result",
+                            "description": "Accept only a numerical result.",
+                            "data": {
+                                "____accept": "jsNumber"
+                            }
+                        }
+                    ],
+                    "inputRequestData": [
+                        {
+                            "name": "Undefined",
+                            "description": "Set the filter request to value `undefined`."
+                        },
+                        {
+                            "name": "Integer Array",
+                            "description": "A simple array of integers",
+                            "data": [ 5, 10, 15, 20, 25 ]
+                        },
+                        {
+                            "name": "Simple String",
+                            "description": "A simple UTF8 string value.",
+                            "data": "The length of this string is 32."
+                        }
+                    ]
+                }
+            },
+            "metadata": {
+                "icons": { "svg": "/images/encapsule-arccore-filter.svg" },
+                "pageTitle": "ARCcore.filter Library Interactive Example",
+                "pageDescription": "ARCcore.filter library interactive example.",
+                "contentTitle": "ARCcore.filter Interactive Example",
+                "contentSubtitle": "A simple interactive simulator used to demonstrate and teach people how to configure and use ARCcore.filter.",
+                "name": "Examples",
+                "tooltip":" ARCcore.filter interactive example..."
+            }
+        },
+        "relations": {
+            "children": [
+            ],
+            "parents": [
+            ]
+        },
+        "projection": {
+            "page": {
+                "uriToken": "examples",
+                "serviceFilterVIID": "uwNtsiqzTzSi9-fqHqk0bw"
+            }
+        }
+    }
+}
