@@ -3,7 +3,7 @@
 const arccore = require('arccore');
 const httpServiceFilterFactory = require('holism').service;
 
-const clientUserProfileSpec = require('../common/iospecs/app/client-user-account-create-request-spec');
+const clientUserProfileSpec = require('../../common/iospecs/app/client-user-account-create-request-spec');
 
 
 var factoryResponse = httpServiceFilterFactory.create({

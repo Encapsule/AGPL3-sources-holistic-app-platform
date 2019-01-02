@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Encapsule/polytely test application server main.
 
 const path = require('path');
@@ -23,8 +21,8 @@ const httpServerFilterFactory = require('holism').server;
 const httpServerConfigDescriptor = require('./config');
 const httpServerIntegrationsFactory = require('./integrations');
 
-const viewStoreFactory = require('./common/model/view-store-constructor');
-const appSiteStaticMetadataDeclaration = require('./common/model/app-site-static-metadata-declaration');
+const viewStoreFactory = require('../common/model/view-store-constructor');
+const appSiteStaticMetadataDeclaration = require('../common/model/app-site-static-metadata-declaration');
 
 console.log("Initializing document library content graph model...");
 const contentDigraphGeneratorFilter = require('./features/content-digraph');

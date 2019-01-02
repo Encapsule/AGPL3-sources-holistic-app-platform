@@ -1,7 +1,7 @@
 // homepage-content-filter.js
 
 const httpServiceFilterFactory = require('holism').service;
-const contentViewRenderMarkdownSpec = require('../common/iospecs/view/content-view-render-markdown-spec');
+const contentViewRenderMarkdownSpec = require('../../common/iospecs/view/content-view-render-markdown-spec');
 
 var factoryResponse = httpServiceFilterFactory.create({
     id: "UBBoGJwbSJe7SXUTt7T_qw",

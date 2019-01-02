@@ -1,7 +1,7 @@
 // content-digraph-node-descriptor-normalization-filter.js
 
 const arccore = require('arccore');
-const appModelPageMetadataSpec = require('../../common/iospecs/app/developer-input-metadata-page-spec');
+const appModelPageMetadataSpec = require('../../../common/iospecs/app/developer-input-metadata-page-spec');
 
 const discriminatedLoader = require('./content-digraph-node-discriminator-filter');
 

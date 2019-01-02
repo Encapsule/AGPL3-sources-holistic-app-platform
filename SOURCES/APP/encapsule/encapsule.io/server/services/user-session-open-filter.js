@@ -5,8 +5,8 @@ const crypto = require('crypto');
 const httpServiceFilterFactory = require('holism').service;
 
 // In-project module include paths specified relative to deploy, not sources/** directory!
-const clientUserSessionOpenRequestSpec = require('../common/iospecs/app/client-user-session-open-request-spec');
-const clientUserSessionOpenResultSpec = require('../common/iospecs/app/client-user-session-open-result-spec');
+const clientUserSessionOpenRequestSpec = require('../../common/iospecs/app/client-user-session-open-request-spec');
+const clientUserSessionOpenResultSpec = require('../../common/iospecs/app/client-user-session-open-result-spec');
 
 var factoryResponse = httpServiceFilterFactory.create({
     id: "wmzK3pa-TOuDSDeBrpeOqg",

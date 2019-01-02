@@ -1,7 +1,7 @@
 // app-view-filter-example-loader.js
 
 const arccore = require('arccore');
-const appViewRenderFilterExampleSpec = require('../../../common/iospecs/view/app-view-render-filter-examples-spec');
+const appViewRenderFilterExampleSpec = require('../../../../common/iospecs/view/app-view-render-filter-examples-spec');
 
 var factoryResponse = arccore.filter.create({
     operationID: "baOnnH2tTSCcd6dOVrFMTA",

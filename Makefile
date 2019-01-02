@@ -7,8 +7,8 @@ DIR_TOOLBIN=$(DIR_MODULES)/.bin
 TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
 
 DIR_PROJECT=$(DIR_ROOT)/PROJECT
-
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
+DIR_PROJECT_BUILD=$(DIR_PROJECT)/BUILD
 
 TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate_encapsule_build.js
 TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate_package_manifest.js
@@ -17,6 +17,7 @@ TOOL_GEN_PACKAGE_README=$(DIR_PROJECT)/generate_package_readme.js
 TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
 
 TOOL_BABEL=$(DIR_TOOLBIN)/babel
+TOOL_WEBPACK=$(DIR_TOOLBIN)/webpack
 
 
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
@@ -41,6 +42,8 @@ DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 
 DIR_BUILD_APP=$(DIR_BUILD)/APP
 DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
+DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
+
 
 
 default: stage_packages
@@ -159,5 +162,8 @@ monorepo_nuke: monorepo_clean
 	@echo monorepo_nuke target complete.
 
 build_app_encapsule:
-	mkdir -p $(DIR_BUILD_APP_ENCAPSULE)
-	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
+	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
+
+	cp -rv $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
+	$(TOOL_WEBPACK) --config $(DIR_PROJECT_BUILD)/webpack.config.encapsule.io

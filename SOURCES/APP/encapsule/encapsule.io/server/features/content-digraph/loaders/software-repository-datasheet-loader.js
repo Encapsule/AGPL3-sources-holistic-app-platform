@@ -1,7 +1,7 @@
 // software-repository-datasheet-loader.js
 
 const arccore = require('arccore');
-const softwareRepositoryDatasheetSpec = require('../../../common/iospecs/content/dev-input-content-software-repo-datasheet-spec');
+const softwareRepositoryDatasheetSpec = require('../../../../common/iospecs/content/dev-input-content-software-repo-datasheet-spec');
 var factoryResponse = arccore.filter.create({
     operationID: "3uxaQXuATImBdRj2OFprHA",
     operationName: "Software Repository Datasheet Filter",

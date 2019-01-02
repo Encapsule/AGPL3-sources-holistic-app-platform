@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const arccore = require('arccore');
 const httpServiceFilterFactory = require('holism').service;
-const contentViewRenderMarkdownSpec = require('../common/iospecs/view/content-view-render-markdown-spec');
+const contentViewRenderMarkdownSpec = require('../../common/iospecs/view/content-view-render-markdown-spec');
 
 var appRootPath = path.normalize(path.join(__dirname, '../'));
 console.log(appRootPath);

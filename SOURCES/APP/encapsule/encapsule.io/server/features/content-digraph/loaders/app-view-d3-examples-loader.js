@@ -1,7 +1,7 @@
 // app-view-d3-examples-loader.js
 
 const arccore = require('arccore');
-const appViewRenderD3ExamplesSpec = require('../../../common/iospecs/view/app-view-render-d3-examples-spec');
+const appViewRenderD3ExamplesSpec = require('../../../../common/iospecs/view/app-view-render-d3-examples-spec');
 
 var factoryResponse = arccore.filter.create({
     operationID: "U7cxLQWoRW29d0mLZwQR5A",

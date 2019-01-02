@@ -1,7 +1,5 @@
 // sources/server/integrations/index.js
 
-const packageMeta = require('../../package.json');
-
 const React = require('react');
 
 const holistic = require('holistic');
@@ -10,19 +8,19 @@ const holisticLabel = holistic.__meta.name + " v" + holistic.__meta.version;
 const httpServerIntegrationsFactory = require('holism').integrations;
 
 const metadataOrgGetFunction = require('./metadata-org-get');
-const metadataOrgSpec = require('../common/iospecs/app/app-metadata-org-spec');
+const metadataOrgSpec = require('../../common/iospecs/app/app-metadata-org-spec');
 
 const metadataSiteGetFunction = require('./metadata-site-get');
-const metadataSiteSpec = require('../common/iospecs/app/app-metadata-site-spec');
+const metadataSiteSpec = require('../../common/iospecs/app/app-metadata-site-spec');
 
 const metadataPageGetFunction = require('./metadata-page-get');
-const metadataPageSpec = require('../common/iospecs/app/app-metadata-page-spec');
+const metadataPageSpec = require('../../common/iospecs/app/app-metadata-page-spec');
 
 const metadataUserGetIdentityFunction = require('./metadata-user-get-identity');
-const metadataUserIdentitySpec = require('../common/iospecs/app/app-metadata-user-identity-spec'); // defines the output format of metadataUserGetIdentityFunction
+const metadataUserIdentitySpec = require('../../common/iospecs/app/app-metadata-user-identity-spec'); // defines the output format of metadataUserGetIdentityFunction
 
 const metadataUserGetSessionFunction = require('./metadata-user-get-session');
-const metadataUserSessionSpec = require('../common/iospecs/app/app-metadata-user-session-spec'); // defines the output format of metadataUserGetSessionFunction
+const metadataUserSessionSpec = require('../../common/iospecs/app/app-metadata-user-session-spec'); // defines the output format of metadataUserGetSessionFunction
 
 const htmlPageRenderFunction = require('./render-html');
 

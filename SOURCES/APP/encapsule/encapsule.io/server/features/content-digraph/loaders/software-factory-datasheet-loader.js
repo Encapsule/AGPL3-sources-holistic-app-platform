@@ -1,7 +1,7 @@
 // software-library-datasheet-laoder.js
 
 const arccore = require('arccore');
-const softwareFactoryDatasheetSpec = require('../../../common/iospecs/view/content-view-render-software-factory-datasheet-spec');
+const softwareFactoryDatasheetSpec = require('../../../../common/iospecs/view/content-view-render-software-factory-datasheet-spec');
 
 // Simple ingress filter
 var factoryResponse = arccore.filter.create({

@@ -1,7 +1,7 @@
 // view-store-collection-loader.js
 
 const arccore = require('arccore');
-const viewStoreCollectionViewSpec = require('../../../common/iospecs/view/content-view-render-view-store-collection-spec');
+const viewStoreCollectionViewSpec = require('../../../../common/iospecs/view/content-view-render-view-store-collection-spec');
 var factoryResponse = arccore.filter.create({
     operationID: "mmWFmpYYRUe7P6hWkdrWrg",
     operationName: "View Store Collection Loader",

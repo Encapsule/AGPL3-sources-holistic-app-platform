@@ -1,7 +1,7 @@
 // redis-user-account-descriptor-filter.js
 
 const arccore = require('arccore');
-const storageuserAccountDescriptorSpec = require('../common/iospecs/app/storage-user-account-descriptor-spec');
+const storageuserAccountDescriptorSpec = require('../../common/iospecs/app/storage-user-account-descriptor-spec');
 
 var factoryResponse = arccore.filter.create({
     operationID: "xRH64sseQRiBtG0SEYVNNA",

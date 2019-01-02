@@ -2,7 +2,7 @@
 
 const arccore = require('arccore');
 
-const softwarePackageDatasheetSpec = require('../../../common/iospecs/view/content-view-render-software-package-datasheet-spec');
+const softwarePackageDatasheetSpec = require('../../../../common/iospecs/view/content-view-render-software-package-datasheet-spec');
 
 var factoryResponse = arccore.filter.create({
     operationID: "ElchyaD0QPell27RYR96eQ",

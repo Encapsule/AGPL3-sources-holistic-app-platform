@@ -1,7 +1,7 @@
 // redis-user-session-descriptor-filter.js
 
 const arccore = require('arccore');
-const storageUserSessionDescriptorSpec = require('../common/iospecs/app/storage-user-session-descriptor-spec');
+const storageUserSessionDescriptorSpec = require('../../common/iospecs/app/storage-user-session-descriptor-spec');
 
 var factoryResponse = arccore.filter.create({
     operationID: "7UZsOgo1Rz-V8UPMEvsMhA",

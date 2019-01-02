@@ -1,7 +1,7 @@
 // software-library-datasheet-laoder.js
 
 const arccore = require('arccore');
-const softwareLibraryDatasheetSpec = require('../../../common/iospecs/view/content-view-render-software-library-datasheet-spec');
+const softwareLibraryDatasheetSpec = require('../../../../common/iospecs/view/content-view-render-software-library-datasheet-spec');
 
 var factoryResponse = arccore.filter.create({
     operationID: "kl3p3HInTreGO1pe4huScA",

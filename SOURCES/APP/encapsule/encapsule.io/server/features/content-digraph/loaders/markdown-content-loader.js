@@ -2,7 +2,7 @@
 
 const arccore = require('arccore');
 
-const markdownViewRenderRequestSpec = require('../../../common/iospecs/view/content-view-render-markdown-spec');
+const markdownViewRenderRequestSpec = require('../../../../common/iospecs/view/content-view-render-markdown-spec');
 
 var factoryResponse = arccore.filter.create({
     operationID: "3qjUF9EhRD2JGWGUn3eiiw",
