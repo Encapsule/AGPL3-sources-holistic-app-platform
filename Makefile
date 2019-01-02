@@ -1,5 +1,7 @@
 
-DIR_ROOT=.
+# https://timmurphy.org/2015/09/27/how-to-get-a-makefile-directory-path/
+DIR_ROOT=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+
 DIR_MODULES=$(DIR_ROOT)/node_modules
 DIR_TOOLBIN=$(DIR_MODULES)/.bin
 TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
@@ -12,13 +14,19 @@ TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate_encapsule_build.js
 TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate_package_manifest.js
 TOOL_GEN_PACKAGE_LICENSE=$(DIR_PROJECT)/generate_package_license.js
 TOOL_GEN_PACKAGE_README=$(DIR_PROJECT)/generate_package_readme.js
-
 TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
+
+TOOL_BABEL=$(DIR_TOOLBIN)/babel
+
 
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
 DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
+
+DIR_SOURCES_APP=$(DIR_SOURCES)/APP
+DIR_SOURCES_APP_ENCAPSULE=$(DIR_SOURCES_APP)/encapsule/encapsule.io
+
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
@@ -29,6 +37,11 @@ DIR_DISTS=$(DIR_ROOT)/DISTS
 DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
+
+
+DIR_BUILD_APP=$(DIR_BUILD)/APP
+DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
+
 
 default: stage_packages
 	@echo \'default\' Makefile target build complete.
@@ -144,3 +157,8 @@ monorepo_nuke: monorepo_clean
 	@echo monorepo_nuke target starting...
 	yarn cache clean
 	@echo monorepo_nuke target complete.
+
+
+build_app_encapsule:
+	mkdir -p $(DIR_BUILD_APP_ENCAPSULE)
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE) --relative --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
