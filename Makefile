@@ -1,6 +1,11 @@
-
+# https://www.gnu.org/software/make/manual/make.html
 # https://timmurphy.org/2015/09/27/how-to-get-a-makefile-directory-path/
-DIR_ROOT=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+# https://stackoverflow.com/questions/33126425/how-to-remove-the-last-trailing-backslash-in-gnu-make-file
+# $(patsubst %\,%,$(__PATHS_FEATURE))
+
+DIR_ROOT=$(patsubst %/,%,$(dir $(realpath $(firstword $(MAKEFILE_LIST)))))
+$(info ***** Encapsule Project middleforks monorepo make *****)
+$(info DIR_ROOT is $(DIR_ROOT))
 
 DIR_MODULES=$(DIR_ROOT)/node_modules
 DIR_TOOLBIN=$(DIR_MODULES)/.bin
@@ -19,7 +24,6 @@ TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
 TOOL_BABEL=$(DIR_TOOLBIN)/babel
 TOOL_WEBPACK=$(DIR_TOOLBIN)/webpack
 
-
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
@@ -27,7 +31,6 @@ DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 
 DIR_SOURCES_APP=$(DIR_SOURCES)/APP
 DIR_SOURCES_APP_ENCAPSULE=$(DIR_SOURCES_APP)/encapsule/encapsule.io
-
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
@@ -39,12 +42,9 @@ DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 
-
 DIR_BUILD_APP=$(DIR_BUILD)/APP
 DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
 DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
-
-
 
 default: stage_packages
 	@echo \'default\' Makefile target build complete.
@@ -57,7 +57,7 @@ build_package_holism:
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
 	cp $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
-	cp -rv $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM)/
+	cp -r $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName holism > $(DIR_BUILD_LIB_HOLISM)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISM)
@@ -75,7 +75,7 @@ build_package_hrequest:
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
 	cp $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
-	cp -rv $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
+	cp -r $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName hrequest > $(DIR_BUILD_LIB_HREQUEST)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HREQUEST)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HREQUEST)
@@ -93,13 +93,15 @@ stage_packages: build_packages stage_package_holism stage_package_hrequest
 stage_package_holism:
 	@echo stage_package_holism target starting...
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
-	cp -rv $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
+	cp -r $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
+	ln -s $(DIR_DIST_LIB_HOLISM) $(DIR_MODULES)/holism
 	@echo stage_package_holism complete.
 
 stage_package_hrequest:
 	@echo stage_package_hrequest target starting...
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
-	cp -rv $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
+	cp -r $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
+	ln -s $(DIR_DIST_LIB_HREQUEST) $(DIR_MODULES)/hrequest
 	@echo stage_package_hrequest target complete.
 
 clean: build_clean
@@ -113,7 +115,9 @@ nuke: build_clean distributions_nuke monorepo_nuke
 
 build_clean:
 	@echo build_clean target starting...
-	rm -rfv $(DIR_BUILD)/*
+	rm -fv $(DIR_MODULES)/holism
+	rm -fv $(DIR_MODULES)/hrequest
+	rm -rf $(DIR_BUILD)/*
 	@echo build_clean target complete.
 
 distributions_initialize: distributions_clean
@@ -135,7 +139,7 @@ distributions_clean: distributions_nuke
 
 distributions_nuke:
 	@echo distributions_nuke target starting...
-	rm -rfv $(DIR_DISTS)/*
+	rm -rf $(DIR_DISTS)/*
 	@echo distributions_nuke target complete.
 
 generate_build_info:
@@ -153,7 +157,7 @@ monorepo_reinitialize: monorepo_nuke monorepo_initialize
 
 monorepo_clean:
 	@echo monorepo_clean target starting...
-	rm -rfv $(DIR_MODULES)
+	rm -rf $(DIR_MODULES)
 	@echo monorepo_clean target complete.
 
 monorepo_nuke: monorepo_clean
@@ -164,6 +168,6 @@ monorepo_nuke: monorepo_clean
 build_app_encapsule:
 	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
-
-	cp -rv $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
+	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
 	$(TOOL_WEBPACK) --config $(DIR_PROJECT_BUILD)/webpack.config.encapsule.io
