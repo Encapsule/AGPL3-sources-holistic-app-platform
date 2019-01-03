@@ -2,8 +2,8 @@
 
 const React = require('react');
 
-const holistic = require('holistic');
-const holisticLabel = holistic.__meta.name + " v" + holistic.__meta.version;
+const packageMeta = require('../../package.json');
+const packageName = packageMeta.name + " v" + packageMeta.version;
 
 const httpServerIntegrationsFactory = require('holism').integrations;
 
@@ -28,8 +28,8 @@ module.exports = function(appStateContext_) { // <--- APPLICATION STATE STORE FR
 
     var factoryResponse = httpServerIntegrationsFactory.create({
         filter_id_seed: "WNWp54D7Ru2rWAqFBIxHkw",
-        name: holistic.__meta.name,
-        version: holistic.__meta.version,
+        name: packageMeta.name,
+        version: packageMeta.version,
         description: "Developer-defined integration filter definitions used to abstract HTTP server access to app-specific data & functions.",
         appStateContext: appStateContext_, // <--- APPLICATION STATE STORE FROM THE APP
         platform: {

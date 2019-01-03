@@ -1,10 +1,10 @@
 // developer-input-metadata-page-spec.js
 
-const holistic = require('holistic');
-const holisticPackageLabel = holistic.__meta.name + " v" + holistic.__meta.version;
+const packageMeta = require('../../../package.json');
+const packageName = packageMeta.name + " v" + packageMeta.version;
 
 module.exports = {
-    ____label: holisticPackageLabel + " Page Descriptor",
+    ____label: packageName + " Page Descriptor",
     ____description: "Information provided to the integration filters factory describing a specific page in the website.",
     ____types: "jsObject",
     pageTitle: {

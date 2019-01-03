@@ -1,10 +1,10 @@
 // developer-input-metadata-user-identity-spec.js
 
-const holistic = require('holistic');
-const holisticPackageLabel = holistic.__meta.name + " v" + holistic.__meta.version;
+const packageMeta = require('../../../package.json');
+const packageName = packageMeta.name + " v" + packageMeta.version;
 
 module.exports = {
-    ____label: holisticPackageLabel + " User Identity Descriptor",
+    ____label: packageName + " User Identity Descriptor",
     ____description: "Object containing information asserting the identity of a user.",
     ____types: "jsObject",
     ____defaultValue: {},

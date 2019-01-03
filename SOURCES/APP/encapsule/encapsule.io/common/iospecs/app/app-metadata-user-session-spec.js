@@ -1,8 +1,5 @@
 // app-metadata-user-session-spec.js
 
-const holistic = require('holistic');
-const holisticPackageLabel = holistic.__meta.name + " v" + holistic.__meta.version;
-
 /*
 
 const developerInputUserSessionSpec = require('./developer-input-metadata-user-session-spec');

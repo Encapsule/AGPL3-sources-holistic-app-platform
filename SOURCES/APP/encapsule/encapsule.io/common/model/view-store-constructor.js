@@ -1,7 +1,7 @@
 // view-store-constructor.js
 
-const holistic = require('holistic');
-const holisticPackageLabel = holistic.__meta.name + " v" + holistic.__meta.version;
+const packageMeta = require('../../package.json');
+const packageName = packageMeta.name + " v" + packageMeta.version;
 
 const viewStoreFilterFactory = require('./view-store-filter-factory');
 
@@ -12,7 +12,7 @@ const appMetadataPageSpec = require('../iospecs/app/app-metadata-page-spec');
 
 var factoryResponse = viewStoreFilterFactory.request({
     id: "RtvKGytURjCGnaeD7scVIg",
-    name: holisticPackageLabel + " View Model Declaration",
+    name: packageName + " View Model Declaration",
     description: "Developer defined information about the HTML page views supported by the application.",
     constraints: {
         metadata: {
