@@ -46,7 +46,7 @@ DIR_BUILD_APP=$(DIR_BUILD)/APP
 DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
 DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
 
-default: stage_packages
+default: build_app_encapsule
 	@echo \'default\' Makefile target build complete.
 
 build_packages: monorepo_initialize generate_build_info build_package_holism build_package_hrequest
@@ -94,14 +94,14 @@ stage_package_holism:
 	@echo stage_package_holism target starting...
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
 	cp -r $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
-	ln -s $(DIR_DIST_LIB_HOLISM) $(DIR_MODULES)/holism
+	ln -fs $(DIR_DIST_LIB_HOLISM) $(DIR_MODULES)/holism
 	@echo stage_package_holism complete.
 
 stage_package_hrequest:
 	@echo stage_package_hrequest target starting...
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
 	cp -r $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
-	ln -s $(DIR_DIST_LIB_HREQUEST) $(DIR_MODULES)/hrequest
+	ln -fs $(DIR_DIST_LIB_HREQUEST) $(DIR_MODULES)/hrequest
 	@echo stage_package_hrequest target complete.
 
 clean: build_clean
@@ -165,9 +165,9 @@ monorepo_nuke: monorepo_clean
 	yarn cache clean
 	@echo monorepo_nuke target complete.
 
-build_app_encapsule:
+build_app_encapsule: stage_packages
 	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
 	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
-	$(TOOL_WEBPACK) --config $(DIR_PROJECT_BUILD)/webpack.config.encapsule.io
+	$(TOOL_WEBPACK) --display-modules --config $(DIR_PROJECT_BUILD)/webpack.config.encapsule.io
