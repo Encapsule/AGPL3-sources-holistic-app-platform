@@ -871,11 +871,11 @@ aproba@^1.0.3, aproba@^1.1.1:
 
 arccore@Encapsule/arccore:
   version "0.1.0"
-  resolved "https://codeload.github.com/Encapsule/arccore/tar.gz/8e8ddbb248160b260dae73dc03aa8ddc0413487d"
+  resolved "https://codeload.github.com/Encapsule/arccore/tar.gz/bedfae8922e9cf602d14fcba5972ab1526c95b05"
 
 arctools@Encapsule/arctools:
   version "0.1.0"
-  resolved "https://codeload.github.com/Encapsule/arctools/tar.gz/38722ba2cd97d903f6bbf0bbcaff592ab82f67fe"
+  resolved "https://codeload.github.com/Encapsule/arctools/tar.gz/3c0d1d56e2f346dcf6355ef2ca0ee26290610623"
   dependencies:
     chalk "^1.1.1"
     commander "^2.9.0"
