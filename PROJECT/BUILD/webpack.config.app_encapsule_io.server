@@ -8,7 +8,7 @@ console.log("webpack entry module path: " + entryPath);
 console.log("webpack output path: " + outputPath);
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     plugins: [],
     entry: {
         main: entryPath
