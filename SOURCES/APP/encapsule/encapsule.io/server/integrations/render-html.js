@@ -2,18 +2,11 @@
 
 const fs = require('fs');
 const path = require('path');
-const handlebars = require('handlebars');
+// const handlebars = require('handlebars');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-// Load our generic HTML5 page template document from disk. Do it synchronously
-// as we only do this once when the server process loads.
-var htmlDocumentTemplatePath  = path.join(__dirname, "html-page-template.hbs");
-var htmlDocumentTemplate = fs.readFileSync(htmlDocumentTemplatePath).toString('utf8');
-
-// Compile (i.e. parse the template file and convert it into a JavaScript function
-// that we can call in the context of a HTML render function request below.
-var renderHtmlDocumentTemplate = handlebars.compile(htmlDocumentTemplate);
+const renderHtmlDocumentTemplate = require('./html-page-template.hbs');
 
 // Load the entry point of the React-based HTML content render function compiled w/webpack.
 const reactBodyContentTemplate = require('./render-html-content');

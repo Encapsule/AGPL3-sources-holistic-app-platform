@@ -9,10 +9,21 @@ console.log("webpack output path: " + outputPath);
 
 module.exports = {
     mode: 'production',
-    plugins: [
-    ],
+    plugins: [],
     entry: {
         main: entryPath
+    },
+    module: {
+        rules: [
+            {
+                test: /\.hbs$/,
+                use: [
+                    {
+                        loader: "handlebars-loader"
+                    }
+                ]
+            }
+        ]
     },
     target: "node",
     output: {

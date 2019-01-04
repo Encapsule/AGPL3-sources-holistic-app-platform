@@ -169,6 +169,7 @@ build_app_encapsule: stage_packages
 	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
 	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
+	cp $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
 	$(TOOL_WEBPACK) --display-modules --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
 	$(TOOL_WEBPACK) --display-modules --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
