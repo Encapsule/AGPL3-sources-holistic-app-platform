@@ -1,23 +1,30 @@
-// session-widget.jsx
+// HolisticPageHeader.jsx
 
 const React = require('react');
 
-var SessionWidget = React.createClass({
-    displayName: "HolisticPageHeader",
+export class HolisticPageHeader extends React.Component {
 
-    goHome: function() {
+    constructor(props) {
+        super(props);
+        this.onClickHome = this.onClickHome.bind(this);
+    }
+
+    onClickHomee() {
         window.location = "/";
-    },
+    }
 
-    render: function() {
-        var metadata = this.props.document.metadata;
-        var session = metadata.session;
-        var theme = metadata.site.theme;
-        var key = 0;
-        function makeKey() {
+    render() {
+        const metadata = this.props.document.metadata;
+        const session = metadata.session;
+        const theme = metadata.site.theme;
+
+        let key = 0;
+
+        makeKey => {
             return "SessionWidget" + key++;
-        }
-        var content = [];
+        };
+        
+        let content = [];
 
         if (session.identity.username_sha256 === 'anonymous') {
             content.push(<a href='/login' key={makeKey()}><strong>Login</strong></a>);
@@ -27,18 +34,20 @@ var SessionWidget = React.createClass({
             content.push(<a href='/logout' key={makeKey()}><strong>Logout</strong></a>);
         }
 
-        return (<div style={theme.sessionWidgetBlock}>
+        return (
+                <div style={theme.sessionWidgetBlock}>
                 <div style={theme.sessionWidgetTitleBlock}>
-                <img src="/images/blue-burst-encapsule.io-icon-32x32.png" style={theme.sessionWidgetTitleOrgIcon} onClick={this.goHome} title={metadata.site.name + " Home..."} />
+                <img src="/images/blue-burst-encapsule.io-icon-32x32.png" style={theme.sessionWidgetTitleOrgIcon} onClick={this.onClickHome} title={metadata.site.name + " Home..."} />
                 {' '}
                 <span style={theme.sessionWidgetTitle}>{metadata.page.pageTitle}</span>
                 {' '}
                 </div>
-                <div style={theme.sessionWidgetButtonsBlock}>
-                {content}
+                <div style={theme.sessionWidgetButtonsBlock}>{content}</div>
                 </div>
-                </div>);
-    }
-});
 
-module.exports = SessionWidget;
+        ); // return
+
+    } // end render method
+
+} // end class
+
