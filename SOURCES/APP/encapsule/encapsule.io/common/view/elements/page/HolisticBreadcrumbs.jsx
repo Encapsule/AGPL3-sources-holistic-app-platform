@@ -5,9 +5,13 @@ const ARCCORE = require('arccore');
 const React = require('react');
 const HorizontalMenuItem = require('./HolisticHorizontalMenuItem.jsx');
 
-var Breadcrumbs = React.createClass({
-    displayName: "HolisticBreadcrumbs",
-    render: function() {
+export class Breadcrumbs extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
         try {
             const metadata = this.props.document.metadata;
 
@@ -55,7 +59,7 @@ var Breadcrumbs = React.createClass({
         } catch (exception_) {
             return (<div>Fatal exception in {this.className}: {exception_.toString()}</div>);
         }
-    }
-});
 
-module.exports = Breadcrumbs;
+    } // end render method
+
+} // end class Breadcrumbs

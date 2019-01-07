@@ -1,28 +1,19 @@
 // copyright.jsx
 
+/// UNDER CONSTRUCTION
+
+
+
 const React = require('react');
 
-var Copyright = React.createClass({
-    displayName: "Copyright",
+export class Copyright extends React.Component {
 
-    componentDidMount: function() {
-        var self = this;
-        this.clockInterval = setInterval(function() {
-            var clock = new Date().toString();
-            self.setState({ clock: clock });
-        }, 500);
-    },
+    constructor(props_) {
+        super(props_);
+    }
 
-    componentWillUnmount: function() {
-        clearInterval(this.clockInterval);
-    },
+    render() {
 
-    getInitialState: function() {
-        var clock = new Date().toString();
-        return ({ clock: clock });
-    },
-
-    render: function() {
         try {
             const metadata = this.props.document.metadata;
             const theme = metadata.site.theme;
@@ -63,7 +54,33 @@ var Copyright = React.createClass({
         } catch (exception_) {
             return (<div>Fatal exception in {this.className}: {exception_.toString()}</div>);
         }
-    }
+
+    } // end render method
+
+
+} // end class Copyright
+
+
+var Copyright = React.createClass({
+    displayName: "Copyright",
+
+    componentDidMount: function() {
+        var self = this;
+        this.clockInterval = setInterval(function() {
+            var clock = new Date().toString();
+            self.setState({ clock: clock });
+        }, 500);
+    },
+
+    componentWillUnmount: function() {
+        clearInterval(this.clockInterval);
+    },
+
+    getInitialState: function() {
+        var clock = new Date().toString();
+        return ({ clock: clock });
+    },
+
 });
 
 module.exports = Copyright;

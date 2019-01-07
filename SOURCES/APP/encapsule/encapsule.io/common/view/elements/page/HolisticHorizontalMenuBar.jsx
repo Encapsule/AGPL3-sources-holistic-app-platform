@@ -17,9 +17,9 @@ const color = require('color');
 // if selected route is a descendent and it's a child -> children with select
 // if selected route is a descendent but not a child -> children with active
 
-module.exports = React.createClass({
-    displayName: 'HolisticHorizontalMenuBar',
-    render: function() {
+export class HorizontalMenuBar extends React.Component {
+
+    render() {
 
         try {
 
@@ -57,17 +57,17 @@ module.exports = React.createClass({
             };
 
             /*
-            if (parentViewProperties) {
-                childMenuItems.push(<span key={makeKey()} style={depthIndicatorStyles}>{parentViewProperties.ts.d}{': '}</span>);
-                childMenuItems.push(<HorizontalMenuItem
-                                    {...this.props}
-                                    targetViewURI={parentViewURI}
-                                    selectedViewURI={selectedViewURI}
-                                    key={makeKey()}
-                                    />);
+              if (parentViewProperties) {
+              childMenuItems.push(<span key={makeKey()} style={depthIndicatorStyles}>{parentViewProperties.ts.d}{': '}</span>);
+              childMenuItems.push(<HorizontalMenuItem
+              {...this.props}
+              targetViewURI={parentViewURI}
+              selectedViewURI={selectedViewURI}
+              key={makeKey()}
+              />);
 
-                childMenuItems.push(<span key={makeKey()} style={depthIndicatorStyles}>{' / '}{parentViewProperties.ts.d + 1}{': '}</span>);
-            }
+              childMenuItems.push(<span key={makeKey()} style={depthIndicatorStyles}>{' / '}{parentViewProperties.ts.d + 1}{': '}</span>);
+              }
             */
 
             for (var childViewURI of childrenViewURIs) {
@@ -110,5 +110,8 @@ module.exports = React.createClass({
         } catch (exception_) {
             return (<div>Fatal exception in {this.className}: {exception_.toString()}</div>);
         }
-    }
-});
+
+    } // end render method
+
+}  // end class HorizontalMenuBar
+

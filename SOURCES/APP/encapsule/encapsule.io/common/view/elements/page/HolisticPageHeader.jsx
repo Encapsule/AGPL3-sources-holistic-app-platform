@@ -9,7 +9,7 @@ export class HolisticPageHeader extends React.Component {
         this.onClickHome = this.onClickHome.bind(this);
     }
 
-    onClickHomee() {
+    onClickHome() {
         window.location = "/";
     }
 
@@ -20,10 +20,10 @@ export class HolisticPageHeader extends React.Component {
 
         let key = 0;
 
-        makeKey => {
+        const makeKey = () => {
             return "SessionWidget" + key++;
         };
-        
+
         let content = [];
 
         if (session.identity.username_sha256 === 'anonymous') {

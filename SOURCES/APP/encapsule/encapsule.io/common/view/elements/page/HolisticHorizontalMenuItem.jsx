@@ -20,37 +20,44 @@ const arccore = require('arccore');
 
 
 // TODO: Move this awesome function, round, into arccore.util
-function round(value, decimals) {
+const round = (value, decimals) => {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
-}
+};
 
-module.exports = React.createClass({
-    displayName: "HorizontalMenuItem",
+export class HorizontalMenuItem extends React.Component {
 
-    onMouseEnter: function() {
+    constructor(props) {
+        super(props);
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+        this.onClick = this.onClick.bind(this);
+        this.setMouseMode = this.setMouseMode.bind(this);
+    }
+
+    onMouseEnter() {
         // console.log("setting mouse over state");
         this.setMouseMode('over');
-    },
+    }
 
-    onMouseLeave: function() {
+    onMouseLeave() {
         // console.log("setting mouse out state");
         this.setMouseMode('out');
-    },
+    }
 
-    onClick: function(targetUrl_) {
+    onClick(targetUrl_) {
         // console.log("setting mouse clicked state");
         this.setMouseMode('clicked');
         window.location = targetUrl_;
-    },
+    }
 
-    setMouseMode: function(mouseMode_) {
+    setMouseMode(mouseMode_) {
         this.props.appStateContext.viewActions.updateMenuState({
             mouseMode: mouseMode_,
             mouseTargetURI: this.props.targetViewURI
         });
-    },
+    }
 
-    render: function() {
+    render() {
 
         try {
 
@@ -303,7 +310,6 @@ module.exports = React.createClass({
             return (<div>Fatal exception in {this.className}: {exception_.toString()}</div>);
         }
 
-    }
-});
+    } // end render method
 
-
+} // end class HorizontalMenuItem
