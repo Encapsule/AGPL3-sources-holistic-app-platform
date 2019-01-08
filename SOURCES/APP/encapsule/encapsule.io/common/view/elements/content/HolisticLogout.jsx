@@ -3,15 +3,19 @@
 const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 
-module.exports = React.createClass({
-    displayName: "Logout",
+export class HolisticLogout extends React.Component {
 
-    onClickLogout: function(event_) {
+    constructor(props_) {
+        super(props_);
+        this.onClickLogout = this.onClickLogout.bind(this);
+    }
+
+    onClickLogout(event_) {
         console.log("Clicked the logout button!");
         this.props.appStateContext.viewActions.logout()
-    },
+    }
 
-    render: function() {
+    render() {
         return (<span>
                 <HolisticIconPageHeader svg={this.props.document.metadata.page.icons.svg} title={this.props.document.metadata.site.name + " Logout"}
                 subtitle={"Click the logout button if you're sure you want to log out of " + this.props.document.metadata.site.name + "."}/>
@@ -20,6 +24,9 @@ module.exports = React.createClass({
                 </p>
                 </span>
                );
-    }
-    }
-);
+
+    } // end render method
+
+} // end class HolisticLogout
+
+

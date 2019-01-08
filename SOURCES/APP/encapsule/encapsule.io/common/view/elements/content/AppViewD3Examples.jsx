@@ -5,30 +5,30 @@ const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const d3 = require('d3');
 
+export class AppViewD3Examples extends React.Component {
 
-module.exports = React.createClass({
+    constructor(props_) {
+        super(props_);
+        this.state = { d3width: 1024, d3height: 500 };
+        this.onWindowResize = this.onWindowResize.bind(this);
+        this.createD3 = this.createD3.bind(this);
+        this.updateD3 = this.updateD3.bind(this);
+        // ?? this.componentDidMount = this.componentDidMount.bind(this);
+        // ?? this.componentWillUnmount = this.componentWillUnmount.bind(this);
+        // ?? this.componentShouldUpdate = this.componentShouldUpdate.bind(this);
+        // ?? this.componentDidUpdate = this.componentDidUpdate.bind(this);
+    } // end constructor
 
-    displayName: "AppViewD3Examples",
-
-    getInitialState: function() {
-        console.log('getInitialState');
-        var state = {
-            d3width: 1024,
-            d3height: 500
-        };
-        return state;
-    },
-
-    onWindowResize: function() {
+    onWindowResize() { 
         // this.setState({ d3width: Math.floor(window.innerWidth/2), d3height: Math.floor(window.innerHeight/2) });
         var state = {
             d3width: this.refs.d3PageContainer.clientWidth,
             d3height: 500 // this.refs.d3PageContainer.clientHeight
         };
         this.setState(state);
-    },
+    }
 
-    createD3: function() {
+    createD3() {
 
         console.log("Executing createD3 function...");
 
@@ -109,27 +109,27 @@ module.exports = React.createClass({
             attr("stroke", "blue").attr("fill", "none").attr("stroke-width", "1");
 
 
-    },
+    }
 
-    updateD3: function() {
+    updateD3() {
         console.log("updateD3 called...");
         this.createD3();
-    },
+    }
 
-    componentDidMount: function() {
+    componentDidMount() {
         // Cache the update counter value from the document data passed into the HTML render subsystem.
         this.update = this.props.document.data.appView_D3Examples.update;
         window.addEventListener('resize', this.onWindowResize, false);
         this.onWindowResize();
         this.createD3();
-    },
+    }
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         console.log("D3 examples componentDidUnmount");
         window.removeEventListener('resize', this.onWindowResize, false);
-    },
+    }
 
-    shouldComponentUpdate: function(nextProps_, nextState_) {
+    shouldComponentUpdate(nextProps_, nextState_) {
         if (
             (this.update !== nextProps_.document.data.appView_D3Examples.update)
             ||
@@ -140,15 +140,15 @@ module.exports = React.createClass({
             return true;
         } else {
             return false;
-}
-    },
+        }
+    }
 
-    componentDidUpdate: function() {
+    componentDidUpdate() {
         console.log("D3 examples componentDidUpdate");
         this.updateD3();
-    },
+    }
 
-    render: function() {
+    render() {
 
         var thisPageMetadata = this.props.document.metadata.page;
         var thisPageData = this.props.document.data.appView_D3Examples;
@@ -171,6 +171,8 @@ module.exports = React.createClass({
 
         return (<div id="idAppViewD3Examples" ref="d3PageContainer">{content}</div>);
 
-    }
-});
+    } // end render method
+    
+} // end class AppViewD3Examples
+
 

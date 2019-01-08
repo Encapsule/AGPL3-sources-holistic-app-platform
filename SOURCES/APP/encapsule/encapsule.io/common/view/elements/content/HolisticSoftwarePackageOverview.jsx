@@ -5,9 +5,10 @@ const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const HolisticStaticCollectionView = require('./HolisticStaticCollectionView.jsx');
 const Markdown = require('react-remarkable');
 
-module.exports = React.createClass({
-    displayName: "HolisticSoftwarePackageDatasheet",
-    render: function() {
+export class HolisticSoftwarePackageDatasheet extends React.Component {
+
+    render() {
+        
         try {
             var index = 0;
             function makeKey() { return ("SoftwarePackageDatasheet" + index++); }
@@ -58,5 +59,8 @@ module.exports = React.createClass({
         } catch (exception_) {
             return (<div>HolisticSoftwarePackageDatasheet exception: {exception_.toString()}</div>);
         }
-    }
-});
+
+    } // end render method
+
+} // end class HolisticSoftwarePackageOverview
+

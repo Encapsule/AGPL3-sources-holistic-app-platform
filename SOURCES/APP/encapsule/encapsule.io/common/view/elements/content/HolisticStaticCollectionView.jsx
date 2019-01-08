@@ -10,11 +10,9 @@ const Markdown = require('react-remarkable');
 // set this.props.noheader = true
 
 
-module.exports = React.createClass({
+export class HolisticStaticCollectionView extends React.Component {
 
-    displayName: "HolisticViewStoreCollection",
-
-    render: function() {
+    render() {
 
         var index = 0;
         function makeKey() { return ("ViewStoreCollection" + index++); }
@@ -88,6 +86,6 @@ module.exports = React.createClass({
 
         return (<div>{content}</div>);
 
-    }
-
-});
+    } // end render method
+    
+} // end class HolisticStaticCollectionView

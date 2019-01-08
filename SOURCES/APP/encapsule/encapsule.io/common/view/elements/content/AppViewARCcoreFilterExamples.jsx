@@ -35,14 +35,12 @@ const bodyFunctions = [
 
 ];
 
-module.exports = React.createClass({
-    displayName: "AppViewARCcoreFilterExamples",
+export class AppViewARCcoreFilterExamples extends React.Component {
 
-    getInitialState: function() {
-
+    constructor(props_) {
+        super(props_);
         const thisPageData = this.props.document.data.appView_ARCcoreFilterExamples;
-
-        var initialState = {
+        this.state = {
             operationID: 'demo',
             operationName: 'Demo Filter',
             operationDescription: 'A simple interactive filter object demo.',
@@ -68,11 +66,19 @@ module.exports = React.createClass({
             requestDataError: null
         };
 
-        return initialState;
+        this.reevaluateInputs = this.reevaluateInputs.bind(this);
+        this.onTextInputChange = this.onTextInputChange.bind(this);
+        this.onSelectInputFilterSpec = this.onSelectInputFilterSpec.bind(this);
+        this.onSelectBodyFunction = this.onSelectBodyFunction.bind(this);
+        this.onSelectOutputFilterSpec = this.onSelectOutputFilterSpec.bind(this);
+        this.onSelectInputData = this.onSelectInputData.bind(this);
+        // ?lifecycle method bind? this.componentDidMount = this.onComponentDidMount.bind(this);
+        this.createOperationID = this.createOperationID.bind(this);
 
-    },
 
-    reevaluateInputs: function() {
+    } // end constructor
+
+    reevaluateInputs() {
         var state = this.state;
 
         var filterFactoryInput = {
@@ -125,9 +131,9 @@ module.exports = React.createClass({
         state.factoryResponse = JSON.stringify(state.factoryResponse, undefined, 4);
         state.filterResponse = JSON.stringify(state.filterResponse, undefined, 4);
         this.setState(state);
-    },
+    }
 
-    onTextInputChange: function(event_) {
+    onTextInputChange(event_) {
 
         console.log("event.target.name='" + event_.target.name + "'");
         console.log("event.target.value'" + event_.target.value + "'");
@@ -136,9 +142,9 @@ module.exports = React.createClass({
         state[event_.target.name] = event_.target.value;
         this.reevaluateInputs();
 
-    },
+    }
 
-    onSelectInputFilterSpec: function(event_) {
+    onSelectInputFilterSpec(event_) {
         const thisPageData = this.props.document.data.appView_ARCcoreFilterExamples;
         var index = parseInt(event_.target.value);
         var state = this.state;
@@ -148,9 +154,9 @@ module.exports = React.createClass({
         state.inputFilterSpec = JSON.stringify(thisPageData.inputFilterSpecs[index].data, undefined, 4);
         this.setState(state);
         this.reevaluateInputs();
-    },
+    }
 
-    onSelectBodyFunction: function(event_) {
+    onSelectBodyFunction(event_) {
         var index = parseInt(event_.target.value);
         var state = this.state;
         state.bodyFunctionSelect = index;
@@ -159,9 +165,9 @@ module.exports = React.createClass({
         state.bodyFunction = bodyFunctions[index].bodyFunction;
         this.setState(state);
         this.reevaluateInputs();
-    },
+    }
 
-    onSelectOutputFilterSpec: function(event_) {
+    onSelectOutputFilterSpec(event_) {
         const thisPageData = this.props.document.data.appView_ARCcoreFilterExamples;
         var index = parseInt(event_.target.value);
         var state = this.state;
@@ -171,9 +177,9 @@ module.exports = React.createClass({
         state.outputFilterSpec = JSON.stringify(thisPageData.outputFilterSpecs[index].data, undefined, 4);
         this.setState(state);
         this.reevaluateInputs();
-    },
+    }
 
-    onSelectInputData: function(event_) {
+    onSelectInputData(event_) {
         const thisPageData = this.props.document.data.appView_ARCcoreFilterExamples;
         var index = parseInt(event_.target.value);
         var state = this.state;
@@ -183,20 +189,20 @@ module.exports = React.createClass({
         state.requestData = JSON.stringify(thisPageData.inputRequestData[index].data, undefined, 4);
         this.setState(state);
         this.reevaluateInputs();
-    },
+    }
 
-    componentDidMount: function() {
+    componentDidMount() {
         this.reevaluateInputs();
-    },
+    }
 
-    createOperationID: function() {
+    createOperationID() {
         var state = this.state;
         state.operationID = arccore.identifier.irut.fromEther();
         this.setState(state);
         this.reevaluateInputs();
-    },
+    }
 
-    render: function() {
+    render() {
 
         const thisPageData = this.props.document.data.appView_ARCcoreFilterExamples;
         const thisPageMetadata = this.props.document.metadata.page;
@@ -304,6 +310,7 @@ module.exports = React.createClass({
                 {content}
                 </div>)
 
-    }
+    } // end render method
 
-});
+} // end class AppViewARCcoreFilterExamples
+

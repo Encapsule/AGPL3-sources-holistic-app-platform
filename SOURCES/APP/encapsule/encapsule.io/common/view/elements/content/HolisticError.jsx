@@ -3,21 +3,19 @@
 const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 
-module.exports = React.createClass({
-    displayName: "HolisticError",
+export class HolisticError extends React.Component {
 
-    getInitialState: function() {
-        return ({
-            extended: false
-        });
-    },
+    constructor(props_) {
+        super(props_);
+        this.state = { extended: false };
+        this.toggleDebugInfo = this.toggleDebugInfo.bind(this);
+    }
 
-    toggleDebugInfo: function() {
-        var state = this.state;
-        this.setState({ extended: !state.extended });
-    },
+    toggleDebugInfo() {
+        this.setState({ extended: !this.state.extended });
+    }
 
-    render: function() {
+    render() {
         var errorMessage = this.props.document.data["ESCW71rwTz24meWiZpJb4A"];
 
         var routeMethodNameSplit = errorMessage.request.route_method_name.split(":");
@@ -53,5 +51,7 @@ module.exports = React.createClass({
                 {debugInfo}
                 </div>
                );
-    }
-});
+
+    } // end method render
+
+} // end class HolisticError

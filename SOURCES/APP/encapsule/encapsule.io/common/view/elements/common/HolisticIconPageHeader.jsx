@@ -42,13 +42,12 @@ const subtitleStyles = {
 };
 
 
+export class IconPageHeader extends React.Component {
 
-module.exports = React.createClass({
-    displayName: "HolisticIconPageHeader",
     // this.props.svg -> site-relative SVG icon path
     // this.props.title -> page title to display next to icon (typically page metadata contentTitle)
     // this.props.substitle -> page subtitle to display beneath the title (typically page metadata contentSubtitle)
-    render: function() {
+    render() {
         try {
             return (<div style={container0Styles}>
                     <div style={container1Styles}>
@@ -62,4 +61,5 @@ module.exports = React.createClass({
             return (<div>HolisticIconPageHeader exception: {exception_.toString()}</div>);
         }
     }
-});
+}
+

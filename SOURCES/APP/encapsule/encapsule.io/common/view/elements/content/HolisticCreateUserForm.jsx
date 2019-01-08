@@ -24,12 +24,11 @@ const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const clientUserProfileSpec = require('../../../../common/iospecs/app/client-user-account-create-request-spec');
 
-module.exports = React.createClass({
+export class HolisticNewAccountForm extends React.Component {
 
-    displayName: "HolisticNewAccountForm",
-
-    getInitialState: function() {
-        var initialState = {};
+    constructor(props_) {
+        super(props_);
+        let initialState = {};
         for (var key in clientUserProfileSpec) {
             // Skip filter specification directives.
             if (key.startsWith('____')) {
@@ -39,10 +38,13 @@ module.exports = React.createClass({
             var nsDescriptor = clientUserProfileSpec[key];
             initialState[key] = nsDescriptor.____defaultValue; // often undefined but React requires explicit unset of state properties.
         }
-        return (initialState);
-    },
+        this.state = initialState;
+        this.onTextInputUpdate = this.onTextInputUpdate.bind(this);
+        this.onFormReset = this.onFormReset.bind(this);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
+    } // end constructor
 
-    onTextInputUpdate: function(event_) {
+    onTextInputUpdate(event_) {
         var state = this.state;
         var propertyName = event_.target.name;
         var propertyValue = event_.target.value;
@@ -51,21 +53,21 @@ module.exports = React.createClass({
         }
         state[propertyName] = propertyValue;
         this.setState(state);
-    },
+    }
 
-    onFormReset: function(event_) {
+    onFormReset(event_) {
         console.log("Form contents reset to default values.");
         this.setState(this.getInitialState());
         event_.preventDefault();
-    },
+    }
 
-    onFormSubmit: function(event_) {
+    onFormSubmit(event_) {
         console.log("Form contents submit...");
         this.props.appStateContext.viewActions.userAccountCreate(this.state);
         event_.preventDefault();
-    },
+    }
 
-    render: function() {
+    render() {
 
         var index = 0;
         function makeKey() { return ("HolisiticNewAccountForm" + index++); }
@@ -126,6 +128,7 @@ module.exports = React.createClass({
                 </div>
                );
 
-    }
+    } // end render method
+    
+} // end class HolisticNewAccountForm
 
-});

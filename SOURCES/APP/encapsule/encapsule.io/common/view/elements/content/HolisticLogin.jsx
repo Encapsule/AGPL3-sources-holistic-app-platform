@@ -10,28 +10,28 @@ const arccore = require('arccore');
 const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 
-module.exports = React.createClass({
-    displayName: "HolisticLogin",
+export class HolisticLogin extends React.Component {
 
-    getInitialState: function() {
-        return ({
-
+    constructor(props_) {
+        super(props_);
+        this.state = {
             username: "",
             username_color: "#FCFCFC",
             username_colors: [],
             username_color_seed: "iouRDX-MRLGeka2jGGwhog",
-
             password: "",
             password_color: "#FCFCFC",
             password_colors: [],
             password_color_seed: "bBbEUkg6Td6Ryqh5ea2RJw",
-
             password_show: false
+        };
+        this.onTextInputChange = this.onTextInputChange.bind(this);
+        this.onClickReseed = this.onClickReseed.bind(this);
+        this.onLoginFormClear = this.onLoginFormClear.bind(this);
+        this.onLoginFormSubmit = this.onLoginFormSubmit.bind(this);
+    } // end constructor
 
-        });
-    },
-
-    onTextInputChange: function(event_) {
+    onTextInputChange(event_) {
         var state = this.state;
         var propertyName = event_.target.name;
         var propertyValue = event_.target.value;
@@ -65,24 +65,23 @@ module.exports = React.createClass({
             state[propertyName + '_colors'] = [];
         }
         this.setState(state);
-    },
+    } // end method onTextInputChange
 
-    onClickReseed: function(inputName_) {
+    onClickReseed(inputName_) {
         var state = this.state;
         state[inputName_ + "_color_seed"] = arccore.identifier.irut.fromEther();
         this.setState(state);
         this.onTextInputChange({ target: { name: inputName_, value: state[inputName_] }});
-    },
+    }
 
-    onLoginFormClear: function(event_) {
+    onLoginFormClear(event_) {
         this.setState(this.getInitialState());
         event_.preventDefault();
-    },
+    }
 
-    onLoginFormSubmit: function(event_) {
+    onLoginFormSubmit(event_) {
         var username_sha256 = crypto.createHash('sha256').update(this.state.username).digest("base64").replace(/\+/g, "-").replace(/\//g, "_");
         var password_sha256 = crypto.createHash('sha256').update(this.state.password).digest("base64").replace(/\+/g, "-").replace(/\//g, "_");
-
 
         this.props.appStateContext.viewActions.login({
             username_sha256: username_sha256,
@@ -102,9 +101,9 @@ module.exports = React.createClass({
         }, 100);
 
         event_.preventDefault();
-    },
+    }
 
-    render: function() {
+    render() {
 
         var self = this;
 
@@ -179,6 +178,8 @@ module.exports = React.createClass({
 
                </div>
               );
-    }
-});
+
+    } // end render method
+
+} // end class HolisticLogin
 

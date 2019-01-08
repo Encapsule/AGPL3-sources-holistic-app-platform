@@ -8,10 +8,9 @@ const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const color = require('color');
 
-var Sitemap = React.createClass({
-    displayName: "HolisticSitemap",
+export class HolisticSitemap extends React.Component {
 
-    render: function() {
+    render() {
         try {
             var self = this;
             var viewStore = this.props.appStateContext.viewStore;
@@ -82,9 +81,7 @@ var Sitemap = React.createClass({
         } catch (exception_) {
             return (<div>Fatal exception in {this.className}: + {exception_.toString()}</div>);
         }
-    }
 
-});
+    } // end render method
 
-module.exports = Sitemap;
-
+} // end class HolisticSitemap

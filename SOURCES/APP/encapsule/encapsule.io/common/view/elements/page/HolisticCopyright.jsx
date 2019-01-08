@@ -1,8 +1,4 @@
-// copyright.jsx
-
-/// UNDER CONSTRUCTION
-
-
+// HolisticCopyright.jsx
 
 const React = require('react');
 
@@ -10,6 +6,26 @@ export class Copyright extends React.Component {
 
     constructor(props_) {
         super(props_);
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.componentWillMount = this.componentWillMount.bind(this);
+        this.getInitialState = this.getInitialState.bind(this);
+    }
+
+    componentDidMount() {
+        var self = this;
+        this.clockInterval = setInterval(function() {
+            var clock = new Date().toString();
+            self.setState({ clock: clock });
+        }, 500);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.clockInterval);
+    }
+
+    getInitialState() {
+        var clock = new Date().toString();
+        return ({ clock: clock });
     }
 
     render() {
@@ -57,31 +73,4 @@ export class Copyright extends React.Component {
 
     } // end render method
 
-
 } // end class Copyright
-
-
-var Copyright = React.createClass({
-    displayName: "Copyright",
-
-    componentDidMount: function() {
-        var self = this;
-        this.clockInterval = setInterval(function() {
-            var clock = new Date().toString();
-            self.setState({ clock: clock });
-        }, 500);
-    },
-
-    componentWillUnmount: function() {
-        clearInterval(this.clockInterval);
-    },
-
-    getInitialState: function() {
-        var clock = new Date().toString();
-        return ({ clock: clock });
-    },
-
-});
-
-module.exports = Copyright;
-

@@ -3,19 +3,24 @@
 
 const React = require('react');
 
-var SnapBug = React.createClass({
-    displayName: "HolisticPoweredByFooter",
+export class PoweredByFooter extends React.Component {
 
-    getInitialState: function() {
+    constructor(props_) {
+        super(props_);
+        this.getInitialState = this.getInitialState.bind(this);
+        this.onToggleBuildInfo = this.onToggleBuildInfo.bind(this);
+    }
+
+    getInitialState() {
         return ({ expanded: false });
-    },
+    }
 
-    onToggleBuildInfo: function() {
+    onToggleBuildInfo() {
         var state = this.state;
         this.setState({ expanded: !state.expanded });
-    },
+    }
 
-    render: function() {
+    render() {
         try {
             const metadata = this.props.document.metadata;
             const theme = metadata.site.theme;
@@ -68,8 +73,7 @@ var SnapBug = React.createClass({
         } catch (exception_) {
             return (<div>Fatal exception in {this.className}: {exception_.toString()}</div>);
         }
-    }
-});
 
-module.exports = SnapBug;
+    } // end render method
 
+}

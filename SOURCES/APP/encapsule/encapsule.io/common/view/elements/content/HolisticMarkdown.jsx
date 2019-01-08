@@ -10,9 +10,10 @@ const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const HolisticStaticCollectionView = require('./HolisticStaticCollectionView.jsx');
 const Markdown = require('react-remarkable');
 
-module.exports = React.createClass({
-    displayName: "MarkdownContent",
-    render: function() {
+export class HolisticMarkdownContent extends React.Component {
+
+    render() {
+        
         try {
             var pageMetadata = this.props.document.metadata.page;
             var markdownSource = this.props.document.data.holisticView_Markdown.markdownSource.join("\n");
@@ -35,5 +36,7 @@ module.exports = React.createClass({
         } catch (exception_) {
             return (<div>HolisticMarkdown exception: {exception_.toString()}</div>);
         }
-    }
-});
+
+    } // end render method
+
+} // end class HolisticMarkdownContent
