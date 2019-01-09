@@ -30,5 +30,8 @@ module.exports = {
         path: outputPath,
         filename: 'server-app-bundle.js',
         libraryTarget: "commonjs2"
+    },
+    optimization: {
+        minimize: false
     }
 };

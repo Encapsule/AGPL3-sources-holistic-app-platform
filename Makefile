@@ -23,6 +23,7 @@ TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
 
 TOOL_BABEL=$(DIR_TOOLBIN)/babel
 TOOL_WEBPACK=$(DIR_TOOLBIN)/webpack-cli
+TOOL_WEBPACK_FLAGS=--display-modules --verbose --debug --progress --colors --devtool source-map --output-pathinfo
 
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
@@ -172,5 +173,5 @@ build_app_encapsule: stage_packages
 	cp $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
 	# https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
-	$(TOOL_WEBPACK) --display-modules -d --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
-	$(TOOL_WEBPACK) --display-modules -d --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
