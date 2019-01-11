@@ -1,6 +1,5 @@
 // server-memory-files.js
 
-const moduleDirectory = __dirname;
 const path = require('path');
 
 // Memory files are specified using a local filesystem path that's relative to the `config`
@@ -11,7 +10,7 @@ const memoryFiles = {
     // ======================================================================
     // JAVASCRIPT
     // ======================================================================
-    '../client/javascript/client-app-bundle.js': {
+    './client-app-bundle.js': {
 	request_bindings: { method: 'GET', uris: [ '/javascript/client-app-bundle.js' ]	},
 	response_properties: { contentEncoding: 'utf8', contentType: 'application/javascript' }
     },
@@ -330,6 +329,6 @@ const memoryFiles = {
 
 var result = {};
 for (var filepath_ in memoryFiles) {
-    result[path.join(moduleDirectory, filepath_)] = memoryFiles[filepath_];
+    result[path.resolve(path.join(__dirname, filepath_))] = memoryFiles[filepath_];
 }
 module.exports = result;

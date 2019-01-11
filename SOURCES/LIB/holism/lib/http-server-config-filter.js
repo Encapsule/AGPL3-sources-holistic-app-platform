@@ -46,7 +46,7 @@ var factoryResponse = arccore.filter.create({
                 errors.unshift("Unable to instantiate digraph model.");
                 break;
             }
-            var routingModel = response.result;
+            var routingModel = factoryResponse.result;
 
             var memoryFileBytesTotal = 0;
 

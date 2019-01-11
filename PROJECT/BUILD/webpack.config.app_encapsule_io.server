@@ -8,6 +8,8 @@ console.log("webpack entry module path: " + entryPath);
 console.log("webpack output path: " + outputPath);
 
 module.exports = {
+    target: "node",
+    node: { __dirname: false },
     mode: 'development',
     plugins: [],
     entry: {
@@ -25,7 +27,6 @@ module.exports = {
             }
         ]
     },
-    target: "node",
     output: {
         path: outputPath,
         filename: 'server-app-bundle.js',

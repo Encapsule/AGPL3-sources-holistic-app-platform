@@ -1,8 +1,8 @@
 // Encapsule/polytely test application server main.
 
 const path = require('path');
-const contentDirectory = './content';
 
+const contentDirectory = path.resolve(path.join(__dirname, 'content'));
 
 // ----------------------------------------------------------------------
 const process = require('process');
