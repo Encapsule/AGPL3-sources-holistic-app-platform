@@ -8,7 +8,7 @@ const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const color = require('color');
 
-export class HolisticSitemap extends React.Component {
+module.exports = class HolisticSitemap extends React.Component {
 
     render() {
         try {

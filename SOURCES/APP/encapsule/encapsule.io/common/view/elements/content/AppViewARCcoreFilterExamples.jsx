@@ -35,7 +35,7 @@ const bodyFunctions = [
 
 ];
 
-export class AppViewARCcoreFilterExamples extends React.Component {
+module.exports = class AppViewARCcoreFilterExamples extends React.Component {
 
     constructor(props_) {
         super(props_);

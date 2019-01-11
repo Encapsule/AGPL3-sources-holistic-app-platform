@@ -24,7 +24,7 @@ const round = (value, decimals) => {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 };
 
-export class HorizontalMenuItem extends React.Component {
+module.exports = class HorizontalMenuItem extends React.Component {
 
     constructor(props) {
         super(props);

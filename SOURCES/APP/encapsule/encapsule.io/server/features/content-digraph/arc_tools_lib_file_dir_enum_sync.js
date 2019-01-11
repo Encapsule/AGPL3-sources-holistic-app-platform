@@ -60,7 +60,7 @@ var response = ARC_CORE.filter.create({
             } else {
                 result.directory = process.cwd();
             }
-            directoryQueue = [ result.directory ];
+            var directoryQueue = [ result.directory ];
             while (directoryQueue.length) {
                 var directory = directoryQueue.shift()
                 var filenames = FS.readdirSync(directory) || [];

@@ -1,24 +1,25 @@
 // externallink.jsx
 
 const React = require('react');
-//const ReactBootstrap = require('react-bootstrap');
-//const Glyphicon = ReactBootstrap.Glyphicon;
 
-var ExternalLink = React.createClass({
-    displayName: "ExternalLink",
-    getInitialState: function() {
-        return {
-            hover: false,
-            loading: false
-        };
-    },
-    toggleHover: function() {
+module.exports = class HolisticExternalLink extends React.component {
+
+    constructor(props_) {
+        super(props_);
+        this.state = { hover: false, loading: false };
+        this.toggleHover = this.toggleHover.bind(this);
+        this.clickLink = this.clickLink.bind(this);
+    }
+
+    toggleHover() {
         this.setState({ hover: !this.state.hover});
-    },
-    clickLink: function() {
+    }
+    
+    clickLink() {
         this.setState({ loading: true });
-    },
-    render: function() {
+    }
+
+    render() {
         try {
             const title = this.props.title;
             const targetUrl = this.props.target;
@@ -30,6 +31,5 @@ var ExternalLink = React.createClass({
             return (<div>Fatal exception in {this.className}: {exception_.toString()}</div>);
         }
     }
-});
 
-module.exports = ExternalLink;
+} // end class HolisticExternalLink

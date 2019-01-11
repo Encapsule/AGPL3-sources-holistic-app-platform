@@ -138,7 +138,7 @@ var factoryResponse = arccore.filter.create({
                         if (targetDescriptor.projection && targetDescriptor.projection.page) {
                             var edgeDescriptor = gcb_.g.getEdgeProperty(gcb_.e);
                             targetDescriptor.content.metadata.rank = edgeDescriptor.rank;
-                            targetURI = vertexPathnames[gcb_.e.v];
+                            var targetURI = vertexPathnames[gcb_.e.v];
                             result.pageMenuRegistrations[targetURI] = targetDescriptor.content.metadata;
                             result.serviceRegistrations.push({
                                 filter: serviceFilters[targetDescriptor.projection.page.serviceFilterVIID],

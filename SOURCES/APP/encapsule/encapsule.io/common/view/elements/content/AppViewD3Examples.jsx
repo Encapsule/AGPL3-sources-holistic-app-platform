@@ -5,7 +5,7 @@ const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const d3 = require('d3');
 
-export class AppViewD3Examples extends React.Component {
+module.exports = class AppViewD3Examples extends React.Component {
 
     constructor(props_) {
         super(props_);

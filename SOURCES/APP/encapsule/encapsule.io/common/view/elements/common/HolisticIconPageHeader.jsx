@@ -42,7 +42,7 @@ const subtitleStyles = {
 };
 
 
-export class IconPageHeader extends React.Component {
+module.exports = class IconPageHeader extends React.Component {
 
     // this.props.svg -> site-relative SVG icon path
     // this.props.title -> page title to display next to icon (typically page metadata contentTitle)

@@ -10,7 +10,7 @@ const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const HolisticStaticCollectionView = require('./HolisticStaticCollectionView.jsx');
 const Markdown = require('react-remarkable');
 
-export class HolisticMarkdownContent extends React.Component {
+module.exports = class HolisticMarkdownContent extends React.Component {
 
     render() {
         

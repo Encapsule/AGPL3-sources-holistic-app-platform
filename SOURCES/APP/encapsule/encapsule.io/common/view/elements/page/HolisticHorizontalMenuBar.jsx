@@ -17,7 +17,7 @@ const color = require('color');
 // if selected route is a descendent and it's a child -> children with select
 // if selected route is a descendent but not a child -> children with active
 
-export class HorizontalMenuBar extends React.Component {
+module.exports  = class HorizontalMenuBar extends React.Component {
 
     render() {
 

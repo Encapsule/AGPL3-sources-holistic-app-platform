@@ -10,12 +10,10 @@ const HolisticPoweredByFooter = require('./HolisticPoweredByFooter.jsx');
 
 const contentDataRouter = require('../content-router/');
 
-var HolisticPage = React.createClass({
+module.exports = class HolisticPage extends React.Component { 
 
-    displayName: "HolisticPage",
-
-    getInitialState: function() {
-
+    constructor(props_) {
+        super(props_);
         // Dereference document metadata which is extracted from the view store model
         // that is prescriptively extracted from the view store model by Encapsule/holism.
         const metadata = this.props.document.metadata;
@@ -81,7 +79,7 @@ var HolisticPage = React.createClass({
             }
             break;
         }
-        return {
+        this.state = {
             displayBreadcrumbs: displayBreadcrumbs,
             loneLeaf: loneLeaf,
             menuBarState: 'default',
@@ -91,9 +89,11 @@ var HolisticPage = React.createClass({
             stepDelayMs: 10, // menu bar timer
             watermarkOpacity: 0.15 // initial opacity
         };
-    }, // getInitialState
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.toggleMenuBars = this.toggleMenuBars.bind(this);
+    } // end constructor
 
-    componentDidMount: function() {
+    componentDidMount() {
         var self = this;
         function timerService() {
             var state = self.state;
@@ -106,9 +106,9 @@ var HolisticPage = React.createClass({
             else
                 timerService();
         }, 25);
-    },
+    }
 
-    toggleMenuBars: function(event_) {
+    toggleMenuBars(event_) {
 
         if (this.props.document.metadata.page.uri === '/') {
             console.log("Home menus are fixed.");
@@ -177,9 +177,9 @@ var HolisticPage = React.createClass({
         }, state.stepDelayMs);
         event_.preventDefault();
 
-    },
+    }
 
-    render: function() {
+    render() {
 
         try {
 
@@ -374,6 +374,7 @@ var HolisticPage = React.createClass({
             return (<div>Fatal exception in {this.className}: {exception_.toString()}</div>);
         }
     }
-});
 
-module.exports = HolisticPage;
+} // end class HolisticPage
+
+

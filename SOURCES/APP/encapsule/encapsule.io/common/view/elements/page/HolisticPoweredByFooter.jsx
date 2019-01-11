@@ -3,7 +3,7 @@
 
 const React = require('react');
 
-export class PoweredByFooter extends React.Component {
+module.exports = class PoweredByFooter extends React.Component {
 
     constructor(props_) {
         super(props_);

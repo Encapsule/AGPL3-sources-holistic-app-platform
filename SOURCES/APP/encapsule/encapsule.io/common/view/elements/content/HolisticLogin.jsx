@@ -10,7 +10,7 @@ const arccore = require('arccore');
 const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 
-export class HolisticLogin extends React.Component {
+module.exports = class HolisticLogin extends React.Component {
 
     constructor(props_) {
         super(props_);

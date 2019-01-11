@@ -2,9 +2,9 @@
 
 const React = require('react');
 
-var PageViewLink = React.createClass({
-    displayName: "PageViewLink",
-    render: function() {
+module.exports = class HolisticPageViewLink extends React.Component {
+
+    render() {
         try {
             const viewStore = this.props.appStateContext.viewStore;
             const pageViewURI = this.props.pageViewURI;
@@ -22,6 +22,5 @@ var PageViewLink = React.createClass({
             return (<div>A fatal exception occurred in {this.className}: {exception_.toString()}</div>);
         }
     }
-});
 
-module.exports = PageViewLink;
+}

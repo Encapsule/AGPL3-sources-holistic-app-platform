@@ -3,7 +3,7 @@
 const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 
-export class HolisticError extends React.Component {
+module.exports = class HolisticError extends React.Component {
 
     constructor(props_) {
         super(props_);

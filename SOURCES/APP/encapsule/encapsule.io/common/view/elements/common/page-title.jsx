@@ -2,11 +2,10 @@
 
 const React = require('react');
 
-module.exports = React.createClass({
+module.exports = class HolisticPageTitle extends React.Component {
 
-    displayName: "PageTitle",
+    render() {
 
-    render: function() {
         var titleHtml;
         try {
             var metadata = this.props.document.metadata;
@@ -37,4 +36,4 @@ module.exports = React.createClass({
         return titleHtml;
     }
 
-});
+}

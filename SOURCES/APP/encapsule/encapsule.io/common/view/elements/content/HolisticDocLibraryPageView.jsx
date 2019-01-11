@@ -2,7 +2,7 @@
 
 const React = require('react');
 
-export class HolisticDocLibraryPageView extends React.Component {
+module.exports = class HolisticDocLibraryPageView extends React.Component {
 
     render() {
 

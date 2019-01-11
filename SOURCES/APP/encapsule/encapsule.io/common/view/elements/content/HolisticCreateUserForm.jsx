@@ -24,7 +24,7 @@ const React = require('react');
 const HolisticIconPageHeader = require('../common/HolisticIconPageHeader.jsx');
 const clientUserProfileSpec = require('../../../../common/iospecs/app/client-user-account-create-request-spec');
 
-export class HolisticNewAccountForm extends React.Component {
+module.exports = class HolisticNewAccountForm extends React.Component {
 
     constructor(props_) {
         super(props_);

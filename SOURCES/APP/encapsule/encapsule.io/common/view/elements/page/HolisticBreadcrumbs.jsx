@@ -5,7 +5,7 @@ const ARCCORE = require('arccore');
 const React = require('react');
 const HorizontalMenuItem = require('./HolisticHorizontalMenuItem.jsx');
 
-export class Breadcrumbs extends React.Component {
+module.exports = class Breadcrumbs extends React.Component {
 
     constructor(props) {
         super(props);

@@ -10,7 +10,7 @@ const Markdown = require('react-remarkable');
 // set this.props.noheader = true
 
 
-export class HolisticStaticCollectionView extends React.Component {
+module.exports = class HolisticStaticCollectionView extends React.Component {
 
     render() {
 

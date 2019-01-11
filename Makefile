@@ -46,6 +46,7 @@ DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 DIR_BUILD_APP=$(DIR_BUILD)/APP
 DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
 DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
+DIR_BUILD_APP_ENCAPSULE_PHASE2=$(DIR_BUILD_APP_ENCAPSULE)/phase2-webpack
 
 default: build_app_encapsule
 	@echo \'default\' Makefile target build complete.
@@ -172,6 +173,7 @@ build_app_encapsule: stage_packages
 	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
 	cp $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
-	# https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
+#	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
+	cp -r $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/

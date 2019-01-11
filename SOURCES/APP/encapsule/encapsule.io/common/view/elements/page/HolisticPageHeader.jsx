@@ -2,7 +2,7 @@
 
 const React = require('react');
 
-export class HolisticPageHeader extends React.Component {
+module.exports = class HolisticPageHeader extends React.Component {
 
     constructor(props) {
         super(props);

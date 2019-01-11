@@ -10,7 +10,7 @@
 
 const arccore = require('arccore');
 
-factoryResponse = arccore.filter.create({
+var factoryResponse = arccore.filter.create({
     operationID: "mzwMjvtOTjCyd5kCCDPzUg",
     operationName: "Content Digraph Model Generator",
     operationDescription: "Constructs a content digraph model from an array of content node descriptor asset objects.",

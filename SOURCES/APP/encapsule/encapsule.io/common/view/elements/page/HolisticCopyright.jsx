@@ -2,7 +2,7 @@
 
 const React = require('react');
 
-export class Copyright extends React.Component {
+module.exports = class Copyright extends React.Component {
 
     constructor(props_) {
         super(props_);
