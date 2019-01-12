@@ -177,3 +177,10 @@ build_app_encapsule: stage_packages
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
 	cp -r $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/
+	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
+
+	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/client/index.html $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/index.html
+	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/client/css $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/css
+	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/client/fonts $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/fonts
+	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
+	cp -r $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
