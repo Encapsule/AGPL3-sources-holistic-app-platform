@@ -17,7 +17,6 @@ module.exports = {
     target: "web",
     output: {
         path: outputPath,
-        filename: 'client-app-bundle.js',
-        libraryTarget: "commonjs2"
+        filename: 'client-app-bundle.js'
     }
 };
