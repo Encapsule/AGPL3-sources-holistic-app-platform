@@ -1,11 +1,12 @@
 // render-html.js
 
-const fs = require('fs');
 const path = require('path');
 // const handlebars = require('handlebars');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
+// This is handled by a webpack loader that loads/parses the template at built-time
+// and places the JavaScript function expansion into the generated webpack bundle.
 const renderHtmlDocumentTemplate = require('./html-page-template.hbs');
 
 // Load the entry point of the React-based HTML content render function compiled w/webpack.
@@ -32,7 +33,7 @@ function renderHtmlDocument(request_) {
             // Pass the unmodified request descriptor object into React for use as the root UI component's
             // initial "properties" state (accessible in each React component render method via `this.props`).
             var reactElement = React.createElement(reactBodyContentTemplate, request_);
-            htmlContent = ReactDOMServer.renderToStaticMarkup(reactElement);
+            htmlContent = ReactDOMServer.renderToString(reactElement);
         } catch (exception_) {
             errors.unshift("'" + exception_.toString() + "'.");
             errors.unshift("Stack: " + exception_.stack);

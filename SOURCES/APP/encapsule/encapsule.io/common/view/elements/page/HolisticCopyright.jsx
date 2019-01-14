@@ -2,13 +2,13 @@
 
 const React = require('react');
 
-module.exports = class Copyright extends React.Component {
+module.exports = class HolisticCopyright extends React.Component {
 
     constructor(props_) {
         super(props_);
         this.componentDidMount = this.componentDidMount.bind(this);
-        this.componentWillMount = this.componentWillMount.bind(this);
-        this.getInitialState = this.getInitialState.bind(this);
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
+        this.state = { clock: new Date().toString() };
     }
 
     componentDidMount() {
@@ -21,11 +21,6 @@ module.exports = class Copyright extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.clockInterval);
-    }
-
-    getInitialState() {
-        var clock = new Date().toString();
-        return ({ clock: clock });
     }
 
     render() {
