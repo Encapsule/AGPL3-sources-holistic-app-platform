@@ -86,8 +86,8 @@ module.exports = class HolisticPage extends React.Component {
             maxMenuBarDepth: maxMenuBars,
             defaultMenuBars: defaultMenuBars,
             exposedMenuBars: defaultMenuBars,
-            stepDelayMs: 10, // menu bar timer
-            watermarkOpacity: 0.15 // initial opacity
+            stepDelayMs: 100, // menu bar timer
+            watermarkOpacity: 0.4 // initial opacity
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.toggleMenuBars = this.toggleMenuBars.bind(this);
@@ -97,15 +97,15 @@ module.exports = class HolisticPage extends React.Component {
         var self = this;
         function timerService() {
             var state = self.state;
-            state.watermarkOpacity = state.watermarkOpacity - 0.0025;
+            state.watermarkOpacity = state.watermarkOpacity - 0.025;
             self.setState(state);
         }
         var timer = setInterval(function() {
-            if (self.state.watermarkOpacity <= 0.025)
+            if (self.state.watermarkOpacity <= 0.05)
                 clearInterval(timer);
             else
                 timerService();
-        }, 25);
+        }, this.state.stepDelayMs);
     }
 
     toggleMenuBars(event_) {

@@ -58,8 +58,8 @@ build_package_holism:
 	@echo build_package_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
-	cp -up $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
-	cp -rup $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM)/
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName holism > $(DIR_BUILD_LIB_HOLISM)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISM)
@@ -76,8 +76,8 @@ build_package_hrequest:
 	@echo build_package_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
-	cp -up $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
-	cp -rup $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName hrequest > $(DIR_BUILD_LIB_HREQUEST)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HREQUEST)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HREQUEST)
@@ -95,14 +95,14 @@ stage_packages: build_packages stage_package_holism stage_package_hrequest
 stage_package_holism:
 	@echo stage_package_holism target starting...
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
-	cp -rup $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
 	ln -fs $(DIR_DIST_LIB_HOLISM) $(DIR_MODULES)/holism
 	@echo stage_package_holism complete.
 
 stage_package_hrequest:
 	@echo stage_package_hrequest target starting...
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
-	cp -rup $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
 	ln -fs $(DIR_DIST_LIB_HREQUEST) $(DIR_MODULES)/hrequest
 	@echo stage_package_hrequest target complete.
 
@@ -170,17 +170,23 @@ monorepo_nuke: monorepo_clean
 build_app_encapsule: stage_packages
 	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
-	cp -rup $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
-	cp -up $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
+
+	rm -rf  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
+	mkdir -p  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
+	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
+
+	cp -p $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
 #	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
-	cp -rup $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/
+	cp -Rp $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/
+
+	rm -rf $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
 	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
 
-	cp -rup $(DIR_SOURCES_APP_ENCAPSULE)/client/index.html $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/index.html
-	cp -rfpv --remove-destination $(DIR_SOURCES_APP_ENCAPSULE)/client/css $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/css
-	cp -rup $(DIR_SOURCES_APP_ENCAPSULE)/client/fonts $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/fonts
-	cp -rup $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
-	cp -rup $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
+	cp -p $(DIR_SOURCES_APP_ENCAPSULE)/client/index.html $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/index.html
+	cp -Rp --remove-destination $(DIR_SOURCES_APP_ENCAPSULE)/client/css $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/css
+	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/fonts $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/fonts
+	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
+	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
