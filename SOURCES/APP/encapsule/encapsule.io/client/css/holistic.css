@@ -6,6 +6,10 @@ cases. In particular for content rendered via input
 Markdown source.
 */
 
+BODY {
+    background-color: #FDD;
+}
+
 A {
     font-family: 'Play', sans-serif;
     text-decoration: none;
@@ -30,8 +34,6 @@ A:active {
     text-decoration: none;
     border-radius: 0.125em;
 }
-
-
 
 H1 {
     font-family: 'Montserrat', sans-serif;
