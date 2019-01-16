@@ -32,7 +32,7 @@
                         "callback | request | explanation",
                         "-------- | ------- | -----------",
                         "initializeVertex | { u: string: g: DirectedGraph } | invoked on every vertex of the graph before the start of the search",
-                        "startVertex | { u: string: g: DirectedGraph } | invoked on the source vertex once before the start of the search",
+                        "startVertex | { u: string: g: DirectedGraph } | invoked on every vertex in the start vertex set before starting the breadth-first visit starting at that vertex",
                         "discoverVertex | { u: string: g: DirectedGraph } | invoked when a vertex is encountered for the first time",
                         "examineEdge | { e: { u: string, v: string },  g: DirectedGraph } | invoked on every out-edge of each vertex after it is discovered",
                         "treeEdge | { e: { u: string, v: string },  g: DirectedGraph } | invoked on each edge as it becomes a member of the edges that form the search tree",
