@@ -352,20 +352,17 @@ module.exports = class HolisticPage extends React.Component {
                 zIndex: -1,
             };
             const wipTextStyles = {
-                fontFamily: "Play",
-                fontSize: '64pt',
+                fontFamily: "Play, Arial",
+                fontSize: '32pt',
                 fontWeight: 'bold',
                 textAlign: 'center',
                 color: '#214478',
-                opacity: this.state.watermarkOpacity - 0.02
+                opacity: this.state.watermarkOpacity
             };
 
-
             content.push(<div id="idHolisticPageWorkInProgress" key={makeKey()} style={wipContainerStyles}>
-                         <div style={wipTextStyles}>Documents Under Contruction</div>
+                         <div style={wipTextStyles}>{this.props.document.metadata.agent.app.name} v{this.props.document.metadata.agent.version}</div>
                          </div>);
-
-
 
             // Return the compiled page.
             return (<div id="idHolisiticPage" style={theme.page}>{content}</div>);
