@@ -169,7 +169,7 @@ monorepo_nuke: monorepo_clean
 
 build_app_encapsule: stage_packages
 	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
-	$(TOOL_BABEL) --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
+	$(TOOL_BABEL) --config-file $(DIR_ROOT)/.babelrc --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
 
 	rm -rf  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
 	mkdir -p  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
