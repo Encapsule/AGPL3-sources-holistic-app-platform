@@ -33,6 +33,9 @@ DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 DIR_SOURCES_APP=$(DIR_SOURCES)/APP
 DIR_SOURCES_APP_ENCAPSULE=$(DIR_SOURCES_APP)/encapsule/encapsule.io
 
+DIR_HOST_CARTRIDGE_PACKAGE=$(DIR_ROOT)/../..
+DIR_HOST_CARTRIDGE_SOURCES=$(DIR_HOST_CARTRIDGE_PACKAGE)/cartridge
+
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
@@ -47,6 +50,10 @@ DIR_BUILD_APP=$(DIR_BUILD)/APP
 DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
 DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
 DIR_BUILD_APP_ENCAPSULE_PHASE2=$(DIR_BUILD_APP_ENCAPSULE)/phase2-webpack
+
+DIR_BUILD_HOST_CARTRIDGE=$(DIR_HOST_CARTRIDGE_PACKAGE)/BUILD
+DIR_BUILD_HOST_CARTRIDGE_PHASE1=$(DIR_BUILD_HOST_CARTRIDGE)/phase1-transpile
+DIR_BIULD_HOST_CARTRIDGE_PHASE2=$(DIR_BUILD_HOST_CARTRIDGE)/phase2-webpack
 
 default: build_app_encapsule
 	@echo \'default\' Makefile target build complete.
@@ -190,3 +197,32 @@ build_app_encapsule: stage_packages
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/fonts $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/fonts
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
+
+build_cartridge:
+	mkdir -p $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)
+	$(TOOL_BABEL) --config-file $(DIR_ROOT)/.babelrc --out-dir $(DIR_BUILD_HOST_CARTRIDGE_PHASE1) --keep-file-extension --verbose $(DIR_HOST_CARTRIDGE_SOURCES)
+
+	rm -rf  $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content
+	mkdir -p  $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content
+	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/content/* $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content/
+
+	cp -p $(DIR_HOST_CARTRIDGE_SOURCES)/server/integrations/*.hbs $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/server/integrations/
+# 	We should ideally synthesize a package.json for the application based on metadata from the from cartridge repo's package.json.
+#	This is currently producing an incorrect package.json (just for demo purposes)
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/package.json
+
+#	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
+
+	mkdir -p $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)
+	cp -Rp $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/
+
+	rm -rf $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client
+	mkdir -p $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client
+
+	cp -p $(DIR_HOST_CARTRIDGE_SOURCES)/client/index.html $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/index.html
+	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/client/css $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/css
+	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/client/fonts $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/fonts
+	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/client/images $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/images
+	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/server/robots.txt $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/robots.txt
