@@ -39,6 +39,6 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "postinstall": "make stage_packages"
+    "install": "make stage_packages"
   }
 }
