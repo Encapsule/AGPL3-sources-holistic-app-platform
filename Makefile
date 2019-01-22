@@ -58,7 +58,7 @@ DIR_BIULD_HOST_CARTRIDGE_PHASE2=$(DIR_BUILD_HOST_CARTRIDGE)/phase2-webpack
 default: build_app_encapsule
 	@echo \'default\' Makefile target build complete.
 
-build_packages: monorepo_initialize generate_build_info build_package_holism build_package_hrequest
+build_packages: generate_build_info build_package_holism build_package_hrequest
 	@echo build_packages complete
 
 build_package_holism:

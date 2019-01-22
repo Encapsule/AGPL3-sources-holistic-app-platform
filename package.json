@@ -38,5 +38,7 @@
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   },
-  "postinstall": "make build_packages"
+  "scripts": {
+    "postinstall": "make stage_packages"
+  }
 }
