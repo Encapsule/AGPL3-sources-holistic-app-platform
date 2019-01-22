@@ -37,5 +37,6 @@
     "request": "^2.88.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
-  }
+  },
+  "postinstall": "make build_packages"
 }

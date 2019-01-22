@@ -1,0 +1,38 @@
+// webpack.config.arccore.js
+
+const path = require('path');
+const entryPath = path.resolve(path.join(__dirname, '../../BUILD/APP/encapsule/encapsule.io/phase1-transpile/server/server.js'));
+const outputPath = path.resolve(path.join(__dirname, '../../BUILD/APP/encapsule/encapsule.io/phase2-webpack/'));
+
+console.log("webpack entry module path: " + entryPath);
+console.log("webpack output path: " + outputPath);
+
+module.exports = {
+    target: "node",
+    node: { __dirname: false },
+    mode: 'development',
+    plugins: [],
+    entry: {
+        main: entryPath
+    },
+    module: {
+        rules: [
+            {
+                test: /\.hbs$/,
+                use: [
+                    {
+                        loader: "handlebars-loader"
+                    }
+                ]
+            }
+        ]
+    },
+    output: {
+        path: outputPath,
+        filename: 'server-app-bundle.js',
+        libraryTarget: "commonjs2"
+    },
+    optimization: {
+        minimize: false
+    }
+};
