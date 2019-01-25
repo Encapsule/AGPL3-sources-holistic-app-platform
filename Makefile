@@ -33,9 +33,6 @@ DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 DIR_SOURCES_APP=$(DIR_SOURCES)/APP
 DIR_SOURCES_APP_ENCAPSULE=$(DIR_SOURCES_APP)/encapsule/encapsule.io
 
-DIR_HOST_CARTRIDGE_PACKAGE=$(DIR_ROOT)/../..
-DIR_HOST_CARTRIDGE_SOURCES=$(DIR_HOST_CARTRIDGE_PACKAGE)/cartridge
-
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
@@ -46,14 +43,13 @@ DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 
+DIR_APPFACTORY=$(DIR_ROOT)/APPFACTORY
+DIR_APPFACTORY_RUNTIME=$(DIR_APPFACTORY)/RUNTIME
+
 DIR_BUILD_APP=$(DIR_BUILD)/APP
 DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
 DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
 DIR_BUILD_APP_ENCAPSULE_PHASE2=$(DIR_BUILD_APP_ENCAPSULE)/phase2-webpack
-
-DIR_BUILD_HOST_CARTRIDGE=$(DIR_HOST_CARTRIDGE_PACKAGE)/BUILD
-DIR_BUILD_HOST_CARTRIDGE_PHASE1=$(DIR_BUILD_HOST_CARTRIDGE)/phase1-transpile
-DIR_BIULD_HOST_CARTRIDGE_PHASE2=$(DIR_BUILD_HOST_CARTRIDGE)/phase2-webpack
 
 default:
 	@echo This Makefile is used to build, test, and publish new versions of
@@ -179,6 +175,22 @@ dist_package_update_hrequest:
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
 	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
 	@echo stage_package_hrequest target complete.
+
+# ================================================================
+# App Factory
+
+appfactory_clean:
+	@echo BEGIN TARGET: appfactory_clean
+	rm -rf $(DIR_APPFACTORY)/*
+	@echo FINISH TARGET: appfactory_clean
+
+appfactory_update:
+	@echo BEGIN TARGET: appfactory_update
+	mkdir -p $(DIR_APPFACTORY_RUNTIME)
+	cp -p $(DIR_BUILD)/build.json $(DIR_APPFACTORY_RUNTIME)/holistic.json
+	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_APPFACTORY_RUNTIME)
+	@echo FINISH TARGET: appfactory_update
+
 
 # ================================================================
 # Utility

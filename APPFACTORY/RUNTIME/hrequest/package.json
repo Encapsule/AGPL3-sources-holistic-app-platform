@@ -1,0 +1,40 @@
+{
+    "name": "hrequest",
+    "version": "0.1.1",
+    "codename": "white-birch",
+    "buildID": "tTpFLqKdRlCA9xQjhpwL2A",
+    "buildTime": 1548459893,
+    "buildSource": "651dc3f1b728eee6a8ecda0d5e019b4c285e68ec",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/hrequest.git"
+    },
+    "author": "Encapsule Project",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "http://chrisrussell.net"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/hrequest/issues"
+    },
+    "homepage": "https://github.com/Encapsule/hrequest#readme",
+    "description": "HTTP request filters for Node.js and browser clients.",
+    "keywords": [
+        "HTTP",
+        "request",
+        "filter",
+        "node",
+        "browser",
+        "Encapsule"
+    ],
+    "main": "index.js",
+    "peerDependencies": {
+        "arccore": "0.1.0",
+        "query-string": "^4.3.4",
+        "request": "^2.78.0"
+    }
+}

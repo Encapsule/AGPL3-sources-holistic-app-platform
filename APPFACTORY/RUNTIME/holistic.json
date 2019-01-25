@@ -1,0 +1,23 @@
+{
+    "name": "holistic",
+    "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
+    "version": "0.1.1",
+    "codename": "white-birch",
+    "author": "Encapsule Project",
+    "copyright": {
+        "holder": "Christopher D. Russell",
+        "year": 2019
+    },
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "http://chrisrussell.net"
+        }
+    ],
+    "license": "MIT",
+    "buildID": "tTpFLqKdRlCA9xQjhpwL2A",
+    "buildSource": "651dc3f1b728eee6a8ecda0d5e019b4c285e68ec",
+    "buildTime": 1548459893,
+    "buildDateISO": "2019-01-25T23:44:53.000Z"
+}

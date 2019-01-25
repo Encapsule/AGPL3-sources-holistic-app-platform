@@ -1,0 +1,39 @@
+{
+    "name": "holism",
+    "version": "0.1.1",
+    "codename": "white-birch",
+    "buildID": "tTpFLqKdRlCA9xQjhpwL2A",
+    "buildTime": 1548459893,
+    "buildSource": "651dc3f1b728eee6a8ecda0d5e019b4c285e68ec",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holism.git"
+    },
+    "author": "Encapsule Project",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "http://chrisrussell.net"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holism/issues"
+    },
+    "homepage": "https://github.com/Encapsule/holism#readme",
+    "description": "Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.",
+    "keywords": [
+        "HTTP",
+        "REST",
+        "filter",
+        "server",
+        "framework",
+        "node",
+        "Encapsule"
+    ],
+    "main": "index.js",
+    "peerDependencies": {
+        "arccore": "0.1.0"
+    }
+}
