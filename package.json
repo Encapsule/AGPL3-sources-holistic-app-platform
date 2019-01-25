@@ -1,8 +1,8 @@
 {
   "name": "holistic",
   "version": "0.1.1",
-  "codename": "otter-falls",
-  "description": "Monorepo for building Node.js/HTML5 applications derived from Encapsule Project and Facebook libraries.",
+  "codename": "white-birch",
+  "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
   "main": "index.js",
   "author": "Encapsule Project",
   "contributors": [

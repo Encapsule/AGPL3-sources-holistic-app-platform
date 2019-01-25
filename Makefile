@@ -55,13 +55,52 @@ DIR_BUILD_HOST_CARTRIDGE=$(DIR_HOST_CARTRIDGE_PACKAGE)/BUILD
 DIR_BUILD_HOST_CARTRIDGE_PHASE1=$(DIR_BUILD_HOST_CARTRIDGE)/phase1-transpile
 DIR_BIULD_HOST_CARTRIDGE_PHASE2=$(DIR_BUILD_HOST_CARTRIDGE)/phase2-webpack
 
-default: build_app_encapsule
-	@echo \'default\' Makefile target build complete.
+default:
+	@echo This Makefile is used to build, test, and publish new versions of
+	@echo the holistic web application framework.
+	@echo
+	@echo Please specify Makefile target\(s\) to evaluate as arguments to \'make\'.
+	@echo Type \'make\' and use shell auto-complete to enumerate Makefile targets.
+	@echo See this repo\'s README.md file for further details and instructions.
 
-build_packages: generate_build_info build_package_holism build_package_hrequest
-	@echo build_packages complete
+# ================================================================
+# Environment
 
-build_package_holism:
+env_initialize:
+	@echo monorepo_initialize target starting...
+	yarn install --verbose
+	@echo monorepo_initialize target complete.
+
+env_reinitialize: env_clean_cache env_initialize
+	@echo Your local yarn cache has been repopulated with fresh packages from the Internet. And the contents of $(DIR_MODULES) has been rewritten.
+
+env_clean:
+	@echo monorepo_clean target starting...
+	rm -rf $(DIR_MODULES)
+	@echo monorepo_clean target complete.
+
+env_clean_cache: env_clean
+	@echo monorepo_nuke target starting...
+	yarn cache clean
+	@echo monorepo_nuke target complete.
+
+env_generate_build_tag:
+	@echo generate_build_info target starting...
+	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/build.json
+	@echo generate_build_info target complete.
+
+# ================================================================
+# Source Package Targets
+
+source_packages_clean:
+	@echo BEGIN TARGET: source_packages_clean
+	rm -rf $(DIR_BUILD)/*
+	@echo FINISH TARGET: source_packages_clean
+
+source_packages_build: env_generate_build_tag source_package_build_holism source_package_build_hrequest
+	@echo COMPLETE TARGET: source_packages_build
+
+source_package_build_holism:
 	@echo build_package_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
@@ -79,7 +118,7 @@ build_package_holism:
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-error-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/service-error-response.md
 	@echo build_package_holism target complete.
 
-build_package_hrequest:
+source_package_build_hrequest:
 	@echo build_package_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
@@ -96,83 +135,70 @@ build_package_hrequest:
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HREQUEST)/lib/http-request-transport-for-browser.js --output $(DIR_BUILD_LIB_HREQUEST)/docs/client-request-transport.md
 	@echo build_package_request complete.
 
-stage_packages: build_packages stage_package_holism stage_package_hrequest
-	@echo Stage pacakges operation complete.
+# ================================================================
+# Distribution Packages
+#
 
-stage_package_holism:
+# OPTIONAL: remove generated packages and clone distribution package repositories.
+# Subsequently, evaluating the packages_update Makefile target will update the contents
+# of the distribution repo which is typically then commited and published.
+dist_packages_initialize: dist_packages_clean
+	@echo BEGIN TARGET: dist_packages_initialize
+	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
+	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
+	@echo FINISH TARGET: dist_packages_initialize
+
+# OPTIONAL: check the status of the package distribution repositories.
+dist_packages_status:
+	@echo BEGIN TARGET: dist_packages_status
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_HOLISM) && git remote -v && git status
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
+	@echo FINISH TARGET: dist_packages_status
+
+dist_packages_clean: dist_packages_nuke
+	@echo COMPLETE TARGET: dist_packages_clean
+
+dist_packages_nuke:
+	@echo BEGIN TARGET: dist_packages_nuke
+	rm -rf $(DIR_DISTS)/*
+	@echo FINISH TARGET: dist_packages_nuke
+
+dist_packages_update: source_packages_build dist_package_update_holism dist_package_update_hrequest
+	@echo COMPLETE TARGET: dist_packages_update
+
+dist_package_update_holism:
 	@echo stage_package_holism target starting...
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
 	ln -fs $(DIR_DIST_LIB_HOLISM) $(DIR_MODULES)/holism
 	@echo stage_package_holism complete.
 
-stage_package_hrequest:
+dist_package_update_hrequest:
 	@echo stage_package_hrequest target starting...
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
 	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
 	ln -fs $(DIR_DIST_LIB_HREQUEST) $(DIR_MODULES)/hrequest
 	@echo stage_package_hrequest target complete.
 
-clean: build_clean
+# ================================================================
+# Utility
+#
+
+clean: source_packages_clean
 	@echo Clean operation complete.
 
-scrub: build_clean distributions_clean monorepo_clean
+scrub: source_packages_clean dist_packages_clean
 	@echo Scrub operation complete.
 
-nuke: build_clean distributions_nuke monorepo_nuke
+nuke: source_packages_clean dist_packages_clean build_clean distributions_nuke monorepo_nuke
 	@echo Nuke operation complete.
 
-build_clean:
-	@echo build_clean target starting...
-	rm -fv $(DIR_MODULES)/holism
-	rm -fv $(DIR_MODULES)/hrequest
-	rm -rf $(DIR_BUILD)/*
-	@echo build_clean target complete.
 
-distributions_initialize: distributions_clean
-	@echo distributions_initialize target starting...
-	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
-	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
-	@echo distributions_initialize target complete.
-
-distributions_status:
-	@echo distributions_status target starting...
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLISM) && git remote -v && git status
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
-	@echo distributions_status target complete.
-
-distributions_clean: distributions_nuke
-	@echo Distributions clean operation complete.
-
-distributions_nuke:
-	@echo distributions_nuke target starting...
-	rm -rf $(DIR_DISTS)/*
-	@echo distributions_nuke target complete.
-
-generate_build_info:
-	@echo generate_build_info target starting...
-	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/build.json
-	@echo generate_build_info target complete.
-
-monorepo_initialize:
-	@echo monorepo_initialize target starting...
-	yarn install --verbose
-	@echo monorepo_initialize target complete.
-
-monorepo_reinitialize: monorepo_nuke monorepo_initialize
-	@echo Your local yarn cache has been repopulated with fresh packages from the Internet. And the contents of $(DIR_MODULES) has been rewritten.
-
-monorepo_clean:
-	@echo monorepo_clean target starting...
-	rm -rf $(DIR_MODULES)
-	@echo monorepo_clean target complete.
-
-monorepo_nuke: monorepo_clean
-	@echo monorepo_nuke target starting...
-	yarn cache clean
-	@echo monorepo_nuke target complete.
+# ================================================================
+# Experiments
+#
 
 build_app_encapsule: stage_packages
 	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
@@ -197,32 +223,3 @@ build_app_encapsule: stage_packages
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/fonts $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/fonts
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
-
-build_cartridge: stage_packages
-	mkdir -p $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)
-	$(TOOL_BABEL) --config-file $(DIR_ROOT)/.babelrc --out-dir $(DIR_BUILD_HOST_CARTRIDGE_PHASE1) --keep-file-extension --verbose $(DIR_HOST_CARTRIDGE_SOURCES)
-
-	rm -rf  $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content
-	mkdir -p  $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content
-	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/content/* $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content/
-
-	cp -p $(DIR_HOST_CARTRIDGE_SOURCES)/server/integrations/*.hbs $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/server/integrations/
-# 	We should ideally synthesize a package.json for the application based on metadata from the from cartridge repo's package.json.
-#	This is currently producing an incorrect package.json (just for demo purposes)
-	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/package.json
-
-#	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
-
-	mkdir -p $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)
-	cp -Rp $(DIR_BUILD_HOST_CARTRIDGE_PHASE1)/content $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/
-
-	rm -rf $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client
-	mkdir -p $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client
-
-	cp -p $(DIR_HOST_CARTRIDGE_SOURCES)/client/index.html $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/index.html
-	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/client/css $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/css
-	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/client/fonts $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/fonts
-	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/client/images $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/client/images
-	cp -Rp $(DIR_HOST_CARTRIDGE_SOURCES)/server/robots.txt $(DIR_BUILD_HOST_CARTRIDGE_PHASE2)/robots.txt
