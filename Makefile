@@ -97,7 +97,7 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo FINISH TARGET: source_packages_clean
 
-source_packages_build: env_generate_build_tag source_package_build_holism source_package_build_hrequest
+source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_hrequest
 	@echo COMPLETE TARGET: source_packages_build
 
 source_package_build_holism:
@@ -172,14 +172,12 @@ dist_package_update_holism:
 	@echo stage_package_holism target starting...
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
-	ln -fs $(DIR_DIST_LIB_HOLISM) $(DIR_MODULES)/holism
 	@echo stage_package_holism complete.
 
 dist_package_update_hrequest:
 	@echo stage_package_hrequest target starting...
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
 	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
-	ln -fs $(DIR_DIST_LIB_HREQUEST) $(DIR_MODULES)/hrequest
 	@echo stage_package_hrequest target complete.
 
 # ================================================================
@@ -192,7 +190,7 @@ clean: source_packages_clean
 scrub: source_packages_clean dist_packages_clean
 	@echo Scrub operation complete.
 
-nuke: source_packages_clean dist_packages_clean build_clean distributions_nuke monorepo_nuke
+nuke: source_packages_clean dist_packages_clean env_clean_cache
 	@echo Nuke operation complete.
 
 

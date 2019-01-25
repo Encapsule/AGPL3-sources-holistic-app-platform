@@ -30,7 +30,7 @@ console.log(JSON.stringify({
         year: buildYear
     },
     contributors: packageMeta.contributors,
-    license: packageMeta.license,
+    license: "MIT",
     buildID: arccore.identifier.irut.fromEther(),
     buildSource: commitHash,
     buildTime: buildTime,

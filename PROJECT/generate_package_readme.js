@@ -47,7 +47,7 @@ try {
     console.error("JSON string obtained from file '" + targetManifestPath + "'.");
     process.exit(1);
 }
-    
+
 const copyright = targetManifest.contributors[0];
 copyright.year = new Date(targetManifest.buildTime * 1000).getFullYear();
 
@@ -82,7 +82,7 @@ markdown.push("### " + repoBuild.author + "");
 markdown.push("# " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\"");
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
-              "Sources: Encapsule/encapsule_master#" + targetManifest.buildSource + "\n" +
+              "Sources: Encapsule/holistic#" + targetManifest.buildSource + "\n" +
               "Purpose: " + packageData.packageType + " (" + (packageData.browserSafe?"Node.js + modern browsers (via package bundler)":"Node.js") + ")\n" +
               "Created: " + repoBuild.buildDateISO + "\n" +
               "License: " + targetManifest.license + "\n" +
