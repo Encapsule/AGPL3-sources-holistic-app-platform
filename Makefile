@@ -184,7 +184,7 @@ appfactory_clean:
 	rm -rf $(DIR_APPFACTORY)/*
 	@echo FINISH TARGET: appfactory_clean
 
-appfactory_update:
+appfactory_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: appfactory_update
 	mkdir -p $(DIR_APPFACTORY_RUNTIME)
 	cp -p $(DIR_BUILD)/build.json $(DIR_APPFACTORY_RUNTIME)/holistic.json
