@@ -1,8 +1,8 @@
 # Filter Object README
 
-## [tUksFcVLReWXPbci8NzAKQ::HTTP Request Filter Factory]
+## [Kw7BO6DPSH2XZF-2vItnZA::Server Hrequest Filter Factory]
 
-**Generates a filter object wrapped around an asynchronous HTTP request that strongly validates its input request, and output response data using Encapsule Project filter specification declarations provided to the factory at construction time.**
+**Constructs a server-side Hrequest filter object.**
 
 ### Operation
 
@@ -86,11 +86,6 @@ This filter normalizes the value of `input` passed to its `request` method using
             "jsUndefined",
             "jsFunction"
         ]
-    },
-    "requestTransportFilter": {
-        "____label": "HTTP Transport Filter",
-        "____description": "A reference to a a HTTP Request Transport Filter object allocated by either the client or server-specific factory.",
-        "____accept": "jsObject"
     }
 }
 ```
@@ -121,7 +116,7 @@ If no error then the value assigned to `response.result` is normalized per the f
 ```JavaScript
 {
     "____accept": "jsObject",
-    "____label": "HTTP Request Filter"
+    "____label": "Server HTTP Request Filter"
 }
 ```
 
@@ -132,9 +127,9 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `tUksFcVLReWXPbci8NzAKQ` | `k1pq_gpEmD-YmZQKUvBlZA` |
-| input contract | `o1KhHTAe7jR7ryHTCP28Vg` | `X_4ACeSB7zvjVVvazYEt4A` |
-| output contract | `iCJHm0Q2NAIkUnwAn0JKdA` | `rk5Nai3cNGV7pphF0hwfnw` |
+| operation | `Kw7BO6DPSH2XZF-2vItnZA` | `0-yN01g0gaNpCzAiVUmugQ` |
+| input contract | `99ArxXGgaLCyVqfa8u49ow` | `zjKF8qxoodZiY9B5fhIgNA` |
+| output contract | `h3Ezo5GrOvO-yHFXCK-FfQ` | `Ji6A6KhFIIDh96rQtTzCSg` |
 
 ### Configuration
 Filter classification:  **normalized operation**
@@ -149,5 +144,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.0 toolset.<br>
-Document updated Fri Jan 25 2019 15:58:58 GMT-0800 (Pacific Standard Time)
+Document updated Mon Jan 28 2019 08:05:15 GMT-0800 (Pacific Standard Time)
 

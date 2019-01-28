@@ -1,8 +1,8 @@
 # Filter Object README
 
-## [Kw7BO6DPSH2XZF-2vItnZA::Server Hrequest Filter Factory]
+## [B5dMHTIAQD2pjmji8kp_FA::Client Hrequest Filter Factory]
 
-**Constructs a server-side Hrequest filter object.**
+**Constructs a client-side Hrequest filter object.**
 
 ### Operation
 
@@ -116,7 +116,7 @@ If no error then the value assigned to `response.result` is normalized per the f
 ```JavaScript
 {
     "____accept": "jsObject",
-    "____label": "Server HTTP Request Filter"
+    "____label": "Browser HTTP Request Filter"
 }
 ```
 
@@ -127,9 +127,9 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `Kw7BO6DPSH2XZF-2vItnZA` | `0-yN01g0gaNpCzAiVUmugQ` |
-| input contract | `99ArxXGgaLCyVqfa8u49ow` | `zjKF8qxoodZiY9B5fhIgNA` |
-| output contract | `h3Ezo5GrOvO-yHFXCK-FfQ` | `Ji6A6KhFIIDh96rQtTzCSg` |
+| operation | `B5dMHTIAQD2pjmji8kp_FA` | `tsPzqwSsG9Gk_G73dBWUFQ` |
+| input contract | `iLvwFYq42kkAlf4Wdskqyw` | `zjKF8qxoodZiY9B5fhIgNA` |
+| output contract | `YoEEvI6eJy0wX8ZZUMIpmA` | `Ji6UAahFYATh97sTtTwPdg` |
 
 ### Configuration
 Filter classification:  **normalized operation**
@@ -144,5 +144,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.0 toolset.<br>
-Document updated Fri Jan 25 2019 15:58:57 GMT-0800 (Pacific Standard Time)
+Document updated Mon Jan 28 2019 08:05:15 GMT-0800 (Pacific Standard Time)
 

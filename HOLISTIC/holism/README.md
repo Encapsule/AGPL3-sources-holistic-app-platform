@@ -5,10 +5,10 @@
 # holism v0.1.1 "white-birch"
 
 ```
-Package: holism v0.1.1 "white-birch" build ID "5049bxSvQVuUmb3rPWDe5A"
-Sources: Encapsule/holistic#8341742751ae4037306f24addbcb9caeb385df07
+Package: holism v0.1.1 "white-birch" build ID "8bJ75PUXS6KFWkMJIyYCeg"
+Sources: Encapsule/holistic#169086bb8c1d47c6d7410b713c75f7642cff0928
 Purpose: library (Node.js)
-Created: 2019-01-25T23:58:54.000Z
+Created: 2019-01-28T16:05:12.000Z
 License: MIT
 ```
 

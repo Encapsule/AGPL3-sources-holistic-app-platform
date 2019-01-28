@@ -2,9 +2,9 @@
     "name": "hrequest",
     "version": "0.1.1",
     "codename": "white-birch",
-    "buildID": "5049bxSvQVuUmb3rPWDe5A",
-    "buildTime": 1548460734,
-    "buildSource": "8341742751ae4037306f24addbcb9caeb385df07",
+    "buildID": "8bJ75PUXS6KFWkMJIyYCeg",
+    "buildTime": 1548691512,
+    "buildSource": "169086bb8c1d47c6d7410b713c75f7642cff0928",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
