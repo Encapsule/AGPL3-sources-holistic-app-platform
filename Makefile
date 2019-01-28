@@ -82,7 +82,7 @@ env_clean_cache: env_clean
 
 env_generate_build_tag:
 	@echo generate_build_info target starting...
-	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/build.json
+	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
 	@echo generate_build_info target complete.
 
 # ================================================================
@@ -187,7 +187,7 @@ appfactory_clean:
 appfactory_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: appfactory_update
 	mkdir -p $(DIR_APPFACTORY_RUNTIME)
-	cp -p $(DIR_BUILD)/build.json $(DIR_APPFACTORY_RUNTIME)/holistic.json
+	cp -p $(DIR_BUILD)/holistic.json $(DIR_APPFACTORY_RUNTIME)/
 	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_APPFACTORY_RUNTIME)
 	@echo FINISH TARGET: appfactory_update
 
