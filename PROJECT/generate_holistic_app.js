@@ -10,6 +10,9 @@ const holisticMetadata = require("../HOLISTIC/holistic");
 
 const arctoolslib = require("arctools");
 const arccore = arctoolslib.arccore;
+
+const holisticAppManifestFilter = require('./holistic-app-manifest-filter');
+
 var program = arctoolslib.commander;
 
 program.version(holisticMetadata.version).
@@ -17,7 +20,7 @@ program.version(holisticMetadata.version).
     option("--info", "Print information about this tool.").
     parse(process.argv);
 
-console.log("**** generate_holistic_app ****\n");
+console.log("**** generate_holistic_app v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\" ****\n");
 
 if (program.info) {
     console.log("This script is a code generation tool used to initialize and update");
@@ -48,23 +51,74 @@ if (!program.appRepoDir) {
 
 // Get the fully-qualified path to the target application's git repo.
 const appRepoDir = path.resolve(program.appRepoDir);
+console.log("> Inspecting local application git repo directory: '" + appRepoDir + "' ...");
+
+const resourceFilePaths = {
+
+    application: {
+	appRepoDir: appRepoDir,
+	appRepoGitDir: path.join(appRepoDir, ".git"),
+	packageManifest: path.join(appRepoDir, "package.json"),
+	packageReadme: path.join(appRepoDir, "README.md"),
+	packageLicense: path.join(appRepoDir, "LICENSE"),
+	packageMakefile: path.join(appRepoDir, "Makefile"),
+	appManifest: path.join(appRepoDir, "holistic-app.json"),
+    },
+
+    holistic: {
+    }
+
+};
 
 // Ensure the application repo directory exists.
 if (!fs.existsSync(appRepoDir)) {
-    console.error("Invalid application repo directory. '" + appRepoDir + "' does not exist.");
+    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' does not exist.");
     process.exit(1);
 }
 
 // Ensure the application repo directory is actually a directory.
-const appRepoDirStats = fs.statSync(appRepoDir);
-if (!appRepoDirStats.isDirectory()) {
-    console.error("Invalid application repo directory. '" + appRepoDir + "' is not a directory.");
+var fsStat = fs.statSync(appRepoDir);
+if (!fsStat.isDirectory()) {
+    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' is not a directory.");
     process.exit(1);
 }
 
+if (!fs.existsSync(resourceFilePaths.application.appRepoGitDir)) {
+    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' does not appear to be a git repository. Have you executed `git init`?");
+    process.exit(1);
+}
+
+fsStat = fs.statSync(resourceFilePaths.application.appRepoGitDir);
+if (!fsStat.isDirectory()) {
+    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' does not appear to be a git repository. Have you executed `git init`?");
+    process.exit(1);
+}
+
+console.log("... Target application directory '" + appRepoDir + "' exists and appears to be a git repository.");
+
+var filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
+if (filterResponse.error) {
+    console.error("ERROR: Unable to read the application's holistic application manifest file.");
+    console.error(filterResponse.error);
+    process.exit(1);
+}
+
+const holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
+
+filterResponse = holisticAppManifestFilter.request(holisticAppManifestData);
+if (filterResponse.error) {
+    console.error("ERROR: Invalid holistic application manifest document '" + resourceFilePaths.application.appManifest + "'.");
+    console.error(filterResponse.error);
+    process.exit(1);
+}
+
+const holisticAppManifest = filterResponse.result;
+
+console.log(JSON.stringify(holisticAppManifest, undefined, 2));
 
 
-console.log("Resolved directory of the target application repo is '" + appRepoRoot + "'.");
+
+
 
 
 
