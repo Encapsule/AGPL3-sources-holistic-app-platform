@@ -2,9 +2,9 @@
     "name": "holism",
     "version": "0.1.1",
     "codename": "white-birch",
-    "buildID": "8bJ75PUXS6KFWkMJIyYCeg",
-    "buildTime": 1548691512,
-    "buildSource": "169086bb8c1d47c6d7410b713c75f7642cff0928",
+    "buildID": "bshj0IX1RmiUhHbJduXMeA",
+    "buildTime": 1548707521,
+    "buildSource": "17a4dc3a35cbbdceeb59dfde96ec6ec2c22163a6",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"

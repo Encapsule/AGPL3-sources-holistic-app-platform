@@ -1,14 +1,12 @@
 [![Encapsule Project](https://encapsule.io/images/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io)
 
-# Encapsule/middleforks
+# Encapsule/holistic
 
 ## Access
 
-The `Encapsule/middleforks` git repository on GitHub is _private_ with forking and write access enabled for specific organization members only.
+The `Encapsule/holistic` repository will be published under the MIT license later in 2019 when it is both stable and well-documented. But, until it's ready this repository is **private** and accessible only to specific members of the Encapsule Project GitHub organization. **DO NOT PUBLISH**
 
 ## Summary
-
-The `Encapsule/middleforks` repository is named after the confluence of the Taylor and Middle Fork of the Snoqualmie rivers South of the Alpine Lakes Wilderness Area in Washington State.
 
 This repository provides common dependency management, build, test, and packaging for the Encapsule Project application development stack for Node.js/HTML5.
 
@@ -32,15 +30,39 @@ Disitribution packages are symbolically linked into this package's `node_modules
 
 ## Applications
 
-_Under construction._
+### Infusion
+
+#### Asset Generation
+
+##### package.json
+
+- `yarn run` targets
+    - install
+    - clean
+    - build
+    - test
+    - start
+    - package
+- 3rd-party build/test/runtime dependencies
+    - Application-specific dependencies (from application's original package.json)
+    - Holistic framework dependencies (from holistic framework package)
+
+##### yarn.lock
+    - udpated commit hashes for any/all of the application's build/test/packaging/and runtime dependencies
+
+##### Runtime
+    - Inline copies of the core runtime libraries that comprise the holistic web application framework.
+
 
 ### Catridges
 
-### Inbox Apps
-
-### Derived Apps
 
 
+<hr>
+
+Published by [Encapsule Project](https://encapsule.io) Seattle, Washington
+
+Copyright &copy; 2011-2019 [Christopher D. Russell](http://chrisrussell.net)
 
 
 
