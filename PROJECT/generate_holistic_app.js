@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require("path");
 
 const holisticMetadata = require("../HOLISTIC/holistic");
+const holisticFrameworkManifest = require("./holistic-platform-manifest");
 
 const arctoolslib = require("arctools");
 const arccore = arctoolslib.arccore;
@@ -96,9 +97,26 @@ if (!fsStat.isDirectory()) {
 
 console.log("... Target application directory '" + appRepoDir + "' exists and appears to be a git repository.");
 
+filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.packageManifest);
+if (filterResponse.error) {
+    console.error("ERROR: Cannot load the target application's  manifest (package.json).");
+    console.error(filterResponse.error);
+    process.exit(1);
+}
+
+// The applicationPackageManifest is taken as specified by the developer and used as the basis for deriving
+// a new package.json for the application formed by extending/overwriting developer-specified information
+// with the latest holistic application package settings. Note that the intent is that developers primarily
+// maintain their holistic-app.json file and extend their package.json only as required to affect additional
+// application-specific integrations (e.g. with test / deployment infrastructure) that are not directly
+// coupled to the build and packaging of the holistic application (and thus are not represented in
+// the developer-specified holistic-app.json manifest).
+
+const applicationPackageManifest = filterResponse.result.resource; // ... as specified by developer(s) and this script.
+
 var filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
 if (filterResponse.error) {
-    console.error("ERROR: Unable to read the application's holistic application manifest file.");
+    console.error("ERROR: Unable to read the application's holistic application manifest file (holistic-app.json).");
     console.error(filterResponse.error);
     process.exit(1);
 }
@@ -113,8 +131,6 @@ if (filterResponse.error) {
 }
 
 const holisticAppManifest = filterResponse.result;
-
-console.log(JSON.stringify(holisticAppManifest, undefined, 2));
 
 
 
