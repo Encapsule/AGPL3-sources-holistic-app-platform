@@ -110,7 +110,7 @@ if (filterResponse.error) {
     console.error(filterResponse.error);
     process.exit(1);
 }
-const applicationPackageManifest = filterResponse.result.resource; // ... as specified by developer(s) and this script.
+var applicationPackageManifest = filterResponse.result.resource; // ... as specified by developer(s) and this script.
 // Run the devDependencies through a filter.
 filterResponse = devDependenciesFilter.request(applicationPackageManifest.devDependencies);
 if (filterResponse.error) {
@@ -142,6 +142,7 @@ const holisticAppManifest = filterResponse.result;
 ////
 // Ensure the application does not declare duplicate/conflicting package dependencies.
 //
+var newDevDependenciesArray = [];
 var conflictingAppDependencies = [];
 for (var key in holisticAppManifest.devDependencies) {
     // If the application layer package dependency is already satisfied by the platform layer.
@@ -150,6 +151,7 @@ for (var key in holisticAppManifest.devDependencies) {
     }
     // Remove the values we know will be present in the resynthesized devDependencies.
     delete applicationPackageDevDependencies[key];
+    newDevDependenciesArray.push({ package: key, semver: holisticAppManifest.devDependencies[key] });
 } // end for
 
 // Fail on duplicate/conflicting package dependency declarations in the holistic application manifest (holistic-app.json).
@@ -163,14 +165,30 @@ if (conflictingAppDependencies.length) {
 // Remove the values we know will be present in the resynthesized devDependencies.
 for (key in holisticPlatformManifest.devDependencies) {
     delete applicationPackageDevDependencies[key];
+    newDevDependenciesArray.push({ package: key, semver: holisticPlatformManifest.devDependencies[key] });
 }
 
 // Any package dependency remaining is no longer needed and should be removed.
 if (arccore.util.dictionaryLength(applicationPackageDevDependencies)) {
-    console.log(JSON.stringify(applicationPackageDevDependencies));
-    process.exit(1);
+    console.log("The following package dependencies declared in the application package.json will be removed: " + JSON.stringify(applicationPackageDevDependencies));
 }
 
+newDevDependenciesArray.sort(function(a_, b_) { return (a_.package === b_.package)?0:((a_.package < b_.package)?-1:1) });
+
+var newDevDependencies = {};
+newDevDependenciesArray.forEach(function(descriptor_) { newDevDependencies[descriptor_.package] = descriptor_.semver; });
+
+applicationPackageManifest.devDependencies = newDevDependencies;
+
+filterResponse = arctoolslib.stringToFileSync.request({
+    resource: JSON.stringify(applicationPackageManifest, undefined, 2),
+    path: resourceFilePaths.application.packageManifest
+});
+if (filterResponse.error) {
+    console.log("ERROR: Failed to write the applicaiton's package.json document.");
+    consoel.log(filterResponse.error);
+    process.exit(1);
+}
 
 
 ////
