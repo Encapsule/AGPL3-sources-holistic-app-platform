@@ -2,6 +2,7 @@
 //
 
 const arccore = require('arccore');
+const devDependenciesSpec = require('./dev-dependencies-spec.js');
 
 const factoryResponse = arccore.filter.create({
     operationID: "7_bO5OlRRVmas06fQy0Jzg",
@@ -30,7 +31,8 @@ const factoryResponse = arccore.filter.create({
 	    ____label: "Application Codename",
 	    ____description: "The application's \"codename\" - a short string label typically changed whenever the version changes. Used to refer to specific versions/builds.",
 	    ____accept: "jsString"
-	}
+	},
+	devDependencies: devDependenciesSpec
     }
 });
 

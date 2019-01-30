@@ -7,12 +7,13 @@ const fs = require('fs');
 const path = require("path");
 
 const holisticMetadata = require("../HOLISTIC/holistic");
-const holisticFrameworkManifest = require("./holistic-platform-manifest");
+const holisticPlatformManifest = require("./holistic-platform-manifest");
 
 const arctoolslib = require("arctools");
 const arccore = arctoolslib.arccore;
 
 const holisticAppManifestFilter = require('./holistic-app-manifest-filter');
+const devDependenciesFilter = require('./dev-dependencies-filter');
 
 var program = arctoolslib.commander;
 
@@ -21,12 +22,13 @@ program.version(holisticMetadata.version).
     option("--info", "Print information about this tool.").
     parse(process.argv);
 
-console.log("**** generate_holistic_app v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\" ****\n");
+console.log("================================================================");
+console.log("generate_holistic_app :: Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
 
 if (program.info) {
     console.log("This script is a code generation tool used to initialize and update");
     console.log("an external git repository containing a Node.js/HTML5 application");
-    console.log("derived from Facebook React and Encapsule Project holistic framework");
+    console.log("derived from Facebook React and Encapsule Project holistic platform");
     console.log("libraries.\n");
     
     console.log("It is assumed that the derived application's git repository has been");
@@ -41,7 +43,7 @@ if (program.info) {
     console.log("runtime infrastructure and integrations, and application-layer plug-in");
     console.log("extensions, configuration metadata, and static assets.\n");
     
-    console.log("Encpasule/holistic framework metadata = '" + JSON.stringify(holisticMetadata, undefined, 2) + "'\n");
+    console.log("Encpasule/holistic platform metadata = '" + JSON.stringify(holisticMetadata, undefined, 2) + "'\n");
     process.exit(0);
 
 } // end if program.info
@@ -97,44 +99,77 @@ if (!fsStat.isDirectory()) {
 
 console.log("... Target application directory '" + appRepoDir + "' exists and appears to be a git repository.");
 
+////
+// Load the application's package.json document. Note that we clone this document and overwrite specific name/value pairs
+// with values calculated here retaining all the non-conflicting, application-specific information that developers often
+// add to their package.json.
+//
 filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.packageManifest);
 if (filterResponse.error) {
     console.error("ERROR: Cannot load the target application's  manifest (package.json).");
     console.error(filterResponse.error);
     process.exit(1);
 }
-
-// The applicationPackageManifest is taken as specified by the developer and used as the basis for deriving
-// a new package.json for the application formed by extending/overwriting developer-specified information
-// with the latest holistic application package settings. Note that the intent is that developers primarily
-// maintain their holistic-app.json file and extend their package.json only as required to affect additional
-// application-specific integrations (e.g. with test / deployment infrastructure) that are not directly
-// coupled to the build and packaging of the holistic application (and thus are not represented in
-// the developer-specified holistic-app.json manifest).
-
 const applicationPackageManifest = filterResponse.result.resource; // ... as specified by developer(s) and this script.
+// Run the devDependencies through a filter.
+filterResponse = devDependenciesFilter.request(applicationPackageManifest.devDependencies);
+if (filterResponse.error) {
+    console.error("ERROR: Cannot access application package.json devDependencies map.");
+    console.error(filterResponse.error);
+    process.exit(1);
+}
+const applicationPackageDevDependencies = filterResponse.result;
 
+////
+// Load the application's holistic-app.json manifest document.
+//
 var filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
 if (filterResponse.error) {
     console.error("ERROR: Unable to read the application's holistic application manifest file (holistic-app.json).");
     console.error(filterResponse.error);
     process.exit(1);
 }
-
 const holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
-
+// Run the deserialized JSON through a filter.
 filterResponse = holisticAppManifestFilter.request(holisticAppManifestData);
 if (filterResponse.error) {
     console.error("ERROR: Invalid holistic application manifest document '" + resourceFilePaths.application.appManifest + "'.");
     console.error(filterResponse.error);
     process.exit(1);
 }
-
 const holisticAppManifest = filterResponse.result;
 
+////
+// Ensure the application does not declare duplicate/conflicting package dependencies.
+//
+var conflictingAppDependencies = [];
+for (var key in holisticAppManifest.devDependencies) {
+    // If the application layer package dependency is already satisfied by the platform layer.
+    if (holisticPlatformManifest.devDependencies[key]) {
+	conflictingAppDependencies.push(key);
+    }
+    // Remove the values we know will be present in the resynthesized devDependencies.
+    delete applicationPackageDevDependencies[key];
+} // end for
 
+// Fail on duplicate/conflicting package dependency declarations in the holistic application manifest (holistic-app.json).
+if (conflictingAppDependencies.length) {
+    console.error("ERROR: Holistic application manifest '" + resourceFilePaths.application.appManifest + "' declares one or more conflicting package dependencies.");
+    console.error("The following packages are already specified as Encapsule/holistic platform dependencies and should be removed from your application manifest:");
+    console.error(conflictingAppDependencies.join(", "));
+    process.exit(1);
+} // end if
 
+// Remove the values we know will be present in the resynthesized devDependencies.
+for (key in holisticPlatformManifest.devDependencies) {
+    delete applicationPackageDevDependencies[key];
+}
 
+// Any package dependency remaining is no longer needed and should be removed.
+if (arccore.util.dictionaryLength(applicationPackageDevDependencies)) {
+    console.log(JSON.stringify(applicationPackageDevDependencies));
+    process.exit(1);
+}
 
 
 
