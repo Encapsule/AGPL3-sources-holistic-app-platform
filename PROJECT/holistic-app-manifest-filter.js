@@ -12,25 +12,30 @@ const factoryResponse = arccore.filter.create({
 	____label: "Holistic Application Manifest Object",
 	____description: "Describes a specific full-stack Node.js/HTML5 application derived from Encapsule/holistic framework. Used as input to the Encapsule/holistic code generator utility.",
 	____types: "jsObject",
+        ____defaultValue: {},
 	name: {
 	    ____label: "Application Name",
 	    ____description: "The short name of the application. Used in the application's package.json as the value of the `name` field.",
-	    ____accept: "jsString"
+	    ____accept: "jsString",
+            ____defaultValue: "your-package-name"
 	},
 	description: {
 	    ____label: "Application Description",
 	    ____description: "A short description of the application. Used in the application's package.json as the value of the `description` field.",
-	    ____accept: "jsString"
+	    ____accept: "jsString",
+            ____defaultValue: "Your package description."
 	},
 	version: {
 	    ____label: "Application Version",
 	    ____description: "The semantic version string of the application. Used in the application's package.json as the value of the `version` field.",
-	    ____accept: "jsString"
+	    ____accept: "jsString",
+            ____defaultValue: "0.0.1"
 	},
 	codename: {
 	    ____label: "Application Codename",
 	    ____description: "The application's \"codename\" - a short string label typically changed whenever the version changes. Used to refer to specific versions/builds.",
-	    ____accept: "jsString"
+	    ____accept: "jsString",
+            ____defaultValue: "HelloWorld!"
 	},
 	devDependencies: devDependenciesSpec
     }

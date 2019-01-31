@@ -30,10 +30,10 @@ if (program.info) {
     console.log("an external git repository containing a Node.js/HTML5 application");
     console.log("derived from Facebook React and Encapsule Project holistic platform");
     console.log("libraries.\n");
-    
+
     console.log("It is assumed that the derived application's git repository has been");
     console.log("cloned locally on the machine where you're executing this script.\n")
-    
+
     console.log("Modifications made by this script to the target application's repository");
     console.log("should be reviewed and committed just as any other change to the application");
     console.log("would be.\n");
@@ -42,7 +42,7 @@ if (program.info) {
     console.log("setup and maintainence, dependency management, build infrastructure, core");
     console.log("runtime infrastructure and integrations, and application-layer plug-in");
     console.log("extensions, configuration metadata, and static assets.\n");
-    
+
     console.log("Encpasule/holistic platform metadata = '" + JSON.stringify(holisticMetadata, undefined, 2) + "'\n");
     process.exit(0);
 
@@ -124,12 +124,35 @@ const applicationPackageDevDependencies = filterResponse.result;
 // Load the application's holistic-app.json manifest document.
 //
 var filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
+var holisticAppManifestData = null;
 if (filterResponse.error) {
-    console.error("ERROR: Unable to read the application's holistic application manifest file (holistic-app.json).");
-    console.error(filterResponse.error);
-    process.exit(1);
+    // Assume that the file doesn't exist. Construct a default manifest w/the filter. And then serialize it.
+    console.log("WARNING: The target application does not contain a holistic application manifest. Generating a new default manifest...");
+    filterResponse = holisticAppManifestFilter.request({
+        name: applicationPackageManifest.name,
+        description: applicationPackageManifest.description,
+        version: applicationPackageManifest.version,
+        codename: applicationPackageManifest.codename
+    });
+    if (filterResponse.error) {
+        console.error("ERROR: Could not initialize a default holistic application manifest!");
+        console.error(filterResponse.error);
+        process.exit(1);
+    }
+    holisticAppManifestData = filterResponse.result;
+    filterResponse = arctoolslib.stringToFileSync.request({
+        resource: JSON.stringify(filterResponse.result, undefined, 2),
+        path: resourceFilePaths.application.appManifest
+    });
+    if (filterResponse.error) {
+        console.error("ERROR: Unable to write a default holistic application manifest to the application repo!");
+        console.error(filterRepsonse.error);
+        process.exit(1);
+    }
+    console.log("... Holistic application manifest created '" + resourceFilePaths.application.appManifest + "'.");
+} else {
+    holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
 }
-const holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
 // Run the deserialized JSON through a filter.
 filterResponse = holisticAppManifestFilter.request(holisticAppManifestData);
 if (filterResponse.error) {
@@ -178,6 +201,7 @@ newDevDependenciesArray.sort(function(a_, b_) { return (a_.package === b_.packag
 var newDevDependencies = {};
 newDevDependenciesArray.forEach(function(descriptor_) { newDevDependencies[descriptor_.package] = descriptor_.semver; });
 
+// Create the 
 applicationPackageManifest.devDependencies = newDevDependencies;
 
 filterResponse = arctoolslib.stringToFileSync.request({
