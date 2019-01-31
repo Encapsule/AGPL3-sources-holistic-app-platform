@@ -13,7 +13,7 @@ const arctoolslib = require("arctools");
 const arccore = arctoolslib.arccore;
 
 const holisticAppManifestFilter = require('./holistic-app-manifest-filter');
-const devDependenciesFilter = require('./dev-dependencies-filter');
+const packageMapFilter = require('./package-map-filter');
 
 var program = arctoolslib.commander;
 
@@ -111,8 +111,8 @@ if (filterResponse.error) {
     process.exit(1);
 }
 var applicationPackageManifest = filterResponse.result.resource; // ... as specified by developer(s) and this script.
-// Run the devDependencies through a filter.
-filterResponse = devDependenciesFilter.request(applicationPackageManifest.devDependencies);
+// Filter the package map.
+filterResponse = packageMapFilter.request(applicationPackageManifest.devDependencies);
 if (filterResponse.error) {
     console.error("ERROR: Cannot access application package.json devDependencies map.");
     console.error(filterResponse.error);
@@ -124,7 +124,7 @@ const applicationPackageDevDependencies = filterResponse.result;
 // Load the application's holistic-app.json manifest document.
 //
 var filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
-var holisticAppManifestData = null;
+var holisticAppManifest = null;
 if (filterResponse.error) {
     // Assume that the file doesn't exist. Construct a default manifest w/the filter. And then serialize it.
     console.log("WARNING: The target application does not contain a holistic application manifest. Generating a new default manifest...");
@@ -139,7 +139,9 @@ if (filterResponse.error) {
         console.error(filterResponse.error);
         process.exit(1);
     }
-    holisticAppManifestData = filterResponse.result;
+    // Use the newly-created holistic application manifest.
+    holisticAppManifest = filterResponse.result;
+    // Write the new holistic application manifest to the application repository.
     filterResponse = arctoolslib.stringToFileSync.request({
         resource: JSON.stringify(filterResponse.result, undefined, 2),
         path: resourceFilePaths.application.appManifest
@@ -151,30 +153,32 @@ if (filterResponse.error) {
     }
     console.log("... Holistic application manifest created '" + resourceFilePaths.application.appManifest + "'.");
 } else {
-    holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
-}
-// Run the deserialized JSON through a filter.
-filterResponse = holisticAppManifestFilter.request(holisticAppManifestData);
-if (filterResponse.error) {
-    console.error("ERROR: Invalid holistic application manifest document '" + resourceFilePaths.application.appManifest + "'.");
-    console.error(filterResponse.error);
-    process.exit(1);
-}
-const holisticAppManifest = filterResponse.result;
+    const holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
+    // Filter the holistic application manifest read from the application repository.
+    filterResponse = holisticAppManifestFilter.request(holisticAppManifestData);
+    if (filterResponse.error) {
+        console.error("ERROR: Invalid holistic application manifest document '" + resourceFilePaths.application.appManifest + "'.");
+        console.error(filterResponse.error);
+        process.exit(1);
+    }
+    // Use the filtered holistic application manifest data read from the application repository.
+    holisticAppManifest = filterResponse.result;
+} // else we read the holistic application manifest from the application repository
 
 ////
 // Ensure the application does not declare duplicate/conflicting package dependencies.
 //
 var newDevDependenciesArray = [];
 var conflictingAppDependencies = [];
-for (var key in holisticAppManifest.devDependencies) {
+
+for (var key in holisticAppManifest.applicationDependencies) {
     // If the application layer package dependency is already satisfied by the platform layer.
-    if (holisticPlatformManifest.devDependencies[key]) {
-	conflictingAppDependencies.push(key);
+    if (holisticPlatformManifest.platformDependencies[key]) {
+	    conflictingAppDependencies.push(key);
     }
     // Remove the values we know will be present in the resynthesized devDependencies.
     delete applicationPackageDevDependencies[key];
-    newDevDependenciesArray.push({ package: key, semver: holisticAppManifest.devDependencies[key] });
+    newDevDependenciesArray.push({ package: key, semver: holisticAppManifest.applicationDependencies[key] });
 } // end for
 
 // Fail on duplicate/conflicting package dependency declarations in the holistic application manifest (holistic-app.json).
@@ -186,9 +190,9 @@ if (conflictingAppDependencies.length) {
 } // end if
 
 // Remove the values we know will be present in the resynthesized devDependencies.
-for (key in holisticPlatformManifest.devDependencies) {
+for (key in holisticPlatformManifest.platformDependencies) {
     delete applicationPackageDevDependencies[key];
-    newDevDependenciesArray.push({ package: key, semver: holisticPlatformManifest.devDependencies[key] });
+    newDevDependenciesArray.push({ package: key, semver: holisticPlatformManifest.platformDependencies[key] });
 }
 
 // Any package dependency remaining is no longer needed and should be removed.
@@ -201,9 +205,9 @@ newDevDependenciesArray.sort(function(a_, b_) { return (a_.package === b_.packag
 var newDevDependencies = {};
 newDevDependenciesArray.forEach(function(descriptor_) { newDevDependencies[descriptor_.package] = descriptor_.semver; });
 
-// Create the 
 applicationPackageManifest.devDependencies = newDevDependencies;
 
+// Overwrite the application's package.json document with the updated version.
 filterResponse = arctoolslib.stringToFileSync.request({
     resource: JSON.stringify(applicationPackageManifest, undefined, 2),
     path: resourceFilePaths.application.packageManifest
@@ -213,6 +217,7 @@ if (filterResponse.error) {
     consoel.log(filterResponse.error);
     process.exit(1);
 }
+console.log("> Wrote '" + resourceFilePaths.application.packageManifest + "'.");
 
 
 ////

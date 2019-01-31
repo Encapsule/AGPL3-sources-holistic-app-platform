@@ -2,7 +2,7 @@
 //
 
 const arccore = require('arccore');
-const devDependenciesSpec = require('./dev-dependencies-spec.js');
+const packageMapSpec = require('./package-map-spec');
 
 const factoryResponse = arccore.filter.create({
     operationID: "7_bO5OlRRVmas06fQy0Jzg",
@@ -37,7 +37,7 @@ const factoryResponse = arccore.filter.create({
 	    ____accept: "jsString",
             ____defaultValue: "HelloWorld!"
 	},
-	devDependencies: devDependenciesSpec
+	applicationDependencies: packageMapSpec
     }
 });
 

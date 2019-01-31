@@ -4,38 +4,39 @@ const holisticAppPlatformManifestFilter = require('./holistic-platform-manifest-
 
 const filterResponse = holisticAppPlatformManifestFilter.request({
 
-    devDependencies: {
-	"@babel/cli": "^7.2.3",
-	"@babel/core": "^7.2.2",
-	"@babel/plugin-transform-react-jsx": "^7.2.0",
-	"@babel/preset-env": "^7.2.3",
-	"arccore": "Encapsule/arccore",
-	"arctools": "Encapsule/arctools",
+    platformDependencies: {
 
-	// holistic package <- "chai": "^4.2.0",
-	// holistic package <- "color": "^3.1.0",
-	// holistic package <- "commander": "^2.19.0",
-	// polytely package <- "d3": "4.9.1",
+	    "@babel/cli": "^7.2.3",
+	    "@babel/core": "^7.2.2",
+	    "@babel/plugin-transform-react-jsx": "^7.2.0",
+	    "@babel/preset-env": "^7.2.3",
+	    "arccore": "Encapsule/arccore",
+	    "arctools": "Encapsule/arctools",
 
-	"eslint": "^5.10.0",
+	    // holistic package <- "chai": "^4.2.0",
+	    // holistic package <- "color": "^3.1.0",
+	    // holistic package <- "commander": "^2.19.0",
+	    // polytely package <- "d3": "4.9.1",
 
-	// unneeded? <- "handlebars": "^4.0.12",
+	    "eslint": "^5.10.0",
 
-	"handlebars-loader": "^1.7.1",
+	    // unneeded? <- "handlebars": "^4.0.12",
 
-	// polytely packge <-"ioredis": "^4.3.0",
-	// holistic package <- "mocha": "^5.2.0",
+	    "handlebars-loader": "^1.7.1",
 
-	"query-string": "^6.2.0",
-	"react": "^16.7.0",
-	"react-dom": "^16.7.0",
+	    // polytely packge <-"ioredis": "^4.3.0",
+	    // holistic package <- "mocha": "^5.2.0",
 
-	// polytely package <- "react-remarkable": "^1.1.3",
+	    "query-string": "^6.2.0",
+	    "react": "^16.7.0",
+	    "react-dom": "^16.7.0",
 
-	"request": "^2.88.0",
-	"webpack": "^4.28.1",
-	"webpack-cli": "^3.1.2"
- 
+	    // polytely package <- "react-remarkable": "^1.1.3",
+
+	    "request": "^2.88.0",
+	    "webpack": "^4.28.1",
+	    "webpack-cli": "^3.1.2"
+
     } // devDependencies
 
 });

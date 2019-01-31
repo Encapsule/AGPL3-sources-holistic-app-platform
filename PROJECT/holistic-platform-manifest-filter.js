@@ -1,7 +1,7 @@
 // holistic-app-framework-manifest-filter.js
 
 const arccore = require('arccore');
-const devDependenciesSpec = require('./dev-dependencies-spec.js');
+const packageMapSpec = require('./package-map-spec');
 
 const factoryResponse = arccore.filter.create({
     operationID: "XzQWD4ivQLK6ycjwN2cFSQ",
@@ -11,7 +11,7 @@ const factoryResponse = arccore.filter.create({
 	____label: "Holistic Framework Manifest",
 	____description: "Describes information pertinent to the build, test, and packaging of web applications derived from the Encapsule/holistic framework.",
 	____types: "jsObject",
-	devDependencies: devDependenciesSpec
+	platformDependencies: packageMapSpec
     }
 });
 
