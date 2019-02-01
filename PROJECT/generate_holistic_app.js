@@ -3,6 +3,7 @@
 "use strict";
 
 // Node.js runtime modules
+const childProcess = require('child_process');
 const fs = require('fs');
 const path = require("path");
 
@@ -16,6 +17,12 @@ const holisticAppManifestFilter = require('./holistic-app-manifest-filter');
 const packageMapFilter = require('./package-map-filter');
 
 var program = arctoolslib.commander;
+
+function syncExec(request_) { // request_ = { command: string, cwd: string }
+    // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
+    // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
+    return childProcess.execSync(request_.command, { cwd: request_.cwd }).toString('utf8');
+} // ruxExec
 
 program.version(holisticMetadata.version).
     option("--appRepoDir <appRepoDir>", "(required) Root directory of the external git repository containing the web application to initialize and/or update.").
@@ -54,23 +61,20 @@ if (!program.appRepoDir) {
 
 // Get the fully-qualified path to the target application's git repo.
 const appRepoDir = path.resolve(program.appRepoDir);
-console.log("> Inspecting local application git repo directory: '" + appRepoDir + "' ...");
+console.log("> Open '" + appRepoDir + "' ...");
 
 const resourceFilePaths = {
-
     application: {
-	appRepoDir: appRepoDir,
-	appRepoGitDir: path.join(appRepoDir, ".git"),
-	packageManifest: path.join(appRepoDir, "package.json"),
-	packageReadme: path.join(appRepoDir, "README.md"),
-	packageLicense: path.join(appRepoDir, "LICENSE"),
-	packageMakefile: path.join(appRepoDir, "Makefile"),
-	appManifest: path.join(appRepoDir, "holistic-app.json"),
+	    appRepoDir: appRepoDir,
+	    appRepoGitDir: path.join(appRepoDir, ".git"),
+	    packageManifest: path.join(appRepoDir, "package.json"),
+	    packageReadme: path.join(appRepoDir, "README.md"),
+	    packageLicense: path.join(appRepoDir, "LICENSE"),
+	    packageMakefile: path.join(appRepoDir, "Makefile"),
+	    appManifest: path.join(appRepoDir, "holistic-app.json"),
     },
-
     holistic: {
     }
-
 };
 
 // Ensure the application repo directory exists.
@@ -97,8 +101,6 @@ if (!fsStat.isDirectory()) {
     process.exit(1);
 }
 
-console.log("... Target application directory '" + appRepoDir + "' exists and appears to be a git repository.");
-
 ////
 // Load the application's package.json document. Note that we clone this document and overwrite specific name/value pairs
 // with values calculated here retaining all the non-conflicting, application-specific information that developers often
@@ -119,6 +121,7 @@ if (filterResponse.error) {
     process.exit(1);
 }
 const applicationPackageDevDependencies = filterResponse.result;
+console.log("> Read '" + resourceFilePaths.application.packageManifest + "'.");
 
 ////
 // Load the application's holistic-app.json manifest document.
@@ -127,7 +130,6 @@ var filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.ap
 var holisticAppManifest = null;
 if (filterResponse.error) {
     // Assume that the file doesn't exist. Construct a default manifest w/the filter. And then serialize it.
-    console.log("WARNING: The target application does not contain a holistic application manifest. Generating a new default manifest...");
     filterResponse = holisticAppManifestFilter.request({
         name: applicationPackageManifest.name,
         description: applicationPackageManifest.description,
@@ -151,7 +153,7 @@ if (filterResponse.error) {
         console.error(filterRepsonse.error);
         process.exit(1);
     }
-    console.log("... Holistic application manifest created '" + resourceFilePaths.application.appManifest + "'.");
+    console.log("> Write '" + resourceFilePaths.application.appManifest + "'.");
 } else {
     const holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
     // Filter the holistic application manifest read from the application repository.
@@ -163,6 +165,7 @@ if (filterResponse.error) {
     }
     // Use the filtered holistic application manifest data read from the application repository.
     holisticAppManifest = filterResponse.result;
+    console.log("> Read '" + resourceFilePaths.application.appManifest + "'.");
 } // else we read the holistic application manifest from the application repository
 
 ////
@@ -197,7 +200,7 @@ for (key in holisticPlatformManifest.platformDependencies) {
 
 // Any package dependency remaining is no longer needed and should be removed.
 if (arccore.util.dictionaryLength(applicationPackageDevDependencies)) {
-    console.log("The following package dependencies declared in the application package.json will be removed: " + JSON.stringify(applicationPackageDevDependencies));
+    console.log("> Removing packages '" + JSON.stringify(applicationPackageDevDependencies) + "'.");
 }
 
 newDevDependenciesArray.sort(function(a_, b_) { return (a_.package === b_.package)?0:((a_.package < b_.package)?-1:1) });
@@ -205,8 +208,26 @@ newDevDependenciesArray.sort(function(a_, b_) { return (a_.package === b_.packag
 var newDevDependencies = {};
 newDevDependenciesArray.forEach(function(descriptor_) { newDevDependencies[descriptor_.package] = descriptor_.semver; });
 
+// Set the application's development mode package dependencies.
 applicationPackageManifest.devDependencies = newDevDependencies;
 
+const holisticAppManifestSpec = holisticAppManifestFilter.filterDescriptor.inputFilterSpec;
+for (key in holisticAppManifestSpec) {
+    const namespaceDescriptor = holisticAppManifestSpec[key];
+    if (namespaceDescriptor.____appdsl && namespaceDescriptor.____appdsl.copyValue) {
+        applicationPackageManifest[key] = holisticAppManifest[key];
+    }
+}
+
+if (!applicationPackageManifest.scripts) {
+    applicationPackageManifest.scripts = {};
+}
+
+for (key in holisticPlatformManifest.applicationPackageManifest.scripts) {
+    applicationPackageManifest.scripts[key] = holisticPlatformManifest.applicationPackageManifest.scripts[key];
+}
+
+////
 // Overwrite the application's package.json document with the updated version.
 filterResponse = arctoolslib.stringToFileSync.request({
     resource: JSON.stringify(applicationPackageManifest, undefined, 2),
@@ -217,44 +238,21 @@ if (filterResponse.error) {
     consoel.log(filterResponse.error);
     process.exit(1);
 }
-console.log("> Wrote '" + resourceFilePaths.application.packageManifest + "'.");
+console.log("> Write '" + resourceFilePaths.application.packageManifest + "'.");
 
 
-////
-// INSPECT THE TARGET APPLICATION GIT REPOSITORY
+const modifiedFilesResponse = syncExec({
+    cwd: resourceFilePaths.application.appRepoDir,
+    command: "git ls-files --modified --deleted --others"
+});
 
-// Verify the existence of a holistic application manifest in the target application repo.
-// If it does not exist, create a default manifest.
+const modifiedFiles = modifiedFilesResponse?modifiedFilesResponse.trim().split("\n"):[];
 
-// Ensure that the target application repo has no outstanding changes left uncommited.
+console.log("\nCode generation complete.\n");
 
+if (!modifiedFiles.length) {
+    console.log("No uncommitted application source changes.");
+} else {
+    console.log(modifiedFiles.length + " application source files deleted, modified, or untracked.");
+}
 
-////
-// LOAD AND PARSE THE TARGET APPLICATION'S PACKAGE.JSON
-
-////
-// LOAD AND PARSE THE HOLISTIC PACKAGE'S BUILD MANIFEST
-
-////
-// GENERATE THE APPLICATION'S UPDATED PACKAGE.JSON
-
-////
-// OVERWRITE THE TARGET APPLICATION'S PACKAGE.JSON
-
-////
-// REMOVE ANY PREVIOUSLY-REGISTERED HOLISTIC RUNTIME
-
-////
-// UPDATE THE HOLISTIC RUNTIME (I.E. COPY THE RUNTIME PACKAGES)
-
-////
-// INSTALL THE UPDATED HOLISTIC RUNTIME (I.E. UPDATE yarn.lock)
-
-////
-// SYNTHESIZSE THE TARGET APPLICATION MAKEFILE
-
-////
-// SYNTHESIZE DOCUMENTATION & OTHER PERSISTENT ASSETS
-
-////
-// COMPLETE HOLISTIC APPLICATION UDPATE

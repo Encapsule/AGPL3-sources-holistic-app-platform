@@ -4,6 +4,15 @@ const holisticAppPlatformManifestFilter = require('./holistic-platform-manifest-
 
 const filterResponse = holisticAppPlatformManifestFilter.request({
 
+    applicationPackageManifest: {
+        scripts: {
+            install: "echo install",
+            build: "echo build",
+            start: "echo start",
+            clean: "echo clean"
+        }
+    },
+
     platformDependencies: {
 
 	    "@babel/cli": "^7.2.3",
