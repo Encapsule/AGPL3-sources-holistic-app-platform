@@ -6,6 +6,7 @@
 const childProcess = require('child_process');
 const fs = require('fs');
 const path = require("path");
+const mkdirp = require("mkdirp");
 
 const holisticMetadata = require("../HOLISTIC/holistic");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
@@ -18,7 +19,7 @@ const packageMapFilter = require('./package-map-filter');
 
 var program = arctoolslib.commander;
 
-function syncExec(request_) { // request_ = { command: string, cwd: string }
+function syncExec(request_) { // request_ = { command: string, cwd: string,  }
     // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
     // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
     return childProcess.execSync(request_.command, { cwd: request_.cwd }).toString('utf8');
@@ -59,21 +60,28 @@ if (!program.appRepoDir) {
     program.help();
 }
 
-// Get the fully-qualified path to the target application's git repo.
+// Get the fully-qualified path to the target application's git repository.
 const appRepoDir = path.resolve(program.appRepoDir);
 console.log("> Open '" + appRepoDir + "' ...");
 
+// Get the full-qualified path of the Encapsule/holistic package root directory.
+const holisticPackageDir = path.resolve(path.join(__dirname, ".."));
+
+
 const resourceFilePaths = {
     application: {
-	    appRepoDir: appRepoDir,
-	    appRepoGitDir: path.join(appRepoDir, ".git"),
-	    packageManifest: path.join(appRepoDir, "package.json"),
-	    packageReadme: path.join(appRepoDir, "README.md"),
-	    packageLicense: path.join(appRepoDir, "LICENSE"),
-	    packageMakefile: path.join(appRepoDir, "Makefile"),
-	    appManifest: path.join(appRepoDir, "holistic-app.json"),
+	appRepoDir: appRepoDir,
+	appRepoGitDir: path.join(appRepoDir, ".git"),
+	packageManifest: path.join(appRepoDir, "package.json"),
+	packageReadme: path.join(appRepoDir, "README.md"),
+	packageLicense: path.join(appRepoDir, "LICENSE"),
+	packageMakefile: path.join(appRepoDir, "Makefile"),
+	appManifest: path.join(appRepoDir, "holistic-app.json"),
+        platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
     },
     holistic: {
+        packageDir: holisticPackageDir,
+        platformSourcesDir: path.join(holisticPackageDir, "HOLISTIC")
     }
 };
 
@@ -240,10 +248,39 @@ if (filterResponse.error) {
 }
 console.log("> Write '" + resourceFilePaths.application.packageManifest + "'.");
 
+////
+// Remove existing copy of the holistic platform sources from the application.
+var consoleOutput = syncExec({
+    cwd: resourceFilePaths.application.appRepoDir,
+    command: ("rm -rfv " + resourceFilePaths.application.platformSourcesDir)
+});
+console.log(consoleOutput);
+console.log("Removed '" + resourceFilePaths.application.platformSourcesDir + "'.");
+
+////
+// Copy the latest version of the holistic platform sources into the application.
+var command =  [
+    "cp -Rpv",
+    path.join(resourceFilePaths.holistic.platformSourcesDir, "*"),
+    (resourceFilePaths.application.platformSourcesDir + "/")
+].join(" ");
+
+mkdirp(resourceFilePaths.application.platformSourcesDir);
+var consoleOutput = syncExec({
+    cwd: resourceFilePaths.holistic.packageDir,
+    command: command
+});
+console.log(consoleOutput);
+console.log("> Copied '" + resourceFilePaths.holistic.platformSourcesDir + "' -> '" + resourceFilePaths.application.platformSourcesDir + "'.");
+
+////
+// Determine the count of files in the target application repo that are in the
+// modified, deleted, or untracked state after the code generation algorithm has
+// completed its work.
 
 const modifiedFilesResponse = syncExec({
     cwd: resourceFilePaths.application.appRepoDir,
-    command: "git ls-files --modified --deleted --others"
+    command: "git ls-files --modified --deleted --others --exclude-standard"
 });
 
 const modifiedFiles = modifiedFilesResponse?modifiedFilesResponse.trim().split("\n"):[];
@@ -253,6 +290,6 @@ console.log("\nCode generation complete.\n");
 if (!modifiedFiles.length) {
     console.log("No uncommitted application source changes.");
 } else {
-    console.log(modifiedFiles.length + " application source files deleted, modified, or untracked.");
+    console.log(modifiedFiles.length + " application source files modified (modified + deleted + untracked).");
 }
 
