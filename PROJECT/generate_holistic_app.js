@@ -78,9 +78,9 @@ const resourceFilePaths = {
 	packageMakefile: path.join(appRepoDir, "Makefile"),
         packageGitIgnore: path.join(appRepoDir, ".gitignore"),
         packageBabelRc: path.join(appRepoDir, ".babelrc"),
-        packageEsLintRc: path.join(appRepoDir, ".eslintrc.js"),
-        packageWebpackServerRc: path.join(appRepoDir, "webpack.config.server"),
-        packageWebpackClientRc: path.join(appRepoDir, "webpack.config.client"),
+        packageEslintRc: path.join(appRepoDir, ".eslintrc.js"),
+        packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server"),
+        packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client"),
 
 	appManifest: path.join(appRepoDir, "holistic-app.json"),
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
@@ -90,9 +90,9 @@ const resourceFilePaths = {
         platformSourcesDir: path.join(holisticPackageDir, "HOLISTIC"),
         platformGitIgnore: path.join(holisticPackageDir, ".gitignore"),
         platformBabelRc: path.join(holisticPackageDir, ".babelrc"),
-        platformEsLintRc: path.join(holisticPackageDir, ".eslintrc.js"),
-        platformWebpackServerRc: path.join(holisticPackageDir, "PROJECT", "BUILD", "webpack.config.server"),
-        platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT", "BUILD", "webpack.config.client")
+        platformEslintRc: path.join(holisticPackageDir, ".eslintrc.js"),
+        platformWebpackServerRc: path.join(holisticPackageDir, "PROJECT", "BUILD", "webpack.config.app.server"),
+        platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT", "BUILD", "webpack.config.app.client")
     }
 };
 
@@ -219,7 +219,7 @@ for (key in holisticPlatformManifest.platformDependencies) {
 
 // Any package dependency remaining is no longer needed and should be removed.
 if (arccore.util.dictionaryLength(applicationPackageDevDependencies)) {
-    console.log("> Removing packages '" + JSON.stringify(applicationPackageDevDependencies) + "'.");
+    console.log("! NOTE: Package dependencies are being removed: '" + JSON.stringify(applicationPackageDevDependencies) + "'.");
 }
 
 newDevDependenciesArray.sort(function(a_, b_) { return (a_.package === b_.package)?0:((a_.package < b_.package)?-1:1) });
@@ -261,30 +261,25 @@ console.log("> Write '" + resourceFilePaths.application.packageManifest + "'.");
 
 ////
 // Remove existing copy of the holistic platform sources from the application.
-console.log("> Removing '" + resourceFilePaths.application.platformSourcesDir + "'...");
 var consoleOutput = syncExec({
     cwd: resourceFilePaths.application.appRepoDir,
     command: ("rm -rfv " + resourceFilePaths.application.platformSourcesDir)
 });
-console.log(consoleOutput);
-console.log("> Removed '" + resourceFilePaths.application.platformSourcesDir + "'.");
+console.log("> Remove '" + resourceFilePaths.application.platformSourcesDir + "'.");
 
 ////
 // Copy the latest version of the holistic platform sources into the application.
-console.log("> Copying '" + resourceFilePaths.holistic.platformSourcesDir + "' -> '" + resourceFilePaths.application.platformSourcesDir + "'...");
+mkdirp(resourceFilePaths.application.platformSourcesDir);
 var command =  [
     "cp -Rpv",
     path.join(resourceFilePaths.holistic.platformSourcesDir, "*"),
     (resourceFilePaths.application.platformSourcesDir + "/")
 ].join(" ");
-
-mkdirp(resourceFilePaths.application.platformSourcesDir);
 var consoleOutput = syncExec({
     cwd: resourceFilePaths.holistic.packageDir,
     command: command
 });
-console.log(consoleOutput);
-console.log("> Copied '" + resourceFilePaths.holistic.platformSourcesDir + "' -> '" + resourceFilePaths.application.platformSourcesDir + "'.");
+console.log("> Write '" + resourceFilePaths.application.platformSourcesDir + "'.");
 
 ////
 // Create application .gitignore
@@ -297,8 +292,7 @@ consoleOutput = syncExec({
     cwd: resourceFilePaths.holistic.packageDir,
     command: command
 });
-console.log(consoleOutput);
-console.log("> Wrote '" + resourceFilePaths.application.packageGitIgnore + "'.");
+console.log("> Write '" + resourceFilePaths.application.packageGitIgnore + "'.");
 
 ////
 // Create application .babelrc
@@ -311,15 +305,48 @@ consoleOutput = syncExec({
     cwd: resourceFilePaths.holistic.packageDir,
     command: command
 });
-console.log(consoleOutput);
-console.log("> Wrote '" + resourceFilePaths.application.packageBabelRc + "'.");
+console.log("> Write '" + resourceFilePaths.application.packageBabelRc + "'.");
 
 
 ////
 // Create application .eslintrc.js
+command = [
+    "cp -pv",
+    resourceFilePaths.holistic.platformEslintRc,
+    resourceFilePaths.application.packageEslintRc
+].join(" ");
+consoleOutput = syncExec({
+    cwd: resourceFilePaths.holistic.packageDir,
+    command: command
+});
+console.log("> Write '" + resourceFilePaths.application.packageEslintRc + "'.");
 
 ////
-// Create application webpack.config for client and server.
+// Create application webpack.config for server.
+command = [
+    "cp -pv",
+    resourceFilePaths.holistic.platformWebpackServerRc,
+    resourceFilePaths.application.packageWebpackServerRc
+].join(" ");
+consoleOutput = syncExec({
+    cwd: resourceFilePaths.holistic.packageDir,
+    command: command
+});
+console.log("> Write '" + resourceFilePaths.application.packageWebpackServerRc + "'.");
+
+
+////
+// Create application webpackage.config for client.
+command = [
+    "cp -pv",
+    resourceFilePaths.holistic.platformWebpackClientRc,
+    resourceFilePaths.application.packageWebpackClientRc
+].join(" ");
+consoleOutput = syncExec({
+    cwd: resourceFilePaths.holistic.packageDir,
+    command: command
+});
+console.log("> Write '" + resourceFilePaths.application.packageWebpackClientRc + "'.");
 
 ////
 // Create application Makefile
