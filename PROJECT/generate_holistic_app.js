@@ -279,7 +279,7 @@ var consoleOutput = syncExec({
     cwd: resourceFilePaths.holistic.packageDir,
     command: command
 });
-console.log("> Write '" + resourceFilePaths.application.platformSourcesDir + "'.");
+console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'.");
 
 ////
 // Create application .gitignore
