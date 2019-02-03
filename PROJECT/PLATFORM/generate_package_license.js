@@ -4,7 +4,7 @@ const arctools = require('arctools');
 const path = require('path');
 const fs = require('fs');
 
-const repoBuild = require('../BUILD/holistic');
+const repoBuild = require('../../BUILD/holistic');
 
 const handlebars = arctools.handlebars;
 const program = arctools.commander;
@@ -44,7 +44,7 @@ try {
     console.error("JSON string obtained from file '" + targetManifestPath + "'.");
     process.exit(1);
 }
-    
+
 const licenseTemplatePath = path.resolve(__dirname, 'LICENSES', (targetManifest.license + '.hbs'));
 const licenseTemplate = fs.readFileSync(licenseTemplatePath).toString('utf-8');
 const compiledLicenseTemplate = handlebars.compile(licenseTemplate);
@@ -61,5 +61,3 @@ const licenseDocumentPath = path.join(program.packageDir, "LICENSE");
 fs.writeFileSync(licenseDocumentPath, licenseDocument);
 
 console.log("Wrote '" + licenseDocumentPath + "'.");
-
-                   

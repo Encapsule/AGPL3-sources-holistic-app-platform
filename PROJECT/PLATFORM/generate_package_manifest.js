@@ -2,7 +2,7 @@
 
 const arctools = require('arctools');
 
-const repoBuild = require('../BUILD/holistic');
+const repoBuild = require('../../BUILD/holistic');
 
 const packageDB = require('./PACKAGES/');
 
