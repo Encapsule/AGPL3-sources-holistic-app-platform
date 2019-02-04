@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require("path");
 const mkdirp = require("mkdirp");
 
-const holisticMetadata = require("../HOLISTIC/holistic");
+const holisticMetadata = require("../../PLATFORM/holistic");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
 
 const arctoolslib = require("arctools");
@@ -65,34 +65,33 @@ const appRepoDir = path.resolve(program.appRepoDir);
 console.log("> Open '" + appRepoDir + "' ...");
 
 // Get the full-qualified path of the Encapsule/holistic package root directory.
-const holisticPackageDir = path.resolve(path.join(__dirname, ".."));
+const holisticPackageDir = path.resolve(path.join(__dirname, "../.."));
 
 
 const resourceFilePaths = {
     application: {
-	appRepoDir: appRepoDir,
-	appRepoGitDir: path.join(appRepoDir, ".git"),
-	packageManifest: path.join(appRepoDir, "package.json"),
-	packageReadme: path.join(appRepoDir, "README.md"),
-	packageLicense: path.join(appRepoDir, "LICENSE"),
-	packageMakefile: path.join(appRepoDir, "Makefile"),
+	    appRepoDir: appRepoDir,
+	    appRepoGitDir: path.join(appRepoDir, ".git"),
+	    packageManifest: path.join(appRepoDir, "package.json"),
+	    packageReadme: path.join(appRepoDir, "README.md"),
+	    packageLicense: path.join(appRepoDir, "LICENSE"),
+	    packageMakefile: path.join(appRepoDir, "Makefile"),
         packageGitIgnore: path.join(appRepoDir, ".gitignore"),
         packageBabelRc: path.join(appRepoDir, ".babelrc"),
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"),
         packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server"),
         packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client"),
-
-	appManifest: path.join(appRepoDir, "holistic-app.json"),
+	    appManifest: path.join(appRepoDir, "holistic-app.json"),
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
     },
     holistic: {
         packageDir: holisticPackageDir,
-        platformSourcesDir: path.join(holisticPackageDir, "HOLISTIC"),
+        platformSourcesDir: path.join(holisticPackageDir, "PLATFORM"),
         platformGitIgnore: path.join(holisticPackageDir, ".gitignore"),
         platformBabelRc: path.join(holisticPackageDir, ".babelrc"),
         platformEslintRc: path.join(holisticPackageDir, ".eslintrc.js"),
-        platformWebpackServerRc: path.join(holisticPackageDir, "PROJECT", "BUILD", "webpack.config.app.server"),
-        platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT", "BUILD", "webpack.config.app.client")
+        platformWebpackServerRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.server"),
+        platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.client")
     }
 };
 
