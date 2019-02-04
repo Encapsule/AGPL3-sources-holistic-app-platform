@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 // The encapsule_master repo's package.json.
-const packageMeta = require('../package.json');
+const packageMeta = require('../../package.json');
 
 // The long git commit hash of the encapsule_master repo.
 const commitHash = childProcess.execSync('git rev-parse HEAD').toString('utf8').trim();

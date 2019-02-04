@@ -43,12 +43,16 @@ DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 
-DIR_APPFACTORY_RUNTIME=$(DIR_ROOT)/HOLISTIC
+DIR_PLATFORM=$(DIR_ROOT)/HOLISTIC
 
 DIR_BUILD_APP=$(DIR_BUILD)/APP
 DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
 DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
 DIR_BUILD_APP_ENCAPSULE_PHASE2=$(DIR_BUILD_APP_ENCAPSULE)/phase2-webpack
+
+whatever:
+	echo whatever
+
 
 default:
 	@echo This Makefile is used to build, test, and publish new versions of
@@ -71,7 +75,7 @@ env_reinitialize: env_clean_cache env_initialize
 
 env_clean:
 	@echo monorepo_clean target starting...
-	rm -rf $(DIR_MODULES)
+	echo rm -rf $(DIR_MODULES)
 	@echo monorepo_clean target complete.
 
 env_clean_cache: env_clean
@@ -176,19 +180,19 @@ dist_package_update_hrequest:
 	@echo stage_package_hrequest target complete.
 
 # ================================================================
-# App Factory
+# Source-controlled Encapsule holistic platform runtime packages.
 
-appfactory_clean:
-	@echo BEGIN TARGET: appfactory_clean
-	rm -rf $(DIR_APPFACTORY)/*
-	@echo FINISH TARGET: appfactory_clean
+platform_clean:
+	@echo BEGIN TARGET: platform_clean
+	rm -rf $(DIR_PLATFORM)/*
+	@echo FINISH TARGET: platform_clean
 
-appfactory_update: source_packages_clean dist_packages_clean dist_packages_update
-	@echo BEGIN TARGET: appfactory_update
-	mkdir -p $(DIR_APPFACTORY_RUNTIME)
-	cp -p $(DIR_BUILD)/holistic.json $(DIR_APPFACTORY_RUNTIME)/
-	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_APPFACTORY_RUNTIME)
-	@echo FINISH TARGET: appfactory_update
+platform_update: source_packages_clean dist_packages_clean dist_packages_update
+	@echo BEGIN TARGET: platform_update
+	mkdir -p $(DIR_PLATFORM)
+	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM)/
+	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM)
+	@echo FINISH TARGET: platform_update
 
 
 # ================================================================
