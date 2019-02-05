@@ -50,10 +50,6 @@ DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
 DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
 DIR_BUILD_APP_ENCAPSULE_PHASE2=$(DIR_BUILD_APP_ENCAPSULE)/phase2-webpack
 
-whatever:
-	echo whatever
-
-
 default:
 	@echo This Makefile is used to build, test, and publish new versions of
 	@echo the holistic web application framework.
@@ -237,6 +233,3 @@ build_app_encapsule: stage_packages
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
 	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
 
-
-test:
-	@echo test $(fuck)
