@@ -45,7 +45,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
 	"webpack": "^4.28.1",
 	"webpack-cli": "^3.1.2",
 
-        // BUNDLED ENCAPSULE PROJECT PACKAGE RESOURCES
+        // Encapsule holistic framework packages (bundled w/this repo).
         "holism": "./HOLISTIC/holism",
         "hrequest": "./HOLISTIC/hrequest"
 
