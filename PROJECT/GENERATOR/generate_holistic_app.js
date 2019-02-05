@@ -25,10 +25,16 @@ function syncExec(request_) { // request_ = { command: string, cwd: string,  }
 } // syncExec
 
 function touchFile(filepath_) {
+    console.log("> Touch '" + filepath_ + "'");
     return syncExec({
         cwd: resourceFilePaths.holistic.packageDir,
         command: "touch " + filepath_
     });
+}
+
+function makeDirectory(directoryPath_) {
+    console.log("> Create '" + directoryPath_ + "'");
+    mkdirp(directoryPath_);
 }
 
 program.version(holisticMetadata.version).
@@ -242,6 +248,8 @@ if (arccore.util.dictionaryLength(applicationPackageDeprecatedDependencies)) {
 // Note that we perform this step prior to overwriting the application's package.json
 // in order to get yarn to clean up yarn.lock (as well as removing the deprecated
 // package from the application's node_modules directory).
+touchFile(path.join(resourceFilePaths.application.appRepoDir, "yarn.lock")); // need this file to exist when bootstrapping new application repo.
+
 for (key in applicationPackageDeprecatedDependencies) {
     console.log("> Removing deprecated application package '" + key + "'...");
     consoleOutput = syncExec({
@@ -301,7 +309,7 @@ console.log("> Remove '" + resourceFilePaths.application.platformSourcesDir + "'
 
 ////
 // Copy the latest version of the holistic platform sources into the application.
-mkdirp(resourceFilePaths.application.platformSourcesDir);
+makeDirectory(resourceFilePaths.application.platformSourcesDir);
 var command =  [
     "cp -Rpv",
     path.join(resourceFilePaths.holistic.platformSourcesDir, "*"),
@@ -414,15 +422,15 @@ consoleOutput = syncExec({
 });
 console.log("> Touch '" + resourceFilePaths.application.packageMakefile + "'.");
 
-mkdirp(resourceFilePaths.application.appSourcesDir);
+makeDirectory(resourceFilePaths.application.appSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appSourcesDir, ".gitkeep"));
-mkdirp(resourceFilePaths.application.appAssetSourcesDir);
+makeDirectory(resourceFilePaths.application.appAssetSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appAssetSourcesDir, ".gitkeep"));
-mkdirp(resourceFilePaths.application.appCommonSourcesDir);
+makeDirectory(resourceFilePaths.application.appCommonSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appCommonSourcesDir, ".gitkeep"));
-mkdirp(resourceFilePaths.application.appClientSourcesDir);
+makeDirectory(resourceFilePaths.application.appClientSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appClientSourcesDir, ".gitkeep"));
-mkdirp(resourceFilePaths.application.appServerSourcesDir);
+makeDirectory(resourceFilePaths.application.appServerSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep"));
 
 ////
@@ -437,11 +445,11 @@ const modifiedFilesResponse = syncExec({
 
 const modifiedFiles = modifiedFilesResponse?modifiedFilesResponse.trim().split("\n"):[];
 
-console.log("\nCode generation complete.\n");
+console.log("\nDone processing application repository '" + resourceFilePaths.application.appRepoDir + "'.\n");
 
 if (!modifiedFiles.length) {
-    console.log("No uncommitted application source changes.");
+    console.log("YOUR APPLICATION IS ALREADY UP-TO-DATE.\nNO UNCOMMITTED APPLICATION CHANGES.");
 } else {
-    console.log(modifiedFiles.length + " application source files modified (modified + deleted + untracked).");
+    console.log(modifiedFiles.length + " APPLICATION SOURCE FILES MODIFIED (modified + deleted + untracked).");
 }
 
