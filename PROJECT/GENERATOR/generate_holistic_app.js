@@ -21,7 +21,14 @@ function syncExec(request_) { // request_ = { command: string, cwd: string,  }
     // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
     // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
     return childProcess.execSync(request_.command, { cwd: request_.cwd }).toString('utf8').trim();
-} // ruxExec
+} // syncExec
+
+function touchFile(filepath_) {
+    return syncExec({
+        cwd: resourceFilePaths.holistic.packageDir,
+        command: "touch " + filepath_
+    });
+}
 
 program.version(holisticMetadata.version).
     option("--appRepoDir <appRepoDir>", "(required) Root directory of the external git repository containing the web application to initialize and/or update.").
@@ -372,10 +379,15 @@ consoleOutput = syncExec({
 console.log("> Touch '" + resourceFilePaths.application.packageMakefile + "'.");
 
 mkdirp(resourceFilePaths.application.appSourcesDir);
+touchFile(path.join(resourceFilePaths.application.appSourcesDir, ".gitkeep"));
 mkdirp(resourceFilePaths.application.appAssetSourcesDir);
+touchFile(path.join(resourceFilePaths.application.appAssetSourcesDir, ".gitkeep"));
 mkdirp(resourceFilePaths.application.appCommonSourcesDir);
+touchFile(path.join(resourceFilePaths.application.appCommonSourcesDir, ".gitkeep"));
 mkdirp(resourceFilePaths.application.appClientSourcesDir);
+touchFile(path.join(resourceFilePaths.application.appClientSourcesDir, ".gitkeep"));
 mkdirp(resourceFilePaths.application.appServerSourcesDir);
+touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep"));
 
 ////
 // Determine the count of files in the target application repo that are in the
