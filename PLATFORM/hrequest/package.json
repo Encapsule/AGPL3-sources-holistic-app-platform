@@ -1,10 +1,10 @@
 {
     "name": "hrequest",
-    "version": "0.1.1",
-    "codename": "app-gen-test-1",
-    "buildID": "h6MvdyJYTlaUq2W-vb_0ew",
-    "buildTime": 1549260867,
-    "buildSource": "d379a9493ec035373a7d2e24b7c62a9ce5aa9c47",
+    "version": "0.1.2",
+    "codename": "app-gen-test-2",
+    "buildID": "uE1PIebDRQiqxakD-yBq5g",
+    "buildTime": 1549337708,
+    "buildSource": "d310ad471be2cd2c56f1d6d4e44a849019ba3489",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

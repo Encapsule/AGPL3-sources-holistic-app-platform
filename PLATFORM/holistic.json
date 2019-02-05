@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.1.1",
-    "codename": "app-gen-test-1",
+    "version": "0.1.2",
+    "codename": "app-gen-test-2",
     "author": "Encapsule Project",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "h6MvdyJYTlaUq2W-vb_0ew",
-    "buildSource": "d379a9493ec035373a7d2e24b7c62a9ce5aa9c47",
-    "buildTime": 1549260867,
-    "buildDateISO": "2019-02-04T06:14:27.000Z"
+    "buildID": "uE1PIebDRQiqxakD-yBq5g",
+    "buildSource": "d310ad471be2cd2c56f1d6d4e44a849019ba3489",
+    "buildTime": 1549337708,
+    "buildDateISO": "2019-02-05T03:35:08.000Z"
 }

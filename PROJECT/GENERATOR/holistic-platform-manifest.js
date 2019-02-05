@@ -1,6 +1,6 @@
 // holistic-platform-manifest.js
 
-const holisticAppPlatformManifestFilter = require('./holistic-platform-manifest-filter');
+const holisticAppPlatformManifestFilter = require('./LIB/holistic-platform-manifest-filter');
 
 const filterResponse = holisticAppPlatformManifestFilter.request({
 

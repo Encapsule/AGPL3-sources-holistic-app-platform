@@ -3,21 +3,19 @@
 "use strict";
 
 // Node.js runtime modules
-const childProcess = require('child_process');
-const fs = require('fs');
-const path = require("path");
-const mkdirp = require("mkdirp");
+const childProcess = require('child_process'); // Node.js
+const fs = require('fs'); // Node.js
+const path = require("path"); // Node.js
+const mkdirp = require("mkdirp"); // as in UNIX mkdir -p
+const arctoolslib = require("arctools"); // Encapsule/arctools package
+const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with Encapsule/arctools
+var program = arctoolslib.commander; // command line argument parser framework bundled with Encapsule/arctools
 
 const holisticMetadata = require("../../PLATFORM/holistic");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
 
-const arctoolslib = require("arctools");
-const arccore = arctoolslib.arccore;
-
-const holisticAppManifestFilter = require('./holistic-app-manifest-filter');
-const packageMapFilter = require('./package-map-filter');
-
-var program = arctoolslib.commander;
+const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
+const packageMapFilter = require('./LIB/package-map-filter');
 
 function syncExec(request_) { // request_ = { command: string, cwd: string,  }
     // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
@@ -72,6 +70,14 @@ const resourceFilePaths = {
     application: {
 	    appRepoDir: appRepoDir,
 	    appRepoGitDir: path.join(appRepoDir, ".git"),
+	    appManifest: path.join(appRepoDir, "holistic-app.json"),
+
+        appSourcesDir: path.join(appRepoDir, "SOURCES"),
+        appAssetSourcesDir: path.join(appRepoDir, "SOURCES/ASSETS"),
+        appClientSourcesDir: path.join(appRepoDir, "SOURCES/CLIENT"),
+        appCommonSourcesDir: path.join(appRepoDir, "SOURCES/COMMON"),
+        appServerSourcesDir: path.join(appRepoDir, "SOURCES/SERVER"),
+
 	    packageManifest: path.join(appRepoDir, "package.json"),
 	    packageReadme: path.join(appRepoDir, "README.md"),
 	    packageLicense: path.join(appRepoDir, "LICENSE"),
@@ -81,7 +87,9 @@ const resourceFilePaths = {
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"),
         packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server"),
         packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client"),
-	    appManifest: path.join(appRepoDir, "holistic-app.json"),
+
+
+
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
     },
     holistic: {
@@ -282,6 +290,7 @@ console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'
 
 ////
 // Create application .gitignore
+// TODO: Convert to handlebars template.
 command = [
     "cp -pv",
     resourceFilePaths.holistic.platformGitIgnore,
@@ -295,6 +304,7 @@ console.log("> Write '" + resourceFilePaths.application.packageGitIgnore + "'.")
 
 ////
 // Create application .babelrc
+// TODO: Convert to handlebars template.
 command = [
     "cp -pv",
     resourceFilePaths.holistic.platformBabelRc,
@@ -306,9 +316,9 @@ consoleOutput = syncExec({
 });
 console.log("> Write '" + resourceFilePaths.application.packageBabelRc + "'.");
 
-
 ////
 // Create application .eslintrc.js
+// TODO: Convert to handlebars template.
 command = [
     "cp -pv",
     resourceFilePaths.holistic.platformEslintRc,
@@ -322,6 +332,7 @@ console.log("> Write '" + resourceFilePaths.application.packageEslintRc + "'.");
 
 ////
 // Create application webpack.config for server.
+// TODO: Convert to handlebars template.
 command = [
     "cp -pv",
     resourceFilePaths.holistic.platformWebpackServerRc,
@@ -333,9 +344,9 @@ consoleOutput = syncExec({
 });
 console.log("> Write '" + resourceFilePaths.application.packageWebpackServerRc + "'.");
 
-
 ////
 // Create application webpackage.config for client.
+// TODO: Convert to handlebars template.
 command = [
     "cp -pv",
     resourceFilePaths.holistic.platformWebpackClientRc,
@@ -349,8 +360,22 @@ console.log("> Write '" + resourceFilePaths.application.packageWebpackClientRc +
 
 ////
 // Create application Makefile
+// TODO: Convert to handlebars template.
+command = [
+    "touch",
+    resourceFilePaths.application.packageMakefile
+].join(" ");
+consoleOutput = syncExec({
+    cwd: resourceFilePaths.holistic.packageDir,
+    command: command
+});
+console.log("> Touch '" + resourceFilePaths.application.packageMakefile + "'.");
 
-
+mkdirp(resourceFilePaths.application.appSourcesDir);
+mkdirp(resourceFilePaths.application.appAssetSourcesDir);
+mkdirp(resourceFilePaths.application.appCommonSourcesDir);
+mkdirp(resourceFilePaths.application.appClientSourcesDir);
+mkdirp(resourceFilePaths.application.appServerSourcesDir);
 
 ////
 // Determine the count of files in the target application repo that are in the

@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# hrequest v0.1.1 "app-gen-test-1"
+# hrequest v0.1.2 "app-gen-test-2"
 
 ```
-Package: hrequest v0.1.1 "app-gen-test-1" build ID "h6MvdyJYTlaUq2W-vb_0ew"
-Sources: Encapsule/holistic#d379a9493ec035373a7d2e24b7c62a9ce5aa9c47
+Package: hrequest v0.1.2 "app-gen-test-2" build ID "uE1PIebDRQiqxakD-yBq5g"
+Sources: Encapsule/holistic#d310ad471be2cd2c56f1d6d4e44a849019ba3489
 Purpose: library (Node.js)
-Created: 2019-02-04T06:14:27.000Z
+Created: 2019-02-05T03:35:08.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ Developer API and examples: [Encapsule Project hrequest documentation](https://e
 
 The `hrequest` library package is published on [npmjs](https://npmjs.com).
 
-- [hrequest Package Distribution](https://npmjs.com/package/hrequest/v/0.1.1) ([npm](https://www.npmjs.com/~chrisrus))
+- [hrequest Package Distribution](https://npmjs.com/package/hrequest/v/0.1.2) ([npm](https://www.npmjs.com/~chrisrus))
 - [hrequest Package Repository](https://github.com/Encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
 
 <hr>
