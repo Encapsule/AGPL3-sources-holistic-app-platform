@@ -1,7 +1,7 @@
 {
   "name": "holistic",
-  "version": "0.1.2",
-  "codename": "app-gen-test-2",
+  "version": "0.1.3",
+  "codename": "app-gen-test-3",
   "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
   "main": "index.js",
   "author": "Encapsule Project",

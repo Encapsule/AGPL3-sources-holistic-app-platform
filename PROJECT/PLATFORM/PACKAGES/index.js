@@ -6,7 +6,7 @@ const packageDB = {
     hrequest: require('./hrequest'),
 
     // Encapsule Project holistic applications.
-    app_encapsule_io: require('./app_encapsule_io')
+    // DEPRECATED ---> app_encapsule_io: require('./app_encapsule_io')
 };
 
 module.exports = packageDB;

@@ -1,10 +1,10 @@
 {
     "name": "holism",
-    "version": "0.1.2",
-    "codename": "app-gen-test-2",
-    "buildID": "IYfdjKaNQSiWO_p4EOb8Vg",
-    "buildTime": 1549392948,
-    "buildSource": "d7e32f6d1d3947bf91b91ab622747fb7a2bdf131",
+    "version": "0.1.3",
+    "codename": "app-gen-test-3",
+    "buildID": "YkvMirvCRVWRovZlNNGLfg",
+    "buildTime": 1549398999,
+    "buildSource": "2b1ed160269973c17cc92d63de4260bcedae2da4",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"

@@ -13,6 +13,7 @@ var program = arctoolslib.commander; // command line argument parser framework b
 
 const holisticMetadata = require("../../PLATFORM/holistic");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
+const holisticPlatformPackagesDB = require("../PLATFORM/PACKAGES");
 
 const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
 const packageMapFilter = require('./LIB/package-map-filter');
@@ -75,9 +76,9 @@ const holisticPackageDir = path.resolve(path.join(__dirname, "../.."));
 
 const resourceFilePaths = {
     application: {
-	    appRepoDir: appRepoDir,
-	    appRepoGitDir: path.join(appRepoDir, ".git"),
-	    appManifest: path.join(appRepoDir, "holistic-app.json"),
+	appRepoDir: appRepoDir,
+	appRepoGitDir: path.join(appRepoDir, ".git"),
+	appManifest: path.join(appRepoDir, "holistic-app.json"),
 
         appSourcesDir: path.join(appRepoDir, "SOURCES"),
         appAssetSourcesDir: path.join(appRepoDir, "SOURCES/ASSETS"),
@@ -85,17 +86,15 @@ const resourceFilePaths = {
         appCommonSourcesDir: path.join(appRepoDir, "SOURCES/COMMON"),
         appServerSourcesDir: path.join(appRepoDir, "SOURCES/SERVER"),
 
-	    packageManifest: path.join(appRepoDir, "package.json"),
-	    packageReadme: path.join(appRepoDir, "README.md"),
-	    packageLicense: path.join(appRepoDir, "LICENSE"),
-	    packageMakefile: path.join(appRepoDir, "Makefile"),
+	packageManifest: path.join(appRepoDir, "package.json"),
+	packageReadme: path.join(appRepoDir, "README.md"),
+	packageLicense: path.join(appRepoDir, "LICENSE"),
+	packageMakefile: path.join(appRepoDir, "Makefile"),
         packageGitIgnore: path.join(appRepoDir, ".gitignore"),
         packageBabelRc: path.join(appRepoDir, ".babelrc"),
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"),
         packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server"),
         packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client"),
-
-
 
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
     },
@@ -153,7 +152,7 @@ if (filterResponse.error) {
     console.error(filterResponse.error);
     process.exit(1);
 }
-const applicationPackageDevDependencies = filterResponse.result;
+const applicationPackageDeprecatedDependencies = filterResponse.result;
 console.log("> Read '" + resourceFilePaths.application.packageManifest + "'.");
 
 ////
@@ -178,7 +177,7 @@ if (filterResponse.error) {
     holisticAppManifest = filterResponse.result;
     // Write the new holistic application manifest to the application repository.
     filterResponse = arctoolslib.stringToFileSync.request({
-        resource: JSON.stringify(filterResponse.result, undefined, 2),
+        resource: JSON.stringify(filterResponse.result, undefined, 2) + "\n",
         path: resourceFilePaths.application.appManifest
     });
     if (filterResponse.error) {
@@ -213,7 +212,7 @@ for (var key in holisticAppManifest.applicationDependencies) {
 	    conflictingAppDependencies.push(key);
     }
     // Remove the values we know will be present in the resynthesized devDependencies.
-    delete applicationPackageDevDependencies[key];
+    delete applicationPackageDeprecatedDependencies[key];
     newDevDependenciesArray.push({ package: key, semver: holisticAppManifest.applicationDependencies[key] });
 } // end for
 
@@ -227,13 +226,29 @@ if (conflictingAppDependencies.length) {
 
 // Remove the values we know will be present in the resynthesized devDependencies.
 for (key in holisticPlatformManifest.platformDependencies) {
-    delete applicationPackageDevDependencies[key];
+    delete applicationPackageDeprecatedDependencies[key];
     newDevDependenciesArray.push({ package: key, semver: holisticPlatformManifest.platformDependencies[key] });
 }
 
 // Any package dependency remaining is no longer needed and should be removed.
-if (arccore.util.dictionaryLength(applicationPackageDevDependencies)) {
-    console.log("! NOTE: Package dependencies are being removed: '" + JSON.stringify(applicationPackageDevDependencies) + "'.");
+if (arccore.util.dictionaryLength(applicationPackageDeprecatedDependencies)) {
+    console.log("! NOTE: Package dependencies are being removed: '" + JSON.stringify(applicationPackageDeprecatedDependencies) + "'.");
+}
+
+////
+// Affect removal of deprecated top-level package dependencies from the application
+// via yarn in order to force update of the application's yarn.lock (and the correct
+// version of the dependency installed in the application's node_modules directory).
+// Note that we perform this step prior to overwriting the application's package.json
+// in order to get yarn to clean up yarn.lock (as well as removing the deprecated
+// package from the application's node_modules directory).
+for (key in applicationPackageDeprecatedDependencies) {
+    console.log("> Removing deprecated application package '" + key + "'...");
+    consoleOutput = syncExec({
+        cwd: resourceFilePaths.application.appRepoDir,
+        command: "yarn remove " + key + " --dev"
+    });
+    console.log(consoleOutput);
 }
 
 newDevDependenciesArray.sort(function(a_, b_) { return (a_.package === b_.package)?0:((a_.package < b_.package)?-1:1) });
@@ -244,6 +259,8 @@ newDevDependenciesArray.forEach(function(descriptor_) { newDevDependencies[descr
 // Set the application's development mode package dependencies.
 applicationPackageManifest.devDependencies = newDevDependencies;
 
+// Overwrite values in the application's package.json with values supplied by the
+// holistic platform manifest.
 const holisticAppManifestSpec = holisticAppManifestFilter.filterDescriptor.inputFilterSpec;
 for (key in holisticAppManifestSpec) {
     const namespaceDescriptor = holisticAppManifestSpec[key];
@@ -256,6 +273,7 @@ if (!applicationPackageManifest.scripts) {
     applicationPackageManifest.scripts = {};
 }
 
+// Merge/overwrite application's package.json script targets w/holistic platform defaults.
 for (key in holisticPlatformManifest.applicationPackageManifest.scripts) {
     applicationPackageManifest.scripts[key] = holisticPlatformManifest.applicationPackageManifest.scripts[key];
 }
@@ -263,7 +281,7 @@ for (key in holisticPlatformManifest.applicationPackageManifest.scripts) {
 ////
 // Overwrite the application's package.json document with the updated version.
 filterResponse = arctoolslib.stringToFileSync.request({
-    resource: JSON.stringify(applicationPackageManifest, undefined, 2),
+    resource: JSON.stringify(applicationPackageManifest, undefined, 2) + "\n",
     path: resourceFilePaths.application.packageManifest
 });
 if (filterResponse.error) {
@@ -294,6 +312,24 @@ var consoleOutput = syncExec({
     command: command
 });
 console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'.");
+
+////
+// Affect an upgrade of Encapsule Project packages infused (copied into the versioned
+// sources of the target application).
+for (key in holisticPlatformPackagesDB) {
+    console.log("> Updgrading single package holistic platform dependency '" + key + "'...");
+    consoleOutput = syncExec({
+        cwd: resourceFilePaths.application.appRepoDir,
+        command: "yarn remove " + key + " --dev"
+    });
+    console.log(consoleOutput);
+
+    consoleOutput = syncExec({
+        cwd: resourceFilePaths.application.appRepoDir,
+        command: "yarn add " + "./HOLISTIC/" + key + " --dev"
+    });
+    console.log(consoleOutput);
+}
 
 ////
 // Create application .gitignore

@@ -3,8 +3,6 @@
 const arccore = require('arccore');
 const arccoreVersion = arccore.__meta.version;
 
-const childProcess = require('child_process');
-
 module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
@@ -15,8 +13,8 @@ module.exports = {
         main: "index.js",
         peerDependencies: {
             arccore: arccoreVersion,
-            "query-string": "^4.3.4",
-            request: "^2.78.0"            
+            "query-string": "^6.2.0",
+            request: "^2.88.0"
         }
     },
     packageReadme: {
