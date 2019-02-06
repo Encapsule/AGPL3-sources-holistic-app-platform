@@ -10,7 +10,6 @@ const mkdirp = require("mkdirp"); // as in UNIX mkdir -p
 const arctoolslib = require("arctools"); // Encapsule/arctools package
 const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with Encapsule/arctools
 const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
-var program = arctoolslib.commander; // command line argument parser framework bundled with Encapsule/arctools
 
 const holisticMetadata = require("../../PLATFORM/holistic");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
@@ -19,13 +18,20 @@ const holisticPlatformPackagesDB = require("../PLATFORM/PACKAGES");
 const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
 const packageMapFilter = require('./LIB/package-map-filter');
 
-function syncExec(request_) { // request_ = { command: string, cwd: string,  }
+var filterResponse;
+
+// ================================================================
+// Common functions
+
+function syncExec(request_) {
+    // request_ = { command: string, cwd: string,  }
     // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
     // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
     return childProcess.execSync(request_.command, { cwd: request_.cwd }).toString('utf8').trim();
 } // syncExec
 
 function touchFile(filepath_) {
+    // filepath_ = string file path (relative to platform package root. or, absolute)
     console.log("> Touch '" + filepath_ + "'");
     return syncExec({
         cwd: resourceFilePaths.holistic.packageDir,
@@ -37,6 +43,19 @@ function makeDirectory(directoryPath_) {
     console.log("> Create '" + directoryPath_ + "'");
     mkdirp(directoryPath_);
 }
+
+function loadDocumentTemplate(filepath_) {
+    const loadResponse = arctoolslib.jsrcFileLoaderSync.request(filepath_);
+    if (loadResponse.error) {
+        throw new Error(loadResponse.error);
+    }
+    const documentTemplate = handlebars.compile(loadResponse.result.resource);
+    return documentTemplate;
+}
+
+// ================================================================
+
+var program = arctoolslib.commander; // command line argument parser framework bundled with Encapsule/arctools
 
 program.version(holisticMetadata.version).
     option("--appRepoDir <appRepoDir>", "(required) Root directory of the external git repository containing the web application to initialize and/or update.").
@@ -83,9 +102,9 @@ const holisticPackageDir = path.resolve(path.join(__dirname, "../.."));
 
 const resourceFilePaths = {
     application: {
-	appRepoDir: appRepoDir,
-	appRepoGitDir: path.join(appRepoDir, ".git"),
-	appManifest: path.join(appRepoDir, "holistic-app.json"),
+	    appRepoDir: appRepoDir,
+	    appRepoGitDir: path.join(appRepoDir, ".git"),
+	    appManifest: path.join(appRepoDir, "holistic-app.json"),
 
         appSourcesDir: path.join(appRepoDir, "SOURCES"),
         appAssetSourcesDir: path.join(appRepoDir, "SOURCES/ASSETS"),
@@ -93,10 +112,10 @@ const resourceFilePaths = {
         appCommonSourcesDir: path.join(appRepoDir, "SOURCES/COMMON"),
         appServerSourcesDir: path.join(appRepoDir, "SOURCES/SERVER"),
 
-	packageManifest: path.join(appRepoDir, "package.json"),
-	packageReadme: path.join(appRepoDir, "README.md"),
-	packageLicense: path.join(appRepoDir, "LICENSE"),
-	packageMakefile: path.join(appRepoDir, "Makefile"),
+	    packageManifest: path.join(appRepoDir, "package.json"),
+	    packageReadme: path.join(appRepoDir, "README.md"),
+	    packageLicense: path.join(appRepoDir, "LICENSE"),
+	    packageMakefile: path.join(appRepoDir, "Makefile"),
         packageGitIgnore: path.join(appRepoDir, ".gitignore"),
         packageBabelRc: path.join(appRepoDir, ".babelrc"),
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"),
@@ -165,7 +184,7 @@ console.log("> Read '" + resourceFilePaths.application.packageManifest + "'.");
 ////
 // Load the application's holistic-app.json manifest document.
 //
-var filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
+filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
 var holisticAppManifest = null;
 if (filterResponse.error) {
     // Assume that the file doesn't exist. Construct a default manifest w/the filter. And then serialize it.
@@ -412,16 +431,15 @@ console.log("> Write '" + resourceFilePaths.application.packageWebpackClientRc +
 
 ////
 // Create application Makefile
-// TODO: Convert to handlebars template.
-command = [
-    "touch",
-    resourceFilePaths.application.packageMakefile
-].join(" ");
-consoleOutput = syncExec({
-    cwd: resourceFilePaths.holistic.packageDir,
-    command: command
+var docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "Makefile-template.hbs"));
+var document = docTemplate(/*context = {...}*/);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.packageMakefile,
+    resource: document
 });
-console.log("> Touch '" + resourceFilePaths.application.packageMakefile + "'.");
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
 
 makeDirectory(resourceFilePaths.application.appSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appSourcesDir, ".gitkeep"));
