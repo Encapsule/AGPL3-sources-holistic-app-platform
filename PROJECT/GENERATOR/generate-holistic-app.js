@@ -122,8 +122,8 @@ const resourceFilePaths = {
         packageGitIgnore: path.join(appRepoDir, ".gitignore"),
         packageBabelRc: path.join(appRepoDir, ".babelrc"),
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"),
-        packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server"),
-        packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client"),
+        packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server.js"),
+        packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client.js"),
 
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
     },
@@ -362,7 +362,6 @@ for (key in holisticPlatformPackagesDB) {
 
 ////
 // Create application .gitignore
-// TODO: Convert to handlebars template.
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "gitignore-template.hbs"));
 document = docTemplate(/*context*/);
 filterResponse = arctoolslib.stringToFileSync.request({
@@ -376,7 +375,6 @@ console.log("> Write '" + resourceFilePaths.application.packageGitIgnore + "'.")
 
 ////
 // Create application .babelrc
-// TODO: Convert to handlebars template.
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "babelrc-template.hbs"));
 document = docTemplate(/*context*/);
 filterResponse = arctoolslib.stringToFileSync.request({
@@ -390,44 +388,41 @@ console.log("> Write '" + resourceFilePaths.application.packageBabelRc + "'.");
 
 ////
 // Create application .eslintrc.js
-// TODO: Convert to handlebars template.
-command = [
-    "cp -pv",
-    resourceFilePaths.holistic.platformEslintRc,
-    resourceFilePaths.application.packageEslintRc
-].join(" ");
-consoleOutput = syncExec({
-    cwd: resourceFilePaths.holistic.packageDir,
-    command: command
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "eslintrc-template.hbs"));
+document = docTemplate(/*context*/);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.packageEslintRc,
+    resource: document
 });
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
 console.log("> Write '" + resourceFilePaths.application.packageEslintRc + "'.");
 
 ////
 // Create application webpack.config for server.
-// TODO: Convert to handlebars template.
-command = [
-    "cp -pv",
-    resourceFilePaths.holistic.platformWebpackServerRc,
-    resourceFilePaths.application.packageWebpackServerRc
-].join(" ");
-consoleOutput = syncExec({
-    cwd: resourceFilePaths.holistic.packageDir,
-    command: command
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "webpack.config.app.server.hbs"));
+document = docTemplate(/*context*/);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.packageWebpackServerRc,
+    resource: document
 });
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
 console.log("> Write '" + resourceFilePaths.application.packageWebpackServerRc + "'.");
 
 ////
 // Create application webpackage.config for client.
-// TODO: Convert to handlebars template.
-command = [
-    "cp -pv",
-    resourceFilePaths.holistic.platformWebpackClientRc,
-    resourceFilePaths.application.packageWebpackClientRc
-].join(" ");
-consoleOutput = syncExec({
-    cwd: resourceFilePaths.holistic.packageDir,
-    command: command
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "webpack.config.app.client.hbs"));
+document = docTemplate(/*context*/);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.packageWebpackClientRc,
+    resource: document
 });
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
 console.log("> Write '" + resourceFilePaths.application.packageWebpackClientRc + "'.");
 
 ////

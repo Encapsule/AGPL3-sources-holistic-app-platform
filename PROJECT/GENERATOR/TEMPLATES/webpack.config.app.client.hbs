@@ -1,8 +1,9 @@
-// webpack.config.arccore.js
+// webpack.config.app.client.js
+// MARKER
 
 const path = require('path');
-const entryPath = path.resolve(path.join(__dirname, '../../BUILD/APP/encapsule/encapsule.io/phase1-transpile/client/javascript/client-app.js'));
-const outputPath = path.resolve(path.join(__dirname, '../../BUILD/APP/encapsule/encapsule.io/phase2-webpack/'));
+const entryPath = path.resolve(path.join(__dirname, 'BUILD/phase1-transpile/client/javascript/client-app.js'));
+const outputPath = path.resolve(path.join(__dirname, 'BUILD/encapsule.io/phase2-webpack/'));
 
 console.log("webpack entry module path: " + entryPath);
 console.log("webpack output path: " + outputPath);
