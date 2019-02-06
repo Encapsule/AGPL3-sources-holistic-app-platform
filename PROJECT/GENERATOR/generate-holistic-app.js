@@ -18,7 +18,10 @@ const holisticPlatformPackagesDB = require("../PLATFORM/PACKAGES");
 const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
 const packageMapFilter = require('./LIB/package-map-filter');
 
+// Re-used throughout this script module...
 var filterResponse;
+var docTemplate;
+var document;
 
 // ================================================================
 // Common functions
@@ -342,8 +345,7 @@ var consoleOutput = syncExec({
 console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'.");
 
 ////
-// Affect an upgrade of Encapsule Project packages infused (copied into the versioned
-// sources of the target application).
+// Affect an upgrade of Encapsule Project packages infused (copied into the versioned sources of the target application).
 for (key in holisticPlatformPackagesDB) {
     console.log("> Updgrading single package holistic platform dependency '" + key + "'...");
     consoleOutput = syncExec({
@@ -351,26 +353,25 @@ for (key in holisticPlatformPackagesDB) {
         command: "yarn remove " + key + " --dev"
     });
     console.log(consoleOutput);
-
     consoleOutput = syncExec({
         cwd: resourceFilePaths.application.appRepoDir,
         command: "yarn add " + "./HOLISTIC/" + key + " --dev"
     });
     console.log(consoleOutput);
-}
+} // end for
 
 ////
 // Create application .gitignore
 // TODO: Convert to handlebars template.
-command = [
-    "cp -pv",
-    resourceFilePaths.holistic.platformGitIgnore,
-    resourceFilePaths.application.packageGitIgnore
-].join(" ");
-consoleOutput = syncExec({
-    cwd: resourceFilePaths.holistic.packageDir,
-    command: command
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "gitignore-template.hbs"));
+document = docTemplate(/*content*/);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.packageGitIgnore,
+    resource: document
 });
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
 console.log("> Write '" + resourceFilePaths.application.packageGitIgnore + "'.");
 
 ////
@@ -431,8 +432,8 @@ console.log("> Write '" + resourceFilePaths.application.packageWebpackClientRc +
 
 ////
 // Create application Makefile
-var docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "Makefile-template.hbs"));
-var document = docTemplate(/*context = {...}*/);
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "Makefile-template.hbs"));
+document = docTemplate(/*context = {...}*/);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageMakefile,
     resource: document
@@ -440,6 +441,8 @@ filterResponse = arctoolslib.stringToFileSync.request({
 if (filterResponse.error) {
     throw new Error(filterResponse.error);
 }
+console.log("> Write '" + resourceFilePaths.application.packageMakefile + "'.");
+
 
 makeDirectory(resourceFilePaths.application.appSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appSourcesDir, ".gitkeep"));
