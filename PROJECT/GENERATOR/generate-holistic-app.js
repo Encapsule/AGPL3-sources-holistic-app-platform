@@ -364,7 +364,7 @@ for (key in holisticPlatformPackagesDB) {
 // Create application .gitignore
 // TODO: Convert to handlebars template.
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "gitignore-template.hbs"));
-document = docTemplate(/*content*/);
+document = docTemplate(/*context*/);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageGitIgnore,
     resource: document
@@ -377,15 +377,15 @@ console.log("> Write '" + resourceFilePaths.application.packageGitIgnore + "'.")
 ////
 // Create application .babelrc
 // TODO: Convert to handlebars template.
-command = [
-    "cp -pv",
-    resourceFilePaths.holistic.platformBabelRc,
-    resourceFilePaths.application.packageBabelRc
-].join(" ");
-consoleOutput = syncExec({
-    cwd: resourceFilePaths.holistic.packageDir,
-    command: command
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "babelrc-template.hbs"));
+document = docTemplate(/*context*/);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.packageBabelRc,
+    resource: document
 });
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
 console.log("> Write '" + resourceFilePaths.application.packageBabelRc + "'.");
 
 ////
