@@ -15,10 +15,10 @@ DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
 DIR_PROJECT_BUILD=$(DIR_PROJECT)/BUILD
 
-TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate_encapsule_build.js
-TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate_package_manifest.js
-TOOL_GEN_PACKAGE_LICENSE=$(DIR_PROJECT)/generate_package_license.js
-TOOL_GEN_PACKAGE_README=$(DIR_PROJECT)/generate_package_readme.js
+TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate-package-build-manifest.js
+TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate-package-manifest.js
+TOOL_GEN_PACKAGE_LICENSE=$(DIR_PROJECT)/generate-package-license.js
+TOOL_GEN_PACKAGE_README=$(DIR_PROJECT)/generate-package-readme.js
 TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
 
 TOOL_BABEL=$(DIR_TOOLBIN)/babel
