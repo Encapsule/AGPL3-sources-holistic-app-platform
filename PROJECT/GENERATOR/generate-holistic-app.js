@@ -9,6 +9,7 @@ const path = require("path"); // Node.js
 const mkdirp = require("mkdirp"); // as in UNIX mkdir -p
 const arctoolslib = require("arctools"); // Encapsule/arctools package
 const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with Encapsule/arctools
+const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
 var program = arctoolslib.commander; // command line argument parser framework bundled with Encapsule/arctools
 
 const holisticMetadata = require("../../PLATFORM/holistic");

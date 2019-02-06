@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.1.3",
-    "codename": "app-gen-test-3",
+    "version": "0.0.3",
+    "codename": "spindrift",
     "author": "Encapsule Project",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "YkvMirvCRVWRovZlNNGLfg",
-    "buildSource": "2b1ed160269973c17cc92d63de4260bcedae2da4",
-    "buildTime": 1549398999,
-    "buildDateISO": "2019-02-05T20:36:39.000Z"
+    "buildID": "GCGiuCmvS7Syj7wXfjJ1JA",
+    "buildSource": "dec028b0a200ccd6e6538c3b9fbf61ea04003fac",
+    "buildTime": 1549423393,
+    "buildDateISO": "2019-02-06T03:23:13.000Z"
 }
