@@ -1,9 +1,8 @@
 // webpack.config.app.server.js
-// MARKER
 
 const path = require('path');
-const entryPath = path.resolve(path.join(__dirname, 'BUILD/APP/encapsule/encapsule.io/phase1-transpile/server/server.js'));
-const outputPath = path.resolve(path.join(__dirname, 'BUILD/APP/encapsule/encapsule.io/phase2-webpack/'));
+const entryPath = path.resolve(path.join(__dirname, 'BUILD/phase1-transpile/SERVER/server.js'));
+const outputPath = path.resolve(path.join(__dirname, 'BUILD/phase2-webpack/'));
 
 console.log("webpack entry module path: " + entryPath);
 console.log("webpack output path: " + outputPath);
