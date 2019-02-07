@@ -171,7 +171,7 @@ if (!fsStat.isDirectory()) {
 //
 filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.packageManifest);
 if (filterResponse.error) {
-    console.error("ERROR: Cannot load the target application's  manifest (package.json).");
+    console.error("ERROR: Cannot load the target application's package manifest (package.json). Have you executed `yarn init`?");
     console.error(filterResponse.error);
     process.exit(1);
 }
