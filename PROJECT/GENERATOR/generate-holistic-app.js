@@ -115,15 +115,17 @@ const resourceFilePaths = {
         appCommonSourcesDir: path.join(appRepoDir, "SOURCES/COMMON"),
         appServerSourcesDir: path.join(appRepoDir, "SOURCES/SERVER"),
 
-	    packageManifest: path.join(appRepoDir, "package.json"),
+	    packageManifest: path.join(appRepoDir, "package.json"), // synthesized by this script
+
 	    packageReadme: path.join(appRepoDir, "README.md"),
 	    packageLicense: path.join(appRepoDir, "LICENSE"),
-	    packageMakefile: path.join(appRepoDir, "Makefile"),
-        packageGitIgnore: path.join(appRepoDir, ".gitignore"),
-        packageBabelRc: path.join(appRepoDir, ".babelrc"),
-        packageEslintRc: path.join(appRepoDir, ".eslintrc.js"),
-        packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server.js"),
-        packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client.js"),
+
+	    packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
+        packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
+        packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
+        packageEslintRc: path.join(appRepoDir, ".eslintrc.js"), // template generated
+        packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server.js"), // template generated
+        packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client.js"), // template generated
 
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
     },
