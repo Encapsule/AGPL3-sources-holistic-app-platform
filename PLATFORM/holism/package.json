@@ -2,9 +2,9 @@
     "name": "holism",
     "version": "0.0.3",
     "codename": "spindrift",
-    "buildID": "GCGiuCmvS7Syj7wXfjJ1JA",
-    "buildTime": 1549423393,
-    "buildSource": "dec028b0a200ccd6e6538c3b9fbf61ea04003fac",
+    "buildID": "XcP73HRyQViKyhal5qxM7Q",
+    "buildTime": 1549600773,
+    "buildSource": "d31b6f562290876691af1f32d7dda0a151c89ea2",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"
