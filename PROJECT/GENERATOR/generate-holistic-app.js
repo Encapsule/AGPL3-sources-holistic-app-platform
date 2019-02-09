@@ -108,7 +108,6 @@ const resourceFilePaths = {
 	    appRepoDir: appRepoDir,
 	    appRepoGitDir: path.join(appRepoDir, ".git"),
 	    appManifest: path.join(appRepoDir, "holistic-app.json"),
-
         appSourcesDir: path.join(appRepoDir, "SOURCES"),
         appAssetSourcesDir: path.join(appRepoDir, "SOURCES/ASSETS"),
         appClientSourcesDir: path.join(appRepoDir, "SOURCES/CLIENT"),
@@ -116,10 +115,9 @@ const resourceFilePaths = {
         appServerSourcesDir: path.join(appRepoDir, "SOURCES/SERVER"),
 
 	    packageManifest: path.join(appRepoDir, "package.json"), // synthesized by this script
-
+        packageModulesDir: path.join(appRepoDir, "node_modules"),
 	    packageReadme: path.join(appRepoDir, "README.md"),
 	    packageLicense: path.join(appRepoDir, "LICENSE"),
-
 	    packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
         packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
         packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
@@ -273,13 +271,14 @@ if (arccore.util.dictionaryLength(applicationPackageDeprecatedDependencies)) {
 // Note that we perform this step prior to overwriting the application's package.json
 // in order to get yarn to clean up yarn.lock (as well as removing the deprecated
 // package from the application's node_modules directory).
-touchFile(path.join(resourceFilePaths.application.appRepoDir, "yarn.lock")); // need this file to exist when bootstrapping new application repo.
+touchFile(path.join(resourceFilePaths.application.appRepoDir, "yarn.lock")); // create empty iff not exist for bootstrapping new project
+mkdirp(resourceFilePaths.application.packageModulesDir); // create empty iff not exist for bootstrapping new project
 
 for (key in applicationPackageDeprecatedDependencies) {
     console.log("> Removing deprecated application package '" + key + "'...");
     consoleOutput = syncExec({
-        cwd: resourceFilePaths.application.appRepoDir,
-        command: "yarn remove " + key + " --dev"
+        cwd: resourceFilePaths.application.packageModulesDir,
+        command: "rm -rfv " + key
     });
     console.log(consoleOutput);
 }
@@ -347,17 +346,17 @@ var consoleOutput = syncExec({
 console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'.");
 
 ////
-// Affect an upgrade of Encapsule Project packages infused (copied into the versioned sources of the target application).
+// Remove any cached holistic platform runtime packages from application's node_modules.
+// When we're done we'll execute a yarn install on the application package to ensure that
+// these entries are replaced with the latest versions. And, that any new dependencies
+// that have appeared in the application's package.json are installed. And, that yarn.lock
+// is updated.
+
 for (key in holisticPlatformPackagesDB) {
     console.log("> Updgrading single package holistic platform dependency '" + key + "'...");
     consoleOutput = syncExec({
-        cwd: resourceFilePaths.application.appRepoDir,
-        command: "yarn remove " + key + " --dev"
-    });
-    console.log(consoleOutput);
-    consoleOutput = syncExec({
-        cwd: resourceFilePaths.application.appRepoDir,
-        command: "yarn add " + "./HOLISTIC/" + key + " --dev"
+        cwd: resourceFilePaths.application.packageModulesDir,
+        command: "rm -rfv " + key
     });
     console.log(consoleOutput);
 } // end for
@@ -440,7 +439,6 @@ if (filterResponse.error) {
 }
 console.log("> Write '" + resourceFilePaths.application.packageMakefile + "'.");
 
-
 makeDirectory(resourceFilePaths.application.appSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appSourcesDir, ".gitkeep"));
 makeDirectory(resourceFilePaths.application.appAssetSourcesDir);
@@ -452,10 +450,27 @@ touchFile(path.join(resourceFilePaths.application.appClientSourcesDir, ".gitkeep
 makeDirectory(resourceFilePaths.application.appServerSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep"));
 
-////
+// Execute a yarn install --check-files in the application repo
+// in order to install any new dependencies, re-install removed
+// holistic platform dependencies from the application's HOLISTIC
+// directory, and update the application's yarn.lock file.
+
+console.log("> Executing `yarn install --check-files` in the target application repo...");
+console.log("... one moment, please ...");
+consoleOutput = syncExec({
+    cwd: resourceFilePaths.application.appRepoDir,
+    command: "yarn install --check-files"
+});
+console.log(consoleOutput);
+
+
+// ================================================================
+// E P I L O G U E
+//
 // Determine the count of files in the target application repo that are in the
 // modified, deleted, or untracked state after the code generation algorithm has
 // completed its work.
+//
 
 const modifiedFilesResponse = syncExec({
     cwd: resourceFilePaths.application.appRepoDir,
