@@ -30,6 +30,7 @@ DIR_SOURCES_SERVER=$(DIR_SOURCES)/SERVER
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_PHASE1=$(DIR_BUILD)/phase1-transpile
 DIR_BUILD_PHASE2=$(DIR_BUILD)/phase2-webpack
+DIR_BUILD_PHASE3=$(DIR_BUILD)/phase3-image
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 
@@ -66,22 +67,31 @@ env_generate_build_tag:
 	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
 	@echo generate_build_info target complete.
 
-
 # ================================================================
 # Utility
 #
 
-clean: source_packages_clean
-	@echo Clean operation complete.
+clean:
+	@echo Evaulating target 'clean' ...
+	@echo ... removing BUILD directory ...
+	rm -rf $(DIR_BUILD)
+	@echo Finished evaluating target 'clean'.
 
-scrub: source_packages_clean dist_packages_clean
-	@echo Scrub operation complete.
+scrub: clean
+	@echo Evaluating target 'scrub' ...
+	@echo ... removing installed dependencies from 'node_modules' ...
+	rm -rf $(DIR_MODULES)
+	@echo ... note that this operation does not invalidate your yarn cache.
+	@echo Finished evaluating target 'scrub'.
 
 nuke: source_packages_clean dist_packages_clean env_clean_cache
 	@echo Nuke operation complete.
 
 
 build_app:
+# For now, this recipe is addative; resource rename and delete in source input directories
+# will not automatically clean the BUILD directory tree. In this case execute `make clean`
+
 #	PHASE0 - create a copy of the SOURCES directory structure.
 	mkdir -p $(DIR_BUILD_PHASE1)
 	cp -rv $(DIR_SOURCES)/* $(DIR_BUILD_PHASE1)
@@ -92,7 +102,10 @@ build_app:
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.server.js
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.client.js
 
-
+#	PHASE3 - create application image
+	mkdir -p $(DIR_BUILD_PHASE3)
+	cp -r $(DIR_BUILD_PHASE2)/* $(DIR_BUILD_PHASE3)/
+	cp -r $(DIR_SOURCES_ASSETS)	$(DIR_BUILD_PHASE3)
 
 #	rm -rf  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
 #	mkdir -p  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
