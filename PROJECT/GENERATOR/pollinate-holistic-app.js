@@ -66,7 +66,12 @@ program.version(holisticMetadata.version).
     parse(process.argv);
 
 console.log("================================================================");
-console.log("generate_holistic_app :: Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
+console.log("  ,,     ,,     ,,");
+console.log("  oo    _oo_   ,oo,");
+console.log(" \/==\\   \/==\\   \/==\\");
+console.log("(\/==\\) (\/==\\) (\/==\\)");
+console.log("  \\\/     \\\/     \\\/");
+console.log("polinate_holistic_app :: Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
 
 if (program.info) {
     console.log("This script is a code generation tool used to initialize and update");
@@ -353,12 +358,12 @@ console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'
 // is updated.
 
 for (key in holisticPlatformPackagesDB) {
-    console.log("> Updgrading single package holistic platform dependency '" + key + "'...");
+    console.log("> Updating holistic platform runtime package dependency '" + key + "'...");
     consoleOutput = syncExec({
         cwd: resourceFilePaths.application.packageModulesDir,
-        command: "rm -rfv " + key
+        command: "rm -rf " + key
     });
-    console.log(consoleOutput);
+    // console.log(consoleOutput);
 } // end for
 
 ////
@@ -455,8 +460,9 @@ touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep
 // holistic platform dependencies from the application's HOLISTIC
 // directory, and update the application's yarn.lock file.
 
-console.log("> Executing `yarn install --check-files` in the target application repo...");
-console.log("... one moment, please ...");
+console.log("> ONE MOMENT PLEASE... Executing `yarn install --check-files` in '" + resourceFilePaths.application.appRepoDir + "'...");
+console.log("");
+
 consoleOutput = syncExec({
     cwd: resourceFilePaths.application.appRepoDir,
     command: "yarn install --check-files"
@@ -482,8 +488,13 @@ const modifiedFiles = modifiedFilesResponse?modifiedFilesResponse.trim().split("
 console.log("\nDone processing application repository '" + resourceFilePaths.application.appRepoDir + "'.\n");
 
 if (!modifiedFiles.length) {
-    console.log("YOUR APPLICATION IS ALREADY UP-TO-DATE.\nNO UNCOMMITTED APPLICATION CHANGES.");
+    console.log("[ NO UNCOMMITTED APPLICATION CHANGES. YOUR APPLICATION IS ALREADY UP-TO-DATE. ]");
 } else {
-    console.log(modifiedFiles.length + " APPLICATION SOURCE FILES MODIFIED (modified + deleted + untracked).");
+    console.log("[ " + modifiedFiles.length + " APPLICATION SOURCE FILES MODIFIED (git modified + deleted + untracked status). ]");
 }
 
+console.log(" ,-.");
+console.log(" \\ \/");
+console.log("{|||)<");
+console.log(" \/ \\");
+console.log(" `-^");

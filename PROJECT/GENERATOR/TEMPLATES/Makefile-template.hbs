@@ -9,7 +9,6 @@ $(info DIR_ROOT is $(DIR_ROOT))
 
 DIR_MODULES=$(DIR_ROOT)/node_modules
 DIR_TOOLBIN=$(DIR_MODULES)/.bin
-TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
 
 DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
@@ -17,6 +16,7 @@ DIR_PROJECT_BUILD=$(DIR_PROJECT)/BUILD
 
 TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate-package-build-manifest.js
 
+TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
 TOOL_BABEL=$(DIR_TOOLBIN)/babel
 TOOL_WEBPACK=$(DIR_TOOLBIN)/webpack-cli
 TOOL_WEBPACK_FLAGS=--display-modules --verbose --debug --progress --colors --devtool source-map --output-pathinfo
@@ -30,11 +30,6 @@ DIR_SOURCES_SERVER=$(DIR_SOURCES)/SERVER
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_PHASE1=$(DIR_BUILD)/phase1-transpile
 DIR_BUILD_PHASE2=$(DIR_BUILD)/phase2-webpack
-
-DIR_BUILD_APP=$(DIR_BUILD)/APP
-DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
-DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
-DIR_BUILD_APP_ENCAPSULE_PHASE2=$(DIR_BUILD_APP_ENCAPSULE)/phase2-webpack
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 
@@ -86,14 +81,18 @@ nuke: source_packages_clean dist_packages_clean env_clean_cache
 	@echo Nuke operation complete.
 
 
-# ================================================================
-# Experiments
-#
-
 build_app:
+#	PHASE0 - create a copy of the SOURCES directory structure.
 	mkdir -p $(DIR_BUILD_PHASE1)
 	cp -rv $(DIR_SOURCES)/* $(DIR_BUILD_PHASE1)
+#	PHASE1 - transpile modules from SOURCES into PHASE1 directory overwriting PHASE0 clone copies.
 	$(TOOL_BABEL) --config-file $(DIR_ROOT)/.babelrc --out-dir $(DIR_BUILD_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES)
+#	PHASE2 - create application server and client bundles via webpack.
+#	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.server.js
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.client.js
+
+
 
 #	rm -rf  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
 #	mkdir -p  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
@@ -101,9 +100,6 @@ build_app:
 
 #	cp -p $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
 #	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
-#	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.server.js
-#	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
 #	cp -Rp $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/
 
 #	rm -rf $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
