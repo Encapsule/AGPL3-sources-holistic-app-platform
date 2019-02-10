@@ -71,7 +71,7 @@ console.log("  oo    _oo_   ,oo,");
 console.log(" \/==\\   \/==\\   \/==\\");
 console.log("(\/==\\) (\/==\\) (\/==\\)");
 console.log("  \\\/     \\\/     \\\/");
-console.log("polinate_holistic_app :: Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
+console.log("sync-app-repo :: Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
 
 if (program.info) {
     console.log("This script is a code generation tool used to initialize and update");
