@@ -369,7 +369,7 @@ for (key in holisticPlatformPackagesDB) {
 ////
 // Create application .gitignore
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "gitignore-template.hbs"));
-document = docTemplate(/*context*/);
+document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageGitIgnore,
     resource: document
@@ -382,7 +382,7 @@ console.log("> Write '" + resourceFilePaths.application.packageGitIgnore + "'.")
 ////
 // Create application .babelrc
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "babelrc-template.hbs"));
-document = docTemplate(/*context*/);
+document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageBabelRc,
     resource: document
@@ -395,7 +395,7 @@ console.log("> Write '" + resourceFilePaths.application.packageBabelRc + "'.");
 ////
 // Create application .eslintrc.js
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "eslintrc-template.hbs"));
-document = docTemplate(/*context*/);
+document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageEslintRc,
     resource: document
@@ -408,7 +408,7 @@ console.log("> Write '" + resourceFilePaths.application.packageEslintRc + "'.");
 ////
 // Create application webpack.config for server.
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "webpack.config.app.server.hbs"));
-document = docTemplate(/*context*/);
+document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageWebpackServerRc,
     resource: document
@@ -421,7 +421,7 @@ console.log("> Write '" + resourceFilePaths.application.packageWebpackServerRc +
 ////
 // Create application webpackage.config for client.
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "webpack.config.app.client.hbs"));
-document = docTemplate(/*context*/);
+document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageWebpackClientRc,
     resource: document
@@ -434,7 +434,7 @@ console.log("> Write '" + resourceFilePaths.application.packageWebpackClientRc +
 ////
 // Create application Makefile
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "Makefile-template.hbs"));
-document = docTemplate(/*context = {...}*/);
+document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageMakefile,
     resource: document
