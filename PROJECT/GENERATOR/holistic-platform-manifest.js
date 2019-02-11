@@ -6,10 +6,10 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
 
     applicationPackageManifest: {
         scripts: {
-            install: "echo install",
-            build: "echo build",
-            start: "echo start",
-            clean: "echo clean"
+            install: "# Installation complete.",
+            build: "make application",
+            start: "node ./BUILD/phase3-runtime/server-app-bundle.js",
+            clean: "make scrub"
         }
     },
 

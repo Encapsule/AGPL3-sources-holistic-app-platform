@@ -44,62 +44,42 @@ default:
 	@echo ================================================================
 
 # ================================================================
-# Environment
+# Build environment
 #
 
-env_initialize:
-	@echo monorepo_initialize target starting...
+configure:
+	@echo Configuring build environment...
 	yarn install --verbose
-	@echo monorepo_initialize target complete.
-
-env_reinitialize: env_clean_cache env_initialize
-	@echo Your local yarn cache has been repopulated with fresh packages from the Internet. And the contents of $(DIR_MODULES) has been rewritten.
-
-env_clean:
-	@echo monorepo_clean target starting...
-	echo rm -rf $(DIR_MODULES)
-	@echo monorepo_clean target complete.
-
-env_clean_cache: env_clean
-	@echo monorepo_nuke target starting...
-	yarn cache clean
-	@echo monorepo_nuke target complete.
-
-env_generate_build_tag:
-	@echo generate_build_info target starting...
-	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
-	@echo generate_build_info target complete.
-
-# ================================================================
-# Utility
-#
+	@echo Build environment has been configured.
 
 clean:
-	@echo Evaulating target 'clean' ...
-	@echo ... removing BUILD directory ...
+	@echo Cleaning up the output of the last application build...
 	rm -rf $(DIR_BUILD)
-	@echo Finished evaluating target 'clean'.
+	@echo The BUILD directory and its contents has been removed.
 
 scrub: clean
-	@echo Evaluating target 'scrub' ...
-	@echo ... removing installed dependencies from 'node_modules' ...
+	@echo Scrubbing the local build environment...
+	@echo ... removing previously-installed package dependencies.
 	rm -rf $(DIR_MODULES)
-	@echo ... note that this operation does not invalidate your yarn cache.
-	@echo Finished evaluating target 'scrub'.
+	@echo Dependencies will be re-installed from package cache on next 'make configure'.
 
-nuke: source_packages_clean dist_packages_clean env_clean_cache
-	@echo Nuke operation complete.
+reset: scrub
+	@echo Local build environment reset...
+	yarn cache clean
+	@echo Dependencies will be re-installed from refreshed package cache (requires Internet) on next 'make configure'.
 
+application:
 
-build_app:
-# For now, this recipe is addative; resource rename and delete in source input directories
-# will not automatically clean the BUILD directory tree. In this case execute `make clean`
+#	For now, this recipe is addative; resource rename and delete in source input directories
+#	will not automatically clean the BUILD directory tree. In this case execute `make clean`.
 
 #	PHASE0 - create a copy of the SOURCES directory structure.
 	mkdir -p $(DIR_BUILD_PHASE1)
 	cp -rv $(DIR_SOURCES)/* $(DIR_BUILD_PHASE1)
+
 #	PHASE1 - transpile modules from SOURCES into PHASE1 directory overwriting PHASE0 clone copies.
 	$(TOOL_BABEL) --config-file $(DIR_ROOT)/.babelrc --out-dir $(DIR_BUILD_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES)
+
 #	PHASE2 - create application server and client bundles via webpack.
 #	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.server.js
@@ -110,19 +90,15 @@ build_app:
 	cp -r $(DIR_BUILD_PHASE2)/* $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_SOURCES_ASSETS)	$(DIR_BUILD_PHASE3)
 
-#	rm -rf  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
-#	mkdir -p  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
-#	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
+	chmod 755 $(DIR_BUILD_PHASE3)/server-app-bundle.js
 
-#	cp -p $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
-#	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
-#	cp -Rp $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/
 
-#	rm -rf $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
-#	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
+# ----------------------------------------------------------------
 
-#	cp -p $(DIR_SOURCES_APP_ENCAPSULE)/client/index.html $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/index.html
-#	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/css $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/css
-#	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/fonts $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/fonts
-#	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
-#	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
+# THIS ISN'T HOOKED UP QUITE YET.
+
+env_tag_build:
+	@echo Generating application build manifest...
+	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
+	@echo Application build manifest generated.
+
