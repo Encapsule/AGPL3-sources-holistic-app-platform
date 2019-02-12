@@ -5,10 +5,10 @@
 # holism v0.0.3 "spindrift"
 
 ```
-Package: holism v0.0.3 "spindrift" build ID "SGcEUElnQmmmi-LDUXEi-g"
-Sources: Encapsule/holistic#902e9dd48b932478060f8b29b94a67a88608688c
+Package: holism v0.0.3 "spindrift" build ID "5Btz6VeHQdO8GbuCadB2iQ"
+Sources: Encapsule/holistic#67cd0f448de46a6516e7e68f11831d3981167528
 Purpose: library (Node.js)
-Created: 2019-02-11T16:53:42.000Z
+Created: 2019-02-12T02:18:51.000Z
 License: MIT
 ```
 
