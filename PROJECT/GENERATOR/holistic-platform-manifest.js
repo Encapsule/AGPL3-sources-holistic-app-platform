@@ -8,8 +8,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         scripts: {
             install: "# Installation complete.",
             build: "make application",
-            start: "node ./BUILD/phase3-runtime/server-app-bundle.js",
-            clean: "make scrub"
+            start: "node ./BUILD/runtime-phase3/server-app-bundle.js",
+            clean: "make clean"
         }
     },
 

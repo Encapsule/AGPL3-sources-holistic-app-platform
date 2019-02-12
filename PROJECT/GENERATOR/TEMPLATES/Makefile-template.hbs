@@ -31,9 +31,9 @@ DIR_SOURCES_COMMON=$(DIR_SOURCES)/COMMON
 DIR_SOURCES_SERVER=$(DIR_SOURCES)/SERVER
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
-DIR_BUILD_PHASE1=$(DIR_BUILD)/phase1-transpile
-DIR_BUILD_PHASE2=$(DIR_BUILD)/phase2-webpack
-DIR_BUILD_PHASE3=$(DIR_BUILD)/phase3-runtime
+DIR_BUILD_PHASE1=$(DIR_BUILD)/transpile-phase1
+DIR_BUILD_PHASE2=$(DIR_BUILD)/webpack-phase2
+DIR_BUILD_PHASE3=$(DIR_BUILD)/runtime-phase3
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 
@@ -68,7 +68,7 @@ reset: scrub
 	yarn cache clean
 	@echo Dependencies will be re-installed from refreshed package cache (requires Internet) on next 'make configure'.
 
-application:
+application: configure
 
 #	For now, this recipe is addative; resource rename and delete in source input directories
 #	will not automatically clean the BUILD directory tree. In this case execute `make clean`.
@@ -88,10 +88,7 @@ application:
 #	PHASE3 - create application image
 	mkdir -p $(DIR_BUILD_PHASE3)
 	cp -r $(DIR_BUILD_PHASE2)/* $(DIR_BUILD_PHASE3)/
-	cp -r $(DIR_SOURCES_ASSETS)	$(DIR_BUILD_PHASE3)
-
-	chmod 755 $(DIR_BUILD_PHASE3)/server-app-bundle.js
-
+	cp -r $(DIR_SOURCES_ASSETS)	$(DIR_BUILD_PHASE3)/
 
 # ----------------------------------------------------------------
 
