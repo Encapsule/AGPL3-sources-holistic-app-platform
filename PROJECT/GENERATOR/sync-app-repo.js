@@ -130,7 +130,12 @@ const resourceFilePaths = {
         packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server.js"), // template generated
         packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client.js"), // template generated
 
-        platformSourcesDir: path.join(appRepoDir, "HOLISTIC")
+        platformSourcesDir: path.join(appRepoDir, "HOLISTIC"),
+
+        projectDir: path.join(appRepoDir, "PROJECT"),
+        projectBuildDir: path.join(appRepoDir, "PROJECT/BUILD"),
+        projectTestDir: path.join(appRepoDir, "PROJECT/TEST"),
+        projectDeployDir: path.join(appRepoDir, "PROJECT/DEPLOY")
     },
     holistic: {
         packageDir: holisticPackageDir,
@@ -454,6 +459,20 @@ makeDirectory(resourceFilePaths.application.appClientSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appClientSourcesDir, ".gitkeep"));
 makeDirectory(resourceFilePaths.application.appServerSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep"));
+
+
+makeDirectory(resourceFilePaths.application.projectDir);
+touchFile(path.join(resourceFilePaths.application.projectDir, ".gitkeep"));
+
+makeDirectory(resourceFilePaths.application.projectBuildDir);
+touchFile(path.join(resourceFilePaths.application.projectBuildDir, ".gitkeep"));
+
+makeDirectory(resourceFilePaths.application.projectTestDir);
+touchFile(path.join(resourceFilePaths.application.projectTestDir, ".gitkeep"));
+
+makeDirectory(resourceFilePaths.application.projectDeployDir);
+touchFile(path.join(resourceFilePaths.application.projectDeployDir, ".gitkeep"));
+
 
 // Execute a yarn install --check-files in the application repo
 // in order to install any new dependencies, re-install removed
