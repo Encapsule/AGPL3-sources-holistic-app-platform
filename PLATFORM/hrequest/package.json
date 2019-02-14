@@ -2,9 +2,9 @@
     "name": "hrequest",
     "version": "0.0.3",
     "codename": "spindrift",
-    "buildID": "luvgQVzKQ1264OXV2WgjqA",
-    "buildTime": 1550176846,
-    "buildSource": "0857efe02c727c76cf9e8c1d57f9072fcbd1ca4a",
+    "buildID": "tMDIqkoPQVG96w-I6AZaoQ",
+    "buildTime": 1550176967,
+    "buildSource": "e175cec6e23947531b3b33c9a79ea75639606ddb",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
