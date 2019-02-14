@@ -1,14 +1,14 @@
 [![Encapsule Project](https://encapsule.io/images/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io)
 
-### Encapsule Project
+### Encapsule
 
 # holism v0.0.3 "spindrift"
 
 ```
-Package: holism v0.0.3 "spindrift" build ID "5Btz6VeHQdO8GbuCadB2iQ"
-Sources: Encapsule/holistic#67cd0f448de46a6516e7e68f11831d3981167528
+Package: holism v0.0.3 "spindrift" build ID "luvgQVzKQ1264OXV2WgjqA"
+Sources: Encapsule/holistic#0857efe02c727c76cf9e8c1d57f9072fcbd1ca4a
 Purpose: library (Node.js)
-Created: 2019-02-12T02:18:51.000Z
+Created: 2019-02-14T20:40:46.000Z
 License: MIT
 ```
 

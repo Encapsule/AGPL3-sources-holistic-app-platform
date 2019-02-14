@@ -127,8 +127,8 @@ const resourceFilePaths = {
         packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
         packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"), // template generated
-        packageWebpackServerRc: path.join(appRepoDir, "webpack.config.app.server.js"), // template generated
-        packageWebpackClientRc: path.join(appRepoDir, "webpack.config.app.client.js"), // template generated
+        packageWebpackServerRc: path.join(appRepoDir, "PROJECT/BUILD/webpack.config.app.server.js"), // template generated
+        packageWebpackClientRc: path.join(appRepoDir, "PROJECT/BUILD/webpack.config.app.client.js"), // template generated
 
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC"),
 
@@ -371,6 +371,18 @@ for (key in holisticPlatformPackagesDB) {
     // console.log(consoleOutput);
 } // end for
 
+makeDirectory(resourceFilePaths.application.projectDir);
+touchFile(path.join(resourceFilePaths.application.projectDir, ".gitkeep"));
+
+makeDirectory(resourceFilePaths.application.projectBuildDir);
+touchFile(path.join(resourceFilePaths.application.projectBuildDir, ".gitkeep"));
+
+makeDirectory(resourceFilePaths.application.projectTestDir);
+touchFile(path.join(resourceFilePaths.application.projectTestDir, ".gitkeep"));
+
+makeDirectory(resourceFilePaths.application.projectDeployDir);
+touchFile(path.join(resourceFilePaths.application.projectDeployDir, ".gitkeep"));
+
 ////
 // Create application .gitignore
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "gitignore-template.hbs"));
@@ -460,18 +472,6 @@ touchFile(path.join(resourceFilePaths.application.appClientSourcesDir, ".gitkeep
 makeDirectory(resourceFilePaths.application.appServerSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep"));
 
-
-makeDirectory(resourceFilePaths.application.projectDir);
-touchFile(path.join(resourceFilePaths.application.projectDir, ".gitkeep"));
-
-makeDirectory(resourceFilePaths.application.projectBuildDir);
-touchFile(path.join(resourceFilePaths.application.projectBuildDir, ".gitkeep"));
-
-makeDirectory(resourceFilePaths.application.projectTestDir);
-touchFile(path.join(resourceFilePaths.application.projectTestDir, ".gitkeep"));
-
-makeDirectory(resourceFilePaths.application.projectDeployDir);
-touchFile(path.join(resourceFilePaths.application.projectDeployDir, ".gitkeep"));
 
 
 // Execute a yarn install --check-files in the application repo

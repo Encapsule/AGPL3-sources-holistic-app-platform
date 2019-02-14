@@ -13,9 +13,10 @@ $(info DIR_ROOT is $(DIR_ROOT))
 DIR_MODULES=$(DIR_ROOT)/node_modules
 DIR_TOOLBIN=$(DIR_MODULES)/.bin
 
-DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
-DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
+DIR_PROJECT=$(DIR_ROOT)/PROJECT
 DIR_PROJECT_BUILD=$(DIR_PROJECT)/BUILD
+DIR_PROJECT_TEST=$(DIR_PROJECT)/TEST
+DIR_PROJECT_DEPLOY=$(DIR_PROJECT)/DEPLOY
 
 TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate-package-build-manifest.js
 
@@ -82,8 +83,8 @@ application: configure
 
 #	PHASE2 - create application server and client bundles via webpack.
 #	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.server.js
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_ROOT)/webpack.config.app.client.js
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app.server.js
+	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app.client.js
 
 #	PHASE3 - create application image
 	mkdir -p $(DIR_BUILD_PHASE3)

@@ -207,6 +207,6 @@ Filter classification:  **input processor**
 
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
-This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.0 toolset.<br>
-Document updated Mon Feb 11 2019 18:18:52 GMT-0800 (Pacific Standard Time)
+This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.2 toolset.<br>
+Document updated Thu Feb 14 2019 12:40:47 GMT-0800 (Pacific Standard Time)
 

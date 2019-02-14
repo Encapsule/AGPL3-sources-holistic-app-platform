@@ -870,12 +870,12 @@ aproba@^1.0.3, aproba@^1.1.1:
   integrity sha512-Y9J6ZjXtoYh8RnXVCMOU/ttDmk1aBjunq9vO0ta5x85WDQiQfUF9sIPBITdbiiIVcBo03Hi3jMxigBtsddlXRw==
 
 arccore@Encapsule/arccore:
-  version "0.1.0"
-  resolved "https://codeload.github.com/Encapsule/arccore/tar.gz/bedfae8922e9cf602d14fcba5972ab1526c95b05"
+  version "0.1.2"
+  resolved "https://codeload.github.com/Encapsule/arccore/tar.gz/f8f5b465f8cd502a3fae60d801d71984463e6fc8"
 
 arctools@Encapsule/arctools:
-  version "0.1.0"
-  resolved "https://codeload.github.com/Encapsule/arctools/tar.gz/3c0d1d56e2f346dcf6355ef2ca0ee26290610623"
+  version "0.1.2"
+  resolved "https://codeload.github.com/Encapsule/arctools/tar.gz/492c9dcb4c255e632a8a43961ad5dd07111e48d0"
   dependencies:
     chalk "^1.1.1"
     commander "^2.9.0"

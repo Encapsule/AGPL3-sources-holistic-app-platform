@@ -3,7 +3,7 @@
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
     "version": "0.0.3",
     "codename": "spindrift",
-    "author": "Encapsule Project",
+    "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
         "year": 2019
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "5Btz6VeHQdO8GbuCadB2iQ",
-    "buildSource": "67cd0f448de46a6516e7e68f11831d3981167528",
-    "buildTime": 1549937931,
-    "buildDateISO": "2019-02-12T02:18:51.000Z"
+    "buildID": "luvgQVzKQ1264OXV2WgjqA",
+    "buildSource": "0857efe02c727c76cf9e8c1d57f9072fcbd1ca4a",
+    "buildTime": 1550176846,
+    "buildDateISO": "2019-02-14T20:40:46.000Z"
 }

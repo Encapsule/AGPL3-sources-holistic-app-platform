@@ -2,14 +2,14 @@
     "name": "holism",
     "version": "0.0.3",
     "codename": "spindrift",
-    "buildID": "5Btz6VeHQdO8GbuCadB2iQ",
-    "buildTime": 1549937931,
-    "buildSource": "67cd0f448de46a6516e7e68f11831d3981167528",
+    "buildID": "luvgQVzKQ1264OXV2WgjqA",
+    "buildTime": 1550176846,
+    "buildSource": "0857efe02c727c76cf9e8c1d57f9072fcbd1ca4a",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"
     },
-    "author": "Encapsule Project",
+    "author": "Encapsule",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -34,6 +34,6 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "arccore": "0.1.0"
+        "arccore": "0.1.2"
     }
 }
