@@ -1,6 +1,6 @@
 // http-request-filter-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const filter = arccore.filter;
 const identifier = arccore.identifier;
 

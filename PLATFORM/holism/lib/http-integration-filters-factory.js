@@ -1,6 +1,6 @@
 // http-integration-filters-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const httpIntegrationFiltersFactoryRequestSpec = require("./iospecs/http-integration-filters-factory-request-spec");
 const httpIntegrationFiltersFactoryResultSpec = require("./iospecs/http-integration-filters-factory-result-spec");
 

@@ -1,7 +1,7 @@
 // http-response-error-filter.js
 
 const http = require("http");
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const serializeResponseFilter = require("./http-response-serialize-filter");
 const httpResponseErrorRequestSpec = require("./iospecs/http-response-error-request-spec");
 

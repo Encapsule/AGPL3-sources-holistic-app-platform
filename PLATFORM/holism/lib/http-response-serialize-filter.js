@@ -1,6 +1,6 @@
 // http-response-serialize-filter.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const httpResponseSerializeRequestSpec = require("./iospecs/http-response-serialize-request-spec");
 
 // This filter ultimately delegates to writeResponseFilter that is responsible for writing to the ServerResponse stream.

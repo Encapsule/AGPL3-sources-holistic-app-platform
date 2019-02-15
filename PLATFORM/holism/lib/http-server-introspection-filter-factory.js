@@ -1,6 +1,6 @@
 // http-server-introspection-filter-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "V-Q1L8M8SDeS8FHF-cnxhQ",

@@ -12,7 +12,7 @@
 // abstruse, this is highly scalable as messages that follow encoding conventions
 // can be routed with densely packed, highly tested generic code.
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const httpResponseErrorRequestSpec = require("./http-response-error-request-spec");
 
 const spec = arccore.util.clone(httpResponseErrorRequestSpec);

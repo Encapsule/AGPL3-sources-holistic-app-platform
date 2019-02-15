@@ -30,7 +30,7 @@ const packageMeta = require("../package.json");
 
 const url = require("url");
 const http = require("http");
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 // Low level response filters used directly by the HTTP server's listening thread.
 const errorResponseFilter = require("./http-response-error-filter");

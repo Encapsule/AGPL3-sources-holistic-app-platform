@@ -1,14 +1,14 @@
 [![Encapsule Project](https://encapsule.io/images/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io)
 
-### Encapsule
+### Encapsule Project
 
-# hrequest v0.0.3 "spindrift"
+# hrequest v0.0.4 "snowpocalypse"
 
 ```
-Package: hrequest v0.0.3 "spindrift" build ID "tMDIqkoPQVG96w-I6AZaoQ"
-Sources: Encapsule/holistic#e175cec6e23947531b3b33c9a79ea75639606ddb
+Package: hrequest v0.0.4 "snowpocalypse" build ID "EIuP-QemSpmgAu84qTiT3w"
+Sources: Encapsule/holistic#aa62e6b750f3ed9f982dc1915f79694de09e95e6
 Purpose: library (Node.js)
-Created: 2019-02-14T20:42:47.000Z
+Created: 2019-02-15T04:32:01.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ Developer API and examples: [Encapsule Project hrequest documentation](https://e
 
 The `hrequest` library package is published on [npmjs](https://npmjs.com).
 
-- [hrequest Package Distribution](https://npmjs.com/package/hrequest/v/0.0.3) ([npm](https://www.npmjs.com/~chrisrus))
+- [hrequest Package Distribution](https://npmjs.com/package/hrequest/v/0.0.4) ([npm](https://www.npmjs.com/~chrisrus))
 - [hrequest Package Repository](https://github.com/Encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
 
 <hr>

@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.3",
-    "codename": "spindrift",
+    "version": "0.0.4",
+    "codename": "snowpocalypse",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "tMDIqkoPQVG96w-I6AZaoQ",
-    "buildSource": "e175cec6e23947531b3b33c9a79ea75639606ddb",
-    "buildTime": 1550176967,
-    "buildDateISO": "2019-02-14T20:42:47.000Z"
+    "buildID": "EIuP-QemSpmgAu84qTiT3w",
+    "buildSource": "aa62e6b750f3ed9f982dc1915f79694de09e95e6",
+    "buildTime": 1550205121,
+    "buildDateISO": "2019-02-15T04:32:01.000Z"
 }

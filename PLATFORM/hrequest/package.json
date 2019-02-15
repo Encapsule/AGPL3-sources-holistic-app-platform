@@ -1,10 +1,10 @@
 {
     "name": "hrequest",
-    "version": "0.0.3",
-    "codename": "spindrift",
-    "buildID": "tMDIqkoPQVG96w-I6AZaoQ",
-    "buildTime": 1550176967,
-    "buildSource": "e175cec6e23947531b3b33c9a79ea75639606ddb",
+    "version": "0.0.4",
+    "codename": "snowpocalypse",
+    "buildID": "EIuP-QemSpmgAu84qTiT3w",
+    "buildTime": 1550205121,
+    "buildSource": "aa62e6b750f3ed9f982dc1915f79694de09e95e6",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
@@ -33,7 +33,7 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "arccore": "0.1.2",
+        "@encapsule/arccore": "0.1.2",
         "query-string": "^6.2.0",
         "request": "^2.88.0"
     }

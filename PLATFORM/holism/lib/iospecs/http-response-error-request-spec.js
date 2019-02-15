@@ -4,7 +4,7 @@
 // Extends with required error-specific request input contraints.
 //
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const httpServiceFilterRequestSpec = require("./http-service-filter-request-spec");
 const httpResponseBaseSpec = require("./http-response-base-spec");

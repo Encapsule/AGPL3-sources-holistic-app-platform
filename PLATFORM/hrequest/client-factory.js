@@ -1,7 +1,7 @@
 // client-hrequest-factory.js
 // Constructs a client-side-specific Hrequest filter object that wraps an `XMLHttpRequest` call.
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const HttpRequestBrowserTransport = require("./lib/http-request-transport-for-browser");
 const HttpRequestFilterFactory = require("./lib/http-request-filter-factory");
 const httpRequestFilterFactoryUserSpec = require("./lib/http-request-filter-factory-user-spec");

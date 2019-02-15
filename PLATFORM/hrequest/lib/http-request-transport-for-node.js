@@ -3,7 +3,7 @@
 // This module depends on the `request` package: https://github.com/request/request#examples
 //
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const queryString = require("query-string");
 const httpRequestTransportSpecs = require("./http-request-transport-iospecs");
 const httpRequest = require("request");

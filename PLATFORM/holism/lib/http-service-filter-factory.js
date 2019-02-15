@@ -1,6 +1,6 @@
 // http-service-filter-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const serializeResponseFilter = require("./http-response-serialize-filter");
 const errorResponseFilter = require("./http-response-error-filter");
 const httpServiceFilterFactoryRequestSpec = require("./iospecs/http-service-filter-factory-request-spec");
@@ -21,7 +21,7 @@ var factoryResponse = arccore.filter.create({
         ____description: "A service filter object manufactured by the service filter factory.",
         ____accept: "jsObject"
     },
-    
+
     bodyFunction: function(request_) {
         const serviceFactoryRequest = request_;
         var response = { error: null, result: null };
