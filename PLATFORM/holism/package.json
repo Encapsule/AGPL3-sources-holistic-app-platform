@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism",
-    "version": "0.0.4",
-    "codename": "snowpocalypse",
-    "buildID": "EaB8Mb2dSyWPVljmO07IWw",
-    "buildTime": 1550249392,
-    "buildSource": "9a09a4c7d0f5d4cba61d94aaf974610162ca6b72",
+    "version": "0.0.5",
+    "codename": "slushnami",
+    "buildID": "_TIjv3a0TrWbC4ulFlfGOQ",
+    "buildTime": 1550268199,
+    "buildSource": "1a701fcedc8591c4d40d653ba1ddba383ccb2cc7",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/@encapsule/holism.git"

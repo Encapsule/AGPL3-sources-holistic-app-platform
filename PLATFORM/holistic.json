@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.4",
-    "codename": "snowpocalypse",
+    "version": "0.0.5",
+    "codename": "slushnami",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "EaB8Mb2dSyWPVljmO07IWw",
-    "buildSource": "9a09a4c7d0f5d4cba61d94aaf974610162ca6b72",
-    "buildTime": 1550249392,
-    "buildDateISO": "2019-02-15T16:49:52.000Z"
+    "buildID": "_TIjv3a0TrWbC4ulFlfGOQ",
+    "buildSource": "1a701fcedc8591c4d40d653ba1ddba383ccb2cc7",
+    "buildTime": 1550268199,
+    "buildDateISO": "2019-02-15T22:03:19.000Z"
 }

@@ -1,7 +1,7 @@
 {
   "name": "holistic",
-  "version": "0.0.4",
-  "codename": "snowpocalypse",
+  "version": "0.0.5",
+  "codename": "slushnami",
   "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
   "author": "Encapsule",
   "contributors": [
