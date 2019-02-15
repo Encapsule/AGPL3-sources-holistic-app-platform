@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const arctools = require('arctools');
+const arctools = require('@encapsule/arctools');
 
 const repoBuild = require('../../BUILD/holistic');
 

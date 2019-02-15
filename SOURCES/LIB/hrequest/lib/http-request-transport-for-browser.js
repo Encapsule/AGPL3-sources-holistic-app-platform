@@ -1,7 +1,7 @@
 // http-request-transport-for-browser.js
 //
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const queryString = require("query-string");
 const httpRequestTransportSpecs = require("./http-request-transport-iospecs");
 

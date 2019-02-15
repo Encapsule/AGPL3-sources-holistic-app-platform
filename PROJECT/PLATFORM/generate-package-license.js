@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const arctools = require('arctools');
+const arctools = require('@encapsule/arctools');
 const path = require('path');
 const fs = require('fs');
 

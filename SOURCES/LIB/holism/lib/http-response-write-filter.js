@@ -8,7 +8,7 @@
 const packageMeta = require("../package.json");
 
 const http = require("http");
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const httpResponseWriteRequestSpec = require("./iospecs/http-response-write-request-spec");
 

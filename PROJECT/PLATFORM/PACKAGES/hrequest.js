@@ -1,7 +1,6 @@
 // PROJECT/PACKAGES/hrequest.js
 
-const arccore = require('arccore');
-const arccoreVersion = arccore.__meta.version;
+const arccore = require('@encapsule/arccore');
 
 module.exports = {
     packageType: "library",
@@ -12,7 +11,7 @@ module.exports = {
         license: "MIT",
         main: "index.js",
         peerDependencies: {
-            arccore: arccoreVersion,
+            "@encapsule/arccore": arccore.__meta.version,
             "query-string": "^6.2.0",
             request: "^2.88.0"
         }

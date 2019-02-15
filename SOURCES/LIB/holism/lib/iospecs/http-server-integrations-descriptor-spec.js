@@ -4,7 +4,7 @@
 // additional integration filters allocated by the HTTP server filter
 // and service filter factories.
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const httpIntegrationFiltersFactoryResultSpec = require("./http-integration-filters-factory-result-spec");
 

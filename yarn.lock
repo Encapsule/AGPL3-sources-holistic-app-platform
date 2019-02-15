@@ -624,12 +624,12 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@encapsule/arccore@^0.1.2":
+"@encapsule/arccore@0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@encapsule/arccore/-/arccore-0.1.2.tgz#8d75987d8cd0b3cdf9aa75a170095de1b08506cb"
   integrity sha512-3A8wY66MLETodOdyYLnbVCo8t1DNitj6HaTqrxInIZ0XIBwDSGC/ABkgcxaOaIh1ZWgpcvd9mCpcCQCj2woliQ==
 
-"@encapsule/arctools@^0.1.2":
+"@encapsule/arctools@0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@encapsule/arctools/-/arctools-0.1.2.tgz#df5194c7614a4d34805215923493fce24431790e"
   integrity sha512-NjUWHs7QaL3NpHA8v/hrd3Iow4ywcTXfq/St9Mzzecx5QcE8BAhsls2Ov2YDqbVhIym4W3vYmw7nvS6QEcakSg==

@@ -1,7 +1,7 @@
 // server-hrequest-factory.js
 // Constructs a server-side-specific Hrequest object that wraps a call to the `request` HTTP request library package.
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const HttpRequestNodeTransport = require("./lib/http-request-transport-for-node");
 const HttpRequestFilterFactory = require("./lib/http-request-filter-factory");
 const httpRequestFilterFactoryUserSpec = require("./lib/http-request-filter-factory-user-spec");

@@ -1,9 +1,6 @@
 // PROJECT/PACKAGES/holism.js
 
-const arccore = require('arccore');
-const arccoreVersion = arccore.__meta.version;
-
-const childProcess = require('child_process');
+const arccore = require('@encapsule/arccore');
 
 module.exports = {
     packageType: "library",
@@ -14,7 +11,7 @@ module.exports = {
         license: "MIT",
         main: "index.js",
         peerDependencies: {
-            arccore: arccoreVersion
+            "@encapsule/arccore": arccore.__meta.version
         }
     },
     packageReadme: {

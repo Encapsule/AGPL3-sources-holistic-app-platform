@@ -3,7 +3,7 @@
 const process = require("process");
 
 const packageMeta = require("../package.json");
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const httpServerAgentResultSpec = require("./iospecs/http-server-agent-result-spec");
 

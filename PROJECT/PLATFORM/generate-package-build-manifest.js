@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const arccore = require('arccore');
+const arccore = require('@encapsule/arccore');
 
 const childProcess = require('child_process');
 const fs = require('fs');

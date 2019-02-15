@@ -1,8 +1,8 @@
 // http-server-config-filter.js
 
 const fs = require("fs");
-// const path = require("path");
-const arccore = require("arccore");
+
+const arccore = require("@encapsule/arccore");
 
 const packageMeta = require("../package.json");
 

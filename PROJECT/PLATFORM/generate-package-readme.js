@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const arctools = require('arctools');
+const arctools = require('@encapsule/arctools');
 const path = require('path');
 const fs = require('fs');
 
@@ -77,7 +77,7 @@ function injectReadmeSection(sectionDescriptor_) {
 // Start of the markdown document...
 markdown.push("[![Encapsule Project](https://encapsule.io/images/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project\")](https://encapsule.io)");
 
-markdown.push("### " + repoBuild.author + "");
+markdown.push("### Encapsule Project");
 
 markdown.push("# " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\"");
 markdown.push("```\n" +
