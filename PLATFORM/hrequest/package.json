@@ -1,13 +1,13 @@
 {
-    "name": "hrequest",
+    "name": "@encapsule/hrequest",
     "version": "0.0.4",
     "codename": "snowpocalypse",
-    "buildID": "EIuP-QemSpmgAu84qTiT3w",
-    "buildTime": 1550205121,
-    "buildSource": "aa62e6b750f3ed9f982dc1915f79694de09e95e6",
+    "buildID": "EaB8Mb2dSyWPVljmO07IWw",
+    "buildTime": 1550249392,
+    "buildSource": "9a09a4c7d0f5d4cba61d94aaf974610162ca6b72",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Encapsule/hrequest.git"
+        "url": "git+https://github.com/Encapsule/@encapsule/hrequest.git"
     },
     "author": "Encapsule",
     "contributors": [
@@ -19,9 +19,9 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Encapsule/hrequest/issues"
+        "url": "https://github.com/Encapsule/@encapsule/hrequest/issues"
     },
-    "homepage": "https://github.com/Encapsule/hrequest#readme",
+    "homepage": "https://github.com/Encapsule/@encapsule/hrequest#readme",
     "description": "HTTP request filters for Node.js and browser clients.",
     "keywords": [
         "HTTP",
