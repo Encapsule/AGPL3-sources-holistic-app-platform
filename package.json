@@ -1,7 +1,7 @@
 {
   "name": "holistic",
-  "version": "0.0.3",
-  "codename": "spindrift",
+  "version": "0.0.4",
+  "codename": "snowpocalypse",
   "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
   "author": "Encapsule",
   "contributors": [
@@ -18,8 +18,8 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-transform-react-jsx": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
-    "arccore": "Encapsule/arccore",
-    "arctools": "Encapsule/arctools",
+    "@encapsule/arccore": "^0.1.2",
+    "@encapsule/arctools": "^0.1.2",
     "chai": "^4.2.0",
     "color": "^3.1.0",
     "commander": "^2.19.0",

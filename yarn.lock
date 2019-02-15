@@ -624,6 +624,20 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@encapsule/arccore@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@encapsule/arccore/-/arccore-0.1.2.tgz#8d75987d8cd0b3cdf9aa75a170095de1b08506cb"
+  integrity sha512-3A8wY66MLETodOdyYLnbVCo8t1DNitj6HaTqrxInIZ0XIBwDSGC/ABkgcxaOaIh1ZWgpcvd9mCpcCQCj2woliQ==
+
+"@encapsule/arctools@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@encapsule/arctools/-/arctools-0.1.2.tgz#df5194c7614a4d34805215923493fce24431790e"
+  integrity sha512-NjUWHs7QaL3NpHA8v/hrd3Iow4ywcTXfq/St9Mzzecx5QcE8BAhsls2Ov2YDqbVhIym4W3vYmw7nvS6QEcakSg==
+  dependencies:
+    chalk "^1.1.1"
+    commander "^2.9.0"
+    handlebars "^4.0.5"
+
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.11.tgz#b988582cafbb2b095e8b556526f30c90d057cace"
@@ -868,18 +882,6 @@ aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha512-Y9J6ZjXtoYh8RnXVCMOU/ttDmk1aBjunq9vO0ta5x85WDQiQfUF9sIPBITdbiiIVcBo03Hi3jMxigBtsddlXRw==
-
-arccore@Encapsule/arccore:
-  version "0.1.2"
-  resolved "https://codeload.github.com/Encapsule/arccore/tar.gz/f8f5b465f8cd502a3fae60d801d71984463e6fc8"
-
-arctools@Encapsule/arctools:
-  version "0.1.2"
-  resolved "https://codeload.github.com/Encapsule/arctools/tar.gz/492c9dcb4c255e632a8a43961ad5dd07111e48d0"
-  dependencies:
-    chalk "^1.1.1"
-    commander "^2.9.0"
-    handlebars "^4.0.5"
 
 are-we-there-yet@~1.1.2:
   version "1.1.5"
@@ -2581,10 +2583,21 @@ handlebars-loader@^1.7.1:
     loader-utils "1.0.x"
     object-assign "^4.1.0"
 
-handlebars@^4.0.12, handlebars@^4.0.5:
+handlebars@^4.0.12:
   version "4.0.12"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.12.tgz#2c15c8a96d46da5e266700518ba8cb8d919d5bc5"
   integrity sha512-RhmTekP+FZL+XNhwS1Wf+bTTZpdLougwt5pcgA1tuz6Jcx0fpH/7z0qd71RKnZHBCxIRBHfBOnio4gViPemNzA==
+  dependencies:
+    async "^2.5.0"
+    optimist "^0.6.1"
+    source-map "^0.6.1"
+  optionalDependencies:
+    uglify-js "^3.1.4"
+
+handlebars@^4.0.5:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.0.tgz#0d6a6f34ff1f63cecec8423aa4169827bf787c3a"
+  integrity sha512-l2jRuU1NAWK6AW5qqcTATWQJvNPEwkM7NEKSiv/gqOsoSQbVoWyqVEY5GS+XPQ88zLNmqASRpzfdm8d79hJS+w==
   dependencies:
     async "^2.5.0"
     optimist "^0.6.1"
