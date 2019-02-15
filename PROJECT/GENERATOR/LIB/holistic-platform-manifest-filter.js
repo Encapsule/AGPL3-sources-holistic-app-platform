@@ -1,6 +1,6 @@
 // holistic-app-framework-manifest-filter.js
 
-const arccore = require('arccore');
+const arccore = require('@encapsule/arccore');
 const packageMapSpec = require('./package-map-spec');
 
 const factoryResponse = arccore.filter.create({

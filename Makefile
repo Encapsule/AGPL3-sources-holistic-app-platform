@@ -13,7 +13,6 @@ TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
 
 DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
-DIR_PROJECT_BUILD=$(DIR_PROJECT)/BUILD
 
 TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate-package-build-manifest.js
 TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate-package-manifest.js
@@ -75,9 +74,9 @@ env_clean:
 	@echo monorepo_clean target complete.
 
 env_clean_cache: env_clean
-	@echo monorepo_nuke target starting...
+	@echo monorepo_reset target starting...
 	yarn cache clean
-	@echo monorepo_nuke target complete.
+	@echo monorepo_reset target complete.
 
 env_generate_build_tag:
 	@echo generate_build_info target starting...
@@ -101,7 +100,7 @@ source_package_build_holism:
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM)/
-	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName holism > $(DIR_BUILD_LIB_HOLISM)/package.json
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism" > $(DIR_BUILD_LIB_HOLISM)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISM)
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)/docs
@@ -119,7 +118,7 @@ source_package_build_hrequest:
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
-	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName hrequest > $(DIR_BUILD_LIB_HREQUEST)/package.json
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/hrequest" > $(DIR_BUILD_LIB_HREQUEST)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HREQUEST)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HREQUEST)
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)/docs
@@ -152,13 +151,13 @@ dist_packages_status:
 	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
 	@echo FINISH TARGET: dist_packages_status
 
-dist_packages_clean: dist_packages_nuke
+dist_packages_clean: dist_packages_reset
 	@echo COMPLETE TARGET: dist_packages_clean
 
-dist_packages_nuke:
-	@echo BEGIN TARGET: dist_packages_nuke
+dist_packages_reset:
+	@echo BEGIN TARGET: dist_packages_reset
 	rm -rf $(DIR_DISTS)/*
-	@echo FINISH TARGET: dist_packages_nuke
+	@echo FINISH TARGET: dist_packages_reset
 
 dist_packages_update: source_packages_build dist_package_update_holism dist_package_update_hrequest
 	@echo COMPLETE TARGET: dist_packages_update
@@ -176,7 +175,7 @@ dist_package_update_hrequest:
 	@echo stage_package_hrequest target complete.
 
 # ================================================================
-# Source-controlled Encapsule holistic platform runtime packages.
+# Holistic platform runtime distribution packages.
 
 platform_clean:
 	@echo BEGIN TARGET: platform_clean
@@ -190,7 +189,6 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM)
 	@echo FINISH TARGET: platform_update
 
-
 # ================================================================
 # Utility
 #
@@ -201,35 +199,6 @@ clean: source_packages_clean
 scrub: source_packages_clean dist_packages_clean
 	@echo Scrub operation complete.
 
-nuke: source_packages_clean dist_packages_clean env_clean_cache
-	@echo Nuke operation complete.
-
-
-# ================================================================
-# Experiments
-#
-
-build_app_encapsule: stage_packages
-	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE1)
-	$(TOOL_BABEL) --config-file $(DIR_ROOT)/.babelrc --out-dir $(DIR_BUILD_APP_ENCAPSULE_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES_APP_ENCAPSULE)
-
-	rm -rf  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
-	mkdir -p  $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content
-	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/content/* $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content/
-
-	cp -p $(DIR_SOURCES_APP_ENCAPSULE)/server/integrations/*.hbs $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/server/integrations/
-	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName app_encapsule_io > $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/package.json
-#	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.server
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app_encapsule_io.client
-	cp -Rp $(DIR_BUILD_APP_ENCAPSULE_PHASE1)/content $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/
-
-	rm -rf $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
-	mkdir -p $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client
-
-	cp -p $(DIR_SOURCES_APP_ENCAPSULE)/client/index.html $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/index.html
-	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/css $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/css
-	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/fonts $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/fonts
-	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/client/images $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/client/images
-	cp -Rp $(DIR_SOURCES_APP_ENCAPSULE)/server/robots.txt $(DIR_BUILD_APP_ENCAPSULE_PHASE2)/robots.txt
+reset: source_packages_clean dist_packages_clean env_clean_cache
+	@echo Reset operation complete.
 

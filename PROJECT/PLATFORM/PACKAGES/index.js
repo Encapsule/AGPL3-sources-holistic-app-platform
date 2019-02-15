@@ -1,9 +1,12 @@
 // PROJECT/PLATFORM/PACKAGES/index.js
+//
+// Metadata declarations indexed by full package name used to build holistic platform runtime packages.
 
-const packageDB = {
-    // Encapsule Project "holistic application" framework library packages.
-    holism: require('./holism'),
-    hrequest: require('./hrequest'),
+const packages = {
+
+    "@encapsule/holism": require('./holism'),
+    "@encapsule/hrequest": require('./hrequest'),
+
 };
 
-module.exports = packageDB;
+module.exports = packages;

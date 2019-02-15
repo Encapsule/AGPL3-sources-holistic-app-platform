@@ -7,7 +7,7 @@ const childProcess = require('child_process'); // Node.js
 const fs = require('fs'); // Node.js
 const path = require("path"); // Node.js
 const mkdirp = require("mkdirp"); // as in UNIX mkdir -p
-const arctoolslib = require("arctools"); // Encapsule/arctools package
+const arctoolslib = require("@encapsule/arctools"); // Encapsule/arctools package
 const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with Encapsule/arctools
 const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
 
