@@ -71,7 +71,7 @@ console.log("  oo    _oo_   ,oo,");
 console.log(" \/==\\   \/==\\   \/==\\");
 console.log("(\/==\\) (\/==\\) (\/==\\)");
 console.log("  \\\/     \\\/     \\\/");
-console.log("sync-app-repo :: Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
+console.log("Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
 
 if (program.info) {
     console.log("This script is a code generation tool used to initialize and update");
@@ -130,12 +130,18 @@ const resourceFilePaths = {
         packageWebpackServerRc: path.join(appRepoDir, "PROJECT/BUILD/webpack.config.app.server.js"), // template generated
         packageWebpackClientRc: path.join(appRepoDir, "PROJECT/BUILD/webpack.config.app.client.js"), // template generated
 
+        packageBuildToolGenerateBuildTag: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-buildtag.js"),
+        packageBuildToolGenerateRuntimePackageManifest: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-package-manifest.js"),
+
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC"),
 
         projectDir: path.join(appRepoDir, "PROJECT"),
         projectBuildDir: path.join(appRepoDir, "PROJECT/BUILD"),
         projectTestDir: path.join(appRepoDir, "PROJECT/TEST"),
-        projectDeployDir: path.join(appRepoDir, "PROJECT/DEPLOY")
+        projectDeployDir: path.join(appRepoDir, "PROJECT/DEPLOY"),
+
+        projectBuildToolGenerateBuildTag: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-buildtag.js"),
+        projectBuildToolGenerateRuntimeManifest: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-package-manifest.js"),
     },
     holistic: {
         packageDir: holisticPackageDir,
@@ -143,8 +149,11 @@ const resourceFilePaths = {
         platformGitIgnore: path.join(holisticPackageDir, ".gitignore"),
         platformBabelRc: path.join(holisticPackageDir, ".babelrc"),
         platformEslintRc: path.join(holisticPackageDir, ".eslintrc.js"),
-        platformWebpackServerRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.server"),
-        platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.client")
+        platformWebpackServerRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.server.hbs"),
+        platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.client.hbs"),
+
+        platformGenerateBuildTagRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/generate-runtime-buildtag.js.hbs"),
+        platformGenerateRuntimeManifestRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/generate-runtime-package-manifest.js.hbs")
     }
 };
 
@@ -447,6 +456,33 @@ if (filterResponse.error) {
     throw new Error(filterResponse.error);
 }
 console.log("> Write '" + resourceFilePaths.application.packageWebpackClientRc + "'.");
+
+////
+// Create application's generate-runtime-builtag.js script
+docTemplate = loadDocumentTemplate(resourceFilePaths.holistic.platformGenerateBuildTagRc);
+document = docTemplate(holisticMetadata);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.packageBuildToolGenerateBuildTag,
+    resource: document
+});
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
+console.log("> Write '" + resourceFilePaths.application.packageBuildToolGenerateBuildTag + "'.");
+
+////
+// Create application's generate-runtime-package-manifest.js script
+docTemplate = loadDocumentTemplate(resourceFilePaths.holistic.platformGenerateRuntimeManifestRc);
+document = docTemplate(holisticMetadata);
+filterResponse = arctoolslib.stringToFileSync.request({
+    path: resourceFilePaths.application.projectBuildToolGenerateRuntimeManifest,
+    resource: document
+});
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
+console.log("> Write '" + resourceFilePaths.application.projectBuildToolGenerateRuntimeManifest + "'.");
+
 
 ////
 // Create application Makefile

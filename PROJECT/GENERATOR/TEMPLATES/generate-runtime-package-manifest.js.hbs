@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+// THIS FILE IS CODE-GENERATED
+// {{author}} {{name}} v{{version}} "{{codename}}" {{buildID}} {{buildSource}}
+//
+
+const arctoolslib = require('@encapsule/arctools');
+
+const program = arctoolslib.commander;
+
+program
+    .name('generate_package_manifest')
+    .description('Generates package.json file from repo build and package DB metadata.')
+    .version("{{version}}")
+    .option('--appBuildManifest <manifestPath>', 'Use <manifestPath> to select the location of the input app-build.json.')
+    .parse(process.argv);
+
+if (!program.appBuildManifest) {
+    console.error("Missing --appBuildManifest option value.");
+    process.exit(1);
+}
+
+var filterResponse = arctoolslib.jsrcFileLoaderSync.request(program.appBuildManifest);
+if (filterResponse.error) {
+    throw new Error("Invalid --appBuildManifest value. " + filterResponse.error);
+}
+
+const applicationBuildManifest = filterResponse.result.resource;
+
+
+// ================================================================
+// package.json generation
+
+var packageRuntimeManifest = applicationBuildManifest.app;
+packageRuntimeManifest.name = packageRuntimeManifest.name + "-app-runtime";
+packageRuntimeManifest.scripts  = {
+    start: "node ./server-app-bundle.js"
+};
+
+// Serialize the manifest to stdout.
+console.log(JSON.stringify(packageRuntimeManifest, undefined, 2));

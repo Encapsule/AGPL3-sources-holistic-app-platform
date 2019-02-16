@@ -18,7 +18,8 @@ DIR_PROJECT_BUILD=$(DIR_PROJECT)/BUILD
 DIR_PROJECT_TEST=$(DIR_PROJECT)/TEST
 DIR_PROJECT_DEPLOY=$(DIR_PROJECT)/DEPLOY
 
-TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate-package-build-manifest.js
+TOOL_GEN_APP_RUNTIME_BUILDTAG=$(DIR_PROJECT_BUILD)/generate-runtime-buildtag.js
+TOOL_GEN_APP_RUNTIME_PACKAGE=$(DIR_PROJECT_BUILD)/generate-runtime-package-manifest.js
 
 TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
 TOOL_BABEL=$(DIR_TOOLBIN)/babel
@@ -81,6 +82,9 @@ application: configure
 #	PHASE1 - transpile modules from SOURCES into PHASE1 directory overwriting PHASE0 clone copies.
 	$(TOOL_BABEL) --config-file $(DIR_ROOT)/.babelrc --out-dir $(DIR_BUILD_PHASE1) --keep-file-extension --verbose $(DIR_SOURCES)
 
+#   Create the app-build.json manifest so that it is available for optional inclusion in phase2
+	node $(TOOL_GEN_APP_RUNTIME_BUILDTAG) > $(DIR_BUILD_PHASE1)/app-build.json
+
 #	PHASE2 - create application server and client bundles via webpack.
 #	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app.server.js
@@ -90,13 +94,7 @@ application: configure
 	mkdir -p $(DIR_BUILD_PHASE3)
 	cp -r $(DIR_BUILD_PHASE2)/* $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_SOURCES_ASSETS)	$(DIR_BUILD_PHASE3)/
+	cp $(DIR_BUILD_PHASE1)/app-build.json $(DIR_BUILD_PHASE3)/
+	node $(TOOL_GEN_APP_RUNTIME_PACKAGE) --appBuildManifest $(DIR_BUILD_PHASE3)/app-build.json > $(DIR_BUILD_PHASE3)/package.json
 
-# ----------------------------------------------------------------
-
-# THIS ISN'T HOOKED UP YET.
-
-env_tag_build:
-	@echo Generating application build manifest...
-	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
-	@echo Application build manifest generated.
 
