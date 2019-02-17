@@ -9,8 +9,8 @@ const arctoolslib = require('@encapsule/arctools');
 const program = arctoolslib.commander;
 
 program
-    .name('generate_package_manifest')
-    .description('Generates package.json file from repo build and package DB metadata.')
+    .name("generate-runtime-package-manifest")
+    .description("Generate runtime package manifest (package.json) from application build manifest (app-build.json).")
     .version("{{version}}")
     .option('--appBuildManifest <manifestPath>', 'Use <manifestPath> to select the location of the input app-build.json.')
     .parse(process.argv);
@@ -37,5 +37,5 @@ packageRuntimeManifest.scripts  = {
     start: "node ./server-app-bundle.js"
 };
 
-// Serialize the manifest to stdout.
+// Serialize the manifest as JSON and write to stdout.
 console.log(JSON.stringify(packageRuntimeManifest, undefined, 2));

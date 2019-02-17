@@ -58,6 +58,10 @@ if (!packageData) {
     process.exit(1);
 }
 
+const packageNameSplit = targetManifest.name.split("/");
+const packageOrg = packageNameSplit[0];
+const packageNameTerse = packageNameSplit[1];
+
 // ----------------------------------------------------------------
 var markdown = [];
 
@@ -109,7 +113,7 @@ case 'library':
             "1. Create simple test project, declare a dependency and install `" + targetManifest.name + "` package:",
             "```\n$ mkdir testProject && cd testProject\n$ yarn init\n$ yarn add " + targetManifest.name + " --dev\n```",
             "2. Create a simple script `index.js`:",
-            "```JavaScript\nconst " + targetManifest.name + " = require('" + targetManifest.name + "');\nconsole.log(JSON.stringify(" + targetManifest.name + ".__meta));\n/* ... your derived code here ... */\n```"
+            "```JavaScript\nconst " + packageNameTerse + " = require('" + targetManifest.name + "');\nconsole.log(JSON.stringify(" + packageNameTerse + ".__meta));\n/* ... your derived code here ... */\n```"
         ]
     });
     break;
@@ -133,8 +137,9 @@ if (packageData.packageReadme.documentationDescriptor) {
 markdown.push("## Distribution");
 markdown.push("The `" + targetManifest.name + "` " + packageData.packageType + " package is published on [npmjs](https://npmjs.com).");
 markdown.push([
-    "- [" + targetManifest.name + " Package Distribution](https://npmjs.com/package/" + targetManifest.name + "/v/" + targetManifest.version + ") ([npm](https://www.npmjs.com/~chrisrus))",
-    "- [" + targetManifest.name + " Package Repository](https://github.com/Encapsule/" + targetManifest.name + ") ([GitHub](https://github.com/Encapsule))"
+    "- [" + targetManifest.name + " Package Distribution](https://npmjs.com/package/" + targetManifest.name + "/v/" + targetManifest.version + ") " +
+        "([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))",
+    "- [Encapsule/" + packageNameTerse + " git Repository](https://github.com/Encapsule/" + packageNameTerse + ") ([GitHub](https://github.com/Encapsule))"
 ].join("\n"));
 
 

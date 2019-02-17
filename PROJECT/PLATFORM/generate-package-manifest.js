@@ -27,6 +27,10 @@ if (!packageData) {
     process.exit(1);
 }
 
+const packageNameSplit = program.packageName.split("/");
+const packageOrg = packageNameSplit[0];
+const packageNameTerse = packageNameSplit[1];
+
 // ================================================================
 // package.json generation
 
@@ -39,15 +43,15 @@ var manifest = {
     buildSource: repoBuild.buildSource,
     repository: {
         type: "git",
-        url: "git+https://github.com/Encapsule/" + program.packageName + ".git",
+        url: "git+https://github.com/Encapsule/" + packageNameTerse + ".git",
     },
     author: repoBuild.author,
     contributors: repoBuild.contributors,
     license: "MIT",
     bugs: {
-        url: "https://github.com/Encapsule/" + program.packageName + "/issues"
+        url: "https://github.com/Encapsule/" + packageNameTerse + "/issues"
     },
-    homepage: "https://github.com/Encapsule/" + program.packageName + "#readme",
+    homepage: "https://github.com/Encapsule/" + packageNameTerse + "#readme",
 };
 
 // Set/overwrite manifest settings w/declared per-package overrides.
