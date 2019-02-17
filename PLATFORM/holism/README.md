@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.5 "slushnami"
 
 ```
-Package: @encapsule/holism v0.0.5 "slushnami" build ID "_TIjv3a0TrWbC4ulFlfGOQ"
-Sources: Encapsule/holistic#1a701fcedc8591c4d40d653ba1ddba383ccb2cc7
+Package: @encapsule/holism v0.0.5 "slushnami" build ID "p75upUdCRtClptn_QMXM8g"
+Sources: Encapsule/holistic#79e210cd3f05da1c5fa5064d406cc19d36dbbabc
 Purpose: library (Node.js)
-Created: 2019-02-15T22:03:19.000Z
+Created: 2019-02-17T22:02:08.000Z
 License: MIT
 ```
 
@@ -33,8 +33,8 @@ $ yarn add @encapsule/holism --dev
 2. Create a simple script `index.js`:
 
 ```JavaScript
-const @encapsule/holism = require('@encapsule/holism');
-console.log(JSON.stringify(@encapsule/holism.__meta));
+const holism = require('@encapsule/holism');
+console.log(JSON.stringify(holism.__meta));
 /* ... your derived code here ... */
 ```
 
@@ -46,8 +46,8 @@ Developer API and examples: [Encapsule Project holism documentation](https://enc
 
 The `@encapsule/holism` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holism Package Distribution](https://npmjs.com/package/@encapsule/holism/v/0.0.5) ([npm](https://www.npmjs.com/~chrisrus))
-- [@encapsule/holism Package Repository](https://github.com/Encapsule/@encapsule/holism) ([GitHub](https://github.com/Encapsule))
+- [@encapsule/holism Package Distribution](https://npmjs.com/package/@encapsule/holism/v/0.0.5) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [Encapsule/holism git Repository](https://github.com/Encapsule/holism) ([GitHub](https://github.com/Encapsule))
 
 <hr>
 

@@ -2,12 +2,12 @@
     "name": "@encapsule/holism",
     "version": "0.0.5",
     "codename": "slushnami",
-    "buildID": "_TIjv3a0TrWbC4ulFlfGOQ",
-    "buildTime": 1550268199,
-    "buildSource": "1a701fcedc8591c4d40d653ba1ddba383ccb2cc7",
+    "buildID": "p75upUdCRtClptn_QMXM8g",
+    "buildTime": 1550440928,
+    "buildSource": "79e210cd3f05da1c5fa5064d406cc19d36dbbabc",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Encapsule/@encapsule/holism.git"
+        "url": "git+https://github.com/Encapsule/holism.git"
     },
     "author": "Encapsule",
     "contributors": [
@@ -19,9 +19,9 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Encapsule/@encapsule/holism/issues"
+        "url": "https://github.com/Encapsule/holism/issues"
     },
-    "homepage": "https://github.com/Encapsule/@encapsule/holism#readme",
+    "homepage": "https://github.com/Encapsule/holism#readme",
     "description": "Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.",
     "keywords": [
         "HTTP",

@@ -2,12 +2,12 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.5",
     "codename": "slushnami",
-    "buildID": "_TIjv3a0TrWbC4ulFlfGOQ",
-    "buildTime": 1550268199,
-    "buildSource": "1a701fcedc8591c4d40d653ba1ddba383ccb2cc7",
+    "buildID": "p75upUdCRtClptn_QMXM8g",
+    "buildTime": 1550440928,
+    "buildSource": "79e210cd3f05da1c5fa5064d406cc19d36dbbabc",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Encapsule/@encapsule/hrequest.git"
+        "url": "git+https://github.com/Encapsule/hrequest.git"
     },
     "author": "Encapsule",
     "contributors": [
@@ -19,9 +19,9 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Encapsule/@encapsule/hrequest/issues"
+        "url": "https://github.com/Encapsule/hrequest/issues"
     },
-    "homepage": "https://github.com/Encapsule/@encapsule/hrequest#readme",
+    "homepage": "https://github.com/Encapsule/hrequest#readme",
     "description": "HTTP request filters for Node.js and browser clients.",
     "keywords": [
         "HTTP",

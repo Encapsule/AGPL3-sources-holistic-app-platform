@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.5 "slushnami"
 
 ```
-Package: @encapsule/hrequest v0.0.5 "slushnami" build ID "_TIjv3a0TrWbC4ulFlfGOQ"
-Sources: Encapsule/holistic#1a701fcedc8591c4d40d653ba1ddba383ccb2cc7
+Package: @encapsule/hrequest v0.0.5 "slushnami" build ID "p75upUdCRtClptn_QMXM8g"
+Sources: Encapsule/holistic#79e210cd3f05da1c5fa5064d406cc19d36dbbabc
 Purpose: library (Node.js)
-Created: 2019-02-15T22:03:19.000Z
+Created: 2019-02-17T22:02:08.000Z
 License: MIT
 ```
 
@@ -33,8 +33,8 @@ $ yarn add @encapsule/hrequest --dev
 2. Create a simple script `index.js`:
 
 ```JavaScript
-const @encapsule/hrequest = require('@encapsule/hrequest');
-console.log(JSON.stringify(@encapsule/hrequest.__meta));
+const hrequest = require('@encapsule/hrequest');
+console.log(JSON.stringify(hrequest.__meta));
 /* ... your derived code here ... */
 ```
 
@@ -46,8 +46,8 @@ Developer API and examples: [Encapsule Project hrequest documentation](https://e
 
 The `@encapsule/hrequest` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.5) ([npm](https://www.npmjs.com/~chrisrus))
-- [@encapsule/hrequest Package Repository](https://github.com/Encapsule/@encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
+- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.5) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [Encapsule/hrequest git Repository](https://github.com/Encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
 
 <hr>
 
