@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism",
-    "version": "0.0.5",
-    "codename": "slushnami",
-    "buildID": "p75upUdCRtClptn_QMXM8g",
-    "buildTime": 1550440928,
-    "buildSource": "79e210cd3f05da1c5fa5064d406cc19d36dbbabc",
+    "version": "0.0.6",
+    "codename": "slapshot",
+    "buildID": "_P2HjEiuQaKEJtMkF2bBcw",
+    "buildTime": 1550528475,
+    "buildSource": "68b0b7f24823922afe213b1225007c76f267ac51",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"

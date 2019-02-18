@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.5",
-    "codename": "slushnami",
+    "version": "0.0.6",
+    "codename": "slapshot",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "p75upUdCRtClptn_QMXM8g",
-    "buildSource": "79e210cd3f05da1c5fa5064d406cc19d36dbbabc",
-    "buildTime": 1550440928,
-    "buildDateISO": "2019-02-17T22:02:08.000Z"
+    "buildID": "_P2HjEiuQaKEJtMkF2bBcw",
+    "buildSource": "68b0b7f24823922afe213b1225007c76f267ac51",
+    "buildTime": 1550528475,
+    "buildDateISO": "2019-02-18T22:21:15.000Z"
 }
