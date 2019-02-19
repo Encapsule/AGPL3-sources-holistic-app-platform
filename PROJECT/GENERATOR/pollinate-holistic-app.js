@@ -67,11 +67,10 @@ program.version(holisticMetadata.version).
 
 console.log("================================================================");
 console.log("  ,,     ,,     ,,");
-console.log("  oo    _oo_   ,oo,");
-console.log(" \/==\\   \/==\\   \/==\\");
-console.log("(\/==\\) (\/==\\) (\/==\\)");
-console.log("  \\\/     \\\/     \\\/");
-console.log("Encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"\n");
+console.log("  oo    _oo_   ,oo,      pollinate-holistic-app.js");
+console.log(" \/==\\   \/==\\   \/==\\      @encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"");
+console.log("(\/==\\) (\/==\\) (\/==\\)     Application repo setup & maintainence utility.");
+console.log("  \\\/     \\\/     \\\/\n");
 
 if (program.info) {
     console.log("This script is a code generation tool used to initialize and update");
