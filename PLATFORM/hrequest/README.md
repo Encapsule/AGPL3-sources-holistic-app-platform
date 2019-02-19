@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.6 "slapshot"
 
 ```
-Package: @encapsule/hrequest v0.0.6 "slapshot" build ID "_P2HjEiuQaKEJtMkF2bBcw"
-Sources: Encapsule/holistic#68b0b7f24823922afe213b1225007c76f267ac51
+Package: @encapsule/hrequest v0.0.6 "slapshot" build ID "90UhgGPWS7-cx_CkZGawfw"
+Sources: Encapsule/holistic#624515d3b31723cd3deb60464d63b754812df80d
 Purpose: library (Node.js)
-Created: 2019-02-18T22:21:15.000Z
+Created: 2019-02-19T22:09:56.000Z
 License: MIT
 ```
 
