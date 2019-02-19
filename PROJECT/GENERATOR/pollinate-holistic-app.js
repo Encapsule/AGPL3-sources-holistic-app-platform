@@ -61,7 +61,8 @@ function loadDocumentTemplate(filepath_) {
 var program = arctoolslib.commander; // command line argument parser framework bundled with Encapsule/arctools
 
 program.version(holisticMetadata.version).
-    option("--appRepoDir <appRepoDir>", "(required) Root directory of the external git repository containing the web application to initialize and/or update.").
+    option("--appRepoDir <appRepoDir>", "(required) path to root directory of the application's locally-cloned git repository.").
+    option("--forcePlatformDowngrade", "(optional) explicitly synchronize an application using a dated version of @encapsule/holistic.").
     option("--info", "Print information about this tool.").
     parse(process.argv);
 
@@ -96,6 +97,7 @@ if (program.info) {
 } // end if program.info
 
 if (!program.appRepoDir) {
+    console.error("Missing required command line value for --appRepoDir option.");
     program.help();
 }
 
@@ -106,23 +108,22 @@ console.log("> Open '" + appRepoDir + "' ...");
 // Get the full-qualified path of the Encapsule/holistic package root directory.
 const holisticPackageDir = path.resolve(path.join(__dirname, "../.."));
 
-
 const resourceFilePaths = {
     application: {
-	    appRepoDir: appRepoDir,
-	    appRepoGitDir: path.join(appRepoDir, ".git"),
-	    appManifest: path.join(appRepoDir, "holistic-app.json"),
+        appRepoDir: appRepoDir,
+        appRepoGitDir: path.join(appRepoDir, ".git"),
+        appManifest: path.join(appRepoDir, "holistic-app.json"),
         appSourcesDir: path.join(appRepoDir, "SOURCES"),
         appAssetSourcesDir: path.join(appRepoDir, "SOURCES/ASSETS"),
         appClientSourcesDir: path.join(appRepoDir, "SOURCES/CLIENT"),
         appCommonSourcesDir: path.join(appRepoDir, "SOURCES/COMMON"),
         appServerSourcesDir: path.join(appRepoDir, "SOURCES/SERVER"),
 
-	    packageManifest: path.join(appRepoDir, "package.json"), // synthesized by this script
+        packageManifest: path.join(appRepoDir, "package.json"), // synthesized by this script
         packageModulesDir: path.join(appRepoDir, "node_modules"),
-	    packageReadme: path.join(appRepoDir, "README.md"),
-	    packageLicense: path.join(appRepoDir, "LICENSE"),
-	    packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
+        packageReadme: path.join(appRepoDir, "README.md"),
+        packageLicense: path.join(appRepoDir, "LICENSE"),
+	packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
         packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
         packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"), // template generated
@@ -203,11 +204,25 @@ const applicationPackageDeprecatedDependencies = filterResponse.result;
 console.log("> Read '" + resourceFilePaths.application.packageManifest + "'.");
 
 ////
+// Load a previously-written holistic platform manifest (holistic.json) from the application
+// and ensure that the developer is not attempting to execute an older version of this tool
+// on an application that was previously upgraded to a later version of @encapsule/holsitic platform.
+filterResponse = arctoolslib.jsrcFileLoaderSync.request(path.join(resourceFilePaths.application.platformSourcesDir, "holistic.json"));
+if (!filterResponse.error) {
+    const holisticPlatformManifest = filterResponse.result.resource;
+    if (!program.forcePlatformDowngrade && (holisticPlatformManifest.version > holisticMetadata.version)) {
+        console.error("This application was previously synchronized to @encapsule/holistic v" + holisticPlatformManifest.version + " and cannot downgraded to v" + holisticMetadata.version + " unless you explicitly specify the --forcePlatformDowngrade command line option flag.");
+        process.exit(1);
+    }
+}
+
+////
 // Load the application's holistic-app.json manifest document.
 //
-filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
 var holisticAppManifest = null;
-if (filterResponse.error) {
+
+if (!fs.existsSync(resourceFilePaths.application.appManifest)) {
+    console.log("> Initializing new holistic-app.json manifest from package.json...");
     // Assume that the file doesn't exist. Construct a default manifest w/the filter. And then serialize it.
     filterResponse = holisticAppManifestFilter.request({
         name: applicationPackageManifest.name,
@@ -233,6 +248,15 @@ if (filterResponse.error) {
         process.exit(1);
     }
     console.log("> Write '" + resourceFilePaths.application.appManifest + "'.");
+
+} // end if holistic-app.json doesn't exist in target applcation
+
+
+filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.appManifest);
+if (filterResponse.error) {
+    console.error("ERROR: Cannot load holistic application manifest.");
+    console.error(filterResponse.error);
+    process.exit(1);
 } else {
     const holisticAppManifestData = filterResponse.result.resource; // ... as specified by a developer
     // Filter the holistic application manifest read from the application repository.
