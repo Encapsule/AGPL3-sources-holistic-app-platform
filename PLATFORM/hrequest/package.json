@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/hrequest",
-    "version": "0.0.6",
+    "version": "0.0.3",
     "codename": "slapshot",
-    "buildID": "90UhgGPWS7-cx_CkZGawfw",
-    "buildTime": 1550614196,
-    "buildSource": "624515d3b31723cd3deb60464d63b754812df80d",
+    "buildID": "Bpeafp24SyemPRqDB6FLjQ",
+    "buildTime": 1550616618,
+    "buildSource": "33abda3cb7d35f96c6b4cf0ed677fabcc5124f4b",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

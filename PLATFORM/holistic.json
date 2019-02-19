@@ -1,7 +1,7 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.6",
+    "version": "0.0.3",
     "codename": "slapshot",
     "author": "Encapsule",
     "copyright": {
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "90UhgGPWS7-cx_CkZGawfw",
-    "buildSource": "624515d3b31723cd3deb60464d63b754812df80d",
-    "buildTime": 1550614196,
-    "buildDateISO": "2019-02-19T22:09:56.000Z"
+    "buildID": "Bpeafp24SyemPRqDB6FLjQ",
+    "buildSource": "33abda3cb7d35f96c6b4cf0ed677fabcc5124f4b",
+    "buildTime": 1550616618,
+    "buildDateISO": "2019-02-19T22:50:18.000Z"
 }

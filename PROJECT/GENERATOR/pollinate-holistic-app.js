@@ -7,6 +7,7 @@ const childProcess = require('child_process'); // Node.js
 const fs = require('fs'); // Node.js
 const path = require("path"); // Node.js
 const mkdirp = require("mkdirp"); // as in UNIX mkdir -p
+const semver = require("semver");
 const arctoolslib = require("@encapsule/arctools"); // Encapsule/arctools package
 const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with Encapsule/arctools
 const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
@@ -210,8 +211,9 @@ console.log("> Read '" + resourceFilePaths.application.packageManifest + "'.");
 filterResponse = arctoolslib.jsrcFileLoaderSync.request(path.join(resourceFilePaths.application.platformSourcesDir, "holistic.json"));
 if (!filterResponse.error) {
     const holisticPlatformManifest = filterResponse.result.resource;
-    if (!program.forcePlatformDowngrade && (holisticPlatformManifest.version > holisticMetadata.version)) {
-        console.error("This application was previously synchronized to @encapsule/holistic v" + holisticPlatformManifest.version + " and cannot downgraded to v" + holisticMetadata.version + " unless you explicitly specify the --forcePlatformDowngrade command line option flag.");
+    if (!program.forcePlatformDowngrade && semver.gt(holisticPlatformManifest.version, holisticMetadata.version)) {
+        console.error("ERROR: This application was previously synchronized to @encapsule/holistic platform v" + holisticPlatformManifest.version + ".");
+        console.error("Please update your installation of @encapsule/holistic to the latest. Or, specificy the --forcePlatformDowngrade option to continue with downgrade to v" + holisticMetadata.version + ".");
         process.exit(1);
     }
 }
