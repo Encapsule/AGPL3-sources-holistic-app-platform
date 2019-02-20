@@ -29,8 +29,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
 	// "chai": "^4.2.0",
 
         // Holistic platform runtime library dependencies.
-        "@encapsule/arccore": "0.1.2",
-        "@encapsule/arctools": "0.1.2",
+        "@encapsule/arccore": "0.1.3",
+        "@encapsule/arctools": "0.1.3",
         "@encapsule/holism": "./HOLISTIC/holism",
         "@encapsule/hrequest": "./HOLISTIC/hrequest",
 
