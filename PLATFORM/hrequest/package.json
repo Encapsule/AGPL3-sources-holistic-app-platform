@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.6",
     "codename": "slapshot",
-    "buildID": "g_4bTEoISpWVepU9KkLjAw",
-    "buildTime": 1550619071,
-    "buildSource": "272a169995ca2b9578b1d5e7e007369d0318d5fe",
+    "buildID": "o1UR8R_gQm6BUbWveJ1xhA",
+    "buildTime": 1550705774,
+    "buildSource": "9bd8358c24da5fd93fcdbb9fdc08291ca1891691",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
@@ -33,7 +33,7 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.2",
+        "@encapsule/arccore": "0.1.3",
         "query-string": "^6.2.0",
         "request": "^2.88.0"
     }

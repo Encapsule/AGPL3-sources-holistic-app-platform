@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.6 "slapshot"
 
 ```
-Package: @encapsule/holism v0.0.6 "slapshot" build ID "g_4bTEoISpWVepU9KkLjAw"
-Sources: Encapsule/holistic#272a169995ca2b9578b1d5e7e007369d0318d5fe
+Package: @encapsule/holism v0.0.6 "slapshot" build ID "o1UR8R_gQm6BUbWveJ1xhA"
+Sources: Encapsule/holistic#9bd8358c24da5fd93fcdbb9fdc08291ca1891691
 Purpose: library (Node.js)
-Created: 2019-02-19T23:31:11.000Z
+Created: 2019-02-20T23:36:14.000Z
 License: MIT
 ```
 
