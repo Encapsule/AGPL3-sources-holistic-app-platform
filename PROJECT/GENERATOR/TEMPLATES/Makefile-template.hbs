@@ -87,7 +87,9 @@ application: configure
 
 #	PHASE2 - create application server and client bundles via webpack.
 #	https://stackoverflow.com/questions/25956937/how-to-build-minified-and-uncompressed-bundle-with-webpack
-	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app.server.js
+
+#	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app.server.js
+
 	$(TOOL_WEBPACK) $(TOOL_WEBPACK_FLAGS) --config $(DIR_PROJECT_BUILD)/webpack.config.app.client.js
 
 #	PHASE3 - create application image
@@ -95,6 +97,9 @@ application: configure
 	cp -r $(DIR_BUILD_PHASE2)/* $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_SOURCES_ASSETS)	$(DIR_BUILD_PHASE3)/
 	cp $(DIR_BUILD_PHASE1)/app-build.json $(DIR_BUILD_PHASE3)/
+	cp -r $(DIR_BUILD_PHASE1)/COMMON $(DIR_BUILD_PHASE3)/
+	cp -r $(DIR_BUILD_PHASE1)/SERVER $(DIR_BUILD_PHASE3)/
+
 	node $(TOOL_GEN_APP_RUNTIME_PACKAGE) --appBuildManifest $(DIR_BUILD_PHASE3)/app-build.json > $(DIR_BUILD_PHASE3)/package.json
 
 
