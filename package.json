@@ -1,7 +1,7 @@
 {
   "name": "holistic",
-  "version": "0.0.6",
-  "codename": "slapshot",
+  "version": "0.0.7",
+  "codename": "rexford",
   "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
   "author": "Encapsule",
   "contributors": [
