@@ -128,7 +128,6 @@ const resourceFilePaths = {
         packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
         packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"), // template generated
-        packageWebpackServerRc: path.join(appRepoDir, "PROJECT/BUILD/webpack.config.app.server.js"), // template generated
         packageWebpackClientRc: path.join(appRepoDir, "PROJECT/BUILD/webpack.config.app.client.js"), // template generated
 
         packageBuildToolGenerateBuildTag: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-buildtag.js"),
@@ -150,7 +149,6 @@ const resourceFilePaths = {
         platformGitIgnore: path.join(holisticPackageDir, ".gitignore"),
         platformBabelRc: path.join(holisticPackageDir, ".babelrc"),
         platformEslintRc: path.join(holisticPackageDir, ".eslintrc.js"),
-        platformWebpackServerRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.server.hbs"),
         platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.client.hbs"),
 
         platformGenerateBuildTagRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/generate-runtime-buildtag.js.hbs"),
@@ -455,19 +453,6 @@ if (filterResponse.error) {
     throw new Error(filterResponse.error);
 }
 console.log("> Write '" + resourceFilePaths.application.packageEslintRc + "'.");
-
-////
-// Create application webpack.config for server.
-docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "webpack.config.app.server.hbs"));
-document = docTemplate(holisticMetadata);
-filterResponse = arctoolslib.stringToFileSync.request({
-    path: resourceFilePaths.application.packageWebpackServerRc,
-    resource: document
-});
-if (filterResponse.error) {
-    throw new Error(filterResponse.error);
-}
-console.log("> Write '" + resourceFilePaths.application.packageWebpackServerRc + "'.");
 
 ////
 // Create application webpackage.config for client.

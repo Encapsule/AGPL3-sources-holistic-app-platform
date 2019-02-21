@@ -34,7 +34,7 @@ const applicationBuildManifest = filterResponse.result.resource;
 var packageRuntimeManifest = applicationBuildManifest.app;
 packageRuntimeManifest.name = packageRuntimeManifest.name + "-app-runtime";
 packageRuntimeManifest.scripts  = {
-    start: "node ./server-app-bundle.js"
+    start: "node ./SERVER/server.js"
 };
 
 // Serialize the manifest as JSON and write to stdout.
