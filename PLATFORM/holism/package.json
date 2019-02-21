@@ -2,9 +2,9 @@
     "name": "@encapsule/holism",
     "version": "0.0.6",
     "codename": "slapshot",
-    "buildID": "o1UR8R_gQm6BUbWveJ1xhA",
-    "buildTime": 1550705774,
-    "buildSource": "9bd8358c24da5fd93fcdbb9fdc08291ca1891691",
+    "buildID": "8Ih6IN_yRTCAcLnjUtuDrQ",
+    "buildTime": 1550770592,
+    "buildSource": "e55c75271b78d659fc071c50d8d76fdb41d39a62",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"
