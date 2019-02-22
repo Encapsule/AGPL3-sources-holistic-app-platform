@@ -29,7 +29,7 @@ module.exports = {
             ____types: "jsObject",
             deployConfig: {
                 ____types: "jsObject",
-                appDeployEnvironment: { ____accept: "jsString", ____inValueSet: [ 'local', 'development', 'staging', 'production' ] },
+                appDeployEnvironment: { ____accept: "jsString", ____inValueSet: [ "local", "development", "staging", "production" ] },
                 // TODO: The semantics and use of these variables in the runtime need to be carefully documented.
                 appBaseUrl: { ____accept: "jsString" },
                 appBasePath: { ____accept: "jsString" },

@@ -1,6 +1,6 @@
 // sources/common/data/get-namespace-in-reference-from-path.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "Z7Z7OvwnQL-bRrOGfEy-ZQ",
@@ -32,14 +32,14 @@ var factoryResponse = arccore.filter.create({
             inBreakScope = true;
 
             var resolvedPathTokens = [];
-            var pathTokens = request_.namespacePath.split('.');
+            var pathTokens = request_.namespacePath.split(".");
 
             if (pathTokens.length === 1) {
                 // Path specifies the entirety of sourceRef.
                 response.result = request_.sourceRef;
                 break;
             }
-            if (pathTokens[0] !== '~') {
+            if (pathTokens[0] !== "~") {
                 errors.push("Incorrect specification for `namespacePath`. Must be a an ARCcore.filter-style dot-delimited path beginning with ~ indicating");
                 errors.push("the anonymous reference `sourceRef`. Invalid path value '" + request_.namespacePath + "'.");
                 break;
@@ -67,7 +67,7 @@ var factoryResponse = arccore.filter.create({
 
                 if (!isContainerNamespace) {
                     var actualType = arccore.types.convert({ from: "jsReference", to: "jsMoniker", value: sourceRef}).result;
-                    var resolvedPath = resolvedPathTokens.join('.');
+                    var resolvedPath = resolvedPathTokens.join(".");
                     errors.push("Failed to resolve namespace path '" + request_.namespacePath + "':");
                     errors.push("Expected namespace '" + resolvedPath + "' to be either an array or object so that we can dereference the next namespace token '" + token + "'.");
                     errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" entity type that does not have subnamespaces.");

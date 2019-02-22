@@ -7,9 +7,9 @@
 
 const querystring = require("querystring"); // Node.js built-in module
 
-const arccore = require('arccore');
-const apiConstants = require('./api-constants');
-const HttpServerSideRequestFactory = require('hrequest/server-factory');
+const arccore = require("arccore");
+const apiConstants = require("./api-constants");
+const HttpServerSideRequestFactory = require("hrequest/server-factory");
 
 var factoryResponse = arccore.filter.create({
 
@@ -30,7 +30,7 @@ var factoryResponse = arccore.filter.create({
             inBreakScope = true;
 
             const escapedSegmentSearchPath = querystring.escape(request_.rawSegmentSearchPath);
-            const url = [ apiConstants.endpoints.urlRainierGetSegmentSearch, escapedSegmentSearchPath ].join('/');
+            const url = [ apiConstants.endpoints.urlRainierGetSegmentSearch, escapedSegmentSearchPath ].join("/");
 
             var innerResponse = HttpServerSideRequestFactory.request({
                 name: "Rainier Segment Search",
@@ -49,7 +49,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     },

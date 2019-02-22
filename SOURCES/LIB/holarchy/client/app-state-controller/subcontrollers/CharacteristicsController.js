@@ -5,10 +5,10 @@ module.exports = {
     name: "CharacteristicsController",
     description: "Tracks the state of the characteristics object in the query builder",
     stateNamespace: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.state",
-   states: [
+    states: [
         {
             name: "uninitialized",
-             transitions: [
+            transitions: [
                 {
                     nextState: "waiting",
                     operator:  {always: true}
@@ -73,20 +73,20 @@ module.exports = {
                 },
                 {
                     nextState: "edited",
-                    operator: { notEmpty: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics' }
-               }
+                    operator: { notEmpty: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics" }
+                }
             ]
         },
         {
             name: "edited",
-             transitions: [
+            transitions: [
                 {
                     nextState: "reset",
                     operator: { inState: "QueryBuilderController:reset" }
                 },
                 {
                     nextState: "ready",
-                    operator: { not: {notEmpty: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics' } }
+                    operator: { not: {notEmpty: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics" } }
                 },
                 {
                     nextState: "locked",

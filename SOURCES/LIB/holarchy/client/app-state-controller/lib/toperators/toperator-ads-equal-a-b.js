@@ -1,11 +1,11 @@
 // sources/client/app-state-controller/lib/toperators/toperator-ads-equal-a-b.js
 
-const transitionOperatorFilterFactory = require('../app-state-controller-toperator-factory');
-const getNamespaceInReferenceFromPath = require('../../../../common/data/get-namespace-in-reference-from-path');
+const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
+const getNamespaceInReferenceFromPath = require("../../../../common/data/get-namespace-in-reference-from-path");
 
 var factoryResponse = transitionOperatorFilterFactory.request({
 
-    id: '3Zp5XUIcR6-q_tZnoqZ33w',
+    id: "3Zp5XUIcR6-q_tZnoqZ33w",
     name: "EQUAL A/B (ADS) Transition Expression Operator",
     description: "Retrieves two values, a and b, from the ADS and compares them using JavaScript === operator.",
 
@@ -54,7 +54,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

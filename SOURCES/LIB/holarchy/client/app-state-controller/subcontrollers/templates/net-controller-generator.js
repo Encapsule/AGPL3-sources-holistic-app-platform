@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/subcontrollers/templates/net-controller-generator.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 var factoryResponse = arccore.filter.create({
 
@@ -25,10 +25,10 @@ var factoryResponse = arccore.filter.create({
 
             const subcontrollerName = request_.namespaceName + "Controller";
             const networkNamespace = "~.base.RainierBaseController.network";
-            const subcontrollerNamespace = [ networkNamespace, request_.namespaceName ].join('.');
-            const subcontrollerStateNamespace = [ subcontrollerNamespace, 'state' ].join('.');
-            const subcontrollerRequestNamespace = [ subcontrollerNamespace, 'request' ].join('.');
-            const subcontrollerResponseNamespace = [ subcontrollerNamespace, 'response' ].join('.');
+            const subcontrollerNamespace = [ networkNamespace, request_.namespaceName ].join(".");
+            const subcontrollerStateNamespace = [ subcontrollerNamespace, "state" ].join(".");
+            const subcontrollerRequestNamespace = [ subcontrollerNamespace, "request" ].join(".");
+            const subcontrollerResponseNamespace = [ subcontrollerNamespace, "response" ].join(".");
 
             response.result = {
                 name: subcontrollerName,
@@ -138,7 +138,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
 

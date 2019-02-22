@@ -1,6 +1,6 @@
 // ABACUS-ux-base package shared runtime infrastructure default package exports.
 
-const packageMeta = require('./package.json');
+const packageMeta = require("./package.json");
 
 module.exports = {
 

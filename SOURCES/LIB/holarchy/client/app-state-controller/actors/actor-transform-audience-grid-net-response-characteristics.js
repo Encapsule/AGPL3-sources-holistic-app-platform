@@ -8,13 +8,13 @@ module.exports = {
     namespaces: {
         read: [
             {
-                filterBinding: { alias: 'agCategoriesReponse', id: 'ZnAPZOv4T-uL4dpSlGjGaQ' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierAudienceGridCategories.response'
+                filterBinding: { alias: "agCategoriesReponse", id: "ZnAPZOv4T-uL4dpSlGjGaQ" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierAudienceGridCategories.response"
             }
         ],
         write: [
             {
-                filterBinding: { alias: 'characteristicAudienceGridSegments', id: "VSe2jSIxQlGrenJ7YF5Azw" },
+                filterBinding: { alias: "characteristicAudienceGridSegments", id: "VSe2jSIxQlGrenJ7YF5Azw" },
                 storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.agCategories.categories"
             }
         ]
@@ -63,16 +63,16 @@ module.exports = {
             var writeResponse = request_.namespaces.write.characteristicAudienceGridSegments.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                 writeData: agCategories
-              });
+            });
 
-              if (writeResponse.error) {
-                  errors.push(writeResponse.error);
-                  break;
-              };
+            if (writeResponse.error) {
+                errors.push(writeResponse.error);
+                break;
+            }
         }
 
         if (errors.length){
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
 
         return response;

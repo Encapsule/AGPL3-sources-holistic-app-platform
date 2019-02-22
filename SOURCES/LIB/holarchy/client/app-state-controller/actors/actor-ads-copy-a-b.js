@@ -3,7 +3,7 @@
 // Overwrites namespace `b` with a reference to namespace `a` in the app data store.
 //
 
-const getNamespaceInReferenceFromPath = require('../../../common/data/get-namespace-in-reference-from-path');
+const getNamespaceInReferenceFromPath = require("../../../common/data/get-namespace-in-reference-from-path");
 
 module.exports = {
     id: "TTokaBEHQN-GmquAF9TkFQ",
@@ -36,9 +36,9 @@ module.exports = {
                 break;
             }
             const sourceA = innerResponse.result;
-            var bTokens = request_.command.copy.b.split('.');
+            var bTokens = request_.command.copy.b.split(".");
             var targetNamespace = bTokens.pop();
-            var destinationNamespaceParent = bTokens.join('.');
+            var destinationNamespaceParent = bTokens.join(".");
             innerResponse = getNamespaceInReferenceFromPath.request({
                 namespacePath: destinationNamespaceParent,
                 sourceRef: request_.runtimeContext.appStateContext.appDataStore
@@ -52,7 +52,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

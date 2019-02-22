@@ -10,9 +10,9 @@
 // builds an in-memory digraph model that's used by both the UX app server and the
 // UX client HTML5 app.
 
-const packageMeta = require('../../../package.json');
-const buildTag = require('../../../../../build/_build-tag');
-const websiteThemeData = require('../view/theme');
+const packageMeta = require("../../../package.json");
+const buildTag = require("../../../../../build/_build-tag");
+const websiteThemeData = require("../view/theme");
 
 var RUXBASE_METADATA = {
 
@@ -51,11 +51,11 @@ var RUXBASE_METADATA = {
 };
 
 switch (buildTag.buildConfig.deployConfig.appDeployEnvironment) {
-case 'local':
-case 'development':
+case "local":
+case "development":
     RUXBASE_METADATA.pages = {
 
-        '/user': {
+        "/user": {
             title: "User [Placeholder]",
             description: "Direct server access placeholder for user profile, and settings view.",
             name: "User [Placeholder]",
@@ -64,7 +64,7 @@ case 'development':
             view_options: { show_in_sitemap: false }
         },
 
-        '/user/login': {
+        "/user/login": {
             title: "Login [Placeholder]",
             name: "Login [Placeholder]",
             description: "Direct server access placeholder for the user login page view.",
@@ -72,7 +72,7 @@ case 'development':
             view_options: { show_in_sitemap: false }
         },
 
-        '/user/logout': {
+        "/user/logout": {
             title: "Logout [Placeholder]",
             name: "Logout [Placeholder]",
             description: "Direct server access placeholder for the user logout page view.",
@@ -80,7 +80,7 @@ case 'development':
             view_options: { show_in_sitemap: false }
         },
 
-        '/sitemap': {
+        "/sitemap": {
             title: "Sitemap",
             name: "Sitemap",
             description: "Direct server access index of HTML5 page view resources produced by this application server.",
@@ -88,7 +88,7 @@ case 'development':
             rank: 5000
         },
 
-        '/developer': {
+        "/developer": {
             title: "Developer",
             name: "Developer",
             description: "Direct server access developer views.",
@@ -96,7 +96,7 @@ case 'development':
             rank: 1000
         },
 
-        '/developer/integrations': {
+        "/developer/integrations": {
             title: "Integration Tests",
             description: "Test pages for debugging integrations with backend services.",
             name: "Integration Tests",
@@ -105,7 +105,7 @@ case 'development':
             view_options: { show_in_sitemap: false }
         },
 
-        '/developer/views': {
+        "/developer/views": {
             title: "View Tests",
             description: "Test pages for debug/test of React components.",
             name: "View Tests",
@@ -113,7 +113,7 @@ case 'development':
             rank: 200
         }
 
-    }
-};
+    };
+}
 
 module.exports = RUXBASE_METADATA;

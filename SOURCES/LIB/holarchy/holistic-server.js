@@ -2,19 +2,19 @@
 //
 // rainier-ux-base package exports specific to Node.js UX application server service.
 
-const holism = require('holism');
+const holism = require("holism");
 
-const ruxAppServerFactory = require('./sources/server/server-factory');
+const ruxAppServerFactory = require("./sources/server/server-factory");
 
 const ruxBaseSharedHolismServiceFilters = {
-    OptionsAsContent: require('./sources/server/services/options-as-content/service-options-as-html-content'),
-    OptionsAsContentNoAuth: require('./sources/server/services/options-as-content/service-options-as-html-content-no-auth'),
-    MarkdownFromFilesystem: require('./sources/server/services/service-fs-markdown-render'),
-    HealthCheck : require('./sources/server/services/service-health-check'),
+    OptionsAsContent: require("./sources/server/services/options-as-content/service-options-as-html-content"),
+    OptionsAsContentNoAuth: require("./sources/server/services/options-as-content/service-options-as-html-content-no-auth"),
+    MarkdownFromFilesystem: require("./sources/server/services/service-fs-markdown-render"),
+    HealthCheck : require("./sources/server/services/service-health-check"),
 
     developer: {
-        AppDataStoreIntegrations: require('./sources/server/services/service-developer-get-app-data-store-integrations'),
-        AppDataStoreFilterSpec: require('./sources/server/services/service-developer-get-app-data-store-filter-spec')
+        AppDataStoreIntegrations: require("./sources/server/services/service-developer-get-app-data-store-integrations"),
+        AppDataStoreFilterSpec: require("./sources/server/services/service-developer-get-app-data-store-filter-spec")
     }
 };
 

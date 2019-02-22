@@ -1,6 +1,6 @@
 // sources/server/services/service-utils.js
 
-const buildTag = require('../../../../../build/_build-tag');
+const buildTag = require("../../../../../build/_build-tag");
 
 module.exports = {
 
@@ -25,18 +25,18 @@ module.exports = {
         // So at a minimum we'll want to expose "util" functions via rainier-ux-base server exports. But, I think for GA we should
         // not push this out to service filters but instead handle it entirely before a service filter ever gets dispatched.
 
-        forwardPath = "/advertise/rainier" + (forwardPath?forwardPath:'');
+        forwardPath = "/advertise/rainier" + (forwardPath?forwardPath:"");
         return request.response_filters.result.request({
             streams: request.streams,
             integrations: request.integrations,
             request_descriptor: request.request_descriptor,
             response_descriptor: {
                 // TODO: Condider moving these manifest constant paths out to some sort of exposed manifest. Probably in rainier-ux-base? Okay for now as unlikely to change for rainier-ux.
-                headers: { Location: '/user/login?forward=' + forwardPath },
+                headers: { Location: "/user/login?forward=" + forwardPath },
                 http: { code: 302 },
-                content: { encoding: 'utf8', type: 'text/html' },
+                content: { encoding: "utf8", type: "text/html" },
                 // TODO: Investigate if it's actually required to provide a non-zero-length string value here in order for this to work? That should not be the case I think?
-                data: '<div></div>'
+                data: "<div></div>"
             }
         });
 

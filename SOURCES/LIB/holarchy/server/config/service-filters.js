@@ -1,7 +1,7 @@
 // server/config/service-filters.js
 
-const buildTag = require('../../../../../build/_build-tag')
-const BASE_SERVICES = require('../services');
+const buildTag = require("../../../../../build/_build-tag");
+const BASE_SERVICES = require("../services");
 
 var RUXBASE_SERVICE_FILTERS = [
 
@@ -9,37 +9,37 @@ var RUXBASE_SERVICE_FILTERS = [
     {
         // GET:/advertise/rainier/data
         filter: BASE_SERVICES.RainierUXBaseDataGateway, // this service filter discriminates its input and routes to an appropriate data gateway filter
-        request_bindings: { method: "GET", uris: [ '/advertise/rainier/data' ] },
-        response_properties: { contentEncoding: 'utf8', contentType: 'application/json' }
+        request_bindings: { method: "GET", uris: [ "/advertise/rainier/data" ] },
+        response_properties: { contentEncoding: "utf8", contentType: "application/json" }
     },
 
     // JSON POST:/advertise/rainier/data
     {
         // POST:/advertise/rainier/data
         filter: BASE_SERVICES.RainierUXBaseDataGateway, // this service filter discriminates its input and routes to an appropriate data gateway filter
-        request_bindings: { method: "POST", uris: [ '/advertise/rainier/data' ] },
-        response_properties: { contentEncoding: 'utf8', contentType: 'application/json' }
+        request_bindings: { method: "POST", uris: [ "/advertise/rainier/data" ] },
+        response_properties: { contentEncoding: "utf8", contentType: "application/json" }
     },
 
     // JSON GET:/health
     // JSON GET:/advertise/rainier/health (not authenticated)
     {
         filter: BASE_SERVICES.HealthCheck,
-        request_bindings: { method: "GET", uris: [ '/health', '/advertise/rainier/health' ] },
-        response_properties: { contentEncoding: 'utf8', contentType: 'application/json' }
+        request_bindings: { method: "GET", uris: [ "/health", "/advertise/rainier/health" ] },
+        response_properties: { contentEncoding: "utf8", contentType: "application/json" }
     }
 
 ];
 
 switch (buildTag.buildConfig.deployConfig.appDeployEnvironment) {
-case 'local':
-case 'development':
+case "local":
+case "development":
     ([
         // HTML5 GET:/developer
         {
             filter: BASE_SERVICES.OptionsAsContentNoAuth,
-            request_bindings: { method: "GET", uris: [ '/developer' ] },
-            response_properties: { contentEncoding: 'utf8', contentType: 'text/html' },
+            request_bindings: { method: "GET", uris: [ "/developer" ] },
+            response_properties: { contentEncoding: "utf8", contentType: "text/html" },
             options: {
                 RUXBase_Page: {
                     pageContentEP: {
@@ -49,8 +49,8 @@ case 'development':
                                     RUXBase_PageContent_Spinner: {
                                         viewOptions: {
                                             containerStyles: {
-                                                position: 'relative',
-                                                height: '128px'
+                                                position: "relative",
+                                                height: "128px"
                                             }
                                         }
                                     }
@@ -74,8 +74,8 @@ case 'development':
         // HTML5 GET:/developer/integrations
         {
             filter: BASE_SERVICES.OptionsAsContentNoAuth,
-            request_bindings: { method: "GET", uris: [ '/developer/integrations' ] },
-            response_properties: { contentEncoding: 'utf8', contentType: 'text/html' },
+            request_bindings: { method: "GET", uris: [ "/developer/integrations" ] },
+            response_properties: { contentEncoding: "utf8", contentType: "text/html" },
             options: {
                 RUXBase_Page: {
                     pageContentEP: {
@@ -99,8 +99,8 @@ case 'development':
         // HTML5 GET://developer/views
         {
             filter: BASE_SERVICES.OptionsAsContentNoAuth,
-            request_bindings: { method: "GET", uris: [ '/developer/views' ] },
-            response_properties: { contentEncoding: 'utf8', contentType: 'text/html' },
+            request_bindings: { method: "GET", uris: [ "/developer/views" ] },
+            response_properties: { contentEncoding: "utf8", contentType: "text/html" },
             options: {
                 RUXBase_Page: {
                     pageContentEP: {
@@ -123,16 +123,16 @@ case 'development':
         // HTML5 GET:/sitemap
         {
             filter: BASE_SERVICES.OptionsAsContentNoAuth,
-            request_bindings: { method: "GET", uris: [ '/sitemap' ] },
-            response_properties: { contentEncoding: 'utf8', contentType: 'text/html' },
+            request_bindings: { method: "GET", uris: [ "/sitemap" ] },
+            response_properties: { contentEncoding: "utf8", contentType: "text/html" },
             options: { RUXBase_Page: { pageContentEP: { RUXBase_PageContent_Sitemap: {} } } }
         },
 
         // HTML5 GET:/user
         {
             filter: BASE_SERVICES.OptionsAsContentNoAuth,
-            request_bindings: { method: "GET", uris: [ '/user' ] },
-            response_properties: { contentEncoding: 'utf8', contentType: 'text/html' },
+            request_bindings: { method: "GET", uris: [ "/user" ] },
+            response_properties: { contentEncoding: "utf8", contentType: "text/html" },
             options: {
                 RUXBase_Page: {
                     pageContentEP: {
@@ -166,8 +166,8 @@ case 'development':
         // HTML5 GET:/user/login
         {
             filter: BASE_SERVICES.OptionsAsContentNoAuth,
-            request_bindings: { method: "GET", uris: [ '/user/login' ] },
-            response_properties: { contentEncoding: 'utf8', contentType: 'text/html' },
+            request_bindings: { method: "GET", uris: [ "/user/login" ] },
+            response_properties: { contentEncoding: "utf8", contentType: "text/html" },
             options: {
                 RUXBase_Page: {
                     pageContentEP: {
@@ -200,8 +200,8 @@ case 'development':
         // HTML5 GET:/user/logout
         {
             filter: BASE_SERVICES.OptionsAsContentNoAuth,
-            request_bindings: { method: "GET", uris: [ '/user/logout' ] },
-            response_properties: { contentEncoding: 'utf8', contentType: 'text/html' },
+            request_bindings: { method: "GET", uris: [ "/user/logout" ] },
+            response_properties: { contentEncoding: "utf8", contentType: "text/html" },
             options: {
                 RUXBase_Page: {
                     pageContentEP: {

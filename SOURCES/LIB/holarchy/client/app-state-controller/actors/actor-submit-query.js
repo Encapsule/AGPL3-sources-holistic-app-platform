@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-actor-submit-query.js
 
-const adhocQueryConstructorFilter = require('./lib/adhoc-query-request-constructor-filter');
+const adhocQueryConstructorFilter = require("./lib/adhoc-query-request-constructor-filter");
 
 // ======================================================================
 
@@ -37,8 +37,8 @@ module.exports = {
         ],
         write: [
             {
-                filterBinding: { alias: 'netRequest', id: "ZlFy9ICWSz6jkOom--5_6g" },
-                storePath: '~.base.RainierBaseController.network.POST_RainierAdhocQuery.request'
+                filterBinding: { alias: "netRequest", id: "ZlFy9ICWSz6jkOom--5_6g" },
+                storePath: "~.base.RainierBaseController.network.POST_RainierAdhocQuery.request"
             }
         ]
     }, // namespaces
@@ -109,7 +109,7 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     },
 

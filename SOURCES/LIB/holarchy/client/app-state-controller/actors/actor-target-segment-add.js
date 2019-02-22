@@ -101,7 +101,7 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         if (!(request_.command.actorAddTargetSegment.isRehydration)) {
             request_.runtimeContext.appStateContext.appStateController.controllerRunFilter();
         }
@@ -110,26 +110,26 @@ module.exports = {
 
     namespaces: {
         read: [{
-            storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments',
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments",
             filterBinding: {
                 id: "LyZZmbezQFK2n-PxVQjpSw",
-                alias: 'targetAudienceSelected'
+                alias: "targetAudienceSelected"
             }
         }],
         write: [{
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments',
-                filterBinding: {
-                    id: "crcYgSbkSOaqd8pBKhT-xA",
-                    alias: 'targetAudienceSelected'
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate',
-                filterBinding: {
-                    id: "Dxc3TN7BS2OuG9se_IPI-w",
-                    alias: "queryParamsWritten"
-                }
-            },
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments",
+            filterBinding: {
+                id: "crcYgSbkSOaqd8pBKhT-xA",
+                alias: "targetAudienceSelected"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate",
+            filterBinding: {
+                id: "Dxc3TN7BS2OuG9se_IPI-w",
+                alias: "queryParamsWritten"
+            }
+        },
         ]
     }
 };

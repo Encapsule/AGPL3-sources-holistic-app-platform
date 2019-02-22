@@ -1,6 +1,6 @@
 // sources/server/services/service-rainier-ux-data/gateway-filters/get-rainier-data-availability.js
 
-const dataGatewayFilterFactory = require('../lib/data-gateway-filter-factory');
+const dataGatewayFilterFactory = require("../lib/data-gateway-filter-factory");
 
 var factoryResponse = dataGatewayFilterFactory.request({
 
@@ -32,7 +32,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
 
     gatewayMessageHandler: function(gatewayMessage_) {
 
-        console.log('..... ' + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
+        console.log("..... " + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
 
         var response = { error: null , result: null };
         var errors = [];
@@ -50,7 +50,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                 request_descriptor: gatewayServiceRequest.request_descriptor,
                 response_descriptor: {
                     http: { code: 200 },
-                    content: { encoding: 'utf8', type: 'application/json' },
+                    content: { encoding: "utf8", type: "application/json" },
                     data: {
                         youPassedMe: gatewayMessage_.gatewayMessage
                     }
@@ -65,7 +65,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                     request_descriptor: gatewayServiceRequest.request_descriptor,
                     response_descriptor: {
                         http: { code: 500 },
-                        content: { encoding: 'utf8', type: 'application/json' },
+                        content: { encoding: "utf8", type: "application/json" },
                         data: {
                             error_message: resultResponderResponse.error,
                             error_context: { source_tag: "rainier-ux-base::2L5ODEsBQsmEEayU-jZx5w" }
@@ -77,7 +77,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

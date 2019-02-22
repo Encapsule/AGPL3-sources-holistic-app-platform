@@ -1,6 +1,6 @@
 // transition-operator-always-filter.js
 
-const transitionOperatorFilterFactory = require('../app-state-controller-toperator-factory');
+const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
 
 var factoryResponse = transitionOperatorFilterFactory.request({
     id: "e89cwnP4Qd6MocAhzdOJgw",

@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-net-get-rainier-demographic-categories.js
 
-const HttpGetRainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
 
@@ -12,18 +12,18 @@ module.exports = {
         //TODO read the selected country and pass it in the call to the gateway.
         read: [
             {
-                filterBinding: { alias: 'selectedPCode', id: 'HYX6Qwn9T0KLQuAJAEhg1Q' },
-                storePath: '~.base.RainierBaseController.selectedAdvertiser.pcode'
+                filterBinding: { alias: "selectedPCode", id: "HYX6Qwn9T0KLQuAJAEhg1Q" },
+                storePath: "~.base.RainierBaseController.selectedAdvertiser.pcode"
             }
         ],
         write: [
             {
-                filterBinding: { alias: 'netRequest', id: "fBXLNjWXQg6GR1rVIDhGpm" },
-                storePath: '~.base.RainierBaseController.network.GET_RainierDemographicCategories.request'
+                filterBinding: { alias: "netRequest", id: "fBXLNjWXQg6GR1rVIDhGpm" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierDemographicCategories.request"
             },            
             {
-                filterBinding: { alias: 'netResponse', id: 'e-0Lzbg-RcO3GJvYN4zN5w' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierDemographicCategories.response'
+                filterBinding: { alias: "netResponse", id: "e-0Lzbg-RcO3GJvYN4zN5w" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierDemographicCategories.response"
             }
         ]
     }, // namespaces
@@ -101,7 +101,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

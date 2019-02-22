@@ -1,6 +1,6 @@
 // sources/server/services/service-rainier-ux-data/data-gateway-router-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "8q8sOAYyT5K9oviGZumYgQ",
@@ -30,7 +30,7 @@ var factoryResponse = arccore.filter.create({
                 if (filterIDs[filter_.filterDescriptor.operationID]) {
                     errors.push("Duplicate data gateway filter ID '" + filter_.filterDescriptor.operationID + "'.");
                 } else {
-                    filterIDs[filter_.filterDescriptor.operationID] = filter_
+                    filterIDs[filter_.filterDescriptor.operationID] = filter_;
                 }
             });
             if (errors.length) {
@@ -39,7 +39,7 @@ var factoryResponse = arccore.filter.create({
 
             var innerFactoryResponse = arccore.discriminator.create({
                 filters: factoryRequest_.dataGatewayFilters,
-                options: { action: 'routeRequest' }
+                options: { action: "routeRequest" }
             });
             if (innerFactoryResponse.error) {
                 errors.push(innerFactoryResponse.error);
@@ -49,7 +49,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }, // bodyFunction

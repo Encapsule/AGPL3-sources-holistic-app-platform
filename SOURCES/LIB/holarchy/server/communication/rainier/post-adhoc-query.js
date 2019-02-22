@@ -4,12 +4,12 @@
 // configured here as a POST request to the Rainier v2 API backend.
 //
 
-const apiConstants = require('./api-constants');
+const apiConstants = require("./api-constants");
 
 console.log(JSON.stringify(apiConstants));
 
 
-const httpServerRequestFactory = require('hrequest/server-factory');
+const httpServerRequestFactory = require("hrequest/server-factory");
 
 var factoryResponse = httpServerRequestFactory.request({
     name: "Rainier v2 Adhoc Query HTTP POST Request",

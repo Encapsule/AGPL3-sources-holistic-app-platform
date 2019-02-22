@@ -1,11 +1,11 @@
 // service-fs-markdown-render.js
 
-const arccore = require('arccore');
-const fs = require('fs');
-const path = require('path');
-const process = require('process');
-const httpServiceFilterFactory = require('holism').service;
-const buildTag = require('../../../../../build/_build-tag');
+const arccore = require("arccore");
+const fs = require("fs");
+const path = require("path");
+const process = require("process");
+const httpServiceFilterFactory = require("holism").service;
+const buildTag = require("../../../../../build/_build-tag");
 
 
 var etagCache = {};
@@ -18,7 +18,7 @@ var factoryResponse = httpServiceFilterFactory.create({
         " Calculates ETag hash on construction, suports If-None-Match/HTTP 304 cache validation (i.e. download only when resource is actually updated).",
     constraints: {
         request: {
-            content: { encoding: 'utf8', type: 'text/plain' },
+            content: { encoding: "utf8", type: "text/plain" },
             query_spec: { ____opaque: true },
             request_spec: { ____opaque: true },
             options_spec: {
@@ -51,7 +51,7 @@ var factoryResponse = httpServiceFilterFactory.create({
             }
         },
         response: {
-            content: { encoding: 'utf8', type: 'text/html' },
+            content: { encoding: "utf8", type: "text/html" },
             error_context_spec: { ____opaque: true },
             result_spec: { ____opaque: true }
         }
@@ -68,9 +68,9 @@ var factoryResponse = httpServiceFilterFactory.create({
 
                 console.log("> processing request for markdown file resource '" + request_.options.markdownFilename);
 
-                const markdownResourcePath = path.normalize(path.join(__dirname, '_resources/markdown', request_.options.markdownFilename));
+                const markdownResourcePath = path.normalize(path.join(__dirname, "_resources/markdown", request_.options.markdownFilename));
 
-                fs.readFile(markdownResourcePath, 'utf8', function(error_, data_) {
+                fs.readFile(markdownResourcePath, "utf8", function(error_, data_) {
 
                     if (error_) {
 
@@ -85,9 +85,9 @@ var factoryResponse = httpServiceFilterFactory.create({
                             request_descriptor: request_.request_descriptor,
                             error_descriptor: {
                                 http: { code: 500 },
-                                content: { encoding: 'utf8', type: 'text/html' },
+                                content: { encoding: "utf8", type: "text/html" },
                                 data: {
-                                    error_message: message.join(' '),
+                                    error_message: message.join(" "),
                                     error_context: { source_tag: "EzDer0taRlC-iYIjziXukg" }
                                 }
                             }
@@ -101,14 +101,14 @@ var factoryResponse = httpServiceFilterFactory.create({
                     } // end if error_
                     else {
                         // success - we have the markdown file resource loaded into memory now.
-                        var contentIRUT = arccore.identifier.irut.fromReference(data_.toString('utf') + buildTag.buildID + buildTag.buildTimestamp).result;
+                        var contentIRUT = arccore.identifier.irut.fromReference(data_.toString("utf") + buildTag.buildID + buildTag.buildTimestamp).result;
                         var contentETag = buildTag.packageAuthor + "/" + buildTag.packageName + ":" + contentIRUT;
                         const requestDescriptor = request_.request_descriptor;
                         var lastETag =
-                            requestDescriptor.headers['if-none-match'] ||
-                            requestDescriptor.headers['If-None-Match'] ||
-                            requestDescriptor.headers['if-match'] ||
-                            requestDescriptor.headers['If-Match'];
+                            requestDescriptor.headers["if-none-match"] ||
+                            requestDescriptor.headers["If-None-Match"] ||
+                            requestDescriptor.headers["if-match"] ||
+                            requestDescriptor.headers["If-Match"];
 
                         if (!lastETag) {
                             console.log("It appears the user agent did not specify an ETag via If-None-Match header.");
@@ -127,7 +127,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                                         ETag: contentETag,
                                         "Cache-Control": "must-revalidate"
                                     },
-                                    content: { encoding: 'utf8', type: 'text/plain' },
+                                    content: { encoding: "utf8", type: "text/plain" },
                                     data: ""
                                 }
                             });
@@ -143,7 +143,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                                 request_descriptor: request_.request_descriptor,
                                 response_descriptor: {
                                     http: { code: 200, message: "React!" },
-                                    content: { encoding: 'utf8', type: 'text/html' },
+                                    content: { encoding: "utf8", type: "text/html" },
                                     headers: {
                                         ETag: contentETag,
                                         "Cache-Control": "must-revalidate"
@@ -158,7 +158,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                                                     contentEP: [
                                                         {
                                                             RUXBase_PageContent_Markdown: {
-                                                                markdownContent: [ data_.toString('utf') ],
+                                                                markdownContent: [ data_.toString("utf") ],
                                                                 markdownOptions: request_.options.markdownOptions,
                                                                 viewOptions: request_.options.viewOptions
                                                             }
@@ -178,7 +178,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                                     request_descriptor: request_.request_descriptor,
                                     error_descriptor: {
                                         http: { code: 500 },
-                                        content: { encoding: 'utf8', type: 'text/html' },
+                                        content: { encoding: "utf8", type: "text/html" },
                                         data: {
                                             error_message: responseAttempt.error,
                                             error_context: { source_tag: "jdZWnfq9SoCuZwim2EX1nA" }

@@ -1,11 +1,11 @@
 // render-html.js
 
-const fs = require('fs');
-const path = require('path');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
+const fs = require("fs");
+const path = require("path");
+const React = require("react");
+const ReactDOMServer = require("react-dom/server");
 
-var outerHtmlDocumentTemplate = require('./html-page-template.hbs');
+var outerHtmlDocumentTemplate = require("./html-page-template.hbs");
 
 function renderHtmlDocument(request_) {
 
@@ -46,7 +46,7 @@ function renderHtmlDocument(request_) {
         // JavaScript application code that powers dynamic page updates in the browser.
         // Think of this as the client JavaScript application's boot ROM that we burn
         // into the HTML page template as inline-JSON enclosed in a <script/> tag.
-        var clientAppBootData = new Buffer(JSON.stringify({ document: request_.document }), 'utf8').toString('base64');
+        var clientAppBootData = new Buffer(JSON.stringify({ document: request_.document }), "utf8").toString("base64");
 
         // ----------------------------------------------------------------------
         // Render the document using the Handlebars framework.

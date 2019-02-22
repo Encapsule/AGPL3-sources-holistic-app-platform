@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-net-get-rainier-audience-grid-categories.js
 
-const HttpGetRainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
 
@@ -18,18 +18,18 @@ module.exports = {
     namespaces: {
         read: [
             {
-                filterBinding: { alias: 'selectedAdvertiser', id: 'nqcEyhiARuSjVbP9_exiqw' },
-                storePath: '~.base.RainierBaseController.selectedAdvertiser.pcode'
+                filterBinding: { alias: "selectedAdvertiser", id: "nqcEyhiARuSjVbP9_exiqw" },
+                storePath: "~.base.RainierBaseController.selectedAdvertiser.pcode"
             }
         ],
         write: [
             {
-                filterBinding: { alias: 'netRequest', id: '_fS8pkfOTI6ST6HElz6FqQ' },
+                filterBinding: { alias: "netRequest", id: "_fS8pkfOTI6ST6HElz6FqQ" },
                 storePath: "~.base.RainierBaseController.network.GET_RainierAudienceGridCategories.request"
             },
             {
-                filterBinding: { alias: 'netResponse', id: 'lAFGRkKuQhinfe6aYek6ZQ' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierAudienceGridCategories.response'
+                filterBinding: { alias: "netResponse", id: "lAFGRkKuQhinfe6aYek6ZQ" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierAudienceGridCategories.response"
             }
         ]
     }, // namespaces
@@ -100,7 +100,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

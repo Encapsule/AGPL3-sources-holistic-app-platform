@@ -12,9 +12,9 @@
   is the app data store filter spec.
 */
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const METRICS = ['REACH', 'COMPOSITION', 'AFFINITY'];
+const METRICS = ["REACH", "COMPOSITION", "AFFINITY"];
 
 
 
@@ -112,12 +112,12 @@ var factoryResponse = arccore.filter.create({
                         baseline: getCombinedSegment(request.baselineSegments),
                         metrics: METRICS
                     }
-                }
+                };
             } catch (exception){
                 errors.push(exception);
             }
         }
-        if (errors.length) response.error = errors.join(' ');
+        if (errors.length) response.error = errors.join(" ");
         return response;
     },
 
@@ -210,10 +210,10 @@ const getCombinedSegment = function(segments) {
     });
     const categoryMerge = [];
     Object.keys(segmentMap).forEach((key) => {
-        categoryMerge.push(merge(segmentMap[key], 'union'));
+        categoryMerge.push(merge(segmentMap[key], "union"));
     });
-    return merge(categoryMerge, 'intersection');
-}
+    return merge(categoryMerge, "intersection");
+};
 
 // Ad Hoc Query Request Constructor Filter
 module.exports = factoryResponse.result;

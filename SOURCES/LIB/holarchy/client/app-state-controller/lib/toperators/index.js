@@ -6,25 +6,25 @@
 // visibly (not burried in the dev console or completely ommitted
 // in a production release).
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 var transitionExpressionOperators = [
-    require('./toperator-ads-dictionary-cardinality-equal'),
-    require('./toperator-ads-equal-a-b'),
-    require('./toperator-ads-exists'),
-    require('./toperator-ads-filterError'),
-    require('./toperator-ads-isTrue'),
-    require('./toperator-ads-notEmptyArray'),
-    require('./toperator-asc-inState'),
-    require('./toperator-logical-and'),
-    require('./toperator-logical-not'),
-    require('./toperator-logical-or'),
-    require('./toperator-logical-true')
+    require("./toperator-ads-dictionary-cardinality-equal"),
+    require("./toperator-ads-equal-a-b"),
+    require("./toperator-ads-exists"),
+    require("./toperator-ads-filterError"),
+    require("./toperator-ads-isTrue"),
+    require("./toperator-ads-notEmptyArray"),
+    require("./toperator-asc-inState"),
+    require("./toperator-logical-and"),
+    require("./toperator-logical-not"),
+    require("./toperator-logical-or"),
+    require("./toperator-logical-true")
 ];
 
 var factoryResponse = arccore.discriminator.create({
     filters: transitionExpressionOperators,
-    options: { action: 'routeRequest' }
+    options: { action: "routeRequest" }
 });
 
 if (factoryResponse.error)

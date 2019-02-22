@@ -23,19 +23,19 @@ module.exports = {
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            let daysBack = 3
+            let daysBack = 3;
             //start is September 1, 2017, end is 3 days back.
             writeDate = {state: "ready", start: 1512415435479, end: new Date().getTime() - daysBack*86400};
 
             var innerResponse = request_.namespaces.write.availableDateRange.request({
-               appDataStore: request_.runtimeContext.appStateContext.appDataStore,
-               writeData: writeData
+                appDataStore: request_.runtimeContext.appStateContext.appDataStore,
+                writeData: writeData
             });
 
             if (innerResponse.error) {
                 errors.push(innerResponse.error);
                 break;
-            };
+            }
             // once the available date is set, user can start using the query form.
 
             if (!(innerResponse.error)) {
@@ -43,12 +43,12 @@ module.exports = {
                     appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                     writeData: "ready"
                 });
-            };
+            }
 
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         return response;
     },
@@ -56,18 +56,18 @@ module.exports = {
     namespaces: {
         read: [],
         write: [{
-                storePath: "~.base.runtime.client.subsystems.rainier.clientSession.data.queryDateRange",
-                filterBinding: {
-                    id: "tXieB1eFRmiIsL53y8iOtg",
-                    alias: "availableDateRange"
-                }
-            },
-             {
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.state",
-                filterBinding: {
-                    id: "vfquFhmxSxKh4l4TjPZTxQ",
-                    alias: "derivedClientSessionWriter"
-                }
-            }]
-        }
-    };
+            storePath: "~.base.runtime.client.subsystems.rainier.clientSession.data.queryDateRange",
+            filterBinding: {
+                id: "tXieB1eFRmiIsL53y8iOtg",
+                alias: "availableDateRange"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.state",
+            filterBinding: {
+                id: "vfquFhmxSxKh4l4TjPZTxQ",
+                alias: "derivedClientSessionWriter"
+            }
+        }]
+    }
+};

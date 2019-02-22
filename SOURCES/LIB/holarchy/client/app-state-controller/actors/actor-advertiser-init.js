@@ -42,8 +42,8 @@ module.exports = {
             const pcode = request_.command.actorAdvertiserInit.pcode;
             const writeData = {pcode: pcode};
             var innerResponse = request_.namespaces.write.selectedAdvertiser.request({
-                    appDataStore: request_.runtimeContext.appStateContext.appDataStore,
-                    writeData: writeData
+                appDataStore: request_.runtimeContext.appStateContext.appDataStore,
+                writeData: writeData
             });
 
             if (innerResponse.error) {
@@ -54,7 +54,7 @@ module.exports = {
         }
 
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         request_.runtimeContext.appStateContext.appStateController.controllerRunFilter();
         return response;
 

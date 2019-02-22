@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-net-get-rainier-audience-verticals.js
 
-const HttpGetRainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
 
@@ -13,12 +13,12 @@ module.exports = {
         ],
         write: [
             {
-                filterBinding:  { alias: 'netRequest', id: 'lIF8ndN9SaCGJFwbVq8XvQ' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierAudienceVerticals.request'
+                filterBinding:  { alias: "netRequest", id: "lIF8ndN9SaCGJFwbVq8XvQ" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierAudienceVerticals.request"
             },
             {
-                filterBinding: { alias: 'netResponse', id: '4-WKK1P6RmGUDPONyXThzg' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierAudienceVerticals.response'
+                filterBinding: { alias: "netResponse", id: "4-WKK1P6RmGUDPONyXThzg" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierAudienceVerticals.response"
             }
         ]
     }, // namespaces
@@ -88,7 +88,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

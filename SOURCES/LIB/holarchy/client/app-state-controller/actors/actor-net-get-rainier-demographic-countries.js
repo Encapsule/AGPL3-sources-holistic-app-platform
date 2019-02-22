@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-net-get-rainier-demographic-countries.js
 
-const HttpGetRainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
 
@@ -11,12 +11,12 @@ module.exports = {
     namespaces: {
         write: [
             {
-                filterBinding: { alias: 'netRequest', id: "a9_yTegtQCadukINSt2qog" },
-                storePath: '~.base.RainierBaseController.network.GET_RainierDemographicCountries.request'
+                filterBinding: { alias: "netRequest", id: "a9_yTegtQCadukINSt2qog" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierDemographicCountries.request"
             },
             {
-                filterBinding: { alias: 'netResponse', id: 'toEjbcsrTyePGX4uRNagPw' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierDemographicCountries.response'
+                filterBinding: { alias: "netResponse", id: "toEjbcsrTyePGX4uRNagPw" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierDemographicCountries.response"
             }
         ]
     }, // namespaces
@@ -86,7 +86,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

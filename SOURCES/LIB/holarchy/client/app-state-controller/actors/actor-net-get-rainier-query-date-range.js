@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-net-get-rainier-query-date-range.js
 
-const HttpGetRainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
 
@@ -11,17 +11,17 @@ module.exports = {
     namespaces: {
         read: [
             {
-                filterBinding: { alias: 'selectedAdvertiser', id: "hc0X5ay8QzWU87u82WKtEw" },
+                filterBinding: { alias: "selectedAdvertiser", id: "hc0X5ay8QzWU87u82WKtEw" },
                 storePath: "~.base.RainierBaseController.selectedAdvertiser.pcode"
             }
         ],
         write: [
             {
-                filterBinding: { alias: 'netRequest', id: "cs54Lh0ETxqoUzdW3Qe_Fw" },
+                filterBinding: { alias: "netRequest", id: "cs54Lh0ETxqoUzdW3Qe_Fw" },
                 storePath: "~.base.RainierBaseController.network.GET_RainierQueryDateRange.request"
             },
             {
-                filterBinding: {  alias: 'netResponse', id: "ZbTzvev_R8uy0pWryryAuQ" },
+                filterBinding: {  alias: "netResponse", id: "ZbTzvev_R8uy0pWryryAuQ" },
                 storePath: "~.base.RainierBaseController.network.GET_RainierQueryDateRange.response"
             }
         ]
@@ -109,7 +109,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

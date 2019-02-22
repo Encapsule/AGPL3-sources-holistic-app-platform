@@ -1,14 +1,14 @@
 // metadata-store-constructor.js
 
-const packageMeta = require('../../../package.json');
+const packageMeta = require("../../../package.json");
 const metadataStoreName = packageMeta.author.name + "/" + packageMeta.name + " v" + packageMeta.version;
 
-const metadataStoreConstructorFactory = require('./metadata-store-constructor-factory');
+const metadataStoreConstructorFactory = require("./metadata-store-constructor-factory");
 
-const developerInputMetadataOrgSpec = require('../filter-specs/integrations/developer-input-metadata-org-spec');
-const developerInputMetadataSiteSpec = require('../filter-specs/integrations/developer-input-metadata-site-spec');
-const developerInputMetadataPageSpec = require('../filter-specs/integrations/developer-input-metadata-page-spec');
-const appMetadataPageSpec = require('../filter-specs/integrations/app-metadata-page-spec');
+const developerInputMetadataOrgSpec = require("../filter-specs/integrations/developer-input-metadata-org-spec");
+const developerInputMetadataSiteSpec = require("../filter-specs/integrations/developer-input-metadata-site-spec");
+const developerInputMetadataPageSpec = require("../filter-specs/integrations/developer-input-metadata-page-spec");
+const appMetadataPageSpec = require("../filter-specs/integrations/app-metadata-page-spec");
 
 var factoryResponse = metadataStoreConstructorFactory.request({
     id: "ah4FS6AoQ_WxzZGC45mREg",

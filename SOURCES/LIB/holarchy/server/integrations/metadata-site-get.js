@@ -1,6 +1,6 @@
 // metadata-site-get.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 module.exports = function(request_) {
     console.log("..... " + this.operationID + "::" + this.operationName);

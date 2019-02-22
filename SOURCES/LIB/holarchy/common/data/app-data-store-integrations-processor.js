@@ -1,9 +1,9 @@
 // sources/common/data/app-data-store-integrations-processor.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const appDataStoreReadFilterFactory = require('./app-data-store-read-filter-factory');
-const getNamespaceInReferenceFromPath = require('./get-namespace-in-reference-from-path');
+const appDataStoreReadFilterFactory = require("./app-data-store-read-filter-factory");
+const getNamespaceInReferenceFromPath = require("./get-namespace-in-reference-from-path");
 
 var factoryResponse = arccore.filter.create({
     operationID: "9tRYovbERxSbBNUECy54HQ",
@@ -60,7 +60,7 @@ var factoryResponse = arccore.filter.create({
             digraphModel.addVertex({ u: setReadFilters, p: { type: "set-index" }});
             digraphModel.addVertex({ u: setAppDataNamespaces, p: { type: "set-index" }});
             request_.dataViewBindingFilterSet.forEach(function(reactComponentDataBindingFilter_) {
-                var viewFilterName = [ "[", reactComponentDataBindingFilter_.filterDescriptor.operationID, "::", reactComponentDataBindingFilter_.filterDescriptor.operationName, "]" ].join('');
+                var viewFilterName = [ "[", reactComponentDataBindingFilter_.filterDescriptor.operationID, "::", reactComponentDataBindingFilter_.filterDescriptor.operationName, "]" ].join("");
                 digraphModel.addVertex({ u: viewFilterName, p: { type: "view-binding-filter", filter: reactComponentDataBindingFilter_ } });
                 digraphModel.addEdge({ e: { u: viewFilterName, v: setViewFilters }, p: { type: "member-of-set" } });
                 reactComponentDataBindingFilter_.dependencies.declarations.read.forEach(function(readDependencyDeclaration_) {
@@ -69,7 +69,7 @@ var factoryResponse = arccore.filter.create({
                         digraphModel.addVertex({ u: appDataNamespace, p: { type: "app-data-namespace" }});
                         digraphModel.addEdge({ e: { u: appDataNamespace, v: setAppDataNamespaces }, p: { type: "member-of-set" }});
                     }
-                    var readFilterName = [ "[", readDependencyDeclaration_.filterBinding.id, "::", readDependencyDeclaration_.filterBinding.alias, "]" ].join('');
+                    var readFilterName = [ "[", readDependencyDeclaration_.filterBinding.id, "::", readDependencyDeclaration_.filterBinding.alias, "]" ].join("");
                     digraphModel.addVertex({
                         u: readFilterName,
                         p: {
@@ -91,7 +91,7 @@ var factoryResponse = arccore.filter.create({
             });
 
             // Get the set of vertex names in the app data namespace set.
-            var namespaceDependencies = digraphModel.inEdges(setAppDataNamespaces).map(function(edge_) { return edge_.u });
+            var namespaceDependencies = digraphModel.inEdges(setAppDataNamespaces).map(function(edge_) { return edge_.u; });
 
             while (namespaceDependencies.length) {
                 var namespace = namespaceDependencies.pop();
@@ -113,7 +113,7 @@ var factoryResponse = arccore.filter.create({
                 property.inputFilterSpec = namespaceFilterSpec;
                 digraphModel.setVertexProperty({ u: namespace, p: property });
                 // Get the set of read filters that depend on this data namespace.
-                var readFilters = digraphModel.inEdges(namespace).map(function(edge_) { return edge_.u });
+                var readFilters = digraphModel.inEdges(namespace).map(function(edge_) { return edge_.u; });
 
                 // Process the set of read filters.
                 while (readFilters.length) {

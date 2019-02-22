@@ -2,20 +2,20 @@
 //
 // **** RAINIER UX BASE SERVER APPLICATION FACTORY ****
 
-const buildTag = require('../../../../build/_build-tag');
-const arccore = require('arccore');
-const holism = require('holism');
+const buildTag = require("../../../../build/_build-tag");
+const arccore = require("arccore");
+const holism = require("holism");
 const holismAppServerFactory = holism.server; // dereference
-const dataStoreConstructorFactory = require('../common/data/app-data-store-constructor-factory');
-const metadataStoreFactory = require('../common/metadata');
-const baseAppServerConfig = require('./config');
-const baseAppServerIntegrationsFactory = require('./integrations');
+const dataStoreConstructorFactory = require("../common/data/app-data-store-constructor-factory");
+const metadataStoreFactory = require("../common/metadata");
+const baseAppServerConfig = require("./config");
+const baseAppServerIntegrationsFactory = require("./integrations");
 
-const baseAppDataViewBindings = require('../common/view/elements');
-const RUXBase_PageHeader_QCGlobalNavWrapper_Server = require('../common/view/elements/component/RUXBase_PageHeader_QCGlobalNavWrapper_Server.jsx');
+const baseAppDataViewBindings = require("../common/view/elements");
+const RUXBase_PageHeader_QCGlobalNavWrapper_Server = require("../common/view/elements/component/RUXBase_PageHeader_QCGlobalNavWrapper_Server.jsx");
 baseAppDataViewBindings.push(RUXBase_PageHeader_QCGlobalNavWrapper_Server);
 
-const reactComponentRouterFactory = require('../common/view/component-router/react-component-router-factory');
+const reactComponentRouterFactory = require("../common/view/component-router/react-component-router-factory");
 
 var factoryResponse = arccore.filter.create({
     operationID: "LZvDhWFzR-6_4b8phUJL0A",
@@ -127,7 +127,7 @@ var factoryResponse = arccore.filter.create({
 
             // Merge the application and shared base service filter registrations.
             for (serviceDescriptor_ of baseAppServerConfig.services) {
-                appServerConfig.services.push(serviceDescriptor_)
+                appServerConfig.services.push(serviceDescriptor_);
             }
             if (errors.length) {
                 errors.unshift("Failed to process application service filter registrations:");
@@ -217,7 +217,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         return response;
     }

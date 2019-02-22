@@ -64,12 +64,12 @@ module.exports = {
             //if the segmentId not a vertical segment filter by the id
             if (segmentToRemove.category !== "vertical") {
                 selectedSegments = selectedSegments.filter((element) => {
-                    return (element.id !== segmentToRemove.id)
+                    return (element.id !== segmentToRemove.id);
                 });
                 // otherwise this is a vertical segment so filter by name
             } else {
                 selectedSegments = selectedSegments.filter((element) => {
-                    return (element.name !== segmentToRemove.name)
+                    return (element.name !== segmentToRemove.name);
                 });
             }
 
@@ -99,7 +99,7 @@ module.exports = {
 
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         if (!(request_.command.actorRemoveTargetSegment.isRehydration)) {
             request_.runtimeContext.appStateContext.appStateController.controllerRunFilter();
         }
@@ -108,26 +108,26 @@ module.exports = {
 
     namespaces: {
         read: [{
-            storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments',
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments",
             filterBinding: {
                 id: "np3zagblSpOPwg2R7NhAAg",
-                alias: 'targetAudienceSelected'
+                alias: "targetAudienceSelected"
             }
         }],
         write: [{
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments',
-                filterBinding: {
-                    id: "3t_pP0-jRGiprp888HYCDA",
-                    alias: 'targetAudienceSelected'
-                }
-            },
-            {
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate",
-                filterBinding: {
-                    id: "2XEeiQMwSBG3LlXQb32RrA",
-                    alias: "queryParamsWritten"
-                }
-            },
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments",
+            filterBinding: {
+                id: "3t_pP0-jRGiprp888HYCDA",
+                alias: "targetAudienceSelected"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate",
+            filterBinding: {
+                id: "2XEeiQMwSBG3LlXQb32RrA",
+                alias: "queryParamsWritten"
+            }
+        },
         ]
     }
 };

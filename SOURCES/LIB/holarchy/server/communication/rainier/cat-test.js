@@ -1,13 +1,13 @@
 
-const apiConstants = require('./api-constants');
-const filter = require('./get-categories-request-filter');
+const apiConstants = require("./api-constants");
+const filter = require("./get-categories-request-filter");
 
 var networkInitiateResponse = filter.request({
     options: {
         headers: apiConstants.headers
     },
     query: {
-        ancestor: '/'
+        ancestor: "/"
     },
     resultHandler: function(result_) {
         console.log(JSON.stringify(result_, undefined, 4));

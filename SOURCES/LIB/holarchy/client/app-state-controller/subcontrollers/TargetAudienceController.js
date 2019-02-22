@@ -58,7 +58,7 @@ module.exports = {
                 },
                 {
                     nextState: "edited",
-                    operator: { notEmpty: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments' }
+                    operator: { notEmpty: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments" }
                 }
             ]
         },
@@ -73,7 +73,7 @@ module.exports = {
                     nextState: "ready",
                     operator: {
                         not: {
-                            notEmpty: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments'
+                            notEmpty: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments"
                         }
                     }
                 },

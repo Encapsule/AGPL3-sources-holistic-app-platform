@@ -1,6 +1,6 @@
 // sources/client/app-data-model/transition-operators/transition-operator-or-filter.js
 
-const transitionOperatorFilterFactory = require('../app-state-controller-toperator-factory');
+const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
 
 var factoryResponse = transitionOperatorFilterFactory.request({
     id:  "0JIva4IFSm6Xm7i38g8uUA",
@@ -45,7 +45,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     }
 });

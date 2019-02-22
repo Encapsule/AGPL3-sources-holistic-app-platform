@@ -59,7 +59,7 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         request_.runtimeContext.appStateContext.appStateController.controllerRunFilter();
         return response;
     },

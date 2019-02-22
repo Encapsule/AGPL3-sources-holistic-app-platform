@@ -1,7 +1,7 @@
 // sources/common/data/app-data-store-write-filter-factory.js
 
-const arccore = require('arccore');
-const getNamespaceInReferenceFromPath = require('./get-namespace-in-reference-from-path');
+const arccore = require("arccore");
+const getNamespaceInReferenceFromPath = require("./get-namespace-in-reference-from-path");
 
 var factoryResponse = arccore.filter.create({
     operationID: "fOBf1kBTSLOatLtRA54TUw",
@@ -43,7 +43,7 @@ var factoryResponse = arccore.filter.create({
                 break;
             }
 
-            if (!request_.stateNamespacePath.startsWith('~')) {
+            if (!request_.stateNamespacePath.startsWith("~")) {
                 errors.push("Invalid stateNamespacePath value must be a dot-delimited ARCcore.filter namespace path beginning in `~`.");
                 break;
             }
@@ -71,9 +71,9 @@ var factoryResponse = arccore.filter.create({
             // CREATE THE APP DATA STORE WRITE FILTER.
             function createWriteFilter() {
                 const stateNamespacePath = request_.stateNamespacePath;
-                var stateNamespaceTokens = stateNamespacePath.split('.');
+                var stateNamespaceTokens = stateNamespacePath.split(".");
                 var targetNamespaceName = stateNamespaceTokens.pop();
-                var parentStateNamespacePath = stateNamespaceTokens.join('.');
+                var parentStateNamespacePath = stateNamespaceTokens.join(".");
 
                 return arccore.filter.create({
                     operationID: request_.id,
@@ -97,7 +97,7 @@ var factoryResponse = arccore.filter.create({
                         while (!inBreakScope) {
                             inBreakScope = true;
 
-                            console.log([ 'STATE WRITE >>> ', this.operationID, '::', this.operationName, " '", stateNamespacePath, "'"].join(''));
+                            console.log([ "STATE WRITE >>> ", this.operationID, "::", this.operationName, " '", stateNamespacePath, "'"].join(""));
 
                             var innerResponse = getNamespaceInReferenceFromPath.request({
                                 namespacePath: parentStateNamespacePath,
@@ -113,7 +113,7 @@ var factoryResponse = arccore.filter.create({
                             break;
                         }
                         if (errors.length)
-                            response.error = errors.join(' ');
+                            response.error = errors.join(" ");
                         return response;
                     } // bodyFunction
                 });
@@ -131,7 +131,7 @@ var factoryResponse = arccore.filter.create({
 
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     },
 

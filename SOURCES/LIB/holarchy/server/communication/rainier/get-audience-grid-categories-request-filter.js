@@ -4,8 +4,8 @@
 // with the Rainier backend server via HTTP request to get a list of /qc/audience-link categories.
 //
 
-const apiConstants = require('./api-constants');
-const HttpServerSideRequestFactory = require('hrequest/server-factory');
+const apiConstants = require("./api-constants");
+const HttpServerSideRequestFactory = require("hrequest/server-factory");
 
 var factoryResponse = HttpServerSideRequestFactory.request({
     name: "Audience Grid Categories",

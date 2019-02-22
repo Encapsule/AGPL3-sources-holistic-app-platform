@@ -3,9 +3,9 @@
 // This module constructs and exports a DirectedGraph model of this application's metadata.
 //
 
-const arccore = require('arccore');
-const metadataStoreConstructionFilter = require('./metadata-store-constructor');
-const uxbaseMetadata = require('./ux-base-metadata');
+const arccore = require("arccore");
+const metadataStoreConstructionFilter = require("./metadata-store-constructor");
+const uxbaseMetadata = require("./ux-base-metadata");
 
 var factoryResponse = arccore.filter.create({
     operationID: "YPB9uwHzRG2AJPIF-XWXSQ",
@@ -31,7 +31,7 @@ var factoryResponse = arccore.filter.create({
             inBreakScope = true;
             let uxbaseMetadataClone = arccore.util.clone(uxbaseMetadata);
             for(let key in uxbaseMetadataClone.website){
-                if(typeof(uxbaseMetadataClone.website[key]) === 'object'){
+                if(typeof(uxbaseMetadataClone.website[key]) === "object"){
                     //skip the objects since we are copying only themes (below)
                     continue;
                 }
@@ -90,7 +90,7 @@ var factoryResponse = arccore.filter.create({
         } // end while (!inBreakScope)
 
         if (errors.length){
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     },

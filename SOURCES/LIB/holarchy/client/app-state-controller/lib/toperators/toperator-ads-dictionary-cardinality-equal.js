@@ -3,8 +3,8 @@
 // Returns Boolean true if the cardinality of the indicated dictionary in the ADS is equal to expected value.
 //
 
-const transitionOperatorFilterFactory = require('../app-state-controller-toperator-factory');
-const getNamespaceInReferenceFromPath = require('../../../../common/data/get-namespace-in-reference-from-path');
+const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
+const getNamespaceInReferenceFromPath = require("../../../../common/data/get-namespace-in-reference-from-path");
 
 var factoryResponse = transitionOperatorFilterFactory.request({
     id: "20lly9lQRO2S-qdMyui3Jg",
@@ -35,7 +35,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
             }
             var targetNamespace = innerResponse.result;
             const targetNamespaceTypeString = Object.prototype.toString.call(targetNamespace);
-            if (targetNamespaceTypeString !== '[object Object]') {
+            if (targetNamespaceTypeString !== "[object Object]") {
                 errors.push("Invalid target type '" + targetNamespaceTypeString + "' for namespace '" + commandBody.namespacePath + "'.");
                 break;
             }
@@ -43,7 +43,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     }
 });

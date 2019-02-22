@@ -20,26 +20,26 @@ module.exports = {
 
     namespaces: {
         read: [{
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.baselineAudience.selectedSegments",
-                filterBinding: {
-                    id: "jZxaVaPwS6G0luu6Gb0ZZg",
-                    alias: "baselineAudienceReader"
-                }
-            },
-            {
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments",
-                filterBinding: {
-                    id: "TUwMau-cRUKp9UaueihFqg",
-                    alias: "targetAudienceReader"
-                }
-            },
-            {
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics",
-                filterBinding: {
-                    id: "OBRxQfgiQz-svXjcGIyegA",
-                    alias: "selectedCharacteristicsReader"
-                }
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.baselineAudience.selectedSegments",
+            filterBinding: {
+                id: "jZxaVaPwS6G0luu6Gb0ZZg",
+                alias: "baselineAudienceReader"
             }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.targetAudience.selectedSegments",
+            filterBinding: {
+                id: "TUwMau-cRUKp9UaueihFqg",
+                alias: "targetAudienceReader"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics",
+            filterBinding: {
+                id: "OBRxQfgiQz-svXjcGIyegA",
+                alias: "selectedCharacteristicsReader"
+            }
+        }
         ],
         write: []
     },
@@ -126,4 +126,4 @@ module.exports = {
         }
         return response;
     }
-}
+};

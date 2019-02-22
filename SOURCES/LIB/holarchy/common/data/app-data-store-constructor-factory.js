@@ -1,10 +1,10 @@
 // sources/common/rainier-app-data-store/app-data-store-constructor-factory.js
 //
 
-const arccore = require('arccore');
-const buildTag = require('../../../../../build/_build-tag');
+const arccore = require("arccore");
+const buildTag = require("../../../../../build/_build-tag");
 
-const rainierAppDataStoreBaseSpec = require('../filter-specs/data/');
+const rainierAppDataStoreBaseSpec = require("../filter-specs/data/");
 
 var factoryResponse = arccore.filter.create({
     operationID: "ghB7Smu_RxWZPN-Waf8B7w",
@@ -18,7 +18,7 @@ var factoryResponse = arccore.filter.create({
     bodyFunction: function(request_) {
         var response = { error: null, response: null };
         var errors = [];
-        var inBreakScope = false
+        var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
             var appDataStoreSpec = arccore.util.clone(rainierAppDataStoreBaseSpec);

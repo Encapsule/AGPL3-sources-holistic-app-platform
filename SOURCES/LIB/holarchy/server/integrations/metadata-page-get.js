@@ -1,6 +1,6 @@
 // metadata-page-get.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 module.exports = function(request_) {
     console.log("..... " + this.operationID + "::" + this.operationName);
@@ -21,12 +21,12 @@ module.exports = function(request_) {
         // page metadata and so confirm and if necessary descend the view store
         // tree until we find a URI with page metadata.
         var viewPageURI = request_.resource_uri;
-        var viewPageURITokens = viewPageURI.split('/');
+        var viewPageURITokens = viewPageURI.split("/");
         while (!appMetadataStore.isVertex(viewPageURI)) {
             viewPageURITokens.pop();
-            viewPageURI = viewPageURITokens.join('/');
+            viewPageURI = viewPageURITokens.join("/");
             if (viewPageURI.length === 0) {
-                viewPageURI = '/';
+                viewPageURI = "/";
                 break;
             }
             console.log("Searching next to " + viewPageURI);

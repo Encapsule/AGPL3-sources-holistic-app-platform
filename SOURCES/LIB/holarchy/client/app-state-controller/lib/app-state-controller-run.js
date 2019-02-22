@@ -1,8 +1,8 @@
 // app-state-controller-run.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const appStateController_Step = require('./app-state-controller-step');
+const appStateController_Step = require("./app-state-controller-step");
 
 var processRunCount = 0;
 
@@ -81,7 +81,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         console.log("*** END: APP STATE CONTROLLER EVALUATION RUN: " + processRunCount++);
 

@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-net-get-rainier-audience-countries.js
 
-const HttpGetRainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
 
@@ -11,18 +11,18 @@ module.exports = {
     namespaces: {
         read: [
             {
-                filterBinding: { alias: 'selectedAdvertiser', id: 'xrFUYPIDQbyepeeQG1fqiA' },
-                storePath: '~.base.RainierBaseController.selectedAdvertiser.pcode'
+                filterBinding: { alias: "selectedAdvertiser", id: "xrFUYPIDQbyepeeQG1fqiA" },
+                storePath: "~.base.RainierBaseController.selectedAdvertiser.pcode"
             }
         ],
         write: [
             {
-                filterBinding: { alias: 'netRequest', id: "QGgIItW6SUqPNfU0Nz3GOQ" },
+                filterBinding: { alias: "netRequest", id: "QGgIItW6SUqPNfU0Nz3GOQ" },
                 storePath: "~.base.RainierBaseController.network.GET_RainierAudienceCountries.request"
             },
             {
-                filterBinding: { alias: 'netResponse', id: 'MM3usbtMSW-giuLMHDTvBg' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierAudienceCountries.response'
+                filterBinding: { alias: "netResponse", id: "MM3usbtMSW-giuLMHDTvBg" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierAudienceCountries.response"
             }
         ]
     }, // namespaces
@@ -111,7 +111,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

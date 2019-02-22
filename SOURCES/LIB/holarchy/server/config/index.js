@@ -2,6 +2,6 @@
 //
 
 module.exports = {
-    files: require('./memory-files'),
-    services: require('./service-filters')
+    files: require("./memory-files"),
+    services: require("./service-filters")
 };

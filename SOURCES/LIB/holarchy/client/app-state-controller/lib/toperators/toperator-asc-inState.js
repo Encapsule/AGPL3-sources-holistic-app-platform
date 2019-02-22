@@ -1,6 +1,6 @@
 // sources/client/app-data-model/transition-operators/transition-operator-inState-filter.js
 
-const transitionOperatorFilterFactory = require('../app-state-controller-toperator-factory');
+const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
 
 var factoryResponse = transitionOperatorFilterFactory.request({
     id: "sHBZOTIQTZ61AHfwgUVJ3Q",
@@ -16,7 +16,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            var args = request_.operator.inState.split(':');
+            var args = request_.operator.inState.split(":");
             if (args.length !== 2) {
                 errors.unshift("Invalid subcontroller:state refernce specified.");
                 break;
@@ -30,7 +30,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     }
 });

@@ -1,7 +1,7 @@
 // sources/client/app-state-controller/actors/actor-write-query-params-to-hash-location.js
 
-const buildTag = require('../../../../../../build/_build-tag');
-const userAgent = [ buildTag.packageAuthor, buildTag.packageName, buildTag.packageVersion ].join('_');
+const buildTag = require("../../../../../../build/_build-tag");
+const userAgent = [ buildTag.packageAuthor, buildTag.packageName, buildTag.packageVersion ].join("_");
 
 module.exports = {
 
@@ -18,49 +18,49 @@ module.exports = {
 
     namespaces: {
         read: [{
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification',
-                filterBinding: {
-                    id: "p9rxuSLeR_mXn-d5Y_w4Rw",
-                    alias: "querySpecificationReader"
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.dateSelector.selectedDateRange',
-                filterBinding: {
-                    id: "dLcnNu90Q6a8aWzw2UmAIQ",
-                    alias: "selectedDateRangeReader"
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.selectedAdvertiser',
-                filterBinding: {
-                    id: "dLcnNu90Q6a8aWzw2UmAIQ",
-                    alias: "advertiserReader"
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.selectedCountry',
-                filterBinding: {
-                    id: "cLBpnc2FTQuOdMBLGt-owQ",
-                    alias: "demographicsCountryReader"
-                }
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification",
+            filterBinding: {
+                id: "p9rxuSLeR_mXn-d5Y_w4Rw",
+                alias: "querySpecificationReader"
             }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.dateSelector.selectedDateRange",
+            filterBinding: {
+                id: "dLcnNu90Q6a8aWzw2UmAIQ",
+                alias: "selectedDateRangeReader"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.selectedAdvertiser",
+            filterBinding: {
+                id: "dLcnNu90Q6a8aWzw2UmAIQ",
+                alias: "advertiserReader"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.selectedCountry",
+            filterBinding: {
+                id: "cLBpnc2FTQuOdMBLGt-owQ",
+                alias: "demographicsCountryReader"
+            }
+        }
 
         ],
         write: [{
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate',
-                filterBinding: {
-                    id: "MVlQxPvZRpaJ5_hYHtAIKQ",
-                    alias: "needsUpdate"
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.currentValue',
-                filterBinding: {
-                    id: "MVlQxPvZRpaJ5_hYHtAIKQ",
-                    alias: "writeCurrentValue"
-                }
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate",
+            filterBinding: {
+                id: "MVlQxPvZRpaJ5_hYHtAIKQ",
+                alias: "needsUpdate"
             }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.currentValue",
+            filterBinding: {
+                id: "MVlQxPvZRpaJ5_hYHtAIKQ",
+                alias: "writeCurrentValue"
+            }
+        }
         ]
     },
 
@@ -113,27 +113,27 @@ module.exports = {
                 let json = JSON.stringify(queryParams);
                 console.log("..... ..... internal app state to be serialized to hashroute='" + json + "'");
                 let buf = Buffer.from(json);
-                let base64 = buf.toString('base64');
+                let base64 = buf.toString("base64");
 
                 while (base64.indexOf("+") >= 0) {
-                    base64 = base64.replace('+', '_');
-                };
+                    base64 = base64.replace("+", "_");
+                }
 
                 while (base64.indexOf("/") >= 0) {
-                    base64 = base64.replace('/', '-');
-                };
+                    base64 = base64.replace("/", "-");
+                }
 
                 let hash = location.hash;
-                hash = hash.replace('#', '');
+                hash = hash.replace("#", "");
                 let hashList = [];
                 let key = "queryParams";
-                if (hash.indexOf(key + '=') > 0) {
-                    hashList = hash.split('&');
+                if (hash.indexOf(key + "=") > 0) {
+                    hashList = hash.split("&");
                     hashList = hashList.filter(element => {
-                        (element.indexOf(key + '=') < 0)
+                        (element.indexOf(key + "=") < 0);
                     });
                 }
-                location.hash = hashList.join('') + '&' + key + '=' + base64;
+                location.hash = hashList.join("") + "&" + key + "=" + base64;
                 serialized = base64;
             } catch (exception) {
                 errors.push(exception);
@@ -162,7 +162,7 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     },
 };

@@ -10,41 +10,41 @@
 **/
 var getValueForKey = function(key, hashLocation) {
     let result;
-    var hash = hashLocation.replace('#', '');
-    var parsed = hash.split('&');
+    var hash = hashLocation.replace("#", "");
+    var parsed = hash.split("&");
 
     parsed.forEach((element) => {
-        if (element.indexOf(key + '=') >= 0) {
+        if (element.indexOf(key + "=") >= 0) {
             result = element.split("=")[1];
         }
     });
     return result;
-}
+};
 /**
 Write an object to key in the hash route.
 **/
 var writeHashRoute = function(key, object) {
     let json = JSON.stringify(object);
     let buf = Buffer.from(json);
-    let base64 = buf.toString('base64');
+    let base64 = buf.toString("base64");
 
     while (base64.indexOf("+") >= 0) {
-        base64 = base64.replace('+', '_');
-    };
+        base64 = base64.replace("+", "_");
+    }
 
     while (base64.indexOf("/") >= 0) {
-        base64 = base64.replace('/', '-');
-    };
+        base64 = base64.replace("/", "-");
+    }
 
     let hash = location.hash;
-    hash = hash.replace('#', '');
+    hash = hash.replace("#", "");
     let hashList = [];
-    if (hash.indexOf(key + '=') > 0) {
-        hashList = hash.split('&');
+    if (hash.indexOf(key + "=") > 0) {
+        hashList = hash.split("&");
         hashList = hashList.filter(element => {
-            (element.indexOf(key + '=') < 0) });
+            (element.indexOf(key + "=") < 0); });
     }
-    location.hash = hashList.join('') + '&' + key + '=' + base64;
+    location.hash = hashList.join("") + "&" + key + "=" + base64;
     return base64;
 };
 
@@ -60,14 +60,14 @@ var deserializeObjectFromHashRoute = function(key, hashLocation) {
     }
     //undo the URL safe string substitutions on base64 encoding
     while (base64.indexOf("_") >= 0) {
-        base64 = base64.replace('_', '+');
-    };
+        base64 = base64.replace("_", "+");
+    }
 
     while (base64.indexOf("-") >= 0) {
-        base64 = base64.replace('-', '/');
-    };
+        base64 = base64.replace("-", "/");
+    }
 
-    let json = Buffer.from(base64, 'base64');
+    let json = Buffer.from(base64, "base64");
 
     result.extractedValue = JSON.parse(json);
     return result;

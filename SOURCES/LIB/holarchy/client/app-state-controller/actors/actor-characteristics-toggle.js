@@ -44,7 +44,7 @@ module.exports = {
 
             let found = false;
             characteristicsOfInterest.forEach((element) => {
-                if (element.name === toggledCharacteristic.name) { found = true };
+                if (element.name === toggledCharacteristic.name) { found = true; }
             });
 
             if (!found) {
@@ -83,7 +83,7 @@ module.exports = {
 
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         if (!(request_.command.actorToggleCharacteristic.isRehydration)) {
             request_.runtimeContext.appStateContext.appStateController.controllerRunFilter();
@@ -93,26 +93,26 @@ module.exports = {
 
     namespaces: {
         read: [{
-            storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics',
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics",
             filterBinding: {
                 id: "E_Iv3lhXT72zyequPduZpg",
-                alias: 'selectedCharacteristics'
+                alias: "selectedCharacteristics"
             }
         }],
         write: [{
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics',
-                filterBinding: {
-                    id: "E6PXBGnyT8KK76CDDLD_Bw",
-                    alias: 'selectedCharacteristics'
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate',
-                filterBinding: {
-                    id: "kA8wBP_wSQ-6KFwJbqa-_Q",
-                    alias: "queryParamsWritten"
-                }
-            },
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics",
+            filterBinding: {
+                id: "E6PXBGnyT8KK76CDDLD_Bw",
+                alias: "selectedCharacteristics"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate",
+            filterBinding: {
+                id: "kA8wBP_wSQ-6KFwJbqa-_Q",
+                alias: "queryParamsWritten"
+            }
+        },
         ]
     }
 };

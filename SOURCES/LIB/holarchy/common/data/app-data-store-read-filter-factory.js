@@ -1,7 +1,7 @@
 // sources/common/data/app-data-store-read-filter-factory.js
 
-const arccore = require('arccore');
-const getNamespaceInReferenceFromPath = require('./get-namespace-in-reference-from-path');
+const arccore = require("arccore");
+const getNamespaceInReferenceFromPath = require("./get-namespace-in-reference-from-path");
 
 var factoryResponse = arccore.filter.create({
 
@@ -46,7 +46,7 @@ var factoryResponse = arccore.filter.create({
                 break;
             }
 
-            if (!request_.namespacePath.startsWith('~')) {
+            if (!request_.namespacePath.startsWith("~")) {
                 errors.push("Invalid namespacePath value must be a dot-delimited ARCcore.filter namespace path beginning in `~`.");
                 break;
             }
@@ -89,7 +89,7 @@ var factoryResponse = arccore.filter.create({
                         while (!inBreakScope) {
                             inBreakScope = true;
 
-                            console.log([ 'STATE READ <<< ', this.operationID, '::', this.operationName, " '", appDataStorePath, "'"].join(''));
+                            console.log([ "STATE READ <<< ", this.operationID, "::", this.operationName, " '", appDataStorePath, "'"].join(""));
 
                             var innerResponse = getNamespaceInReferenceFromPath.request({
                                 namespacePath: appDataStorePath,
@@ -103,7 +103,7 @@ var factoryResponse = arccore.filter.create({
                             break;
                         }
                         if (errors.length)
-                            response.error = errors.join(' ');
+                            response.error = errors.join(" ");
                         return response;
                     },
                     outputFilterSpec: namespaceFilterSpec
@@ -122,7 +122,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         return response;
 

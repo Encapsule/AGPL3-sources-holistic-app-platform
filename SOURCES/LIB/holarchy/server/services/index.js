@@ -2,17 +2,17 @@
 
 module.exports = {
 
-    MarkdownFromFilesystem: require('./service-fs-markdown-render'),
+    MarkdownFromFilesystem: require("./service-fs-markdown-render"),
 
-    OptionsAsContent: require('./options-as-content/service-options-as-html-content'),
-    OptionsAsContentNoAuth: require('./options-as-content/service-options-as-html-content-no-auth'),
+    OptionsAsContent: require("./options-as-content/service-options-as-html-content"),
+    OptionsAsContentNoAuth: require("./options-as-content/service-options-as-html-content-no-auth"),
 
-    HealthCheck: require('./service-health-check'),
+    HealthCheck: require("./service-health-check"),
 
     //////////////////////////////////////////////////////////////////////////
 
-    DeveloperGetAppDataStoreIntegrations: require('./service-developer-get-app-data-store-integrations'),
-    DeveloperGetAppDataStoreFilterSpec: require('./service-developer-get-app-data-store-filter-spec'),
+    DeveloperGetAppDataStoreIntegrations: require("./service-developer-get-app-data-store-integrations"),
+    DeveloperGetAppDataStoreFilterSpec: require("./service-developer-get-app-data-store-filter-spec"),
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -20,6 +20,6 @@ module.exports = {
     // Encapsule/holism-derived Node.js server. The following services encapsulate proxied requests to
     // the actual Rainier backend service (API and RMS).
 
-    RainierUXBaseDataGateway: require('./service-rainier-ux-data'),
+    RainierUXBaseDataGateway: require("./service-rainier-ux-data"),
 
 };

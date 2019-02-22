@@ -4,27 +4,27 @@
 
 const CLIENT_APP_REACT_RENDER_ENABLED = true; // Simple flag used for debugging server rendering issues
 
-const buildTag = require('../../../../build/_build-tag');
+const buildTag = require("../../../../build/_build-tag");
 const productName = (buildTag.displayName + " v" + buildTag.packageVersion);
 
-const arccore = require('arccore');
-const React = require('react');
-const ReactDOM = require('react-dom');
-const dataStoreConstructorFactory = require('../common/data/app-data-store-constructor-factory');
-const metadataStoreFactory = require('../common/metadata');
+const arccore = require("arccore");
+const React = require("react");
+const ReactDOM = require("react-dom");
+const dataStoreConstructorFactory = require("../common/data/app-data-store-constructor-factory");
+const metadataStoreFactory = require("../common/metadata");
 
-const appStateActorDispatcherFactory = require('./app-state-controller/lib/app-state-actor-dispatcher-factory');
-const appStateControllerFactory = require('./app-state-controller/lib/app-state-controller-factory');
-const appStateController_Run = require('./app-state-controller/lib/app-state-controller-run');
+const appStateActorDispatcherFactory = require("./app-state-controller/lib/app-state-actor-dispatcher-factory");
+const appStateControllerFactory = require("./app-state-controller/lib/app-state-controller-factory");
+const appStateController_Run = require("./app-state-controller/lib/app-state-controller-run");
 
-const appStateControllerSubcontrollerModels = require('./app-state-controller/subcontrollers');
+const appStateControllerSubcontrollerModels = require("./app-state-controller/subcontrollers");
 
-const MinimalHashRouter = require('./hash-router/minimal-hash-router');
+const MinimalHashRouter = require("./hash-router/minimal-hash-router");
 
-const baseAppDataViewBindings = require('../common/view/elements');
-const RUXBase_PageHeader_QCGlobalNavWrapper_Client = require('../common/view/elements/component/RUXBase_PageHeader_QCGlobalNavWrapper_Client.jsx');
+const baseAppDataViewBindings = require("../common/view/elements");
+const RUXBase_PageHeader_QCGlobalNavWrapper_Client = require("../common/view/elements/component/RUXBase_PageHeader_QCGlobalNavWrapper_Client.jsx");
 baseAppDataViewBindings.push(RUXBase_PageHeader_QCGlobalNavWrapper_Client);
-const reactComponentRouterFactory = require('../common/view/component-router/react-component-router-factory');
+const reactComponentRouterFactory = require("../common/view/component-router/react-component-router-factory");
 
 var factoryResponse = arccore.filter.create({
     operationID: "ZrRTyRAbSfCoPNLMbm7VzQ",
@@ -119,7 +119,7 @@ var factoryResponse = arccore.filter.create({
                 break;
             }
 
-            const initializing = 'initializing';
+            const initializing = "initializing";
 
             var appDataStore = factoryResponse.result;
 
@@ -200,7 +200,7 @@ var factoryResponse = arccore.filter.create({
                 console.log(".... forwarding route change notification message to derived client applicaiton:");
                 clientInitRequest.onClientAppRouteChange(routeDescriptor_);
 
-            }
+            };
             var routeDescriptor = router.registerChangeCallback(onHashRouteChanged);
 
             console.log("> WAITING ON THE BROWSER TO LOAD REQUIRED RESOURCES...");
@@ -230,9 +230,9 @@ var factoryResponse = arccore.filter.create({
                 // De-serialize the client application's initial boot state from JSON data
                 // embedded in the page DOM by the server-side HTML rendering subsystem.
                 //
-                var bootDataElement = document.getElementById('idAppRuntimeBootROM');
+                var bootDataElement = document.getElementById("idAppRuntimeBootROM");
                 var bootDataBase64 = bootDataElement.textContent;
-                var bootDataJSON = new Buffer(bootDataBase64, 'base64').toString('utf8');
+                var bootDataJSON = new Buffer(bootDataBase64, "base64").toString("utf8");
                 var bootData = JSON.parse(bootDataJSON);
                 bootDataElement.parentNode.removeChild(bootDataElement); // delete the DOM node
                 console.log("> Boot ROM deserialized. Client HTML5 application is booting...");
@@ -250,10 +250,10 @@ var factoryResponse = arccore.filter.create({
                     "--------------------------------------------------------------------------",
                     "user_agent = " + JSON.stringify(agentMetadata, undefined, 4),
                     "--------------------------------------------------------------------------",
-                ].join('\n'));
+                ].join("\n"));
 
                 // Get the DOM element selector of the DIV whose contents will be replaced/updated by client-side React render requests.
-                const targetDOMElement = document.getElementById('idQuantcastAppView');
+                const targetDOMElement = document.getElementById("idQuantcastAppView");
 
                 // Create a function that affects a re-rendering of the client-side view using the data currently held in reactDataContext structure.
                 function reactRenderPageView() {
@@ -292,8 +292,8 @@ var factoryResponse = arccore.filter.create({
                 // in order to bind user input event handlers and pick up and state changes that may have already
                 // occurred during the initialization of the client application.
 
-                clientInitRequest.appStateContext.appDataStore.base.runtime.context = 'client';
-                clientInitRequest.appStateContext.appDataStore.base.runtime.client.state = 'running';
+                clientInitRequest.appStateContext.appDataStore.base.runtime.context = "client";
+                clientInitRequest.appStateContext.appDataStore.base.runtime.client.state = "running";
                 console.log("> Replacing server-rendered content with live client view...");
 
                 // First run of the app state controller occurs before the derived application client is called.
@@ -319,7 +319,7 @@ var factoryResponse = arccore.filter.create({
         }
 
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         return response;
 

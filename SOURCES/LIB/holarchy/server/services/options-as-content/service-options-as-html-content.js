@@ -23,9 +23,9 @@
 //
 // This implementation will redirect the user if they are obviously not logged in.
 
-const httpServiceFilterFactory = require('holism').service;
-const serviceUtils = require('./../service-utils');
-const common =  require('./common');
+const httpServiceFilterFactory = require("holism").service;
+const serviceUtils = require("./../service-utils");
+const common =  require("./common");
 const constraints = common.constraints;
 const contentTypeLUT = common.contentTypeLUT;
 
@@ -69,7 +69,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                     request_descriptor: request_.request_descriptor,
                     response_descriptor: {
                         http: { code: 200, message: "React!" },
-                        content: { encoding: 'utf8', type: contentTypeLUT[request_.request_descriptor.data.query.format] },
+                        content: { encoding: "utf8", type: contentTypeLUT[request_.request_descriptor.data.query.format] },
                         data: request_.options // <--- options value from service filter registration passed through to HTML render subsystem as static content
                     }
                 });
@@ -85,7 +85,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                     request_descriptor: request_.request_descriptor,
                     error_descriptor: {
                         http: { code: 500 },
-                        content: { encoding: 'utf8', type: 'text/html' },
+                        content: { encoding: "utf8", type: "text/html" },
                         data: {
                             error_message: message,
                             error_context: {
@@ -99,7 +99,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                     return { error: errorAttempt.error };
                 }
             }
-        return { error: null, result: null }
+            return { error: null, result: null };
         }
     }
 });

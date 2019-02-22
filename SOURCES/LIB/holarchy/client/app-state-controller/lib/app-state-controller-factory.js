@@ -1,10 +1,10 @@
 // app-state-controller-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const appDataStoreWriteFilterFactory = require('../../../common/data/app-data-store-write-filter-factory');
-const appStateControllerStepFilter = require('./app-state-controller-step');
-const appStateControllerRunFilter = require('./app-state-controller-run');
+const appDataStoreWriteFilterFactory = require("../../../common/data/app-data-store-write-filter-factory");
+const appStateControllerStepFilter = require("./app-state-controller-step");
+const appStateControllerRunFilter = require("./app-state-controller-run");
 
 var factoryResponse = arccore.filter.create({
 
@@ -69,11 +69,11 @@ var factoryResponse = arccore.filter.create({
                 var modelName = subcontrollerDigraphModel.getGraphName();
 
                 // Require every controller state model to have a single root vertex named "uninitialized"
-                if (!subcontrollerDigraphModel.isVertex('uninitialized')) {
+                if (!subcontrollerDigraphModel.isVertex("uninitialized")) {
                     errors.push("Controller state model '" + modelName + "' does not contain required state vertex 'uninitialized'.");
                     break;
                 }
-                if (subcontrollerDigraphModel.inDegree('uninitialized') !== 0) {
+                if (subcontrollerDigraphModel.inDegree("uninitialized") !== 0) {
                     errors.push("Controller state model '" + modelName + "' reserved start state 'uninitialized' cannot be the target of any transition vectors.");
                     break;
                 }
@@ -104,7 +104,7 @@ var factoryResponse = arccore.filter.create({
 
                 result.controllerMap[modelName] = {
                     modelIndex: result.controllerStateModels.length - 1,
-                    state: 'uninitialized',
+                    state: "uninitialized",
                     stateNamespacePath: subcontrollerDigraphModel.namespaceBindings.stateNamespacePath,
                     stateNamespaceWriteFilter: stateNamespaceWriteFilter
                 };
@@ -117,7 +117,7 @@ var factoryResponse = arccore.filter.create({
             var innerResponse = appDataStoreWriteFilterFactory.request({
                 appDataStoreFilterSpec: request_.appDataStoreFilterSpec,
                 id: "FdIDYbbRTy2HhfqoEsOJvA",
-                stateNamespacePath: '~.__AppStateControllerPrivate.step'
+                stateNamespacePath: "~.__AppStateControllerPrivate.step"
             });
 
             if (innerResponse.error) {
@@ -130,7 +130,7 @@ var factoryResponse = arccore.filter.create({
             innerResponse = appDataStoreWriteFilterFactory.request({
                 appDataStoreFilterSpec: request_.appDataStoreFilterSpec,
                 id: "c61978yPR6eK74osKT8FBg",
-                stateNamespacePath: '~.__AppStateControllerPrivate.control'
+                stateNamespacePath: "~.__AppStateControllerPrivate.control"
             });
 
             if (innerResponse.error) {
@@ -146,7 +146,7 @@ var factoryResponse = arccore.filter.create({
         }
         if (errors.length) {
             errors.push("App state controller is offline due to initialization error.");
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
 
         return response;

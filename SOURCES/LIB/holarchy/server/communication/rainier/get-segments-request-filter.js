@@ -5,8 +5,8 @@
 //
 
 
-const apiConstants = require('./api-constants');
-const HttpServerSideRequestFactory = require('hrequest/server-factory');
+const apiConstants = require("./api-constants");
+const HttpServerSideRequestFactory = require("hrequest/server-factory");
 
 var factoryResponse = HttpServerSideRequestFactory.request({
     name: "Segments",

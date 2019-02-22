@@ -5,7 +5,7 @@
 // client GET/POST request messages from the Node.js app server's
 // service-rainier-ux-data.js module.
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "7FInJgBrR6WOqVRiFiEyXg",
@@ -64,7 +64,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

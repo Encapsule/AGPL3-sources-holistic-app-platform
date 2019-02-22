@@ -20,13 +20,13 @@ module.exports = {
             transitions: [
                 {
                     nextState: "initializing",
-                    operator:  { inState: 'RainierBaseController:ready' }
+                    operator:  { inState: "RainierBaseController:ready" }
                 }
             ],
         },
         {
             name: "initializing",
-             actions: {
+            actions: {
                 enter: [
                     {
                         copy: {
@@ -40,12 +40,12 @@ module.exports = {
                 {
                     nextState: "ready",
                     operator: {and: [
-                            { inState: 'TargetAudienceController:ready' },
-                            { inState: 'BaselineAudienceController:ready' },
-                            { inState: 'CharacteristicsController:ready' },
-                            { inState: 'DateSelectorController:ready' },
+                        { inState: "TargetAudienceController:ready" },
+                        { inState: "BaselineAudienceController:ready" },
+                        { inState: "CharacteristicsController:ready" },
+                        { inState: "DateSelectorController:ready" },
 
-                        ]
+                    ]
                     }
                 }
             ]
@@ -60,12 +60,12 @@ module.exports = {
                 {
                     nextState: "edited",
                     operator: {or: [
-                            { inState: 'TargetAudienceController:edited' },
-                            { inState: 'BaselineAudienceController:edited' },
-                            { inState: 'CharacteristicsController:edited' },
-                            { inState: 'DateSelectorController:edited' },
+                        { inState: "TargetAudienceController:edited" },
+                        { inState: "BaselineAudienceController:edited" },
+                        { inState: "CharacteristicsController:edited" },
+                        { inState: "DateSelectorController:edited" },
 
-                        ]
+                    ]
                     }
                 }
             ]
@@ -80,21 +80,21 @@ module.exports = {
                 {
                     nextState: "ready-to-submit",
                     operator: {and: [
-                           { inState: 'TargetAudienceController:edited' },
-                           { inState: 'BaselineAudienceController:edited' },
-                           { inState: 'CharacteristicsController:edited' },
-                           { inState: 'DateSelectorController:edited' },
-                        ]
+                        { inState: "TargetAudienceController:edited" },
+                        { inState: "BaselineAudienceController:edited" },
+                        { inState: "CharacteristicsController:edited" },
+                        { inState: "DateSelectorController:edited" },
+                    ]
                     }
                 },
                 {
                     nextState: "ready",
                     operator: {and: [
-                           { inState: 'TargetAudienceController:ready' },
-                           { inState: 'BaselineAudienceController:ready' },
-                           { inState: 'CharacteristicsController:ready' },
-                           { inState: 'DateSelectorController:ready' },
-                        ]
+                        { inState: "TargetAudienceController:ready" },
+                        { inState: "BaselineAudienceController:ready" },
+                        { inState: "CharacteristicsController:ready" },
+                        { inState: "DateSelectorController:ready" },
+                    ]
                     }
                 }
             ]
@@ -113,11 +113,11 @@ module.exports = {
                 {
                     nextState: "edited",
                     operator: {or: [
-                           { not: {inState: 'TargetAudienceController:edited' }},
-                           { not: {inState: 'BaselineAudienceController:edited' }},
-                           { not: {inState: 'CharacteristicsController:edited' }},
-                           { not: {inState: 'DateSelectorController:edited' }},
-                        ]
+                        { not: {inState: "TargetAudienceController:edited" }},
+                        { not: {inState: "BaselineAudienceController:edited" }},
+                        { not: {inState: "CharacteristicsController:edited" }},
+                        { not: {inState: "DateSelectorController:edited" }},
+                    ]
                     }
                 }
             ]

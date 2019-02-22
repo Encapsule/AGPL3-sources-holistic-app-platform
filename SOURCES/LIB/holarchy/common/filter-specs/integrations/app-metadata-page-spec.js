@@ -1,8 +1,8 @@
 // app-metadata-page-spec.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const developerInputMetadataPageSpec = require('./developer-input-metadata-page-spec');
+const developerInputMetadataPageSpec = require("./developer-input-metadata-page-spec");
 var spec = arccore.util.clone(developerInputMetadataPageSpec);
 
 const derivedPageStateSpec = {

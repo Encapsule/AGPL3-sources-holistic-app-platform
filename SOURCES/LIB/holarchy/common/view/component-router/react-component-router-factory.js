@@ -4,11 +4,11 @@
 // factory for building a <ComponentRouter/> React component given an array of
 // React component data binding filters.
 
-const arccore = require('arccore');
-const React = require('react');
+const arccore = require("arccore");
+const React = require("react");
 
-const ComponentRouterSubfactory = require('./ComponentRouter.jsx');
-const appDataStoreIntegrationsProcessor = require('../../data/app-data-store-integrations-processor');
+const ComponentRouterSubfactory = require("./ComponentRouter.jsx");
+const appDataStoreIntegrationsProcessor = require("../../data/app-data-store-integrations-processor");
 
 var factoryResponse = arccore.filter.create({
     operationID: "Jo7GwCreQNaZp11l52Uciw",
@@ -57,9 +57,9 @@ var factoryResponse = arccore.filter.create({
 
             request_.dataViewBindingFilterSetOfSets.forEach(function(dataViewBindingFilterSet_) {
                 dataViewBindingFilterSet_.forEach(function(dataViewBindingFilter_) {
-                    dataViewBindingFilters.push(dataViewBindingFilter_)
+                    dataViewBindingFilters.push(dataViewBindingFilter_);
                     console.log("... " + dataViewBindingFilter_.filterDescriptor.operationID + "::" + dataViewBindingFilter_.filterDescriptor.operationName);
-                })
+                });
             });
 
             if (dataViewBindingFilters.length < 2) {
@@ -88,7 +88,7 @@ var factoryResponse = arccore.filter.create({
 
             // Create an ARCcore.discriminator filter that routes its request to 1:N possible target filters.
             var innerFactoryResponse = arccore.discriminator.create({
-                options: { action: 'getFilterID' },
+                options: { action: "getFilterID" },
                 filters: dataViewBindingFilters
             });
 
@@ -144,7 +144,7 @@ var factoryResponse = arccore.filter.create({
         }
 
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         return response;
     },

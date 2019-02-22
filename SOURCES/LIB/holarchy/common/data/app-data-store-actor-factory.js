@@ -1,9 +1,9 @@
 // sources/common/data/app-data-store-actor-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const appDataStoreReadFilterFactory = require('./app-data-store-read-filter-factory');
-const appDataStoreWriteFilterFactory = require('./app-data-store-write-filter-factory');
+const appDataStoreReadFilterFactory = require("./app-data-store-read-filter-factory");
+const appDataStoreWriteFilterFactory = require("./app-data-store-write-filter-factory");
 
 var factoryResponse = arccore.filter.create({
 
@@ -146,7 +146,7 @@ var factoryResponse = arccore.filter.create({
 
     bodyFunction: function(stateActorFactoryRequest_) {
 
-        console.log([ 'STATE ACTOR ** ', this.operationID, '::', this.operationName, ' constructing ', stateActorFactoryRequest_.actorDeclaration.id, '::', stateActorFactoryRequest_.actorDeclaration.name, ' **' ].join(''));
+        console.log([ "STATE ACTOR ** ", this.operationID, "::", this.operationName, " constructing ", stateActorFactoryRequest_.actorDeclaration.id, "::", stateActorFactoryRequest_.actorDeclaration.name, " **" ].join(""));
 
         var response = { error: null, result: undefined };
         var errors = [];
@@ -224,7 +224,7 @@ var factoryResponse = arccore.filter.create({
                     operationDescription: stateActorFactoryRequest_.actorDeclaration.description,
                     inputFilterSpec: stateActorFactoryRequest_.actorDeclaration.commandSpec,
                     bodyFunction: function(request_) {
-                        console.log([ this.operationID, '::', this.operationName ].join(''))
+                        console.log([ this.operationID, "::", this.operationName ].join(""));
                         var response = { error: null , result: null };
                         var errors = [];
                         var inBreakScope = false;
@@ -244,7 +244,7 @@ var factoryResponse = arccore.filter.create({
                             break;
                         }
                         if (errors.length)
-                            response.error = errors.join(' ');
+                            response.error = errors.join(" ");
                         return response;
                     },
                     // bodyFunction: stateActorFactoryRequest_.actorDeclaration.bodyFunction,
@@ -271,7 +271,7 @@ var factoryResponse = arccore.filter.create({
         } // !inBreakScope
 
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     },
 

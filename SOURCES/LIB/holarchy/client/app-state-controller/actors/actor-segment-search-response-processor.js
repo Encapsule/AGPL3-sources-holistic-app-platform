@@ -5,7 +5,7 @@
 // client library API to allow the derived application to specify its own ASC subcontrollers,
 // transition operators, and state actor filters yet... So...
 
-const getNamespaceInReferenceFromPath = require('../../../common/data/get-namespace-in-reference-from-path');
+const getNamespaceInReferenceFromPath = require("../../../common/data/get-namespace-in-reference-from-path");
 
 module.exports = {
 
@@ -79,7 +79,7 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     }
 

@@ -1,8 +1,8 @@
 // sources/client/app-state-controller/app-state-actor-dispatcher-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const appStateActorFactories = require('../actors'); // returns a function that accepts actorRuntimeContext
+const appStateActorFactories = require("../actors"); // returns a function that accepts actorRuntimeContext
 
 var factoryResponse = arccore.filter.create({
 
@@ -48,7 +48,7 @@ var factoryResponse = arccore.filter.create({
             // Build the 1:N discrimintor filter used to route state actor commands to their target actor filters.
             var innerResponse = arccore.discriminator.create({
                 filters: appStateActorFilters,
-                options: { action: 'routeRequest' }
+                options: { action: "routeRequest" }
             });
 
             if (innerResponse.error) {
@@ -73,7 +73,7 @@ var factoryResponse = arccore.filter.create({
         }
 
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         return response;
 

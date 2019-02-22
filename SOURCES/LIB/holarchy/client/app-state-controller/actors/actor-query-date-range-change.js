@@ -29,19 +29,19 @@ module.exports = {
     namespaces: {
         read: [],
         write: [{
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.dateSelector.selectedDateRange",
-                filterBinding: {
-                    id: "2SDdhfkdSpSZ8JeizKP5MQ",
-                    alias: "queryDateRange"
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate',
-                filterBinding: {
-                    id: "U3flk6hPSs-hcgs5lZvXlA",
-                    alias: "queryParamsWritten"
-                }
-            },
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.dateSelector.selectedDateRange",
+            filterBinding: {
+                id: "2SDdhfkdSpSZ8JeizKP5MQ",
+                alias: "queryDateRange"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate",
+            filterBinding: {
+                id: "U3flk6hPSs-hcgs5lZvXlA",
+                alias: "queryParamsWritten"
+            }
+        },
         ]
     },
 
@@ -83,7 +83,7 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         if (!(request_.command.actorQueryDateRangeChange.isRehydration)) {
             request_.runtimeContext.appStateContext.appStateController.controllerRunFilter();
         }

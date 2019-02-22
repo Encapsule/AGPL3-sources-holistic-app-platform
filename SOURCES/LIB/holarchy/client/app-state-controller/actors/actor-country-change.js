@@ -63,7 +63,7 @@ module.exports = {
             if (innerResponse.error) {
                 errors.push(innerResponse.error);
                 break;
-            };
+            }
 
             innerResponse = request_.namespaces.write.selectedCharacteristicsWriter.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
@@ -72,7 +72,7 @@ module.exports = {
             if (innerResponse.error) {
                 errors.push(innerResponse.error);
                 break;
-            };
+            }
 
             if (!(request_.command.actorCountryChange.isRehydration)) {
                 innerResponse = request_.namespaces.write.queryParamsWritten.request({
@@ -106,40 +106,40 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
 
         return response;
     },
 
     namespaces: {
         write: [{
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.selectedCountry",
-                filterBinding: {
-                    id: "-ywm5jquSfGsA3H-hW1d2g",
-                    alias: "demographicCountry"
-                }
-            },
-            {
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.demographicCategories",
-                filterBinding: {
-                    id: "1gg4FAPcSiWFIULn9QZPzQ",
-                    alias: "demographicCategories"
-                }
-            },
-            {
-                storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics",
-                filterBinding: {
-                    id: "jd-_3xJ0S6Whqw4-5rNOlA",
-                    alias: "selectedCharacteristicsWriter"
-                }
-            },
-            {
-                storePath: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate',
-                filterBinding: {
-                    id: "ZIah-qO3SJCtBY1WNxAVcQ",
-                    alias: "queryParamsWritten"
-                }
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.selectedCountry",
+            filterBinding: {
+                id: "-ywm5jquSfGsA3H-hW1d2g",
+                alias: "demographicCountry"
             }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.demographicCategories",
+            filterBinding: {
+                id: "1gg4FAPcSiWFIULn9QZPzQ",
+                alias: "demographicCategories"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.characteristicsOfInterest.selectedCharacteristics",
+            filterBinding: {
+                id: "jd-_3xJ0S6Whqw4-5rNOlA",
+                alias: "selectedCharacteristicsWriter"
+            }
+        },
+        {
+            storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryParamSerializer.needsUpdate",
+            filterBinding: {
+                id: "ZIah-qO3SJCtBY1WNxAVcQ",
+                alias: "queryParamsWritten"
+            }
+        }
         ],
         read: [{
             storePath: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.characteristics.demographicCategoryMap",

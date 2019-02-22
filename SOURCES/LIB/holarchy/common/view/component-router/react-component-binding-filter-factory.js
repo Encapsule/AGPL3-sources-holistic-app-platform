@@ -1,7 +1,7 @@
 // content-data-view-binding-filter-factory.js
 
-const arccore = require('arccore');
-const React = require('react');
+const arccore = require("arccore");
+const React = require("react");
 
 var factoryResponse = arccore.filter.create({
 
@@ -148,7 +148,7 @@ var factoryResponse = arccore.filter.create({
                     errors.unshift("Invalid app data binding descriptor declaration for alias '" + alias + "' specifies a zero-length target storage node in the app data store.");
                     break;
                 }
-                if (!readDependency.storePath.startsWith('~')) {
+                if (!readDependency.storePath.startsWith("~")) {
                     errors.unshift("Invalid app data binding descriptor declaration for alias '" + alias + "' specifies a path for app data storage that does not begin with tilda ('~').");
                     break;
                 }

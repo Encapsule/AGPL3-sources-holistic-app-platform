@@ -1,6 +1,6 @@
 // app-state-controller-model-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 // Accepts developer app state controller declaration input. Produces a DirectedGraph model of the app state controller.
 
@@ -170,7 +170,7 @@ var factoryResponse = arccore.filter.create({
 
         if (errors.length) {
             errors.unshift("Error while evaluating subcontroller '" + request_.name + "' declaration.");
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     },

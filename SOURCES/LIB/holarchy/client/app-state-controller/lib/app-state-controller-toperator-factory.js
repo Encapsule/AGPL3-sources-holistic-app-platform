@@ -1,6 +1,6 @@
 // transition-operator-filter-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "-99RI_6HTsiQgwN2OV1xXQ",
@@ -53,7 +53,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     },
     outputFilterSpec: {

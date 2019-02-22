@@ -3,10 +3,10 @@
 // API endpoint URL's and related constants used to communicate from the Node.js UX server to the Rainier API service.
 //
 
-const path = require('path');
-const process = require('process');
-const arccore = require('arccore');
-const buildTag = require('../../../../../../build/_build-tag');
+const path = require("path");
+const process = require("process");
+const arccore = require("arccore");
+const buildTag = require("../../../../../../build/_build-tag");
 
 // ======================================================================
 // SOFTWARE DEFAULT VALUES
@@ -18,23 +18,23 @@ const backendHostLookupTable = {
         // rmsHost: 'locahost:5000'
 
         // Hit development in local development environment for now. We expect this to fail currently.
-        apiHost: 'http://rainier-test.us-west-2.adcentral.aws',
-        rmsHost: 'http://rms-test.us-west-2.adcentral.aws'
+        apiHost: "http://rainier-test.us-west-2.adcentral.aws",
+        rmsHost: "http://rms-test.us-west-2.adcentral.aws"
     },
 
     development: {
-        apiHost: 'http://rainier-test.us-west-2.adcentral.aws',
-        rmsHost: 'http://rms-test.us-west-2.adcentral.aws'
+        apiHost: "http://rainier-test.us-west-2.adcentral.aws",
+        rmsHost: "http://rms-test.us-west-2.adcentral.aws"
     },
 
     staging: {
-        apiHost: 'http://rainier-staging.us-west-2.adcentral.aws',
-        rmsHost: 'http://rainier-metadata-staging.us-west-2.adcentral.aws',
+        apiHost: "http://rainier-staging.us-west-2.adcentral.aws",
+        rmsHost: "http://rainier-metadata-staging.us-west-2.adcentral.aws",
     },
 
     production: {
-        apiHost: 'http://rainier-production.us-west-2.adcentral.aws',
-        rmsHost: 'http://rainier-metadata-production.us-west-2.adcentral.aws'
+        apiHost: "http://rainier-production.us-west-2.adcentral.aws",
+        rmsHost: "http://rainier-metadata-production.us-west-2.adcentral.aws"
     }
 
 };
@@ -53,8 +53,8 @@ if (!backendHosts) {
 
 // ENVIRONMENT-INDEPENDENT SOFTWARE DEFAULT VALUES
 
-const RAINIER_UX_API_APP_ACCT = 'rainier';
-const VERSIONED_API_ROOT_URI = '/rainier/api/2.0/';
+const RAINIER_UX_API_APP_ACCT = "rainier";
+const VERSIONED_API_ROOT_URI = "/rainier/api/2.0/";
 
 
 // FILTER TO IMPLEMENT POLICY
@@ -104,12 +104,12 @@ var factoryResponse = arccore.filter.create({
                 rms: rmsHost
             },
             endpoints: {
-	        urlRainierGetSegments: (rmsHost + path.join(VERSIONED_API_ROOT_URI, 'segment-definitions')),
-	        urlRainierGetCategories: (rmsHost + path.join(VERSIONED_API_ROOT_URI, 'categories')),
-                urlRainierGetSegmentSearch: (rmsHost + path.join(VERSIONED_API_ROOT_URI, 'segment-definitions/search')),
-                urlRainierGetCountrySegments: (rmsHost + path.join(VERSIONED_API_ROOT_URI, 'segment-definitions?category=%2Fqc%2Fgeo%2Fcountry')),
-                urlRainierGetAGCategories: (rmsHost + path.join(VERSIONED_API_ROOT_URI, 'categories?ancestor=%2Faudience-link')),
-                urlRainierPostAdhocReport: (apiHost + path.join(VERSIONED_API_ROOT_URI, 'adhoc-reports'))
+	        urlRainierGetSegments: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "segment-definitions")),
+	        urlRainierGetCategories: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "categories")),
+                urlRainierGetSegmentSearch: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "segment-definitions/search")),
+                urlRainierGetCountrySegments: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "segment-definitions?category=%2Fqc%2Fgeo%2Fcountry")),
+                urlRainierGetAGCategories: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "categories?ancestor=%2Faudience-link")),
+                urlRainierPostAdhocReport: (apiHost + path.join(VERSIONED_API_ROOT_URI, "adhoc-reports"))
             }
         }});
     }, // bodyFunction

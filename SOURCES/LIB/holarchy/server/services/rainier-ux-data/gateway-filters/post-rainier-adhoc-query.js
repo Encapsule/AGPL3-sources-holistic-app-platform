@@ -1,11 +1,11 @@
 // sources/server/services/rainier-ux-data/data-gateway-filters/post-rainier-adhoc-query.js
 
 
-const dataGatewayFilterFactory = require('../lib/data-gateway-filter-factory');
-const buildOutgoingHeaders = require('../lib/build-outgoing-headers-for-backend-proxy');
-const rainierProxyPostAdhocQueryReport = require('../../../communication/rainier/post-adhoc-query');
+const dataGatewayFilterFactory = require("../lib/data-gateway-filter-factory");
+const buildOutgoingHeaders = require("../lib/build-outgoing-headers-for-backend-proxy");
+const rainierProxyPostAdhocQueryReport = require("../../../communication/rainier/post-adhoc-query");
 
-const extractAuthenticationTokenFromHeader = require('../../../integrations/extract-authentication-token-from-headers');
+const extractAuthenticationTokenFromHeader = require("../../../integrations/extract-authentication-token-from-headers");
 
 var factoryResponse = dataGatewayFilterFactory.request({
     id: "3nPRxJxDSAaXRxDQpHRarA",
@@ -42,7 +42,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
 
     gatewayMessageHandler: function(gatewayRequest_) {
 
-        console.log('..... ' + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
+        console.log("..... " + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
 
         var response = { error: null , result: null };
         var errors = [];
@@ -70,7 +70,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                         request_descriptor: gatewayFilterRequest.request_descriptor,
                         response_descriptor: {
                             http: { code: 200, message: "Rainier!" },
-                            content: { encoding: 'utf8', type: 'application/json' },
+                            content: { encoding: "utf8", type: "application/json" },
                             data: result_
                         }
                     });
@@ -87,7 +87,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                         request_descriptor: gatewayFilterRequest.request_descriptor,
                         response_descriptor: {
                             http: { code: 400 },
-                            content: { encoding: 'utf8', type: 'application/json' },
+                            content: { encoding: "utf8", type: "application/json" },
                             data: {
                                 error_message: error_,
                                 error_context: { source_tag: "rainier-ux-base::zRfgr8zIQKWdpICyHK5VzQ" }
@@ -106,7 +106,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
 
         return response;

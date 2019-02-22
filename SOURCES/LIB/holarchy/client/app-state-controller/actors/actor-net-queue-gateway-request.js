@@ -1,7 +1,7 @@
 // sources/client/app-state-controller/actors/actor-net-external-queue-gateway-request.js
 
-const getNamespaceInReferenceFromPath = require('../../../common/data/get-namespace-in-reference-from-path');
-const RainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const getNamespaceInReferenceFromPath = require("../../../common/data/get-namespace-in-reference-from-path");
+const RainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 const baseNetworkControllerNamespace = "~.base.RainierBaseController.network";
 
@@ -49,9 +49,9 @@ module.exports = {
             const networkControllerNamespace = innerResponse.result;
 
             // Get a reference to the parent of the namespace specified by the caller via `responsePath`.
-            var responseParentPathTokens = commandBody.responsePath.split('.');
+            var responseParentPathTokens = commandBody.responsePath.split(".");
             const responseNamespaceToken = responseParentPathTokens.pop();
-            const responseParentPath = responseParentPathTokens.join('.');
+            const responseParentPath = responseParentPathTokens.join(".");
             innerResponse = getNamespaceInReferenceFromPath.request({
                 namespacePath: responseParentPath,
                 sourceRef: request_.runtimeContext.appStateContext.appDataStore
@@ -125,7 +125,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

@@ -1,6 +1,6 @@
 // sources/server/services/service-rainier-ux-data/gateway-filters/get-rainier-demographic-categories.js
 
-const dataGatewayFilterFactory = require('../lib/data-gateway-filter-factory');
+const dataGatewayFilterFactory = require("../lib/data-gateway-filter-factory");
 
 // These can be derived from parsing rainier categories, but they rarely change
 // so listing them here with nice labeling.
@@ -8,18 +8,18 @@ const geoCategories = {
     categoryGroup: "GEO",
     categories: [
         {label: "City",
-         id: "/qc/geo/city"
+            id: "/qc/geo/city"
         },
         {label: "Country",
-         id: "/qc/geo/country"
+            id: "/qc/geo/country"
         },
         {label: "Metro",
-         id: "/qc/geo/metro"},
+            id: "/qc/geo/metro"},
         {label: "Postal code",
-         id: "/qc/geo/postal-code"
+            id: "/qc/geo/postal-code"
         },
         {label: "Region",
-         id: "/qc/geo/region"
+            id: "/qc/geo/region"
         }
     ]
 };
@@ -50,7 +50,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
 
     gatewayMessageHandler: function (gatewayRequest_) {
 
-        console.log('..... ' + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
+        console.log("..... " + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
 
         var response = {error: null, result: null};
         var errors = [];
@@ -68,7 +68,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                 request_descriptor: gatewayServiceRequest.request_descriptor,
                 response_descriptor: {
                     http: {code: 200},
-                    content: {encoding: 'utf8', type: 'application/json'},
+                    content: {encoding: "utf8", type: "application/json"},
                     data: {
                         youPassedMe: gatewayRequest_.gatewayMessage,
                         data: geoCategories
@@ -84,7 +84,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                     request_descriptor: gatewayServiceRequest.request_descriptor,
                     response_descriptor: {
                         http: {code: 500},
-                        content: {encoding: 'utf8', type: 'application/json'},
+                        content: {encoding: "utf8", type: "application/json"},
                         data: {
                             error_message: resultResponderResponse.error,
                             error_context: {source_tag: "rainier-ux-base::hGUP_Se-RJybVFSbzzMVmA"}
@@ -96,7 +96,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

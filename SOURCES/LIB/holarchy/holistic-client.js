@@ -2,7 +2,7 @@
 //
 // rainier-ux-base package exports specific to HTML5 application service.
 
-const clientApplicationFactory = require('./sources/client/client-factory');
+const clientApplicationFactory = require("./sources/client/client-factory");
 
 module.exports = {
     factories: {

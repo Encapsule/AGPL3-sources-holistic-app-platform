@@ -1,7 +1,7 @@
 // sources/server/services/service-rainier-data.js
 
-const httpServiceFilterFactory = require('holism').service;
-const serviceRainierUxDataRouter = require('./rainier-ux-data/');
+const httpServiceFilterFactory = require("holism").service;
+const serviceRainierUxDataRouter = require("./rainier-ux-data/");
 
 var factoryResponse = httpServiceFilterFactory.create({
     id: "XX0YBFgHToOFWKutfjw2_g",
@@ -10,13 +10,13 @@ var factoryResponse = httpServiceFilterFactory.create({
 
     constraints: {
         request: {
-            content: { encoding: 'utf8', type: 'application/json' },
+            content: { encoding: "utf8", type: "application/json" },
             query_spec: { ____opaque: true },
             request_spec: { ____opaque: true },
             options_spec: { ____accept: "jsObject", ____defaultValue: {} }
         }, // request
         response: {
-            content: { encoding: 'utf8', type: 'application/json' },
+            content: { encoding: "utf8", type: "application/json" },
             error_context_spec: { ____opaque: true },
             result_spec: { ____opaque: true }
         } // response
@@ -46,7 +46,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                         request_descriptor: request_.request_descriptor,
                         response_descriptor: {
                             http: { code: 400 },
-                            content: { encoding: 'utf8', type: 'application/json' },
+                            content: { encoding: "utf8", type: "application/json" },
                             data: {
                                 error_message: "Error processing data gateway request.",
                                 error_context: {
@@ -66,7 +66,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                 break;
             }
             if (errors.length) {
-                response.error = errors.join(' ');
+                response.error = errors.join(" ");
             }
             return response;
         } // request_handler

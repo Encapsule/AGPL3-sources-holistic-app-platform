@@ -47,8 +47,8 @@ module.exports = {
                     nextState: "ready",
                     operator: {
                         and: [
-                            { exists: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.baselineAudience.options.countries' },
-                            { exists: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.baselineAudience.options.verticals' }
+                            { exists: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.baselineAudience.options.countries" },
+                            { exists: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.queryOptions.baselineAudience.options.verticals" }
                         ]
                     }
                 }
@@ -63,7 +63,7 @@ module.exports = {
                 },
                 {
                     nextState: "edited",
-                    operator: { notEmpty: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.baselineAudience.selectedSegments' }
+                    operator: { notEmpty: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.baselineAudience.selectedSegments" }
                 }
             ]
         },
@@ -78,7 +78,7 @@ module.exports = {
                     nextState: "ready",
                     operator: {
                         not: {
-                            notEmpty: '~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.baselineAudience.selectedSegments'
+                            notEmpty: "~.derived.runtime.client.subsystems.rainier.clientSession.data.queryBuilder.querySpecification.baselineAudience.selectedSegments"
                         }
                     }
                 },

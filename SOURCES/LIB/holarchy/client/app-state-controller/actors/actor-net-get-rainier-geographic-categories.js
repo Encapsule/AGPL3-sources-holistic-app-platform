@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/actor-net-get-rainier-geographic-categories.js
 
-const HttpGetRainierDataGateway = require('../../communication/http-get-rainier-data-gateway');
+const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
 
@@ -11,12 +11,12 @@ module.exports = {
     namespaces: {
         write: [
             {
-                filterBinding: { alias: 'netRequest', id: 'hWXm3a8VQJiDv5rpBLO1Tw' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierGeographicCategories.request'
+                filterBinding: { alias: "netRequest", id: "hWXm3a8VQJiDv5rpBLO1Tw" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierGeographicCategories.request"
             },
             {
-                filterBinding: { alias: 'netResponse', id: 'Ajj7octqS6qsZ8_fGDj87A' },
-                storePath: '~.base.RainierBaseController.network.GET_RainierGeographicCategories.response'
+                filterBinding: { alias: "netResponse", id: "Ajj7octqS6qsZ8_fGDj87A" },
+                storePath: "~.base.RainierBaseController.network.GET_RainierGeographicCategories.response"
             }
         ]
     }, // namespaces
@@ -88,7 +88,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

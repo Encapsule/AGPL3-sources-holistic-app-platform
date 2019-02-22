@@ -50,7 +50,7 @@ module.exports = {
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         if (!(request_.command.actorAdvertiserChange.isRehydration)) {
             request_.runtimeContext.appStateContext.appStateController.controllerRunFilter();
         }

@@ -1,7 +1,7 @@
 // sources/client/app-data-model/transition-operators/transition-operator-filterError.js
 
-const transitionOperatorFilterFactory = require('../app-state-controller-toperator-factory');
-const getNamespaceInReferenceFromPath = require('../../../../common/data/get-namespace-in-reference-from-path');
+const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
+const getNamespaceInReferenceFromPath = require("../../../../common/data/get-namespace-in-reference-from-path");
 
 var factoryResponse = transitionOperatorFilterFactory.request({
     id: "CWvqXpHdSoquxErVZwW3pg",
@@ -32,7 +32,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
             break;
         }
         if (errors.length)
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         return response;
     }
 });

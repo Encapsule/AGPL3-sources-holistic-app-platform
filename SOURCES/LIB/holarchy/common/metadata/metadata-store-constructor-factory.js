@@ -1,6 +1,6 @@
 // metadata-store-constructor-filter-factory.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
 var factoryResponse = arccore.filter.create({
 
@@ -117,19 +117,19 @@ var factoryResponse = arccore.filter.create({
                         viewStore.addVertex({ u: "__pageViewHiearchy" });
 
                         for (var pageViewURI of pageViewURIs) {
-                            if (pageViewURI.charAt(0) !== '/') {
+                            if (pageViewURI.charAt(0) !== "/") {
                                 errors.unshift("Invalid page metadata declaration for URI '" + pageViewURI + "' specified. " +
                                                "Page URI's must begin with a frontslash '/' character.");
                                 break;
                             }
-                            var rs1 = (pageViewURI.length === 1)?['']:pageViewURI.split('/');
+                            var rs1 = (pageViewURI.length === 1)?[""]:pageViewURI.split("/");
 
                             var rs2 = [];
                             var pageViewURILast = "__pageViewHierarchy";
                             // console.log(rs1.length + " '" + JSON.stringify(rs1) + "'");
                             rs1.forEach(function(namespace_) {
                                 rs2.push(namespace_);
-                                var pageViewURICurrent = (rs2.length > 1)?rs2.join('/'):'/';
+                                var pageViewURICurrent = (rs2.length > 1)?rs2.join("/"):"/";
                                 // console.log("pageViewURILast '" + pageViewURILast + "' pageViewURICurrent: '" + pageViewURICurrent);
                                 viewStore.addEdge({ e: { u: pageViewURILast, v: pageViewURICurrent }});
                                 pageViewURILast = pageViewURICurrent;
@@ -207,7 +207,7 @@ var factoryResponse = arccore.filter.create({
                                     });
                                     childRanks.forEach(function(rankArray_) {
                                         rankArray_.sort().forEach(function(uri_) {
-                                            children.push(uri_)
+                                            children.push(uri_);
                                         });
                                     });
                                     props.children = children;

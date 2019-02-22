@@ -1,7 +1,7 @@
 // service-health-check.js
 
-const httpServiceFilterFactory = require('holism').service;
-const serviceUtils = require('./service-utils');
+const httpServiceFilterFactory = require("holism").service;
+const serviceUtils = require("./service-utils");
 
 var factoryResponse = httpServiceFilterFactory.create({
     id: "6sHrn7n8QaSqb9Sv9gt4Ug",
@@ -9,7 +9,7 @@ var factoryResponse = httpServiceFilterFactory.create({
     description: "Passes the value registration-time options object through to the HTML render subsystem.",
     constraints: {
         request: {
-            content: { encoding: 'utf8', type: 'text/plain' },
+            content: { encoding: "utf8", type: "text/plain" },
             query_spec: {
                 ____types: "jsObject",
                 ____defaultValue: {},
@@ -21,7 +21,7 @@ var factoryResponse = httpServiceFilterFactory.create({
             request_spec: { ____opaque: true },
         },
         response: {
-            content: { encoding: 'utf8', type: 'text/html' },
+            content: { encoding: "utf8", type: "text/html" },
             error_context_spec: { ____opaque: true },
             result_spec: { ____opaque: true }
         }
@@ -39,14 +39,14 @@ var factoryResponse = httpServiceFilterFactory.create({
                 request_descriptor: request_.request_descriptor,
                 response_descriptor: {
                     http: { code: 200, message: "Ok" },
-                    content: { encoding: 'utf8', type: 'application/json' },
+                    content: { encoding: "utf8", type: "application/json" },
                     data: {
                         online: true
                     }
                 }
             });
 
-            return { error: null, result: responseAttempt }
+            return { error: null, result: responseAttempt };
         }
     }
 });

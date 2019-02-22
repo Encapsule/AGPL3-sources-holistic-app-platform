@@ -1,27 +1,27 @@
 // sources/server/integrations/index.js
 
-const packageMeta = require('../../../package.json');
+const packageMeta = require("../../../package.json");
 
-const React = require('react');
+const React = require("react");
 
-const httpServerIntegrationsFactory = require('holism').integrations;
+const httpServerIntegrationsFactory = require("holism").integrations;
 
-const metadataOrgGetFunction = require('./metadata-org-get');
-const metadataOrgSpec = require('../../common/filter-specs/integrations/app-metadata-org-spec');
+const metadataOrgGetFunction = require("./metadata-org-get");
+const metadataOrgSpec = require("../../common/filter-specs/integrations/app-metadata-org-spec");
 
-const metadataSiteGetFunction = require('./metadata-site-get');
-const metadataSiteSpec = require('../../common/filter-specs/integrations/app-metadata-site-spec');
+const metadataSiteGetFunction = require("./metadata-site-get");
+const metadataSiteSpec = require("../../common/filter-specs/integrations/app-metadata-site-spec");
 
-const metadataPageGetFunction = require('./metadata-page-get');
-const metadataPageSpec = require('../../common/filter-specs/integrations/app-metadata-page-spec');
+const metadataPageGetFunction = require("./metadata-page-get");
+const metadataPageSpec = require("../../common/filter-specs/integrations/app-metadata-page-spec");
 
-const metadataUserGetIdentityFunction = require('./metadata-user-get-identity');
-const metadataUserIdentitySpec = require('../../common/filter-specs/integrations/app-metadata-user-identity-spec');
+const metadataUserGetIdentityFunction = require("./metadata-user-get-identity");
+const metadataUserIdentitySpec = require("../../common/filter-specs/integrations/app-metadata-user-identity-spec");
 
-const metadataUserGetSessionFunction = require('./metadata-user-get-session');
-const metadataUserSessionSpec = require('../../common/filter-specs/integrations/app-metadata-user-session-spec');
+const metadataUserGetSessionFunction = require("./metadata-user-get-session");
+const metadataUserSessionSpec = require("../../common/filter-specs/integrations/app-metadata-user-session-spec");
 
-const htmlPageRenderFunction = require('./render-html');
+const htmlPageRenderFunction = require("./render-html");
 
 module.exports = function(appStateContext_) { // <--- APPLICATION STATE STORE FROM THE APP
 
@@ -33,7 +33,7 @@ module.exports = function(appStateContext_) { // <--- APPLICATION STATE STORE FR
         appStateContext: appStateContext_, // <--- APPLICATION STATE STORE FROM THE APP
         platform: {
             document: {
-                name: 'Facebook/react',
+                name: "Facebook/react",
                 version: React.version
             }
         },

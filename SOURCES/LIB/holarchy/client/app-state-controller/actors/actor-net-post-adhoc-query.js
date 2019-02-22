@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/state-actor-net-post-adhoc-query.js
 
-const HttpPostRainierDataGateway = require('../../communication/http-post-rainier-data-gateway');
+const HttpPostRainierDataGateway = require("../../communication/http-post-rainier-data-gateway");
 
 module.exports = {
 
@@ -11,14 +11,14 @@ module.exports = {
     namespaces: {
         read: [
             {
-                filterBinding: { alias: 'netRequest', id: 'xt172wWBSlSdsyAXKj9jjg' },
-                storePath: '~.base.RainierBaseController.network.POST_RainierAdhocQuery.request'
+                filterBinding: { alias: "netRequest", id: "xt172wWBSlSdsyAXKj9jjg" },
+                storePath: "~.base.RainierBaseController.network.POST_RainierAdhocQuery.request"
             }
         ],
         write: [
             {
-                filterBinding: { alias: 'netResponse', id: 'Rx-VjHLlS4eQiMw98sv9KA' },
-                storePath: '~.base.RainierBaseController.network.POST_RainierAdhocQuery.response'
+                filterBinding: { alias: "netResponse", id: "Rx-VjHLlS4eQiMw98sv9KA" },
+                storePath: "~.base.RainierBaseController.network.POST_RainierAdhocQuery.response"
             }
         ]
     }, // namespaces
@@ -89,7 +89,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction

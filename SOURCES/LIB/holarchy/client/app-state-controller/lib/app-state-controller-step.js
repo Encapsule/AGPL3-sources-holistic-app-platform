@@ -1,8 +1,8 @@
 // app-state-controller-step.js
 
-const arccore = require('arccore');
+const arccore = require("arccore");
 
-const transitionOperatorsDiscriminator = require('./toperators');
+const transitionOperatorsDiscriminator = require("./toperators");
 
 var processStepCount = 0;
 
@@ -54,8 +54,8 @@ var factoryResponse = arccore.filter.create({
                 var currentState = controllerMap[controllerModelName].state;
                 var currentStateNamespacePath = controllerMap[controllerModelName].stateNamespacePath;
                 var transitionModelEdges = digraphModel.outEdges(currentState);
-                var warnTerminalInitialState = ((currentState === 'uninitialized') && !transitionModelEdges.length);
-                var stateType = (transitionModelEdges.length?((currentState === 'uninitialized')?'initial':'current'):'terminal')
+                var warnTerminalInitialState = ((currentState === "uninitialized") && !transitionModelEdges.length);
+                var stateType = (transitionModelEdges.length?((currentState === "uninitialized")?"initial":"current"):"terminal");
 
                 var transitionModels =
                     transitionModelEdges.map(function(edge_) { return ({ e: edge_, p: digraphModel.getEdgeProperty(edge_) }); }).sort(function(a_, b_) { return (a_.priority - b_.priority); });
@@ -112,7 +112,7 @@ var factoryResponse = arccore.filter.create({
                                     controllerModelName + ":" + transitionModel.e.u +
                                     " ---> " +
                                     controllerModelName + ":" + transitionModel.e.v
-                                   );
+                        );
                         break;
                     }
 
@@ -212,7 +212,7 @@ var factoryResponse = arccore.filter.create({
                 processStepCount,
                 "9pZ3YJuFTvGGsRuYNqDz1Q",
                 processStepCount
-            ].join('')).result;
+            ].join("")).result;
 
             request_.appStateControllerModel.writeStepControlFilter.request({
                 appDataStore: request_.appDataStore,
@@ -245,7 +245,7 @@ var factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
             console.log("**********************************************************************");
             console.log("FATAL ERROR IN APP STATE CONTROLLER STEP " + processStepCount);
             console.log(response.error);

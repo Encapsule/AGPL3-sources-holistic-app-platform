@@ -2,7 +2,7 @@
 //
 
 // Because we re-use this list quite a lot.
-const networkControllerStates = [ 'uninitialized', 'waiting', 'idle', 'working', 'evaluate', 'ready', 'reset', 'error' ];
+const networkControllerStates = [ "uninitialized", "waiting", "idle", "working", "evaluate", "ready", "reset", "error" ];
 
 
 module.exports = {
@@ -73,13 +73,13 @@ module.exports = {
 
             state: {
                 ____accept: "jsString",
-                ____inValueSet: [ 'uninitialized',
-                                  'wait-advertiser',
-                                  'initializing',
-                                  'ready',
-                                  'reset',
-                                  'error'
-                                ],
+                ____inValueSet: [ "uninitialized",
+                    "wait-advertiser",
+                    "initializing",
+                    "ready",
+                    "reset",
+                    "error"
+                ],
                 ____defaultValue: "uninitialized"
             },
 
@@ -115,8 +115,8 @@ module.exports = {
                 ____defaultValue: {},
                 state: {
                     ____accept: "jsString",
-                    ____inValueSet: [ 'uninitialized', 'waiting', 'ready', 'updating', 'error' ],
-                    ____defaultValue: 'uninitialized'
+                    ____inValueSet: [ "uninitialized", "waiting", "ready", "updating", "error" ],
+                    ____defaultValue: "uninitialized"
                 },
                 pcode: {
                     ____label: "Selected Advertiser Pcode",
@@ -124,7 +124,7 @@ module.exports = {
                     ____accept: [ "jsUndefined", "jsString" ]
                 },
                 pcodeLast: {
-                   ____label: "Last Selected Advertiser Pcode",
+                    ____label: "Last Selected Advertiser Pcode",
                     ____description: "The last selected pcode that has been reflected out to the rest of the system. This value is used to determine if pcode has been updated by the user.",
                     ____accept: [ "jsUndefined", "jsString" ]
                 }
@@ -137,8 +137,8 @@ module.exports = {
 
                 state: {
                     ____accept: "jsString",
-                    ____inValueSet: [ 'uninitialized', 'idle', 'working' ],
-                    ____defaultValue: 'uninitialized'
+                    ____inValueSet: [ "uninitialized", "idle", "working" ],
+                    ____defaultValue: "uninitialized"
                 },
 
                 // ======================================================================
@@ -179,7 +179,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -205,7 +205,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -231,7 +231,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -257,7 +257,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -283,7 +283,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -308,7 +308,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -334,7 +334,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -360,7 +360,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -388,7 +388,7 @@ module.exports = {
                         ____description: "A flag indicating the current state of controller.",
                         ____accept: "jsString",
                         ____inValueSet: networkControllerStates,
-                        ____defaultValue: 'uninitialized'
+                        ____defaultValue: "uninitialized"
                     },
                     request: {
                         ____label: "Request Data",
@@ -428,8 +428,8 @@ module.exports = {
                 ____label: "Runtime Context",
                 ____description: "A flag checked by readers and writers of the application data store to determine what the current application runtime context is.",
                 ____accept: "jsString",
-                ____inValueSet: [ 'server', 'client' ],
-                ____defaultValue: 'server'
+                ____inValueSet: [ "server", "client" ],
+                ____defaultValue: "server"
             }, // appData.base.runtime.context
 
             client: {
@@ -442,8 +442,8 @@ module.exports = {
                     ____label: "Client Runtime State",
                     ____description: "A flag used to indicate the overall state of the client application runtime.",
                     ____accept: "jsString",
-                    ____inValueSet: [ 'offline', 'initializing', 'running', 'waiting', 'error' ],
-                    ____defaultValue: 'offline'
+                    ____inValueSet: [ "offline", "initializing", "running", "waiting", "error" ],
+                    ____defaultValue: "offline"
                 }, // appData.base.runtime.client.state
 
                 errors: {
@@ -497,8 +497,8 @@ module.exports = {
                             ____label: "Authentication Controller State",
                             ____description: "A flag indicating the current state of the AuthenticationController.",
                             ____accept: "jsString",
-                            ____inValueSet: [ 'uninitialized', 'initializing', 'verifying', 'authenticated', 'not_authenticated', 'error' ],
-                            ____defaultValue: 'uninitialized'
+                            ____inValueSet: [ "uninitialized", "initializing", "verifying", "authenticated", "not_authenticated", "error" ],
+                            ____defaultValue: "uninitialized"
                         },
                         netResponse: {
                             ____label: "Network Response Object",
@@ -524,8 +524,8 @@ module.exports = {
                             ____label: "Authorization Controller State",
                             ____description: "A flag indicating the current state of the AuthorizationController.",
                             ____accept: "jsString",
-                            ____inValueSet: [ 'uninitialized', 'initializing', 'authenticated', 'not_authenticated', 'error' ],
-                            ____defaultValue: 'uninitialized'
+                            ____inValueSet: [ "uninitialized", "initializing", "authenticated", "not_authenticated", "error" ],
+                            ____defaultValue: "uninitialized"
                         }
                     },
 
@@ -539,8 +539,8 @@ module.exports = {
                             ____label: "Rainier Controller State",
                             ____description: "A flag indicating the current state of the Rainier Controller.",
                             ____accept: "jsString",
-                            ____inValueSet: [ 'uninitialized', 'initializing', 'initialized', 'ready', 'persisted', 'error', 'locked_authentication', 'locked_authorization' ],
-                            ____defaultValue: 'uninitialized'
+                            ____inValueSet: [ "uninitialized", "initializing", "initialized", "ready", "persisted", "error", "locked_authentication", "locked_authorization" ],
+                            ____defaultValue: "uninitialized"
                         }, // appData.base.runtime.client.subsystems.rainier.state
 
                         enable: {
@@ -560,8 +560,8 @@ module.exports = {
                                 ____label: "Rainier Controller Session State",
                                 ____description: "A flag indicating the current state of the Rainier Controller session state object.",
                                 ____accept: "jsString",
-                                ____inValueSet: [ 'uninitialized', 'initializing', 'initialized', 'ready', 'persisted', 'error' ],
-                                ____defaultValue: 'uninitialized'
+                                ____inValueSet: [ "uninitialized", "initializing", "initialized", "ready", "persisted", "error" ],
+                                ____defaultValue: "uninitialized"
                             }, // appData.base.runtime.client.subsystems.rainier.clientSession.state
 
                             data: {
@@ -581,8 +581,8 @@ module.exports = {
                                         ____label: "Rainier Platform Data Availability Info State",
                                         ____description: "A flag indicating the current state of the Rainier session state data availability info object.",
                                         ____accept: "jsString",
-                                        ____inValueSet: [ 'uninitialized', 'initializing', 'ready', 'error' ],
-                                        ____defaultValue: 'uninitialized'
+                                        ____inValueSet: [ "uninitialized", "initializing", "ready", "error" ],
+                                        ____defaultValue: "uninitialized"
                                     }, // appData.base.runtime.client.subsystems.rainier.clientSession.data.dataAvailable.state
 
                                     // Assuming these are all just Epoch timestamps?
@@ -597,10 +597,10 @@ module.exports = {
                                         ____label: "Category (demographic, geo, vertical, etc.) along with epochs",
                                         ____types: "jsArray",
                                         ____defaultValue: [{category: "demographics", time: 1509519600000},
-                                                           {category: "geo", time: 1509519600000},
-                                                           {category: "vertical", time: 1509519600000},
-                                                           {category: "events", time: 1509519600000},
-                                                           ],
+                                            {category: "geo", time: 1509519600000},
+                                            {category: "vertical", time: 1509519600000},
+                                            {category: "events", time: 1509519600000},
+                                        ],
                                         element: {
                                             ____types: "jsObject",
                                             category: {
@@ -627,8 +627,8 @@ module.exports = {
                                         ____label: "Authorized Advertiser Identifiers State",
                                         ____description: "A flag indicating the current state of the authorized advertiser identifiers object.",
                                         ____accept: "jsString",
-                                        ____inValueSet: [ 'uninitialized', 'initializing', 'ready', 'error' ],
-                                        ____defaultValue: 'uninitialized'
+                                        ____inValueSet: [ "uninitialized", "initializing", "ready", "error" ],
+                                        ____defaultValue: "uninitialized"
                                     }, // appData.base.runtime.client.subsystems.rainier.clientSession.data.advertisers.state
 
                                     authorized: {
@@ -666,8 +666,8 @@ module.exports = {
                                         ____label: "Allowed Query Data Range State",
                                         ____description: "A flag indicating the current state of the allowed query date range object.",
                                         ____accept: "jsString",
-                                        ____inValueSet: [ 'uninitialized', 'initializing', 'ready', 'error' ],
-                                        ____defaultValue: 'uninitialized'
+                                        ____inValueSet: [ "uninitialized", "initializing", "ready", "error" ],
+                                        ____defaultValue: "uninitialized"
                                     }, // appData.base.runtime.client.subsystems.rainier.clientSession.data.advertisers.state
 
                                     start: {

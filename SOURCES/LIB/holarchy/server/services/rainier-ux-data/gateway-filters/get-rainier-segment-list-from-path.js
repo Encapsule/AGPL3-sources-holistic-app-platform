@@ -1,8 +1,8 @@
 // sources/server/services/service-rainier-ux-data/gateway-filters/get-rainier-segment-list-from-path.js
 
-const dataGatewayFilterFactory = require('../lib/data-gateway-filter-factory');
-const buildOutgoingHeaders = require('../lib/build-outgoing-headers-for-backend-proxy');
-const getSegmentSearchProxyFactory = require('../../../communication/rainier/get-segment-search-request-filter-factory');
+const dataGatewayFilterFactory = require("../lib/data-gateway-filter-factory");
+const buildOutgoingHeaders = require("../lib/build-outgoing-headers-for-backend-proxy");
+const getSegmentSearchProxyFactory = require("../../../communication/rainier/get-segment-search-request-filter-factory");
 
 var factoryResponse = dataGatewayFilterFactory.request({
 
@@ -36,7 +36,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
     gatewayMessageHandler: function(gatewayMessage_) {
 
         // Here we dereference the output of the dataGatewayFilterFactory (a filter of course) in order to report the filter ID and name.
-        console.log('..... ' + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
+        console.log("..... " + module.exports.filterDescriptor.operationID + "::" + module.exports.filterDescriptor.operationName);
 
         var response = { error: null , result: null };
         var errors = [];
@@ -76,7 +76,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                         request_descriptor: gatewayServiceRequest.request_descriptor,
                         response_descriptor: {
                             http: { code: 200 },
-                            content: { encoding: 'utf8', type: 'application/json' },
+                            content: { encoding: "utf8", type: "application/json" },
                             data: result_
                         }
                     });
@@ -89,7 +89,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
                         request_descriptor: gatewayServiceRequest.request_descriptor,
                         response_descriptor: {
                             http: { code: 400 },
-                            content: { encoding: 'utf8', type: 'application/json' },
+                            content: { encoding: "utf8", type: "application/json" },
                             data: error_
                         }
                     });
@@ -105,7 +105,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

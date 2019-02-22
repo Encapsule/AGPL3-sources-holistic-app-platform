@@ -3,7 +3,7 @@
 // Delete namespace in the app data store.
 //
 
-const getNamespaceInReferenceFromPath = require('../../../common/data/get-namespace-in-reference-from-path');
+const getNamespaceInReferenceFromPath = require("../../../common/data/get-namespace-in-reference-from-path");
 
 module.exports = {
     id: "RRnl5qncQKGhIPOTsh4wkg",
@@ -19,9 +19,9 @@ module.exports = {
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            var targetNamespacePathTokens = request_.command.delete.split('.');
+            var targetNamespacePathTokens = request_.command.delete.split(".");
             const deleteNamespaceName = targetNamespacePathTokens.pop();
-            const parentNamespacePath = targetNamespacePathTokens.join('.');
+            const parentNamespacePath = targetNamespacePathTokens.join(".");
             var innerResponse = getNamespaceInReferenceFromPath.request({
                 namespacePath: parentNamespacePath,
                 sourceRef: request_.runtimeContext.appStateContext.appDataStore
@@ -35,7 +35,7 @@ module.exports = {
             break;
         }
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

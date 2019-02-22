@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/actors/index.js
 
-const appStateActorFactory = require('../../../common/data/app-data-store-actor-factory');
+const appStateActorFactory = require("../../../common/data/app-data-store-actor-factory");
 
 ////
 // These are raw unparsed declaration objects. We organize like this so that
@@ -10,44 +10,44 @@ const appStateActorFactory = require('../../../common/data/app-data-store-actor-
 const appStateActorDeclarations = [
 
 
-    require('./actor-target-segment-add'),
-    require('./actor-baseline-segment-add'),
-    require('./actor-target-segment-remove'),
-    require('./actor-baseline-segment-remove'),
-    require('./actor-characteristics-toggle'),
-    require('./actor-query-date-range-change'),
-    require('./actor-advertiser-init'),
-    require('./actor-advertiser-change'),
-    require('./actor-country-change'),
-    require('./actor-available-date-range'),
-    require('./actor-submit-query'),
-    require('./actor-clear-query-params'),
+    require("./actor-target-segment-add"),
+    require("./actor-baseline-segment-add"),
+    require("./actor-target-segment-remove"),
+    require("./actor-baseline-segment-remove"),
+    require("./actor-characteristics-toggle"),
+    require("./actor-query-date-range-change"),
+    require("./actor-advertiser-init"),
+    require("./actor-advertiser-change"),
+    require("./actor-country-change"),
+    require("./actor-available-date-range"),
+    require("./actor-submit-query"),
+    require("./actor-clear-query-params"),
 
-    require('./actor-hash-route-change'),
+    require("./actor-hash-route-change"),
 
-    require('./actor-write-query-params-to-location-hash'),
-    require('./actor-update-query-builder-from-cache'),
+    require("./actor-write-query-params-to-location-hash"),
+    require("./actor-update-query-builder-from-cache"),
 
-    require('./actor-segment-search-response-processor'),
-    require('./actor-segment-search-set-selected-segment-search'),
+    require("./actor-segment-search-response-processor"),
+    require("./actor-segment-search-set-selected-segment-search"),
 
     // v--- Parity release and beyond...
-    require('./actor-net-queue-gateway-request'),
+    require("./actor-net-queue-gateway-request"),
 
-    require('./actor-net-get-rainier-audience-countries'),
-    require('./actor-net-get-rainier-audience-verticals'),
-    require('./actor-net-get-rainier-data-availability'),
-    require('./actor-net-get-rainier-demographic-categories'),
-    require('./actor-net-get-rainier-audience-grid-categories'),
-    require('./actor-net-get-rainier-demographic-countries'),
-    require('./actor-net-get-rainier-geographic-categories'),
-    require('./actor-net-get-rainier-query-date-range'),
+    require("./actor-net-get-rainier-audience-countries"),
+    require("./actor-net-get-rainier-audience-verticals"),
+    require("./actor-net-get-rainier-data-availability"),
+    require("./actor-net-get-rainier-demographic-categories"),
+    require("./actor-net-get-rainier-audience-grid-categories"),
+    require("./actor-net-get-rainier-demographic-countries"),
+    require("./actor-net-get-rainier-geographic-categories"),
+    require("./actor-net-get-rainier-query-date-range"),
 
-    require('./actor-net-post-adhoc-query'),
-    require('./actor-transform-audience-grid-net-response-characteristics'),
+    require("./actor-net-post-adhoc-query"),
+    require("./actor-transform-audience-grid-net-response-characteristics"),
     //
-    require('./actor-ads-copy-a-b'),
-    require('./actor-ads-delete')
+    require("./actor-ads-copy-a-b"),
+    require("./actor-ads-delete")
 ];
 
 // Keep track of the actor filter ID's we've registered. Fail on duplicate.
@@ -69,7 +69,7 @@ module.exports = function(actorRuntimeContext_) {
                 "::",
                 appStateActorDeclaration_.name,
                 "] because there's another filter using that ID!!!"
-            ].join(' ');
+            ].join(" ");
             return factoryResponse;
         }
         definedActorIRUTs[appStateActorDeclaration_.id] = true;
@@ -82,8 +82,8 @@ module.exports = function(actorRuntimeContext_) {
             factoryResponse.error = [
                 "Unable to construct app state actor [" + appStateActorDeclaration_.id + "::" + appStateActorDeclaration_.name + "] due to error:",
                 factoryResponse.error
-            ].join(' ');
+            ].join(" ");
         }
         return factoryResponse;
     });
-}
+};
