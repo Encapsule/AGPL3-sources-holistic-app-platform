@@ -4,8 +4,10 @@
 
 const packages = {
 
-    "@encapsule/holism": require('./holism'),
-    "@encapsule/hrequest": require('./hrequest'),
+    "@encapsule/holarchy": require("./holarchy"),
+    "@encapsule/holism": require("./holism"),
+    "@encapsule/hrequest": require("./hrequest")
+
 
 };
 

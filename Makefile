@@ -28,26 +28,21 @@ DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
 DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
-
-DIR_SOURCES_APP=$(DIR_SOURCES)/APP
-DIR_SOURCES_APP_ENCAPSULE=$(DIR_SOURCES_APP)/encapsule/encapsule.io
+DIR_SOURCES_LIB_HOLARCHY=$(DIR_SOURCES_LIB)/holarchy
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
 DIR_BUILD_LIB_HREQUEST=$(DIR_BUILD_LIB)/hrequest
+DIR_BUILD_LIB_HOLARCHY=$(DIR_BUILD_LIB)/holarchy
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
+DIR_DIST_LIB_HOLARCHY=$(DIR_DISTS_LIB)/holarcy
 
 DIR_PLATFORM=$(DIR_ROOT)/PLATFORM
-
-DIR_BUILD_APP=$(DIR_BUILD)/APP
-DIR_BUILD_APP_ENCAPSULE=$(DIR_BUILD_APP)/encapsule/encapsule.io
-DIR_BUILD_APP_ENCAPSULE_PHASE1=$(DIR_BUILD_APP_ENCAPSULE)/phase1-transpile
-DIR_BUILD_APP_ENCAPSULE_PHASE2=$(DIR_BUILD_APP_ENCAPSULE)/phase2-webpack
 
 default:
 	@echo This Makefile is used to build, test, and publish new versions of
@@ -91,11 +86,11 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo FINISH TARGET: source_packages_clean
 
-source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_hrequest
+source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_hrequest source_package_build_holarchy
 	@echo COMPLETE TARGET: source_packages_build
 
 source_package_build_holism:
-	@echo build_package_holism target starting...
+	@echo source_package_build_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
@@ -110,10 +105,10 @@ source_package_build_holism:
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-write-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/server-response.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-serialize-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/service-result-response.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM)/lib/http-response-error-filter.js --output $(DIR_BUILD_LIB_HOLISM)/docs/service-error-response.md
-	@echo build_package_holism target complete.
+	@echo source_package_build_holism target complete.
 
 source_package_build_hrequest:
-	@echo build_package_holism target starting...
+	@echo source_package_build_hrequest...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
@@ -127,7 +122,19 @@ source_package_build_hrequest:
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HREQUEST)/lib/http-request-filter-factory.js --output $(DIR_BUILD_LIB_HREQUEST)/docs/request-factory.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HREQUEST)/lib/http-request-transport-for-node.js --output $(DIR_BUILD_LIB_HREQUEST)/docs/server-request-transport.md
 	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HREQUEST)/lib/http-request-transport-for-browser.js --output $(DIR_BUILD_LIB_HREQUEST)/docs/client-request-transport.md
-	@echo build_package_request complete.
+	@echo source_package_build_hrequest complete.
+
+source_package_build_holarchy:
+	@echo source_package_build_holarchy...
+	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLARCHY)/
+	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY)/* $(DIR_BUILD_LIB_HOLARCHY)/
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holarchy" > $(DIR_BUILD_LIB_HOLARCHY)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLARCHY)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLARCHY)
+	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)/docs
+	@echo source_package_build_holarchy complete.
 
 # ================================================================
 # Distribution Packages
