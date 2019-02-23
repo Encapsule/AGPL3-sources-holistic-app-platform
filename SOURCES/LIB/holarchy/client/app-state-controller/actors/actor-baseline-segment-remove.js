@@ -72,7 +72,7 @@ module.exports = {
                 });
             }
 
-            var innerResponse = request_.namespaces.write.baselineAudienceSelected.request({
+            innerResponse = request_.namespaces.write.baselineAudienceSelected.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                 writeData: selectedSegments
             });

@@ -20,7 +20,7 @@ module.exports = {
             {
                 filterBinding: { alias: "netRequest", id: "fBXLNjWXQg6GR1rVIDhGpm" },
                 storePath: "~.base.RainierBaseController.network.GET_RainierDemographicCategories.request"
-            },            
+            },
             {
                 filterBinding: { alias: "netResponse", id: "e-0Lzbg-RcO3GJvYN4zN5w" },
                 storePath: "~.base.RainierBaseController.network.GET_RainierDemographicCategories.response"
@@ -44,7 +44,7 @@ module.exports = {
             var innerResponse = request_.namespaces.read.selectedPCode.request();
 
             if (innerResponse.error) {
-                errors.push(innerRepsonse.error);
+                errors.push(innerResponse.error);
                 break;
             }
 
@@ -55,9 +55,9 @@ module.exports = {
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                 writeData: gatewayMessage
             });
-            
+
             if (innerResponse.error) {
-                errors.push(innerRepsonse.error);
+                errors.push(innerResponse.error);
                 break;
             }
 
@@ -74,6 +74,10 @@ module.exports = {
                         }
                     });
 
+                    if (writerResponse.error) {
+                        return { error: writerResponse.error };
+                    }
+
                     request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
 
                     return { error: null, result: undefined };
@@ -88,6 +92,10 @@ module.exports = {
                             result: null
                         }
                     });
+
+                    if (writerResponse.error) {
+                        return { error: writerResponse.error };
+                    }
 
                     request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
 

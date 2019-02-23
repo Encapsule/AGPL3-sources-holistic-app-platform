@@ -61,6 +61,10 @@ module.exports = {
                         }
                     });
 
+                    if (writerResponse.error) {
+                        return { error: writerResponse.error };
+                    }
+
                     request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
 
                     return { error: null, result: undefined };
@@ -75,6 +79,10 @@ module.exports = {
                             result: null
                         }
                     });
+
+                    if (writerResponse.error) {
+                        return { error: writerResponse.error };
+                    }
 
                     request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
 

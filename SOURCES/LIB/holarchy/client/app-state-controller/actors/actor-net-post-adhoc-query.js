@@ -54,7 +54,7 @@ module.exports = {
                 }
             };
 
-            var innerResponse = HttpPostRainierDataGateway.request({
+            innerResponse = HttpPostRainierDataGateway.request({
                 request: gatewayRequest,
                 resultHandler: function(result_) {
                     console.log("Got a response!");
@@ -65,6 +65,11 @@ module.exports = {
                             result: result_
                         }
                     });
+
+                    if (writerResponse.error) {
+                        return { error: writerResponse.error };
+                    }
+
                     request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Update App State Controller subcontroller states.
                     return { error: null, result: undefined };
                 },
@@ -77,6 +82,9 @@ module.exports = {
                             result: undefined
                         }
                     });
+                    if (writerResponse.error) {
+                        return { error: writerResponse.error };
+                    }
                     request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Update App State Controller subcontroller states.
                     return { error: null, result: undefined };
                 }

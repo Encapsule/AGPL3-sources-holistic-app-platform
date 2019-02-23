@@ -55,7 +55,7 @@ module.exports = {
 
             let demoCategories = map[countryCode];
 
-            var innerResponse = request_.namespaces.write.demographicCategories.request({
+            innerResponse = request_.namespaces.write.demographicCategories.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                 writeData: demoCategories
             });

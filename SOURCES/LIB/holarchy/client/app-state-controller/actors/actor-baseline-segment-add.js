@@ -75,7 +75,7 @@ module.exports = {
                 if (!found) selectedSegments.push(request_.command.actorAddBaselineSegment.segment);
             }
 
-            var innerResponse = request_.namespaces.write.baselineAudienceSelected.request({
+            innerResponse = request_.namespaces.write.baselineAudienceSelected.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                 writeData: selectedSegments
             });

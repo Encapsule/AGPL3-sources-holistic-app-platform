@@ -37,12 +37,12 @@ module.exports = {
             var audienceGridServerResponse = request_.namespaces.read.agCategoriesReponse.request();
 
             if(audienceGridServerResponse.error != null){
-                errors.push(innerResponse.error);
+                errors.push(audienceGridServerResponse.error);
                 break;
             }
 
             var audienceGridServerResult = audienceGridServerResponse.result.result;
-            
+
             if(audienceGridServerResult == null){
                 errors.push("Result from the server is null");
                 break;

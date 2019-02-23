@@ -49,7 +49,7 @@ module.exports = {
 
             var requestIDs = Object.keys(segmentSearchControllerNamespace.segmentSearchQueue.completed);
 
-            var errors = 0;
+            var errorCount = 0;
 
             for (var requestID of requestIDs) {
 
@@ -62,7 +62,7 @@ module.exports = {
 
                 if (requestDescriptor.responseBody.error) {
                     // An error occurred.
-                    errors++;
+                    errorCount++;
                     networkControllerNamespace.applicationErrors.push({
                         message: requestDescriptor.responseBody.error,
                         context: requestDescriptor
@@ -74,6 +74,10 @@ module.exports = {
                     segmentSearchControllerNamespace.segmentSearchSelect = searchSegmentName;
                     segmentSearchControllerNamespace.segmentSearchSelectError = null;
                 }
+            }
+
+            if (errorCount) {
+                errors.push("Processed " + errorCount + " network response errors.");
             }
 
             break;

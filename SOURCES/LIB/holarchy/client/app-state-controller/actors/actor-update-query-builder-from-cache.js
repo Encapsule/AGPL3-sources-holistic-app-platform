@@ -1,12 +1,12 @@
 // sources/client/app-state-controller/actors/actor-update-query-builder-from-cache.js
 
-const HashRouteUtil = require('../../../common/data/hash-route-data-util');
-const arccore = require('arccore');
+// const HashRouteUtil = require('../../../common/data/hash-route-data-util');
+// const arccore = require('arccore');
 
 /**
   This state actor will check the current location to see if if is '/advertise/rainier'
-  and look for a serialized object in the hash route.  If found the serialized object will be 
-  deserialized and the teh app data store will be updated with the correct values for 
+  and look for a serialized object in the hash route.  If found the serialized object will be
+  deserialized and the teh app data store will be updated with the correct values for
 
   Advertiser
   Selected Date Range
@@ -14,7 +14,7 @@ const arccore = require('arccore');
   Baseline Audience Segments
   Demographics Country
   Characteristics
-  
+
 **/
 module.exports = {
     id: "VJuGQ4UVRM230oALRj7OEw",
@@ -73,11 +73,11 @@ module.exports = {
             let base64;
 
             try {
-                var hash = hashLocation.replace('#', '');
-                var parsed = hash.split('&');
+                var hash = hashLocation.replace("#", "");
+                var parsed = hash.split("&");
 
                 parsed.forEach((element) => {
-                    if (element.indexOf('queryParams=') >= 0) {
+                    if (element.indexOf("queryParams=") >= 0) {
                         base64 = element.split("=")[1];
                     }
                 });
@@ -85,14 +85,14 @@ module.exports = {
                 //undo the URL safe string substitutions on base64 encoding
                 if(!(base64)) break;
                 while (base64.indexOf("_") >= 0) {
-                    base64 = base64.replace('_', '+');
-                };
+                    base64 = base64.replace("_", "+");
+                }
 
                 while (base64.indexOf("-") >= 0) {
-                    base64 = base64.replace('-', '/');
-                };
+                    base64 = base64.replace("-", "/");
+                }
                 console.log("ENCODED QUERY PARAMS=" + base64);
-                let json = Buffer.from(base64, 'base64');
+                let json = Buffer.from(base64, "base64");
                 queryParams = JSON.parse(json);
             } catch (exception) {
                 console.log("Unable to parse queryParams from the hash route. ");
@@ -132,7 +132,7 @@ module.exports = {
                 innerResponse = appStateActorDispatcher.request(signature);
                 if (innerResponse.error) {
                     errors.push(innerResponse.error);
-                };
+                }
             });
 
             if (errors.length) {
@@ -144,7 +144,7 @@ module.exports = {
                 innerResponse = appStateActorDispatcher.request({ actorAddTargetSegment: {segment: segment, isRehydration: true }});
                 if (innerResponse.error) {
                     errors.push(innerResponse.error);
-                };
+                }
             });
 
             if (errors.length) {
@@ -156,7 +156,7 @@ module.exports = {
                 innerResponse = appStateActorDispatcher.request({ actorAddBaselineSegment: {segment, isRehydration: true }});
                 if (innerResponse.error) {
                     errors.push(innerResponse.error);
-                };
+                }
             });
 
             if (errors.length) {
@@ -168,24 +168,24 @@ module.exports = {
                 innerResponse = appStateActorDispatcher.request({ actorToggleCharacteristic: {name: characteristic.name, isRehydration: true }});
                 if (innerResponse.error) {
                     errors.push(innerResponse.error);
-                };
+                }
             });
 
-            //write the currentSerialized value to the app data store, to avoid getting called again
-             var innerResponse = request_.namespaces.write.currentSerializedValue.request({
+            // write the currentSerialized value to the app data store, to avoid getting called again
+            innerResponse = request_.namespaces.write.currentSerializedValue.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                 writeData: base64
             });
 
-             if(innerResponse.error){
+            if(innerResponse.error){
                 errors.push(innerRespose.error);
-             }
+            }
 
             break;
         }
 
         if (errors.length) {
-            response.error = errors.join(' ');
+            response.error = errors.join(" ");
         }
         return response;
     }

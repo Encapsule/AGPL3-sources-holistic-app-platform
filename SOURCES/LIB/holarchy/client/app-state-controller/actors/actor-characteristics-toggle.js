@@ -55,7 +55,7 @@ module.exports = {
                 });
             }
 
-            var innerResponse = request_.namespaces.write.selectedCharacteristics.request({
+            innerResponse = request_.namespaces.write.selectedCharacteristics.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
                 writeData: characteristicsOfInterest
             });

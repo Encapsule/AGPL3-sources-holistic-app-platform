@@ -25,11 +25,11 @@ module.exports = {
             inBreakScope = true;
             let daysBack = 3;
             //start is September 1, 2017, end is 3 days back.
-            writeDate = {state: "ready", start: 1512415435479, end: new Date().getTime() - daysBack*86400};
+            var writeDate = {state: "ready", start: 1512415435479, end: new Date().getTime() - daysBack*86400};
 
             var innerResponse = request_.namespaces.write.availableDateRange.request({
                 appDataStore: request_.runtimeContext.appStateContext.appDataStore,
-                writeData: writeData
+                writeData: writeDate
             });
 
             if (innerResponse.error) {
