@@ -149,7 +149,8 @@ var factoryResponse = arccore.filter.create({
 
                         // Topologically sort the pages graph.
                         var sortCount = 0;
-                        var traversalResponse = arccore.graph.directed.depthFirstTraverse({
+                        //var traversalResponse =
+                        arccore.graph.directed.depthFirstTraverse({
                             digraph: viewStore,
                             options: {
                                 startVector: "/"
@@ -265,7 +266,7 @@ var factoryResponse = arccore.filter.create({
     }
 });
 if (factoryResponse.error) {
-    throw new Error(factoryRepsonse.error);
+    throw new Error(factoryResponse.error);
 }
 module.exports = factoryResponse.result;
 

@@ -3,6 +3,9 @@
 const buildTag = require("../../../../../../build/_build-tag");
 const userAgent = [ buildTag.packageAuthor, buildTag.packageName, buildTag.packageVersion ].join("_");
 
+// eslint
+/* global location */
+
 module.exports = {
 
     id: "rVOEEm2lS--ZMp7VmIemlg",

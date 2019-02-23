@@ -18,3 +18,5 @@ const clientUserSessionOpenRequestSpec = module.exports = {
     }
 
 };
+
+module.exports = clientUserSessionOpenRequestSpec;

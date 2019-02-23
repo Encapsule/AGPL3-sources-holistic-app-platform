@@ -16,6 +16,10 @@
   Characteristics
 
 **/
+
+// eslint
+/* global location */
+
 module.exports = {
     id: "VJuGQ4UVRM230oALRj7OEw",
     name: "Update query builder from hash route",

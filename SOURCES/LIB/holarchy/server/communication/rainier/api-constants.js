@@ -97,15 +97,15 @@ var factoryResponse = arccore.filter.create({
 
         return ({ error: null, result: {
             headers: {
-	        qaccount: RAINIER_UX_API_APP_ACCT
+                qaccount: RAINIER_UX_API_APP_ACCT
             },
             hosts: {
                 api: apiHost,
                 rms: rmsHost
             },
             endpoints: {
-	        urlRainierGetSegments: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "segment-definitions")),
-	        urlRainierGetCategories: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "categories")),
+                urlRainierGetSegments: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "segment-definitions")),
+                urlRainierGetCategories: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "categories")),
                 urlRainierGetSegmentSearch: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "segment-definitions/search")),
                 urlRainierGetCountrySegments: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "segment-definitions?category=%2Fqc%2Fgeo%2Fcountry")),
                 urlRainierGetAGCategories: (rmsHost + path.join(VERSIONED_API_ROOT_URI, "categories?ancestor=%2Faudience-link")),
@@ -169,5 +169,3 @@ if (filterResponse.error)
     throw new Error(filterResponse.error);
 
 module.exports = filterResponse.result;
-
-

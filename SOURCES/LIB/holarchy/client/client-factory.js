@@ -2,6 +2,9 @@
 //
 // **** RAINIER UX BASE CLIENT APPLICATION FACTORY ****
 
+// eslint
+/* global window, document */
+
 const CLIENT_APP_REACT_RENDER_ENABLED = true; // Simple flag used for debugging server rendering issues
 
 const buildTag = require("../../../../build/_build-tag");
@@ -186,6 +189,7 @@ var factoryResponse = arccore.filter.create({
             var initialRouteDescriptor = null;
 
             var documentHasLoaded = false;
+            documentHasLoaded;
 
             var onHashRouteChanged = function(routeDescriptor_) {
 

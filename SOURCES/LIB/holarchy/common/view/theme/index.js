@@ -321,7 +321,6 @@ module.exports = {
                 zIndex: 10
             },
             versionText: {
-                textShadow: "1px 1px #EEE",
                 fontFamily: "Play, Arial",
                 color: "#777",
                 marginLeft: "1em",
@@ -364,7 +363,6 @@ module.exports = {
                     borderRadius: "0.25em",
                     backgroundColor: "#FA0",
                     opacity: "0.5",
-                    backgroundColor: "#FA0",
                     fontSize: "10pt"
                 }
             },
@@ -462,7 +460,6 @@ module.exports = {
                     borderRadius: "0.25em",
                     backgroundColor: "#FF0",
                     opacity: "0.5",
-                    backgroundColor: "#FA0",
                     fontSize: "10pt"
                 }
             },

@@ -2,3 +2,5 @@
 
 const clientUserSessionCloseRequestSpec = {
 };
+
+module.exports = clientUserSessionCloseRequestSpec;

@@ -114,7 +114,6 @@ var factoryResponse = arccore.filter.create({
         }
     },
     bodyFunction: function(factoryRequest_) {
-        var self = this;
         var response = { error: null, result: null };
         var errors = [];
         var inBreakScope = false;

@@ -4,6 +4,9 @@
 // Inspired by http://joakimbeng.eu01.aws.af.cm/a-javascript-router-in-20-lines/
 //
 
+// eslint
+/* global window, location */
+
 var MinimalHashRouter = (function() {
 
     function MinimalHashRouter() {

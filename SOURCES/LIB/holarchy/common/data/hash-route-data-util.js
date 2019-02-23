@@ -1,5 +1,8 @@
 // sources/common/data/hash-route-data-util.js
 
+// eslint
+/* global location */
+
 /**
    Utility function for getting data to/from location.hash
 **/

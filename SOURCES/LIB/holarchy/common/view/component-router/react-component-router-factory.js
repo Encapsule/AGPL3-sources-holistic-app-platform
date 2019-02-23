@@ -5,8 +5,6 @@
 // React component data binding filters.
 
 const arccore = require("arccore");
-const React = require("react");
-
 const ComponentRouterSubfactory = require("./ComponentRouter.jsx");
 const appDataStoreIntegrationsProcessor = require("../../data/app-data-store-integrations-processor");
 
@@ -22,7 +20,6 @@ var factoryResponse = arccore.filter.create({
         dataViewBindingFilterSetOfSets: {
             ____label: "React Component Data Binding Filter Sets",
             ____description: "An array of sets that each contain React component data binding filters.",
-            ____description: "An array of data view binding filters.",
             ____types: "jsArray",
             dataViewBindingFilterSet: {
                 ____label: "Data View Binding Filter Set",
