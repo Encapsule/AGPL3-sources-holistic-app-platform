@@ -22,7 +22,7 @@ module.exports = {
         ____defaultValue: null
     },
     user_session_token: {
- 	____label: "User Session Token",
+        ____label: "User Session Token",
         ____description: "The previously-issued user session token value, or null if the user has logged out/never logged in.",
         ____accept: [ "jsNull", "jsString" ],
         ____defaultValue: null
@@ -32,14 +32,14 @@ module.exports = {
         ____description: "Request source metadata.",
         ____types: "jsObject",
         ip_address: {
-	    ____label: "IPv4 Address",
-	    ____description: "IPv4 address of the machine hosting the user's agent process (typically a browser).",
-	    ____accept: "jsString"
+            ____label: "IPv4 Address",
+            ____description: "IPv4 address of the machine hosting the user's agent process (typically a browser).",
+            ____accept: "jsString"
         },
         user_agent: {
-	    ____label: "User Agent",
-	    ____description: "The identity of user's agent application (typically derived from User-Agent header or navigator.userAgent DOM).",
-	    ____accept: "jsString"
+            ____label: "User Agent",
+            ____description: "The identity of user's agent application (typically derived from User-Agent header or navigator.userAgent DOM).",
+            ____accept: "jsString"
         }
     }
 

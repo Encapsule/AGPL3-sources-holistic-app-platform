@@ -4,7 +4,7 @@
 # $(patsubst %\,%,$(__PATHS_FEATURE))
 
 DIR_ROOT=$(patsubst %/,%,$(dir $(realpath $(firstword $(MAKEFILE_LIST)))))
-$(info ***** Encapsule Project middleforks monorepo make *****)
+$(info ***** @encapsule/holistic platform make *****)
 $(info DIR_ROOT is $(DIR_ROOT))
 
 DIR_MODULES=$(DIR_ROOT)/node_modules
@@ -56,38 +56,38 @@ default:
 # Environment
 
 env_initialize:
-	@echo monorepo_initialize target starting...
+	@echo env_initialize target starting...
 	yarn install --verbose
-	@echo monorepo_initialize target complete.
+	@echo env_initialize target complete.
 
 env_reinitialize: env_clean_cache env_initialize
 	@echo Your local yarn cache has been repopulated with fresh packages from the Internet. And the contents of $(DIR_MODULES) has been rewritten.
 
 env_clean:
-	@echo monorepo_clean target starting...
+	@echo env_clean target starting...
 	echo rm -rf $(DIR_MODULES)
-	@echo monorepo_clean target complete.
+	@echo env_clean target complete.
 
 env_clean_cache: env_clean
-	@echo monorepo_reset target starting...
+	@echo env_reset target starting...
 	yarn cache clean
-	@echo monorepo_reset target complete.
+	@echo env_reset target complete.
 
 env_generate_build_tag:
-	@echo generate_build_info target starting...
+	@echo generate_build_tag target starting...
 	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
-	@echo generate_build_info target complete.
+	@echo generate_build_tag target complete.
 
 # ================================================================
 # Source Package Targets
 
 source_packages_clean:
-	@echo BEGIN TARGET: source_packages_clean
+	@echo source_packages_clean target starting...
 	rm -rf $(DIR_BUILD)/*
-	@echo FINISH TARGET: source_packages_clean
+	@echo source_packages_clean target complete.
 
 source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_hrequest source_package_build_holarchy
-	@echo COMPLETE TARGET: source_packages_build
+	@echo source_packages_build complete.
 
 source_package_build_holism:
 	@echo source_package_build_holism target starting...

@@ -72,7 +72,7 @@ var factoryResponse = arccore.filter.create({
 
 
             // DEFINE A CUSTOM FACTORY INLINE TO CONSTRUCT THE SPECIALIZED APP DATA STORE READ FILTER.
-            function createReadFilter() {
+            var createReadFilter = function() {
 
                 var appStateContext = request_.appStateContext;
                 var appDataStorePath = request_.namespacePath;
@@ -108,9 +108,9 @@ var factoryResponse = arccore.filter.create({
                     },
                     outputFilterSpec: namespaceFilterSpec
                 });
-            } // createReadFilter
+            }; // createReadFilter
 
-            var innerResponse = createReadFilter();
+            innerResponse = createReadFilter();
             if (innerResponse.error) {
                 errors.push("Unable to construct the requested read filter due to error.");
                 errors.push(innerResponse.error);

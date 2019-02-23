@@ -194,7 +194,7 @@ var factoryResponse = arccore.filter.create({
 
             // Evaluate the write namespace dependency declarations and generate write filters.
             for (var writeDependency of stateActorFactoryRequest_.actorDeclaration.namespaces.write) {
-                var innerResponse =  appDataStoreWriteFilterFactory.request({
+                innerResponse =  appDataStoreWriteFilterFactory.request({
                     // could probably do a bit better than this if we tried
                     appDataStoreFilterSpec: appDataStoreSpec,
                     id: writeDependency.filterBinding.id,
@@ -210,7 +210,7 @@ var factoryResponse = arccore.filter.create({
                 break;
 
             // --------------------------------------------------------------------------
-            function createStateActorFilter() {
+            var createStateActorFilter = function() {
                 // Lock down our runtime context.
                 var namespaceAccessFilters = {
                     read: readFilterAliasMap,
@@ -255,10 +255,10 @@ var factoryResponse = arccore.filter.create({
                     }
                 });
                 return stateActorFactoryResponse;
-            } // createStateActoryFilter function
+            }; // createStateActoryFilter function
             // --------------------------------------------------------------------------
 
-            var innerResponse = createStateActorFilter();
+            innerResponse = createStateActorFilter();
             if (innerResponse.error) {
                 errors.push("Unable to construct the requested app state actor filter due to error.");
                 errors.push(innerResponse.error);

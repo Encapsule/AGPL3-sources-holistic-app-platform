@@ -183,7 +183,7 @@ const getCombinedSegment = function(segments) {
             };
             return obj;
         default:
-            const mid = (len - 1) / 2;
+            var mid = (len - 1) / 2;
             obj[op] = {
                 a: merge(segments.slice(0, mid), op),
                 b: merge(segments.slice(mid, len), op)

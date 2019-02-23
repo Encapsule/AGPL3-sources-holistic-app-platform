@@ -69,7 +69,7 @@ var factoryResponse = arccore.filter.create({
             }
 
             // CREATE THE APP DATA STORE WRITE FILTER.
-            function createWriteFilter() {
+            var createWriteFilter = function() {
                 const stateNamespacePath = request_.stateNamespacePath;
                 var stateNamespaceTokens = stateNamespacePath.split(".");
                 var targetNamespaceName = stateNamespaceTokens.pop();
@@ -117,7 +117,7 @@ var factoryResponse = arccore.filter.create({
                         return response;
                     } // bodyFunction
                 });
-            } // end function createWriteFilter
+            }; // end function createWriteFilter
 
             innerResponse = createWriteFilter();
 

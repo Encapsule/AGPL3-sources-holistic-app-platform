@@ -36,11 +36,7 @@ var factoryResponse = arccore.filter.create({
         var errors = [];
         var inBreakScope = false;
 
-        var result = {
-            digraph: null,
-            viewBindingFilters: {
-            }
-        };
+        // NOT USED? var result = { digraph: null, viewBindingFilters: {} };
 
         while (!inBreakScope) {
             inBreakScope = true;
@@ -98,7 +94,7 @@ var factoryResponse = arccore.filter.create({
                 console.log("..... processing data read dependency on app data store namespace '" + namespace + "'");
 
                 // Retrieve the filter specification node from the application data store constructor filter.
-                var innerResponse = getNamespaceInReferenceFromPath.request({
+                innerResponse = getNamespaceInReferenceFromPath.request({
                     namespacePath: namespace,
                     sourceRef: request_.appStateContext.appDataStoreConstructorFilter.filterDescriptor.inputFilterSpec
                 });

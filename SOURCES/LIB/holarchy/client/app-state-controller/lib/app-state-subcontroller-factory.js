@@ -131,7 +131,7 @@ var factoryResponse = arccore.filter.create({
             } // end for
 
             // Create the edges in the directed graph that represent the controller's finite state transition matrix.
-            for (var stateDescriptor of request_.states) {
+            for (stateDescriptor of request_.states) {
                 // Evaluate each of the declared transition models.
 
                 var transitionPriority = 0;

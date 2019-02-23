@@ -10,7 +10,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
         ____types: "jsObject",
         always: { ____accept: "jsBoolean", ____inValueSet: [ true ] }
     },
-    bodyFunction: function (request_) { return { error: null, result: true }; }
+    bodyFunction: function () { return { error: null, result: true }; }
 });
 if (factoryResponse.error)
     throw new Error(factoryResponse.error);

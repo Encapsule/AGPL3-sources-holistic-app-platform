@@ -119,7 +119,7 @@ var factoryResponse = arccore.filter.create({
                 break;
             }
 
-            const initializing = "initializing";
+            // NOT USED? const initializing = "initializing";
 
             var appDataStore = factoryResponse.result;
 
@@ -202,6 +202,7 @@ var factoryResponse = arccore.filter.create({
 
             };
             var routeDescriptor = router.registerChangeCallback(onHashRouteChanged);
+            routeDescriptor;
 
             console.log("> WAITING ON THE BROWSER TO LOAD REQUIRED RESOURCES...");
 
@@ -225,6 +226,7 @@ var factoryResponse = arccore.filter.create({
 
                 documentHasLoaded = true;
                 var clientRenderCount = 0;
+                clientRenderCount;
 
                 // ----------------------------------------------------------------------------
                 // De-serialize the client application's initial boot state from JSON data

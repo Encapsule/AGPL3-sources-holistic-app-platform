@@ -177,8 +177,8 @@ module.exports = {
                 writeData: base64
             });
 
-            if(innerResponse.error){
-                errors.push(innerRespose.error);
+            if (innerResponse.error){
+                errors.push(innerResponse.error);
             }
 
             break;

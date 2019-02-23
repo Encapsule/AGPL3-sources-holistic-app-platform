@@ -53,6 +53,7 @@ var factoryResponse = arccore.filter.create({
                 var controllerModelName = digraphModel.getGraphName();
                 var currentState = controllerMap[controllerModelName].state;
                 var currentStateNamespacePath = controllerMap[controllerModelName].stateNamespacePath;
+                console.log("Evaulating " + controllerModelName + " bound to state namespace + '" + currentStateNamespacePath + "'.");
                 var transitionModelEdges = digraphModel.outEdges(currentState);
                 var warnTerminalInitialState = ((currentState === "uninitialized") && !transitionModelEdges.length);
                 var stateType = (transitionModelEdges.length?((currentState === "uninitialized")?"initial":"current"):"terminal");
@@ -157,8 +158,8 @@ var factoryResponse = arccore.filter.create({
                 var nextStateModel = digraphModel.getVertexProperty(nextState);
 
                 if (nextStateModel.actions.enter.length) {
-                    for (var stateActorCommand_ of nextStateModel.actions.enter) {
-                        var stateActorResponse = request_.appStateActorDispatcher.request(stateActorCommand_);
+                    for (stateActorCommand_ of nextStateModel.actions.enter) {
+                        stateActorResponse = request_.appStateActorDispatcher.request(stateActorCommand_);
                         if (stateActorResponse.error) {
                             errors.push("While attempting to step subcontroller '" + controllerModelName + "':");
                             errors.push("During attempt to dispatch state enter action the actor filter dispatch failed:");
