@@ -1,8 +1,5 @@
 // metadata-user-get-identity.js
 
-const arccore = require("arccore");
-const buildTag = require("../../../../../build/_build-tag");
-
 const userIdentityCookieName = "qcToken";
 
 module.exports = function(request_) {
@@ -44,7 +41,7 @@ module.exports = function(request_) {
             });
 
             // Dereference the parsed name,value dictionary for our token.
-            var qcTokenValue = cookieMap[userIdentityCookieName];
+            qcTokenValue = cookieMap[userIdentityCookieName];
             if (!qcTokenValue || !qcTokenValue.length) {
                 // The user is not authenticated or authorized. Set qcToken to null.
                 qcTokenValue = qcTokenNotAuthenticated;

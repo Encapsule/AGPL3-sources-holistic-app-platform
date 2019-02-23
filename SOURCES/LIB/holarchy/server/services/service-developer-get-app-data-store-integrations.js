@@ -102,7 +102,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                     http: { code: 500 },
                     content: { encoding: "utf8", type: "text/html" },
                     data: {
-                        error_message: message,
+                        error_message: "Oh that's not good at all...",
                         error_context: {
                             source_tag:  "X5k_1ydzRvCa-_G56bdntg"
                         }

@@ -2,7 +2,6 @@
 //
 
 const path = require("path");
-const dirname = __dirname;
 
 //const process = require('process');
 //console.log("Processing memory-files.js");

@@ -2,7 +2,7 @@
 const apiConstants = require("./api-constants");
 const filter = require("./get-categories-request-filter");
 
-var networkInitiateResponse = filter.request({
+var filterResponse = filter.request({
     options: {
         headers: apiConstants.headers
     },
@@ -16,6 +16,10 @@ var networkInitiateResponse = filter.request({
         console.log(JSON.stringify(error_, undefined, 4));
     }
 });
+
+if (filterResponse.error) {
+    throw new Error(filterResponse.error);
+}
 
 
 

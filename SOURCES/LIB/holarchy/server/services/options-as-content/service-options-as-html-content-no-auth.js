@@ -20,7 +20,6 @@ var factoryResponse = httpServiceFilterFactory.create({
         request_handler: function(request_) {
             console.log("..... " + this.operationID + "::" + this.operationName);
 
-            var response = { error: null, result: null };
             var errors = [];
             var inBreakScope = false;
 

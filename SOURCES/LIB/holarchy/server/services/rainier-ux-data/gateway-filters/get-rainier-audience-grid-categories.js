@@ -2,8 +2,6 @@
 
 const dataGatewayFilterFactory = require("../lib/data-gateway-filter-factory");
 
-const apiConstants = require("../../../communication/rainier/api-constants");
-
 const buildProxyHeaders = require("../lib/build-outgoing-headers-for-backend-proxy");
 
 const rainierProxyGetCategories = require("../../../communication/rainier/get-audience-grid-categories-request-filter");
@@ -86,7 +84,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             });
 
             if (httpProxyResponse.error) {
-                errors.push(httpResponse.error);
+                errors.push(httpProxyResponse.error);
                 break;
             }
 

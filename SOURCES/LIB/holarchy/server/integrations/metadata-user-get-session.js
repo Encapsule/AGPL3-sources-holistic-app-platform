@@ -3,7 +3,7 @@
 module.exports = function(request_) {
     console.log("..... " + this.operationID + "::" + this.operationName);
 
-    const appStateContext = request_.appStateContext;
+    // const appStateContext = request_.appStateContext;
     const userIdentity = request_.user_identity;
 
     // By definition, userIdentity is merely a developer-defined transformation of request data to a terse data object w/assumed semantics of user identity.

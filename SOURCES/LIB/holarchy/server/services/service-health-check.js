@@ -1,7 +1,7 @@
 // service-health-check.js
 
 const httpServiceFilterFactory = require("holism").service;
-const serviceUtils = require("./service-utils");
+// NOT USED? const serviceUtils = require("./service-utils");
 
 var factoryResponse = httpServiceFilterFactory.create({
     id: "6sHrn7n8QaSqb9Sv9gt4Ug",
@@ -28,10 +28,6 @@ var factoryResponse = httpServiceFilterFactory.create({
     },
     handlers: {
         request_handler: function(request_) {
-
-            var response = { error: null, result: null };
-            var errors = [];
-            var inBreakScope = false;
 
             var responseAttempt = request_.response_filters.result.request({
                 streams: request_.streams,

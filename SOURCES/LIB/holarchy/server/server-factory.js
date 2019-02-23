@@ -106,7 +106,7 @@ var factoryResponse = arccore.filter.create({
             var baseServiceRoutes = {};
             for (serviceDescriptor_ of baseAppServerConfig.services) {
                 for (uri_ of serviceDescriptor_.request_bindings.uris) {
-                    var serviceRoute = serviceDescriptor_.request_bindings.method + ":" + uri_;
+                    serviceRoute = serviceDescriptor_.request_bindings.method + ":" + uri_;
                     baseServiceRoutes[serviceRoute] = serviceDescriptor_;
                 }
             }
@@ -155,7 +155,7 @@ var factoryResponse = arccore.filter.create({
             request_.appStateContext.appDataStoreConstructorFilter = dataStoreConstructorFilter;
 
             // Construct the merged application/base metadata store.
-            var factoryResponse = metadataStoreFactory.request(request_.metadata);
+            factoryResponse = metadataStoreFactory.request(request_.metadata);
             if (factoryResponse.error) {
                 errors.push(factoryResponse.error);
                 break;

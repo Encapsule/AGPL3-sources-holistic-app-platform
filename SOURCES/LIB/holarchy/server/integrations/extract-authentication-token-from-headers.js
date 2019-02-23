@@ -16,7 +16,7 @@ module.exports = function(requestDescriptor_) {
             cookieMap[nameValueSplit[0]] = nameValueSplit[1];
         });
         // Dereference the parsed name,value dictionary for our token.
-        var qcTokenValue = cookieMap[userIdentityCookieName];
+        qcTokenValue = cookieMap[userIdentityCookieName];
         if (!qcTokenValue || !qcTokenValue.length) {
             // The user is not authenticated or authorized. Set qcToken to null.
             qcTokenValue = qcTokenNotAuthenticated;

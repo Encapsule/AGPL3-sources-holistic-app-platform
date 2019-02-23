@@ -5,7 +5,7 @@ const dataGatewayFilterFactory = require("../lib/data-gateway-filter-factory");
 const buildOutgoingHeaders = require("../lib/build-outgoing-headers-for-backend-proxy");
 const rainierProxyPostAdhocQueryReport = require("../../../communication/rainier/post-adhoc-query");
 
-const extractAuthenticationTokenFromHeader = require("../../../integrations/extract-authentication-token-from-headers");
+// NOT USED? const extractAuthenticationTokenFromHeader = require("../../../integrations/extract-authentication-token-from-headers");
 
 var factoryResponse = dataGatewayFilterFactory.request({
     id: "3nPRxJxDSAaXRxDQpHRarA",
@@ -98,7 +98,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             });
 
             if (httpProxyResponse.error) {
-                errors.push(httpResponse.error);
+                errors.push(httpProxyResponse.error);
                 break;
             }
 

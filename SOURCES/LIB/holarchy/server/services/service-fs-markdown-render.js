@@ -3,12 +3,12 @@
 const arccore = require("arccore");
 const fs = require("fs");
 const path = require("path");
-const process = require("process");
+// NOT USED? const process = require("process");
 const httpServiceFilterFactory = require("holism").service;
 const buildTag = require("../../../../../build/_build-tag");
 
 
-var etagCache = {};
+// NOT USED? var etagCache = {};
 
 
 var factoryResponse = httpServiceFilterFactory.create({
@@ -60,7 +60,6 @@ var factoryResponse = httpServiceFilterFactory.create({
         request_handler: function(request_) {
 
             var response = { error: null, result: null };
-            var errors = [];
             var inBreakScope = false;
 
             while (!inBreakScope) {
@@ -172,7 +171,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                             });
                             if (responseAttempt.error) {
                                 // Trombones...
-                                var errorAttempt = request_.response_filters.error.request({
+                                errorAttempt = request_.response_filters.error.request({
                                     streams: request_.streams,
                                     integrations: request_.integrations,
                                     request_descriptor: request_.request_descriptor,

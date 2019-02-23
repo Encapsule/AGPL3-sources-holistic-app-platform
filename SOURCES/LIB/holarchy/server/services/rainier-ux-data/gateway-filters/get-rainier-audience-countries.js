@@ -42,7 +42,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             let streams = gatewayRequest_.gatewayServiceFilterRequest.streams;
             let integrations = gatewayRequest_.gatewayServiceFilterRequest.integrations;
             let request_descriptor = gatewayRequest_.gatewayServiceFilterRequest.request_descriptor;
-            const incomingRequestHeaders = gatewayRequest_.gatewayServiceFilterRequest.request_descriptor.headers;
+            // NOT USED? const incomingRequestHeaders = gatewayRequest_.gatewayServiceFilterRequest.request_descriptor.headers;
 
             const pcode = gatewayRequest_.gatewayMessage.GET.backend.rainier.audienceCountries.pcode;
             var httpProxyResponse = rainierProxyGetCountries.request({
@@ -84,7 +84,7 @@ var factoryResponse = dataGatewayFilterFactory.request({
             });
 
             if (httpProxyResponse.error) {
-                errors.push(httpResponse.error);
+                errors.push(httpProxyResponse.error);
                 break;
             }
 
