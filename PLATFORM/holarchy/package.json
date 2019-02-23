@@ -1,0 +1,35 @@
+{
+    "name": "@encapsule/holarchy",
+    "version": "0.0.7",
+    "codename": "rexford",
+    "buildID": "aU3NdnICS0q8VyZNZFfhgA",
+    "buildTime": 1550957034,
+    "buildSource": "189a07c2b94295828966aab9cbc0c277ee7fd196",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holarchy.git"
+    },
+    "author": "Encapsule",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "http://chrisrussell.net"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holarchy/issues"
+    },
+    "homepage": "https://github.com/Encapsule/holarchy#readme",
+    "description": "Holistic server and client application runtime factories, re-usable plug-in export library.",
+    "keywords": [
+        "Encapsule"
+    ],
+    "main": "index.js",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.3",
+        "@encapsule/holism": "0.0.7",
+        "@encapsule/hrequest": "0.0.7"
+    }
+}

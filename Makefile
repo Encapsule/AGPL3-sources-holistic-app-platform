@@ -26,21 +26,21 @@ TOOL_WEBPACK_FLAGS=--display-modules --verbose --debug --progress --colors --dev
 
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
+DIR_SOURCES_LIB_HOLARCHY=$(DIR_SOURCES_LIB)/holarchy
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
 DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
-DIR_SOURCES_LIB_HOLARCHY=$(DIR_SOURCES_LIB)/holarchy
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
+DIR_BUILD_LIB_HOLARCHY=$(DIR_BUILD_LIB)/holarchy
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
 DIR_BUILD_LIB_HREQUEST=$(DIR_BUILD_LIB)/hrequest
-DIR_BUILD_LIB_HOLARCHY=$(DIR_BUILD_LIB)/holarchy
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 DIR_DISTS_LIB=$(DIR_DISTS)/LIB
+DIR_DIST_LIB_HOLARCHY=$(DIR_DISTS_LIB)/holarchy
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
-DIR_DIST_LIB_HOLARCHY=$(DIR_DISTS_LIB)/holarcy
 
 DIR_PLATFORM=$(DIR_ROOT)/PLATFORM
 
@@ -145,6 +145,7 @@ source_package_build_holarchy:
 # of the distribution repo which is typically then commited and published.
 dist_packages_initialize: dist_packages_clean
 	@echo BEGIN TARGET: dist_packages_initialize
+	git clone git@github.com:Encapsule/holarchy.git $(DIR_DIST_LIB_HOLARCHY)
 	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
 	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
 	@echo FINISH TARGET: dist_packages_initialize
@@ -153,9 +154,12 @@ dist_packages_initialize: dist_packages_clean
 dist_packages_status:
 	@echo BEGIN TARGET: dist_packages_status
 	@echo ================================================================
+	cd $(DIR_DIST_LIB_HOLARCHY) && git remote -v && git status
+	@echo ================================================================
 	cd $(DIR_DIST_LIB_HOLISM) && git remote -v && git status
 	@echo ================================================================
 	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
+	@echo ================================================================
 	@echo FINISH TARGET: dist_packages_status
 
 dist_packages_clean: dist_packages_reset
@@ -166,8 +170,14 @@ dist_packages_reset:
 	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holism dist_package_update_hrequest
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_hrequest
 	@echo COMPLETE TARGET: dist_packages_update
+
+dist_package_update_holarchy:
+	@echo stage_package_holism target starting...
+	mkdir -p $(DIR_DIST_LIB_HOLARCHY)
+	cp -Rp $(DIR_BUILD_LIB_HOLARCHY) $(DIR_DISTS_LIB)
+	@echo stage_package_holism complete.
 
 dist_package_update_holism:
 	@echo stage_package_holism target starting...

@@ -1,0 +1,106 @@
+# This will automatically install the Sumo Logic collector on AWS Elastic
+# Beanstalk instances. Add this to the .ebextensions folder in your app root
+# To add or remove tracked files, simply add or remove source hashes to the
+# sources array.
+
+# Allow EB to directly download from our S3 buckets
+# This probably should be in the Terraform configuration, but it modifies a very specific key in the
+# CloudFormation template that Terraform does not seem to have access to.
+# The effect of this declaration is that the AutoScalingGroup object has a piece of Metadata applied to
+# it that grants access to certain buckets from the EC2 instances that it launches.
+# Just granting S3 access to the IAM role is not sufficient to grant this access.
+# See here for more info:
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-authentication.html
+Resources:
+  AWSEBAutoScalingGroup:
+    Metadata:
+      AWS::CloudFormation::Authentication:
+        S3Auth:
+          type: "s3"
+          buckets: ["qc-abacus-production"]
+          roleName:
+            "Fn::GetOptionSetting":
+              Namespace: "aws:autoscaling:launchconfiguration"
+              OptionName: "IamInstanceProfile"
+              DefaultValue: "aws-elasticbeanstalk-ec2-role"
+
+
+files:
+  # SumoCollector originally downloaded from:
+  # https://collectors.sumologic.com/rest/download/rpm/64
+  "/home/ec2-user/SumoCollector.rpm":
+    mode: "000755"
+    owner: root
+    group: root
+    authentication: "S3Auth"
+    source: https://s3-us-west-2.amazonaws.com/qc-abacus-production/binaries/sumologic/SumoCollector-19.209-5.x86_64.rpm
+
+  # accessid and accesskey belong to ssadowski. All keys in Sumologic must be owned
+  # by an individual user.
+  "/home/ec2-user/setup-sumo.sh":
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+      cat >/opt/SumoCollector/config/user.properties <<EOL
+      accessid=suEKcGhfc8ER1S
+      accesskey=cGWmMnjNaWfaqx0P1TYcLqxzoB5I8q5NCbClP8LBIGIGuGf8Kvc0r8tGGiX2ngYI
+      name=Rainer App Log Collector
+      category=rainier/{{environment}}/ux
+      ephemeral=true
+      syncSources=/opt/SumoCollector/config/sources.json
+      EOL
+
+  "/opt/SumoCollector/config/sources.json":
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+      {
+        "api.version": "v1",
+        "sources": [
+          {
+            "name": "Application Logs",
+            "sourceType": "LocalFile",
+            "pathExpression": "/var/log/nodejs/*",
+            "multilineProcessingEnabled": true,
+            "useAutolineMatching": true,
+            "automaticDateParsing": true
+          }
+        ]
+      }
+
+  "/opt/elasticbeanstalk/tasks/taillogs.d/sumo-logic.conf" :
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+      /opt/SumoCollector/logs/*
+
+  "/opt/elasticbeanstalk/tasks/bundlelogs.d/sumo-logic.conf" :
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+      /opt/SumoCollector/logs/*
+
+  "/opt/elasticbeanstalk/tasks/publishlogs.d/sumo-logic.conf" :
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+      /opt/SumoCollector/logs/*
+
+commands:
+  install_sumo:
+      command: rpm -ivh --replacepkgs /home/ec2-user/SumoCollector.rpm
+  setup_sumo:
+    command: /home/ec2-user/setup-sumo.sh
+
+services:
+  sysvinit:
+    collector:
+      enabled: true
+      ensureRunning: true
+      commands:
+        - setup_sumo
