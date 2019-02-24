@@ -1,10 +1,12 @@
+// @encapsule/holarchy/server-api.js
 
 const holism = require("@encapsule/holism");
 
 const ruxAppServerFactory = require("./server/server-factory");
 
 const ruxBaseSharedHolismServiceFilters = {
-    OptionsAsContent: require("./sources/server/services/options-as-content/service-options-as-html-content"),
+// NO    OptionsAsContent: require("./sources/server/services/options-as-content/service-options-as-html-content"),
+
     OptionsAsContentNoAuth: require("./sources/server/services/options-as-content/service-options-as-html-content-no-auth"),
     MarkdownFromFilesystem: require("./sources/server/services/service-fs-markdown-render"),
     HealthCheck : require("./sources/server/services/service-health-check"),

@@ -1,8 +1,5 @@
 // metadata-store-constructor.js
 
-const packageMeta = require("../../../package.json");
-const metadataStoreName = packageMeta.author.name + "/" + packageMeta.name + " v" + packageMeta.version;
-
 const metadataStoreConstructorFactory = require("./metadata-store-constructor-factory");
 
 const developerInputMetadataOrgSpec = require("../filter-specs/integrations/developer-input-metadata-org-spec");
@@ -12,8 +9,8 @@ const appMetadataPageSpec = require("../filter-specs/integrations/app-metadata-p
 
 var factoryResponse = metadataStoreConstructorFactory.request({
     id: "ah4FS6AoQ_WxzZGC45mREg",
-    name: metadataStoreName,
-    description: "Application metadata store constructor filter.",
+    name: "Application Metadata Constructor Filter Factory",
+    description: "A filter that builds a filter that is used to build an instance of an application metadata store.",
     constraints: {
         metadata: {
             org_input_spec: developerInputMetadataOrgSpec,

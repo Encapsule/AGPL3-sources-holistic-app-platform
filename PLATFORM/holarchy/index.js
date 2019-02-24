@@ -2,7 +2,6 @@ const packageMeta = require("./package.json");
 
 module.exports = {
 
-    // Package metadata.
     __meta: {
         author: packageMeta.author,
         name: packageMeta.name,

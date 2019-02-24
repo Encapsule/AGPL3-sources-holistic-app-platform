@@ -1,6 +1,6 @@
-// sources/server/integrations/index.js
+// .../server/integrations/index.js
 
-const packageMeta = require("../../../package.json");
+const packageMeta = require("../../package.json");
 
 const React = require("react");
 
@@ -27,7 +27,7 @@ module.exports = function(appStateContext_) { // <--- APPLICATION STATE STORE FR
 
     var factoryResponse = httpServerIntegrationsFactory.create({
         filter_id_seed: "HHVPxkhOSkq56C903-GkQQ",
-        name: packageMeta.author.name + "/" + packageMeta.name,
+        name: packageMeta.name,
         version: packageMeta.version,
         description: packageMeta.description,
         appStateContext: appStateContext_, // <--- APPLICATION STATE STORE FROM THE APP

@@ -6,9 +6,7 @@ const path = require("path");
 // NOT USED? const process = require("process");
 const httpServiceFilterFactory = require("@encapsule/holism").service;
 
-// I think we want to use the holarchy package.json metadata to provide
-// runtime metadata to resource provided by holarchy runtime...?
-const buildTag = require("../../../../../build/_build-tag");
+const packageMeta = require("../../package");
 
 
 // NOT USED? var etagCache = {};
@@ -103,8 +101,14 @@ var factoryResponse = httpServiceFilterFactory.create({
                     } // end if error_
                     else {
                         // success - we have the markdown file resource loaded into memory now.
-                        var contentIRUT = arccore.identifier.irut.fromReference(data_.toString("utf") + buildTag.buildID + buildTag.buildTimestamp).result;
-                        var contentETag = buildTag.packageAuthor + "/" + buildTag.packageName + ":" + contentIRUT;
+                        // The IRUT hash is based on the content, and build identifiers. We include the build identifiers because it's
+                        // possible that the manner in which the content will be presented has somehow changed build-to-build. However,
+                        // this is actually pretty difficult to track. So, we just use the build identifiers and send a freshly-rendered
+                        // view of the content to each client for every new build regardless if if the content itself has been updated
+                        // or not.
+
+                        var contentIRUT = arccore.identifier.irut.fromReference(data_.toString("utf8") + packageMeta.buildID + packageMeta.buildTime).result;
+                        var contentETag = packageMeta.name + ":" + contentIRUT;
                         const requestDescriptor = request_.request_descriptor;
                         var lastETag =
                             requestDescriptor.headers["if-none-match"] ||
@@ -160,7 +164,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                                                     contentEP: [
                                                         {
                                                             RUXBase_PageContent_Markdown: {
-                                                                markdownContent: [ data_.toString("utf") ],
+                                                                markdownContent: [ data_.toString("utf8") ],
                                                                 markdownOptions: request_.options.markdownOptions,
                                                                 viewOptions: request_.options.viewOptions
                                                             }
