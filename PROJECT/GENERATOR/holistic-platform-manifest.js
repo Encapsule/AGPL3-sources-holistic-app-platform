@@ -16,29 +16,30 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
     platformDependencies: {
 
         // Holistic platform build and test library dependencies.
-	"eslint": "^5.10.0",
-	"@babel/cli": "^7.2.3",
-	"@babel/core": "^7.2.2",
-	"@babel/plugin-transform-react-jsx": "^7.2.0",
-	"@babel/preset-env": "^7.2.3",
-	"webpack": "4.29.5",
-	"webpack-cli": "3.2.3",
-	"handlebars": "^4.0.12",
-	"handlebars-loader": "^1.7.1",
-	// "mocha": "^5.2.0",
-	// "chai": "^4.2.0",
+        "eslint": "^5.10.0",
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.2.2",
+        "@babel/plugin-transform-react-jsx": "^7.2.0",
+        "@babel/preset-env": "^7.2.3",
+        "webpack": "4.29.5",
+        "webpack-cli": "3.2.3",
+        "handlebars": "^4.0.12",
+        "handlebars-loader": "^1.7.1",
+        // "mocha": "^5.2.0",
+        // "chai": "^4.2.0",
 
         // Holistic platform runtime library dependencies.
         "@encapsule/arccore": "0.1.3",
         "@encapsule/arctools": "0.1.3",
+        "@encapsule/holarchy": "./HOLISTIC/holarchy",
         "@encapsule/holism": "./HOLISTIC/holism",
         "@encapsule/hrequest": "./HOLISTIC/hrequest",
 
         // Third-party runtime library dependencies.
-	"request": "^2.88.0",
-	"query-string": "^6.2.0",
-	"react": "^16.7.0",
-	"react-dom": "^16.7.0"
+        "request": "^2.88.0",
+        "query-string": "^6.2.0",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0"
 
     } // devDependencies
 

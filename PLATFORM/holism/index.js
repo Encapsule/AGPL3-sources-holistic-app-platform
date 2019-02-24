@@ -13,9 +13,12 @@ const errorResponseFilter = require("./lib/http-response-error-filter");
 
 module.exports = {
     __meta: {
-        name: packageMeta.author.name + "/" + packageMeta.name,
+        author: packageMeta.author,
+        name: packageMeta.name,
+        version: packageMeta.version,
         codename: packageMeta.codename,
-        version: packageMeta.version
+        build: packageMeta.buildID,
+        source: packageMeta.buildSource
     },
     server: {
         create: httpServerFilterFactory.request
