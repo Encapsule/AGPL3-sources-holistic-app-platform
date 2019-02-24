@@ -1,10 +1,13 @@
 // service-fs-markdown-render.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const fs = require("fs");
 const path = require("path");
 // NOT USED? const process = require("process");
-const httpServiceFilterFactory = require("holism").service;
+const httpServiceFilterFactory = require("@encapsule/holism").service;
+
+// I think we want to use the holarchy package.json metadata to provide
+// runtime metadata to resource provided by holarchy runtime...?
 const buildTag = require("../../../../../build/_build-tag");
 
 

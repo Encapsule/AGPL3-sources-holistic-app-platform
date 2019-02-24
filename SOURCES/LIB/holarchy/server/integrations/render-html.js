@@ -3,6 +3,8 @@
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
 
+// TODO: We need to move this to a file read from disk on init
+// and call handlebars to compile the template for use in the renderHtmlDocument function export...
 var outerHtmlDocumentTemplate = require("./html-page-template.hbs");
 
 function renderHtmlDocument(request_) {

@@ -1,6 +1,6 @@
 // sources/server/services/service-rainier-ux-data/data-gateway-router-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "8q8sOAYyT5K9oviGZumYgQ",

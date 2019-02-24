@@ -1,7 +1,7 @@
 // sources/common/view/elements/component/RUXBase_PageContent_HttpServerError.jsx.jsx
 //
 
-const arccore = require('arccore');
+const arccore = require('@encapsule/arccore');
 const React = require('react');
 
 const reactComponentBindingFilterFactory = require('../binding-factory');

@@ -1,6 +1,6 @@
 // app-state-controller-run.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const appStateController_Step = require("./app-state-controller-step");
 

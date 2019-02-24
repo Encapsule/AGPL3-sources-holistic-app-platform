@@ -1,6 +1,6 @@
 // app-state-controller-step.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const transitionOperatorsDiscriminator = require("./toperators");
 

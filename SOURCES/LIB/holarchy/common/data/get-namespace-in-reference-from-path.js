@@ -1,6 +1,6 @@
 // sources/common/data/get-namespace-in-reference-from-path.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "Z7Z7OvwnQL-bRrOGfEy-ZQ",

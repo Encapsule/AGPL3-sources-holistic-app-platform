@@ -8,7 +8,7 @@
 //
 
 const path = require('path');
-const arccore = require('arccore');
+const arccore = require('@encapsule/arccore');
 const React = require('react');
 const reactComponentBindingFilterFactory = require('../binding-factory');
 const color = require('color');

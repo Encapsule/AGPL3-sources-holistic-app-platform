@@ -5,7 +5,7 @@
 
 const path = require("path");
 const process = require("process");
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const buildTag = require("../../../../../../build/_build-tag");
 
 // ======================================================================

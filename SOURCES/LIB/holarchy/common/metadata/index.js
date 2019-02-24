@@ -3,7 +3,7 @@
 // This module constructs and exports a DirectedGraph model of this application's metadata.
 //
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const metadataStoreConstructionFilter = require("./metadata-store-constructor");
 const uxbaseMetadata = require("./ux-base-metadata");
 

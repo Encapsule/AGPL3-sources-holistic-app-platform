@@ -1,7 +1,7 @@
 // sources/common/rainier-app-data-store/app-data-store-constructor-factory.js
 //
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 // NOT USED? const buildTag = require("../../../../../build/_build-tag");
 
 const rainierAppDataStoreBaseSpec = require("../filter-specs/data/");

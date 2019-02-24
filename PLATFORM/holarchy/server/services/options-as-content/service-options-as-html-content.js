@@ -23,7 +23,7 @@
 //
 // This implementation will redirect the user if they are obviously not logged in.
 
-const httpServiceFilterFactory = require("holism").service;
+const httpServiceFilterFactory = require("@encapsule/holism").service;
 const serviceUtils = require("./../service-utils");
 const common =  require("./common");
 const constraints = common.constraints;

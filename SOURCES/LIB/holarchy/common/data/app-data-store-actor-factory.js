@@ -1,6 +1,6 @@
 // sources/common/data/app-data-store-actor-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const appDataStoreReadFilterFactory = require("./app-data-store-read-filter-factory");
 const appDataStoreWriteFilterFactory = require("./app-data-store-write-filter-factory");

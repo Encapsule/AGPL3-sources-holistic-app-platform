@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/app-state-actor-dispatcher-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const appStateActorFactories = require("../actors"); // returns a function that accepts actorRuntimeContext
 

@@ -1,6 +1,6 @@
 // sources/client/app-state-controller/subcontrollers/templates/net-controller-generator.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
 

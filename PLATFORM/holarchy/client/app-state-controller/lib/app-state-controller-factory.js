@@ -1,6 +1,6 @@
 // app-state-controller-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const appDataStoreWriteFilterFactory = require("../../../common/data/app-data-store-write-filter-factory");
 const appStateControllerStepFilter = require("./app-state-controller-step");

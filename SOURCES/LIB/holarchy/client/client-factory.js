@@ -10,7 +10,7 @@ const CLIENT_APP_REACT_RENDER_ENABLED = true; // Simple flag used for debugging 
 const buildTag = require("../../../../build/_build-tag");
 const productName = (buildTag.displayName + " v" + buildTag.packageVersion);
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const React = require("react");
 const ReactDOM = require("react-dom");
 const dataStoreConstructorFactory = require("../common/data/app-data-store-constructor-factory");

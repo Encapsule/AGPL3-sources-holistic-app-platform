@@ -1,6 +1,6 @@
 // transition-operator-filter-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
     operationID: "-99RI_6HTsiQgwN2OV1xXQ",

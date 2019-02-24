@@ -6,7 +6,7 @@
 // that do not require authorization and will never return
 // a redirect.
 
-const httpServiceFilterFactory = require("holism").service;
+const httpServiceFilterFactory = require("@encapsule/holism").service;
 const common =  require("./common");
 const constraints = common.constraints;
 const contentTypeLUT = common.contentTypeLUT;

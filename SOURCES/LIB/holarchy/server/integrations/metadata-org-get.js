@@ -1,6 +1,6 @@
 // metadata-org-get
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 module.exports = function(request_) {
     console.log("..... " + this.operationID + "::" + this.operationName);

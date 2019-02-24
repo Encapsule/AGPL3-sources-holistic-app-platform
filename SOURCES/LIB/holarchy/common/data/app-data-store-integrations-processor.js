@@ -1,6 +1,6 @@
 // sources/common/data/app-data-store-integrations-processor.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const appDataStoreReadFilterFactory = require("./app-data-store-read-filter-factory");
 const getNamespaceInReferenceFromPath = require("./get-namespace-in-reference-from-path");

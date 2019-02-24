@@ -2,9 +2,8 @@
 //
 // **** RAINIER UX BASE SERVER APPLICATION FACTORY ****
 
-const buildTag = require("../../../../build/_build-tag");
-const arccore = require("arccore");
-const holism = require("holism");
+const arccore = require("@encapsule/arccore");
+const holism = require("@encapsule/holism");
 const holismAppServerFactory = holism.server; // dereference
 const dataStoreConstructorFactory = require("../common/data/app-data-store-constructor-factory");
 const metadataStoreFactory = require("../common/metadata");
@@ -27,6 +26,37 @@ var factoryResponse = arccore.filter.create({
         ____label: "Rainier UX Server App Factory Request",
         ____description: "Information provided by a derived UX application to construct a specialized instance of a Rainier UX server application.",
         ____types: "jsObject",
+
+        instanceMetadata: {
+            ____label: "Instance Metadata",
+            ____description: "Information used by the underlying @encapsule/holism HTTP 1.1 server to identify itself.",
+            ____types: "jsObject",
+            name: {
+                ____label: "Server Name",
+                ____description: "The name of the server. For a holistic application this is typically the 'name' value from the app's package.json.",
+                ____accept: "jsString"
+            },
+            description: {
+                ____label: "Server Description",
+                ____description: "A short description of the server's purpose. For a holistic application this is typically the 'description' value from the app's package.json.",
+                ____accept: "jsString"
+            },
+            version: {
+                ____label: "Server Version",
+                ____description: "The semantic version string to be used by the server. For a holistic application this is typically the 'version' value from app's package.json.",
+                ____accept: "jsString",
+            },
+            commit: {
+                ____label: "Server Commit",
+                ____desription: "This is typically the long-form commit hash from the app's git repo used to track precisely what is deployed in this server instance.",
+                ____accept: "jsString"
+            },
+            timestamp: {
+                ____label: "Server Build Timestamp",
+                ____description: "The time that the server instance was build from sources at the indicated commit hash (Epochtime in seconds).",
+                ____accept: "jsNumber"
+            }
+        },
 
         dataSpec: dataStoreConstructorFactory.filterDescriptor.inputFilterSpec,
 
@@ -195,12 +225,12 @@ var factoryResponse = arccore.filter.create({
 
             // Create the holism server instance
             factoryResponse = holismAppServerFactory.create({
-                name: buildTag.displayName,
-                description: buildTag.packageDescription,
-                version: buildTag.packageVersion,
+                name: request_.instanceMetadata.name,
+                description: request_.instanceMetadata.description,
+                version: request_.instanceMetadata.version,
                 build: {
-                    timestamp: buildTag.buildTimestamp,
-                    commit: buildTag.buildCommitHash
+                    commit: request_.instanceMetadata.commit,
+                    timestamp: request_.instanceMetadata.timestamp,
                 },
                 integrations: appServerIntegrations,
                 config: appServerConfig

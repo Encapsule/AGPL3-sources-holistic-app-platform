@@ -7,7 +7,7 @@
 
 const querystring = require("querystring"); // Node.js built-in module
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const apiConstants = require("./api-constants");
 const HttpServerSideRequestFactory = require("hrequest/server-factory");
 

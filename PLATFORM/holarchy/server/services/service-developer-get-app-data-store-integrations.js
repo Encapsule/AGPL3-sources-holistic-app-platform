@@ -1,6 +1,6 @@
 // sources/server/services/service-developer-get-app-data-store-integrations.js
 
-const httpServiceFilterFactory = require("holism").service;
+const httpServiceFilterFactory = require("@encapsule/holism").service;
 
 var factoryResponse = httpServiceFilterFactory.create({
     id: "geKNVHzfStq-BhSVynZYGQ",

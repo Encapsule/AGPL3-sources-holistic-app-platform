@@ -4,7 +4,7 @@
 // factory for building a <ComponentRouter/> React component given an array of
 // React component data binding filters.
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const ComponentRouterSubfactory = require("./ComponentRouter.jsx");
 const appDataStoreIntegrationsProcessor = require("../../data/app-data-store-integrations-processor");
 

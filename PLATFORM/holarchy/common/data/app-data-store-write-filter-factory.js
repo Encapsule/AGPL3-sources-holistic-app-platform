@@ -1,6 +1,6 @@
 // sources/common/data/app-data-store-write-filter-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 const getNamespaceInReferenceFromPath = require("./get-namespace-in-reference-from-path");
 
 var factoryResponse = arccore.filter.create({

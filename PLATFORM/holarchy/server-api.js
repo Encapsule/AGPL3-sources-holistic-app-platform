@@ -1,10 +1,7 @@
-// abacus-ux-base/server.js
-//
-// rainier-ux-base package exports specific to Node.js UX application server service.
 
-const holism = require("holism");
+const holism = require("@encapsule/holism");
 
-const ruxAppServerFactory = require("./sources/server/server-factory");
+const ruxAppServerFactory = require("./server/server-factory");
 
 const ruxBaseSharedHolismServiceFilters = {
     OptionsAsContent: require("./sources/server/services/options-as-content/service-options-as-html-content"),

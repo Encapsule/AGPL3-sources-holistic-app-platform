@@ -1,6 +1,6 @@
 // app-state-controller-model-factory.js
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 // Accepts developer app state controller declaration input. Produces a DirectedGraph model of the app state controller.
 

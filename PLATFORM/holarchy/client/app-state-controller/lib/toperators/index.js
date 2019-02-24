@@ -6,7 +6,7 @@
 // visibly (not burried in the dev console or completely ommitted
 // in a production release).
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 var transitionExpressionOperators = [
     require("./toperator-ads-dictionary-cardinality-equal"),

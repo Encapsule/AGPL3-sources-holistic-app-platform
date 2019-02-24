@@ -4,7 +4,7 @@ const packageMeta = require("../../../package.json");
 
 const React = require("react");
 
-const httpServerIntegrationsFactory = require("holism").integrations;
+const httpServerIntegrationsFactory = require("@encapsule/holism").integrations;
 
 const metadataOrgGetFunction = require("./metadata-org-get");
 const metadataOrgSpec = require("../../common/filter-specs/integrations/app-metadata-org-spec");

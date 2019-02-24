@@ -1,6 +1,8 @@
 // server/config/service-filters.js
 
+// TODO: fix this hot mess (use package.json)
 const buildTag = require("../../../../../build/_build-tag");
+
 const BASE_SERVICES = require("../services");
 
 var RUXBASE_SERVICE_FILTERS = [

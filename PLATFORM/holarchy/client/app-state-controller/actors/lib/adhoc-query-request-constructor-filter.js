@@ -12,7 +12,7 @@
   is the app data store filter spec.
 */
 
-const arccore = require("arccore");
+const arccore = require("@encapsule/arccore");
 
 const METRICS = ["REACH", "COMPOSITION", "AFFINITY"];
 

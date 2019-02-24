@@ -1,5 +1,6 @@
 // sources/server/services/service-utils.js
 
+// Use the holarchy package.json instead.
 const buildTag = require("../../../../../build/_build-tag");
 
 module.exports = {

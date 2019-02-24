@@ -1,6 +1,6 @@
 // sources/server/services/service-rainier-data.js
 
-const httpServiceFilterFactory = require("holism").service;
+const httpServiceFilterFactory = require("@encapsule/holism").service;
 const serviceRainierUxDataRouter = require("./rainier-ux-data/");
 
 var factoryResponse = httpServiceFilterFactory.create({
