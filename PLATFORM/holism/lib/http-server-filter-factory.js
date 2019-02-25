@@ -123,7 +123,7 @@ var factoryResponse = arccore.filter.create({
                 // After the HTTP server starts listening on the designated port,
                 // inbound HTTP requests will be dispatched to this callback for processing.
                 //
-                
+
                 function(httpRequest_, httpResponse_) {
 
                     // Parse the request URL.
@@ -166,21 +166,20 @@ var factoryResponse = arccore.filter.create({
                         var html = [
                             "<html>",
                             "<head>",
-                            "<title>Status 500: Unhandled App Error</title>",
+                            "<title>" + packageMeta.name + " v" + packageMeta.version + " :: Error 500</title>",
                             "<style type='text/css'>",
                             "body { font-family: Courier; background-color: #FC0; padding: 1em; }",
-                            "h1 { font-family: Arial; font-size: 28pt; font-weight: bold; color: red; ",
-                            "padding-bottom: 0.3em; border-bottom: 3px solid #F00; }",
-                            "#idServer { text-align: right; color: red; font-family: Courier;  padding-top: 1em; border-top: 3px solid #F00; }",
+                            "#idTitle1 { font-family: Arial; font-size: 20pt; font-weight: bold; color: red; padding-bottom: 0.1em; }",
+                            "#idTitle2 { font-family: Arial; font-size: 28pt; font-weight: bold; color: red; padding-bottom: 0.35em; border-bottom: 7px solid #F00; text-shadow: 1px 1px 2px #900; }",
+                            "#idFooter { text-align: right; color: red; font-family: Courier; font-weight: bold; padding-top: 1em; border-top: 7px solid #F00; }",
                             "</style>",
                             "</head>",
                             "<body>",
-                            "<h1>",
-                            packageMeta.author.name + "/" + packageMeta.name + " Error 500",
-                            "</h1>",
+                            "<div id='idTitle1'>" + packageMeta.name + " v" + packageMeta.version + "</div>",
+                            "<div id='idTitle2'>HTTP Error 500 - Unhandled Application Server Error</div>",
                             "<p><strong>An unhandled error occurred in the " + serverContext.name + " application:</strong></p>",
                             "<p>" + whatHappened_ + "</p>",
-                            "<div id='idServer'>Encapsule/" + packageMeta.name + " v" + packageMeta.version + "</div>",
+                            "<div id='idFooter'>" + packageMeta.name + " v" + packageMeta.version + "</div>",
                             "</body>",
                             "</html>"
                         ].join("");
