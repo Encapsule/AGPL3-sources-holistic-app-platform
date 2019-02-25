@@ -63,8 +63,7 @@ module.exports = {
         svg: {
             ____label: "Page SVG URL",
             ____description: "Site-relative URL of the page's SVG icon.",
-            ____accept: "jsString",
-            ____defaultValue:  "/images/quantcast-logo.svg"
+            ____accept: "jsString"
         }
     }
 };

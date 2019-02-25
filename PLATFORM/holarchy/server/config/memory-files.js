@@ -266,11 +266,6 @@ const memoryFiles = {
     // Static icons, logos, etc.
     // ---------------------------------------------------------------------------
 
-    "_resources/images/quantcast-logo.svg": {
-        request_bindings: { method: "GET", uris: [ "/advertise/rainier/images/quantcast-logo.svg" ] },
-        response_properties: { contentEncoding: "utf8", contentType: "image/svg+xml" }
-    },
-
     "_resources/images/json-doc.svg": {
         request_bindings: { method: "GET", uris: [ "/advertise/rainier/images/json-doc.svg" ] },
         response_properties: { contentEncoding: "utf8", contentType: "image/svg+xml" }

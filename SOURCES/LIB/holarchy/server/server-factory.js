@@ -1,18 +1,25 @@
 // sources/server/server-factory.js
 //
-// **** RAINIER UX BASE SERVER APPLICATION FACTORY ****
 
 const arccore = require("@encapsule/arccore");
+
+// @encapsule/holism provides a JSON-configurable, filter-extensible HTTP 1.1 server implementation for Node.js.
 const holism = require("@encapsule/holism");
 const holismAppServerFactory = holism.server; // dereference
+
+// Builds a filter used to construct a shared singleton object called the Application Data Store (ADS).
 const dataStoreConstructorFactory = require("../common/data/app-data-store-constructor-factory");
+
+// Becoming increasingly convinced that application metadata should not be managed
+// by this package. Rather, this package should provide exports (e.g. filter factories)
+// that application developers can re-use to define their own metadata structures?
+
 const metadataStoreFactory = require("../common/metadata");
+
 const baseAppServerConfig = require("./config");
 const baseAppServerIntegrationsFactory = require("./integrations");
 
 const baseAppDataViewBindings = require("../common/view/elements");
-const RUXBase_PageHeader_QCGlobalNavWrapper_Server = require("../common/view/elements/component/RUXBase_PageHeader_QCGlobalNavWrapper_Server.jsx");
-baseAppDataViewBindings.push(RUXBase_PageHeader_QCGlobalNavWrapper_Server);
 
 const reactComponentRouterFactory = require("../common/view/component-router/react-component-router-factory");
 
@@ -215,7 +222,9 @@ var factoryResponse = arccore.filter.create({
             var reactComponentRouter = factoryResponse.result;
             request_.appStateContext.reactComponentRouter = reactComponentRouter;
 
+
             // Construct the set of required holism app server service plug-ins known collectively as integrations.
+
             factoryResponse = baseAppServerIntegrationsFactory(request_.appStateContext); // https://encapsule.io/docs/holism/integrations
             if (factoryResponse.error) {
                 errors.push(factoryResponse.error);

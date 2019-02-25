@@ -35,7 +35,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             var titleBarContent = [];
             var qcHomeIconLinkTitle = ((metadata.page.uri !== '/sitemap')?'Sitemap...':'Home...');
             titleBarContent.push(<span key={makeKey()} title={qcHomeIconLinkTitle} onClick={this.onClickIcon} style={{ cursor: "pointer" }}>
-                                 <img src="/images/quantcast-logo.svg" style={theme.base.RUXBase_PageHeader.titleBlockIcon}/>
+                                 WHATEVER
                                  </span>);
             titleBarContent.push(<div key={makeKey()} style={theme.base.RUXBase_PageHeader.titleBlock}>
                                  <span style={theme.base.RUXBase_PageHeader.titleBlockCompany}>{metadata.org.copyrightHolder.name}</span>

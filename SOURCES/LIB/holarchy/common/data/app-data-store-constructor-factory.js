@@ -2,7 +2,6 @@
 //
 
 const arccore = require("@encapsule/arccore");
-// NOT USED? const buildTag = require("../../../../../build/_build-tag");
 
 const rainierAppDataStoreBaseSpec = require("../filter-specs/data/");
 

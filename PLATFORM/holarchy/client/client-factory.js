@@ -259,7 +259,7 @@ var factoryResponse = arccore.filter.create({
                 ].join("\n"));
 
                 // Get the DOM element selector of the DIV whose contents will be replaced/updated by client-side React render requests.
-                const targetDOMElement = document.getElementById("idQuantcastAppView");
+                const targetDOMElement = document.getElementById("idHolisticAppView");
 
                 // Create a function that affects a re-rendering of the client-side view using the data currently held in reactDataContext structure.
                 function reactRenderPageView() {
