@@ -114,7 +114,7 @@ var factoryResponse = arccore.filter.create({
                         var viewStore = graphResponse.result;
                         viewStore.addVertex({ u: "__organization", p: viewDeclaration_.organization });
                         viewStore.addVertex({ u: "__website", p: viewDeclaration_.website });
-                        viewStore.addVertex({ u: "__pageViewHiearchy" });
+                        viewStore.addVertex({ u: "__pageViewHierarchy" });
 
                         for (var pageViewURI of pageViewURIs) {
                             if (pageViewURI.charAt(0) !== "/") {

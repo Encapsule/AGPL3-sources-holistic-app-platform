@@ -14,7 +14,7 @@ const dataStoreConstructorFactory = require("../common/data/app-data-store-const
 // by this package. Rather, this package should provide exports (e.g. filter factories)
 // that application developers can re-use to define their own metadata structures?
 
-const metadataStoreFactory = require("../common/metadata");
+const metadataStoreFactory = require("../COMMON/metadata");
 
 const baseAppServerConfig = require("./config");
 const baseAppServerIntegrationsFactory = require("./integrations");
