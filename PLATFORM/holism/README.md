@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.7 "rexford"
 
 ```
-Package: @encapsule/holism v0.0.7 "rexford" build ID "z56f1XZFR6iOLDAGhx9tTw"
-Sources: Encapsule/holistic#db1a49f36dfca309aab068c62ef06fa6bfa2364d
+Package: @encapsule/holism v0.0.7 "rexford" build ID "-wLFppjhRWi34gzlTQ_5rA"
+Sources: Encapsule/holistic#edf6e82b9c3c4db4b9759b7cc98d8aad8426fbcf
 Purpose: library (Node.js)
-Created: 2019-02-26T20:20:44.000Z
+Created: 2019-02-27T18:30:41.000Z
 License: MIT
 ```
 
