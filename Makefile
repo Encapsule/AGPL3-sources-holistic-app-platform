@@ -128,8 +128,11 @@ source_package_build_holarchy:
 	@echo source_package_build_holarchy...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLARCHY)/
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)
+
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY)/* $(DIR_BUILD_LIB_HOLARCHY)/
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLARCHY) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLARCHY)
+
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holarchy" > $(DIR_BUILD_LIB_HOLARCHY)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLARCHY)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLARCHY)
