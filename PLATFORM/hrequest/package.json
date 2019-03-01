@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.7",
     "codename": "rexford",
-    "buildID": "DeEsnBjXRo-OXFProG4ZHg",
-    "buildTime": 1551416587,
-    "buildSource": "8039cfd9928bb7275d16891d9f34ee1a63ed272a",
+    "buildID": "36Coygs6RFmZ25hgnxhmPw",
+    "buildTime": 1551465653,
+    "buildSource": "e63a58659cb71c01bdc977f09deb78d3dea5c869",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
