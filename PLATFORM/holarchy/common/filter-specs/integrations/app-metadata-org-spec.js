@@ -1,4 +1,6 @@
-// app-metadata-org-spec.js
+"use strict";
 
-const developerInputMetadataOrgSpec = require("./developer-input-metadata-org-spec");
+// app-metadata-org-spec.js
+var developerInputMetadataOrgSpec = require("./developer-input-metadata-org-spec");
+
 module.exports = developerInputMetadataOrgSpec;

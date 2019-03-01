@@ -1,59 +1,60 @@
+"use strict";
+
 // sources/common/view/elements/component/RUXBase_PageContent_QueryResultsFrame.jsx
 //
+var React = require('react');
 
-const React = require('react');
-const reactComponentBindingFilterFactory = require('../binding-factory');
+var reactComponentBindingFilterFactory = require('../binding-factory');
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
+  id: "pglGOR9YQTy5XL23VkeMXg",
+  name: "RUXBase_PageContent_QueryResultsFrame",
+  description: "<RUXBase_PageContent_QueryResultsFrame/> React component data binding filter.",
+  renderDataBindingSpec: {
+    ____types: "jsObject",
+    RUXBase_PageContent_QueryResultsFrame: {
+      ____accept: "jsObject" // RUXBase_PageContent_QueryResultsFrame
 
-    id: "pglGOR9YQTy5XL23VkeMXg",
-    name: "RUXBase_PageContent_QueryResultsFrame",
-    description: "<RUXBase_PageContent_QueryResultsFrame/> React component data binding filter.",
-
-    renderDataBindingSpec: {
-        ____types: "jsObject",
-        RUXBase_PageContent_QueryResultsFrame: {
-            ____accept: "jsObject"
-        } // RUXBase_PageContent_QueryResultsFrame
+    }
+  },
+  reactComponent: React.createClass({
+    displayName: "RUXBase_PageContent_QueryBuilderFrame",
+    getInitialState: function getInitialState() {
+      return {
+        showRawResponse: false
+      };
     },
+    onClickToggleDetail: function onClickToggleDetail() {
+      this.setState({
+        showRawResponse: !this.state.showRawResponse
+      });
+    },
+    render: function render() {
+      try {
+        var makeKey = function makeKey() {
+          return "RUXBase_PageContent_QueryBuilderFrame" + keyIndex++;
+        };
 
-    reactComponent: React.createClass({
-        displayName: "RUXBase_PageContent_QueryBuilderFrame",
-
-        getInitialState: function() {
-            return {
-                showRawResponse: false
-            };
-        },
-
-        onClickToggleDetail: function() {
-            this.setState({
-                showRawResponse: !this.state.showRawResponse
-            });
-        },
-
-        render: function() {
-            try {
-                var ComponentRouter = this.props.appStateContext.reactComponentRouter;
-                const metadata = this.props.document.metadata;
-                const theme = metadata.site.theme;
-                const renderData = this.props.renderData['RUXBase_PageContent_QueryBuilderFrame'];
-                var keyIndex = 0;
-                function makeKey() { return ("RUXBase_PageContent_QueryBuilderFrame" + keyIndex++); }
-                var content = [];
-
-                content.push(<h1 key={makeKey()}>Hello!</h1>);
-                content.push(<p key={makeKey()}>This is the &lt;RUXBase_PageContent_QueryResultsFrame/&gt; React component.</p>);
-
-                return (<div style={theme.base.RUXBase_PageContent_QueryResultsFrame.container}>{content}</div>);
-            } catch (exception_) {
-                return (<div>Fatal exception in &lt;RUXBase_PageContent_QueryResultsFrame/&gt;: {exception_.toString()}</div>);
-            }
-        }
-    })
-
+        var ComponentRouter = this.props.appStateContext.reactComponentRouter;
+        var metadata = this.props.document.metadata;
+        var theme = metadata.site.theme;
+        var renderData = this.props.renderData['RUXBase_PageContent_QueryBuilderFrame'];
+        var keyIndex = 0;
+        var content = [];
+        content.push(React.createElement("h1", {
+          key: makeKey()
+        }, "Hello!"));
+        content.push(React.createElement("p", {
+          key: makeKey()
+        }, "This is the <RUXBase_PageContent_QueryResultsFrame/> React component."));
+        return React.createElement("div", {
+          style: theme.base.RUXBase_PageContent_QueryResultsFrame.container
+        }, content);
+      } catch (exception_) {
+        return React.createElement("div", null, "Fatal exception in <RUXBase_PageContent_QueryResultsFrame/>: ", exception_.toString());
+      }
+    }
+  })
 });
-if (factoryResponse.error)
-    throw new Error(factoryResponse.error);
-
+if (factoryResponse.error) throw new Error(factoryResponse.error);
 module.exports = factoryResponse.result;

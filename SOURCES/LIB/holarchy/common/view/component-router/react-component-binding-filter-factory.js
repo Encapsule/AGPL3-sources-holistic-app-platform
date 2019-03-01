@@ -1,6 +1,6 @@
 // content-data-view-binding-filter-factory.js
 
-const arccore = require("@encpasule/arccore");
+const arccore = require("@encapsule/arccore");
 const React = require("react");
 
 var factoryResponse = arccore.filter.create({

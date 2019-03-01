@@ -1,4 +1,6 @@
-// app-metadata-user-session-spec.js
+"use strict";
 
-const developerInputMetadataUserSessionSpec = require("./developer-input-metadata-user-session-spec");
+// app-metadata-user-session-spec.js
+var developerInputMetadataUserSessionSpec = require("./developer-input-metadata-user-session-spec");
+
 module.exports = developerInputMetadataUserSessionSpec;

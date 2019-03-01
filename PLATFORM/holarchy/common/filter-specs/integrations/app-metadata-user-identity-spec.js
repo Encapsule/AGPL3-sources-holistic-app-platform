@@ -1,4 +1,6 @@
-// app-metadata-user-identity-spec.js
+"use strict";
 
-const developerInputMetadataUserIdentitySpec = require("./developer-input-metadata-user-identity-spec");
+// app-metadata-user-identity-spec.js
+var developerInputMetadataUserIdentitySpec = require("./developer-input-metadata-user-identity-spec");
+
 module.exports = developerInputMetadataUserIdentitySpec;

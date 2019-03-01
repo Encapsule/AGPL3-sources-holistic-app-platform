@@ -1,104 +1,127 @@
-// sources/client/app-state-controller/actors/actor-net-get-rainier-geographic-categories.js
+"use strict";
 
-const HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
+// sources/client/app-state-controller/actors/actor-net-get-rainier-geographic-categories.js
+var HttpGetRainierDataGateway = require("../../communication/http-get-rainier-data-gateway");
 
 module.exports = {
+  id: "LK2DtZVCQAy4wRwIdhoylQ",
+  name: "Network Get Rainier Geographic Categories",
+  description: "Initiates a data gateway request to get the set of geographic categories.",
+  namespaces: {
+    write: [{
+      filterBinding: {
+        alias: "netRequest",
+        id: "hWXm3a8VQJiDv5rpBLO1Tw"
+      },
+      storePath: "~.base.RainierBaseController.network.GET_RainierGeographicCategories.request"
+    }, {
+      filterBinding: {
+        alias: "netResponse",
+        id: "Ajj7octqS6qsZ8_fGDj87A"
+      },
+      storePath: "~.base.RainierBaseController.network.GET_RainierGeographicCategories.response"
+    }]
+  },
+  // namespaces
+  commandSpec: {
+    ____types: "jsObject",
+    networkGetRainierGeographicCategories: {
+      ____types: "jsObject"
+    }
+  },
+  // commandSpec
+  bodyFunction: function bodyFunction(request_) {
+    var response = {
+      error: null,
+      result: false
+    };
+    var errors = [];
+    var inBreakScope = false;
 
-    id: "LK2DtZVCQAy4wRwIdhoylQ",
-    name: "Network Get Rainier Geographic Categories",
-    description: "Initiates a data gateway request to get the set of geographic categories.",
-
-    namespaces: {
-        write: [
-            {
-                filterBinding: { alias: "netRequest", id: "hWXm3a8VQJiDv5rpBLO1Tw" },
-                storePath: "~.base.RainierBaseController.network.GET_RainierGeographicCategories.request"
-            },
-            {
-                filterBinding: { alias: "netResponse", id: "Ajj7octqS6qsZ8_fGDj87A" },
-                storePath: "~.base.RainierBaseController.network.GET_RainierGeographicCategories.response"
+    while (!inBreakScope) {
+      inBreakScope = true;
+      var gatewayMessage = {
+        GET: {
+          backend: {
+            rainier: {
+              geographicCategories: request_.command
             }
-        ]
-    }, // namespaces
-
-    commandSpec: {
-        ____types: "jsObject",
-        networkGetRainierGeographicCategories: {
-            ____types: "jsObject"
+          }
         }
-    }, // commandSpec
+      };
+      var innerResponse = request_.namespaces.write.netRequest.request({
+        appDataStore: request_.runtimeContext.appStateContext.appDataStore,
+        writeData: gatewayMessage
+      });
 
-    bodyFunction: function(request_) {
-        var response = { error: null, result: false };
-        var errors = [];
-        var inBreakScope = false;
-        while (!inBreakScope) {
-            inBreakScope = true;
+      if (innerResponse.error) {
+        errors.push(innerResponse.error);
+        break;
+      }
 
-            var gatewayMessage = { GET: { backend: { rainier: { geographicCategories: request_.command } } } };
-
-            var innerResponse = request_.namespaces.write.netRequest.request({
-                appDataStore: request_.runtimeContext.appStateContext.appDataStore,
-                writeData: gatewayMessage
-            });
-            if (innerResponse.error) {
-                errors.push(innerResponse.error);
-                break;
+      innerResponse = HttpGetRainierDataGateway.request({
+        request: gatewayMessage,
+        resultHandler: function resultHandler(result_) {
+          console.log("Got geo categories response!");
+          var writerResponse = request_.namespaces.write.netResponse.request({
+            appDataStore: request_.runtimeContext.appStateContext.appDataStore,
+            writeData: {
+              error: null,
+              result: result_
             }
+          });
 
-            innerResponse = HttpGetRainierDataGateway.request({
-                request: gatewayMessage,
-                resultHandler: function(result_) {
-                    console.log("Got geo categories response!");
+          if (writerResponse.error) {
+            return {
+              error: writerResponse.error
+            };
+          }
 
-                    var writerResponse = request_.namespaces.write.netResponse.request({
-                        appDataStore: request_.runtimeContext.appStateContext.appDataStore,
-                        writeData: {
-                            error: null,
-                            result: result_
-                        }
-                    });
+          request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
 
-                    if (writerResponse.error) {
-                        return { error: writerResponse.error };
-                    }
-
-                    request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
-
-                    return { error: null, result: undefined };
-                },
-
-                errorHandler: function(error_) {
-                    console.log("Got an error!");
-
-                    var writerResponse = request_.namespaces.write.netResponse.request({
-                        appDataStore: request_.runtimeContext.appStateContext.appDataStore,
-                        writeData: {
-                            error: error_,
-                            result: null
-                        }
-                    });
-
-                    if (writerResponse.error) {
-                        return { error: writerResponse.error };
-                    }
-
-                    request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
-
-                    return { error: null, result: undefined };
-                }
-            });
-
-            if (innerResponse.error) {
-                errors.push(innerResponse.error);
-                break;
+          return {
+            error: null,
+            result: undefined
+          };
+        },
+        errorHandler: function errorHandler(error_) {
+          console.log("Got an error!");
+          var writerResponse = request_.namespaces.write.netResponse.request({
+            appDataStore: request_.runtimeContext.appStateContext.appDataStore,
+            writeData: {
+              error: error_,
+              result: null
             }
-            break;
+          });
+
+          if (writerResponse.error) {
+            return {
+              error: writerResponse.error
+            };
+          }
+
+          request_.runtimeContext.appStateContext.appStateController.controllerRunFilter(); // Force App State Controller re-evaluation (TODO: FIX THE NAME)
+
+          return {
+            error: null,
+            result: undefined
+          };
         }
-        if (errors.length) {
-            response.error = errors.join(" ");
-        }
-        return response;
-    } // bodyFunction
+      });
+
+      if (innerResponse.error) {
+        errors.push(innerResponse.error);
+        break;
+      }
+
+      break;
+    }
+
+    if (errors.length) {
+      response.error = errors.join(" ");
+    }
+
+    return response;
+  } // bodyFunction
+
 };
-

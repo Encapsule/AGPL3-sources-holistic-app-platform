@@ -1,5 +1,5 @@
+"use strict";
+
 // client-user-session-data-request-spec.js
-
-const clientUserSessionDataRequestSpec = {};
-
+var clientUserSessionDataRequestSpec = {};
 module.exports = clientUserSessionDataRequestSpec;

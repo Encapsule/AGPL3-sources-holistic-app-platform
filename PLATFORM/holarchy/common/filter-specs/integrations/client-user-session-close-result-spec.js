@@ -1,6 +1,5 @@
+"use strict";
+
 // client-user-session-close-result-spec.js
-
-const clientUserSessionCloseResultSpec = {};
-
+var clientUserSessionCloseResultSpec = {};
 module.exports = clientUserSessionCloseResultSpec;
-

@@ -1,5 +1,5 @@
+"use strict";
+
 // client-user-session-data-result-spec.js
-
-const clientUserSessionDataResultSpec = {};
-
+var clientUserSessionDataResultSpec = {};
 module.exports = clientUserSessionDataResultSpec;
