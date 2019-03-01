@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.7 "rexford"
 
 ```
-Package: @encapsule/holarchy v0.0.7 "rexford" build ID "a4RtBM6kSk2SflQhDp76JA"
-Sources: Encapsule/holistic#6b9593dca13bb4ee196b45d66d7a6b215aa7021e
+Package: @encapsule/holarchy v0.0.7 "rexford" build ID "DeEsnBjXRo-OXFProG4ZHg"
+Sources: Encapsule/holistic#8039cfd9928bb7275d16891d9f34ee1a63ed272a
 Purpose: library (Node.js)
-Created: 2019-03-01T04:55:51.000Z
+Created: 2019-03-01T05:03:07.000Z
 License: MIT
 ```
 
