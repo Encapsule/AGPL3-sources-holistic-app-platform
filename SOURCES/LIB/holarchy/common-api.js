@@ -11,28 +11,22 @@ const reactComponentRouterFactory = require("./common/view/component-router/reac
 module.exports = {
 
     ApplicationDataStore: {
-        // Calling ApplicationDataStore.request creates a filter that is used to initialize an Application Data Store (serializable object).
+        // Creates an application-specific application data store constructor filter.
         makeInstanceConstructor: function(request_) { request_; return { error: "Not yet implemented." }; }
     },
 
     ApplicationMetadataStore: {
-        // Calling constructorFactory.request creates a filter that is used to initialize an Application Metadata Store (DirectedGraph instance).
+        // Creates an application-specific application metadata store constructor filter.
         makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
     },
 
     // Data-Driven React Router (D2R2)
-    DataDrivenReactRouter: {
-
+    D2R2: {
         // Data-Routable Component (DRC)
-        DataRoutableComponent: {
-            makeInstance: reactComponentBindingFilterFactory
-        },
+        DataRoutableComponent: reactComponentBindingFilterFactory,
 
         // Data-Driven React Router (D2R2)
-        ComponentRouter: {
-            makeInstance: reactComponentRouterFactory
-        }
-
+        ComponentRouter: reactComponentRouterFactory
     }
 
 };
