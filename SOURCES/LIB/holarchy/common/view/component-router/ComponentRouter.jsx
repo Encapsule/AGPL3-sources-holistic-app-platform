@@ -29,15 +29,17 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
         return disposition;
     });
 
-    var ComponentRouter = React.createClass({
+    class ComponentRouter extends React.Component {
 
-        displayName: 'ComponentRouter',
+        constructor(props_) {
+            super(props_);
+            this.state = {};
+            this.onToggleInspectViewBindingFilter = this.onToggleInspectViewBindingFilter.bind(this);
+            this.onMouseOverBindingFilter = this.onMouseOverBindingFilter.bind(this);
+            this.onMouseOutBindingFinder = this.onMouseOutBindingFilter.bind(this);
+        } // constructor
 
-        getInitialState: function() {
-            return ({});
-        },
-
-        onToggleInspectViewBindingFilter: function(filterName_) {
+        onToggleInspectViewBindingFilter(filterName_) {
             var state = this.state;
             if (!state[filterName_])
                 state[filterName_] = {};
@@ -47,21 +49,21 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
             else
                 state[filterName_].inspect = filterNameMap[filterName_];
             this.setState(state);
-        },
+        }
 
-        onMouseOverBindingFilter: function(filterName_) {
+        onMouseOverBindingFilter(filterName_) {
             var state = this.state;
             state.mouseOver = filterName_;
             this.setState(state);
-        },
+        }
 
-        onMouseOutBindingFilter: function(filterName_) {
+        onMouseOutBindingFilter(filterName_) {
             var state = this.state;
             delete state.mouseOver;
             this.setState(state);
-        },
+        }
 
-        render: function() {
+        render() {
 
             var self = this;
 
@@ -73,7 +75,6 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                 reactContext: this.props,
                 renderData: this.props.renderData
             };
-
 
             //////////////////////////////////////////////////////////////////////////
             // SELECT: Match the namespace:type-derived signature of routingDataContext.renderData to 1:N registered React component data binding filters.
@@ -174,9 +175,12 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
 
 
                     </div>);
-        }
-    });
 
+        } // end method render
+
+    }
+
+    // Return the React.Component-derived ComponentRouter class that's specialized for this applicaiton's registered DataRoutableComponent definitions.
     return ComponentRouter;
 
-};
+}; // end module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_)
