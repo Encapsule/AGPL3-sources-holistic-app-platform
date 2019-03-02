@@ -9,12 +9,6 @@ var reactComponentBindingFilterFactory = require("./common/view/component-router
 var reactComponentRouterFactory = require("./common/view/component-router/react-component-router-factory");
 
 module.exports = {
-  // Factories are filters that construct filters.
-  factories: {
-    metadata: {
-      makeConstructorFilter: appMetadataStoreConstructorFilterFactory
-    }
-  },
   ApplicationDataStore: {
     // Calling ApplicationDataStore.request creates a filter that is used to initialize an Application Data Store (serializable object).
     makeInstanceConstructor: function makeInstanceConstructor(request_) {

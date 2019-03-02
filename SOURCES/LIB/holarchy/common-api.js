@@ -9,12 +9,6 @@ const reactComponentRouterFactory = require("./common/view/component-router/reac
 
 
 module.exports = {
-    // Factories are filters that construct filters.
-    factories: {
-        metadata: {
-            makeConstructorFilter: appMetadataStoreConstructorFilterFactory
-        }
-    },
 
     ApplicationDataStore: {
         // Calling ApplicationDataStore.request creates a filter that is used to initialize an Application Data Store (serializable object).
