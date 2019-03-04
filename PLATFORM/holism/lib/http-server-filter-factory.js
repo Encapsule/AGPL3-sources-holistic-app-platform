@@ -186,10 +186,10 @@ var factoryResponse = arccore.filter.create({
                             " \"",
                             packageMeta.codename,
                             "\"",
-                            "<br/>BuildID: ",
-                            packageMeta.buildID,
                             "<br/>InstanceID: ",
                             serverContext.instanceID,
+                            "<br/>BuildID: ",
+                            packageMeta.buildID,
                             "</div>",
                             "</body>",
                             "</html>"
