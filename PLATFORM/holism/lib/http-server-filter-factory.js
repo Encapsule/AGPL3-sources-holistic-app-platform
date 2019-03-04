@@ -65,7 +65,7 @@ var factoryResponse = arccore.filter.create({
         serverContext.generator = {};
         serverContext.generator[arccore.__meta.author + "/" + arccore.__meta.name] = arccore.__meta.version;
         serverContext.generator[packageMeta.author.name + "/" + packageMeta.name] = packageMeta.version;
-        serverContext.instanceID = packageMeta.name + "-v" + packageMeta.version + "::" + arccore.identifier.irut.fromEther();
+        serverContext.instanceID = arccore.identifier.irut.fromEther(); // every new @encapsule/holism server instance gets an IRUT for use in tracking deployments
 
         serverContext.stats = {
             created: new Date(),
@@ -168,18 +168,29 @@ var factoryResponse = arccore.filter.create({
                             "<head>",
                             "<title>" + packageMeta.name + " v" + packageMeta.version + " :: Error 500</title>",
                             "<style type='text/css'>",
-                            "body { font-family: Courier; background-color: #FC0; padding: 1em; }",
-                            "#idTitle1 { font-family: Arial; font-size: 20pt; font-weight: bold; color: red; padding-bottom: 0.1em; }",
-                            "#idTitle2 { font-family: Arial; font-size: 28pt; font-weight: bold; color: red; padding-bottom: 0.35em; border-bottom: 7px solid #F00; text-shadow: 1px 1px 2px #900; }",
-                            "#idFooter { text-align: right; color: red; font-family: Courier; font-weight: bold; padding-top: 1em; border-top: 7px solid #F00; }",
+                            "body { font-family: Courier; background-color: #C60; padding: 1em; }",
+                            "#idTitle1 { font-family: Arial; font-size: 20pt; font-weight: bold; color: #FC0; padding-bottom: 0.1em; }",
+                            "#idTitle2 { font-family: Arial; font-size: 24pt; font-weight: bold; color: #FF0; padding-bottom: 0.35em; border-bottom: 3px solid #B50; text-shadow: 0px 0px 16px #600; }",
+                            "#idFooter { text-align: right; color: #FC0; font-family: Courier; font-weight: bold; padding-top: 1em; border-top: 3px solid #B50; }",
                             "</style>",
                             "</head>",
                             "<body>",
-                            "<div id='idTitle1'>" + packageMeta.name + " v" + packageMeta.version + "</div>",
+                            "<div id='idTitle1'>" + packageMeta.name + " v" + packageMeta.version + " \"" + packageMeta.codename + "\"</div>",
                             "<div id='idTitle2'>HTTP Error 500 - Unhandled Application Server Error</div>",
                             "<p><strong>An unhandled error occurred in the " + serverContext.name + " application:</strong></p>",
                             "<p>" + whatHappened_ + "</p>",
-                            "<div id='idFooter'>" + packageMeta.name + " v" + packageMeta.version + "</div>",
+                            "<div id='idFooter'>",
+                            packageMeta.name,
+                            " v",
+                            packageMeta.version,
+                            " \"",
+                            packageMeta.codename,
+                            "\"",
+                            "<br/>BuildID: ",
+                            packageMeta.buildID,
+                            "<br/>InstanceID: ",
+                            serverContext.instanceID,
+                            "</div>",
                             "</body>",
                             "</html>"
                         ].join("");

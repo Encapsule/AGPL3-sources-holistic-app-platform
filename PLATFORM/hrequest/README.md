@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.7 "rexford"
 
 ```
-Package: @encapsule/hrequest v0.0.7 "rexford" build ID "5HoQBvszQ1OHQfn53UFa6A"
-Sources: Encapsule/holistic#b5e5c39c0e5f1a9641b7f170f502a70c38a48488
+Package: @encapsule/hrequest v0.0.7 "rexford" build ID "GwByAxedT0KL4DyxTuEm9w"
+Sources: Encapsule/holistic#86b0951a39661d913b01a2b6ab65f5e1425b7c9f
 Purpose: library (Node.js)
-Created: 2019-03-02T21:41:18.000Z
+Created: 2019-03-04T20:07:40.000Z
 License: MIT
 ```
 
