@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holarchy",
-    "version": "0.0.7",
-    "codename": "rexford",
-    "buildID": "ICmW2n4_TLev4ZNap62eOA",
-    "buildTime": 1551739721,
-    "buildSource": "fa21bbfc666eb13c680ca82385c8c5adc044f9c0",
+    "version": "0.0.8",
+    "codename": "larchwood",
+    "buildID": "aDSXk29TSDikG7-SxZUGwg",
+    "buildTime": 1551746614,
+    "buildSource": "1289d1737ca21d156e89d9253cd839c3fdcab694",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
@@ -29,7 +29,7 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.3",
-        "@encapsule/holism": "0.0.7",
-        "@encapsule/hrequest": "0.0.7"
+        "@encapsule/holism": "0.0.8",
+        "@encapsule/hrequest": "0.0.8"
     }
 }
