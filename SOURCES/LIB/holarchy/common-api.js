@@ -6,7 +6,7 @@ const reactComponentBindingFilterFactory = require("./common/view/component-rout
 const reactComponentRouterFactory = require("./common/view/component-router/react-component-router-factory");
 
 const dataRoutableComponents = require("./common/view/elements");
-
+const sharedComponentStyles = require("./common/view/theme");
 
 module.exports = {
 
@@ -26,7 +26,11 @@ module.exports = {
         DataRoutableComponent: {
             // Creates a filter that associates a developer-defined filter specification with a Facebook/React component.
             makeInstance: reactComponentBindingFilterFactory,
+            // This is a dictionary with componentName::componentID filter keys and data-routable component filter values.
             components: dataRoutableComponents,
+            // Per-component programmatic style data.
+            // TODO: This is broken in several ways and needs to be wholely replaced w/per-component declarations.
+            styles: sharedComponentStyles
         },
 
         // Data-Driven React Router (D2R2)

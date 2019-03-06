@@ -1,4 +1,4 @@
-// sources/common/view/elements/component/RUXBase_PageContent_HttpServerError.jsx.jsx
+// sources/common/view/elements/component/PageContent_HttpServerError.jsx.jsx
 //
 
 const arccore = require("@encapsule/arccore");
@@ -10,6 +10,9 @@ const holismHttpResponseErrorResultSpec = require("@encapsule/holism/lib/iospecs
 const holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descriptor.data;
 
 var holismHttpErrorMessageSpec = arccore.util.clone(holismHttpResponseErrorResultSpec.error_descriptor.data['ESCW71rwTz24meWiZpJb4A']); // snips off the routing namespace & deep copies
+// ----------------------------------------------------------------
+// EXERCISE EXTREME CAUTION.
+// For production purposes we never want to share the deserialized request headers.
 delete holismHttpErrorMessageSpec.request.headers; // i.e. filter this data out of the React view entirely so it's not rendered on the server or the client
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
@@ -20,7 +23,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
 
     renderDataBindingSpec: {
         ____types: "jsObject",
-        RUXBase_PageContent_HttpServerError: holismHttpErrorMessageSpec,
+        HolismHttpServerErrorPageContent: holismHttpErrorMessageSpec
     },
 
     reactComponent: class HolismHttpServerErrorPageContent extends React.Component {
@@ -41,27 +44,27 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             var ComponentRouter = this.props.appStateContext.ComponentRouter;
             const metadata = this.props.document.metadata;
             const theme = metadata.site.theme;
-            const renderData = this.props.renderData['RUXBase_PageContent_HttpServerError'];
+            const renderData = this.props.renderData["HolismHttpServerErrorPageContent"];
             var keyIndex = 0;
-            function makeKey() { return ("RUXBase_PageContent_HttpServerError" + keyIndex++); }
+            function makeKey() { return ("HolismHttpServerErrorPageContent" + keyIndex++); }
             var content = [];
             switch (renderData.http.code) {
             default:
                 content.push(<h1 key={makeKey()}>{metadata.site.name} Error {renderData.http.code}{': '}{renderData.http.message}</h1>);
                 content.push(<div key={makeKey()}>
                              <p>The {metadata.site.name} application server cannot process your request.</p>
-                             <p style={theme.base.RUXBase_PageContent_HttpServerError.errorMessage}>{renderData.error_message}</p>
+                             <p style={theme.base.PageContent_HttpServerError.errorMessage}>{renderData.error_message}</p>
                              </div>);
 
                 if (!this.state.showRawResponse)
-                    content.push(<div key={makeKey()} title="Show response details..." onClick={this.onClickToggleDetail} style={theme.base.RUXBase_PageContent_HttpServerError.detailsSummary}>
+                    content.push(<div key={makeKey()} title="Show response details..." onClick={this.onClickToggleDetail} style={theme.base.PageContent_HttpServerError.detailsSummary}>
                                  <pre style={theme.classPRE}>
                                  HTTP request ....... <strong>{renderData.request.route_method_name}</strong> failed.<br/>
                                  Query/search URI ... <strong>{renderData.request.url_parse.href}</strong>
                                  </pre>
                                  </div>);
                 else {
-                    content.push(<div key={makeKey()} style={theme.base.RUXBase_PageContent_HttpServerError.hideDetails} onClick={this.onClickToggleDetail} title="Hide response details...">
+                    content.push(<div key={makeKey()} style={theme.base.PageContent_HttpServerError.hideDetails} onClick={this.onClickToggleDetail} title="Hide response details...">
                                  <strong>Hide Details</strong>
                                  </div>);
 
@@ -73,7 +76,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 break;
             }
 
-            return (<div style={theme.base.RUXBase_PageContent_HttpServerError.container}>{content}</div>);
+            return (<div style={theme.base.PageContent_HttpServerError.container}>{content}</div>);
         }
     }
 });

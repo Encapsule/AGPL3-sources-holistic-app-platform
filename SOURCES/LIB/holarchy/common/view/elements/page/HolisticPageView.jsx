@@ -17,37 +17,37 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
 
             pageHeaderEP: {
                 ____label: "Page Header Extension Point (EP)",
-                ____description: "The contents of this namespace is rendered dynamically via <ComponentRouter/>.",
+                ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { RUXBase_PageHeader_QCGlobalNavWrapper: {} }
+                ____defaultValue: { PageHeader_QCGlobalNavWrapper: {} }
             },
 
             pageContentEP: {
                 ____label: "Page Content Extension Point (EP)",
-                ____description: "The contents of this namespace is rendered dynamically via <ComponentRouter/>.",
+                ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { RUXBase_PageContent: {} }
+                ____defaultValue: { PageContent: {} }
             },
 
             pageFooterEP: {
                 ____label: "Page Footer Extension Point (EP)",
-                ____description: "The contents of this namespace is rendered dynamically via <ComponentRouter/>.",
+                ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { RUXBase_PageFooter: {} }
+                ____defaultValue: { PageFooter: {} }
             },
 
             pageErrorsEP: {
                 ____label: "Page Errors Extension Point (EP)",
-                ____description: "The contents of this namespace is rendered dynamically via <ComponentRouter/>.",
+                ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { RUXBase_PagePanel_Errors: {} }
+                ____defaultValue: { PagePanel_Errors: {} }
             },
 
             pageDebugEP: {
                 ____label: "Page Debug Extenion Point (EP)",
-                ____description: "The contents of this namespace is rendered dynamically via <ComponentRouter/>.",
+                ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { RUXBase_PagePanel_ReactDebug: {} }
+                ____defaultValue: { PagePanel_ReactDebug: {} }
             }
         }
     }, // renderDataBindingSpec
@@ -58,13 +58,13 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             const theme = metadata.site.theme;
             const renderData = this.props.renderData['HolisticPageView'];
             return (
-                    <div id="idRUXBase_Page" style={theme.base.RUXBase_Page.container}>
+                    <div id="idPage" style={theme.HolisticPageView.container}>
                     <ComponentRouter {...this.props} renderData={renderData.pageHeaderEP}/>
                     <ComponentRouter {...this.props} renderData={renderData.pageContentEP}/>
                     <ComponentRouter {...this.props} renderData={renderData.pageFooterEP}/>
                     <ComponentRouter {...this.props} renderData={renderData.pageErrorsEP}/>
                     <ComponentRouter {...this.props} renderData={renderData.pageDebugEP}/>
-                    <ComponentRouter {...this.props} renderData={{ RUXBase_PageWidget_ASC: {} }}/>
+                    <ComponentRouter {...this.props} renderData={{PageWidget_ASC: {}}}/>
                     <br/>
                     </div>
             );
@@ -76,5 +76,3 @@ if (factoryResponse.error) {
 }
 
 module.exports = factoryResponse.result;
-
-
