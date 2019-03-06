@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.8 "larchwood"
 
 ```
-Package: @encapsule/holism v0.0.8 "larchwood" build ID "7ahrP4X-SgOMDuSj9o6Tog"
-Sources: Encapsule/holistic#e57f25668fa13a8c2c63d96868ca8b7565f1d410
+Package: @encapsule/holism v0.0.8 "larchwood" build ID "7lJ0OPvvT2CwNL_hud6oIQ"
+Sources: Encapsule/holistic#daa06cf46d1404e1e9e4050cb2ee48f05785b16a
 Purpose: library (Node.js)
-Created: 2019-03-06T00:56:07.000Z
+Created: 2019-03-06T05:07:32.000Z
 License: MIT
 ```
 

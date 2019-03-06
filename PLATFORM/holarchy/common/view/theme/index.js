@@ -29,14 +29,14 @@
 // reasons. This would additionally allow even greater control of layout
 // via <ComponentRouter/> as well.
 module.exports = {
-  base: {
-    RUXBase_Page: {
-      container: {
-        fontFamily: "Nunito, Arial, Helevita" // via Google Fonts
+  HolisticPageView: {
+    container: {
+      fontFamily: "Nunito, Arial, Helevita" // via Google Fonts
 
-      }
-    },
-    RUXBase_PageContent: {
+    }
+  },
+  base: {
+    PageContent: {
       container: {
         margin: "1em",
         padding: "1em",
@@ -53,18 +53,19 @@ module.exports = {
         backgroundPosition: "center"
       }
     },
-    RUXBase_PageContent_AdminStatus: {
+    // Track this one down.
+    PageContent_AdminStatus: {
       container: {
         padding: "1em"
       }
     },
-    RUXBase_PageContent_AppDataStoreStatus: {
+    PageContent_AppDataStoreStatus: {
       container: {
         padding: "1em",
         backgroundColor: "#DFE"
       }
     },
-    RUXBase_PageContent_AppError: {
+    PageContent_AppError: {
       container: {
         border: "10px solid #EEE",
         borderRadius: "0.5em",
@@ -78,7 +79,7 @@ module.exports = {
         fontSize: "14pt"
       }
     },
-    RUXBase_PageContent_HttpServerError: {
+    PageContent_HttpServerError: {
       container: {
         border: "10px solid #EEE",
         borderRadius: "0.5em",
@@ -107,43 +108,47 @@ module.exports = {
         backgroundColor: "#FFC"
       }
     },
-    RUXBase_PageContent_Markdown: {
+    PageContent_Markdown: {
       container: {
         padding: "1em",
         margin: "1em"
       }
     },
-    RUXBase_PageContent_QueryBuilderFrame: {
-      container: {
-        padding: "1em",
-        backgroundColor: "#DEF"
-      }
+    // KILL
+
+    /*
+    PageContent_QueryBuilderFrame: {
+        container: {
+            padding: "1em",
+            backgroundColor: "#DEF"
+        }
     },
-    RUXBase_PageContent_QueryResultsFrame: {
-      container: {
-        padding: "1em",
-        backgroundColor: "#FED"
-      }
+     PageContent_QueryResultsFrame: {
+        container: {
+            padding: "1em",
+            backgroundColor: "#FED"
+        }
     },
-    RUXBase_PageContent_RainierCategories: {
-      container: {
-        margin: "1em",
-        padding: "1em",
-        border: "5px solid #09C",
-        borderRadius: "0.5em",
-        background: "#BFD"
-      }
+     PageContent_RainierCategories: {
+        container: {
+            margin: "1em",
+            padding: "1em",
+            border: "5px solid #09C",
+            borderRadius: "0.5em",
+            background: "#BFD"
+        }
     },
-    RUXBase_PageContent_RainierSegments: {
-      container: {
-        margin: "1em",
-        padding: "1em",
-        border: "5px solid #09C",
-        borderRadius: "0.5em",
-        background: "#BFD"
-      }
+     PageContent_RainierSegments: {
+        container: {
+            margin: "1em",
+            padding: "1em",
+            border: "5px solid #09C",
+            borderRadius: "0.5em",
+            background: "#BFD"
+        }
     },
-    RUXBase_PageContent_Sitemap: {
+     */
+    PageContent_Sitemap: {
       container: {
         boxShadow: "1px 1px 0.25em 0px #F0F0F0 inset",
         backgroundColor: "#F7F7F7",
@@ -161,7 +166,8 @@ module.exports = {
         fontSize: "10pt"
       }
     },
-    RUXBase_PageContent_SubviewSummary: {
+    // Confirm what this is all about...
+    PageContent_SubviewSummary: {
       container: {
         margin: "1em",
         padding: "1em",
@@ -214,15 +220,19 @@ module.exports = {
         backgroundColor: "#F7F7F7"
       }
     },
-    RUXBase_PageContent_User: {
-      container: {
-        margin: "1em",
-        padding: "1em",
-        border: "10px solid #EEE",
-        borderRadius: "0.5em"
-      }
+    // KILL ?
+
+    /*
+    PageContent_User: {
+        container: {
+            margin: "1em",
+            padding: "1em",
+            border: "10px solid #EEE",
+            borderRadius: "0.5em"
+        }
     },
-    RUXBase_PageHeader: {
+    */
+    PageHeader: {
       container: {
         fontFamily: "Montserrat, Arial, Helvetica",
         borderBottom: "5px solid #EEE",
@@ -278,21 +288,25 @@ module.exports = {
         left: "51px"
       }
     },
-    RUXBase_PageHeader_QCGlobalNavWrapper: {
-      server: {
-        container: {
-          backgroundColor: "#212934",
-          height: "60px",
-          fontSize: "15px",
-          fontWeight: 100,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#777"
+    // KILL
+
+    /*
+    PageHeader_QCGlobalNavWrapper: {
+        server: {
+            container: {
+                backgroundColor: "#212934",
+                height: "60px",
+                fontSize: "15px",
+                fontWeight: 100,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#777",
+            }
         }
-      }
     },
-    RUXBase_PageFooter: {
+    */
+    PageFooter: {
       container: {
         fontFamily: "Montserrat, Arial, Helevetica",
         fontSize: "8pt",
@@ -325,7 +339,7 @@ module.exports = {
         backgroundColor: "#BCBCBC"
       }
     },
-    RUXBase_PagePanel_Errors: {
+    PagePanel_Errors: {
       closed: {
         container: {
           textAlign: "center",
@@ -420,7 +434,7 @@ module.exports = {
         }
       }
     },
-    RUXBase_PagePanel_ReactDebug: {
+    PagePanel_ReactDebug: {
       closed: {
         container: {
           textAlign: "center",
@@ -500,7 +514,7 @@ module.exports = {
         }
       }
     },
-    RUXBase_PageWidget_ASC: {
+    PageWidget_ASC: {
       container: {
         position: "fixed",
         bottom: "2px",

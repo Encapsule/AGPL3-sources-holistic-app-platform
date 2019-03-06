@@ -18,7 +18,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-// sources/common/view/elements/component/RUXBase_PageContent_HttpServerError.jsx.jsx
+// sources/common/view/elements/component/PageContent_HttpServerError.jsx.jsx
 //
 var arccore = require("@encapsule/arccore");
 
@@ -30,6 +30,9 @@ var holismHttpResponseErrorResultSpec = require("@encapsule/holism/lib/iospecs/h
 
 var holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descriptor.data;
 var holismHttpErrorMessageSpec = arccore.util.clone(holismHttpResponseErrorResultSpec.error_descriptor.data['ESCW71rwTz24meWiZpJb4A']); // snips off the routing namespace & deep copies
+// ----------------------------------------------------------------
+// EXERCISE EXTREME CAUTION.
+// For production purposes we never want to share the deserialized request headers.
 
 delete holismHttpErrorMessageSpec.request.headers; // i.e. filter this data out of the React view entirely so it's not rendered on the server or the client
 
@@ -39,7 +42,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
   description: "Renders the inner page content of @encapsule/holism-produced HTTP server error message.",
   renderDataBindingSpec: {
     ____types: "jsObject",
-    RUXBase_PageContent_HttpServerError: holismHttpErrorMessageSpec
+    HolismHttpServerErrorPageContent: holismHttpErrorMessageSpec
   },
   reactComponent:
   /*#__PURE__*/
@@ -72,11 +75,11 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         var ComponentRouter = this.props.appStateContext.ComponentRouter;
         var metadata = this.props.document.metadata;
         var theme = metadata.site.theme;
-        var renderData = this.props.renderData['RUXBase_PageContent_HttpServerError'];
+        var renderData = this.props.renderData["HolismHttpServerErrorPageContent"];
         var keyIndex = 0;
 
         function makeKey() {
-          return "RUXBase_PageContent_HttpServerError" + keyIndex++;
+          return "HolismHttpServerErrorPageContent" + keyIndex++;
         }
 
         var content = [];
@@ -89,19 +92,19 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             content.push(React.createElement("div", {
               key: makeKey()
             }, React.createElement("p", null, "The ", metadata.site.name, " application server cannot process your request."), React.createElement("p", {
-              style: theme.base.RUXBase_PageContent_HttpServerError.errorMessage
+              style: theme.base.PageContent_HttpServerError.errorMessage
             }, renderData.error_message)));
             if (!this.state.showRawResponse) content.push(React.createElement("div", {
               key: makeKey(),
               title: "Show response details...",
               onClick: this.onClickToggleDetail,
-              style: theme.base.RUXBase_PageContent_HttpServerError.detailsSummary
+              style: theme.base.PageContent_HttpServerError.detailsSummary
             }, React.createElement("pre", {
               style: theme.classPRE
             }, "HTTP request ....... ", React.createElement("strong", null, renderData.request.route_method_name), " failed.", React.createElement("br", null), "Query/search URI ... ", React.createElement("strong", null, renderData.request.url_parse.href))));else {
               content.push(React.createElement("div", {
                 key: makeKey(),
-                style: theme.base.RUXBase_PageContent_HttpServerError.hideDetails,
+                style: theme.base.PageContent_HttpServerError.hideDetails,
                 onClick: this.onClickToggleDetail,
                 title: "Hide response details..."
               }, React.createElement("strong", null, "Hide Details")));
@@ -114,7 +117,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         }
 
         return React.createElement("div", {
-          style: theme.base.RUXBase_PageContent_HttpServerError.container
+          style: theme.base.PageContent_HttpServerError.container
         }, content);
       }
     }]);
