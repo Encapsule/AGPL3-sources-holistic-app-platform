@@ -2,17 +2,17 @@
 //
 
 const appMetadataStoreConstructorFilterFactory = require("./common/metadata/metadata-store-constructor-factory");
-
 const reactComponentBindingFilterFactory = require("./common/view/component-router/react-component-binding-filter-factory");
-
 const reactComponentRouterFactory = require("./common/view/component-router/react-component-router-factory");
+
+const dataRoutableComponents = require("./common/view/elements");
 
 
 module.exports = {
 
     ApplicationDataStore: {
         // Creates an application-specific application data store constructor filter.
-        makeInstanceConstructor: function(request_) { request_; return { error: "Not yet implemented." }; }
+        makeInstanceConstructor: { request: function(request_) { request_; return { error: "Not yet implemented." }; } }
     },
 
     ApplicationMetadataStore: {
@@ -21,12 +21,19 @@ module.exports = {
     },
 
     // Data-Driven React Router (D2R2)
-    D2R2: {
+    DataDrivenReactRouter: {
         // Data-Routable Component (DRC)
-        DataRoutableComponent: reactComponentBindingFilterFactory,
+        DataRoutableComponent: {
+            // Creates a filter that associates a developer-defined filter specification with a Facebook/React component.
+            makeInstance: reactComponentBindingFilterFactory,
+            components: dataRoutableComponents,
+        },
 
         // Data-Driven React Router (D2R2)
-        ComponentRouter: reactComponentRouterFactory
+        ComponentRouter: {
+            // Create a Facebook/React component that delegates to one of N>2 DRC's based on runtime analysis of this.props.renderData signature.
+            makeInstance: reactComponentRouterFactory
+        }
     }
 
 };

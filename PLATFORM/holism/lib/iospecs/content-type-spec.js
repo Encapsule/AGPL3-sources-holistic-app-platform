@@ -9,16 +9,18 @@ module.exports = {
     ____description: "The value of the Content-Type header to return along with the indicated resource.",
     ____accept: "jsString",
     ____inValueSet: [
-        "application/x-font-ttf",
         "application/font-woff",
         "application/font-woff2",
         "application/javascript",
         "application/json",
-        "image/jpeg",
+        "application/x-font-ttf",
+        "application/x-www-form-urlencoded", // See: https://www.ietf.org/rfc/rfc1867.txt
         "image/gif",
+        "image/jpeg",
         "image/png",
         "image/svg+xml",
         "image/x-icon",
+        "multipart/form-data", // See: https://www.ietf.org/rfc/rfc2388.txt
         "text/css",
         "text/html",
         "text/plain"

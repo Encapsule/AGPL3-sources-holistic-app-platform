@@ -1,44 +1,44 @@
 // sources/common/view/elements/component/RUXBase_PageContent_HttpServerError.jsx.jsx
 //
 
-const arccore = require('@encapsule/arccore');
-const React = require('react');
+const arccore = require("@encapsule/arccore");
+const React = require("react");
 
-const reactComponentBindingFilterFactory = require('../binding-factory');
+const reactComponentBindingFilterFactory = require("../binding-factory");
 
-const holismHttpResponseErrorResultSpec = require('holism/lib/iospecs/http-response-error-result-spec');
+const holismHttpResponseErrorResultSpec = require("@encapsule/holism/lib/iospecs/http-response-error-result-spec");
+const holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descriptor.data;
 
 var holismHttpErrorMessageSpec = arccore.util.clone(holismHttpResponseErrorResultSpec.error_descriptor.data['ESCW71rwTz24meWiZpJb4A']); // snips off the routing namespace & deep copies
-delete holismHttpErrorMessageSpec.request.headers; // i.e. filter this data out of the view React view entirely so it's not rendered on the server or the client
+delete holismHttpErrorMessageSpec.request.headers; // i.e. filter this data out of the React view entirely so it's not rendered on the server or the client
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
 
-    id: "PTcu5VXwQx6zSotW93ORPQ",
-    name: "RUXBase_PageContent_HttpServerError",
-    description: "<RUXBase_PageContent_HttpServerError/> React component data binding filter.",
+    id: "hO7kzwr3SmmnWFJQ6mUEiQ",
+    name: "HolismHttpServerErrorPageContent",
+    description: "Renders the inner page content of @encapsule/holism-produced HTTP server error message.",
 
     renderDataBindingSpec: {
         ____types: "jsObject",
         RUXBase_PageContent_HttpServerError: holismHttpErrorMessageSpec,
     },
 
-    reactComponent: React.createClass({
-        displayName: "RUXBase_PageContent_HttpServerError",
+    reactComponent: class HolismHttpServerErrorPageContent extends React.Component {
 
-        getInitialState: function() {
-            return {
-                showRawResponse: false
-            };
-        },
+        constructor(props_) {
+            super(props_);
+            this.state = { showRawResponse: false };
+            this.onClickToggleDetail = this.onClickToggleDetail.bind(this);
+        }
 
-        onClickToggleDetail: function() {
+        onClickToggleDetail() {
             this.setState({
                 showRawResponse: !this.state.showRawResponse
             });
-        },
+        }
 
-        render: function() {
-            var ComponentRouter = this.props.appStateContext.reactComponentRouter;
+        render()  {
+            var ComponentRouter = this.props.appStateContext.ComponentRouter;
             const metadata = this.props.document.metadata;
             const theme = metadata.site.theme;
             const renderData = this.props.renderData['RUXBase_PageContent_HttpServerError'];
@@ -75,8 +75,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
 
             return (<div style={theme.base.RUXBase_PageContent_HttpServerError.container}>{content}</div>);
         }
-    })
-
+    }
 });
 if (factoryResponse.error)
     throw new Error(factoryResponse.error);

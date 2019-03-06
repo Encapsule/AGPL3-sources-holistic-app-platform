@@ -281,16 +281,18 @@ This filter normalizes the value of `input` passed to its `request` method using
                         "____description": "The value of the Content-Type header to return along with the indicated resource.",
                         "____accept": "jsString",
                         "____inValueSet": [
-                            "application/x-font-ttf",
                             "application/font-woff",
                             "application/font-woff2",
                             "application/javascript",
                             "application/json",
-                            "image/jpeg",
+                            "application/x-font-ttf",
+                            "application/x-www-form-urlencoded",
                             "image/gif",
+                            "image/jpeg",
                             "image/png",
                             "image/svg+xml",
                             "image/x-icon",
+                            "multipart/form-data",
                             "text/css",
                             "text/html",
                             "text/plain"
@@ -381,16 +383,18 @@ This filter normalizes the value of `input` passed to its `request` method using
                         "____description": "The value of the Content-Type header to return along with the indicated resource.",
                         "____accept": "jsString",
                         "____inValueSet": [
-                            "application/x-font-ttf",
                             "application/font-woff",
                             "application/font-woff2",
                             "application/javascript",
                             "application/json",
-                            "image/jpeg",
+                            "application/x-font-ttf",
+                            "application/x-www-form-urlencoded",
                             "image/gif",
+                            "image/jpeg",
                             "image/png",
                             "image/svg+xml",
                             "image/x-icon",
+                            "multipart/form-data",
                             "text/css",
                             "text/html",
                             "text/plain"
@@ -454,8 +458,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cS3MBDQrOsKeELQT3zXylQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `Oc8X-4eNw7fN8m2PvRFXxQ` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cafMBDRwUMKeHPUT31h7lQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `eQpAiEJb4YckXtjNhx9Siw` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -471,5 +475,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.3 toolset.<br>
-Document updated Mon Mar 04 2019 16:43:35 GMT-0800 (Pacific Standard Time)
+Document updated Tue Mar 05 2019 16:56:08 GMT-0800 (Pacific Standard Time)
 

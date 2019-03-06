@@ -300,16 +300,18 @@ This filter normalizes the value of `input` passed to its `request` method using
                 "____description": "The value of the Content-Type header to return along with the indicated resource.",
                 "____accept": "jsString",
                 "____inValueSet": [
-                    "application/x-font-ttf",
                     "application/font-woff",
                     "application/font-woff2",
                     "application/javascript",
                     "application/json",
-                    "image/jpeg",
+                    "application/x-font-ttf",
+                    "application/x-www-form-urlencoded",
                     "image/gif",
+                    "image/jpeg",
                     "image/png",
                     "image/svg+xml",
                     "image/x-icon",
+                    "multipart/form-data",
                     "text/css",
                     "text/html",
                     "text/plain"
@@ -381,8 +383,8 @@ If no error then any value type including [object Undefined] may be assigned to 
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `XoyKovKcQ-i-Pwy5PSrn1Q` | `bQSiE7d7AVcWDe3tIY5XtA` |
-| input contract | `vj6tQBAdHQrK_H5Em3nhgw` | `HjYDZiyqhkckPwLcd61fzw` |
+| operation | `XoyKovKcQ-i-Pwy5PSrn1Q` | `bT57E7dE71cWT-LtIZkQtA` |
+| input contract | `vj6tQBAdHQrK_H5Em3nhgw` | `P1YdSXKAAcLA9RxMo7zCGg` |
 | output contract | `1LI8w603xnaTfXNizPRo1A` | `dHR0dNnZ2dlUVFRUyMjIyA` |
 
 ### Configuration
@@ -398,5 +400,5 @@ Filter classification:  **input processor**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.3 toolset.<br>
-Document updated Mon Mar 04 2019 16:43:36 GMT-0800 (Pacific Standard Time)
+Document updated Tue Mar 05 2019 16:56:09 GMT-0800 (Pacific Standard Time)
 
