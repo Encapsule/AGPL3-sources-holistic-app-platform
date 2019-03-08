@@ -14,7 +14,7 @@ const handlebars = arctoolslib.handlebars; // ... handlebars template engine is 
 
 const holisticMetadata = require("../../PLATFORM/holistic");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
-const holisticPlatformPackagesDB = require("../PLATFORM/PACKAGES");
+const holisticPlatformRuntimePackages = [ "@encapsule/holism", "@encapsule/hrequest", "@encapsule/holarchy" ];
 
 const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
 const packageMapFilter = require('./LIB/package-map-filter');
@@ -394,7 +394,7 @@ console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'
 // that have appeared in the application's package.json are installed. And, that yarn.lock
 // is updated.
 
-for (key in holisticPlatformPackagesDB) {
+for (key of holisticPlatformRuntimePackages) {
     console.log("> Updating holistic platform runtime package dependency '" + key + "'...");
     consoleOutput = syncExec({
         cwd: resourceFilePaths.application.packageModulesDir,
