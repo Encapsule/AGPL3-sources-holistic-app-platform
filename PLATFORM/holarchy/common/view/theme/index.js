@@ -551,7 +551,8 @@ module.exports = {
     fontFamily: "Share Tech Mono, Courier",
     // via Google Fonts
     margin: "0px",
-    padding: "1em"
+    padding: "1em",
+    overflow: "auto"
   },
   ComponentRouterError: {
     container: {

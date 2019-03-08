@@ -7,14 +7,47 @@
 // a redirect.
 
 const httpServiceFilterFactory = require("@encapsule/holism").service;
-const common =  require("./common");
-const constraints = common.constraints;
-const contentTypeLUT = common.contentTypeLUT;
+
+/**
+ Common things used by options as content.
+ **/
+
+const contentTypeLUT = {
+    html: "text/html",
+    json: "application/json"
+};
+
+const constraints = {
+    request: {
+        content: {encoding: "utf8", type: "text/plain"},
+        query_spec: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            format: {
+                ____accept: "jsString",
+                ____defaultValue: "html",
+                ____inValueSet: ["html", "json"]
+            }
+        },
+        request_spec: {____opaque: true},
+        options_spec: {
+            ____label: "HTML Content Render Request Descriptor",
+            ____description: "A HTML content render request descriptor to be passed directly to the HTML rendering subsystem at runtime.",
+            ____accept: "jsObject",
+            ____defaultValue: {"uURRenqiTtmzrce5eRXARQ": {message: "YOU MUST SPECIFY AN SERVICE OPTIONS OBJECT!"}}
+        }
+    },
+    response: {
+        content: {encoding: "utf8", type: "text/html"},
+        error_context_spec: {____opaque: true},
+        result_spec: {____opaque: true}
+    }
+};
 
 var factoryResponse = httpServiceFilterFactory.create({
-    id: "93EwF-HbRoupakjfv3XuSQ",
-    name: "Options As HTML Content No Auth",
-    description: "Passes the value registration-time options object through to the HTML render subsystem.",
+    id: "RwX7E6RuQq-oJeihidQrfw",
+    name: "Options As HTML Content",
+    description: "Passes the service filter registration options object to response_descriptor.data w/UTF8 and HTML contentthe value registration-time options object through to the HTML render subsystem.",
     constraints: constraints,
     handlers: {
         request_handler: function(request_) {
@@ -25,10 +58,6 @@ var factoryResponse = httpServiceFilterFactory.create({
 
             while (!inBreakScope) {
                 inBreakScope = true;
-                // This method does not return a result. Rather, if an error occurs while it's executing,
-                // it directs the error to the Encapsule/holism orange-screen-or-death. And, I consider
-                // this a bug in Encapsule/holism - at least minus points for inconsistency. Hmm. I need
-                // to do some work in the basement?
 
                 request_.response_filters.result.request({
                     streams: request_.streams,
@@ -72,8 +101,6 @@ var factoryResponse = httpServiceFilterFactory.create({
 });
 
 if (factoryResponse.error) {
-    console.log("Error in options as content no auth");
-    console.log(factoryResponse.error);
     throw new Error(factoryResponse.error);
 }
 

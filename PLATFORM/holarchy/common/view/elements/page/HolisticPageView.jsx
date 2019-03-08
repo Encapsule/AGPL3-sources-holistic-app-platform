@@ -42,7 +42,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
         ____accept: "jsObject",
         ____defaultValue: {
-          PageHeader_QCGlobalNavWrapper: {}
+          ApplicationPageHeader: {}
         }
       },
       pageContentEP: {
@@ -50,7 +50,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
         ____accept: "jsObject",
         ____defaultValue: {
-          PageContent: {}
+          ApplicationPageMissingContent: {}
         }
       },
       pageFooterEP: {
@@ -58,7 +58,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
         ____accept: "jsObject",
         ____defaultValue: {
-          PageFooter: {}
+          ApplicationPageFooter: {}
         }
       },
       pageErrorsEP: {
@@ -66,7 +66,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
         ____accept: "jsObject",
         ____defaultValue: {
-          PagePanel_Errors: {}
+          HolisticClientErrorPanel: {}
         }
       },
       pageDebugEP: {
@@ -74,7 +74,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
         ____accept: "jsObject",
         ____defaultValue: {
-          PagePanel_ReactDebug: {}
+          HolisticClientDebugPanel: {}
         }
       }
     }

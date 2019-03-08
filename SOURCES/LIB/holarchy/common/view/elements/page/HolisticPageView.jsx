@@ -19,35 +19,35 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 ____label: "Page Header Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { PageHeader_QCGlobalNavWrapper: {} }
+                ____defaultValue: { ApplicationPageHeader: {} }
             },
 
             pageContentEP: {
                 ____label: "Page Content Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { PageContent: {} }
+                ____defaultValue: { ApplicationPageMissingContent: {} }
             },
 
             pageFooterEP: {
                 ____label: "Page Footer Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { PageFooter: {} }
+                ____defaultValue: { ApplicationPageFooter: {} }
             },
 
             pageErrorsEP: {
                 ____label: "Page Errors Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { PagePanel_Errors: {} }
+                ____defaultValue: { HolisticClientErrorPanel: {} }
             },
 
             pageDebugEP: {
                 ____label: "Page Debug Extenion Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsObject",
-                ____defaultValue: { PagePanel_ReactDebug: {} }
+                ____defaultValue: { HolisticClientDebugPanel: {} }
             }
         }
     }, // renderDataBindingSpec
