@@ -1,5 +1,6 @@
 // holistic-platform-manifest.js
 
+const arccore = require("@encapsule/arccore");
 const holisticAppPlatformManifestFilter = require('./LIB/holistic-platform-manifest-filter');
 
 const filterResponse = holisticAppPlatformManifestFilter.request({
@@ -29,8 +30,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         // "chai": "^4.2.0",
 
         // Holistic platform runtime library dependencies.
-        "@encapsule/arccore": "0.1.3",
-        "@encapsule/arctools": "0.1.3",
+        "@encapsule/arccore": arccore.__meta.version,
+        "@encapsule/arctools": arccore.__meta.version,
         "@encapsule/holarchy": "./HOLISTIC/holarchy",
         "@encapsule/holism": "./HOLISTIC/holism",
         "@encapsule/hrequest": "./HOLISTIC/hrequest",

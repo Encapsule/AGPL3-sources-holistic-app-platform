@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.8",
     "codename": "larchwood",
-    "buildID": "tOPJZBHqTnu3N-x-HYvW1A",
-    "buildTime": 1552024577,
-    "buildSource": "ac51780116b886af56f410ee4dd17c2b740e1a3b",
+    "buildID": "zAnIeYvESPqCc4LsI0zFBg",
+    "buildTime": 1552412569,
+    "buildSource": "5302c953c0040da900b8bd82887019820e993350",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
@@ -33,7 +33,7 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.3",
+        "@encapsule/arccore": "0.1.4",
         "query-string": "^6.2.0",
         "request": "^2.88.0"
     }
