@@ -1,7 +1,8 @@
 // sources/common/view/content-router/ComponentRouter.jsx
-//
+// Looking for this module inside a large webpack bundle? Search for "SmNzf5U0RXSSyXe06mTRCg".
 
-const React = require('react');
+const React = require("react");
+const arccore = require("@encapsule/arccore");
 
 module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_) {
 
@@ -65,116 +66,125 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
 
         render() {
 
-            var self = this;
+            try {
 
-            keyIndex = 0;
+                var self = this;
 
-            var error = null;
+                keyIndex = 0;
 
-            const routingDataContext = {
-                reactContext: this.props,
-                renderData: this.props.renderData
-            };
+                var error = null;
 
-            //////////////////////////////////////////////////////////////////////////
-            // SELECT: Match the namespace:type-derived signature of routingDataContext.renderData to 1:N registered React component data binding filters.
-
-            var discriminatorResponse = dataViewBindingDiscriminator.request(routingDataContext);
-
-            if (!discriminatorResponse.error) {
-
-                const targetFilterID = discriminatorResponse.result;
-                var targetViewBindingFilter = filterIDMap[targetFilterID];
-
-                console.log([
-                    "..... <ComponentRouter/> dispatching to [",
-                    targetViewBindingFilter.filterDescriptor.operationID,
-                    "::",
-                    targetViewBindingFilter.filterDescriptor.operationName,
-                    "]"
-                ].join(''));
+                const routingDataContext = {
+                    reactContext: this.props,
+                    renderData: this.props.renderData
+                };
 
                 //////////////////////////////////////////////////////////////////////////
-                // DISPATCH: Call the React component data binding filter to generate an instance of its encapsulated React component that is bound to this input data.
+                // SELECT: Match the namespace:type-derived signature of routingDataContext.renderData to 1:N registered React component data binding filters.
 
-                if (targetViewBindingFilter.dependencies.integrations)
-                    routingDataContext.integrations = targetViewBindingFilter.dependencies.integrations;
+                var discriminatorResponse = dataViewBindingDiscriminator.request(routingDataContext);
 
-                var targetFilterResponse = targetViewBindingFilter.request(routingDataContext);
+                if (!discriminatorResponse.error) {
 
-                if (!targetFilterResponse.error)
-                    // Data-bound React component produced by calling the selected React component data binding filter.
-                    return targetFilterResponse.result;
-                else
-                    // ARCcore.discriminator rejects requests that it can not plausibly match to 1:N registered filters
-                    // while simultaneously eliminating the other N-1 filters. But, it does this by performing as few
-                    // operations as possible. This means that the selected filter is selected because all the others
-                    // will definitely reject this request. And, as it turns out it doesn't much like this request.
-                    error = targetFilterResponse.error;
-            } else
-                error = discriminatorResponse.error;
+                    const targetFilterID = discriminatorResponse.result;
+                    var targetViewBindingFilter = filterIDMap[targetFilterID];
 
-            //////////////////////////////////////////////////////////////////////////
-            // ERROR: The input data does not have an acceptable namespace:type format.
+                    console.log([
+                        "..... <ComponentRouter/> dispatching to [",
+                        targetViewBindingFilter.filterDescriptor.operationID,
+                        "::",
+                        targetViewBindingFilter.filterDescriptor.operationName,
+                        "]"
+                    ].join(''));
 
-            console.log("!!! <ComponentRouter/> ERROR: " + error);
+                    //////////////////////////////////////////////////////////////////////////
+                    // DISPATCH: Call the React component data binding filter to generate an instance of its encapsulated React component that is bound to this input data.
 
-            const theme = this.props.document.metadata.site.theme;
+                    if (targetViewBindingFilter.dependencies.integrations)
+                        routingDataContext.integrations = targetViewBindingFilter.dependencies.integrations;
 
-            // Pre-render a JSON-format copy of the specific `this.props.renderData` we cannot identify.
-            const renderDataJSON =
-                  ((this.props.renderData === undefined)?(<span key={makeKey()}>undefined</span>):(<span key={makeKey()}>'{JSON.stringify(this.props.renderData, undefined, 4)}'</span>));
+                    var targetFilterResponse = targetViewBindingFilter.request(routingDataContext);
 
-            const supportedFilterListItems = [];
-            filterNameList.forEach(function(filterName_) {
-                var filterName = filterName_;
-                var listItemContent = [];
-                var clickHandler = function() { self.onToggleInspectViewBindingFilter(filterName); }
-                var onMouseOverHandler = function() { self.onMouseOverBindingFilter(filterName); }
-                var onMouseOutHandler = function() { self.onMouseOutBindingFilter(filterName); }
+                    if (!targetFilterResponse.error)
+                        // Data-bound React component produced by calling the selected React component data binding filter.
+                        return targetFilterResponse.result;
+                    else
+                        // ARCcore.discriminator rejects requests that it can not plausibly match to 1:N registered filters
+                        // while simultaneously eliminating the other N-1 filters. But, it does this by performing as few
+                        // operations as possible. This means that the selected filter is selected because all the others
+                        // will definitely reject this request. And, as it turns out it doesn't much like this request.
+                        error = targetFilterResponse.error;
+                } else
+                    error = discriminatorResponse.error;
 
-                var filterNameStyles = {};
-                if (self.state.mouseOver === filterName) {
-                    filterNameStyles = theme.ComponentRouterError.filterListItemMouseOver;
-                } else {
-                    if (self.state[filterName_] && self.state[filterName_].inspect) {
-                        filterNameStyles = theme.ComponentRouterError.filterListItemInspect;
+                //////////////////////////////////////////////////////////////////////////
+                // ERROR: The input data does not have an acceptable namespace:type format.
+
+                console.log("!!! <ComponentRouter/> ERROR: " + error);
+
+                const theme = this.props.document.metadata.site.theme;
+
+                // Pre-render a JSON-format copy of the specific `this.props.renderData` we cannot identify.
+                const renderDataJSON =
+                      ((this.props.renderData === undefined)?(<span key={makeKey()}>undefined</span>):(<span key={makeKey()}>'{JSON.stringify(this.props.renderData, undefined, 4)}'</span>));
+
+                const supportedFilterListItems = [];
+                filterNameList.forEach(function(filterName_) {
+                    var filterName = filterName_;
+                    var listItemContent = [];
+                    var clickHandler = function() { self.onToggleInspectViewBindingFilter(filterName); }
+                    var onMouseOverHandler = function() { self.onMouseOverBindingFilter(filterName); }
+                    var onMouseOutHandler = function() { self.onMouseOutBindingFilter(filterName); }
+
+                    var filterNameStyles = {};
+                    if (self.state.mouseOver === filterName) {
+                        filterNameStyles = arccore.util.clone(theme.ComponentRouterError.filterListItemMouseOver);
+                    } else {
+                        if (self.state[filterName_] && self.state[filterName_].inspect) {
+                            filterNameStyles = arccore.util.clone(theme.ComponentRouterError.filterListItemInspect);
+                        }
                     }
-                }
 
-                if (!self.state[filterName_] || !self.state[filterName_].inspect) {
-                    filterNameStyles.cursor = 'zoom-in';
-                    listItemContent.push(<span key={makeKey()} style={filterNameStyles} onClick={clickHandler} onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler}>
-                                         [{filterName_}]
-                                         </span>);
-                } else {
-                    filterNameStyles.cursor = 'zoom-out';
-                    listItemContent.push(<span key={makeKey()}>
-                                         <span style={filterNameStyles} onClick={clickHandler}  onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler}>[{filterName_}]</span>
-                                         <br/><br/>
-                                         <pre style={theme.classPRE} onMouseOver={onMouseOutHandler} onMouseOut={onMouseOutHandler}>{JSON.stringify(filterNameMap[filterName_], undefined, 4)}</pre>
-                                         <br/>
-                                         </span>);
-                }
-                supportedFilterListItems.push(<li key={makeKey()}>{listItemContent}</li>);
-            });
+                    if (!self.state[filterName_] || !self.state[filterName_].inspect) {
+                        filterNameStyles.cursor = 'zoom-in';
+                        listItemContent.push(<span key={makeKey()} style={filterNameStyles} onClick={clickHandler} onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler}>
+                                             [{filterName_}]
+                                             </span>);
+                    } else {
+                        filterNameStyles.cursor = 'zoom-out';
+                        listItemContent.push(<span key={makeKey()}>
+                                             <span style={filterNameStyles} onClick={clickHandler}  onMouseOver={onMouseOverHandler} onMouseOut={onMouseOutHandler}>[{filterName_}]</span>
+                                             <br/><br/>
+                                             <pre style={theme.classPRE} onMouseOver={onMouseOutHandler} onMouseOut={onMouseOutHandler}>{JSON.stringify(filterNameMap[filterName_], undefined, 4)}</pre>
+                                             <br/>
+                                             </span>);
+                    }
+                    supportedFilterListItems.push(<li key={makeKey()}>{listItemContent}</li>);
+                });
 
-            return (<div style={theme.ComponentRouterError.container}>
-                    <h1>&lt;ComponentRouter/&gt; Error</h1>
-                    <p>&lt;ComponentRouter/&gt; cannot render the value of <code>this.props.renderData</code> it received because its
-                    {' '}<strong>namespace::type</strong>-derived data signature does not meet the input filter specification criteria of any of the React
-                    {' '}component data binding filters registered by this application.</p>
-                    <h2>Unrecognized this.props.renderData (JSON):</h2>
-                    <pre style={theme.classPRE}>this.props.renderData === {renderDataJSON}</pre>
-                    <h2>Underlying ARCcore.discriminator Error</h2>
-                    <pre style={theme.classPRE}>{error}</pre>
-                    <h2>Registered React Components:</h2>
-                    <p>To correct this problem, please ensure that the value passed to &lt;ComponentRouter/&gt; via its <code>renderData</code> property has
-                    {' '}a <strong>namespace::type</strong>-derived signature accepted by one of the following data-bound React components:</p>
-                    <ol style={theme.ComponentRouterError.filterList}>{supportedFilterListItems}</ol>
+                return (<div style={theme.ComponentRouterError.container}>
+                        <h1>&lt;ComponentRouter/&gt; Error</h1>
+                        <p>&lt;ComponentRouter/&gt; cannot render the value of <code>this.props.renderData</code> it received because its
+                        {' '}<strong>namespace::type</strong>-derived data signature does not meet the input filter specification criteria of any of the React
+                        {' '}component data binding filters registered by this application.</p>
+                        <h2>Unrecognized this.props.renderData (JSON):</h2>
+                        <pre style={theme.classPRE}>this.props.renderData === {renderDataJSON}</pre>
+                        <h2>Underlying ARCcore.discriminator Error</h2>
+                        <pre style={theme.classPRE}>{error}</pre>
+                        <h2>Registered React Components:</h2>
+                        <p>To correct this problem, please ensure that the value passed to &lt;ComponentRouter/&gt; via its <code>renderData</code> property has
+                        {' '}a <strong>namespace::type</strong>-derived signature accepted by one of the following data-bound React components:</p>
+                        <ol style={theme.ComponentRouterError.filterList}>{supportedFilterListItems}</ol>
+                        </div>);
 
-
-                    </div>);
+            } catch (exception_) {
+                let theme = this.props.document.metadata.site.theme; // .ComponentRouterError.container;
+                return (<div style={theme.ComponentRouterError.container}>
+                        <h1>&lt;ComponentRouter/&gt; INTERNAL ERROR</h1>
+                        <p>Unfortunately, there has been an internal error inside the &lt;ComponentRouter&gt; error handling logic that is preventing us from correctly displaying the our standard error and diagnostic view.</p>
+                        <pre style={theme.classPRE}>{exception_.stack}</pre>
+                        </div>);
+            } // end catch
 
         } // end method render
 

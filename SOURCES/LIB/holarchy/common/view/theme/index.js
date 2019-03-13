@@ -579,9 +579,10 @@ module.exports = {
             fontFamily: "Play, Arial, Helvetica",
             fontSize: "10pt",
             padding: "1em",
-            border: "10px solid #DDBBCC",
-            borderRadius: "0.5em",
-            backgroundColor: "#EEDDDD"
+            border: "10px solid #F90",
+            margin: "1px",
+            borderRadius: "1em",
+            backgroundColor: "#FC0"
         },
         filterList: {
             fontFamily: "Share Tech Mono, Courier"
