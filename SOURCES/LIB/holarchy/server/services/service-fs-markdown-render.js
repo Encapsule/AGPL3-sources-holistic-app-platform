@@ -2,8 +2,6 @@
 
 const arccore = require("@encapsule/arccore");
 const fs = require("fs");
-const path = require("path");
-// NOT USED? const process = require("process");
 const httpServiceFilterFactory = require("@encapsule/holism").service;
 
 const packageMeta = require("../../package");
@@ -68,14 +66,12 @@ var factoryResponse = httpServiceFilterFactory.create({
 
                 console.log("> processing request for markdown file resource '" + request_.options.markdownFilename);
 
-                const markdownResourcePath = path.normalize(path.join(__dirname, "_resources/markdown", request_.options.markdownFilename));
-
-                fs.readFile(markdownResourcePath, "utf8", function(error_, data_) {
+                fs.readFile(request_.options.markdownFilename, "utf8", function(error_, data_) {
 
                     if (error_) {
 
                         var message = [];
-                        message.push("Fatal error loading request markdown file resource '" + markdownResourcePath + "'.");
+                        message.push("Fatal error loading request markdown file resource '" + request_.options.markdownFilename + "'.");
                         message.push(error_.toString());
 
                         // Trombones...
@@ -158,20 +154,10 @@ var factoryResponse = httpServiceFilterFactory.create({
                                     // allowing us to effectively control the layout of the page view with the
                                     // namespace/type signature of object we pass into the HTML render subsystem.
                                     data: {
-                                        RUXBase_Page: {
-                                            pageContentEP: {
-                                                RUXBase_PageContent_SubviewSummary: {
-                                                    contentEP: [
-                                                        {
-                                                            RUXBase_PageContent_Markdown: {
-                                                                markdownContent: [ data_.toString("utf8") ],
-                                                                markdownOptions: request_.options.markdownOptions,
-                                                                viewOptions: request_.options.viewOptions
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
+                                        HolisticMarkdownContentData_HcZRCebVREq15DNzsjLRsw: {
+                                            markdownContent: [ data_.toString("utf8") ],
+                                            markdownOptions: request_.options.markdownOptions,
+                                            viewOptions: request_.options.viewOptions
                                         }
                                     }
                                 }
