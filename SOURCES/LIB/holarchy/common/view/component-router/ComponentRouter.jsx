@@ -120,7 +120,7 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                 //////////////////////////////////////////////////////////////////////////
                 // ERROR: The input data does not have an acceptable namespace:type format.
 
-                console.log("!!! <ComponentRouter/> ERROR: " + error);
+                console.log("!!!!! <ComponentRouter/> ERROR: " + error);
 
                 const theme = this.props.document.metadata.site.theme;
 
