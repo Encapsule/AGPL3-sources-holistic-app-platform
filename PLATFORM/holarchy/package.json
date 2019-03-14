@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.8",
     "codename": "larchwood",
-    "buildID": "_lLbHfqMR4WDx1AwHGWmGQ",
-    "buildTime": 1552520870,
-    "buildSource": "c189bd2c27ae4a74a359504321bd4980a93b6eb8",
+    "buildID": "p1uQL6PXSgCxaI7VMk4oGw",
+    "buildTime": 1552537767,
+    "buildSource": "42eec86396ebcd89e6413670d9edf527da193316",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
@@ -28,7 +28,7 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.4",
+        "@encapsule/arccore": "0.1.5",
         "@encapsule/holism": "0.0.8",
         "@encapsule/hrequest": "0.0.8"
     }
