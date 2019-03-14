@@ -565,7 +565,7 @@ module.exports = {
 
 
     classPRE: {
-        backgroundColor: "rgba(0,0,0,0.05)",
+        backgroundColor: "rgba(0,0,0,0.03)",
         border: "1px solid rgba(0,0,0,0.1)",
         borderRadius: "0.5em",
         fontFamily: "Share Tech Mono, Courier", // via Google Fonts
@@ -579,21 +579,26 @@ module.exports = {
             fontFamily: "Play, Arial, Helvetica",
             fontSize: "10pt",
             padding: "1em",
-            border: "10px solid #F90",
             margin: "1px",
+            border: "1em solid rgba(0,0,0,0.2)",
             borderRadius: "1em",
-            backgroundColor: "#FC0"
+            backgroundColor: "rgba(0,0,0,0.1)"
         },
         filterList: {
-            fontFamily: "Share Tech Mono, Courier"
+            fontFamily: "Share Tech Mono, Courier",
+            color: "black"
+        },
+        filterListItem: {
+            color: "rgba(0,0,0,0.5)",
+            borderBottom: "1px solid rgba(0,0,0,0.15)"
         },
         filterListItemMouseOver: {
-            color: "#D40",
+            color: "#F60",
             fontWeight: "bold",
             textDecoration: "underline"
         },
         filterListItemInspect: {
-            color: "#B00",
+            color: "#C00",
             fontWeight: "bold",
             textDecoration: "underline"
         }

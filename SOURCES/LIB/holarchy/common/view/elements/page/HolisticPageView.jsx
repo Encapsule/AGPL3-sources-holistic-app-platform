@@ -49,21 +49,46 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 ____accept: "jsObject",
                 ____defaultValue: { HolisticClientDebugPanel: {} }
             }
+        }, // HolisticPageView
+        styles: {
+            ____label: "Styles",
+            ____description: "Programmatic CSS for use with React.",
+            ____types: "jsObject",
+            ____defaultValue: {},
+            container: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                margin: {
+                    ____accept: "jsString",
+                    ____defaultValue: "0px"
+                }, // margin
+                padding: {
+                    ____accept: "jsString",
+                    ____defaultValue: "0px"
+                }, // padding
+                backgroundColor: {
+                    ____accept: "jsString",
+                    ____defaultValue: "white"
+                }
+            }, // container
         }
-    }, // renderDataBindingSpec
+    }, // Renderdatabindingspec
     reactComponent: class HolisticPageView extends React.Component {
         render() {
             const ComponentRouter = this.props.appStateContext.ComponentRouter;
             const metadata = this.props.document.metadata;
             const theme = metadata.site.theme;
-            const renderData = this.props.renderData['HolisticPageView'];
+
+            const renderData = this.props.renderData;
+            const renderMessage = renderData.HolisticPageView;
+            const renderStyles = renderData.styles;
             return (
-                    <div id="idPage" style={theme.HolisticPageView.container}>
-                    <ComponentRouter {...this.props} renderData={renderData.pageHeaderEP}/>
-                    <ComponentRouter {...this.props} renderData={renderData.pageContentEP}/>
-                    <ComponentRouter {...this.props} renderData={renderData.pageFooterEP}/>
-                    <ComponentRouter {...this.props} renderData={renderData.pageErrorsEP}/>
-                    <ComponentRouter {...this.props} renderData={renderData.pageDebugEP}/>
+                    <div id="idHolisticPageView" style={theme.HolisticPageView.container}>
+                    <ComponentRouter {...this.props} renderData={renderMessage.pageHeaderEP}/>
+                    <ComponentRouter {...this.props} renderData={renderMessage.pageContentEP}/>
+                    <ComponentRouter {...this.props} renderData={renderMessage.pageFooterEP}/>
+                    <ComponentRouter {...this.props} renderData={renderMessage.pageErrorsEP}/>
+                    <ComponentRouter {...this.props} renderData={renderMessage.pageDebugEP}/>
                     <ComponentRouter {...this.props} renderData={{PageWidget_ASC: {}}}/>
                     <br/>
                     </div>

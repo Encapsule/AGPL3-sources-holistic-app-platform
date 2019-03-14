@@ -77,9 +77,35 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
           HolisticClientDebugPanel: {}
         }
       }
+    },
+    // HolisticPageView
+    styles: {
+      ____label: "Styles",
+      ____description: "Programmatic CSS for use with React.",
+      ____types: "jsObject",
+      ____defaultValue: {},
+      container: {
+        ____types: "jsObject",
+        ____defaultValue: {},
+        margin: {
+          ____accept: "jsString",
+          ____defaultValue: "0px"
+        },
+        // margin
+        padding: {
+          ____accept: "jsString",
+          ____defaultValue: "0px"
+        },
+        // padding
+        backgroundColor: {
+          ____accept: "jsString",
+          ____defaultValue: "white"
+        }
+      } // container
+
     }
   },
-  // renderDataBindingSpec
+  // Renderdatabindingspec
   reactComponent:
   /*#__PURE__*/
   function (_React$Component) {
@@ -97,20 +123,22 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         var ComponentRouter = this.props.appStateContext.ComponentRouter;
         var metadata = this.props.document.metadata;
         var theme = metadata.site.theme;
-        var renderData = this.props.renderData['HolisticPageView'];
+        var renderData = this.props.renderData;
+        var renderMessage = renderData.HolisticPageView;
+        var renderStyles = renderData.styles;
         return React.createElement("div", {
-          id: "idPage",
+          id: "idHolisticPageView",
           style: theme.HolisticPageView.container
         }, React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderData.pageHeaderEP
+          renderData: renderMessage.pageHeaderEP
         })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderData.pageContentEP
+          renderData: renderMessage.pageContentEP
         })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderData.pageFooterEP
+          renderData: renderMessage.pageFooterEP
         })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderData.pageErrorsEP
+          renderData: renderMessage.pageErrorsEP
         })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderData.pageDebugEP
+          renderData: renderMessage.pageDebugEP
         })), React.createElement(ComponentRouter, _extends({}, this.props, {
           renderData: {
             PageWidget_ASC: {}

@@ -2,9 +2,9 @@
     "name": "@encapsule/holism",
     "version": "0.0.8",
     "codename": "larchwood",
-    "buildID": "p1uQL6PXSgCxaI7VMk4oGw",
-    "buildTime": 1552537767,
-    "buildSource": "42eec86396ebcd89e6413670d9edf527da193316",
+    "buildID": "Be5hWpiTTPuUImp3WGyoQQ",
+    "buildTime": 1552575070,
+    "buildSource": "e5a9cc0614e8a6ff497fe07e85f4600f48c82c25",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"

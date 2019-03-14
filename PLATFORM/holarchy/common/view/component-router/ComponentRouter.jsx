@@ -155,6 +155,8 @@ module.exports = function (dataViewBindingDiscriminator_, dataViewBindingFilters
             } else {
               if (self.state[filterName_] && self.state[filterName_].inspect) {
                 filterNameStyles = arccore.util.clone(theme.ComponentRouterError.filterListItemInspect);
+              } else {
+                filterNameStyles = arccore.util.clone(theme.ComponentRouterError.filterListItem);
               }
             }
 
