@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.8",
-    "codename": "larchwood",
+    "version": "0.0.9",
+    "codename": "zortman",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "y4A4VasIQduLN6IUfk6lSw",
-    "buildSource": "1520d429441e77166e9c362120273edcc7f47796",
-    "buildTime": 1552581392,
-    "buildDateISO": "2019-03-14T16:36:32.000Z"
+    "buildID": "bDXwDhZaS8e_LmVbvT4rpw",
+    "buildSource": "ce4be33183229c7d30bb0eb920358fd07b6c4ede",
+    "buildTime": 1552601754,
+    "buildDateISO": "2019-03-14T22:15:54.000Z"
 }
