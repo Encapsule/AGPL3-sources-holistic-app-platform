@@ -20,6 +20,7 @@ const dataRoutableComponents = [
     //    require("./component/RUXBase_PageContent_AppDataStoreStatus.jsx"),
     //    require("./component/RUXBase_PageContent_SubviewSummary.jsx"),
     //    require("./component/RUXBase_PageFooter.jsx"),
+
     //    require("./component/RUXBase_PagePanel_Errors.jsx"),
     //    require("./component/RUXBase_PagePanel_ReactDebug.jsx"),
     //    require("./component/RUXBase_PageWidget_ASC.jsx")
@@ -28,7 +29,7 @@ const dataRoutableComponents = [
 
 // Convert the array into a dictionary.
 module.exports = dataRoutableComponents.reduce(function(dictionary_, element_) {
-    const drcNameKey = element_.filterDescriptor.operationName + "::" + element_.filterDescriptor.operationID;
+    const drcNameKey = element_.filterDescriptor.operationID + "::" + element_.filterDescriptor.operationName;
     dictionary_[drcNameKey] = element_;
     return dictionary_;
 }, {});
