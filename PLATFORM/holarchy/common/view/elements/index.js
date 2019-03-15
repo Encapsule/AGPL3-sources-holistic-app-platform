@@ -6,7 +6,7 @@
 var dataRoutableComponents = [require("./page/HolisticPageView.jsx"), require("./page/HolismHttpServerErrorPageView.jsx"), require("./component/RUXBase_PageContent_HttpServerError.jsx")]; // Convert the array into a dictionary.
 
 module.exports = dataRoutableComponents.reduce(function (dictionary_, element_) {
-  var drcNameKey = element_.filterDescriptor.operationName + "::" + element_.filterDescriptor.operationID;
+  var drcNameKey = element_.filterDescriptor.operationID + "::" + element_.filterDescriptor.operationName;
   dictionary_[drcNameKey] = element_;
   return dictionary_;
 }, {});
