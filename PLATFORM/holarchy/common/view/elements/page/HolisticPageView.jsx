@@ -48,10 +48,10 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
       pageContentEP: {
         ____label: "Page Content Extension Point (EP)",
         ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-        ____accept: "jsObject",
-        ____defaultValue: {
+        ____accept: "jsArray",
+        ____defaultValue: [{
           ApplicationPageMissingContent: {}
-        }
+        }]
       },
       pageFooterEP: {
         ____label: "Page Footer Extension Point (EP)",
@@ -61,21 +61,17 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
           ApplicationPageFooter: {}
         }
       },
-      pageErrorsEP: {
-        ____label: "Page Errors Extension Point (EP)",
-        ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-        ____accept: "jsObject",
-        ____defaultValue: {
-          HolisticClientErrorPanel: {}
-        }
-      },
       pageDebugEP: {
         ____label: "Page Debug Extenion Point (EP)",
         ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-        ____accept: "jsObject",
-        ____defaultValue: {
+        ____accept: "jsArray",
+        ____defaultValue: [{
+          HolisticClientErrorPanel: {}
+        }, {
           HolisticClientDebugPanel: {}
-        }
+        }, {
+          PageWidget_ASC: {}
+        }]
       }
     },
     // HolisticPageView
@@ -120,30 +116,48 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
     _createClass(HolisticPageView, [{
       key: "render",
       value: function render() {
+        var self = this;
         var ComponentRouter = this.props.appStateContext.ComponentRouter;
         var metadata = this.props.document.metadata;
         var theme = metadata.site.theme;
         var renderData = this.props.renderData;
         var renderMessage = renderData.HolisticPageView;
         var renderStyles = renderData.styles;
+        var index = 0;
+
+        function makeKey() {
+          return "HolisticPageView" + index++;
+        }
+
+        var content = [];
+        content.push(React.createElement(ComponentRouter, _extends({
+          key: makeKey()
+        }, this.props, {
+          renderData: renderMessage.pageHeaderEP
+        })));
+        renderMessage.pageContentEP.forEach(function (contentRenderData_) {
+          content.push(React.createElement(ComponentRouter, _extends({
+            key: makeKey()
+          }, self.props, {
+            renderData: contentRenderData_
+          })));
+        });
+        content.push(React.createElement(ComponentRouter, _extends({
+          key: makeKey()
+        }, this.props, {
+          renderData: renderMessage.pageFooterEP
+        })));
+        renderMessage.pageDebugEP.forEach(function (contentRenderData_) {
+          content.push(React.createElement(ComponentRouter, _extends({
+            key: makeKey()
+          }, self.props, {
+            renderData: contentRenderData_
+          })));
+        });
         return React.createElement("div", {
           id: "idHolisticPageView",
           style: theme.HolisticPageView.container
-        }, React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderMessage.pageHeaderEP
-        })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderMessage.pageContentEP
-        })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderMessage.pageFooterEP
-        })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderMessage.pageErrorsEP
-        })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: renderMessage.pageDebugEP
-        })), React.createElement(ComponentRouter, _extends({}, this.props, {
-          renderData: {
-            PageWidget_ASC: {}
-          }
-        })), React.createElement("br", null));
+        }, content, React.createElement("br", null));
       }
     }]);
 

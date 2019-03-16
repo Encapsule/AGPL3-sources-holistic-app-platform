@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.9",
     "codename": "zortman",
-    "buildID": "NKCfwhXqQGO1SLDSVLcyrw",
-    "buildTime": 1552671959,
-    "buildSource": "62ff52af3e266690f30c23beed7453b32e9a9c77",
+    "buildID": "Pbds8NBcTdi5kKURY6Itsw",
+    "buildTime": 1552696556,
+    "buildSource": "c3d74ac1b2dee5d2905be51d8dc95feff4552c04",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"

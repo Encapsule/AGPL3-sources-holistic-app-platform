@@ -25,8 +25,8 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             pageContentEP: {
                 ____label: "Page Content Extension Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-                ____accept: "jsObject",
-                ____defaultValue: { ApplicationPageMissingContent: {} }
+                ____accept: "jsArray",
+                ____defaultValue: [ { ApplicationPageMissingContent: {} } ]
             },
 
             pageFooterEP: {
@@ -36,18 +36,11 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 ____defaultValue: { ApplicationPageFooter: {} }
             },
 
-            pageErrorsEP: {
-                ____label: "Page Errors Extension Point (EP)",
-                ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-                ____accept: "jsObject",
-                ____defaultValue: { HolisticClientErrorPanel: {} }
-            },
-
             pageDebugEP: {
                 ____label: "Page Debug Extenion Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
-                ____accept: "jsObject",
-                ____defaultValue: { HolisticClientDebugPanel: {} }
+                ____accept: "jsArray",
+                ____defaultValue: [ { HolisticClientErrorPanel: {} }, { HolisticClientDebugPanel: {} }, { PageWidget_ASC: {} } ]
             }
         }, // HolisticPageView
         styles: {
@@ -75,24 +68,29 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
     }, // Renderdatabindingspec
     reactComponent: class HolisticPageView extends React.Component {
         render() {
+            let self = this;
             const ComponentRouter = this.props.appStateContext.ComponentRouter;
             const metadata = this.props.document.metadata;
             const theme = metadata.site.theme;
-
             const renderData = this.props.renderData;
             const renderMessage = renderData.HolisticPageView;
             const renderStyles = renderData.styles;
-            return (
-                    <div id="idHolisticPageView" style={theme.HolisticPageView.container}>
-                    <ComponentRouter {...this.props} renderData={renderMessage.pageHeaderEP}/>
-                    <ComponentRouter {...this.props} renderData={renderMessage.pageContentEP}/>
-                    <ComponentRouter {...this.props} renderData={renderMessage.pageFooterEP}/>
-                    <ComponentRouter {...this.props} renderData={renderMessage.pageErrorsEP}/>
-                    <ComponentRouter {...this.props} renderData={renderMessage.pageDebugEP}/>
-                    <ComponentRouter {...this.props} renderData={{PageWidget_ASC: {}}}/>
-                    <br/>
-                    </div>
-            );
+
+            let index = 0;
+            function makeKey() { return ("HolisticPageView" + index++); }
+            let content = [];
+
+            content.push(<ComponentRouter key={makeKey()} {...this.props} renderData={renderMessage.pageHeaderEP} />);
+            renderMessage.pageContentEP.forEach(function(contentRenderData_) {
+                content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={contentRenderData_} />);
+            });
+            content.push(<ComponentRouter key={makeKey()} {...this.props} renderData={renderMessage.pageFooterEP}/>);
+            renderMessage.pageDebugEP.forEach(function(contentRenderData_) {
+                content.push(<ComponentRouter key={makeKey()} {...self.props} renderData={contentRenderData_} />);
+            });
+
+            return (<div id="idHolisticPageView" style={theme.HolisticPageView.container}>{content}<br/></div>);
+
         }
     }
 });
