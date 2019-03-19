@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.9",
-    "codename": "zortman",
+    "version": "0.0.10",
+    "codename": "redlodge",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "No5041FuRImdMCF8wyEMeQ",
-    "buildSource": "0d2be70600aa4d1366f677256e3f6eb237e6d01c",
-    "buildTime": 1553017402,
-    "buildDateISO": "2019-03-19T17:43:22.000Z"
+    "buildID": "2owdwDsfRP6PGNWpk_78cQ",
+    "buildSource": "8bb6ecbeaf92a9d8832cd2a3919f154f6426091c",
+    "buildTime": 1553028992,
+    "buildDateISO": "2019-03-19T20:56:32.000Z"
 }

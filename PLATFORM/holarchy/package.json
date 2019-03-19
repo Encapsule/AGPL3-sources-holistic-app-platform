@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holarchy",
-    "version": "0.0.9",
-    "codename": "zortman",
-    "buildID": "No5041FuRImdMCF8wyEMeQ",
-    "buildTime": 1553017402,
-    "buildSource": "0d2be70600aa4d1366f677256e3f6eb237e6d01c",
+    "version": "0.0.10",
+    "codename": "redlodge",
+    "buildID": "2owdwDsfRP6PGNWpk_78cQ",
+    "buildTime": 1553028992,
+    "buildSource": "8bb6ecbeaf92a9d8832cd2a3919f154f6426091c",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
@@ -29,7 +29,7 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.5",
-        "@encapsule/holism": "0.0.9",
-        "@encapsule/hrequest": "0.0.9"
+        "@encapsule/holism": "0.0.10",
+        "@encapsule/hrequest": "0.0.10"
     }
 }
