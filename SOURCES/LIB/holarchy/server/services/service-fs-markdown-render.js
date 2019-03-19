@@ -35,16 +35,16 @@ var factoryResponse = httpServiceFilterFactory.create({
                     ____accept: "jsObject",
                     ____defaultValue: {}
                 },
-                viewOptions: {
-                    ____label: "View Options",
-                    ____description: "An options object used to customize the React rendering of the wrapper around the hosted <Markdown/> component.",
+                cacheOptions: {
+                    ____label: "Cache Options",
+                    ____description: "Options pertinent to HTTP response cache headers.",
                     ____types: "jsObject",
                     ____defaultValue: {},
-                    useContainerStyles: {
-                        ____label: "Use Container Styles Flag",
-                        ____description: "Indicates if RUXBase_PageContent_Markdown should use its programmatic container styles or just a plain <DIV/>.",
-                        ____accept: "jsBoolean",
-                        ____defaultValue: false
+                    etagSeed: {
+                        ____label: "ETag Seed String",
+                        ____description: "An optional string that if specified is used in addition to the hash of markdown file contents to calculate each file's ETag HTTP response header value.",
+                        ____accept: "jsString",
+                        ____defaultValue: "zeGE-gmbTy-l6LeI4mUdzQ"
                     }
                 }
             }
@@ -103,7 +103,7 @@ var factoryResponse = httpServiceFilterFactory.create({
                         // view of the content to each client for every new build regardless if if the content itself has been updated
                         // or not.
 
-                        var contentIRUT = arccore.identifier.irut.fromReference(data_.toString("utf8") + packageMeta.buildID + packageMeta.buildTime).result;
+                        var contentIRUT = arccore.identifier.irut.fromReference(request_.options.cacheOptions.etagSeed + data_.toString("utf8")).result;
                         var contentETag = packageMeta.name + ":" + contentIRUT;
                         const requestDescriptor = request_.request_descriptor;
                         var lastETag =
@@ -150,14 +150,13 @@ var factoryResponse = httpServiceFilterFactory.create({
                                         ETag: contentETag,
                                         "Cache-Control": "must-revalidate"
                                     },
-                                    // The `data` is immediately passed into <ComponentRouter/> by react-ux-base
-                                    // allowing us to effectively control the layout of the page view with the
-                                    // namespace/type signature of object we pass into the HTML render subsystem.
+                                    // We just produce data with a unique signature here.
+                                    // It's up the application to determine how its @encapsule/holism
+                                    // server instance is configured wrt rendering HTML.
                                     data: {
                                         HolisticMarkdownContentData_HcZRCebVREq15DNzsjLRsw: {
                                             markdownContent: [ data_.toString("utf8") ],
                                             markdownOptions: request_.options.markdownOptions,
-                                            viewOptions: request_.options.viewOptions
                                         }
                                     }
                                 }

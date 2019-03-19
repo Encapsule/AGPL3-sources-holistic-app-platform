@@ -40,7 +40,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "request": "^2.88.0",
         "query-string": "^6.2.0",
         "react": "^16.7.0",
-        "react-dom": "^16.7.0"
+        "react-dom": "^16.7.0",
+        "react-markdown": "^2.5.0"
 
     } // devDependencies
 

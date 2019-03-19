@@ -6,13 +6,13 @@ const dataRoutableComponents = [
     require("./page/HolisticPageView.jsx"),
     require("./page/HolismHttpServerErrorPageView.jsx"),
     require("./component/RUXBase_PageContent_HttpServerError.jsx"),
+    require("./component/HolisticMarkdownContent.jsx"),
 
     //    require("./component/RUXBase_PageHeader.jsx"),
     //    require("./component/RUXBase_PageContent.jsx"),
     //    require("./component/RUXBase_PageContent_AdminStatus.jsx"),
     //    require("./component/RUXBase_PageContent_AppError.jsx"),
     //    require("./component/RUXBase_PageContent_RuntimeFilterError.jsx"),
-    //    require("./component/RUXBase_PageContent_Markdown.jsx"),
     //    require("./component/RUXBase_PageContent_QueryBuilderFrame.jsx"), // this is going to get killed soon
     //    require("./component/RUXBase_PageContent_QueryResultsFrame.jsx"), // this is going to get killed soon.
     //    require("./component/RUXBase_PageContent_Sitemap.jsx"),
@@ -20,7 +20,6 @@ const dataRoutableComponents = [
     //    require("./component/RUXBase_PageContent_AppDataStoreStatus.jsx"),
     //    require("./component/RUXBase_PageContent_SubviewSummary.jsx"),
     //    require("./component/RUXBase_PageFooter.jsx"),
-
     //    require("./component/RUXBase_PagePanel_Errors.jsx"),
     //    require("./component/RUXBase_PagePanel_ReactDebug.jsx"),
     //    require("./component/RUXBase_PageWidget_ASC.jsx")
