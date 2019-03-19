@@ -19,9 +19,9 @@ const factoryResponse = reactComponentBindingFilterFactory.create({
             var ComponentRouter = this.props.appStateContext.ComponentRouter;
             const pageContentEP = {
                 HolisticPageView: {
-                    pageContentEP: {
-                        HolismHttpServerErrorPageContent: this.props.renderData['ESCW71rwTz24meWiZpJb4A']
-                    }
+                    pageContentEP: [
+                        { HolismHttpServerErrorPageContent: this.props.renderData['ESCW71rwTz24meWiZpJb4A'] }
+                    ]
                 }
             };
             return(<ComponentRouter {...this.props} renderData={pageContentEP} />);
