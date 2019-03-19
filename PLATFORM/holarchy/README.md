@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.9 "zortman"
 
 ```
-Package: @encapsule/holarchy v0.0.9 "zortman" build ID "vU3o-OufTrqgBm2QxDLJzA"
-Sources: Encapsule/holistic#85c5967aea7d170b6286f456bef819e5751b0757
+Package: @encapsule/holarchy v0.0.9 "zortman" build ID "No5041FuRImdMCF8wyEMeQ"
+Sources: Encapsule/holistic#0d2be70600aa4d1366f677256e3f6eb237e6d01c
 Purpose: library (Node.js)
-Created: 2019-03-18T15:12:09.000Z
+Created: 2019-03-19T17:43:22.000Z
 License: MIT
 ```
 
