@@ -46,6 +46,12 @@ var factoryResponse = httpServiceFilterFactory.create({
                         ____accept: "jsString",
                         ____defaultValue: "zeGE-gmbTy-l6LeI4mUdzQ"
                     }
+                },
+                styles: {
+                    ____label: "Container Styles",
+                    ____description: "Styles applied to the DIV container around the rendered markdown content.",
+                    ____accept: "jsObject",
+                    ____defaultValue: {}
                 }
             }
         },
@@ -157,7 +163,8 @@ var factoryResponse = httpServiceFilterFactory.create({
                                         HolisticMarkdownContentData_HcZRCebVREq15DNzsjLRsw: {
                                             markdownContent: [ data_.toString("utf8") ],
                                             markdownOptions: request_.options.markdownOptions,
-                                        }
+                                        },
+                                        styles: request_.options.styles
                                     }
                                 }
                             });
