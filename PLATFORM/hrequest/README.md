@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.10 "redlodge"
 
 ```
-Package: @encapsule/hrequest v0.0.10 "redlodge" build ID "2owdwDsfRP6PGNWpk_78cQ"
-Sources: Encapsule/holistic#8bb6ecbeaf92a9d8832cd2a3919f154f6426091c
+Package: @encapsule/hrequest v0.0.10 "redlodge" build ID "7RWOZifAT9m3XKUQJHy40w"
+Sources: Encapsule/holistic#090859d8a8c5a5ba116136c727512c8df5f9f9d7
 Purpose: library (Node.js)
-Created: 2019-03-19T20:56:32.000Z
+Created: 2019-03-20T15:47:09.000Z
 License: MIT
 ```
 

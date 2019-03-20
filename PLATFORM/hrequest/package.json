@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.10",
     "codename": "redlodge",
-    "buildID": "2owdwDsfRP6PGNWpk_78cQ",
-    "buildTime": 1553028992,
-    "buildSource": "8bb6ecbeaf92a9d8832cd2a3919f154f6426091c",
+    "buildID": "7RWOZifAT9m3XKUQJHy40w",
+    "buildTime": 1553096829,
+    "buildSource": "090859d8a8c5a5ba116136c727512c8df5f9f9d7",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

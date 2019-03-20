@@ -55,6 +55,15 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         ____accept: "jsObject",
         ____defaultValue: {}
       }
+    },
+    styles: {
+      ____label: "Container Styles",
+      ____description: "Styles applied to the DIV container around the rendered markdown content.",
+      ____accept: "jsObject",
+      ____defaultValue: {
+        background: "yellow" // this is to alert developers that they should style their markdown
+
+      }
     }
   },
   reactComponent:
@@ -72,12 +81,14 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
       key: "render",
       value: function render() {
         try {
-          var renderData = this.props.renderData['HolisticMarkdownContent_AonatdsFRQmv6SgeqvJIQw'];
-          var markdownSource = renderData.markdownContent.join(' ');
-          return React.createElement(ReactMarkdown, {
-            options: renderData.markdownOptions,
+          var renderRequest = this.props.renderData['HolisticMarkdownContent_AonatdsFRQmv6SgeqvJIQw'];
+          var markdownSource = renderRequest.markdownContent.join(' ');
+          return React.createElement("div", {
+            style: this.props.renderData.styles
+          }, React.createElement(ReactMarkdown, {
+            options: renderRequest.markdownOptions,
             source: markdownSource
-          });
+          }));
         } catch (exception_) {
           return React.createElement("div", null, "HolisticMarkdownContent exception: ", exception_.toString());
         }
