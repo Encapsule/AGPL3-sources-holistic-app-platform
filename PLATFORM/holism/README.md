@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.10 "redlodge"
 
 ```
-Package: @encapsule/holism v0.0.10 "redlodge" build ID "7RWOZifAT9m3XKUQJHy40w"
-Sources: Encapsule/holistic#090859d8a8c5a5ba116136c727512c8df5f9f9d7
+Package: @encapsule/holism v0.0.10 "redlodge" build ID "Zp7HxmrETGaTOcPclAqkCg"
+Sources: Encapsule/holistic#2da6b2ab245535ff25f692be9ed450c5822e19a1
 Purpose: library (Node.js)
-Created: 2019-03-20T15:47:09.000Z
+Created: 2019-03-28T20:07:20.000Z
 License: MIT
 ```
 

@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.10",
     "codename": "redlodge",
-    "buildID": "7RWOZifAT9m3XKUQJHy40w",
-    "buildTime": 1553096829,
-    "buildSource": "090859d8a8c5a5ba116136c727512c8df5f9f9d7",
+    "buildID": "Zp7HxmrETGaTOcPclAqkCg",
+    "buildTime": 1553803640,
+    "buildSource": "2da6b2ab245535ff25f692be9ed450c5822e19a1",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
