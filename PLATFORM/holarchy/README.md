@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holarchy v0.0.10 "redlodge"
+# @encapsule/holarchy v0.0.11 "flatwillow"
 
 ```
-Package: @encapsule/holarchy v0.0.10 "redlodge" build ID "Zp7HxmrETGaTOcPclAqkCg"
-Sources: Encapsule/holistic#2da6b2ab245535ff25f692be9ed450c5822e19a1
+Package: @encapsule/holarchy v0.0.11 "flatwillow" build ID "DUPcacYeSriWXLIk5Wsb5A"
+Sources: Encapsule/holistic#3b6ca97305de8c7a8602cd17efa4b8c1f14c3b06
 Purpose: library (Node.js)
-Created: 2019-03-28T20:07:20.000Z
+Created: 2019-03-28T20:17:51.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ console.log(JSON.stringify(holarchy.__meta));
 
 The `@encapsule/holarchy` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holarchy Package Distribution](https://npmjs.com/package/@encapsule/holarchy/v/0.0.10) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holarchy Package Distribution](https://npmjs.com/package/@encapsule/holarchy/v/0.0.11) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holarchy git Repository](https://github.com/Encapsule/holarchy) ([GitHub](https://github.com/Encapsule))
 
 <hr>

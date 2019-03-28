@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism",
-    "version": "0.0.10",
-    "codename": "redlodge",
-    "buildID": "Zp7HxmrETGaTOcPclAqkCg",
-    "buildTime": 1553803640,
-    "buildSource": "2da6b2ab245535ff25f692be9ed450c5822e19a1",
+    "version": "0.0.11",
+    "codename": "flatwillow",
+    "buildID": "DUPcacYeSriWXLIk5Wsb5A",
+    "buildTime": 1553804271,
+    "buildSource": "3b6ca97305de8c7a8602cd17efa4b8c1f14c3b06",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"

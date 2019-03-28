@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.10",
-    "codename": "redlodge",
+    "version": "0.0.11",
+    "codename": "flatwillow",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "Zp7HxmrETGaTOcPclAqkCg",
-    "buildSource": "2da6b2ab245535ff25f692be9ed450c5822e19a1",
-    "buildTime": 1553803640,
-    "buildDateISO": "2019-03-28T20:07:20.000Z"
+    "buildID": "DUPcacYeSriWXLIk5Wsb5A",
+    "buildSource": "3b6ca97305de8c7a8602cd17efa4b8c1f14c3b06",
+    "buildTime": 1553804271,
+    "buildDateISO": "2019-03-28T20:17:51.000Z"
 }
