@@ -124,8 +124,12 @@ var factoryResponse = httpServiceFilterFactory.create({
               // this is actually pretty difficult to track. So, we just use the build identifiers and send a freshly-rendered
               // view of the content to each client for every new build regardless if if the content itself has been updated
               // or not.
-              var contentIRUT = arccore.identifier.irut.fromReference(request_.options.cacheOptions.etagSeed + data_.toString("utf8")).result;
-              var contentETag = packageMeta.name + ":" + contentIRUT;
+              var content = [request_.options.cacheOptions.etagSeed, // Some factor (e.g. application build ID) specified by the developer.
+              data_.toString("utf8"), // File contents is a Buffer that we export here as UTF8-8 string.
+              JSON.stringify(request_.request_descriptor.session) // Let's make the ETag has contingent on authenticated user ;)
+              ].join("::");
+              var contentIRUT = arccore.identifier.irut.fromReference(content).result;
+              var contentETag = packageMeta.name + "::" + contentIRUT;
               var requestDescriptor = request_.request_descriptor;
               var lastETag = requestDescriptor.headers["if-none-match"] || requestDescriptor.headers["If-None-Match"] || requestDescriptor.headers["if-match"] || requestDescriptor.headers["If-Match"];
 
