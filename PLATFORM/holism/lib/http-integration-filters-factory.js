@@ -187,14 +187,7 @@ var factoryResponse = arccore.filter.create({
                 operationID: normalizeUserSessionResultFilterID,
                 operationName: normalizeUserSessionResultFilterName,
                 operationDescription: normalizeUserSessionResultFilterDescription,
-                inputFilterSpec: {
-                    ____label: "User Session Descriptor",
-                    ____description: "User session data descriptor object.",
-                    ____types: "jsObject",
-                    ____defaultValue: {},
-                    identity: request_.integrations.metadata.user.get_identity.outputFilterSpec,
-                    data: request_.integrations.metadata.user.get_session.response.result_spec
-                },
+                outputFilterSpec: request_.integrations.metadata.user.get_session.response.result_spec,
                 bodyFunction: function(request_) {
                     console.log("..... " + this.operationID + "::" + this.operationName);
                     console.log(JSON.stringify(request_));
@@ -283,7 +276,7 @@ var factoryResponse = arccore.filter.create({
                             org: request_.integrations.metadata.org.get.outputFilterSpec,
                             site: request_.integrations.metadata.site.get.outputFilterSpec,
                             page: request_.integrations.metadata.page.get.outputFilterSpec,
-                            session: normalizeUserSessionResultFilter.filterDescriptor.inputFilterSpec
+                            session: request_.integrations.metadata.user.get_session.response.result_spec
                         }
                     },
                     appStateContext: httpIntegrationFiltersFactoryRequestSpec.appStateContext
@@ -300,7 +293,6 @@ var factoryResponse = arccore.filter.create({
                 break;
             }
             const htmlRenderFilter = innerFactoryResponse.result;
-
 
             // Prepare the response result. Note that the output is filtered
             // so you must update the result spec if you decide to change this.

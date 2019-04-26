@@ -2,9 +2,9 @@
     "name": "@encapsule/holism",
     "version": "0.0.11",
     "codename": "flatwillow",
-    "buildID": "swt5zVquRJ6Wm2TAqd4PBQ",
-    "buildTime": 1554676355,
-    "buildSource": "35e65d6da43542784e6bb132ef0c84b02b28aa9d",
+    "buildID": "e4mzPy8QQ0qKx3EDLa95LQ",
+    "buildTime": 1556318318,
+    "buildSource": "7dcc675f9d75d0f4db33ccbe63d6b0198d8450e8",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"
