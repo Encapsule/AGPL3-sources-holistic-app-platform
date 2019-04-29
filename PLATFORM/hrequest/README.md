@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.11 "flatwillow"
 
 ```
-Package: @encapsule/hrequest v0.0.11 "flatwillow" build ID "e4mzPy8QQ0qKx3EDLa95LQ"
-Sources: Encapsule/holistic#7dcc675f9d75d0f4db33ccbe63d6b0198d8450e8
+Package: @encapsule/hrequest v0.0.11 "flatwillow" build ID "UUmqx2jnRje4s2MNdOKVkA"
+Sources: Encapsule/holistic#db535df9e2a6eb6e285b62bdb89c82eb2b2663af
 Purpose: library (Node.js)
-Created: 2019-04-26T22:38:38.000Z
+Created: 2019-04-29T18:47:38.000Z
 License: MIT
 ```
 

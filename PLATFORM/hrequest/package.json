@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.11",
     "codename": "flatwillow",
-    "buildID": "e4mzPy8QQ0qKx3EDLa95LQ",
-    "buildTime": 1556318318,
-    "buildSource": "7dcc675f9d75d0f4db33ccbe63d6b0198d8450e8",
+    "buildID": "UUmqx2jnRje4s2MNdOKVkA",
+    "buildTime": 1556563658,
+    "buildSource": "db535df9e2a6eb6e285b62bdb89c82eb2b2663af",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
