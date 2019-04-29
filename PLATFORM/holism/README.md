@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.11 "flatwillow"
 
 ```
-Package: @encapsule/holism v0.0.11 "flatwillow" build ID "UUmqx2jnRje4s2MNdOKVkA"
-Sources: Encapsule/holistic#db535df9e2a6eb6e285b62bdb89c82eb2b2663af
+Package: @encapsule/holism v0.0.11 "flatwillow" build ID "mouVCKMiQbmNxUdbdwBZnA"
+Sources: Encapsule/holistic#7b6a820b61ea7c3ad87236766432334b795a8acb
 Purpose: library (Node.js)
-Created: 2019-04-29T18:47:38.000Z
+Created: 2019-04-29T19:44:46.000Z
 License: MIT
 ```
 

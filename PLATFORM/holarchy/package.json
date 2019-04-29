@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.11",
     "codename": "flatwillow",
-    "buildID": "UUmqx2jnRje4s2MNdOKVkA",
-    "buildTime": 1556563658,
-    "buildSource": "db535df9e2a6eb6e285b62bdb89c82eb2b2663af",
+    "buildID": "mouVCKMiQbmNxUdbdwBZnA",
+    "buildTime": 1556567086,
+    "buildSource": "7b6a820b61ea7c3ad87236766432334b795a8acb",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
