@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.11 "flatwillow"
 
 ```
-Package: @encapsule/holarchy v0.0.11 "flatwillow" build ID "mouVCKMiQbmNxUdbdwBZnA"
-Sources: Encapsule/holistic#7b6a820b61ea7c3ad87236766432334b795a8acb
+Package: @encapsule/holarchy v0.0.11 "flatwillow" build ID "p1awlv0pQimyqZI1XMoorg"
+Sources: Encapsule/holistic#4d644333b63e6ce919401fe44343836229961406
 Purpose: library (Node.js)
-Created: 2019-04-29T19:44:46.000Z
+Created: 2019-04-30T00:41:52.000Z
 License: MIT
 ```
 
