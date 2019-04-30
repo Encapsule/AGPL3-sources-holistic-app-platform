@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.11",
-    "codename": "flatwillow",
+    "version": "0.0.12",
+    "codename": "skyhook",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "p1awlv0pQimyqZI1XMoorg",
-    "buildSource": "4d644333b63e6ce919401fe44343836229961406",
-    "buildTime": 1556584912,
-    "buildDateISO": "2019-04-30T00:41:52.000Z"
+    "buildID": "6v6ZXun5Tr6MsseZQzZkbQ",
+    "buildSource": "b20fb067b925fd70a79dfe1eaef7977ce8d24ad4",
+    "buildTime": 1556585299,
+    "buildDateISO": "2019-04-30T00:48:19.000Z"
 }

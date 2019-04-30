@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/hrequest v0.0.11 "flatwillow"
+# @encapsule/hrequest v0.0.12 "skyhook"
 
 ```
-Package: @encapsule/hrequest v0.0.11 "flatwillow" build ID "p1awlv0pQimyqZI1XMoorg"
-Sources: Encapsule/holistic#4d644333b63e6ce919401fe44343836229961406
+Package: @encapsule/hrequest v0.0.12 "skyhook" build ID "6v6ZXun5Tr6MsseZQzZkbQ"
+Sources: Encapsule/holistic#b20fb067b925fd70a79dfe1eaef7977ce8d24ad4
 Purpose: library (Node.js)
-Created: 2019-04-30T00:41:52.000Z
+Created: 2019-04-30T00:48:19.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ Developer API and examples: [Encapsule Project hrequest documentation](https://e
 
 The `@encapsule/hrequest` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.11) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.12) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/hrequest git Repository](https://github.com/Encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
 
 <hr>
