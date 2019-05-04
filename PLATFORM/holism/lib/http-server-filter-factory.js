@@ -153,9 +153,9 @@ var factoryResponse = arccore.filter.create({
                     // ======================================================================
                     // Start: HORRIBLE MISHAP RESPONSE FUNCTION
                     // ----------------------------------------------------------------------
-                    // When all else fails (and it often does if you happen to be messing around
-                    // with new code) we display an ugly orange screen of server death detailing
-                    // the request's demise.
+                    // If we can not otherwise reasonably report an important application server failure,
+                    // we resort to the "horrible mishap response function" that displays a crude, low-level
+                    // error report to ensure that whatever the problem is doesn't slip through the cracks.
                     //
                     function reportHorribleMishap(whatHappened_) {
                         console.error("REPORTING HORRIBLE SERVER MISHAP...");
@@ -268,6 +268,7 @@ var factoryResponse = arccore.filter.create({
                         // dispatch to route-specific subroutines.
                         var resourceDescriptor = routingModel.getVertexProperty(routeMethodName);
 
+                        // OBTAIN IDENTITY ASSERTION
                         // Deserialize and extract the user's assertion of their identity (if they made one).
                         var innerResponse = serverContext.integrations.filters.get_user_identity.request({
                             request_descriptor: requestDescriptor,
@@ -281,7 +282,8 @@ var factoryResponse = arccore.filter.create({
                         var userIdentity = innerResponse.result;
                         console.log("... Asserted user identity: " + JSON.stringify(userIdentity));
 
-                        // Attempt to authorize the user, and obtain the user's profile and current session data.
+                        // AUTHENTICATE IDENTITY ASSERTION
+                        // Attempt to authenticate the user and retrieve their user session object.
                         innerResponse = serverContext.integrations.filters.get_user_session.request({
                             appStateContext: serverContext.integrations.appStateContext,
                             user_identity: userIdentity,

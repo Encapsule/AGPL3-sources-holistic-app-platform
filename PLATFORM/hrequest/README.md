@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.12 "skyhook"
 
 ```
-Package: @encapsule/hrequest v0.0.12 "skyhook" build ID "6v6ZXun5Tr6MsseZQzZkbQ"
-Sources: Encapsule/holistic#b20fb067b925fd70a79dfe1eaef7977ce8d24ad4
+Package: @encapsule/hrequest v0.0.12 "skyhook" build ID "qIjGqTXSQBiLy9WRFrOhpA"
+Sources: Encapsule/holistic#51b81df6641a1eb6ecea52bdfbec37028ee30434
 Purpose: library (Node.js)
-Created: 2019-04-30T00:48:19.000Z
+Created: 2019-05-04T16:46:15.000Z
 License: MIT
 ```
 

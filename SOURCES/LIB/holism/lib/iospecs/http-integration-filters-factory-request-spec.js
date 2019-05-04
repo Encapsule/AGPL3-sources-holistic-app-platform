@@ -24,6 +24,11 @@ module.exports = {
         ____description: "A semantic version string associated with this set of application data and function contracts.",
         ____accept: "jsString"
     },
+
+    // TODO: Remove this from the integrations filter factory request filter specification. It's of no particular concern of
+    // the HTTP server infrastructure what technology the HTML `render` integration methods below leverage. This should be
+    // tracked and reported elsewhere (e.g. ComponentRouter).
+
     platform: {
         ____label: "Application Platform Manifest",
         ____description: "A list of application subsystem dependencies used primary for internal diagnostic reports, error messags...",
@@ -44,14 +49,17 @@ module.exports = {
             }
         }
     },
+
     integrations: {
         ____label: "Application Integrations",
         ____description: "Defines format and access functions used by HTTP server and service filters to access application resources.",
         ____types: "jsObject",
+
         metadata: {
             ____label: "Metadata Integrations",
             ____description: "Format and functions for generic access to metadata.",
             ____types: "jsObject",
+
             org: {
                 ____label: "Organization Metadata Integrations",
                 ____description: "Format and functions for generic access to organization metadata.",
@@ -72,6 +80,7 @@ module.exports = {
                     },
                 } // get
             }, // org
+
             site: {
                 ____label: "Site Metadata Integrations",
                 ____description: "Format and functions for generic access to site metadata.",
@@ -92,6 +101,7 @@ module.exports = {
                     },
                 } // get
             }, // site
+
             page: {
                 ____label: "Page Metadata Integrations",
                 ____description: "Format and functions for generic access to page metadata.",
@@ -112,10 +122,12 @@ module.exports = {
                     },
                 } // get
             }, // page
-            user: {
-                ____label: "User Metadata Integrations",
+
+            session: {
+                ____label: "User Session Integrations",
                 ____description: "Format and functions for generic access to user identification and session metadata.",
                 ____types: "jsObject",
+
                 get_identity: {
                     ____label: "Get User Identity",
                     ____description: "Allows the HTTP server to generically obtain the user identity descriptor from an HTTP request.",
@@ -132,6 +144,7 @@ module.exports = {
                         ____accept: "jsObject"
                     }
                 }, // get_identity
+
                 // Used to generate an asynchronous filter
                 get_session: {
                     ____label: "Get User Session",
@@ -154,31 +167,37 @@ module.exports = {
                         }
                     }
                 } // get_session
+
             } // user
+
         }, // metadata
+
         render: {
             ____label: "Render Integrations",
             ____description: "Defines access functions for transforming, or rendering, application-specific data to various formats.",
             ____types: "jsObject",
+
             html: {
                 ____label: "HTML Rendering Engine",
                 ____description: "Registration of external HTML rendering engine.",
                 ____types: "jsObject",
+
                 bodyFunction: {
                     ____label: "HTML Render Function",
                     ____description: "Developer-defined callback function responsible for rendering HTML documents.",
                     ____accept: "jsFunction"
                 }
+
             } // html
+
         } // render
+
     }, // integrations
 
     appStateContext: {
-        ____label: "Application Context",
-        ____description: "A developer-defined and controlled in-memory object namespace containing application-specific data structures, " +
-            "functions, etc. HTTP server filter maintains this reference and passes it through without modification when invoking " +
-            "HTTP server service filters allowing developers to access application-specific data and function resources. As a " +
-            "convenience to developers, the runtime context reference is also passed into the integration filters.",
-        ____accept: "jsObject" // i.e. accept any object in its entirety without filtering
+        ____label: "Application State Context",
+        ____description: "In-memory data object shared by the @encapsule/holism app server instance and other app subsystems.",
+        ____accept: "jsObject" // accept any object in its entirety without filtering
     } // appStateContext
+
 };

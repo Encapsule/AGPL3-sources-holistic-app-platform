@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.12",
     "codename": "skyhook",
-    "buildID": "6v6ZXun5Tr6MsseZQzZkbQ",
-    "buildTime": 1556585299,
-    "buildSource": "b20fb067b925fd70a79dfe1eaef7977ce8d24ad4",
+    "buildID": "qIjGqTXSQBiLy9WRFrOhpA",
+    "buildTime": 1556988375,
+    "buildSource": "51b81df6641a1eb6ecea52bdfbec37028ee30434",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"

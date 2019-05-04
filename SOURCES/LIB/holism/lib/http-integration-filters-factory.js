@@ -135,8 +135,8 @@ var factoryResponse = arccore.filter.create({
                     request_descriptor: httpRequestDescriptorSpec,
                     appStateContext: httpIntegrationFiltersFactoryRequestSpec.appStateContext
                 },
-                outputFilterSpec: request_.integrations.metadata.user.get_identity.outputFilterSpec,
-                bodyFunction: request_.integrations.metadata.user.get_identity.bodyFunction
+                outputFilterSpec: request_.integrations.metadata.session.get_identity.outputFilterSpec,
+                bodyFunction: request_.integrations.metadata.session.get_identity.bodyFunction
             });
             if (innerFactoryResponse.error) {
                 errors.unshift(innerFactoryResponse.error);
@@ -166,7 +166,7 @@ var factoryResponse = arccore.filter.create({
                     ____accept: "jsObject"
                 },
                 outputFilterSpec: { ____accept: "jsUndefined" },
-                bodyFunction: request_.integrations.metadata.user.get_session.bodyFunction
+                bodyFunction: request_.integrations.metadata.session.get_session.bodyFunction
             });
             if (innerFactoryResponse.error) {
                 errors.unshift(innerFactoryResponse.error);
@@ -187,7 +187,7 @@ var factoryResponse = arccore.filter.create({
                 operationID: normalizeUserSessionResultFilterID,
                 operationName: normalizeUserSessionResultFilterName,
                 operationDescription: normalizeUserSessionResultFilterDescription,
-                outputFilterSpec: request_.integrations.metadata.user.get_session.response.result_spec,
+                outputFilterSpec: request_.integrations.metadata.session.get_session.response.result_spec,
                 bodyFunction: function(request_) {
                     console.log("..... " + this.operationID + "::" + this.operationName);
                     console.log(JSON.stringify(request_));
@@ -276,7 +276,7 @@ var factoryResponse = arccore.filter.create({
                             org: request_.integrations.metadata.org.get.outputFilterSpec,
                             site: request_.integrations.metadata.site.get.outputFilterSpec,
                             page: request_.integrations.metadata.page.get.outputFilterSpec,
-                            session: request_.integrations.metadata.user.get_session.response.result_spec
+                            session: request_.integrations.metadata.session.get_session.response.result_spec
                         }
                     },
                     appStateContext: httpIntegrationFiltersFactoryRequestSpec.appStateContext

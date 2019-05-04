@@ -103,8 +103,8 @@ This filter normalizes the value of `input` passed to its `request` method using
             }
         },
         "appStateContext": {
-            "____label": "Application Context",
-            "____description": "A developer-defined and controlled in-memory object namespace containing application-specific data structures, functions, etc. HTTP server filter maintains this reference and passes it through without modification when invoking HTTP server service filters allowing developers to access application-specific data and function resources. As a convenience to developers, the runtime context reference is also passed into the integration filters.",
+            "____label": "Application State Context",
+            "____description": "In-memory data object shared by the @encapsule/holism app server instance and other app subsystems.",
             "____accept": "jsObject"
         },
         "filters": {
@@ -458,8 +458,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cafMBDRwUMKeHPUT31h7lQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `eQpAiEJb4YckXtjNhx9Siw` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cQObBDQj5sKe6ZUT3x7tlQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `Z9S5LJ3Bq6Gt6zG3jGUHyw` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -475,5 +475,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Mon Apr 29 2019 17:48:19 GMT-0700 (Pacific Daylight Time)
+Document updated Sat May 04 2019 09:46:16 GMT-0700 (Pacific Daylight Time)
 
