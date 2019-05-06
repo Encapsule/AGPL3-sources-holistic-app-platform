@@ -148,6 +148,20 @@ This filter normalizes the value of `input` passed to its `request` method using
             "____label": "HTTP Server Integration Filters",
             "____description": "A collection of filter objects that abstract access to specific classes of application-specific data and functionality.",
             "____types": "jsObject",
+            "http_request_redirector": {
+                "____label": "HTTP Request Redirector Filter",
+                "____description": "Optional filter that affects HTTP redirection based on analysis of @encapsule/holism HTTP request preprocessor output.",
+                "____types": [
+                    "jsNull",
+                    "jsObject"
+                ],
+                "filterDescriptor": {
+                    "____accept": "jsObject"
+                },
+                "request": {
+                    "____accept": "jsFunction"
+                }
+            },
             "html_render": {
                 "____label": "HTML Render Filter",
                 "____description": "HTML render filter responsible for converting in-memory JavaScript data into a UTF8-encoded HTML string.",
@@ -383,8 +397,8 @@ If no error then any value type including [object Undefined] may be assigned to 
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `XoyKovKcQ-i-Pwy5PSrn1Q` | `bd7tE7eB3VcWit3tIWeetA` |
-| input contract | `vj6tQBAdHQrK_H5Em3nhgw` | `NFKnRD1mgcq7PcJi-D8k5A` |
+| operation | `XoyKovKcQ-i-Pwy5PSrn1Q` | `bRq8E7dj2lcWPQztIWyqtA` |
+| input contract | `vj6tQBAdHQrK_H5Em3nhgw` | `0GdaBeaIWavfauWMyalWJw` |
 | output contract | `1LI8w603xnaTfXNizPRo1A` | `dHR0dNnZ2dlUVFRUyMjIyA` |
 
 ### Configuration
@@ -400,5 +414,5 @@ Filter classification:  **input processor**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Sat May 04 2019 09:46:17 GMT-0700 (Pacific Daylight Time)
+Document updated Mon May 06 2019 08:52:14 GMT-0700 (Pacific Daylight Time)
 

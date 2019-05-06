@@ -69,6 +69,21 @@ This filter normalizes the value of `input` passed to its `request` method using
         "____label": "Application Integrations",
         "____description": "Defines format and access functions used by HTTP server and service filters to access application resources.",
         "____types": "jsObject",
+        "preprocessor": {
+            "____label": "HTTP Request Preprocessor",
+            "____description": "Format and functions for affecting custom per-HTTP-request message preprocessing.",
+            "____types": "jsObject",
+            "____defaultValue": {},
+            "redirect": {
+                "____label": "HTTP Request Redirect Preprocessor",
+                "____description": "Optional function callback that allows an application to affect HTTP redirection based on the output of the HTTP request preprocessor.",
+                "____accept": [
+                    "jsNull",
+                    "jsFunction"
+                ],
+                "____defaultValue": null
+            }
+        },
         "metadata": {
             "____label": "Metadata Integrations",
             "____description": "Format and functions for generic access to metadata.",
@@ -275,6 +290,20 @@ If no error then the value assigned to `response.result` is normalized per the f
         "____label": "HTTP Server Integration Filters",
         "____description": "A collection of filter objects that abstract access to specific classes of application-specific data and functionality.",
         "____types": "jsObject",
+        "http_request_redirector": {
+            "____label": "HTTP Request Redirector Filter",
+            "____description": "Optional filter that affects HTTP redirection based on analysis of @encapsule/holism HTTP request preprocessor output.",
+            "____types": [
+                "jsNull",
+                "jsObject"
+            ],
+            "filterDescriptor": {
+                "____accept": "jsObject"
+            },
+            "request": {
+                "____accept": "jsFunction"
+            }
+        },
         "html_render": {
             "____label": "HTML Render Filter",
             "____description": "HTML render filter responsible for converting in-memory JavaScript data into a UTF8-encoded HTML string.",
@@ -374,9 +403,9 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `-vrBoPbbRYqzTbV3YdYdug` | `U72y8H8RJiz_ccI_mN_RIw` |
-| input contract | `KdLaGKcI8t3e3rIyKQrXoQ` | `tNAphBb70eB1nj1RcwiwrQ` |
-| output contract | `-r8Zz6z4xkcwEMNQyOmxSg` | `o57dtT8uH9H1tbNiCboZtA` |
+| operation | `-vrBoPbbRYqzTbV3YdYdug` | `U_gdSX9hkBv_oKz-mGO-8A` |
+| input contract | `KdLaGKcI8t3e3rIyKQrXoQ` | `w1jAPf7mzdkfRKbSGvbiYw` |
+| output contract | `-r8Zz6z4xkcwEMNQyOmxSg` | `AhdqVPrLjMnxzT-xtdyOiQ` |
 
 ### Configuration
 Filter classification:  **normalized operation**
@@ -391,5 +420,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Sat May 04 2019 09:46:16 GMT-0700 (Pacific Daylight Time)
+Document updated Mon May 06 2019 08:52:13 GMT-0700 (Pacific Daylight Time)
 

@@ -55,6 +55,21 @@ module.exports = {
         ____description: "Defines format and access functions used by HTTP server and service filters to access application resources.",
         ____types: "jsObject",
 
+        preprocessor: {
+            ____label: "HTTP Request Preprocessor",
+            ____description: "Format and functions for affecting custom per-HTTP-request message preprocessing.",
+            ____types: "jsObject",
+            ____defaultValue: {},
+
+            redirect: {
+                ____label: "HTTP Request Redirect Preprocessor",
+                ____description: "Optional function callback that allows an application to affect HTTP redirection based on the output of the HTTP request preprocessor.",
+                ____accept: [ "jsNull" /*NOOP*/, "jsFunction" /*App-redirector*/ ],
+                ____defaultValue: null
+            } // redirect
+
+        }, // preprocessor
+
         metadata: {
             ____label: "Metadata Integrations",
             ____description: "Format and functions for generic access to metadata.",

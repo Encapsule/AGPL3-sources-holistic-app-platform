@@ -111,6 +111,20 @@ This filter normalizes the value of `input` passed to its `request` method using
             "____label": "HTTP Server Integration Filters",
             "____description": "A collection of filter objects that abstract access to specific classes of application-specific data and functionality.",
             "____types": "jsObject",
+            "http_request_redirector": {
+                "____label": "HTTP Request Redirector Filter",
+                "____description": "Optional filter that affects HTTP redirection based on analysis of @encapsule/holism HTTP request preprocessor output.",
+                "____types": [
+                    "jsNull",
+                    "jsObject"
+                ],
+                "filterDescriptor": {
+                    "____accept": "jsObject"
+                },
+                "request": {
+                    "____accept": "jsFunction"
+                }
+            },
             "html_render": {
                 "____label": "HTML Render Filter",
                 "____description": "HTML render filter responsible for converting in-memory JavaScript data into a UTF8-encoded HTML string.",
@@ -458,8 +472,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cQObBDQj5sKe6ZUT3x7tlQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `Z9S5LJ3Bq6Gt6zG3jGUHyw` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cX93BDQO3sKeEccT34mTlQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `zTX64CJjHowEKZh2H32F4w` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -475,5 +489,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Sat May 04 2019 09:46:16 GMT-0700 (Pacific Daylight Time)
+Document updated Mon May 06 2019 08:52:13 GMT-0700 (Pacific Daylight Time)
 
