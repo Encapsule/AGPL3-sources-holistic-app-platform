@@ -263,6 +263,45 @@ var factoryResponse = arccore.filter.create({
                     // to various plug-ins (filters that we classify by role: integration, service).
 
                     httpRequest_.on("end", function() {
+
+                        // Determine if the application has registered an HTTP request redirector
+                        // service filter. If so, call it and affect conditional redirect of incoming request.
+                        if (serverContext.integrations.filters.http_request_redirector) {
+
+                            var innerResponse = serverContext.integrations.filters.http_request_redirector.request({
+                                request_descriptor: requestDescriptor,
+                                appStateContext: serverContext.integrations.appStateContext
+                            });
+                            if (innerResponse.error) {
+                                const problem = "During evaluation of need to redirect HTTP request:" + innerResponse.error;
+                                reportHorribleMishap(problem);
+                                return;
+                            }
+                            const redirectResult = innerResponse.result;
+                            if (redirectResult) {
+
+                                innerResponse = writeResponseFilter.request({
+                                    streams: { request: httpRequest_, response: httpResponse_ },
+                                    request_descriptor: requestDescriptor,
+                                    response_descriptor: {
+                                        http: { code: redirectResult.httpCode },
+                                        headers: {
+                                            "Cache-Control": "must-revalidate",
+                                            "Location": redirectResult.locationURL
+                                        },
+                                        content: { encoding: "utf8", type: "text/plain" },
+                                        data: ""
+                                    }
+                                });
+                                if (innerResponse.error) {
+                                    const problem = "During server attempt to redirect incoming HTTP request: " + innerResponse.error;
+                                    reportHorribleMishap(problem);
+                                }
+                                return;
+                            }
+                        } // if app-defined HTTP request redirectory defined
+
+
                         // Dereference normalized property object associated with recognized
                         // HTTP-method:pathname "route". Use the 'type' property to route top-level
                         // dispatch to route-specific subroutines.
@@ -270,7 +309,7 @@ var factoryResponse = arccore.filter.create({
 
                         // OBTAIN IDENTITY ASSERTION
                         // Deserialize and extract the user's assertion of their identity (if they made one).
-                        var innerResponse = serverContext.integrations.filters.get_user_identity.request({
+                        innerResponse = serverContext.integrations.filters.get_user_identity.request({
                             request_descriptor: requestDescriptor,
                             appStateContext: serverContext.integrations.appStateContext
                         });
