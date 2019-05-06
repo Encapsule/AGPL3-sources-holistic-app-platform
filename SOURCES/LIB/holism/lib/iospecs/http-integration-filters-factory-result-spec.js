@@ -12,6 +12,13 @@ spec.filters = {
     ____label: "HTTP Server Integration Filters",
     ____description: "A collection of filter objects that abstract access to specific classes of application-specific data and functionality.",
     ____types: "jsObject",
+    http_request_redirector: {
+        ____label: "HTTP Request Redirector Filter",
+        ____description: "Optional filter that affects HTTP redirection based on analysis of @encapsule/holism HTTP request preprocessor output.",
+        ____types: [ "jsNull", "jsObject" ],
+        filterDescriptor: { ____accept: "jsObject" },
+        request: { ____accept: "jsFunction" }
+    },
     html_render: {
         ____label: "HTML Render Filter",
         ____description: "HTML render filter responsible for converting in-memory JavaScript data into a UTF8-encoded HTML string.",

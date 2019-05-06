@@ -18,8 +18,52 @@ var factoryResponse = arccore.filter.create({
         var response = { error: null, result: null };
         var errors = [];
         var inBreakScope = false;
+        var innerFactoryResponse = { error: null };
         while (!inBreakScope) {
             inBreakScope = true;
+
+            // ----------------------------------------------------------------------
+            // Instantiate optional HTTP preprocessor output redirector
+            // ----------------------------------------------------------------------
+            var httpRequestRedirectorFilter = null;
+            if (request_.integrations.preprocessor.redirect) {
+
+                const redirectorFilterMoniker = "HTTP Request Redirector";
+                const redirectorFilterName = request_.name + "::" + redirectorFilterMoniker;
+                const redirectorFilterDescription = "Implements application-specific logic to determine if an incoming HTTP request should be redirect based on " +
+                      "examination of the output of @encapsule/holism HTTP request preprocessor.";
+                const redirectorFilterID = arccore.identifier.irut.fromReference(request_.filter_id_seed + redirectorFilterMoniker).result;
+
+                innerFactoryResponse = arccore.filter.create({
+                    operationID: redirectorFilterID,
+                    operationName: redirectorFilterName,
+                    operationDescription: redirectorFilterDescription,
+                    bodyFunction: request_.integrations.preprocessor.redirect,
+                    outputFilterSpec: {
+                        ____label: "HTTP Request Redirect Result",
+                        ____description: "Message returned by application-specified HTTP request redirect integration filter plug-in.",
+                        ____types: [ "jsNull" , "jsObject" ],
+                        ____defaultValue: null,
+                        locationURL: {
+                            ____label: "Location URL",
+                            ____description: "A string to use as the value of the Location HTTP header. Or, null to indicate that normal HTTP request processing should proceed.",
+                            ____accept: "jsString"
+                        },
+                        httpCode: {
+                            ____label: "HTTP Redirect Code",
+                            ____description: "The specific HTTP 1.1 redirect code to send to the requesting client.",
+                            ____accept: "jsNumber",
+                            ____inValueSet: [ 301, 302, 303, 307, 308 ] // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+                        }
+                    }
+                });
+                if (innerFactoryResponse.error) {
+                    errors.push("While attempting to instantiate " + redirectorFilterName + " integration filter.");
+                    errors.push(innerFactoryResponse.error);
+                    break;
+                }
+                httpRequestRedirectorFilter = innerFactoryResponse.result;
+            }
 
             // ----------------------------------------------------------------------
             // Instantiate organization metadata accessor filter
@@ -238,7 +282,7 @@ var factoryResponse = arccore.filter.create({
             const htmlRenderFilterName = request_.name + "::" + htmlRenderFilterMoniker;
             const htmlRenderFilterDescription = "Transforms an application-specific in-memory data into a UTF8-encoded HTML string.";
             const htmlRenderFilterID = arccore.identifier.irut.fromReference(request_.filter_id_seed + htmlRenderFilterMoniker).result;
-            var innerFactoryResponse = arccore.filter.create({
+            innerFactoryResponse = arccore.filter.create({
                 operationID: htmlRenderFilterID,
                 operationName: htmlRenderFilterName,
                 operationDescription: htmlRenderFilterDescription,
@@ -305,6 +349,7 @@ var factoryResponse = arccore.filter.create({
                 platform: request_.platform,
                 document_data_model: request_.document_data_model,
                 filters: {
+                    http_request_redirector: httpRequestRedirectorFilter,
                     html_render: htmlRenderFilter,
                     get_org_metadata: getOrgMetadataFilter,
                     get_site_metadata: getSiteMetadataFilter,
