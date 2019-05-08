@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/hrequest",
-    "version": "0.0.12",
-    "codename": "skyhook",
-    "buildID": "zrFmoGIZTqqEE8kf72SSVw",
-    "buildTime": 1557187079,
-    "buildSource": "991aa75b3becb15dd0e08a2b47cd8f06a1ea4498",
+    "version": "0.0.13",
+    "codename": "coffeecreek",
+    "buildID": "jZIMw8YZRxSa5_cujMTduQ",
+    "buildTime": 1557334172,
+    "buildSource": "87056540622969d836f70d7ff96cb2665c05258a",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

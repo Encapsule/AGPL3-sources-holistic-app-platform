@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.12",
-    "codename": "skyhook",
+    "version": "0.0.13",
+    "codename": "coffeecreek",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "zrFmoGIZTqqEE8kf72SSVw",
-    "buildSource": "991aa75b3becb15dd0e08a2b47cd8f06a1ea4498",
-    "buildTime": 1557187079,
-    "buildDateISO": "2019-05-06T23:57:59.000Z"
+    "buildID": "jZIMw8YZRxSa5_cujMTduQ",
+    "buildSource": "87056540622969d836f70d7ff96cb2665c05258a",
+    "buildTime": 1557334172,
+    "buildDateISO": "2019-05-08T16:49:32.000Z"
 }
