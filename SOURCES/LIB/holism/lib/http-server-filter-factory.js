@@ -224,7 +224,7 @@ var factoryResponse = arccore.filter.create({
                        - Direct raw access to underlying streams
                        - Handle non-UTF8-encoded payloads (e.g. binary file uploads)
                        - Handle long-running chunked POST/PUT from client (e.g. a sensor)
-                       - Should also be predicated on authorization flags (i.e. if auth req. AND not auth'd then don't hook)
+                       - Should also be predicated on resource authentication flags
                     */
                     httpRequest_.on("data", function(data_) {
                         requestDescriptor.data.body += data_;
@@ -298,9 +298,10 @@ var factoryResponse = arccore.filter.create({
                                     reportHorribleMishap(problem);
                                 }
                                 return;
-                            }
-                        } // if app-defined HTTP request redirectory defined
 
+                            } // if (redirectResult)
+
+                        } // if app-defined HTTP request redirectory defined
 
                         // Dereference normalized property object associated with recognized
                         // HTTP-method:pathname "route". Use the 'type' property to route top-level

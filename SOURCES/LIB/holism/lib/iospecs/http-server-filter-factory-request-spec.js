@@ -3,7 +3,7 @@
 const contentTypeSpec = require("./content-type-spec");
 const contentEncodingSpec = require("./content-encoding-spec");
 
-const httpServerFilterResourceAuthorization = require("./http-server-filter-resource-authorization");
+const httpServerFilterResourceAuthentication = require("./http-server-filter-resource-authentication");
 const httpIntegrationFiltersFactoryResultSpec = require("./http-integration-filters-factory-result-spec");
 
 module.exports = {
@@ -70,7 +70,7 @@ module.exports = {
                 ____label: "Static File Resource Descriptor",
                 ____description: "Describes the attributes of a specific local file resource to expose via HTTP GET method.",
                 ____types: "jsObject",
-                authorization: httpServerFilterResourceAuthorization,
+                authentication: httpServerFilterResourceAuthentication,
                 request_bindings: {
                     ____label: "Request Bindings",
                     ____description: "Specifies how the plug-in service filter will be exposed by the HTTP server.",
@@ -125,7 +125,7 @@ module.exports = {
                         "and passed back to the service filter on every HTTP request delegated to it by the holism server instance.",
                     ____opaque: true
                 },
-                authorization: httpServerFilterResourceAuthorization,
+                authentication: httpServerFilterResourceAuthentication,
                 request_bindings: {
                     ____label: "Request Bindings",
                     ____description: "Specifies how the plug-in service filter will be exposed by the HTTP server.",

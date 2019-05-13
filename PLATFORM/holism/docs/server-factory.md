@@ -241,9 +241,9 @@ This filter normalizes the value of `input` passed to its `request` method using
                 "____label": "Static File Resource Descriptor",
                 "____description": "Describes the attributes of a specific local file resource to expose via HTTP GET method.",
                 "____types": "jsObject",
-                "authorization": {
-                    "____label": "Resource Authorization Settings",
-                    "____description": "Optional settings to limit access to authenticated users.",
+                "authentication": {
+                    "____label": "Resource Authentication Settings",
+                    "____description": "Optional settings to limit resource access to authenticated users.",
                     "____types": "jsObject",
                     "____defaultValue": {},
                     "require": {
@@ -343,9 +343,9 @@ This filter normalizes the value of `input` passed to its `request` method using
                     "____description": "A service-filter-defined options object declared in the service registration and passed back to the service filter on every HTTP request delegated to it by the holism server instance.",
                     "____opaque": true
                 },
-                "authorization": {
-                    "____label": "Resource Authorization Settings",
-                    "____description": "Optional settings to limit access to authenticated users.",
+                "authentication": {
+                    "____label": "Resource Authentication Settings",
+                    "____description": "Optional settings to limit resource access to authenticated users.",
                     "____types": "jsObject",
                     "____defaultValue": {},
                     "require": {
@@ -472,8 +472,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cX93BDQO3sKeEccT34mTlQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `zTX64CJjHowEKZh2H32F4w` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cQAsBDSPMsKepG8T37y0lQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `96-T9wPEDYoEMtZWFoCo3g` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -489,5 +489,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Wed May 08 2019 09:49:36 GMT-0700 (Pacific Daylight Time)
+Document updated Mon May 13 2019 16:23:48 GMT-0700 (Pacific Daylight Time)
 

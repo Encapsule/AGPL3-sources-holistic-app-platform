@@ -1,8 +1,8 @@
-// http-server-filter-resource-authorization.js
+// http-server-filter-resource-authentication.js
 
 module.exports = {
-    ____label: "Resource Authorization Settings",
-    ____description: "Optional settings to limit access to authenticated users.",
+    ____label: "Resource Authentication Settings",
+    ____description: "Optional settings to limit resource access to authenticated users.",
     ____types: "jsObject",
     ____defaultValue: {},
     require: {
