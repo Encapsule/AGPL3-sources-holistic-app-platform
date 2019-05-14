@@ -70,6 +70,7 @@ var factoryResponse = arccore.filter.create({
 
                 var resourceDeclaration = serverContext.config.files[filename];
                 var resourceDescriptor = {
+                    authentication: resourceDeclaration.authentication,
                     contentEncoding: resourceDeclaration.response_properties.contentEncoding,
                     contentType: resourceDeclaration.response_properties.contentType,
                     data: (resourceDeclaration.response_properties.contentEncoding === "binary")?resource:resource.toString("utf8"),
@@ -102,6 +103,7 @@ var factoryResponse = arccore.filter.create({
 
             for (var serviceDescriptor of serverContext.config.services) {
                 resourceDescriptor = {
+                    authentication: serviceDescriptor.authentication,
                     contentEncoding: serviceDescriptor.response_properties.contentEncoding,
                     contentType: serviceDescriptor.response_properties.contentType,
                     method: serviceDescriptor.request_bindings.method,

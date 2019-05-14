@@ -375,6 +375,36 @@ var factoryResponse = arccore.filter.create({
                                     // with the specified content type and encoding declared in the server
                                     // config descriptor.
 
+                                    // Block access to authentication-required resources iff not authenticated.
+                                    var responseType = (resourceDescriptor.resource.contentType !== "text/html")?"application/json":"text/html";
+
+                                    if (resourceDescriptor.resource.authentication.require && ! requestDescriptor.session) {
+                                        // ERROR 401: Not Authenticated
+                                        var errorResponse = errorResponseFilter.request({
+                                            integrations: serverContext.integrations,
+                                            streams: { request: httpRequest_, response: httpResponse_ },
+                                            request_descriptor: requestDescriptor,
+                                            error_descriptor: {
+                                                http: { code: 401, message: "Not Authenticated" },
+                                                content: { encoding: "utf8", type: responseType },
+                                                headers: { "WWW-Authenticate": "Bearer" },
+                                                data: {
+                                                    error_message: "You must be signed in (authenticated) to access this resource.",
+                                                    error_context: {
+                                                        source_tag: "WdjXjILCRRiJFIVLLo2IXA"
+
+                                                    }
+                                                }
+                                            }
+                                        });
+                                        if (errorResponse.error) {
+                                            const problem = "During server attempt to report an unauthenticated access exception. " + errorResponse.error;
+                                            reportHorribleMishap(problem);
+                                        }
+                                        return;
+
+                                    } // end if no user session AND authentication required to access this resource
+
                                     var lastETag =
                                         requestDescriptor.headers["if-none-match"] ||
                                         requestDescriptor.headers["If-None-Match"] ||
@@ -442,6 +472,35 @@ var factoryResponse = arccore.filter.create({
                                     // we make the filter call within a try/catch block and redirect exceptions
                                     // to an HTTP 500 response so that the server process continues listening
                                     // for subsequent requests.
+
+                                    // Block access to authentication-required resources iff not authenticated.
+                                    responseType = (resourceDescriptor.resource.contentType !== "text/html")?"application/json":"text/html";
+                                    if (resourceDescriptor.resource.authentication.require && ! requestDescriptor.session) {
+                                        // ERROR 401: Not Authenticated
+                                        errorResponse = errorResponseFilter.request({
+                                            integrations: serverContext.integrations,
+                                            streams: { request: httpRequest_, response: httpResponse_ },
+                                            request_descriptor: requestDescriptor,
+                                            error_descriptor: {
+                                                http: { code: 401, message: "Not Authenticated" },
+                                                content: { encoding: "utf8", type: responseType },
+                                                headers: { "WWW-Authenticate": "Bearer" },
+                                                data: {
+                                                    error_message: "You must be signed in (authenticated) to access this resource.",
+                                                    error_context: {
+                                                        source_tag: "ailqNeMpRvOYXvFZNBVVGw",
+                                                    }
+                                                }
+                                            }
+                                        });
+                                        if (errorResponse.error) {
+                                            const problem = "During server attempt to report an unauthenticated access exception. " + errorResponse.error;
+                                            reportHorribleMishap(problem);
+                                        }
+                                        return;
+
+                                    } // end if no user session AND authentication required to access this resource
+
                                     var serviceResponse = null;
                                     var options = arccore.util.clone(resourceDescriptor.resource.options);
                                     try {
@@ -458,10 +517,10 @@ var factoryResponse = arccore.filter.create({
                                         // Use the service filter's declared response content type;
                                         // We want an HTML render of the error if the service is intended to produce an HTML document.
                                         // Or, JSON in the typical case that the service implements an AJAX endpoint.
-                                        var responseType = (resourceDescriptor.resource.contentType !== "text/html")?"application/json":"text/html";
+                                        responseType = (resourceDescriptor.resource.contentType !== "text/html")?"application/json":"text/html";
 
                                         // ERROR 500: Runtime exception in plugin service filter.
-                                        var errorResponse = errorResponseFilter.request({
+                                        errorResponse = errorResponseFilter.request({
                                             integrations: serverContext.integrations,
                                             streams: { request: httpRequest_, response: httpResponse_ },
                                             request_descriptor: requestDescriptor,
