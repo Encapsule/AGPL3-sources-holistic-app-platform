@@ -49,7 +49,7 @@ var factoryResponse = arccore.filter.create({
                                 version: serverContext.integrations.version,
                             },
                             server: {
-                                name: packageMeta.author.name + "/" + packageMeta.name,
+                                name: packageMeta.name,
                                 version: packageMeta.version,
                             },
                             platform: {

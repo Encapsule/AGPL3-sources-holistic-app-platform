@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.13",
     "codename": "coffeecreek",
-    "buildID": "6JuQZyUHSnOi4vtfLoo9LQ",
-    "buildTime": 1557862864,
-    "buildSource": "4b6f8b007bbc659c4824cf81677914e8bde9c865",
+    "buildID": "hwCdmg3bRtSS_IS3WrkCpA",
+    "buildTime": 1558030748,
+    "buildSource": "5e97b9573c8b36592bf1c673d3630687346dd2b4",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

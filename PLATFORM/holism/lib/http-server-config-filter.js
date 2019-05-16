@@ -75,7 +75,7 @@ var factoryResponse = arccore.filter.create({
                     contentType: resourceDeclaration.response_properties.contentType,
                     data: (resourceDeclaration.response_properties.contentEncoding === "binary")?resource:resource.toString("utf8"),
                     sizeBytes: resourceSizeBytes,
-                    ETag: packageMeta.author.name + "/" + packageMeta.name + "::" + resourceIRUT,
+                    ETag: packageMeta.name + "::" + resourceIRUT,
                     id: filename
                 };
                 for (var uri of resourceDeclaration.request_bindings.uris) {
