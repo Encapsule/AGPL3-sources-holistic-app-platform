@@ -1,4 +1,4 @@
-// http-server-generator-request-spec.js
+// http-server-filter-factory-request-spec.js
 
 const contentTypeSpec = require("./content-type-spec");
 const contentEncodingSpec = require("./content-encoding-spec");
@@ -7,8 +7,8 @@ const httpServerFilterResourceAuthentication = require("./http-server-filter-res
 const httpIntegrationFiltersFactoryResultSpec = require("./http-integration-filters-factory-result-spec");
 
 module.exports = {
-    ____label: "HTTP Server Generator Request",
-    ____description: "Information used to generate an HTTP server.",
+    ____label: "Holism Application Server Factory Request",
+    ____description: "Information used to generate an @encapsule/holism application server (HTTP 1.1) instance.",
     ____types: "jsObject",
     name: {
         ____label: "HTTP Server Name",
@@ -33,14 +33,12 @@ module.exports = {
         timestamp: {
             ____label: "HTTP Server Built Time",
             ____description: "The ISO-format time that this application server was built.",
-            ____accept: "jsString",
-            ____defaultValue: "<no build time specified>"
+            ____accept: "jsString"
         },
         commit: {
             ____label: "HTTP Server Sources Commit",
             ____description: "The git commit hash containing the source code used to build this application server.",
-            ____accept: "jsString",
-            ____defaultValue: "<no commit hash specified>"
+            ____accept: "jsString"
         }
     },
     integrations: httpIntegrationFiltersFactoryResultSpec,

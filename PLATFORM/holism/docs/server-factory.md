@@ -22,8 +22,8 @@ This filter normalizes the value of `input` passed to its `request` method using
 
 ```JavaScript
 {
-    "____label": "HTTP Server Generator Request",
-    "____description": "Information used to generate an HTTP server.",
+    "____label": "Holism Application Server Factory Request",
+    "____description": "Information used to generate an @encapsule/holism application server (HTTP 1.1) instance.",
     "____types": "jsObject",
     "name": {
         "____label": "HTTP Server Name",
@@ -48,14 +48,12 @@ This filter normalizes the value of `input` passed to its `request` method using
         "timestamp": {
             "____label": "HTTP Server Built Time",
             "____description": "The ISO-format time that this application server was built.",
-            "____accept": "jsString",
-            "____defaultValue": "<no build time specified>"
+            "____accept": "jsString"
         },
         "commit": {
             "____label": "HTTP Server Sources Commit",
             "____description": "The git commit hash containing the source code used to build this application server.",
-            "____accept": "jsString",
-            "____defaultValue": "<no commit hash specified>"
+            "____accept": "jsString"
         }
     },
     "integrations": {
@@ -472,8 +470,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cQAsBDSPMsKepG8T37y0lQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `96-T9wPEDYoEMtZWFoCo3g` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cUcgBDRRWMKeUuAT35GFlQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `kn6avuI5fBGtn1eFob-joQ` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -489,5 +487,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Thu May 16 2019 11:19:09 GMT-0700 (Pacific Daylight Time)
+Document updated Thu May 16 2019 14:37:25 GMT-0700 (Pacific Daylight Time)
 
