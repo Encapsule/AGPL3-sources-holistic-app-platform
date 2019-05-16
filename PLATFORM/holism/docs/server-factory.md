@@ -244,7 +244,7 @@ This filter normalizes the value of `input` passed to its `request` method using
                     "____description": "Optional settings to limit resource access to authenticated users.",
                     "____types": "jsObject",
                     "____defaultValue": {},
-                    "require": {
+                    "required": {
                         "____label": "Require Authorization Flag",
                         "____description": "Boolean value indicating if resource access is restricted to authorized users.",
                         "____accept": "jsBoolean",
@@ -346,7 +346,7 @@ This filter normalizes the value of `input` passed to its `request` method using
                     "____description": "Optional settings to limit resource access to authenticated users.",
                     "____types": "jsObject",
                     "____defaultValue": {},
-                    "require": {
+                    "required": {
                         "____label": "Require Authorization Flag",
                         "____description": "Boolean value indicating if resource access is restricted to authorized users.",
                         "____accept": "jsBoolean",
@@ -470,8 +470,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cUcgBDRRWMKeUuAT35GFlQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `kn6avuI5fBGtn1eFob-joQ` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cf_qBDRJBsKeQ04T3--nlQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `kn4n-uI5MNWtn9O2ob8gdQ` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -487,5 +487,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Thu May 16 2019 14:37:25 GMT-0700 (Pacific Daylight Time)
+Document updated Thu May 16 2019 16:27:07 GMT-0700 (Pacific Daylight Time)
 

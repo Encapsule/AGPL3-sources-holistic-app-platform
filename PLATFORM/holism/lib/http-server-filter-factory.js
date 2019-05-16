@@ -378,7 +378,7 @@ var factoryResponse = arccore.filter.create({
                                     // Block access to authentication-required resources iff not authenticated.
                                     var responseType = (resourceDescriptor.resource.contentType !== "text/html")?"application/json":"text/html";
 
-                                    if (resourceDescriptor.resource.authentication.require && ! requestDescriptor.session) {
+                                    if (resourceDescriptor.resource.authentication.required && ! requestDescriptor.session) {
                                         // ERROR 401: Not Authenticated
                                         var errorResponse = errorResponseFilter.request({
                                             integrations: serverContext.integrations,
@@ -475,7 +475,7 @@ var factoryResponse = arccore.filter.create({
 
                                     // Block access to authentication-required resources iff not authenticated.
                                     responseType = (resourceDescriptor.resource.contentType !== "text/html")?"application/json":"text/html";
-                                    if (resourceDescriptor.resource.authentication.require && ! requestDescriptor.session) {
+                                    if (resourceDescriptor.resource.authentication.required && ! requestDescriptor.session) {
                                         // ERROR 401: Not Authenticated
                                         errorResponse = errorResponseFilter.request({
                                             integrations: serverContext.integrations,
