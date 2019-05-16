@@ -63,8 +63,8 @@ var factoryResponse = arccore.filter.create({
         // TODO: This needs some thought and then some refactoring
         var serverContext = request_;
         serverContext.generator = {};
-        serverContext.generator[arccore.__meta.author + "/" + arccore.__meta.name] = arccore.__meta.version;
-        serverContext.generator[packageMeta.author.name + "/" + packageMeta.name] = packageMeta.version;
+        serverContext.generator[arccore.__meta.name] = arccore.__meta.version;
+        serverContext.generator[packageMeta.name] = packageMeta.version;
         serverContext.instanceID = arccore.identifier.irut.fromEther(); // every new @encapsule/holism server instance gets an IRUT for use in tracking deployments
 
         serverContext.stats = {
