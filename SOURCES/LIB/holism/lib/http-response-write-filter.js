@@ -69,7 +69,7 @@ var factoryResponse = arccore.filter.create({
             var headers = responseDescriptor.headers;
             headers["Content-Type"] = contentType;
             headers["Content-Length"] = contentLength;
-            headers["Server"] = "Encapsule/" + packageMeta.name + " v" + packageMeta.version;
+            headers["Server"] = packageMeta.name + " v" + packageMeta.version;
 
             request_.streams.response.writeHead(
                 responseDescriptor.http.code,
