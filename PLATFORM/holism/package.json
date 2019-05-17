@@ -2,9 +2,9 @@
     "name": "@encapsule/holism",
     "version": "0.0.13",
     "codename": "coffeecreek",
-    "buildID": "NsypNIiHSiWeM4j9FBQXJQ",
-    "buildTime": 1558049226,
-    "buildSource": "289cc8a2bddf1a435a99461cb17610b7f760a0d7",
+    "buildID": "S5xgypzrTXOo2v_gqIPiRg",
+    "buildTime": 1558071769,
+    "buildSource": "89e209458d359cb9b1552a98a22e9dea1be56e5d",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"
