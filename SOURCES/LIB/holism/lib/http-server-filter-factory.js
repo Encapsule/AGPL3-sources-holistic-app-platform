@@ -98,8 +98,11 @@ var factoryResponse = arccore.filter.create({
                 serverContext.http_server_routes[route_][config.type] = config.resource.id;
                 var message = "> " + route_ + " ";
                 var messageStartLength = message.length;
-                for (var i=0 ; i < (70 - messageStartLength) ; i++) { message += "."; }
-                message += " " + config.type;
+                for (var i=0 ; i < (75 - messageStartLength) ; i++) { message += "."; }
+                message += ` ${(config.resource.authentication.required?"private":"public")} `;
+                messageStartLength = message.length;
+                for (i=0 ; i < (86 - messageStartLength) ; i++) { message += "."; }
+                message += " " + config.type + " ";
                 console.log(message);
             });
 
