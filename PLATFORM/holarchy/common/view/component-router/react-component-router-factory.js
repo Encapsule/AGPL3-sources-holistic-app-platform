@@ -63,7 +63,7 @@ var factoryResponse = arccore.filter.create({
       request_.dataViewBindingFilterSetOfSets.forEach(function (dataViewBindingFilterSet_) {
         dataViewBindingFilterSet_.forEach(function (dataViewBindingFilter_) {
           dataViewBindingFilters.push(dataViewBindingFilter_);
-          console.log("... " + dataViewBindingFilter_.filterDescriptor.operationID + "::" + dataViewBindingFilter_.filterDescriptor.operationName);
+          console.log("..... " + dataViewBindingFilter_.filterDescriptor.operationID + "::" + dataViewBindingFilter_.filterDescriptor.operationName);
         });
       });
 
@@ -140,7 +140,8 @@ var factoryResponse = arccore.filter.create({
 
       var ComponentRouter = ComponentRouterSubfactory(dataViewBindingDiscriminator, dataViewBindingFilters); // Return the discriminator filter.
 
-      console.log("> <ComponentRouter/> runtime initialized (routes this.props.renderData to 1:" + dataViewBindingFilters.length + " data-bound React components).");
+      console.log("----> ".concat(dataViewBindingFilters.length, " content-routed React components processed."));
+      console.log("<ComponentRouter/> runtime instance initialized.");
       response.result = ComponentRouter;
       break;
     }

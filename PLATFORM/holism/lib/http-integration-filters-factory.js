@@ -234,7 +234,6 @@ var factoryResponse = arccore.filter.create({
                 outputFilterSpec: request_.integrations.metadata.session.get_session.response.result_spec,
                 bodyFunction: function(request_) {
                     console.log("..... " + this.operationID + "::" + this.operationName);
-                    console.log(JSON.stringify(request_));
                     return { error: null, result: request_ };
                 }
             });
@@ -264,7 +263,6 @@ var factoryResponse = arccore.filter.create({
                 },
                 bodyFunction: function(request_) {
                     console.log("..... " + this.operationID + "::" + this.operationName);
-                    console.error(request_);
                     return { error: null, result: request_ };
                 }
             });

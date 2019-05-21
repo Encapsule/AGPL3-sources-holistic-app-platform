@@ -78,8 +78,8 @@ var factoryResponse = arccore.filter.create({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            console.log("**** HTTP server: " + serverContext.name + " - " + serverContext.description + " ****");
-            console.log("\n* Processing server configuration:");
+            console.log("***** HTTP server: " + serverContext.name + " - " + serverContext.description + " ****");
+            console.log("\nProcessing server configuration:");
             var innerResponse = httpServerConfigProcessor.request(request_);
             if (innerResponse.error) {
                 errors.unshift(innerResponse.error);
@@ -101,7 +101,7 @@ var factoryResponse = arccore.filter.create({
                 for (var i=0 ; i < (75 - messageStartLength) ; i++) { message += "."; }
                 message += ` ${(config.resource.authentication.required?"private":"public")} `;
                 messageStartLength = message.length;
-                for (i=0 ; i < (86 - messageStartLength) ; i++) { message += "."; }
+                for (i=0 ; i < (90 - messageStartLength) ; i++) { message += "."; }
                 message += " " + config.type + " ";
                 console.log(message);
             });
@@ -119,7 +119,6 @@ var factoryResponse = arccore.filter.create({
             // ======================================================================
             // ======================================================================
             // Define the generic server request handler callback function.
-
 
             const httpServer = http.createServer(
 
@@ -323,7 +322,7 @@ var factoryResponse = arccore.filter.create({
                             return;
                         }
                         var userIdentity = innerResponse.result;
-                        console.log("... Asserted user identity: " + JSON.stringify(userIdentity));
+                        console.log("----> Asserted user identity: " + JSON.stringify(userIdentity));
 
                         // AUTHENTICATE IDENTITY ASSERTION
                         // Attempt to authenticate the user and retrieve their user session object.
@@ -415,12 +414,12 @@ var factoryResponse = arccore.filter.create({
                                         requestDescriptor.headers["If-Match"];
 
                                     if (!lastETag) {
-                                        console.log("It appears the user agent did not specify an ETag via If-None-Match header.");
+                                        console.log("----> If-None-Match not specified.");
                                     }
                                     if (lastETag === resourceDescriptor.resource.ETag) {
                                         // Resource has not changed since last request! Respond w/HTTP code 304
                                         // informing the user agent that it's okay to use its cached copy of the resource.
-                                        console.log("Browser asserts ETag should be '" + lastETag + "' which is the LATEST! Responding w/304");
+                                        console.log("----> If-None-Match assertion '" + lastETag + "' matches expected value! Responding w/304");
                                         innerResponse = writeResponseFilter.request({
                                             streams: { request: httpRequest_, response: httpResponse_ },
                                             request_descriptor: requestDescriptor,
@@ -442,7 +441,7 @@ var factoryResponse = arccore.filter.create({
                                     }
 
                                     // Send the user agent an updated copy of the resource with an up-to-date ETag
-                                    console.log("Browser asserts ETag should be '" + lastETag + "' which is the OUT-OF-DATE! Responding w/resource + 200");
+                                    console.log("----> If-None-Match assertion '" + lastETag + "' is not current value. Responding w/resource + 200");
                                     innerResponse = writeResponseFilter.request({
                                         streams: { request: httpRequest_, response: httpResponse_ },
                                         request_descriptor: requestDescriptor,

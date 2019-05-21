@@ -64,9 +64,9 @@ var factoryResponse = arccore.filter.create({
                 // console.log(JSON.stringify(resourceStats));
 
                 var resource = fs.readFileSync(filename);
-                var resourceIRUT = arccore.identifier.irut.fromReference(resource.toString("utf8")).result;
+                const resourceETag = `${packageMeta.name}::${arccore.identifier.irut.fromReference(resource.toString("utf8")).result}`;
 
-                console.log("> '" + filename + "': IRUT='" + resourceIRUT + "' " + resourceStats.size + " (bytes)");
+                console.log("> '" + filename + "': ETag='" + resourceETag + "' " + resourceStats.size + " (bytes)");
 
                 var resourceDeclaration = serverContext.config.files[filename];
                 var resourceDescriptor = {
@@ -75,7 +75,7 @@ var factoryResponse = arccore.filter.create({
                     contentType: resourceDeclaration.response_properties.contentType,
                     data: (resourceDeclaration.response_properties.contentEncoding === "binary")?resource:resource.toString("utf8"),
                     sizeBytes: resourceSizeBytes,
-                    ETag: packageMeta.name + "::" + resourceIRUT,
+                    ETag: resourceETag,
                     id: filename
                 };
                 for (var uri of resourceDeclaration.request_bindings.uris) {
@@ -99,7 +99,7 @@ var factoryResponse = arccore.filter.create({
             if (errors.length)
                 break;
 
-            console.log("TOTAL MEMORY FILE: " + memoryFileBytesTotal + " (bytes)");
+            console.log(`MEMORY-CACHED FILES: ${memoryFileBytesTotal} (bytes)`);
 
             for (var serviceDescriptor of serverContext.config.services) {
                 resourceDescriptor = {
