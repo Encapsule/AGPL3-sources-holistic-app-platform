@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.13",
-    "codename": "coffeecreek",
+    "version": "0.0.14",
+    "codename": "olecoulee",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "QgaW9FTUSuaDqInUfW9-vg",
-    "buildSource": "e11f213299f1583f190d832be6bc7a987530ad0b",
-    "buildTime": 1558453517,
-    "buildDateISO": "2019-05-21T15:45:17.000Z"
+    "buildID": "LdPMv6Y-SvqZDu_5pF3xiw",
+    "buildSource": "71ae1011a6450281ee7392b8cf0b41f5b8fe4e61",
+    "buildTime": 1558456047,
+    "buildDateISO": "2019-05-21T16:27:27.000Z"
 }
