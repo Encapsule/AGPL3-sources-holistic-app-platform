@@ -18,7 +18,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-// sources/common/view/content-router/ComponentRouter.jsx
+// sources/common/view/component-router/ComponentRouter.jsx
 // Looking for this module inside a large webpack bundle? Search for "SmNzf5U0RXSSyXe06mTRCg".
 var React = require("react");
 
