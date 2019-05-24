@@ -1,4 +1,4 @@
-// sources/common/view/content-router/react-component-router-factory.js
+// sources/common/view/component-router/react-component-router-factory.js
 //
 // This module builds and exports an ARCcore.filter instance that implements a
 // factory for building a <ComponentRouter/> React component given an array of
@@ -11,7 +11,7 @@ const appDataStoreIntegrationsProcessor = require("../../data/app-data-store-int
 var factoryResponse = arccore.filter.create({
     operationID: "Jo7GwCreQNaZp11l52Uciw",
     operationName: "React Component Router Factory",
-    operationDescription: "Constructs <ComponentRouter/> React component that routes the property data it receives on to an appropriate React component for rendering as HTML based on data signature.",
+    operationDescription: "Constructs a <ComponentRouter/> React component that routes the property data it receives on to an appropriate React component for rendering as HTML based on data signature.",
 
     inputFilterSpec: {
         ____label: "Component Router Constructor Request",
@@ -79,10 +79,6 @@ var factoryResponse = arccore.filter.create({
             // Save the app data store integration digraph model in appStateContext.
             request_.appStateContext.appDataStoreIntegrationsDigraph = appDataStoreIntegrationsDigraph;
 
-            // \\\\ ARCcore.discriminator BUG HUNTING: I believe that constructing the discriminator instance is mutating one of the data binding filter's input filter specification >:(
-            var irutControl = arccore.identifier.irut.fromReference(dataViewBindingFilters).result;
-            // //// ARCcore.discriminator BUG HUNTING
-
             // Create an ARCcore.discriminator filter that routes its request to 1:N possible target filters.
             var innerFactoryResponse = arccore.discriminator.create({
                 options: { action: "getFilterID" },
@@ -99,33 +95,6 @@ var factoryResponse = arccore.filter.create({
             }
 
             var dataViewBindingDiscriminator = innerFactoryResponse.result;
-
-            // \\\\ ARCcore.discriminator BUG HUNTING
-            var irutExperiment = arccore.identifier.irut.fromReference(dataViewBindingFilters).result;
-            if (irutControl !== irutExperiment) {
-                // !!! ARCcore.discriminator factory is not allowed to mutate the filter objects in its dispatch table...
-                console.log("Inline test for ARCcore.disciminator construction side-effects FAILED!");
-                console.log("!> '" + irutControl + "' !== '" + irutExperiment + "' (control vs. experiment)");
-                // Sort the bad apples...
-                var mutatedDataViewBindingFilters = [];
-                dataViewBindingFilters.forEach(function(dataViewBindingFilter_) {
-                    var ifs = dataViewBindingFilter_.filterDescriptor.inputFilterSpec;
-                    var ifsSignature = arccore.identifier.irut.fromReference(ifs?ifs:{ ____opaque: true }).result;
-                    if (ifsSignature !== dataViewBindingFilter_.filterDescriptor.inputTypeVDID)
-                        mutatedDataViewBindingFilters.push({
-                            filterName: ("[" + dataViewBindingFilter_.filterDescriptor.operationID + "::" + dataViewBindingFilter_.filterDescriptor.operationName + "]"),
-                            ifs: ifs,
-                            ifsSignature: ifsSignature,
-                            vdid: dataViewBindingFilter_.filterDescriptor.inputTypeVDID
-                        });
-                });
-
-                errors.push("As of 2017.09.27 there's a partially characterized known issue w/ARCcore.discriminator that impacts the use of certain ARCcore.filter specification features when specifying the input filter specification contract of your React data binding filters. Until this issue is resolved you cannot safely deploy if any of your React data binding filters have input filter specification namespaces that specify ____defaultValue AND either ____accept or ____types value using an array of type monikers. The inline test reporting this error checks for the damage using a before/after digest hash-derived signature comparison and so does not prove this is the only thing that causes this or similar unintended side-effect bugs to manifest. In no use cases is this a good thing - this build of the application is rubbish and cannot be deployed.");
-                errors.push("\n\n");
-                errors.push(JSON.stringify(mutatedDataViewBindingFilters));
-                break;
-            }
-            // //// ARCcore.discriminator BUG HUNTING
 
             // Create the actual <ComponentRouter/> React component that encapsulates the ARCcore.discriminator instance
             // that performs the actual signature based routing inside of the component's render method. We're also going

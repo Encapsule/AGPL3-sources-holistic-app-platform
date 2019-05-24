@@ -1,4 +1,4 @@
-// sources/common/view/content-router/ComponentRouter.jsx
+// sources/common/view/component-router/ComponentRouter.jsx
 // Looking for this module inside a large webpack bundle? Search for "SmNzf5U0RXSSyXe06mTRCg".
 
 const React = require("react");
