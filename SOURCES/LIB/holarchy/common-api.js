@@ -1,10 +1,15 @@
 // common.js
 //
 
+// Holistic metadata store related common data subsystem exports...
 const appMetadataStoreConstructorFilterFactory = require("./common/metadata/metadata-store-constructor-factory");
+
+// Holistic data store related common data subsystem exports...
+const appDataStoreConstructorFactory = require("./common/data/app-data-store-constructor-factory");
+
+// React <ComponentRouter/> and related common view subsystem exports...
 const reactComponentBindingFilterFactory = require("./common/view/component-router/react-component-binding-filter-factory");
 const reactComponentRouterFactory = require("./common/view/component-router/react-component-router-factory");
-
 const dataRoutableComponents = require("./common/view/elements");
 const sharedComponentStyles = require("./common/view/theme");
 
@@ -12,7 +17,7 @@ module.exports = {
 
     ApplicationDataStore: {
         // Creates an application-specific application data store constructor filter.
-        makeInstanceConstructor: { request: function(request_) { request_; return { error: "Not yet implemented." }; } }
+        makeInstanceConstructor: appDataStoreConstructorFactory
     },
 
     ApplicationMetadataStore: {
