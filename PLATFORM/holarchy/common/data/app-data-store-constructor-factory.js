@@ -4,14 +4,14 @@
 //
 var arccore = require("@encapsule/arccore");
 
-var rainierAppDataStoreBaseSpec = require("../filter-specs/data/");
+var holisticApplicationDataModelSpec = require("../filter-specs/data/");
 
 var factoryResponse = arccore.filter.create({
-  operationID: "ghB7Smu_RxWZPN-Waf8B7w",
+  operationID: "Umc09pbMT-2exlufs5X-6Q",
   operationName: "Application Data Store Constructor Factory",
-  operationDescription: "Accepts the filter specification of the derived application's data store - an in-memory structure used as a source of truth for React components (readers).",
+  operationDescription: "Produces a filter used to construct a holistic application data store instance (aka JSON document).",
   inputFilterSpec: {
-    ____label: "Application-Specific Data Store Filter Specification",
+    ____label: "Application Data Model Specification",
     ____description: "A filter specification object that schematizes the the `derived` namespace of the application data store object.",
     ____accept: "jsObject"
   },
@@ -25,17 +25,12 @@ var factoryResponse = arccore.filter.create({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var appDataStoreSpec = arccore.util.clone(rainierAppDataStoreBaseSpec);
-      appDataStoreSpec.derived = request_; // If this construction succeeds, then this is what we return to the module that imports/requires this module.
-      // Subsequently, the dependent module calls this filter's `request` method to construct the actual application data store object.
-      // This provides a way to merge schema provided by rainier-ux-base with schema provided by rainier-ux into a single document.
-      // And, a means of keeping track of all the small contracts between the various readers (primarily React components), and writers
-      // (primarily user input event handlers and XMLHttpRequest result handlers retrieving information from the Node.js server).
-
+      var appDataStoreSpec = arccore.util.clone(holisticApplicationDataModelSpec);
+      appDataStoreSpec.holisticApplicationData_2k6VQsiuSb2ghMX6Wt1eKQ.application = request_;
       var innerFactoryResponse = arccore.filter.create({
-        operationID: "CSPLqKSqT_q6ILHTdZTd8g",
+        operationID: "3aDV_cacQByO0tTzVrBxnA",
         operationName: "Aplication Data Store Constructor",
-        operationDescription: "Constructs an in-memory data structure used to store application layer runtime state data.",
+        operationDescription: "Constructs an in-memory data structure used to store application state data at runtime.",
         inputFilterSpec: appDataStoreSpec
       });
 
