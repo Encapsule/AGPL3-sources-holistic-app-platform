@@ -111,7 +111,6 @@ module.exports = function (dataViewBindingDiscriminator_, dataViewBindingFilters
             console.log(["..... <ComponentRouter/> dispatching to [", targetViewBindingFilter.filterDescriptor.operationID, "::", targetViewBindingFilter.filterDescriptor.operationName, "]"].join('')); //////////////////////////////////////////////////////////////////////////
             // DISPATCH: Call the React component data binding filter to generate an instance of its encapsulated React component that is bound to this input data.
 
-            if (targetViewBindingFilter.dependencies.integrations) routingDataContext.integrations = targetViewBindingFilter.dependencies.integrations;
             var targetFilterResponse = targetViewBindingFilter.request(routingDataContext);
             if (!targetFilterResponse.error) // Data-bound React component produced by calling the selected React component data binding filter.
               return targetFilterResponse.result;else // ARCcore.discriminator rejects requests that it can not plausibly match to 1:N registered filters
@@ -119,7 +118,9 @@ module.exports = function (dataViewBindingDiscriminator_, dataViewBindingFilters
               // operations as possible. This means that the selected filter is selected because all the others
               // will definitely reject this request. And, as it turns out it doesn't much like this request.
               error = targetFilterResponse.error;
-          } else error = discriminatorResponse.error; //////////////////////////////////////////////////////////////////////////
+          } else {
+            error = discriminatorResponse.error;
+          } //////////////////////////////////////////////////////////////////////////
           // ERROR: The input data does not have an acceptable namespace:type format.
 
 

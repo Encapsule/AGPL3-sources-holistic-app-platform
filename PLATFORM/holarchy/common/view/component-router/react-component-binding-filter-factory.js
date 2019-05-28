@@ -33,77 +33,6 @@ var factoryResponse = arccore.filter.create({
       ____description: "An ARCcore.filter specification (https://encapsule.io/docs/ARCcore/filter) defining an input message data type. Values that passed into the React component data binding" + " filter are \"bound\" to the specified React control at runtime in the process of dynamic dispatch via the <ComponentRouter/> infrastructure component.",
       ____accept: "jsObject"
     },
-    dependencies: {
-      ____label: "Application Controller Dependency Declarations",
-      ____description: "An optional declaration of this React component's dependencies on shared application data and state functions.",
-      ____types: "jsObject",
-      ____defaultValue: {},
-      read: {
-        ____label: "Application Data Store Read Dependencies",
-        ____description: "An optional array of zero or more read dependency descriptors indicating this React component's read dependencies on shared application state state.",
-        ____types: "jsArray",
-        ____defaultValue: [],
-        readDependency: {
-          ____label: "Application Data Store Read Dependency",
-          ____description: "Declares a dependency on a specific namespace in the application data store.",
-          ____types: "jsObject",
-          storePath: {
-            ____label: "App Data Store Path",
-            ____description: "A dot-delimited path starting with ~ (the whole store) that identifies a specific namespace in the app data store filter specification.",
-            ____accept: "jsString"
-          },
-          filterBinding: {
-            ____label: "Read Filter Binding Declaration",
-            ____description: "Declares information that is used to construct and attach the requisite read filter to your runtime.",
-            ____types: "jsObject",
-            id: {
-              ____label: "Read Filter Operation ID",
-              ____description: "A 22-character IRUT to be assigned to the generated read filter.",
-              ____accept: "jsString"
-            },
-            alias: {
-              ____label: "Read Filter Object Alias",
-              ____description: "The namespace name to use to register the filter `this.props.integrations.read.X.",
-              ____accept: "jsString"
-            }
-          }
-        } // read
-
-        /*
-          These have been placeholders for a TBD feedback mechanism this is ND:
-          Intead of declaring write dependencies on specific namespaces, instead pass command messages to
-          this.props.integrations.write.request(...)
-         write: {
-            ____label: "Application Controller Write Dependencies",
-            ____description: "An optional array of zero or more write dependency descriptors indicating this React component's write dependencies on the application controller.",
-            ____types: "jsArray",
-            ____defaultValue: [],
-            writeDependency: {
-                ____label: "Application Data Controller Write Dependency",
-                ____description: "Declares a dependency on a specific write feature of the application data controller.",
-                ____types: "jsObject",
-                 filterBinding: {
-                    ____label: "Read Filter Binding Declaration",
-                    ____description: "Declares information that is used to construct and attach the requisite read filter to your runtime.",
-                    ____types: "jsObject",
-                    id: {
-                        ____label: "Read Filter Operation ID",
-                        ____description: "A 22-character IRUT to be assigned to the generated read filter.",
-                        ____accept: "jsString"
-                    },
-                    alias: {
-                        ____label: "Read Filter Object Alias",
-                        ____description: "The namespace name to use to register the filter `this.props.integrations.read.X.",
-                        ____accept: "jsString"
-                    }
-                }
-            }
-        } // write
-         */
-
-      }
-    },
-    // dependencies
     reactComponent: {
       ____label: "React Component",
       ____description: "A React component reference that is used for every binding process performed by the generated React component binding filter.",
@@ -132,52 +61,7 @@ var factoryResponse = arccore.filter.create({
       if (!testResponse.result) {
         errors.push("Sorry. The filter identifier that you specified is not a valid 22-character IRUT identifier.");
         break;
-      } // Verify the uniqueness of the alias declarations of this component's app data store read dependency declaration(s).
-
-
-      var bindingAliases = {};
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = factoryRequest_.dependencies.read[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var readDependency = _step.value;
-          var alias = readDependency.filterBinding.alias;
-
-          if (bindingAliases[alias]) {
-            errors.unshift("Invalid app data binding descriptor declaration. Reader function alias '" + alias + "' has already been used. Each alias must be unique.");
-            break;
-          }
-
-          bindingAliases[alias] = null;
-
-          if (!readDependency.storePath.length) {
-            errors.unshift("Invalid app data binding descriptor declaration for alias '" + alias + "' specifies a zero-length target storage node in the app data store.");
-            break;
-          }
-
-          if (!readDependency.storePath.startsWith("~")) {
-            errors.unshift("Invalid app data binding descriptor declaration for alias '" + alias + "' specifies a path for app data storage that does not begin with tilda ('~').");
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      if (errors.length) break; // There is intentionally inadequate information in the context of defining a data-bound React component and declaring its app data dependencies
+      } // There is intentionally inadequate information in the context of defining a data-bound React component and declaring its app data dependencies
       // to deduce the specific type of data that will be returned by the app data read filters synthesized for the declarations above. Hence, we cannot
       // actually synthesize these access filters here because we specifically do not have access the application data schema of the app in this context.
       // When a React component data binding filter is introduced to <ComponentRouter/> for the first time (which occurs during <ComponentRouter/>
@@ -188,6 +72,7 @@ var factoryResponse = arccore.filter.create({
       // Note that by design it is not the responsibility of the application data controller read/write filters exposed to React components to provide
       // data versioning capabilities to React components. Rather, it is the responsibility of data producers to version their data and for the React
       // components that consume that data to observe the producer's versioning protocol.
+
 
       var operationID = factoryRequest_.id;
       var innerFactoryResponse = arccore.filter.create({
@@ -203,11 +88,7 @@ var factoryResponse = arccore.filter.create({
             ____accept: "jsObject" // NOT SCHEMATIZED BY DESIGN
 
           },
-          renderData: factoryRequest.renderDataBindingSpec,
-          integrations: {
-            ____label: "Integrations",
-            ____accept: ["jsObject", "jsUndefined"]
-          }
+          renderData: factoryRequest.renderDataBindingSpec
         },
         bodyFunction: function bodyFunction(renderRequest_) {
           var boundReactComponent = React.createElement(factoryRequest.reactComponent, {
@@ -215,9 +96,8 @@ var factoryResponse = arccore.filter.create({
             // This is what is routed an what should be rendered primarily
             document: renderRequest_.reactContext.document,
             // The unmodified document context of the request (renderData may be subset, or completely unrelated)
-            appStateContext: renderRequest_.reactContext.appStateContext,
-            // appStateContext process singleton defined by the application
-            integrations: renderRequest_.integrations
+            appStateContext: renderRequest_.reactContext.appStateContext // appStateContext process singleton defined by the application
+
           });
           return {
             error: null,
@@ -236,11 +116,7 @@ var factoryResponse = arccore.filter.create({
         break;
       }
 
-      response.result = innerFactoryResponse.result; // Attach the appDataReaderBindingNodes array to the filter object for post-processing.
-
-      response.result.dependencies = {
-        declarations: factoryRequest_.dependencies
-      };
+      response.result = innerFactoryResponse.result;
       break;
     }
 
@@ -254,9 +130,6 @@ var factoryResponse = arccore.filter.create({
     ____label: "View Content Router Filter",
     ____description: "A filter that accepts a specific request message type and returns the encapsulated React component bound to the incoming message.",
     ____types: "jsObject",
-    dependencies: {
-      ____accept: "jsObject"
-    },
     filterDescriptor: {
       ____accept: "jsObject"
     },

@@ -7,9 +7,8 @@
 // React component data binding filters.
 var arccore = require("@encapsule/arccore");
 
-var ComponentRouterSubfactory = require("./ComponentRouter.jsx");
+var ComponentRouterSubfactory = require("./ComponentRouter.jsx"); // const appDataStoreIntegrationsProcessor = require("../../data/app-data-store-integrations-processor");
 
-var appDataStoreIntegrationsProcessor = require("../../data/app-data-store-integrations-processor");
 
 var factoryResponse = arccore.filter.create({
   operationID: "Jo7GwCreQNaZp11l52Uciw",
@@ -31,9 +30,6 @@ var factoryResponse = arccore.filter.create({
           ____label: "Data View Binding Filter",
           ____description: "A data view binding filter.",
           ____types: "jsObject",
-          dependencies: {
-            ____accept: "jsObject"
-          },
           filterDescriptor: {
             ____accept: "jsObject"
           },
@@ -70,22 +66,8 @@ var factoryResponse = arccore.filter.create({
       if (dataViewBindingFilters.length < 2) {
         errors.push("Internal error: Less than two input filters?");
         break;
-      } // Process the list of the React component data binding filters presented by the application.
+      } // Create an ARCcore.discriminator filter that routes its request to 1:N possible target filters.
 
-
-      var innerResponse = appDataStoreIntegrationsProcessor.request({
-        dataViewBindingFilterSet: dataViewBindingFilters,
-        appStateContext: request_.appStateContext
-      });
-
-      if (innerResponse.error) {
-        errors.unshift(innerResponse.error);
-        break;
-      }
-
-      var appDataStoreIntegrationsDigraph = innerResponse.result; // Save the app data store integration digraph model in appStateContext.
-
-      request_.appStateContext.appDataStoreIntegrationsDigraph = appDataStoreIntegrationsDigraph; // Create an ARCcore.discriminator filter that routes its request to 1:N possible target filters.
 
       var innerFactoryResponse = arccore.discriminator.create({
         options: {
