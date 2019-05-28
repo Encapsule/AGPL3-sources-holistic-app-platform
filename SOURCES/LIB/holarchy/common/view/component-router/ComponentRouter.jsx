@@ -100,9 +100,6 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                     //////////////////////////////////////////////////////////////////////////
                     // DISPATCH: Call the React component data binding filter to generate an instance of its encapsulated React component that is bound to this input data.
 
-                    if (targetViewBindingFilter.dependencies.integrations)
-                        routingDataContext.integrations = targetViewBindingFilter.dependencies.integrations;
-
                     var targetFilterResponse = targetViewBindingFilter.request(routingDataContext);
 
                     if (!targetFilterResponse.error)
@@ -114,8 +111,9 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                         // operations as possible. This means that the selected filter is selected because all the others
                         // will definitely reject this request. And, as it turns out it doesn't much like this request.
                         error = targetFilterResponse.error;
-                } else
+                } else {
                     error = discriminatorResponse.error;
+                }
 
                 //////////////////////////////////////////////////////////////////////////
                 // ERROR: The input data does not have an acceptable namespace:type format.
