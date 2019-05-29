@@ -40,7 +40,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 ____label: "Page Debug Extenion Point (EP)",
                 ____description: "The contents of this namespace is created dynamically via <ComponentRouter/>.",
                 ____accept: "jsArray",
-                ____defaultValue: [ { HolisticClientErrorPanel: {} }, { HolisticClientDebugPanel: {} }, { PageWidget_ASC: {} } ]
+                ____defaultValue: []
             }
         }, // HolisticPageView
         styles: {

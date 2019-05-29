@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.14 "olecoulee"
 
 ```
-Package: @encapsule/holarchy v0.0.14 "olecoulee" build ID "xV3c9hrvTEWDGLrhyr1NiQ"
-Sources: Encapsule/holistic#e2de3d089a5ef28fbde2bd94716fa2d1b903416e
+Package: @encapsule/holarchy v0.0.14 "olecoulee" build ID "ELeJmVU6QOyK16WCCpzYGg"
+Sources: Encapsule/holistic#0e2ef2bcfd416110c9169c97f6b1e2833e55eb3a
 Purpose: library (Node.js)
-Created: 2019-05-28T19:48:33.000Z
+Created: 2019-05-29T21:20:14.000Z
 License: MIT
 ```
 
