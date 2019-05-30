@@ -192,6 +192,12 @@ if (filterResponse.error) {
     process.exit(1);
 }
 var applicationPackageManifest = filterResponse.result.resource; // ... as specified by developer(s) and this script.
+
+if (applicationPackageManifest.name === "holistic") {
+    console.error("ERROR: INVALID APPLICATION REPOSITORY DIRECTORY!");
+    process.exit(1);
+}
+
 // Filter the package map.
 filterResponse = packageMapFilter.request(applicationPackageManifest.devDependencies);
 if (filterResponse.error) {
