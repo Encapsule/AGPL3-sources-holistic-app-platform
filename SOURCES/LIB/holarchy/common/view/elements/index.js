@@ -9,7 +9,7 @@ const dataRoutableComponents = [
     require("./component/RUXBase_PageContent_HttpServerError.jsx"),
     require("./component/HolisticMarkdownContent.jsx"),
     require("./component/HolisticEmptyPlaceholder.jsx"),
-    require("./component/RUXBase_PagePanel_ReactDebug.jsx")
+    require("./component/HolisticDebugReactComponentProps.jsx")
 
     //    require("./component/RUXBase_PageHeader.jsx"),
     //    require("./component/RUXBase_PageContent.jsx"),
