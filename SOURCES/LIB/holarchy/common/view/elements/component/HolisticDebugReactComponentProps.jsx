@@ -49,17 +49,17 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
 
             if (!this.state.showDetails) {
                 content.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.closed.container}>
-                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.closed.icon} onClick={this.onClickToggleDetails} title="Show React JSON..."/>
+                             <img src='/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.closed.icon} onClick={this.onClickToggleDetails} title="Show React JSON..."/>
                              </div>);
             } else {
                 content.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.closed.container}>
-                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.closed.iconDisabled} onClick={this.onClickToggleDetails} title="Hide React JSON..."/>
+                             <img src='/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.closed.iconDisabled} onClick={this.onClickToggleDetails} title="Hide React JSON..."/>
                              </div>);
 
                 var details = [];
 
                 details.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.open.hideDetails} onClick={this.onClickToggleDetails} title="Hide React JSON...">
-                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.open.icon}/>
+                             <img src='/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.open.icon}/>
                              In-Page React Data Viewer :: {metadata.page.name}</div>);
 
                 details.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.open.guidance}>
@@ -90,7 +90,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                              </h3>);
 
                 if (this.state.showMetadataStore)
-                    details.push(<pre key={makeKey()} style={theme.classPRE}>this.props.appStateContext.appMetadataStore === '{this.props.appStateContext.appMetadataStore.stringify(undefined, 4)}</pre>);
+                    details.push(<pre key={makeKey()} style={theme.classPRE}>this.props.appStateContext.appMetadataStore === '{this.props.appStateContext.appMetadataStore.stringify(undefined, 4)}'</pre>);
 
                 details.push(<h3 key={makeKey()} onClick={function() { self.onClickToggleDetailsSection('showAppStateController'); }} style={{cursor:'pointer'}}>
                              {(this.state.showAppStateController?'-':'+')}
