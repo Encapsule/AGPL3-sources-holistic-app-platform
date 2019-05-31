@@ -91,7 +91,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             key: makeKey(),
             style: theme.base.PagePanel_ReactDebug.closed.container
           }, React.createElement("img", {
-            src: "/advertise/rainier/images/react-logo.svg",
+            src: "/images/react-logo.svg",
             style: theme.base.PagePanel_ReactDebug.closed.icon,
             onClick: this.onClickToggleDetails,
             title: "Show React JSON..."
@@ -101,7 +101,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             key: makeKey(),
             style: theme.base.PagePanel_ReactDebug.closed.container
           }, React.createElement("img", {
-            src: "/advertise/rainier/images/react-logo.svg",
+            src: "/images/react-logo.svg",
             style: theme.base.PagePanel_ReactDebug.closed.iconDisabled,
             onClick: this.onClickToggleDetails,
             title: "Hide React JSON..."
@@ -113,7 +113,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             onClick: this.onClickToggleDetails,
             title: "Hide React JSON..."
           }, React.createElement("img", {
-            src: "/advertise/rainier/images/react-logo.svg",
+            src: "/images/react-logo.svg",
             style: theme.base.PagePanel_ReactDebug.open.icon
           }), "In-Page React Data Viewer :: ", metadata.page.name));
           details.push(React.createElement("div", {
@@ -161,7 +161,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
           if (this.state.showMetadataStore) details.push(React.createElement("pre", {
             key: makeKey(),
             style: theme.classPRE
-          }, "this.props.appStateContext.appMetadataStore === '", this.props.appStateContext.appMetadataStore.stringify(undefined, 4)));
+          }, "this.props.appStateContext.appMetadataStore === '", this.props.appStateContext.appMetadataStore.stringify(undefined, 4), "'"));
           details.push(React.createElement("h3", {
             key: makeKey(),
             onClick: function onClick() {

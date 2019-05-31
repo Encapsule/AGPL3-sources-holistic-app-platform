@@ -441,7 +441,7 @@ module.exports = {
           position: "fixed",
           right: "4px",
           top: "92px",
-          zIndex: 500
+          zIndex: 701
         },
         icon: {
           cursor: "zoom-in",
@@ -471,15 +471,14 @@ module.exports = {
           border: "1px solid #CCC",
           borderRadius: "0.5em",
           backgroundColor: "#F7F7F7",
-          boxShadow: "1px 1px 1px 1px rgba(0,0,0,0.2)",
-          margin: "1em",
+          margin: "0.5em",
           padding: "1em",
-          zIndex: 0
+          zIndex: 700,
+          position: "relative"
         },
         guidance: {
           fontWeight: "normal",
-          fontSize: "8pt",
-          zIndex: 0
+          fontSize: "8pt"
         },
         hideDetails: {
           fontFamily: "Play, Arial, Helevetica",
@@ -490,8 +489,8 @@ module.exports = {
           paddingBottom: "0.25em",
           paddingLeft: "0.25em",
           paddingTop: "0.5em",
-          borderBottom: "2px solid #939",
-          backgroundColor: "#FED",
+          backgroundColor: "rgba(0,0,0,0.02)",
+          borderRadius: "0.25em",
           marginBottom: "0.5em",
           display: "flex",
           flexDirection: "row",
