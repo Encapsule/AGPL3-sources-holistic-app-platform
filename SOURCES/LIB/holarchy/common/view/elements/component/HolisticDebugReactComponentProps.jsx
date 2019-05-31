@@ -6,68 +6,63 @@ const reactComponentBindingFilterFactory = require('../binding-factory');
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
 
-    id: "6q1nwXxaSWa6lCp1wCAB3Q",
-    name: "RUXBase_PagePanel_ReactDebug",
-    description: "<RUXBase_PagePanel_ReactDebug/> React Component Binding",
+    id: "Zp6gd5TLRWm-a-2kb3qu2w",
+    name: "HolisticDebugReactComponentProps",
+    description: "<HolisticDebugReactComponentProps/> allows developers to view raw this.props data.",
     renderDataBindingSpec: {
     ____types: "jsObject",
-        RUXBase_PagePanel_ReactDebug: {
-            ____types: "jsObject",
-            options: {
-                ____accept: "jsObject",
-                ____defaultValue: {}
-            }
-        }
+        HolisticDebugReactComponentProps: { ____accept: "jsObject" }
     },
-    reactComponent: React.createClass({
-        displayName: "RUXBase_PagePanel_ReactDebug",
+    reactComponent: class HolisticDebugReactComponentProps extends React.Component {
 
-        getInitialState: function() {
-            return ({
+        constructor(props_) {
+            super(props_);
+            this.state = {
                 showDetails: false,
                 showDocumentData: false,
                 showAppDataStore: false,
                 showAppStateController: false,
                 showMetadataStore: false
-            });
-        },
+            };
+            this.onClickToggleDetails = this.onClickToggleDetails.bind(this);
+            this.onClikcToggleDetailsSection = this.onClickToggleDetailsSection.bind(this);
+        }
 
-        onClickToggleDetails: function() {
+        onClickToggleDetails() {
             this.setState({ showDetails: !this.state.showDetails });
-        },
+        }
 
-        onClickToggleDetailsSection: function(sectionName) {
+        onClickToggleDetailsSection(sectionName) {
             var state = this.state;
             state[sectionName] = !state[sectionName];
             this.setState(state);
-        },
+        }
 
-        render: function() {
+        render() {
             var self = this;
-            var ComponentRouter = this.props.appStateContext.reactComponentRouter;
+            var ComponentRouter = this.props.appStateContext.ComponentRouter;
             const metadata = this.props.document.metadata;
             const theme = metadata.site.theme;
-            const renderData = this.props.renderData['RUXBase_PageContent_Error'];
             var keyIndex = 0;
-            function makeKey() { return ("RUXBase_PagePanel_ReactDebug" + keyIndex++); }
+            function makeKey() { return ("HolisticDebugReactComponentProps" + keyIndex++); }
             var content = [];
 
             if (!this.state.showDetails) {
-                content.push(<div key={makeKey()} style={theme.base.RUXBase_PagePanel_ReactDebug.closed.container}>
-                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.RUXBase_PagePanel_ReactDebug.closed.icon} onClick={this.onClickToggleDetails} title="Show React JSON..."/>
+                content.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.closed.container}>
+                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.closed.icon} onClick={this.onClickToggleDetails} title="Show React JSON..."/>
                              </div>);
             } else {
-                content.push(<div key={makeKey()} style={theme.base.RUXBase_PagePanel_ReactDebug.closed.container}>
-                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.RUXBase_PagePanel_ReactDebug.closed.iconDisabled} onClick={this.onClickToggleDetails} title="Hide React JSON..."/>
+                content.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.closed.container}>
+                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.closed.iconDisabled} onClick={this.onClickToggleDetails} title="Hide React JSON..."/>
                              </div>);
 
                 var details = [];
 
-                details.push(<div key={makeKey()} style={theme.base.RUXBase_PagePanel_ReactDebug.open.hideDetails} onClick={this.onClickToggleDetails} title="Hide React JSON...">
-                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.RUXBase_PagePanel_ReactDebug.open.icon}/>
+                details.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.open.hideDetails} onClick={this.onClickToggleDetails} title="Hide React JSON...">
+                             <img src='/advertise/rainier/images/react-logo.svg' style={theme.base.PagePanel_ReactDebug.open.icon}/>
                              In-Page React Data Viewer :: {metadata.page.name}</div>);
 
-                details.push(<div key={makeKey()} style={theme.base.RUXBase_PagePanel_ReactDebug.open.guidance}>
+                details.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.open.guidance}>
                              <p>To debug a rendering issue with a specific React component, set a breakpoint in its render method (or possibly lifecycle method(s)). Step through your view rendering logic to find errors handling input(s). Check your subcomponent delegations and specific values passed.</p>
                              <p>To debug page-level layout rendering problems, set a breakpoint in the render method of <strong>&lt;ComponentRouter/&gt;</strong>. Inspect the React component selected and specific data value(s) bound to the selected component before the call is delegated.</p>
                              </div>);
@@ -105,13 +100,13 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 if (this.state.showAppStateController)
                     details.push(<pre key={makeKey()} style={theme.classPRE}>this.props.appStateContext.appStateController === '{JSON.stringify(this.props.appStateContext.appStateController, undefined, 4)}</pre>);
 
-                content.push(<div key={makeKey()} style={theme.base.RUXBase_PagePanel_ReactDebug.open.container}>{details}</div>);
+                content.push(<div key={makeKey()} style={theme.base.PagePanel_ReactDebug.open.container}>{details}</div>);
 
             }
 
             return (<div>{content}</div>);
         }
-    })
+    }
 });
 if (factoryResponse.error)
     throw new Error(factoryResponse.error);

@@ -499,7 +499,6 @@ if (filterResponse.error) {
 }
 console.log("> Write '" + resourceFilePaths.application.projectBuildToolGenerateRuntimeManifest + "'.");
 
-
 ////
 // Create application Makefile
 docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "Makefile-template.hbs"));
@@ -523,8 +522,6 @@ makeDirectory(resourceFilePaths.application.appClientSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appClientSourcesDir, ".gitkeep"));
 makeDirectory(resourceFilePaths.application.appServerSourcesDir);
 touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep"));
-
-
 
 // Execute a yarn install --check-files in the application repo
 // in order to install any new dependencies, re-install removed

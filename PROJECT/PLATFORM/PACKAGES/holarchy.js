@@ -15,6 +15,9 @@ module.exports = {
             "@encapsule/arccore": arccore.__meta.version,
             "@encapsule/holism": holistic.version,
             "@encapsule/hrequest": holistic.version
+        },
+        bin: {
+            copy_resources: "./copy_holarchy_resources.js"
         }
     },
     packageReadme: {

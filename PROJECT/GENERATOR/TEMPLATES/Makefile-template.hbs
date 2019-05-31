@@ -95,7 +95,7 @@ application: configure
 #	PHASE3 - create application image
 	mkdir -p $(DIR_BUILD_PHASE3)
 	cp -r $(DIR_BUILD_PHASE2)/* $(DIR_BUILD_PHASE3)/
-	cp -r $(DIR_SOURCES_ASSETS)	$(DIR_BUILD_PHASE3)/
+	cp -r $(DIR_SOURCES_ASSETS) $(DIR_BUILD_PHASE3)/
 	cp $(DIR_BUILD_PHASE1)/app-build.json $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_BUILD_PHASE1)/COMMON $(DIR_BUILD_PHASE3)/
 	cp -r $(DIR_BUILD_PHASE1)/SERVER $(DIR_BUILD_PHASE3)/

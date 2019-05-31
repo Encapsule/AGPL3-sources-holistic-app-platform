@@ -10,7 +10,10 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
             install: "# Installation complete.",
             build: "make application",
             start: "node ./BUILD/runtime-phase3/SERVER/server.js",
-            clean: "make clean"
+            clean: "make clean",
+            server: "yarn build && yarn start",
+            "debug-server": "yarn build && node --inspect-brk ./BUILD/runtime-phase3/SERVER/server.js",
+
         }
     },
 
