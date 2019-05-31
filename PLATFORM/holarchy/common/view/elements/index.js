@@ -3,7 +3,7 @@
 // sources/common/view/elements/index.js
 //
 // Export the UX base libraries _common_ (i.e. agnostic to client/server render) data view bindings.
-var dataRoutableComponents = [require("./page/HolisticPageView.jsx"), require("./page/HolismHttpServerErrorPageView.jsx"), require("./component/RUXBase_PageContent_HttpServerError.jsx"), require("./component/HolisticMarkdownContent.jsx"), require("./component/HolisticEmptyPlaceholder.jsx"), require("./component/RUXBase_PagePanel_ReactDebug.jsx") //    require("./component/RUXBase_PageHeader.jsx"),
+var dataRoutableComponents = [require("./page/HolisticPageView.jsx"), require("./page/HolismHttpServerErrorPageView.jsx"), require("./component/RUXBase_PageContent_HttpServerError.jsx"), require("./component/HolisticMarkdownContent.jsx"), require("./component/HolisticEmptyPlaceholder.jsx"), require("./component/HolisticDebugReactComponentProps.jsx") //    require("./component/RUXBase_PageHeader.jsx"),
 //    require("./component/RUXBase_PageContent.jsx"),
 //    require("./component/RUXBase_PageContent_AdminStatus.jsx"),
 //    require("./component/RUXBase_PageContent_AppError.jsx"),
