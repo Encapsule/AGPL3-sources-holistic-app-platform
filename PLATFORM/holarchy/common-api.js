@@ -6,7 +6,9 @@
 var appMetadataStoreConstructorFilterFactory = require("./common/metadata/metadata-store-constructor-factory"); // Holistic data store related common data subsystem exports...
 
 
-var appDataStoreConstructorFactory = require("./common/data/app-data-store-constructor-factory"); // React <ComponentRouter/> and related common view subsystem exports...
+var appDataStoreConstructorFactory = require("./common/data/app-data-store-constructor-factory");
+
+var appDataStoreActorFilterFactory = require("./common/data/app-data-store-actor-factory"); // React <ComponentRouter/> and related common view subsystem exports...
 
 
 var reactComponentBindingFilterFactory = require("./common/view/component-router/react-component-binding-filter-factory");
@@ -25,6 +27,9 @@ module.exports = {
   ApplicationMetadataStore: {
     // Creates an application-specific application metadata store constructor filter.
     makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
+  },
+  ApplicationDataActor: {
+    makeInstance: appDataStoreActorFilterFactory
   },
   // Data-Driven React Router (D2R2)
   DataDrivenReactRouter: {

@@ -7,6 +7,8 @@ const appMetadataStoreConstructorFilterFactory = require("./common/metadata/meta
 // Holistic data store related common data subsystem exports...
 const appDataStoreConstructorFactory = require("./common/data/app-data-store-constructor-factory");
 
+const appDataStoreActorFilterFactory = require("./common/data/app-data-store-actor-factory");
+
 // React <ComponentRouter/> and related common view subsystem exports...
 const reactComponentBindingFilterFactory = require("./common/view/component-router/react-component-binding-filter-factory");
 const reactComponentRouterFactory = require("./common/view/component-router/react-component-router-factory");
@@ -25,8 +27,13 @@ module.exports = {
         makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
     },
 
+    ApplicationDataActor: {
+        makeInstance: appDataStoreActorFilterFactory
+    },
+
     // Data-Driven React Router (D2R2)
     DataDrivenReactRouter: {
+
         // Data-Routable Component (DRC)
         DataRoutableComponent: {
             // Creates a filter that associates a developer-defined filter specification with a Facebook/React component.

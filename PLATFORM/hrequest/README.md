@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.14 "olecoulee"
 
 ```
-Package: @encapsule/hrequest v0.0.14 "olecoulee" build ID "xJqOE4wCQ2iAZqykvM57Lg"
-Sources: Encapsule/holistic#a37e9d4babae942a48ce0b7fa0fe4eae5f2a6891
+Package: @encapsule/hrequest v0.0.14 "olecoulee" build ID "O4UWqgpMTe2rRFI93bu6jw"
+Sources: Encapsule/holistic#ebb3703ea091729b759008639746e35bb14a663e
 Purpose: library (Node.js)
-Created: 2019-05-31T23:45:17.000Z
+Created: 2019-06-03T22:28:54.000Z
 License: MIT
 ```
 
