@@ -19,7 +19,6 @@ var factoryResponse = arccore.filter.create({
             ____label: "Runtime Context",
             ____description: "A descriptor object containing references to the application's data stores.",
             ____types: "jsObject",
-
             appStateContext: {
                 ____label: "App State Context",
                 ____description: "A reference to the application's appStateContext singleton object.",
@@ -163,10 +162,7 @@ var factoryResponse = arccore.filter.create({
             var writeFilterAliasMap = {};
 
             const appStateContext = stateActorFactoryRequest_.runtimeContext.appStateContext;
-            if (!appStateContext) {
-                errors.push("Invalid runtimeContext value. Cannot resolve appStateContext.");
-                break;
-            }
+
             const appDataStoreConstructorFilter = appStateContext.appDataStoreConstructorFilter;
             if (!appDataStoreConstructorFilter) {
                 errors.push("Invalid runtimeContext value. Cannot resolve appDataStoreConstructorFilter.");
