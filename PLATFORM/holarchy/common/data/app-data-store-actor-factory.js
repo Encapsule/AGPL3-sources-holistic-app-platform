@@ -149,12 +149,6 @@ var factoryResponse = arccore.filter.create({
       var readFilterAliasMap = {};
       var writeFilterAliasMap = {};
       var appStateContext = stateActorFactoryRequest_.runtimeContext.appStateContext;
-
-      if (!appStateContext) {
-        errors.push("Invalid runtimeContext value. Cannot resolve appStateContext.");
-        break;
-      }
-
       var appDataStoreConstructorFilter = appStateContext.appDataStoreConstructorFilter;
 
       if (!appDataStoreConstructorFilter) {
