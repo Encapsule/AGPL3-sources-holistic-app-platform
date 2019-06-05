@@ -34,15 +34,15 @@ var factoryResponse = arccore.filter.create({
       var resolvedPathTokens = [];
       var pathTokens = request_.namespacePath.split(".");
 
-      if (pathTokens.length === 1) {
-        // Path specifies the entirety of sourceRef.
-        response.result = request_.sourceRef;
-        break;
-      }
-
       if (pathTokens[0] !== "~") {
         errors.push("Incorrect specification for `namespacePath`. Must be a an ARCcore.filter-style dot-delimited path beginning with ~ indicating");
         errors.push("the anonymous reference `sourceRef`. Invalid path value '" + request_.namespacePath + "'.");
+        break;
+      }
+
+      if (pathTokens.length === 1) {
+        // Path specifies the entirety of sourceRef.
+        response.result = request_.sourceRef;
         break;
       }
 

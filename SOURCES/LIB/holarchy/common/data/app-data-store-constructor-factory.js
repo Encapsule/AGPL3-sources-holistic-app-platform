@@ -27,7 +27,7 @@ var factoryResponse = arccore.filter.create({
             var innerFactoryResponse = arccore.filter.create({
                 operationID: "3aDV_cacQByO0tTzVrBxnA",
                 operationName: "Aplication Data Store Constructor",
-                operationDescription: "Constructs an in-memory data structure used to store application state data at runtime.",
+                operationDescription: "Constructs an in-memory data structure used to store shared application state data at runtime.",
                 inputFilterSpec: appDataStoreSpec
             });
 

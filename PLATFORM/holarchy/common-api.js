@@ -8,7 +8,9 @@ var appMetadataStoreConstructorFilterFactory = require("./common/metadata/metada
 
 var appDataStoreConstructorFactory = require("./common/data/app-data-store-constructor-factory");
 
-var appDataStoreActorFilterFactory = require("./common/data/app-data-store-actor-factory"); // React <ComponentRouter/> and related common view subsystem exports...
+var appDataStoreActorFilterFactory = require("./common/data/app-data-store-actor-factory");
+
+var ApplicationDataStore = require("./common/data/ApplicationDataStore"); // React <ComponentRouter/> and related common view subsystem exports...
 
 
 var reactComponentBindingFilterFactory = require("./common/view/component-router/react-component-binding-filter-factory");
@@ -22,7 +24,8 @@ var sharedComponentStyles = require("./common/view/theme");
 module.exports = {
   ApplicationDataStore: {
     // Creates an application-specific application data store constructor filter.
-    makeInstanceConstructor: appDataStoreConstructorFactory
+    makeInstanceConstructor: appDataStoreConstructorFactory,
+    class: ApplicationDataStore
   },
   ApplicationMetadataStore: {
     // Creates an application-specific application metadata store constructor filter.

@@ -9,6 +9,8 @@ const appDataStoreConstructorFactory = require("./common/data/app-data-store-con
 
 const appDataStoreActorFilterFactory = require("./common/data/app-data-store-actor-factory");
 
+const ApplicationDataStore = require("./common/data/ApplicationDataStore");
+
 // React <ComponentRouter/> and related common view subsystem exports...
 const reactComponentBindingFilterFactory = require("./common/view/component-router/react-component-binding-filter-factory");
 const reactComponentRouterFactory = require("./common/view/component-router/react-component-router-factory");
@@ -19,7 +21,8 @@ module.exports = {
 
     ApplicationDataStore: {
         // Creates an application-specific application data store constructor filter.
-        makeInstanceConstructor: appDataStoreConstructorFactory
+        makeInstanceConstructor: appDataStoreConstructorFactory,
+        class: ApplicationDataStore
     },
 
     ApplicationMetadataStore: {
