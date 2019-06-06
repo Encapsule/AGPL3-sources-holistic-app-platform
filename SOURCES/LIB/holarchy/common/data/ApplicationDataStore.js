@@ -36,45 +36,66 @@ class ApplicationDataStore {
 
         this.accessFilters = { read: {}, write: {} };
 
+        this.toJSON = this.toJSON.bind(this);
         this.readNamespace = this.readNamespace.bind(this);
         this.writeNamespace = this.writeNamespace.bind(this);
 
     } // end constructor
 
 
+    toJSON() {
+        // Only return the data; no other runtime state maintained by this class instance should ever be serialized.
+        return this.storeData;
+    }
+
+    // Returns an arccore.filter-style response descriptor object.
     readNamespace(path_) {
 
-        if (!this.accessFilters.read[path_]) {
-            const operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
-            let response = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this.storeDataSpec });
-            if (response.error) {
-                throw new Error(
-                    [
-                        "Cannot read app data store namespace path '" + path_ + "' because it's not possible to construct a read filter for this namespace.",
-                        response.error
-                    ].join(" ")
-                );
-            } // if error
-            const targetNamespaceSpec = response.result;
-            response = arccore.filter.create({
-                operationID: operationId,
-                operationName: "App Data Read Filter " + operationId,
-                operationDescription: "Performs a filtered read operation on shared app data store namespace '" + path_ + "'.",
-                inputFilterSpec: targetNamespaceSpec
-            });
-            if (response.error) {
-                throw new Error(
-                    [
-                        "Cannot read app data store namespace path '" + path_ + "' because it's not possible to construct a read filter for this namespace.",
-                        response.error
-                    ].join(" ")
-                );
-            } // if error
-            this.accessFilters.read[path_] = response.result;
+        let methodResponse = { error: null, result: undefined };
+        let errors = [];
+        let inBreakScope = false;
+        while (!inBreakScope) {
+            inBreakScope = true;
+
+            // Determine if we have already instantiated a read filter for this namespace.
+            if (!this.accessFilters.read[path_]) {
+                // Cache miss. Create a new read filter for the requested namespace.
+                const operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this.storeDataSpec });
+                if (filterResponse.error) {
+                    errors.push(`Cannot read app data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
+                    errors.push(filterResponse.error);
+                    break;
+                } // if error
+                const targetNamespaceSpec = filterResponse.result;
+                filterResponse = arccore.filter.create({
+                    operationID: operationId,
+                    operationName: `App Data Filter ${operationId}`,
+                    operationDescription: `Validate/normalize data for ADS namespace '${path_}'.`,
+                    outputFilterSpec: targetNamespaceSpec
+                });
+                if (filterResponse.error) {
+                    errors.push(`Cannot read app data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
+                    errors.push(filterResponse.error);
+                    break;
+                } // if error
+                // Cache the newly-created read filter.
+                this.accessFilters.read[path_] = filterResponse.result;
+            } // if read filter doesn't exist
+
+            // const readFilter = this.accessFilters.read[path_];
+
+        } // end while
+
+        if (errors.length) {
+            methodResponse.error = errors.join(" ");
         }
+
+        return methodResponse;
 
     } // readNamespace
 
+    // Returns an arccore.filter-style response descriptor object.
     writeNamespace(path_, value_) {
 
         path_; value_;
