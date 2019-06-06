@@ -57,6 +57,8 @@ function () {
   }, {
     key: "readNamespace",
     value: function readNamespace(path_) {
+      var _this = this;
+
       var methodResponse = {
         error: null,
         result: undefined
@@ -72,7 +74,8 @@ function () {
           var operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
           var filterResponse = getNamespaceInReferenceFromPathFilter.request({
             namespacePath: path_,
-            sourceRef: this.storeDataSpec
+            sourceRef: this.storeDataSpec,
+            parseFilterSpec: true
           });
 
           if (filterResponse.error) {
@@ -85,8 +88,14 @@ function () {
           var targetNamespaceSpec = filterResponse.result;
           filterResponse = arccore.filter.create({
             operationID: operationId,
-            operationName: "App Data Filter ".concat(operationId),
-            operationDescription: "Validate/normalize data for ADS namespace '".concat(path_, "'."),
+            operationName: "App Data Read Filter ".concat(operationId),
+            operationDescription: "Validated/normalized read operations from ADS namespace '".concat(path_, "'."),
+            bodyFunction: function bodyFunction() {
+              return getNamespaceInReferenceFromPathFilter.request({
+                namespacePath: path_,
+                sourceRef: _this.storeData
+              });
+            },
             outputFilterSpec: targetNamespaceSpec
           });
 
@@ -100,8 +109,11 @@ function () {
 
           this.accessFilters.read[path_] = filterResponse.result;
         } // if read filter doesn't exist
-        // const readFilter = this.accessFilters.read[path_];
 
+
+        var readFilter = this.accessFilters.read[path_];
+        methodResponse = readFilter.request();
+        break;
       } // end while
 
 
@@ -116,13 +128,120 @@ function () {
   }, {
     key: "writeNamespace",
     value: function writeNamespace(path_, value_) {
-      path_;
-      value_;
+      var _this2 = this;
+
+      var methodResponse = {
+        error: null,
+        result: undefined
+      };
+      var errors = [];
+      var inBreakScope = false;
+
+      while (!inBreakScope) {
+        inBreakScope = true; // Determine if we have already instantiated a read filter for this namespace.
+
+        if (!this.accessFilters.write[path_]) {
+          var _ret = function () {
+            // Cache miss. Create a new write filter for the requested namespace.
+            var operationId = arccore.identifier.irut.fromReference("write-filter" + path_).result;
+            var pathTokens = path_.split(".");
+
+            if (pathTokens.length < 2) {
+              errors.push("Cannot write to app data store namespace '".concat(path_, "'; invalid attempt to overwrite the entire store."));
+              return "break";
+            } // if invalid write attempt
+
+
+            var parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
+            var targetNamespace = pathTokens[pathTokens.length - 1];
+            var filterResponse = getNamespaceInReferenceFromPathFilter.request({
+              namespacePath: path_,
+              sourceRef: _this2.storeDataSpec,
+              parseFilterSpec: true
+            });
+
+            if (filterResponse.error) {
+              errors.push("Cannot write app data store namespace path '".concat(path_, "' because it is not possible to construct a write filter for this namespace."));
+              errors.push(filterResponse.error);
+              return "break";
+            } // if error
+
+
+            var targetNamespaceSpec = filterResponse.result;
+            filterResponse = arccore.filter.create({
+              operationID: operationId,
+              operationName: "App Data Write Filter ".concat(operationId),
+              operationDescription: "Validated/normalized write to ADS namespace '".concat(path_, "'."),
+              inputFilterSpec: targetNamespaceSpec,
+              bodyFunction: function bodyFunction(request_) {
+                var response = {
+                  error: null,
+                  result: undefined
+                };
+                var errors = [];
+                var inBreakScope = false;
+
+                while (!inBreakScope) {
+                  inBreakScope = true;
+                  var innerResponse = getNamespaceInReferenceFromPathFilter.request({
+                    namespacePath: parentPath,
+                    sourceRef: _this2.storeData
+                  });
+
+                  if (innerResponse.error) {
+                    errors.push("Unable to write to ADS namespace '".concat(path_, "' due to an error reading parent namespace '").concat(parentPath, "'."));
+                    errors.push(innerResponse.error);
+                    break;
+                  }
+
+                  var parentNamespace = innerResponse.result;
+                  parentNamespace[targetNamespace] = request_; // the actual write
+
+                  response.result = request_; // return the validated/normalized data written to the ADS
+
+                  break;
+                }
+
+                if (errors.length) {
+                  response.error = errors.join(" ");
+                }
+
+                return response;
+              }
+            });
+
+            if (filterResponse.error) {
+              errors.push("Cannot write app data store namespace path '".concat(path_, "' because it is not possible to construct a write filter for this namespace."));
+              errors.push(filterResponse.error);
+              return "break";
+            } // if error
+            // Cache the newly-created write filter.
+
+
+            _this2.accessFilters.write[path_] = filterResponse.result;
+          }();
+
+          if (_ret === "break") break;
+        } // if write filter doesn't exist
+
+
+        var writeFilter = this.accessFilters.write[path_];
+        methodResponse = writeFilter.request(value_);
+        break;
+      } // end while
+
+
+      if (errors.length) {
+        methodResponse.error = errors.join(" ");
+      }
+
+      return methodResponse;
     } // writeNamespace
 
   }]);
 
   return ApplicationDataStore;
-}();
+}(); // class ApplicationDataStore
+
 
 module.exports = ApplicationDataStore;
