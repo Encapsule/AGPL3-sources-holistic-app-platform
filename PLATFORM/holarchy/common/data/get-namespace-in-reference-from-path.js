@@ -19,6 +19,12 @@ var factoryResponse = arccore.filter.create({
       ____label: "Source Data Reference",
       ____description: "A reference to the source data in which to locate the specified namespace.",
       ____accept: ["jsNumber", "jsString", "jsBoolean", "jsObject", "jsArray"]
+    },
+    parseFilterSpec: {
+      ____label: "Parse Filter Spec",
+      ____description: "A default-false Boolean flag that indicates if the algorithm should parse sourceRef as a filter specification.",
+      ____accept: "jsBoolean",
+      ____defaultValue: false
     }
   },
   bodyFunction: function bodyFunction(request_) {
@@ -50,6 +56,27 @@ var factoryResponse = arccore.filter.create({
       var sourceRef = request_.sourceRef;
 
       while (pathTokens.length) {
+        var resolveFilterSpecContainerElementDescriptor = false;
+
+        if (sourceRef && request_.parseFilterSpec) {
+          if (sourceRef.____asMap) {
+            resolveFilterSpecContainerElementDescriptor = true;
+          } else {
+            if (sourceRef.____types) {
+              if (Object.prototype.toString.call(sourceRef.____types) === "[object String]") {
+                if (sourceRef.____types === "jsArray") {
+                  resolveFilterSpecContainerElementDescriptor = true;
+                }
+              } else {
+                if (-1 < sourceRef.____types.indexOf("jsArray")) {
+                  resolveFilterSpecContainerElementDescriptor = true;
+                }
+              }
+            }
+          }
+        }
+
+        resolveFilterSpecContainerElementDescriptor;
         var innerResponse = arccore.types.check.inTypeSet({
           types: ["jsObject", "jsArray"],
           value: sourceRef
@@ -60,7 +87,8 @@ var factoryResponse = arccore.filter.create({
           break;
         }
 
-        var isContainerNamespace = innerResponse.result;
+        var isContainerNamespace = innerResponse.result; // null iff not in type set. otherwise jsMoniker string of match.
+
         var token = pathTokens.shift();
 
         if (!isContainerNamespace) {
@@ -74,6 +102,15 @@ var factoryResponse = arccore.filter.create({
           errors.push("Expected namespace '" + resolvedPath + "' to be either an array or object so that we can dereference the next namespace token '" + token + "'.");
           errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" entity type that does not have subnamespaces.");
           break;
+        }
+
+        if (resolveFilterSpecContainerElementDescriptor) {
+          for (var name_ in sourceRef) {
+            if (!name_.startsWith("____")) {
+              token = name_;
+              break;
+            }
+          }
         }
 
         sourceRef = sourceRef[token];
