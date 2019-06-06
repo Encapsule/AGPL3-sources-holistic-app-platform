@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.14 "olecoulee"
 
 ```
-Package: @encapsule/holism v0.0.14 "olecoulee" build ID "QxiioRt1RASB3r_Y_1VbOw"
-Sources: Encapsule/holistic#bc711032d627bbac8d16b845b833b75de3cd4dcd
+Package: @encapsule/holism v0.0.14 "olecoulee" build ID "Ev726BqqTkqEjbmc7tUPmA"
+Sources: Encapsule/holistic#0ba6c8bfa97543ec3e885ebdc5d72410d8cb3a99
 Purpose: library (Node.js)
-Created: 2019-06-06T21:54:01.000Z
+Created: 2019-06-06T22:50:59.000Z
 License: MIT
 ```
 
