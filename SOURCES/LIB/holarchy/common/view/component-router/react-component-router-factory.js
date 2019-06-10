@@ -7,8 +7,6 @@
 const arccore = require("@encapsule/arccore");
 const ComponentRouterSubfactory = require("./ComponentRouter.jsx");
 
-// const appDataStoreIntegrationsProcessor = require("../../data/app-data-store-integrations-processor");
-
 var factoryResponse = arccore.filter.create({
     operationID: "Jo7GwCreQNaZp11l52Uciw",
     operationName: "React Component Router Factory",

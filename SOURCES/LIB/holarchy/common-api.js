@@ -4,14 +4,12 @@
 // Holistic metadata store related common data subsystem exports...
 const appMetadataStoreConstructorFilterFactory = require("./common/metadata/metadata-store-constructor-factory");
 
-// Holistic data store related common data subsystem exports...
-const appDataStoreConstructorFactory = require("./common/data/app-data-store-constructor-factory");
-
-const appDataStoreActorFilterFactory = require("./common/data/app-data-store-actor-factory");
+// const appDataStoreActorFilterFactory = require("./common/data/app-data-store-actor-factory");
 
 const ApplicationDataStore = require("./common/data/ApplicationDataStore");
 
 // React <ComponentRouter/> and related common view subsystem exports...
+
 const reactComponentBindingFilterFactory = require("./common/view/component-router/react-component-binding-filter-factory");
 const reactComponentRouterFactory = require("./common/view/component-router/react-component-router-factory");
 const dataRoutableComponents = require("./common/view/elements");
@@ -21,7 +19,7 @@ module.exports = {
 
     ApplicationDataStore: {
         // Creates an application-specific application data store constructor filter.
-        makeInstanceConstructor: appDataStoreConstructorFactory,
+        // makeInstanceConstructor: appDataStoreConstructorFactory,
         class: ApplicationDataStore
     },
 
@@ -30,9 +28,11 @@ module.exports = {
         makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
     },
 
+    /*
     ApplicationDataActor: {
         makeInstance: appDataStoreActorFilterFactory
     },
+    */
 
     // Data-Driven React Router (D2R2)
     DataDrivenReactRouter: {

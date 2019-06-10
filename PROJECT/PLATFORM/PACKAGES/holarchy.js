@@ -17,7 +17,7 @@ module.exports = {
             "@encapsule/hrequest": holistic.version
         },
         bin: {
-            copy_resources: "./copy_holarchy_resources.js"
+            copy_resources: "./bin/copy_holarchy_resources.js"
         }
     },
     packageReadme: {
