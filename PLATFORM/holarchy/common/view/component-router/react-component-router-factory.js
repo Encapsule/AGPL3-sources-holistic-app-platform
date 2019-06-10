@@ -7,8 +7,7 @@
 // React component data binding filters.
 var arccore = require("@encapsule/arccore");
 
-var ComponentRouterSubfactory = require("./ComponentRouter.jsx"); // const appDataStoreIntegrationsProcessor = require("../../data/app-data-store-integrations-processor");
-
+var ComponentRouterSubfactory = require("./ComponentRouter.jsx");
 
 var factoryResponse = arccore.filter.create({
   operationID: "Jo7GwCreQNaZp11l52Uciw",

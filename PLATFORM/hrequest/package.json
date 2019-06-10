@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.14",
     "codename": "olecoulee",
-    "buildID": "Ev726BqqTkqEjbmc7tUPmA",
-    "buildTime": 1559861459,
-    "buildSource": "0ba6c8bfa97543ec3e885ebdc5d72410d8cb3a99",
+    "buildID": "ZKCEI8jqSe-x9JRODQKHYA",
+    "buildTime": 1560189885,
+    "buildSource": "dd0c943a0303a0f5bd5ec0785d8ba80a1ad21a26",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
