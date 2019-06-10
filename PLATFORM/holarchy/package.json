@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holarchy",
-    "version": "0.0.14",
-    "codename": "olecoulee",
-    "buildID": "ZKCEI8jqSe-x9JRODQKHYA",
-    "buildTime": 1560189885,
-    "buildSource": "dd0c943a0303a0f5bd5ec0785d8ba80a1ad21a26",
+    "version": "0.0.15",
+    "codename": "highwood",
+    "buildID": "csUW-TPwRTiwlvNtMHcwwg",
+    "buildTime": 1560196060,
+    "buildSource": "3c4aa1e6873129ba10bc37d054ce4406a4ba92a9",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
@@ -29,8 +29,8 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.5",
-        "@encapsule/holism": "0.0.14",
-        "@encapsule/hrequest": "0.0.14"
+        "@encapsule/holism": "0.0.15",
+        "@encapsule/hrequest": "0.0.15"
     },
     "bin": {
         "copy_resources": "./bin/copy_holarchy_resources.js"
