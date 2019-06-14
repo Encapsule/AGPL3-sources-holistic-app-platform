@@ -487,5 +487,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Thu Jun 13 2019 17:57:14 GMT-0700 (Pacific Daylight Time)
+Document updated Thu Jun 13 2019 20:21:57 GMT-0700 (Pacific Daylight Time)
 

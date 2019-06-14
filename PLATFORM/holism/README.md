@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.15 "highwood"
 
 ```
-Package: @encapsule/holism v0.0.15 "highwood" build ID "hTnlGP-kSPeDQT3t5uoA4A"
-Sources: Encapsule/holistic#e833139a54ef2c11bb5bcaf9eb5668c2bc671076
+Package: @encapsule/holism v0.0.15 "highwood" build ID "qqScReICTCK_Zh36A2impA"
+Sources: Encapsule/holistic#c117283c714845a3e7ed2a8f50757fea7e8b98b0
 Purpose: library (Node.js)
-Created: 2019-06-14T00:57:13.000Z
+Created: 2019-06-14T03:21:56.000Z
 License: MIT
 ```
 
