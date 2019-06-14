@@ -11,6 +11,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
             build: "make application",
             start: "node ./BUILD/runtime-phase3/SERVER/server.js",
             clean: "make clean",
+            scrub: "make scrub",
+            reset: "make reset",
             server: "yarn build && yarn start",
             "debug-server": "yarn build && node --inspect-brk ./BUILD/runtime-phase3/SERVER/server.js",
 

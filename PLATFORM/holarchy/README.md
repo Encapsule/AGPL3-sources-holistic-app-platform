@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.15 "highwood"
 
 ```
-Package: @encapsule/holarchy v0.0.15 "highwood" build ID "csUW-TPwRTiwlvNtMHcwwg"
-Sources: Encapsule/holistic#3c4aa1e6873129ba10bc37d054ce4406a4ba92a9
+Package: @encapsule/holarchy v0.0.15 "highwood" build ID "hTnlGP-kSPeDQT3t5uoA4A"
+Sources: Encapsule/holistic#e833139a54ef2c11bb5bcaf9eb5668c2bc671076
 Purpose: library (Node.js)
-Created: 2019-06-10T19:47:40.000Z
+Created: 2019-06-14T00:57:13.000Z
 License: MIT
 ```
 

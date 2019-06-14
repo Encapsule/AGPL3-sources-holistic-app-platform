@@ -137,7 +137,7 @@ var factoryResponse = arccore.filter.create({
                     // Deep copy the default user session data for anonymous user.
                     var anonymousUserSessionData = arccore.util.clone(anonymousUserSession);
 
-                    // Initialize the request descriptor used to store request-derived state state.
+                    // Initialize the request descriptor used to store request-derived state.
                     var requestDescriptor = {
                         url_parse: parseUrl,
                         route_method_name: routeMethodName,
