@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism",
-    "version": "0.0.15",
-    "codename": "highwood",
-    "buildID": "BeDniej6SheM-Wap_h-9xQ",
-    "buildTime": 1561146407,
-    "buildSource": "960298cacc624d4062acbaf3a98a879e11ddab26",
+    "version": "0.0.16",
+    "codename": "malmstrom",
+    "buildID": "JkBOHQEgRGWAct2gqXJpvg",
+    "buildTime": 1561155622,
+    "buildSource": "c9fc1b898564b4b9fff2206f06f7c5d9b376edb4",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"

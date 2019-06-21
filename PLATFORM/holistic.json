@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.15",
-    "codename": "highwood",
+    "version": "0.0.16",
+    "codename": "malmstrom",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "BeDniej6SheM-Wap_h-9xQ",
-    "buildSource": "960298cacc624d4062acbaf3a98a879e11ddab26",
-    "buildTime": 1561146407,
-    "buildDateISO": "2019-06-21T19:46:47.000Z"
+    "buildID": "JkBOHQEgRGWAct2gqXJpvg",
+    "buildSource": "c9fc1b898564b4b9fff2206f06f7c5d9b376edb4",
+    "buildTime": 1561155622,
+    "buildDateISO": "2019-06-21T22:20:22.000Z"
 }
