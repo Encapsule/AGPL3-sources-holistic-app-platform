@@ -15,6 +15,7 @@ module.exports = {
         "application/json",
         "application/x-font-ttf",
         "application/x-www-form-urlencoded", // See: https://www.ietf.org/rfc/rfc1867.txt
+        "application/xml", //See RFC2376b https://www.ietf.org/rfc/rfc2376.txt
         "image/gif",
         "image/jpeg",
         "image/png",
@@ -23,6 +24,7 @@ module.exports = {
         "multipart/form-data", // See: https://www.ietf.org/rfc/rfc2388.txt
         "text/css",
         "text/html",
-        "text/plain"
+        "text/plain",
+        "text/xml"
     ]
 };
