@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.15 "highwood"
 
 ```
-Package: @encapsule/hrequest v0.0.15 "highwood" build ID "qqScReICTCK_Zh36A2impA"
-Sources: Encapsule/holistic#c117283c714845a3e7ed2a8f50757fea7e8b98b0
+Package: @encapsule/hrequest v0.0.15 "highwood" build ID "BeDniej6SheM-Wap_h-9xQ"
+Sources: Encapsule/holistic#960298cacc624d4062acbaf3a98a879e11ddab26
 Purpose: library (Node.js)
-Created: 2019-06-14T03:21:56.000Z
+Created: 2019-06-21T19:46:47.000Z
 License: MIT
 ```
 

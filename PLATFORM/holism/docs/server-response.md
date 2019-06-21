@@ -128,6 +128,7 @@ This filter normalizes the value of `input` passed to its `request` method using
                     "application/json",
                     "application/x-font-ttf",
                     "application/x-www-form-urlencoded",
+                    "application/xml",
                     "image/gif",
                     "image/jpeg",
                     "image/png",
@@ -136,7 +137,8 @@ This filter normalizes the value of `input` passed to its `request` method using
                     "multipart/form-data",
                     "text/css",
                     "text/html",
-                    "text/plain"
+                    "text/plain",
+                    "text/xml"
                 ]
             }
         },
@@ -193,8 +195,8 @@ If no error then any value type including [object Undefined] may be assigned to 
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `4YtpbUT-Su-J4DgTdeOBpQ` | `lVQGEyDqaFfB6g_tBy23tA` |
-| input contract | `-HbNag1tUBsOxZuNWijHVw` | `4okq5hHxgiJ3UERSbo84mw` |
+| operation | `4YtpbUT-Su-J4DgTdeOBpQ` | `lYEnEyBPfFfB-drtB1DhtA` |
+| input contract | `-HbNag1tUBsOxZuNWijHVw` | `kJvCPpYl_CfgjHWNKWsebg` |
 | output contract | `1NkIF72Mdf5n3BGw726oPw` | `dHR0dNnZ2dlUVFRUyMjIyA` |
 
 ### Configuration
@@ -210,5 +212,5 @@ Filter classification:  **input processor**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Thu Jun 13 2019 20:21:57 GMT-0700 (Pacific Daylight Time)
+Document updated Fri Jun 21 2019 12:46:52 GMT-0700 (Pacific Daylight Time)
 

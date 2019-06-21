@@ -299,6 +299,7 @@ This filter normalizes the value of `input` passed to its `request` method using
                             "application/json",
                             "application/x-font-ttf",
                             "application/x-www-form-urlencoded",
+                            "application/xml",
                             "image/gif",
                             "image/jpeg",
                             "image/png",
@@ -307,7 +308,8 @@ This filter normalizes the value of `input` passed to its `request` method using
                             "multipart/form-data",
                             "text/css",
                             "text/html",
-                            "text/plain"
+                            "text/plain",
+                            "text/xml"
                         ]
                     }
                 }
@@ -401,6 +403,7 @@ This filter normalizes the value of `input` passed to its `request` method using
                             "application/json",
                             "application/x-font-ttf",
                             "application/x-www-form-urlencoded",
+                            "application/xml",
                             "image/gif",
                             "image/jpeg",
                             "image/png",
@@ -409,7 +412,8 @@ This filter normalizes the value of `input` passed to its `request` method using
                             "multipart/form-data",
                             "text/css",
                             "text/html",
-                            "text/plain"
+                            "text/plain",
+                            "text/xml"
                         ]
                     }
                 }
@@ -470,8 +474,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cf_qBDRJBsKeQ04T3--nlQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `kn4n-uI5MNWtn9O2ob8gdQ` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cTi0BDQyt8KeLn4T371elQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `FV9dSBmKhL_CT5VvyNGc9A` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -487,5 +491,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Thu Jun 13 2019 20:21:57 GMT-0700 (Pacific Daylight Time)
+Document updated Fri Jun 21 2019 12:46:52 GMT-0700 (Pacific Daylight Time)
 
