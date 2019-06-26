@@ -29,6 +29,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@babel/preset-env": "^7.2.3",
         "webpack": "4.29.5",
         "webpack-cli": "3.2.3",
+        "css-loader": "3.0.0",
+        "style-loader": "0.23.1",
         "handlebars": "^4.0.12",
         "handlebars-loader": "^1.7.1",
         // "mocha": "^5.2.0",
