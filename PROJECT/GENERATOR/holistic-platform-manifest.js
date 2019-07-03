@@ -32,7 +32,6 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "css-loader": "3.0.0",
         "style-loader": "0.23.1",
         "handlebars": "^4.0.12",
-        "handlebars-loader": "^1.7.1",
         // "mocha": "^5.2.0",
         // "chai": "^4.2.0",
 
