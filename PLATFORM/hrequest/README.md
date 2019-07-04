@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.16 "malmstrom"
 
 ```
-Package: @encapsule/hrequest v0.0.16 "malmstrom" build ID "4UWW6R4kRpiRfP44qup2VA"
-Sources: Encapsule/holistic#d278a1546b26b96d30a5c0c5451b2a2bffc83705
+Package: @encapsule/hrequest v0.0.16 "malmstrom" build ID "l8_ss9c9S4Ok9-Y80u3hRg"
+Sources: Encapsule/holistic#2cd3a38e3a82a19f81faf0368a6d36079fe7abda
 Purpose: library (Node.js)
-Created: 2019-06-26T22:01:02.000Z
+Created: 2019-07-04T01:25:13.000Z
 License: MIT
 ```
 

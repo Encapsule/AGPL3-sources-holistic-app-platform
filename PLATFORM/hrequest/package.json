@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.16",
     "codename": "malmstrom",
-    "buildID": "4UWW6R4kRpiRfP44qup2VA",
-    "buildTime": 1561586462,
-    "buildSource": "d278a1546b26b96d30a5c0c5451b2a2bffc83705",
+    "buildID": "l8_ss9c9S4Ok9-Y80u3hRg",
+    "buildTime": 1562203513,
+    "buildSource": "2cd3a38e3a82a19f81faf0368a6d36079fe7abda",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
