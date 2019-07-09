@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holism v0.0.16 "malmstrom"
+# @encapsule/holism v0.0.17 "geraldine"
 
 ```
-Package: @encapsule/holism v0.0.16 "malmstrom" build ID "l8_ss9c9S4Ok9-Y80u3hRg"
-Sources: Encapsule/holistic#2cd3a38e3a82a19f81faf0368a6d36079fe7abda
+Package: @encapsule/holism v0.0.17 "geraldine" build ID "jrhPbhzoSYK7l99kCKfkTA"
+Sources: Encapsule/holistic#f0992e4b18094de70b694a8272b2c9b132eb696b
 Purpose: library (Node.js)
-Created: 2019-07-04T01:25:13.000Z
+Created: 2019-07-09T21:39:36.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ Developer API and examples: [Encapsule Project holism documentation](https://enc
 
 The `@encapsule/holism` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holism Package Distribution](https://npmjs.com/package/@encapsule/holism/v/0.0.16) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holism Package Distribution](https://npmjs.com/package/@encapsule/holism/v/0.0.17) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holism git Repository](https://github.com/Encapsule/holism) ([GitHub](https://github.com/Encapsule))
 
 <hr>

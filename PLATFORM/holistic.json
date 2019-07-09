@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.16",
-    "codename": "malmstrom",
+    "version": "0.0.17",
+    "codename": "geraldine",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "l8_ss9c9S4Ok9-Y80u3hRg",
-    "buildSource": "2cd3a38e3a82a19f81faf0368a6d36079fe7abda",
-    "buildTime": 1562203513,
-    "buildDateISO": "2019-07-04T01:25:13.000Z"
+    "buildID": "jrhPbhzoSYK7l99kCKfkTA",
+    "buildSource": "f0992e4b18094de70b694a8272b2c9b132eb696b",
+    "buildTime": 1562708376,
+    "buildDateISO": "2019-07-09T21:39:36.000Z"
 }
