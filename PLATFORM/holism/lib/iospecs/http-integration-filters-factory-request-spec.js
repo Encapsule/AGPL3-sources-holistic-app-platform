@@ -176,8 +176,13 @@ module.exports = {
                         ____description: "Information used to generate response filters passed to the main request filter's request function.",
                         ____types: "jsObject",
                         result_spec: {
-                            ____label: "Async Response Result Filter Spec",
-                            ____description: "Filter specification object defining the format of user session descriptor.",
+                            ____label: "User Session Result (Server)",
+                            ____description: "User session format as returned by the application-specific get_session integration filter.",
+                            ____accept: "jsObject"
+                        },
+                        client_spec: {
+                            ____label: "User Session Result (Client)",
+                            ____description: "User session format used to prune sensitive information from the server user session prior to sharing w/clients of the app server.",
                             ____accept: "jsObject"
                         }
                     }

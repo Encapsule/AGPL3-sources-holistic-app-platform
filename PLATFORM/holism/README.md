@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.17 "geraldine"
 
 ```
-Package: @encapsule/holism v0.0.17 "geraldine" build ID "jrhPbhzoSYK7l99kCKfkTA"
-Sources: Encapsule/holistic#f0992e4b18094de70b694a8272b2c9b132eb696b
+Package: @encapsule/holism v0.0.17 "geraldine" build ID "6hvqnvZjTLmoQMGp75RY_w"
+Sources: Encapsule/holistic#fae94da92a4cc4045d1588783977a44ea7ab71fc
 Purpose: library (Node.js)
-Created: 2019-07-09T21:39:36.000Z
+Created: 2019-07-12T21:14:38.000Z
 License: MIT
 ```
 

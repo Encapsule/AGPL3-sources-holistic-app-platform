@@ -181,8 +181,13 @@ This filter normalizes the value of `input` passed to its `request` method using
                         "____description": "Information used to generate response filters passed to the main request filter's request function.",
                         "____types": "jsObject",
                         "result_spec": {
-                            "____label": "Async Response Result Filter Spec",
-                            "____description": "Filter specification object defining the format of user session descriptor.",
+                            "____label": "User Session Result (Server)",
+                            "____description": "User session format as returned by the application-specific get_session integration filter.",
+                            "____accept": "jsObject"
+                        },
+                        "client_spec": {
+                            "____label": "User Session Result (Client)",
+                            "____description": "User session format used to prune sensitive information from the server user session prior to sharing w/clients of the app server.",
                             "____accept": "jsObject"
                         }
                     }
@@ -403,8 +408,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `-vrBoPbbRYqzTbV3YdYdug` | `U_gdSX9hkBv_oKz-mGO-8A` |
-| input contract | `KdLaGKcI8t3e3rIyKQrXoQ` | `w1jAPf7mzdkfRKbSGvbiYw` |
+| operation | `-vrBoPbbRYqzTbV3YdYdug` | `U-i4SX9frRv_A57-mNnY8A` |
+| input contract | `KdLaGKcI8t3e3rIyKQrXoQ` | `uUrVQNszhzsfC8JTGEIDDA` |
 | output contract | `-r8Zz6z4xkcwEMNQyOmxSg` | `AhdqVPrLjMnxzT-xtdyOiQ` |
 
 ### Configuration
@@ -420,5 +425,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.5 toolset.<br>
-Document updated Tue Jul 09 2019 14:39:40 GMT-0700 (Pacific Daylight Time)
+Document updated Fri Jul 12 2019 14:14:39 GMT-0700 (Pacific Daylight Time)
 
