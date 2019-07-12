@@ -318,7 +318,7 @@ var factoryResponse = arccore.filter.create({
                             org: request_.integrations.metadata.org.get.outputFilterSpec,
                             site: request_.integrations.metadata.site.get.outputFilterSpec,
                             page: request_.integrations.metadata.page.get.outputFilterSpec,
-                            session: request_.integrations.metadata.session.get_session.response.result_spec
+                            session: request_.integrations.metadata.session.get_session.response.client_spec
                         }
                     },
                     appStateContext: httpIntegrationFiltersFactoryRequestSpec.appStateContext
