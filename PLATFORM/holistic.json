@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.17",
-    "codename": "geraldine",
+    "version": "0.0.18",
+    "codename": "squarebutte",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "6hvqnvZjTLmoQMGp75RY_w",
-    "buildSource": "fae94da92a4cc4045d1588783977a44ea7ab71fc",
-    "buildTime": 1562966078,
-    "buildDateISO": "2019-07-12T21:14:38.000Z"
+    "buildID": "l4O7VBteTH2v8zY372fyRg",
+    "buildSource": "67946fa74fb0e5105f7fd07f0c92ebb4d46da254",
+    "buildTime": 1564504733,
+    "buildDateISO": "2019-07-30T16:38:53.000Z"
 }
