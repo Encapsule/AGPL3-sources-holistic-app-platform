@@ -108,7 +108,8 @@ var factoryResponse = arccore.filter.create({
                     ____label: "Site Metadata Request",
                     ____description: "Data passed by an HTTP server filter to obtain data about the website being served by this webserver.",
                     ____types: "jsObject",
-                    appStateContext: httpIntegrationFiltersFactoryRequestSpec.appStateContext
+                    appStateContext: httpIntegrationFiltersFactoryRequestSpec.appStateContext,
+                    session: request_.integrations.metadata.session.get_session.response.client_spec
                 },
                 outputFilterSpec: request_.integrations.metadata.site.get.outputFilterSpec,
                 bodyFunction: request_.integrations.metadata.site.get.bodyFunction

@@ -45,7 +45,7 @@ var factoryResponse = arccore.filter.create({
                 var orgMetadata = integrationResponse.result;
 
                 // Ask the application for a copy of the site's metadata.
-                integrationResponse = integrationFilters.get_site_metadata.request({ appStateContext: appStateContext });
+                integrationResponse = integrationFilters.get_site_metadata.request({ appStateContext: appStateContext, session: request_.request_descriptor.session });
                 if (integrationResponse.error) {
                     errors.unshift(integrationResponse.error);
                     errors.unshift("While attempting to retrieve site metdata from the application.");

@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.18 "squarebutte"
 
 ```
-Package: @encapsule/holarchy v0.0.18 "squarebutte" build ID "l4O7VBteTH2v8zY372fyRg"
-Sources: Encapsule/holistic#67946fa74fb0e5105f7fd07f0c92ebb4d46da254
+Package: @encapsule/holarchy v0.0.18 "squarebutte" build ID "G9pbDkB7T3GRdYVmaz5hbQ"
+Sources: Encapsule/holistic#45cd05cf28d5b966ce399bccc93c6e506da68588
 Purpose: library (Node.js)
-Created: 2019-07-30T16:38:53.000Z
+Created: 2019-09-03T21:59:49.000Z
 License: MIT
 ```
 
