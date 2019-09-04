@@ -1,12 +1,23 @@
 // sources/server/services/service-rainier-data.js
 
+/*
+
+NOTES TO SELF:
+- Convert this module into a service filter factory that accepts an array of data gateway filters
+- Encapsulate the instantiation of the embedded arccore.discriminator instance that affects the message-based routing
+- Export the factory filter required for an application developer to instantiate / export their own data gateway filters that can be passed into the data gateway service filter factory (above).
+
+*/
+
+
+
 const httpServiceFilterFactory = require("@encapsule/holism").service;
 const serviceRainierUxDataRouter = require("./rainier-ux-data/");
 
 var factoryResponse = httpServiceFilterFactory.create({
-    id: "XX0YBFgHToOFWKutfjw2_g",
-    name: "Rainer UX Data Gateway Service",
-    description: "Proceses HTTP GET/POST requests with arbitrary query-encoded parameters and body request data.",
+    id: "5GJ8LaKGShCXySL1OvA2Qw",
+    name: "Data Gateway Service",
+    description: "This service filter implements a generic message-based routing system for AJAX request.",
 
     constraints: {
         request: {
@@ -15,11 +26,13 @@ var factoryResponse = httpServiceFilterFactory.create({
             request_spec: { ____opaque: true },
             options_spec: { ____accept: "jsObject", ____defaultValue: {} }
         }, // request
+
         response: {
             content: { encoding: "utf8", type: "application/json" },
             error_context_spec: { ____opaque: true },
             result_spec: { ____opaque: true }
         } // response
+
     }, // constraints
 
     handlers: {
