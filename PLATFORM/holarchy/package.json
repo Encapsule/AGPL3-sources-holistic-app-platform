@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holarchy",
-    "version": "0.0.18",
-    "codename": "squarebutte",
-    "buildID": "G9pbDkB7T3GRdYVmaz5hbQ",
-    "buildTime": 1567547989,
-    "buildSource": "45cd05cf28d5b966ce399bccc93c6e506da68588",
+    "version": "0.0.19",
+    "codename": "spionkop",
+    "buildID": "v-LP-gvQSUSUPRW_ljQpQQ",
+    "buildTime": 1567616068,
+    "buildSource": "7e67aea559464e175f116c22089bda35d58c96ee",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
@@ -29,8 +29,8 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.5",
-        "@encapsule/holism": "0.0.18",
-        "@encapsule/hrequest": "0.0.18"
+        "@encapsule/holism": "0.0.19",
+        "@encapsule/hrequest": "0.0.19"
     },
     "bin": {
         "copy_resources": "./bin/copy_holarchy_resources.js"

@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.18",
-    "codename": "squarebutte",
+    "version": "0.0.19",
+    "codename": "spionkop",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "G9pbDkB7T3GRdYVmaz5hbQ",
-    "buildSource": "45cd05cf28d5b966ce399bccc93c6e506da68588",
-    "buildTime": 1567547989,
-    "buildDateISO": "2019-09-03T21:59:49.000Z"
+    "buildID": "v-LP-gvQSUSUPRW_ljQpQQ",
+    "buildSource": "7e67aea559464e175f116c22089bda35d58c96ee",
+    "buildTime": 1567616068,
+    "buildDateISO": "2019-09-04T16:54:28.000Z"
 }
