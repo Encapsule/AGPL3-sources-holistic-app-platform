@@ -24,6 +24,11 @@ var factoryResponse = httpServiceFilterFactory.create({
       // accept any or none valid JSON deserialization of the incoming HTTP request body
       options_spec: {
         ____types: "jsObject",
+        ____defaultValue: {
+          router: {
+            registered: false
+          }
+        },
         router: {
           ____label: "Data Gateway Router",
           ____description: "An arccore.discriminator used to route incoming POST messages to an appropriate data gateway filter implementation for processing.",
@@ -61,6 +66,38 @@ var factoryResponse = httpServiceFilterFactory.create({
 
       while (!inBreakScope) {
         inBreakScope = true;
+
+        if (!request_.options.router.registered || request_.options.router.filterDescriptor || request_.options.router.request) {
+          var _response = request_.response_filters.error.request({
+            streams: request_.streams,
+            integrations: request_.integrations,
+            request_descriptor: request_.request_descriptor,
+            error_descriptor: {
+              http: {
+                code: 500
+              },
+              content: {
+                encoding: "utf8",
+                type: "application/json"
+              },
+              data: {
+                error_message: "Developer configuration error processing data gateway request.",
+                error_context: {
+                  error: ["The application server data gateway service is incorrectly configured.", "You need to pass a reference to a pre-constructed data gateway router via registration options."].join(" "),
+                  source_tag: "itObkMeLQaaTn9HAKh7aBg"
+                }
+              }
+            }
+          });
+
+          if (_response.error) {
+            throw new Error(_response.error);
+          }
+
+          break;
+        } // end if
+
+
         var routerResponse = request_.options.router.request({
           gatewayServiceFilterRequest: request_,
           gatewayMessage: request_.request_descriptor.data.body
@@ -68,11 +105,11 @@ var factoryResponse = httpServiceFilterFactory.create({
         console.log(JSON.stringify(routerResponse));
 
         if (routerResponse.error) {
-          request_.response_filters.result.request({
+          var _response2 = request_.response_filters.error.request({
             streams: request_.streams,
             integrations: request_.integrations,
             request_descriptor: request_.request_descriptor,
-            response_descriptor: {
+            error_descriptor: {
               http: {
                 code: 400
               },
@@ -85,11 +122,17 @@ var factoryResponse = httpServiceFilterFactory.create({
                 error_context: {
                   error: routerResponse.error,
                   gatewayMessage: request_.request_descriptor.data.body,
-                  source_tag: "rainier-ux-base::Te6gN6IqQCiY-ffKTBDtug"
+                  source_tag: "NFibKPPVSfuXA9wnhSQN9w"
                 }
               }
             }
           });
+
+          if (_response2.error) {
+            throw new Error(_response2.error);
+          }
+
+          break;
         } // We're done. It's the responsibility of the data gateway filter to complete successfully serviced requests.
         // We just mop up the errors _that may happen on the synchronous portion of the request initiation_.
         // If the data gateway filter itself performs async operations, then it has to communicate these errors

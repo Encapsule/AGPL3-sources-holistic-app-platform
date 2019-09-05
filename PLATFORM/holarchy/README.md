@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.19 "spionkop"
 
 ```
-Package: @encapsule/holarchy v0.0.19 "spionkop" build ID "UaWCDia2TT-1utxboQQMkA"
-Sources: Encapsule/holistic#3428a5d7b921ad6a264cc203d6c7e9cac47affd9
+Package: @encapsule/holarchy v0.0.19 "spionkop" build ID "AxgckqyCSHWAdDIeaojRhw"
+Sources: Encapsule/holistic#2d86a40756bf6082d2df5e7f81f63c16944b48c6
 Purpose: library (Node.js)
-Created: 2019-09-05T16:15:40.000Z
+Created: 2019-09-05T22:21:01.000Z
 License: MIT
 ```
 
