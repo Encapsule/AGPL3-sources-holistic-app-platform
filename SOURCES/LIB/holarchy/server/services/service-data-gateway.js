@@ -12,7 +12,14 @@ var factoryResponse = httpServiceFilterFactory.create({
             content: { encoding: "utf8", type: "application/json" }, // request must be UTF8-encoded JSON content
             query_spec: { ____opaque: true }, // accept any or none URL-encoded query parmaters and pass them through the data gateway
             request_spec: { ____opaque: true }, // accept any or none valid JSON deserialization of the incoming HTTP request body
-            options_spec: { ____accept: "jsObject", ____defaultValue: {} }
+            options_spec: {
+                ____types: "jsObject",
+                router: {
+                    ____label: "Data Gateway Router",
+                    ____description: "An arccore.discriminator used to route incoming POST messages to an appropriate data gateway filter implementation for processing.",
+                    ____accept: "jsObject"
+                }
+            }
         }, // request
 
         response: {
