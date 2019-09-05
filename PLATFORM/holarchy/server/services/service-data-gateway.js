@@ -23,8 +23,12 @@ var factoryResponse = httpServiceFilterFactory.create({
       },
       // accept any or none valid JSON deserialization of the incoming HTTP request body
       options_spec: {
-        ____accept: "jsObject",
-        ____defaultValue: {}
+        ____types: "jsObject",
+        router: {
+          ____label: "Data Gateway Router",
+          ____description: "An arccore.discriminator used to route incoming POST messages to an appropriate data gateway filter implementation for processing.",
+          ____accept: "jsObject"
+        }
       }
     },
     // request
