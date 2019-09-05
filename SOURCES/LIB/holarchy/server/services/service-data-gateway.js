@@ -1,18 +1,6 @@
-// sources/server/services/service-rainier-data.js
-
-/*
-
-NOTES TO SELF:
-- Convert this module into a service filter factory that accepts an array of data gateway filters
-- Encapsulate the instantiation of the embedded arccore.discriminator instance that affects the message-based routing
-- Export the factory filter required for an application developer to instantiate / export their own data gateway filters that can be passed into the data gateway service filter factory (above).
-
-*/
-
-
+// sources/server/services/service-data-gateway.js
 
 const httpServiceFilterFactory = require("@encapsule/holism").service;
-const serviceRainierUxDataRouter = require("./rainier-ux-data/");
 
 var factoryResponse = httpServiceFilterFactory.create({
     id: "5GJ8LaKGShCXySL1OvA2Qw",
@@ -21,16 +9,16 @@ var factoryResponse = httpServiceFilterFactory.create({
 
     constraints: {
         request: {
-            content: { encoding: "utf8", type: "application/json" },
-            query_spec: { ____opaque: true },
-            request_spec: { ____opaque: true },
+            content: { encoding: "utf8", type: "application/json" }, // request must be UTF8-encoded JSON content
+            query_spec: { ____opaque: true }, // accept any or none URL-encoded query parmaters and pass them through the data gateway
+            request_spec: { ____opaque: true }, // accept any or none valid JSON deserialization of the incoming HTTP request body
             options_spec: { ____accept: "jsObject", ____defaultValue: {} }
         }, // request
 
         response: {
-            content: { encoding: "utf8", type: "application/json" },
-            error_context_spec: { ____opaque: true },
-            result_spec: { ____opaque: true }
+            content: { encoding: "utf8", type: "application/json" }, // response is always UTF8-encoded JSON content
+            error_context_spec: { ____opaque: true }, // error specification is defined by individual data gateway filters - not the data gateway service
+            result_spec: { ____opaque: true } // result specification is defined by individual data gateway filters - not the data gateway service
         } // response
 
     }, // constraints
@@ -44,7 +32,7 @@ var factoryResponse = httpServiceFilterFactory.create({
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                var routerResponse = serviceRainierUxDataRouter.request({
+                var routerResponse = request_.options.router.request({
                     gatewayServiceFilterRequest: request_,
                     gatewayMessage: request_.request_descriptor.data.body
                 });

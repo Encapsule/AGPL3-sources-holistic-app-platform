@@ -1,7 +1,20 @@
 // @encapsule/holarchy/server-api.js
 
 module.exports = {
+
     library: {
+
+        data: {
+            gateway: {
+                filter: {
+                    factory: require("./server/services/data-gateway/data-gateway-filter-factory")
+                },
+                router: {
+                    factory: require("./server/services/data-gateway/data-gateway-router-factory")
+                },
+                service: require("./server/services/service-data-gateway") // @encapsule/holism service
+            }
+        },
 
         // Reusable @encapsule/holism service filters that an application can register on their own app server instance.
         // Unless otherwise indicated in comments below, these service filters are pre-built and exported as they
@@ -11,17 +24,20 @@ module.exports = {
         //
 
         services: {
-            HealthCheck : require("./server/services/service-health-check"),
+
+            DataGateway: require("./server/services/service-data-gateway"),
+
+            HealthCheck: require("./server/services/service-health-check"),
             MarkdownFromFilesystem: require("./server/services/service-fs-markdown-render"),
             OptionsAsHtmlContent: require("./server/services/service-options-as-html-content"),
 
-            developer: {
-                AppDataStoreIntegrations: require("./server/services/service-developer-get-app-data-store-integrations"),
-                AppDataStoreFilterSpec: require("./server/services/service-developer-get-app-data-store-filter-spec")
-            }
-        },
+            Developer_AppDataStoreIntegrations: require("./server/services/service-developer-get-app-data-store-integrations"),
+            Developer_AppDataStoreFilterSpec: require("./server/services/service-developer-get-app-data-store-filter-spec")
 
+
+        } // services
 
     }
+
 };
 

@@ -1,26 +1,27 @@
 "use strict";
 
-// sources/server/services/service-rainier-data.js
+// sources/server/services/service-data-gateway.js
 var httpServiceFilterFactory = require("@encapsule/holism").service;
 
-var serviceRainierUxDataRouter = require("./rainier-ux-data/");
-
 var factoryResponse = httpServiceFilterFactory.create({
-  id: "XX0YBFgHToOFWKutfjw2_g",
-  name: "Rainer UX Data Gateway Service",
-  description: "Proceses HTTP GET/POST requests with arbitrary query-encoded parameters and body request data.",
+  id: "5GJ8LaKGShCXySL1OvA2Qw",
+  name: "Data Gateway Service",
+  description: "This service filter implements a generic message-based routing system for AJAX request.",
   constraints: {
     request: {
       content: {
         encoding: "utf8",
         type: "application/json"
       },
+      // request must be UTF8-encoded JSON content
       query_spec: {
         ____opaque: true
       },
+      // accept any or none URL-encoded query parmaters and pass them through the data gateway
       request_spec: {
         ____opaque: true
       },
+      // accept any or none valid JSON deserialization of the incoming HTTP request body
       options_spec: {
         ____accept: "jsObject",
         ____defaultValue: {}
@@ -32,11 +33,14 @@ var factoryResponse = httpServiceFilterFactory.create({
         encoding: "utf8",
         type: "application/json"
       },
+      // response is always UTF8-encoded JSON content
       error_context_spec: {
         ____opaque: true
       },
+      // error specification is defined by individual data gateway filters - not the data gateway service
       result_spec: {
-        ____opaque: true
+        ____opaque: true // result specification is defined by individual data gateway filters - not the data gateway service
+
       } // response
 
     }
@@ -53,7 +57,7 @@ var factoryResponse = httpServiceFilterFactory.create({
 
       while (!inBreakScope) {
         inBreakScope = true;
-        var routerResponse = serviceRainierUxDataRouter.request({
+        var routerResponse = request_.options.router.request({
           gatewayServiceFilterRequest: request_,
           gatewayMessage: request_.request_descriptor.data.body
         });
