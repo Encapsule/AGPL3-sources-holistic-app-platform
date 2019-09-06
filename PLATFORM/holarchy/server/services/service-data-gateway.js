@@ -24,15 +24,12 @@ var factoryResponse = httpServiceFilterFactory.create({
       // accept any or none valid JSON deserialization of the incoming HTTP request body
       options_spec: {
         ____types: "jsObject",
-        ____defaultValue: {
-          router: {
-            registered: false
-          }
-        },
+        ____defaultValue: {},
         router: {
           ____label: "Data Gateway Router",
           ____description: "An arccore.discriminator used to route incoming POST messages to an appropriate data gateway filter implementation for processing.",
-          ____accept: "jsObject"
+          ____accept: ["jsNull", "jsObject"],
+          ____defaultValue: null
         }
       }
     },
@@ -67,7 +64,7 @@ var factoryResponse = httpServiceFilterFactory.create({
       while (!inBreakScope) {
         inBreakScope = true;
 
-        if (!request_.options.router.registered || request_.options.router.filterDescriptor || request_.options.router.request) {
+        if (request_.options.router === null) {
           var _response = request_.response_filters.error.request({
             streams: request_.streams,
             integrations: request_.integrations,
@@ -91,7 +88,8 @@ var factoryResponse = httpServiceFilterFactory.create({
           });
 
           if (_response.error) {
-            throw new Error(_response.error);
+            errors.push("Developer error detected. Unable to compensate.");
+            errors.push(_response.error);
           }
 
           break;
@@ -129,7 +127,8 @@ var factoryResponse = httpServiceFilterFactory.create({
           });
 
           if (_response2.error) {
-            throw new Error(_response2.error);
+            errors.push("The data gateway router is upset.");
+            errors.push(_response2.error);
           }
 
           break;
