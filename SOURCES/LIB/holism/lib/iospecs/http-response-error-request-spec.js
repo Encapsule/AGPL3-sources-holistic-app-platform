@@ -38,4 +38,4 @@ spec.error_descriptor.data = {
 delete spec.request_descriptor.data.body; // We do not need any request data at this level of abstraction.
 
 module.exports = spec;
-            
+
