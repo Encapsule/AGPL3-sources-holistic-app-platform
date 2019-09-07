@@ -136,7 +136,7 @@ var factoryResponse = arccore.filter.create({
                 operationName: serviceFactoryRequest.name,
                 operationDescription: serviceFactoryRequest.description,
                 // This input filter specification defines the format of data passed to
-                // this service filter instance by a hosting HTTP server instance. 
+                // this service filter instance by a hosting HTTP server instance.
                 inputFilterSpec:  httpServiceFilterRequestSpec,
                 outputFilterSpec: {
                     ____opaque: true
@@ -178,7 +178,7 @@ var factoryResponse = arccore.filter.create({
                             serviceFactoryRequest.constraints.request.content.encoding +
                             "::" +
                             serviceFactoryRequest.constraints.request.content.type;
-                        
+
                         var bodyParseFunction = bodyParseFunctionTable[contentEncodingTypeKey];
                         if (!bodyParseFunction) {
                             errors.unshift("Unable to to deserialize request body content. " +

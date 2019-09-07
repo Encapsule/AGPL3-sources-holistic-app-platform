@@ -1,10 +1,8 @@
 "use strict";
 
 // sources/server/services/rainier-ux-data/data-gateway-filter-factory.js
-// This module exports a filter that implements a factory that
-// builds special-purpose filters that receive specific incoming
-// client GET/POST request messages from the Node.js app server's
-// service-rainier-ux-data.js module.
+//
+// This module exports a filter that implements a factory for building data gateway filters.
 var arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
@@ -27,8 +25,28 @@ var factoryResponse = arccore.filter.create({
       ____accept: "jsString"
     },
     gatewayMessageSpec: {
-      ____label: "Data Gateway Message Specification",
+      ____label: "Data Gateway Filter Request Message Specification",
       ____accept: "jsObject"
+    },
+    gatewayResultSpec: {
+      ____label: "Data Gateway Response Result Specification",
+      ____accept: "jsObject",
+      ____defaultValue: {
+        ____accept: "jsObject"
+      }
+    },
+    gatewayErrorContextSpec: {
+      ____label: "Data Gateway Response Error Specification",
+      ____accept: "jsObject",
+      ____defaultValue: {
+        ____types: "jsObject",
+        error_message: {
+          ____accept: "jsString"
+        },
+        source_tag: {
+          ____accept: "jsString"
+        }
+      }
     },
     gatewayMessageHandler: {
       ____label: "Data Gateway Message Handler",
@@ -44,7 +62,9 @@ var factoryResponse = arccore.filter.create({
     var inBreakScope = false;
 
     while (!inBreakScope) {
-      inBreakScope = true;
+      inBreakScope = true; // Create a filter to be used to validate/normalize a non-error result response value.
+      // Create a filter to be used to validate/normalize an error context object 
+
       var innerFactoryResponse = arccore.filter.create({
         operationID: factoryRequest_.id,
         operationName: factoryRequest_.name + " Data Gateway Filter",
@@ -58,7 +78,9 @@ var factoryResponse = arccore.filter.create({
           },
           gatewayMessage: factoryRequest_.gatewayMessageSpec
         },
-        bodyFunction: factoryRequest_.gatewayMessageHandler
+        bodyFunction: function bodyFunction(request_) {
+          return factoryRequest_.gatewayMessageHandler(request_);
+        }
       });
 
       if (innerFactoryResponse.error) {

@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.19 "spionkop"
 
 ```
-Package: @encapsule/holism v0.0.19 "spionkop" build ID "17sssLSSRB6h9iUMgqTTIA"
-Sources: Encapsule/holistic#ae56a0a43cd47c4f642497f3e56bcb0bb914ad3c
+Package: @encapsule/holism v0.0.19 "spionkop" build ID "dd-hV4hxQsaNRwXtG4dsUw"
+Sources: Encapsule/holistic#df95dc409ac4fb9ec256c2f36557b1203b6ce451
 Purpose: library (Node.js)
-Created: 2019-09-06T02:50:53.000Z
+Created: 2019-09-07T01:08:41.000Z
 License: MIT
 ```
 
