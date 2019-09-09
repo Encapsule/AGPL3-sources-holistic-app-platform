@@ -2,9 +2,9 @@
     "name": "@encapsule/holism",
     "version": "0.0.19",
     "codename": "spionkop",
-    "buildID": "dd-hV4hxQsaNRwXtG4dsUw",
-    "buildTime": 1567818521,
-    "buildSource": "df95dc409ac4fb9ec256c2f36557b1203b6ce451",
+    "buildID": "E16X7GzHQx6zuQ3AL2KBYQ",
+    "buildTime": 1568069340,
+    "buildSource": "8fc02f8d3f9be2224d4ad4a59c776b4199e4872b",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"
@@ -34,6 +34,6 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.5"
+        "@encapsule/arccore": "0.1.6"
     }
 }
