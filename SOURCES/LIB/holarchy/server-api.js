@@ -6,12 +6,13 @@ module.exports = {
 
         data: {
             gateway: {
-                filter: {
-                    factory: require("./server/services/data-gateway/data-gateway-filter-factory")
-                },
                 router: {
+                    // Creates a filter that routes a service filter request to 1:N service filters.
                     factory: require("./server/services/data-gateway/data-gateway-router-factory")
                 },
+                // Reusable generic data gateway service that utilizes the application's specialized
+                // service filter router to delegate HTTP request processing to a specific service filter
+                // based on the format of the incoming HTTP request.
                 service: require("./server/services/service-data-gateway") // @encapsule/holism service
             }
         },

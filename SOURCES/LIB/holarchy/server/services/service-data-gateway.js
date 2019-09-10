@@ -71,10 +71,7 @@ var factoryResponse = httpServiceFilterFactory.create({
 
                 } // end if
 
-                var routerResponse = request_.options.router.request({
-                    gatewayServiceFilterRequest: request_,
-                    gatewayMessage: request_.request_descriptor.data.body
-                });
+                var routerResponse = request_.options.router.request(request_);
 
                 console.log(JSON.stringify(routerResponse));
 

@@ -50,7 +50,14 @@ module.exports =  {
         body: {
             ____label: "Request Body",
             ____description: "The body of the request (if any) extracted from the HttpRequest stream by holism, and passed on in serialized form.",
-            ____accept: "jsString"
+            // ____accept: "jsString"
+            ____opaque: true
+        },
+        bodyParsed: {
+            ____label: "Body Parsed Flag",
+            ____description: "Flag set true to indicate that body has been parsed (e.g. deserialized from JSON string).",
+            ____accept: "jsBoolean",
+            ____defaultValue: false
         }
     } // data
 }; // request_descriptor
