@@ -10,6 +10,9 @@ const writeResponseFilter = require("./lib/http-response-write-filter");
 const serializeResponseFilter = require("./lib/http-response-serialize-filter");
 const errorResponseFilter = require("./lib/http-response-error-filter");
 
+const serviceDataGateway = require("./lib/service-data-gateway");
+const dataGatewayRouterFactory = require("./lib/data-gateway-router-factory");
+
 
 module.exports = {
     __meta: {
@@ -24,7 +27,10 @@ module.exports = {
         create: httpServerFilterFactory.request
     },
     service: {
-        create: httpServerServiceFilterFactory.request
+        create: httpServerServiceFilterFactory.request,
+        library: {
+            dataGateway: serviceDataGateway
+        }
     },
     integrations: {
         create: httpServerIntegrationFiltersFactory.request
@@ -33,6 +39,7 @@ module.exports = {
         factories: {
             integrations: httpServerIntegrationFiltersFactory,
             service: httpServerServiceFilterFactory,
+            serviceRouter: dataGatewayRouterFactory,
             server: httpServerFilterFactory
         },
         responders: {

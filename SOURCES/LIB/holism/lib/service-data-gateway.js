@@ -1,8 +1,8 @@
 // sources/server/services/service-data-gateway.js
 
-const httpServiceFilterFactory = require("@encapsule/holism").service;
+const httpServiceFilterFactory = require("./http-service-filter-factory");
 
-var factoryResponse = httpServiceFilterFactory.create({
+var factoryResponse = httpServiceFilterFactory.request({
     id: "5GJ8LaKGShCXySL1OvA2Qw",
     name: "Data Gateway Service",
     description: "This service filter implements a generic message-based routing system for AJAX request.",
