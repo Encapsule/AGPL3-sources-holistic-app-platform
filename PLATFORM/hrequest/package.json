@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.19",
     "codename": "spionkop",
-    "buildID": "A9oJD6pWQo-TpSz_69h-pA",
-    "buildTime": 1568143325,
-    "buildSource": "907778b9ec8924db3fd019609aa257fb061dbec8",
+    "buildID": "yOoNWQFTTVCwtnHGnC1DMQ",
+    "buildTime": 1568149306,
+    "buildSource": "2beaefa1ccd78b9400cc68f990968899e016cfde",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
