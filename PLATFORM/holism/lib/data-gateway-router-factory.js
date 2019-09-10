@@ -62,6 +62,9 @@ var factoryResponse = arccore.filter.create({
                 operationName: "Data Gateway Message Router",
                 operationDescription: `1:N routing to [${ids.join(", ")}]...`,
                 bodyFunction: (request_) => {
+
+                    console.log(`..... ${routerId}::Data Gateway Message Router`);
+
                     // Pass the incoming request into our specialized arccore.discriminator instance.
                     // It will either reject the request message. Or, it will tell us the IRUT identifier
                     // of the target service's inner request processor filter which is responsible for
