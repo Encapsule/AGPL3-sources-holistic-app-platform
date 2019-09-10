@@ -181,11 +181,15 @@ var factoryResponse = arccore.filter.create({
 
                         var bodyParseFunction = bodyParseFunctionTable[contentEncodingTypeKey];
                         if (!bodyParseFunction) {
-                            errors.unshift("Unable to to deserialize request body content. " +
-                                           "Unrecognized content encoding/type '" + contentEncodingTypeKey + "'");
+                            errors.unshift(`Unable to to deserialize request body content. Unrecognized content encoding/type '${contentEncodingTypeKey}'.`);
                             break;
                         }
-                        bodyParseFunction();
+
+                        // This is a little hack to make it possible to call a service from within a service.
+                        if (!request_.request_descriptor.data.bodyParsed) {
+                            bodyParseFunction();
+                            request_.request_descriptor.data.bodyParsed = true;
+                        }
 
                         // Delegate further processing to the inner request processor filter.
                         var requestProcessorResponse = innerRequestFilter.request(request_);

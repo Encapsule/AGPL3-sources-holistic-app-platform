@@ -92,6 +92,12 @@ This filter normalizes the value of `input` passed to its `request` method using
                     "jsUndefined",
                     "jsObject"
                 ]
+            },
+            "bodyParsed": {
+                "____label": "Body Parsed Flag",
+                "____description": "Flag set true to indicate that body has been parsed (e.g. deserialized from JSON string).",
+                "____accept": "jsBoolean",
+                "____defaultValue": false
             }
         }
     },
@@ -399,8 +405,8 @@ If no error then any value type including [object Undefined] may be assigned to 
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `XoyKovKcQ-i-Pwy5PSrn1Q` | `bcPgE7fk4FcWWsbtIUb8tA` |
-| input contract | `vj6tQBAdHQrK_H5Em3nhgw` | `EsrSKdBOwn4y6BqSdoth7A` |
+| operation | `XoyKovKcQ-i-Pwy5PSrn1Q` | `bRDsE7d6dlcWRkLtIdLrtA` |
+| input contract | `vj6tQBAdHQrK_H5Em3nhgw` | `SJ6xBzRDPjPLqMlqrYca8g` |
 | output contract | `1LI8w603xnaTfXNizPRo1A` | `dHR0dNnZ2dlUVFRUyMjIyA` |
 
 ### Configuration
@@ -416,5 +422,5 @@ Filter classification:  **input processor**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.6 toolset.<br>
-Document updated Mon Sep 09 2019 15:49:01 GMT-0700 (Pacific Daylight Time)
+Document updated Tue Sep 10 2019 12:22:06 GMT-0700 (Pacific Daylight Time)
 
