@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.19",
-    "codename": "spionkop",
+    "version": "0.0.20",
+    "codename": "shonkin",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "xLTSML8OSMiEIChJ6air5g",
-    "buildSource": "e5e539409ab4c3bb3dcb716225b619c385d326e4",
-    "buildTime": 1568150292,
-    "buildDateISO": "2019-09-10T21:18:12.000Z"
+    "buildID": "-GvnruNfT_GBcv8ihDbcng",
+    "buildSource": "6f8981df23ad9075844819ba6d1fdcbc1517c848",
+    "buildTime": 1568240789,
+    "buildDateISO": "2019-09-11T22:26:29.000Z"
 }

@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/hrequest v0.0.19 "spionkop"
+# @encapsule/hrequest v0.0.20 "shonkin"
 
 ```
-Package: @encapsule/hrequest v0.0.19 "spionkop" build ID "xLTSML8OSMiEIChJ6air5g"
-Sources: Encapsule/holistic#e5e539409ab4c3bb3dcb716225b619c385d326e4
+Package: @encapsule/hrequest v0.0.20 "shonkin" build ID "-GvnruNfT_GBcv8ihDbcng"
+Sources: Encapsule/holistic#6f8981df23ad9075844819ba6d1fdcbc1517c848
 Purpose: library (Node.js)
-Created: 2019-09-10T21:18:12.000Z
+Created: 2019-09-11T22:26:29.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ Developer API and examples: [Encapsule Project hrequest documentation](https://e
 
 The `@encapsule/hrequest` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.19) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.20) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/hrequest git Repository](https://github.com/Encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
 
 <hr>

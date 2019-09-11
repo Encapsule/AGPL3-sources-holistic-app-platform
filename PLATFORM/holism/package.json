@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism",
-    "version": "0.0.19",
-    "codename": "spionkop",
-    "buildID": "xLTSML8OSMiEIChJ6air5g",
-    "buildTime": 1568150292,
-    "buildSource": "e5e539409ab4c3bb3dcb716225b619c385d326e4",
+    "version": "0.0.20",
+    "codename": "shonkin",
+    "buildID": "-GvnruNfT_GBcv8ihDbcng",
+    "buildTime": 1568240789,
+    "buildSource": "6f8981df23ad9075844819ba6d1fdcbc1517c848",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"
