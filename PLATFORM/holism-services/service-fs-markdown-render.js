@@ -4,7 +4,7 @@ const arccore = require("@encapsule/arccore");
 const fs = require("fs");
 const httpServiceFilterFactory = require("@encapsule/holism").service;
 
-const packageMeta = require("../../package");
+const packageMeta = require("./package");
 
 // NOT USED? var etagCache = {};
 

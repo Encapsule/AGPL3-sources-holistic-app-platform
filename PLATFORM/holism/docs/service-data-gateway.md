@@ -1,8 +1,8 @@
 # Filter Object README
 
-## [XoyKovKcQ-i-Pwy5PSrn1Q::HTTP Error Responder]
+## [5GJ8LaKGShCXySL1OvA2Qw::Data Gateway Service]
 
-**Sends a normalized error response to a remote HTTP client.**
+**This service filter implements a generic message-based routing system for AJAX request.**
 
 ### Operation
 
@@ -22,8 +22,8 @@ This filter normalizes the value of `input` passed to its `request` method using
 
 ```JavaScript
 {
-    "____label": "HTTP Error Response Request",
-    "____description": "Specifies the format of an error response request.",
+    "____label": "Plugin Service Request",
+    "____description": "Runtime service request descriptor object passed by HTTP server.",
     "____types": "jsObject",
     "streams": {
         "____label": "HTTP Server Stream Context",
@@ -92,6 +92,11 @@ This filter normalizes the value of `input` passed to its `request` method using
                     "jsUndefined",
                     "jsObject"
                 ]
+            },
+            "body": {
+                "____label": "Request Body",
+                "____description": "The body of the request (if any) extracted from the HttpRequest stream by holism, and passed on in serialized form.",
+                "____opaque": true
             },
             "bodyParsed": {
                 "____label": "Body Parsed Flag",
@@ -279,99 +284,6 @@ This filter normalizes the value of `input` passed to its `request` method using
                 }
             }
         }
-    },
-    "error_descriptor": {
-        "____label": "Error Response Descriptor",
-        "____description": "Additional information about the error, failure, or fault.",
-        "____types": "jsObject",
-        "http": {
-            "____label": "HTTP Status",
-            "____description": "HTTP status code and optional status message.",
-            "____types": "jsObject",
-            "code": {
-                "____label": "HTTP Status Code",
-                "____description": "The numerical HTTP 1.1 status code to return to the remote HTTP client.",
-                "____accept": "jsNumber"
-            },
-            "message": {
-                "____label": "HTTP Status Message",
-                "____description": "Optional HTTP 1.1 status message to include with status code returned to client.",
-                "____accept": [
-                    "jsUndefined",
-                    "jsString"
-                ]
-            }
-        },
-        "content": {
-            "____label": "Content Constraints",
-            "____description": "Flags indicating encoding and content type of the response.",
-            "____types": "jsObject",
-            "encoding": {
-                "____label": "Content Encoding Type",
-                "____description": "A flag indicating if the resource data should be passed as a UTF8 string or binary payload.",
-                "____accept": "jsString",
-                "____inValueSet": [
-                    "utf8",
-                    "binary"
-                ]
-            },
-            "type": {
-                "____label": "Content Type",
-                "____description": "The value of the Content-Type header to return along with the indicated resource.",
-                "____accept": "jsString",
-                "____inValueSet": [
-                    "application/font-woff",
-                    "application/font-woff2",
-                    "application/javascript",
-                    "application/json",
-                    "application/x-font-ttf",
-                    "application/x-www-form-urlencoded",
-                    "application/xml",
-                    "image/gif",
-                    "image/jpeg",
-                    "image/png",
-                    "image/svg+xml",
-                    "image/x-icon",
-                    "multipart/form-data",
-                    "text/css",
-                    "text/html",
-                    "text/plain",
-                    "text/xml"
-                ]
-            }
-        },
-        "headers": {
-            "____label": "Response Headers",
-            "____description": "Deserialized and parsed HTTP response headers map.",
-            "____types": "jsObject",
-            "____asMap": true,
-            "____defaultValue": {},
-            "header_name": {
-                "____label": "HTTP Response Header Value",
-                "____description": "The value associated with header_name in the headers map.",
-                "____accept": [
-                    "jsString",
-                    "jsNumber"
-                ]
-            }
-        },
-        "data": {
-            "____label": "Error Data",
-            "____description": "Details error/fault information.",
-            "____types": "jsObject",
-            "error_message": {
-                "____label": "Error Message",
-                "____description": "Optional error message string summarizing the failure.",
-                "____accept": "jsString",
-                "____defaultValue": "No additional information available."
-            },
-            "error_context": {
-                "____label": "Error Context",
-                "____description": "Optional subsystem/service-specific context data provided application-level error handling.",
-                "____accept": "jsObject",
-                "____defaultValue": {}
-            }
-        }
     }
 }
 ```
@@ -396,7 +308,14 @@ if (!response.error) {
 ```
 #### Result Format
 
-If no error then any value type including [object Undefined] may be assigned to `response.result`.
+
+If no error then the value assigned to `response.result` is normalized per the following filter spec contract:
+
+```JavaScript
+{
+    "____opaque": true
+}
+```
 
 
 ## Implementation
@@ -405,19 +324,19 @@ If no error then any value type including [object Undefined] may be assigned to 
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `XoyKovKcQ-i-Pwy5PSrn1Q` | `bRDsE7d6dlcWRkLtIdLrtA` |
-| input contract | `vj6tQBAdHQrK_H5Em3nhgw` | `SJ6xBzRDPjPLqMlqrYca8g` |
-| output contract | `1LI8w603xnaTfXNizPRo1A` | `dHR0dNnZ2dlUVFRUyMjIyA` |
+| operation | `5GJ8LaKGShCXySL1OvA2Qw` | `Rud7E8-ORVfr_u3tYWbPtA` |
+| input contract | `FFGnHbDvSSFjtdW7E7-mMQ` | `zAyAI97oqurxjjfTAPPzuw` |
+| output contract | `drWr1XXLPGUnGjTEb5tXdQ` | `dHR0dNnZ2dlUVFRUyMjIyA` |
 
 ### Configuration
-Filter classification:  **input processor**
+Filter classification:  **normalized operation**
 
 | request stage | stage description | state |
 |-------|---------|---------------|
 | 1. Input Filter | Rejects invalid input requests and shapes to well-formed. | true |
 | 2. Operation | Developer-defined custom data transformation function. | true |
 | 3. Response Filter | Verifies the response of the developer-defined operation function. | true |
-| 4. Output Filter | Rejects invalid output result data and shapes to well-formed. | false |
+| 4. Output Filter | Rejects invalid output result data and shapes to well-formed. | true |
 
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>

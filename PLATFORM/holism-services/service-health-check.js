@@ -2,8 +2,6 @@
 
 const httpServiceFilterFactory = require("@encapsule/holism").service;
 
-// NOT USED? const serviceUtils = require("./service-utils");
-
 var factoryResponse = httpServiceFilterFactory.create({
     id: "6sHrn7n8QaSqb9Sv9gt4Ug",
     name: "Health check service filter",

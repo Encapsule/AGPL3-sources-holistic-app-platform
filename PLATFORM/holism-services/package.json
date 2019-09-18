@@ -1,5 +1,5 @@
 {
-    "name": "@encapsule/holism",
+    "name": "@encapsule/holism-services",
     "version": "0.0.20",
     "codename": "shonkin",
     "buildID": "qUkA9762SQKnl7VkL4Oixg",
@@ -7,7 +7,7 @@
     "buildSource": "80537068585fbe4d5a181d2555730e6ca9288d7d",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Encapsule/holism.git"
+        "url": "git+https://github.com/Encapsule/holism-services.git"
     },
     "author": "Encapsule",
     "contributors": [
@@ -19,21 +19,23 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Encapsule/holism/issues"
+        "url": "https://github.com/Encapsule/holism-services/issues"
     },
-    "homepage": "https://github.com/Encapsule/holism#readme",
-    "description": "Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.",
+    "homepage": "https://github.com/Encapsule/holism-services#readme",
+    "description": "Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.",
     "keywords": [
         "HTTP",
         "REST",
         "filter",
         "server",
+        "service",
         "framework",
         "node",
         "Encapsule"
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.6"
+        "@encapsule/arccore": "0.1.6",
+        "@encapsule/holism": "0.0.20"
     }
 }

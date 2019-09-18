@@ -1,8 +1,8 @@
 # Filter Object README
 
-## [2zvzciQcQg-SifqIQrbnUg::HTTP Request Transport For Node.js]
+## [8q8sOAYyT5K9oviGZumYgQ::Data Gateway Router Factory]
 
-**Filter wrapper around the request module for use in Node.js clients.**
+**Constructs a filter that routes its request to an appropriate holism service filter for further processing.**
 
 ### Operation
 
@@ -22,35 +22,15 @@ This filter normalizes the value of `input` passed to its `request` method using
 
 ```JavaScript
 {
-    "____label": "HTTP Request Transport Request",
+    "____label": "Data Gateway Router Factory Request",
     "____types": "jsObject",
-    "url": {
-        "____accept": "jsString"
-    },
-    "method": {
-        "____accept": "jsString",
-        "____inValueSet": [
-            "GET",
-            "POST"
-        ]
-    },
-    "query": {
-        "____accept": [
-            "jsUndefined",
-            "jsObject"
-        ]
-    },
-    "request": {
-        "____opaque": true
-    },
-    "options": {
-        "____opaque": true
-    },
-    "resultHandler": {
-        "____accept": "jsFunction"
-    },
-    "errorHandler": {
-        "____accept": "jsFunction"
+    "serviceFilters": {
+        "____label": "Service Filter Array",
+        "____types": "jsArray",
+        "serviceFilter": {
+            "____label": "Data Gateway Filter Object",
+            "____accept": "jsObject"
+        }
     }
 }
 ```
@@ -80,7 +60,9 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 ```JavaScript
 {
-    "____accept": "jsUndefined"
+    "____label": "Data Gateway Router Filter",
+    "____description": "An arccore.discriminator filter instance used to route incoming data gateway request messages from the HTTP layer to a specific request handler for servicing.",
+    "____accept": "jsObject"
 }
 ```
 
@@ -91,9 +73,9 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `2zvzciQcQg-SifqIQrbnUg` | `7LnmkpQe1DFECWswZ2mNSA` |
-| input contract | `JxT7zfuuNKBqV2789FMhMg` | `4Ew0FsVO1GhgGpq0l7Bf1Q` |
-| output contract | `fXOejDpIDblZaCUnFyP2pg` | `xHanI1kT9ivLTVhizlh1ng` |
+| operation | `8q8sOAYyT5K9oviGZumYgQ` | `kyPkR8MIMrpLR079uW1VVQ` |
+| input contract | `IvJx6_V71hjgC60xMyJVZg` | `9nqboN5zb_HfZoPhiNqYbg` |
+| output contract | `SM9BgAWFbREPQyu1OSYQtg` | `lbBaH84CMX9Wj1o5b5oE9Q` |
 
 ### Configuration
 Filter classification:  **normalized operation**
@@ -108,5 +90,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.6 toolset.<br>
-Document updated Wed Sep 18 2019 16:12:09 GMT-0700 (Pacific Daylight Time)
+Document updated Wed Sep 18 2019 16:12:06 GMT-0700 (Pacific Daylight Time)
 
