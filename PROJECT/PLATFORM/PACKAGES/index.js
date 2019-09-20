@@ -7,8 +7,8 @@ const packages = {
     "@encapsule/holarchy": require("./holarchy"),
     "@encapsule/holism": require("./holism"),
     "@encapsule/holism-services": require("./holism-services"),
-    "@encapsule/hrequest": require("./hrequest")
-
+    "@encapsule/hrequest": require("./hrequest"),
+    "@encapsule/d2r2" : require("./d2r2")
 
 };
 
