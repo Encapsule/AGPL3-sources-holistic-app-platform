@@ -5,10 +5,10 @@
 # @encapsule/d2r2 v0.0.20 "shonkin"
 
 ```
-Package: @encapsule/d2r2 v0.0.20 "shonkin" build ID "Mh3FK_UbRFSQdgoOmYca0g"
-Sources: Encapsule/holistic#b08d6b2afc2fecb801c0ff1b4a30cd4dbc1d6fb3
+Package: @encapsule/d2r2 v0.0.20 "shonkin" build ID "7cpTcFeGQH-FvnczMZ_t0A"
+Sources: Encapsule/holistic#241398fd4e59b5c93ee25ea09f6f69009d0b9c98
 Purpose: library (Node.js)
-Created: 2019-09-23T18:58:13.000Z
+Created: 2019-09-23T21:33:55.000Z
 License: MIT
 ```
 
