@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.20 "shonkin"
 
 ```
-Package: @encapsule/holarchy v0.0.20 "shonkin" build ID "GtaqTjSaSUqcB2XwvvZLbA"
-Sources: Encapsule/holistic#6594cfecf76f98bef93c66e49f33f909e742cb21
+Package: @encapsule/holarchy v0.0.20 "shonkin" build ID "jQzqw7hsQne4gtFTVqZehA"
+Sources: Encapsule/holistic#571f7705d417a7252e24d86e68f6c7ce5a45ddc3
 Purpose: library (Node.js)
-Created: 2019-09-20T22:32:21.000Z
+Created: 2019-09-23T17:59:26.000Z
 License: MIT
 ```
 

@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.20",
     "codename": "shonkin",
-    "buildID": "GtaqTjSaSUqcB2XwvvZLbA",
-    "buildTime": 1569018741,
-    "buildSource": "6594cfecf76f98bef93c66e49f33f909e742cb21",
+    "buildID": "jQzqw7hsQne4gtFTVqZehA",
+    "buildTime": 1569261566,
+    "buildSource": "571f7705d417a7252e24d86e68f6c7ce5a45ddc3",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
