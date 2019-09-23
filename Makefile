@@ -168,7 +168,6 @@ source_package_build_holarchy:
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)/docs
 	@echo source_package_build_holarchy complete.
 
-
 source_package_build_d2r2:
 	@echo source_package_build_d2r2...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_D2R2)/
@@ -182,10 +181,7 @@ source_package_build_d2r2:
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_D2R2)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_D2R2)
 	mkdir -p $(DIR_BUILD_LIB_D2R2)/docs
-	@echo source_package_build_holarchy complete.
-
-
-
+	@echo source_package_build_d2r2 complete.
 
 source_package_build_d2r2_components:
 
@@ -203,6 +199,8 @@ dist_packages_initialize: dist_packages_clean
 	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
 	git clone git@github.com:Encapsule/holism-services.git $(DIR_DIST_LIB_HOLISM_SERVICES)
 	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
+	git clone git@github.com:Encapsule/d2r2.git $(DIR_DIST_LIB_D2R2)
+	git clone git@github.com:Encapsule/d2r2-components.git $(DIR_DIST_LIB_D2R2_COMPONENTS)
 	@echo FINISH TARGET: dist_packages_initialize
 
 # OPTIONAL: check the status of the package distribution repositories.
@@ -222,6 +220,12 @@ dist_packages_status:
 	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
 
 	@echo ================================================================
+	cd $(DIR_DIST_LIB_D2R2) && git remote -v && git status
+
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_D2R2_COMPONENTS) && git remote -v && git status
+
+	@echo ================================================================
 	@echo FINISH TARGET: dist_packages_status
 
 dist_packages_clean: dist_packages_reset
@@ -232,7 +236,7 @@ dist_packages_reset:
 	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2
 	@echo COMPLETE TARGET: dist_packages_update
 
 dist_package_update_holarchy:
@@ -258,6 +262,13 @@ dist_package_update_hrequest:
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
 	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
 	@echo stage_package_hrequest target complete.
+
+dist_package_update_d2r2:
+	@echo stage_package_d2r2 target starting...
+	mkdir -p $(DIR_DIST_LIB_D2R2)
+	cp -Rp $(DIR_BUILD_LIB_D2R2) $(DIR_DISTS_LIB)
+	@echo stage_package_d2r2 target complete.
+
 
 # ================================================================
 # Holistic platform runtime distribution packages.

@@ -38,6 +38,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         // Holistic platform runtime library dependencies.
         "@encapsule/arccore": arccore.__meta.version,
         "@encapsule/arctools": arccore.__meta.version,
+        "@encapsule/d2r2": "./HOLISTIC/d2r2",
         "@encapsule/holarchy": "./HOLISTIC/holarchy",
         "@encapsule/holism": "./HOLISTIC/holism",
         "@encapsule/holism-services": "./HOLISTIC/holism-services",
