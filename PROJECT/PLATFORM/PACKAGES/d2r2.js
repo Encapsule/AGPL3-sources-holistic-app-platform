@@ -34,10 +34,7 @@ module.exports = {
                 "Data-Driven React Render (d2r2) library for Node.js and modern browser clients."
             ]
         },
-        bodySections: [
-            {
-            }
-        ]
+        bodySections: []
     }
 
 };

@@ -95,7 +95,7 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo source_packages_clean target complete.
 
-source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy
+source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2
 	@echo source_packages_build complete.
 
 source_package_build_holism:
@@ -127,14 +127,13 @@ source_package_build_holism_services:
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism-services" > $(DIR_BUILD_LIB_HOLISM_SERVICES)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM_SERVICES)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISM_SERVICES)
+	# ISSUE HERE IS THAT WE DON'T HAVE @encapsule/holism PACKAGE INSTALLED SO THE MODULE LOAD FAILS.
 	#	mkdir -p $(DIR_BUILD_LIB_HOLISM_SERVICES)/docs
 	#	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_SERVICES)/service-developer-get-app-data-store-filter-spec.js --output $(DIR_BUILD_LIB_HOLISM_SERVICES)/doc/service-developer-get-app-data-store-filter-spec.md
 	#	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_SERVICES)/service-developer-get-app-data-store-integrations.js --output $(DIR_BUILD_LIB_HOLISM_SERVICES)/doc/service-developer-get-app-data-store-integrations.md
 	#	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_SERVICES)/service-fs-markdown-render.js --output $(DIR_BUILD_LIB_HOLISM_SERVICES)/doc/service-fs-markdown-render.md
 	#	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_SERVICES)/service-health-check.js --output $(DIR_BUILD_LIB_HOLISM_SERVICES)/doc/service-health-check.md
 	#	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_SERVICES)/service-options-as-html-content.js --output $(DIR_BUILD_LIB_HOLISM_SERVICES)/doc/service-options-as-html-content.md
-
-
 	@echo source_package_build_holism_services target complete.
 
 source_package_build_hrequest:
@@ -168,6 +167,28 @@ source_package_build_holarchy:
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLARCHY)
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)/docs
 	@echo source_package_build_holarchy complete.
+
+
+source_package_build_d2r2:
+	@echo source_package_build_d2r2...
+	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_D2R2)/
+	mkdir -p $(DIR_BUILD_LIB_D2R2)
+
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_D2R2)/* $(DIR_BUILD_LIB_D2R2)/
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2)
+
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/d2r2" > $(DIR_BUILD_LIB_D2R2)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_D2R2)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_D2R2)
+	mkdir -p $(DIR_BUILD_LIB_D2R2)/docs
+	@echo source_package_build_holarchy complete.
+
+
+
+
+source_package_build_d2r2_components:
+
 
 # ================================================================
 # Distribution Packages
