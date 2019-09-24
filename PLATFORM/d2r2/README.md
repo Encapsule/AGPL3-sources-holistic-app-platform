@@ -5,16 +5,16 @@
 # @encapsule/d2r2 v0.0.20 "shonkin"
 
 ```
-Package: @encapsule/d2r2 v0.0.20 "shonkin" build ID "hD4cahMDRpWniLlVhVBO9w"
-Sources: Encapsule/holistic#f4caf19f76744c6a3dc1b4257ab0cc1dafe6c33c
+Package: @encapsule/d2r2 v0.0.20 "shonkin" build ID "sGlnjb2bSYSFAaqMTZN36w"
+Sources: Encapsule/holistic#b415566c4068db78f11660c9f7cdaa8301331427
 Purpose: library (Node.js)
-Created: 2019-09-24T01:52:49.000Z
+Created: 2019-09-24T06:57:38.000Z
 License: MIT
 ```
 
 # Summary
 
-Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.
+Data-Driven React Render (d2r2) allows you to map JSON data types to React components and affect layout via JSON document composition dynamically at runtime w/type safety.
 
 Yo...
 

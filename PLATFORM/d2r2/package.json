@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2",
     "version": "0.0.20",
     "codename": "shonkin",
-    "buildID": "hD4cahMDRpWniLlVhVBO9w",
-    "buildTime": 1569289969,
-    "buildSource": "f4caf19f76744c6a3dc1b4257ab0cc1dafe6c33c",
+    "buildID": "sGlnjb2bSYSFAaqMTZN36w",
+    "buildTime": 1569308258,
+    "buildSource": "b415566c4068db78f11660c9f7cdaa8301331427",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2.git"
@@ -22,7 +22,7 @@
         "url": "https://github.com/Encapsule/d2r2/issues"
     },
     "homepage": "https://github.com/Encapsule/d2r2#readme",
-    "description": "Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.",
+    "description": "Data-Driven React Render (d2r2) allows you to map JSON data types to React components and affect layout via JSON document composition dynamically at runtime w/type safety.",
     "keywords": [
         "Encapsule",
         "React",

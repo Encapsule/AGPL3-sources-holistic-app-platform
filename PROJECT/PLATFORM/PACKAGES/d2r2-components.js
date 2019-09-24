@@ -1,4 +1,4 @@
-// PROJECT/PACKAGES/d2r2.js
+// PROJECT/PACKAGES/d2r2-components.js
 
 const arccore = require("@encapsule/arccore");
 const holisticBuild = require("../../../BUILD/holistic");
@@ -8,21 +8,25 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Data-Driven React Render (d2r2) allows you to map JSON data types to React components and affect layout via JSON document composition dynamically at runtime w/type safety.",
-        keywords: [ "Encapsule", "React", "ComponentRouter", "discriminator", "render", "filter", "d2r2", "layout", "template" ],
+        description: "A collection of reusable React components compatible with @encapsule/d2r2's <ComponentRouter/>.",
+        keywords: [ "Encapsule", "React", "ComponentRouter", "component", "components" ],
 
         license: "MIT",
         main: "index.js",
         peerDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
+            "@encapsule/d2r2": holisticBuild.version,
             "react": holisticPlatformManifest.platformDependencies["react"],
             "react-dom": holisticPlatformManifest.platformDependencies["react-dom"]
+        },
+        bin: {
+            copy_resources: "./bin/copy_holarchy_resources.js"
         }
     },
 
     packageReadme: {
         summaryDescriptor: {
-            heading: undefined,
+            heading: "# Boom",
             markdown: [
                 "Yo...",
                 "What is up?"
@@ -31,7 +35,7 @@ module.exports = {
         documentationDescriptor: {
             heading: "## Documentation",
             markdown: [
-                "Data-Driven React Render (d2r2) library for Node.js and modern browser clients."
+                "Reusable React components for d2r2."
             ]
         },
         bodySections: []
