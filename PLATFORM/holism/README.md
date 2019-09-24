@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.20 "shonkin"
 
 ```
-Package: @encapsule/holism v0.0.20 "shonkin" build ID "sGlnjb2bSYSFAaqMTZN36w"
-Sources: Encapsule/holistic#b415566c4068db78f11660c9f7cdaa8301331427
+Package: @encapsule/holism v0.0.20 "shonkin" build ID "c1K2XpnjTIupQSYi2N_IPg"
+Sources: Encapsule/holistic#4e4ba2c8199abe4ed987d66b6fcc53d612751560
 Purpose: library (Node.js)
-Created: 2019-09-24T06:57:38.000Z
+Created: 2019-09-24T07:04:04.000Z
 License: MIT
 ```
 

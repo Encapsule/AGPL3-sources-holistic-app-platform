@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.20",
     "codename": "shonkin",
-    "buildID": "sGlnjb2bSYSFAaqMTZN36w",
-    "buildTime": 1569308258,
-    "buildSource": "b415566c4068db78f11660c9f7cdaa8301331427",
+    "buildID": "c1K2XpnjTIupQSYi2N_IPg",
+    "buildTime": 1569308644,
+    "buildSource": "4e4ba2c8199abe4ed987d66b6fcc53d612751560",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"
