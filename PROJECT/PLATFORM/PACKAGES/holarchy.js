@@ -14,7 +14,8 @@ module.exports = {
         peerDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
             "@encapsule/holism": holistic.version,
-            "@encapsule/hrequest": holistic.version
+            "@encapsule/hrequest": holistic.version,
+            "@encapsule/d2r2": holistic.version
         },
         bin: {
             copy_resources: "./bin/copy_holarchy_resources.js"

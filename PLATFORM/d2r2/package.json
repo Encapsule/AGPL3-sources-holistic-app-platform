@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2",
     "version": "0.0.20",
     "codename": "shonkin",
-    "buildID": "7cpTcFeGQH-FvnczMZ_t0A",
-    "buildTime": 1569274435,
-    "buildSource": "241398fd4e59b5c93ee25ea09f6f69009d0b9c98",
+    "buildID": "hD4cahMDRpWniLlVhVBO9w",
+    "buildTime": 1569289969,
+    "buildSource": "f4caf19f76744c6a3dc1b4257ab0cc1dafe6c33c",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2.git"
