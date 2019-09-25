@@ -39,6 +39,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@encapsule/arccore": arccore.__meta.version,
         "@encapsule/arctools": arccore.__meta.version,
         "@encapsule/d2r2": "./HOLISTIC/d2r2",
+        "@encapsule/d2r2-components": "./HOLISTIC/d2r2-components",
         "@encapsule/holarchy": "./HOLISTIC/holarchy",
         "@encapsule/holism": "./HOLISTIC/holism",
         "@encapsule/holism-services": "./HOLISTIC/holism-services",
