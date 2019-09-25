@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/d2r2-components v0.0.20 "shonkin"
+# @encapsule/d2r2-components v0.0.21 "eureka"
 
 ```
-Package: @encapsule/d2r2-components v0.0.20 "shonkin" build ID "MysEd66IRr2yQiDaclqd5A"
-Sources: Encapsule/holistic#58f73e5037c68559c362b16313d181159423f6f8
+Package: @encapsule/d2r2-components v0.0.21 "eureka" build ID "tg3PDMHwQ-OQxVcjWAp1sg"
+Sources: Encapsule/holistic#8f5a1291e8aee2858a90d6ed10ed9c21ffa5e2aa
 Purpose: library (Node.js)
-Created: 2019-09-25T02:30:47.000Z
+Created: 2019-09-25T16:29:10.000Z
 License: MIT
 ```
 
@@ -67,7 +67,7 @@ blah blah blah Reusable React components for d2r2.
 
 The `@encapsule/d2r2-components` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/d2r2-components Package Distribution](https://npmjs.com/package/@encapsule/d2r2-components/v/0.0.20) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/d2r2-components Package Distribution](https://npmjs.com/package/@encapsule/d2r2-components/v/0.0.21) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/d2r2-components git Repository](https://github.com/Encapsule/d2r2-components) ([GitHub](https://github.com/Encapsule))
 
 <hr>
