@@ -95,7 +95,7 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo source_packages_clean target complete.
 
-source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2
+source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2 source_package_build_d2r2_components
 	@echo source_packages_build complete.
 
 source_package_build_holism:
@@ -184,6 +184,20 @@ source_package_build_d2r2:
 	@echo source_package_build_d2r2 complete.
 
 source_package_build_d2r2_components:
+	@echo source_package_build_d2r2_components...
+	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/
+	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)
+
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2_COMPONENTS)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/* $(DIR_BUILD_LIB_D2R2_COMPONENTS)/
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2_COMPONENTS) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2_COMPONENTS)
+
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/d2r2-components" > $(DIR_BUILD_LIB_D2R2_COMPONENTS)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_D2R2_COMPONENTS)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_D2R2_COMPONENTS)
+	#	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)/docs
+	@echo source_package_build_d2r2 complete.
+
 
 
 # ================================================================
@@ -236,7 +250,7 @@ dist_packages_reset:
 	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components
 	@echo COMPLETE TARGET: dist_packages_update
 
 dist_package_update_holarchy:
@@ -268,6 +282,12 @@ dist_package_update_d2r2:
 	mkdir -p $(DIR_DIST_LIB_D2R2)
 	cp -Rp $(DIR_BUILD_LIB_D2R2) $(DIR_DISTS_LIB)
 	@echo stage_package_d2r2 target complete.
+
+dist_package_update_d2r2_components:
+	@echo stage_package_d2r2_components target starting...
+	mkdir -p $(DIR_DIST_LIB_D2R2_COMPONENTS)
+	cp -Rp $(DIR_BUILD_LIB_D2R2_COMPONENTS) $(DIR_DISTS_LIB)
+	@echo stage_package_d2r2_components target complete.
 
 
 # ================================================================

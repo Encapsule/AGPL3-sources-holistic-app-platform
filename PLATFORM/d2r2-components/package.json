@@ -1,0 +1,43 @@
+{
+    "name": "@encapsule/d2r2-components",
+    "version": "0.0.20",
+    "codename": "shonkin",
+    "buildID": "WSNtM6T_RziEEETzg43Kaw",
+    "buildTime": 1569377863,
+    "buildSource": "3be9eee2efbb2674759d3f7eb1fa8ccde6c20c89",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/d2r2-components.git"
+    },
+    "author": "Encapsule",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "http://chrisrussell.net"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/d2r2-components/issues"
+    },
+    "homepage": "https://github.com/Encapsule/d2r2-components#readme",
+    "description": "A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.",
+    "keywords": [
+        "Encapsule",
+        "React",
+        "ComponentRouter",
+        "component",
+        "components"
+    ],
+    "main": "index.js",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.6",
+        "@encapsule/d2r2": "0.0.20",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0"
+    },
+    "bin": {
+        "copy_resources": "./bin/copy_holarchy_resources.js"
+    }
+}
