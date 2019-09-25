@@ -1,7 +1,7 @@
 {
   "name": "holistic",
-  "version": "0.0.20",
-  "codename": "shonkin",
+  "version": "0.0.21",
+  "codename": "eureka",
   "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
   "author": "Encapsule",
   "contributors": [
