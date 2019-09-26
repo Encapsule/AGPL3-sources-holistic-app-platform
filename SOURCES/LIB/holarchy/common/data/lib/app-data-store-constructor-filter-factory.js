@@ -3,7 +3,7 @@
 
 const arccore = require("@encapsule/arccore");
 
-const holisticApplicationDataModelSpec = require("../filter-specs/data/");
+const holisticApplicationDataModelSpec = require("../../filter-specs/data/");
 
 var factoryResponse = arccore.filter.create({
     operationID: "Umc09pbMT-2exlufs5X-6Q",

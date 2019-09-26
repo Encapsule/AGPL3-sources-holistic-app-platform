@@ -2,8 +2,8 @@
 //
 
 const arccore = require("@encapsule/arccore");
-const appDataStoreConstructorFactory = require("./app-data-store-constructor-factory");
-const getNamespaceInReferenceFromPathFilter = require("./get-namespace-in-reference-from-path");
+const appDataStoreConstructorFactory = require("./lib/app-data-store-constructor-filter-factory");
+const getNamespaceInReferenceFromPathFilter = require("./lib/get-namespace-in-reference-from-path");
 
 class ApplicationDataStore {
 
@@ -27,9 +27,17 @@ class ApplicationDataStore {
                 ].join(" ")
             );
         } // if error
-        this.storeData = filterResponse.result;
-        this.storeDataSpec = storeConstructorFilter.filterDescriptor.inputFilterSpec;
-        this.accessFilters = { read: {}, write: {} };
+        // Private implementation data...
+        // Do not deference; use class methods to access private implementation data
+        this._private = {
+            storeData: filterResponse.result,
+            storeDataSpec: storeConstructorFilter.filterDescriptor.inputFilterSpec,
+            accessFilters: {
+                read: {},
+                write: {}
+            }
+        };
+        // API methods... Use these methods.
         this.toJSON = this.toJSON.bind(this);
         this.readNamespace = this.readNamespace.bind(this);
         this.writeNamespace = this.writeNamespace.bind(this);
@@ -38,7 +46,7 @@ class ApplicationDataStore {
 
     toJSON() {
         // Only return the data; no other runtime state maintained by this class instance should ever be serialized.
-        return this.storeData;
+        return this._private.storeData;
     }
 
     // Returns an arccore.filter-style response descriptor object.
@@ -49,10 +57,10 @@ class ApplicationDataStore {
         while (!inBreakScope) {
             inBreakScope = true;
             // Determine if we have already instantiated a read filter for this namespace.
-            if (!this.accessFilters.read[path_]) {
+            if (!this._private.accessFilters.read[path_]) {
                 // Cache miss. Create a new read filter for the requested namespace.
                 const operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this.storeDataSpec, parseFilterSpec: true });
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error) {
                     errors.push(`Cannot read app data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);
@@ -72,9 +80,9 @@ class ApplicationDataStore {
                     break;
                 } // if error
                 // Cache the newly-created read filter.
-                this.accessFilters.read[path_] = filterResponse.result;
+                this._private.accessFilters.read[path_] = filterResponse.result;
             } // if read filter doesn't exist
-            const readFilter = this.accessFilters.read[path_];
+            const readFilter = this._private.accessFilters.read[path_];
             methodResponse = readFilter.request();
             break;
         } // end while
@@ -92,7 +100,7 @@ class ApplicationDataStore {
         while (!inBreakScope) {
             inBreakScope = true;
             // Determine if we have already instantiated a read filter for this namespace.
-            if (!this.accessFilters.write[path_]) {
+            if (!this._private.accessFilters.write[path_]) {
                 // Cache miss. Create a new write filter for the requested namespace.
                 const operationId = arccore.identifier.irut.fromReference("write-filter" + path_).result;
                 const pathTokens = path_.split(".");
@@ -102,7 +110,7 @@ class ApplicationDataStore {
                 } // if invalid write attempt
                 const parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
                 const targetNamespace = pathTokens[pathTokens.length - 1];
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this.storeDataSpec, parseFilterSpec: true });
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error) {
                     errors.push(`Cannot write app data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
@@ -120,7 +128,7 @@ class ApplicationDataStore {
                         let inBreakScope = false;
                         while (!inBreakScope) {
                             inBreakScope = true;
-                            let innerResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: parentPath, sourceRef: this.storeData });
+                            let innerResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: parentPath, sourceRef: this._private.storeData });
                             if (innerResponse.error) {
                                 errors.push(`Unable to write to ADS namespace '${path_}' due to an error reading parent namespace '${parentPath}'.`);
                                 errors.push(innerResponse.error);
@@ -143,9 +151,9 @@ class ApplicationDataStore {
                     break;
                 } // if error
                 // Cache the newly-created write filter.
-                this.accessFilters.write[path_] = filterResponse.result;
+                this._private.accessFilters.write[path_] = filterResponse.result;
             } // if write filter doesn't exist
-            const writeFilter = this.accessFilters.write[path_];
+            const writeFilter = this._private.accessFilters.write[path_];
             methodResponse = writeFilter.request(value_);
             break;
         } // end while

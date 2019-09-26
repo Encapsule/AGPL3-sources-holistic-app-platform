@@ -10,9 +10,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 var arccore = require("@encapsule/arccore");
 
-var appDataStoreConstructorFactory = require("./app-data-store-constructor-factory");
+var appDataStoreConstructorFactory = require("./lib/app-data-store-constructor-filter-factory");
 
-var getNamespaceInReferenceFromPathFilter = require("./get-namespace-in-reference-from-path");
+var getNamespaceInReferenceFromPathFilter = require("./lib/get-namespace-in-reference-from-path");
 
 var ApplicationDataStore =
 /*#__PURE__*/
@@ -33,14 +33,19 @@ function () {
     if (filterResponse.error) {
       throw new Error(["Unable to construct an ApplicationDataStore class instance due to an error executing the construction filter.", filterResponse.error].join(" "));
     } // if error
+    // Private implementation data...
+    // Do not deference; use class methods to access private implementation data
 
 
-    this.storeData = filterResponse.result;
-    this.storeDataSpec = storeConstructorFilter.filterDescriptor.inputFilterSpec;
-    this.accessFilters = {
-      read: {},
-      write: {}
-    };
+    this._private = {
+      storeData: filterResponse.result,
+      storeDataSpec: storeConstructorFilter.filterDescriptor.inputFilterSpec,
+      accessFilters: {
+        read: {},
+        write: {}
+      }
+    }; // API methods... Use these methods.
+
     this.toJSON = this.toJSON.bind(this);
     this.readNamespace = this.readNamespace.bind(this);
     this.writeNamespace = this.writeNamespace.bind(this);
@@ -51,7 +56,7 @@ function () {
     key: "toJSON",
     value: function toJSON() {
       // Only return the data; no other runtime state maintained by this class instance should ever be serialized.
-      return this.storeData;
+      return this._private.storeData;
     } // Returns an arccore.filter-style response descriptor object.
 
   }, {
@@ -69,12 +74,12 @@ function () {
       while (!inBreakScope) {
         inBreakScope = true; // Determine if we have already instantiated a read filter for this namespace.
 
-        if (!this.accessFilters.read[path_]) {
+        if (!this._private.accessFilters.read[path_]) {
           // Cache miss. Create a new read filter for the requested namespace.
           var operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
           var filterResponse = getNamespaceInReferenceFromPathFilter.request({
             namespacePath: path_,
-            sourceRef: this.storeDataSpec,
+            sourceRef: this._private.storeDataSpec,
             parseFilterSpec: true
           });
 
@@ -107,11 +112,11 @@ function () {
           // Cache the newly-created read filter.
 
 
-          this.accessFilters.read[path_] = filterResponse.result;
+          this._private.accessFilters.read[path_] = filterResponse.result;
         } // if read filter doesn't exist
 
 
-        var readFilter = this.accessFilters.read[path_];
+        var readFilter = this._private.accessFilters.read[path_];
         methodResponse = readFilter.request();
         break;
       } // end while
@@ -140,7 +145,7 @@ function () {
       while (!inBreakScope) {
         inBreakScope = true; // Determine if we have already instantiated a read filter for this namespace.
 
-        if (!this.accessFilters.write[path_]) {
+        if (!this._private.accessFilters.write[path_]) {
           var _ret = function () {
             // Cache miss. Create a new write filter for the requested namespace.
             var operationId = arccore.identifier.irut.fromReference("write-filter" + path_).result;
@@ -156,7 +161,7 @@ function () {
             var targetNamespace = pathTokens[pathTokens.length - 1];
             var filterResponse = getNamespaceInReferenceFromPathFilter.request({
               namespacePath: path_,
-              sourceRef: _this2.storeDataSpec,
+              sourceRef: _this2._private.storeDataSpec,
               parseFilterSpec: true
             });
 
@@ -185,7 +190,7 @@ function () {
                   inBreakScope = true;
                   var innerResponse = getNamespaceInReferenceFromPathFilter.request({
                     namespacePath: parentPath,
-                    sourceRef: _this2.storeData
+                    sourceRef: _this2._private.storeData
                   });
 
                   if (innerResponse.error) {
@@ -218,14 +223,14 @@ function () {
             // Cache the newly-created write filter.
 
 
-            _this2.accessFilters.write[path_] = filterResponse.result;
+            _this2._private.accessFilters.write[path_] = filterResponse.result;
           }();
 
           if (_ret === "break") break;
         } // if write filter doesn't exist
 
 
-        var writeFilter = this.accessFilters.write[path_];
+        var writeFilter = this._private.accessFilters.write[path_];
         methodResponse = writeFilter.request(value_);
         break;
       } // end while
