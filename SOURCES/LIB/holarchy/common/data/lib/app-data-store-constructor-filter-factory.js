@@ -1,9 +1,7 @@
 // sources/common/rainier-app-data-store/app-data-store-constructor-factory.js
-//
 
 const arccore = require("@encapsule/arccore");
-
-const holisticApplicationDataModelSpec = require("../../filter-specs/data/");
+const holisticApplicationDataModelSpec = require("./app-data-store-filter-spec");
 
 var factoryResponse = arccore.filter.create({
     operationID: "Umc09pbMT-2exlufs5X-6Q",
