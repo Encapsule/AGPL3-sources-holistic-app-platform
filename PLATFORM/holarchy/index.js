@@ -6,6 +6,8 @@ var appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/met
 
 var ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
 
+var ApplicationStateController = require("./app-state-controller/ApplicationStateController");
+
 module.exports = {
   __meta: {
     author: packageMeta.author,
@@ -15,10 +17,12 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
+  // ES6 class instantiated with operator new.
   ApplicationDataStore: ApplicationDataStore,
   ApplicationMetadataStore: {
     // TODO: Create a little ES6 class to abstract metadata store.
     // Creates an application-specific application metadata store constructor filter.
     makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
-  }
+  },
+  ApplicationStateController: ApplicationStateController
 };
