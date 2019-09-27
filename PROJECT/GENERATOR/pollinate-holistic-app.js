@@ -14,7 +14,14 @@ const handlebars = arctoolslib.handlebars; // ... handlebars template engine is 
 
 const holisticMetadata = require("../../PLATFORM/holistic");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
-const holisticPlatformRuntimePackages = [ "@encapsule/holism", "@encapsule/hrequest", "@encapsule/holarchy" ];
+const holisticPlatformRuntimePackages = [
+    "@encapsule/d2r2",
+    "@encapsule/d2r2-components",
+    "@encapsule/holarchy",
+    "@encapsule/holism",
+    "@encapsule/holism-services",
+    "@encapsule/hrequest"
+];
 
 const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
 const packageMapFilter = require('./LIB/package-map-filter');
