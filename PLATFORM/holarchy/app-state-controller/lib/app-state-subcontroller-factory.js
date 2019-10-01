@@ -249,8 +249,8 @@ var factoryResponse = arccore.filter.create({
     return response;
   },
   outputFilterSpec: {
-    ____label: "Application State Controller Model",
-    ____description: "A directed graph representation of an application state controller's finite state machine model.",
+    ____label: "Observable Process Model",
+    ____description: "An @encapsule/arccore.graph.DirectedGraph container class instance reference that models a specific observable process.",
     ____accept: "jsObject"
   }
 });

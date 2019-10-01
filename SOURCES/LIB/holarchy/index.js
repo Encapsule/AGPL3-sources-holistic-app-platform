@@ -1,7 +1,11 @@
 const packageMeta = require("./package.json");
 const appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
 const ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
+
+// Shiny new ES6 class API...
+
 const ApplicationStateController = require("./app-state-controller/ApplicationStateController");
+const ObservableProcessModel = require("./app-state-controller/ObservableProcessModel");
 
 module.exports = {
 
@@ -23,7 +27,9 @@ module.exports = {
         makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
     },
 
-    ApplicationStateController: ApplicationStateController
+    ApplicationStateController: ApplicationStateController,
+
+    ObservableProcessModel: ObservableProcessModel
 
 
 };

@@ -2,7 +2,8 @@
 
 const arccore = require("@encapsule/arccore");
 
-const transitionOperatorsDiscriminator = require("./toperators");
+// now a request param
+// const transitionOperatorsDiscriminator = require("./toperators");
 
 var processStepCount = 0;
 
@@ -22,7 +23,14 @@ var factoryResponse = arccore.filter.create({
             ____description: "A reference to the app state actor dispather discriminator filter.",
             ____accept: "jsObject"
         },
+
         appDataStore: {
+            ____accept: "jsObject"
+        },
+
+        transitionOperatorDiscriminator: {
+            ____label: "Transition Operator Discriminator Filter",
+            ____description: "An arccore.discriminator filter instance used by the ASC to dispatch transition operator filter calls at runtime.",
             ____accept: "jsObject"
         }
     },
@@ -87,12 +95,12 @@ var factoryResponse = arccore.filter.create({
                         context: {
                             appStateModel: request_.appStateControllerModel,
                             appDataStore: request_.appDataStore,
-                            transitionOperatorsDiscriminator: transitionOperatorsDiscriminator
+                            transitionOperatorsDiscriminator: request_.transitionOperatorDiscriminator
                         },
                         operator: transitionModel.p.operator
                     };
 
-                    var transitionOperatorResponse = transitionOperatorsDiscriminator.request(transitionOperatorRequest);
+                    var transitionOperatorResponse = request_.transitionOperatorDiscriminator.request(transitionOperatorRequest);
                     // Transition operator errors are fatal because they should not normally occur.
                     if (transitionOperatorResponse.error) {
                         errors.push("While attempting to step subcontroller '" + controllerModelName + "':");

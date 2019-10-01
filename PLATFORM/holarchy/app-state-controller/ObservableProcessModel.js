@@ -6,38 +6,32 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var appStateControllerFactoryFilter = require("./lib/app-state-controller-factory");
+var appStateSubcontrollerFactory = require("./lib/app-state-subcontroller-factory");
 
-var ApplicationStateController =
+var ObservableProcessModel =
 /*#__PURE__*/
 function () {
-  function ApplicationStateController(request_) {
-    _classCallCheck(this, ApplicationStateController);
+  function ObservableProcessModel(request_) {
+    _classCallCheck(this, ObservableProcessModel);
 
-    this._private = {}; // /*
-
-    var filterResponse = appStateControllerFactoryFilter.request(request_);
+    this._private = {};
+    var filterResponse = appStateSubcontrollerFactory.request(request_);
 
     if (filterResponse.error) {
       throw new Error(filterResponse.error);
     }
 
-    this._private.asc = filterResponse.result; // */
-
-    request_; // there - now it's referenced
-    // Bind instance methods.
-
-    this.toJSON = this.toJSON.bind(this);
+    this._private.opm = filterResponse.result;
   }
 
-  _createClass(ApplicationStateController, [{
+  _createClass(ObservableProcessModel, [{
     key: "toJSON",
     value: function toJSON() {
-      return this._private;
+      return this._private.opm.toJSON();
     }
   }]);
 
-  return ApplicationStateController;
+  return ObservableProcessModel;
 }();
 
-module.exports = ApplicationStateController;
+module.exports = ObservableProcessModel;

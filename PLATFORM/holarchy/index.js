@@ -4,9 +4,12 @@ var packageMeta = require("./package.json");
 
 var appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
 
-var ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
+var ApplicationDataStore = require("./app-data-store/ApplicationDataStore"); // Shiny new ES6 class API...
+
 
 var ApplicationStateController = require("./app-state-controller/ApplicationStateController");
+
+var ObservableProcessModel = require("./app-state-controller/ObservableProcessModel");
 
 module.exports = {
   __meta: {
@@ -24,5 +27,6 @@ module.exports = {
     // Creates an application-specific application metadata store constructor filter.
     makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
   },
-  ApplicationStateController: ApplicationStateController
+  ApplicationStateController: ApplicationStateController,
+  ObservableProcessModel: ObservableProcessModel
 };

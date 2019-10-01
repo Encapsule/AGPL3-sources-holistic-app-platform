@@ -2,7 +2,6 @@
 
 const arccore = require("@encapsule/arccore");
 
-const appDataStoreWriteFilterFactory = require("../../../common/data/app-data-store-write-filter-factory");
 const appStateControllerStepFilter = require("./app-state-controller-step");
 const appStateControllerRunFilter = require("./app-state-controller-run");
 
@@ -45,11 +44,13 @@ var factoryResponse = arccore.filter.create({
         var errors = [];
         var inBreakScope = false;
         while (!inBreakScope) {
+
             inBreakScope = true;
 
+            // Temporary result descriptor object. If !response.error then we'll eventually assign this to response.result.
             var result = {
                 controllerMap: {},
-                controllerStateModels: [],
+                controllerStateModels: [], // Digraph representation of a subcontroller model
                 controllerStepFilter: appStateControllerStepFilter,
                 controllerRunFilter:  appStateControllerRunFilter
             };
@@ -81,76 +82,31 @@ var factoryResponse = arccore.filter.create({
                 result.controllerStateModels.push(subcontrollerDigraphModel);
 
                 if (stateNamespaces[subcontrollerDigraphModel.namespaceBindings.stateNamespacePath]) {
-                    errors.push("Controller state model '" + modelName + "' is attempting to claim ADS state namespace '" +
-                                subcontrollerDigraphModel.namespaceBindings.stateNamespacePath + "' which is already reserved.");
+                    errors.push(`Controller state model '${modelName}' is attempting to claim ADS state namespace '${subcontrollerDigraphModel.namespaceBindings.stateNamespacePath}' which is already reserved.`);
                     errors.push("Check your ASC constructor for duplicate subcontroller declaration registrations.");
                     break;
                 } else {
                     stateNamespaces[subcontrollerDigraphModel.namespaceBindings.stateNamespacePath] = true;
                 }
 
-                var factoryResponse = appDataStoreWriteFilterFactory.request({
-                    appDataStoreFilterSpec: request_.appDataStoreFilterSpec,
-                    id: arccore.identifier.irut.fromReference("SVRJlHDrQaKVKg0IsMF__A" +  subcontrollerDigraphModel.namespaceBindings.stateNamespacePath).result,
-                    stateNamespacePath: subcontrollerDigraphModel.namespaceBindings.stateNamespacePath
-                });
-
-                if (factoryResponse.error) {
-                    errors.push(factoryResponse.error);
-                    break;
-                }
-
-                var stateNamespaceWriteFilter = factoryResponse.result;
-
                 result.controllerMap[modelName] = {
                     modelIndex: result.controllerStateModels.length - 1,
                     state: "uninitialized",
-                    stateNamespacePath: subcontrollerDigraphModel.namespaceBindings.stateNamespacePath,
-                    stateNamespaceWriteFilter: stateNamespaceWriteFilter
+                    stateNamespacePath: subcontrollerDigraphModel.namespaceBindings.stateNamespacePath
                 };
 
             } // end for
 
-            if (!errors.length)
+            if (errors.length) {
+                errors.push("App state controller is offline due to initialization error.");
+                response.error = errors.join(" ");
+            } else {
                 response.result = result;
-
-            var innerResponse = appDataStoreWriteFilterFactory.request({
-                appDataStoreFilterSpec: request_.appDataStoreFilterSpec,
-                id: "FdIDYbbRTy2HhfqoEsOJvA",
-                stateNamespacePath: "~.__AppStateControllerPrivate.step"
-            });
-
-            if (innerResponse.error) {
-                errors.push(innerResponse.error);
-                break;
             }
-
-            result.writeStepCountFilter = innerResponse.result;
-
-            innerResponse = appDataStoreWriteFilterFactory.request({
-                appDataStoreFilterSpec: request_.appDataStoreFilterSpec,
-                id: "c61978yPR6eK74osKT8FBg",
-                stateNamespacePath: "~.__AppStateControllerPrivate.control"
-            });
-
-            if (innerResponse.error) {
-                errors.push(innerResponse.error);
-                break;
-            }
-
-            result.writeStepControlFilter = innerResponse.result;
-
-            response.result = result;
 
             break;
         }
-        if (errors.length) {
-            errors.push("App state controller is offline due to initialization error.");
-            response.error = errors.join(" ");
-        }
-
         return response;
-
     },
 
     outputFilterSpec: {
