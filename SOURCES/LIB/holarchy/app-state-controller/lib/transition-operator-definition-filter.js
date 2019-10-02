@@ -1,4 +1,4 @@
-// transition-operator-filter-factory.js
+// transition-operator-definition-filter.js
 
 const arccore = require("@encapsule/arccore");
 

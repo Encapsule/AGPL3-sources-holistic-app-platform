@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.21",
     "codename": "eureka",
-    "buildID": "01SXMBYiSkiX_NUMYcoivw",
-    "buildTime": 1569889050,
-    "buildSource": "25dd4e86ec557dac5696b2d3a9d9cc6d98cff47b",
+    "buildID": "KpCzg4mwRBWw_3h1PITSAQ",
+    "buildTime": 1569949650,
+    "buildSource": "6e6f8d0b6b3c62efd5b3d932f3874a216382008f",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

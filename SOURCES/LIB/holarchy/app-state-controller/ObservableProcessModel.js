@@ -1,5 +1,5 @@
 
-const appStateSubcontrollerFactory = require("./lib/app-state-subcontroller-factory");
+const appStateSubcontrollerFactory = require("./lib/observable-process-model-definition-filter");
 
 class ObservableProcessModel {
 
@@ -12,12 +12,12 @@ class ObservableProcessModel {
             throw new Error(filterResponse.error);
         }
 
-        this._private.opm = filterResponse.result;
+        this._private.opmDigraph = filterResponse.result;
 
     }
 
     toJSON() {
-        return this._private.opm.toJSON();
+        return this._private.opmDigraph.toJSON();
     }
 
 
