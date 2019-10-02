@@ -1,6 +1,6 @@
 "use strict";
 
-// transition-operator-filter-factory.js
+// transition-operator-definition-filter.js
 var arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({

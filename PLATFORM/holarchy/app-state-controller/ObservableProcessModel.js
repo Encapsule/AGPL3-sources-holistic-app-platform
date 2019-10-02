@@ -21,13 +21,13 @@ function () {
       throw new Error(filterResponse.error);
     }
 
-    this._private.opm = filterResponse.result;
+    this._private.opmDigraph = filterResponse.result;
   }
 
   _createClass(ObservableProcessModel, [{
     key: "toJSON",
     value: function toJSON() {
-      return this._private.opm.toJSON();
+      return this._private.opmDigraph.toJSON();
     }
   }]);
 
