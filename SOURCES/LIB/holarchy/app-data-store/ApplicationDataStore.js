@@ -71,7 +71,7 @@ class ApplicationDataStore {
                     operationID: operationId,
                     operationName: `App Data Read Filter ${operationId}`,
                     operationDescription: `Validated/normalized read operations from ADS namespace '${path_}'.`,
-                    bodyFunction: () => { return getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this.storeData }); },
+                    bodyFunction: () => { return getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeData }); },
                     outputFilterSpec: targetNamespaceSpec,
                 });
                 if (filterResponse.error) {

@@ -98,7 +98,7 @@ function () {
             bodyFunction: function bodyFunction() {
               return getNamespaceInReferenceFromPathFilter.request({
                 namespacePath: path_,
-                sourceRef: _this.storeData
+                sourceRef: _this._private.storeData
               });
             },
             outputFilterSpec: targetNamespaceSpec
