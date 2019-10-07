@@ -488,7 +488,7 @@ var factoryResponse = arccore.filter.create({
                                                 content: { encoding: "utf8", type: responseType },
                                                 headers: { "WWW-Authenticate": "Bearer" },
                                                 data: {
-                                                    error_message: "You must be signed in (authenticated) to access this resource.",
+                                                    error_message: "Please login to access this resource.",
                                                     error_context: {
                                                         source_tag: "ailqNeMpRvOYXvFZNBVVGw",
                                                     }

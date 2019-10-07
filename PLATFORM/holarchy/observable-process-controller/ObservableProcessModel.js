@@ -22,6 +22,7 @@ function () {
     }
 
     this._private.opmDigraph = filterResponse.result;
+    this.toJSON = this.toJSON.bind(this);
   }
 
   _createClass(ObservableProcessModel, [{

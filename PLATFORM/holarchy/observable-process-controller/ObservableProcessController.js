@@ -6,7 +6,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var appStateControllerFactoryFilter = require("./lib/app-state-controller-factory");
+var constructorFilter = require("./ApplicationStateController-constructor-filter");
 
 var ApplicationStateController =
 /*#__PURE__*/
@@ -14,26 +14,31 @@ function () {
   function ApplicationStateController(request_) {
     _classCallCheck(this, ApplicationStateController);
 
-    this._private = {}; // /*
+    // Allocate private, per-class-instance state.
+    this._private = {}; // Normalize the incoming request descriptor object.
 
-    var filterResponse = appStateControllerFactoryFilter.request(request_);
+    var filterResponse = constructorFilter.request(request_);
 
     if (filterResponse.error) {
       throw new Error(filterResponse.error);
     }
 
-    this._private.asc = filterResponse.result; // */
-
-    request_; // there - now it's referenced
-    // Bind instance methods.
+    var request = filterResponse.result;
+    this._private.request = request; // Bind instance methods.
 
     this.toJSON = this.toJSON.bind(this);
+    this.callActionFilter = this.callActionFilter.bind(this);
   }
 
   _createClass(ApplicationStateController, [{
     key: "toJSON",
     value: function toJSON() {
       return this._private;
+    }
+  }, {
+    key: "callActionFilter",
+    value: function callActionFilter(actionRequestDescriptor_) {
+      actionRequestDescriptor_;
     }
   }]);
 

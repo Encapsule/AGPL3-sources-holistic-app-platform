@@ -4,12 +4,15 @@ var packageMeta = require("./package.json");
 
 var appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
 
-var ApplicationDataStore = require("./app-data-store/ApplicationDataStore"); // Shiny new ES6 class API...
+var ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
 
-
-var ApplicationStateController = require("./app-state-controller/ApplicationStateController");
+var ObservableProcessController = require("./observable-process-controller/ObservableProcessController");
 
 var ObservableProcessModel = require("./app-state-controller/ObservableProcessModel");
+
+var TransitionOperator = require("./app-state-controller/TransitionOperator");
+
+var ControllerAction = require("./app-state-controller/ControllerAction");
 
 module.exports = {
   __meta: {
@@ -20,13 +23,19 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
-  // ES6 class instantiated with operator new.
-  ApplicationDataStore: ApplicationDataStore,
+  // The application metadata store is a bit odd insofar as it does not factor into the core OPC/OPM/OPS runtime architecture.
   ApplicationMetadataStore: {
     // TODO: Create a little ES6 class to abstract metadata store.
     // Creates an application-specific application metadata store constructor filter.
     makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
   },
-  ApplicationStateController: ApplicationStateController,
-  ObservableProcessModel: ObservableProcessModel
+  // TBD if we actually export this ES6 class or encapsulate access using OPC action filters.
+  // Consider changing the name of this to Observable Process State (OPS)
+  ApplicationDataStore: ApplicationDataStore,
+  // Observable Process Controller ES6 class
+  ObservableProcessController: ObservableProcessController,
+  // Observable Process Model ES6 class
+  ObservableProcessModel: ObservableProcessModel,
+  TransitionOperator: TransitionOperator,
+  ControllerAction: ControllerAction
 };

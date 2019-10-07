@@ -22,9 +22,7 @@ module.exports = {
         },
         documentationDescriptor: {
             heading: "## Documentation",
-            markdown: [
-                "**TODO**"
-            ]
+            markdown: []
         },
         bodySections: []
     }

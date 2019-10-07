@@ -1,11 +1,12 @@
+
 const packageMeta = require("./package.json");
 const appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
 const ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
 
-// Shiny new ES6 class API...
-
-const ApplicationStateController = require("./app-state-controller/ApplicationStateController");
+const ObservableProcessController = require("./observable-process-controller/ObservableProcessController");
 const ObservableProcessModel = require("./app-state-controller/ObservableProcessModel");
+const TransitionOperator = require("./app-state-controller/TransitionOperator");
+const ControllerAction = require("./app-state-controller/ControllerAction");
 
 module.exports = {
 
@@ -18,18 +19,28 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    // ES6 class instantiated with operator new.
-    ApplicationDataStore: ApplicationDataStore,
+    // The application metadata store is a bit odd insofar as it does not factor into the core OPC/OPM/OPS runtime architecture.
 
     ApplicationMetadataStore: { // TODO: Create a little ES6 class to abstract metadata store.
-
         // Creates an application-specific application metadata store constructor filter.
         makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
     },
 
-    ApplicationStateController: ApplicationStateController,
+    // TBD if we actually export this ES6 class or encapsulate access using OPC action filters.
+    // Consider changing the name of this to Observable Process State (OPS)
+    ApplicationDataStore: ApplicationDataStore,
 
-    ObservableProcessModel: ObservableProcessModel
+    // Observable Process Controller ES6 class
+    ObservableProcessController: ObservableProcessController,
+
+    // Observable Process Model ES6 class
+    ObservableProcessModel: ObservableProcessModel,
+
+    TransitionOperator: TransitionOperator,
+
+    ControllerAction: ControllerAction
+
+
 
 
 };
