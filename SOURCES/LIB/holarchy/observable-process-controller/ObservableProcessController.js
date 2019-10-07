@@ -1,6 +1,6 @@
 
 
-const constructorFilter = require("./ApplicationStateController-constructor-filter");
+const constructorFilter = require("./ObservableProcessController-constructor-filter");
 
 
 class ApplicationStateController {

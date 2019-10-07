@@ -2,17 +2,17 @@
 
 var packageMeta = require("./package.json");
 
-var appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
-
 var ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
+
+var appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
 
 var ObservableProcessController = require("./observable-process-controller/ObservableProcessController");
 
-var ObservableProcessModel = require("./app-state-controller/ObservableProcessModel");
+var ObservableProcessModel = require("./observable-process-controller/ObservableProcessModel");
 
-var TransitionOperator = require("./app-state-controller/TransitionOperator");
+var TransitionOperator = require("./observable-process-controller/TransitionOperator");
 
-var ControllerAction = require("./app-state-controller/ControllerAction");
+var ControllerAction = require("./observable-process-controller/ControllerAction");
 
 module.exports = {
   __meta: {

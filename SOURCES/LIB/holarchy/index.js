@@ -1,12 +1,13 @@
 
 const packageMeta = require("./package.json");
-const appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
+
 const ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
+const appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
 
 const ObservableProcessController = require("./observable-process-controller/ObservableProcessController");
-const ObservableProcessModel = require("./app-state-controller/ObservableProcessModel");
-const TransitionOperator = require("./app-state-controller/TransitionOperator");
-const ControllerAction = require("./app-state-controller/ControllerAction");
+const ObservableProcessModel = require("./observable-process-controller/ObservableProcessModel");
+const TransitionOperator = require("./observable-process-controller/TransitionOperator");
+const ControllerAction = require("./observable-process-controller/ControllerAction");
 
 module.exports = {
 
