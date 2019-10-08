@@ -2,45 +2,45 @@
 //
 
 const arccore = require("@encapsule/arccore");
-const appDataStoreConstructorFactory = require("./lib/app-data-store-constructor-filter-factory");
 const getNamespaceInReferenceFromPathFilter = require("./lib/get-namespace-in-reference-from-path");
 
 class ApplicationDataStore {
 
-    constructor(sharedAppDataStoreSpec_) {
-        const factoryResponse = appDataStoreConstructorFactory.request(sharedAppDataStoreSpec_);
+    // request = { spec: object, data: variant }
+    constructor(request_) {
+
+        const factoryResponse = arccore.filter.create({
+            operationID: "3aDV_cacQByO0tTzVrBxnA",
+            operationName: "Aplication Data Store Constructor",
+            operationDescription: "Constructs an in-memory data structure used to maintain shared application state data at runtime.",
+            inputFilterSpec: request_.spec
+        });
         if (factoryResponse.error) {
-            throw new Error(
-                [
-                    "Unable to construct an ApplicationDataStore class instance due to an error in the application's shared data filter specification.",
-                    factoryResponse.error
-                ].join(" ")
-            );
-        } // if error
-        const storeConstructorFilter = factoryResponse.result;
-        const filterResponse = storeConstructorFilter.request();
+            throw new Error(factoryResponse.error);
+        }
+        const dataFilter = factoryResponse.result;
+
+        const filterResponse = dataFilter.request(request_.data);
         if (filterResponse.error) {
-            throw new Error(
-                [
-                    "Unable to construct an ApplicationDataStore class instance due to an error executing the construction filter.",
-                    filterResponse.error
-                ].join(" ")
-            );
-        } // if error
-        // Private implementation data...
-        // Do not deference; use class methods to access private implementation data
+            throw new Error(factoryResponse.error);
+        }
+        const data = filterResponse.result;
+
+        // Private implementation state. Consumers of this class should not access the _private namespace; use class methods to interact with class instances instead.
         this._private = {
-            storeData: filterResponse.result,
-            storeDataSpec: storeConstructorFilter.filterDescriptor.inputFilterSpec,
+            storeData: data,
+            storeDataSpec: request_.spec,
             accessFilters: {
                 read: {},
                 write: {}
             }
         };
+
         // API methods... Use these methods.
         this.toJSON = this.toJSON.bind(this);
         this.readNamespace = this.readNamespace.bind(this);
         this.writeNamespace = this.writeNamespace.bind(this);
+
     } // end constructor
 
 

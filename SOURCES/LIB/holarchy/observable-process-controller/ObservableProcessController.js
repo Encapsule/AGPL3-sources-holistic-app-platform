@@ -1,5 +1,6 @@
 
 const constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
+const ApplicationDataStore = require("../app-data-store/ApplicationDataStore");
 
 class ObservableProcessController {
 
@@ -15,7 +16,12 @@ class ObservableProcessController {
         }
 
         // Keep a copy of the normalized request passed to the constructor.
-        this._private.request = filterResponse.result;
+        this._private.construction = filterResponse.result;
+
+        this._private.controllerData = new ApplicationDataStore({
+            spec: request_.controllerDataSpec,
+            data: request_.controllerData
+        });
 
         // Bind instance methods.
         this.toJSON = this.toJSON.bind(this);
