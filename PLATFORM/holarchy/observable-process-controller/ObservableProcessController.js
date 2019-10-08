@@ -8,6 +8,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
 
+var ApplicationDataStore = require("../app-data-store/ApplicationDataStore");
+
 var ObservableProcessController =
 /*#__PURE__*/
 function () {
@@ -24,7 +26,11 @@ function () {
     } // Keep a copy of the normalized request passed to the constructor.
 
 
-    this._private.request = filterResponse.result; // Bind instance methods.
+    this._private.construction = filterResponse.result;
+    this._private.controllerData = new ApplicationDataStore({
+      spec: request_.controllerDataSpec,
+      data: request_.controllerData
+    }); // Bind instance methods.
 
     this.toJSON = this.toJSON.bind(this);
     this.act = this.act.bind(this);

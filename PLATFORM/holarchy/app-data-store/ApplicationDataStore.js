@@ -10,36 +10,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 var arccore = require("@encapsule/arccore");
 
-var appDataStoreConstructorFactory = require("./lib/app-data-store-constructor-filter-factory");
-
 var getNamespaceInReferenceFromPathFilter = require("./lib/get-namespace-in-reference-from-path");
 
 var ApplicationDataStore =
 /*#__PURE__*/
 function () {
-  function ApplicationDataStore(sharedAppDataStoreSpec_) {
+  // request = { spec: object, data: variant }
+  function ApplicationDataStore(request_) {
     _classCallCheck(this, ApplicationDataStore);
 
-    var factoryResponse = appDataStoreConstructorFactory.request(sharedAppDataStoreSpec_);
+    var factoryResponse = arccore.filter.create({
+      operationID: "3aDV_cacQByO0tTzVrBxnA",
+      operationName: "Aplication Data Store Constructor",
+      operationDescription: "Constructs an in-memory data structure used to maintain shared application state data at runtime.",
+      inputFilterSpec: request_.spec
+    });
 
     if (factoryResponse.error) {
-      throw new Error(["Unable to construct an ApplicationDataStore class instance due to an error in the application's shared data filter specification.", factoryResponse.error].join(" "));
-    } // if error
+      throw new Error(factoryResponse.error);
+    }
 
-
-    var storeConstructorFilter = factoryResponse.result;
-    var filterResponse = storeConstructorFilter.request();
+    var dataFilter = factoryResponse.result;
+    var filterResponse = dataFilter.request(request_.data);
 
     if (filterResponse.error) {
-      throw new Error(["Unable to construct an ApplicationDataStore class instance due to an error executing the construction filter.", filterResponse.error].join(" "));
-    } // if error
-    // Private implementation data...
-    // Do not deference; use class methods to access private implementation data
+      throw new Error(factoryResponse.error);
+    }
 
+    var data = filterResponse.result; // Private implementation state. Consumers of this class should not access the _private namespace; use class methods to interact with class instances instead.
 
     this._private = {
-      storeData: filterResponse.result,
-      storeDataSpec: storeConstructorFilter.filterDescriptor.inputFilterSpec,
+      storeData: data,
+      storeDataSpec: request_.spec,
       accessFilters: {
         read: {},
         write: {}

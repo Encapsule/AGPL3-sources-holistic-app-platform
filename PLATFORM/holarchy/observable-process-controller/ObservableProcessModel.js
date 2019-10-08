@@ -14,21 +14,21 @@ function () {
   function ObservableProcessModel(request_) {
     _classCallCheck(this, ObservableProcessModel);
 
-    this._private = {};
     var filterResponse = constructorRequestFilter.request(request_);
 
     if (filterResponse.error) {
       throw new Error(filterResponse.error);
     }
 
-    this._private.opmDigraph = filterResponse.result;
+    this._private = {};
+    this._private = filterResponse.result;
     this.toJSON = this.toJSON.bind(this);
   }
 
   _createClass(ObservableProcessModel, [{
     key: "toJSON",
     value: function toJSON() {
-      return this._private.opmDigraph.toJSON();
+      return this._private;
     }
   }]);
 
