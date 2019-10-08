@@ -6,7 +6,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var appStateSubcontrollerFactory = require("./lib/observable-process-model-definition-filter");
+var constructorRequestFilter = require("./lib/ObservableProcessModel-constructor-filter");
 
 var ObservableProcessModel =
 /*#__PURE__*/
@@ -15,7 +15,7 @@ function () {
     _classCallCheck(this, ObservableProcessModel);
 
     this._private = {};
-    var filterResponse = appStateSubcontrollerFactory.request(request_);
+    var filterResponse = constructorRequestFilter.request(request_);
 
     if (filterResponse.error) {
       throw new Error(filterResponse.error);

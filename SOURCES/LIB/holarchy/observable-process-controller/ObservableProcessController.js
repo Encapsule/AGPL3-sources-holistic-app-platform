@@ -1,9 +1,7 @@
 
+const constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
 
-const constructorFilter = require("./ObservableProcessController-constructor-filter");
-
-
-class ApplicationStateController {
+class ObservableProcessController {
 
     constructor(request_) {
 
@@ -11,36 +9,27 @@ class ApplicationStateController {
         this._private = {};
 
         // Normalize the incoming request descriptor object.
-        let filterResponse = constructorFilter.request(request_);
+        let filterResponse = constructorRequestFilter.request(request_);
         if (filterResponse.error) {
             throw new Error(filterResponse.error);
         }
 
-        const request = filterResponse.result;
-
-        this._private.request = request;
-
-
-
-
+        // Keep a copy of the normalized request passed to the constructor.
+        this._private.request = filterResponse.result;
 
         // Bind instance methods.
         this.toJSON = this.toJSON.bind(this);
-        this.callActionFilter = this.callActionFilter.bind(this);
+        this.act = this.act.bind(this);
     }
-
 
     toJSON() {
         return this._private;
     }
 
-
-    callActionFilter(actionRequestDescriptor_) {
-
-        actionRequestDescriptor_;
-
+    act(request_) {
+        request_;
     }
 
 }
 
-module.exports = ApplicationStateController;
+module.exports = ObservableProcessController;

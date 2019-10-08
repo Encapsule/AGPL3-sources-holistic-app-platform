@@ -6,43 +6,43 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var constructorFilter = require("./ObservableProcessController-constructor-filter");
+var constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
 
-var ApplicationStateController =
+var ObservableProcessController =
 /*#__PURE__*/
 function () {
-  function ApplicationStateController(request_) {
-    _classCallCheck(this, ApplicationStateController);
+  function ObservableProcessController(request_) {
+    _classCallCheck(this, ObservableProcessController);
 
     // Allocate private, per-class-instance state.
     this._private = {}; // Normalize the incoming request descriptor object.
 
-    var filterResponse = constructorFilter.request(request_);
+    var filterResponse = constructorRequestFilter.request(request_);
 
     if (filterResponse.error) {
       throw new Error(filterResponse.error);
-    }
+    } // Keep a copy of the normalized request passed to the constructor.
 
-    var request = filterResponse.result;
-    this._private.request = request; // Bind instance methods.
+
+    this._private.request = filterResponse.result; // Bind instance methods.
 
     this.toJSON = this.toJSON.bind(this);
-    this.callActionFilter = this.callActionFilter.bind(this);
+    this.act = this.act.bind(this);
   }
 
-  _createClass(ApplicationStateController, [{
+  _createClass(ObservableProcessController, [{
     key: "toJSON",
     value: function toJSON() {
       return this._private;
     }
   }, {
-    key: "callActionFilter",
-    value: function callActionFilter(actionRequestDescriptor_) {
-      actionRequestDescriptor_;
+    key: "act",
+    value: function act(request_) {
+      request_;
     }
   }]);
 
-  return ApplicationStateController;
+  return ObservableProcessController;
 }();
 
-module.exports = ApplicationStateController;
+module.exports = ObservableProcessController;

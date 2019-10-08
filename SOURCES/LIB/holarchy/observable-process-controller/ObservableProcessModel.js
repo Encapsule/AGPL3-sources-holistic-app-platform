@@ -1,11 +1,11 @@
 
-const appStateSubcontrollerFactory = require("./lib/observable-process-model-definition-filter");
+const constructorRequestFilter = require("./lib/ObservableProcessModel-constructor-filter");
 
 class ObservableProcessModel {
 
     constructor(request_) {
         this._private = {};
-        let filterResponse = appStateSubcontrollerFactory.request(request_);
+        let filterResponse = constructorRequestFilter.request(request_);
         if (filterResponse.error) {
             throw new Error(filterResponse.error);
         }

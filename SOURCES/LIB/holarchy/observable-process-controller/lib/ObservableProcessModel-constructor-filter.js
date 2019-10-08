@@ -12,6 +12,11 @@ var factoryResponse = arccore.filter.create({
         ____label: "App State Subcontroller Factory Request",
         ____description: "Declaration of a application state controller's finite state machine model.",
         ____types: "jsObject",
+        id: {
+            ____label: "Controller ID",
+            ____description: "A unique developer-assigned IRUT identifier. This value is used to bind controller data namespaces to observable process models.",
+            ____accept: "jsString"
+        },
         name: {
             ____label: "Controller Name",
             ____description: "A pascal-cased string name to be used to reference this specific controller in the context of the application state system model.",
@@ -22,81 +27,77 @@ var factoryResponse = arccore.filter.create({
             ____description: "A short description of the function or subsystem that this controller models to help developers understand the application state system model partitioning.",
             ____accept: "jsString"
         },
-        stateNamespace: {
-            ____label: "State Namespace",
-            ____description: "The ARCcore.filter namespace path of the mailbox in the app data store where this subcontroller's current state should be recorded for observation by other app subsystems.",
-            ____accept: "jsString"
-        },
-        states: {
-            ____label: "Controller States Declaration",
-            ____description: "An array of controller state descriptors that declare this controller's supported states, transition conditions, and transition actions.",
+
+        steps: {
+            ____label: "Controller Steps Declaration",
+            ____description: "An array of controller step descriptors that declare this controller's supported steps, transition conditions, and transition actions.",
             ____types: "jsArray",
-            state: {
-                ____label: "Controller State Declaration",
-                ____description: "Declaration of a specific controller state.",
+            step: {
+                ____label: "Controller Step Declaration",
+                ____description: "Declaration of a specific controller step.",
                 ____types: "jsObject",
                 name: {
-                    ____label: "State Name",
-                    ____description: "A unique name given to this controller state.",
+                    ____label: "Step Name",
+                    ____description: "A unique name given to this controller step.",
                     ____accept: "jsString"
                 },
                 description: {
-                    ____label: "State Description",
-                    ____description: "Optional short description of the purpose, significance, role, and/or semantic(s) of this state in this controller model.",
+                    ____label: "Step Description",
+                    ____description: "Optional short description of the purpose, significance, role, and/or semantic(s) of this step in this controller model.",
                     ____accept: [ "jsUndefined", "jsString" ]
                 },
                 actions: {
-                    ____label: "State Transition Actions",
-                    ____description: "Optional worker subroutines (filters) registrations associated with this controller state.",
+                    ____label: "Step Transition Actions",
+                    ____description: "Optional worker subroutines (filters) registrations associated with this controller step.",
                     ____types: "jsObject",
                     ____defaultValue: {},
                     enter: {
-                        ____label: "State Enter Actions Vector",
-                        ____description: "Array of zero or more state actor command objects to be passed to the state actor dispatcher.",
+                        ____label: "Step Enter Actions Vector",
+                        ____description: "Array of zero or more step actor command objects to be passed to the step actor dispatcher.",
                         ____types: "jsArray",
                         ____defaultValue: [],
                         stateActorCommandDescriptor: {
-                            ____label: "State Enter State Actor Action",
-                            ____description: "A state actor command descriptor object to dispatch to the app state actor subsystem when this state is entered.",
+                            ____label: "Step Enter State Actor Action",
+                            ____description: "A state actor command descriptor object to dispatch to the app state actor subsystem when this step is entered.",
                             ____accept: [ "jsUndefined", "jsObject" ]
                         }
                     }, // enter
                     exit: {
-                        ____label: "State Exit Actions Vector",
+                        ____label: "Step Exit Actions Vector",
                         ____description: "Array of zero or more state actor command objects to be passed to the state actor dispatcher.",
                         ____types: "jsArray",
                         ____defaultValue: [],
-                        stateActorCommandDescriptor: {
-                            ____label: "State Exit State Actor Action",
+                        stepActorCommandDescriptor: {
+                            ____label: "Step Exit State Actor Action",
                             ____description: "An optional inline state actor command descriptor object to dispatch to the app state actor subsywtem when this controller state is exitted.",
                             ____accept: [ "jsUndefined", "jsObject" ]
                         }
                     } // exit
                 }, // actions
                 transitions: {
-                    ____label: "Controller State Transition Rules",
-                    ____description: "A priority queue of controller state transition rules used to determine if a transition may occur between this state and another, " +
-                        "when this transition should occur (i.e. under what conditions), and what actions should be taken to exit the current state and enter another.",
+                    ____label: "Controller Step Transition Rules",
+                    ____description: "A priority queue of controller step transition rules used to determine if a transition should occur between this step and another, " +
+                        "when this transition should occur (i.e. under what conditions), and what actions should be taken to exit the current step and enter another.",
                     ____types: "jsArray",
                     ____defaultValue: [],
                     transition: {
-                        ____label: "Controller State Transition Rule",
-                        ____description: "Declaration of the conditions under which the controller should transition from one state to another state.",
+                        ____label: "Controller Step Transition Rule",
+                        ____description: "Declaration of the conditions under which the controller should transition from one step to another step.",
                         ____types: "jsObject",
-                        nextState: {
-                            ____label: "Target State",
-                            ____description: "The name of the controller state that the controller should transition to iff the transition operator returns Boolean true.",
+                        nextStep: {
+                            ____label: "Target Step",
+                            ____description: "The name of the controller step that the controller should transition to iff the transition operator returns Boolean true.",
                             ____accept: "jsString"
                         },
                         operator: {
                             ____label: "Transition Operator Declaration",
-                            ____description: "A declarative specification of a Boolean expression that determines if a state transition should occur.",
+                            ____description: "A message request to a transition operator filter that evaluates to Boolean true iff a step transition should occur.",
                             ____accept: "jsObject"
                         }
                     } // transitionModel
                 } // transitionsModel
-            } // state
-        } // states
+            } // step
+        } // steps
     },
     bodyFunction: function(request_) {
         var response = { error: null, result: null };
@@ -115,39 +116,39 @@ var factoryResponse = arccore.filter.create({
             }
             var controllerModel = graphFactoryResponse.result;
 
-            // Create vertices in the directed graph that represent the controller's set of finite states.
-            for (var stateDescriptor of request_.states) {
-                if (controllerModel.isVertex(stateDescriptor.name)) {
-                    errors.push("Error while evaluating subcontroller state declarations.");
-                    errors.push("Invalid duplicate state declaration '" + stateDescriptor.name + "'.");
+            // Create vertices in the directed graph that represent the controller's set of finite states (called steps in an OPM).
+            for (var stepDescriptor of request_.steps) {
+                if (controllerModel.isVertex(stepDescriptor.name)) {
+                    errors.push("Error while evaluating observable process model step declaration.");
+                    errors.push("Invalid duplicate step declaration '" + stepDescriptor.name + "'.");
                     break;
                 }
                 controllerModel.addVertex({
-                    u: stateDescriptor.name,
+                    u: stepDescriptor.name,
                     p: {
-                        actions: stateDescriptor.actions
+                        actions: stepDescriptor.actions
                     }
                 });
             } // end for
 
             // Create the edges in the directed graph that represent the controller's finite state transition matrix.
-            for (stateDescriptor of request_.states) {
+            for (stepDescriptor of request_.steps) {
                 // Evaluate each of the declared transition models.
 
                 var transitionPriority = 0;
 
-                for (var transitionModel of stateDescriptor.transitions) {
+                for (var transitionModel of stepDescriptor.transitions) {
 
-                    if (!controllerModel.isVertex(transitionModel.nextState)) {
-                        errors.push("Error while evalatuing state '" + stateDescriptor.name + "'.");
-                        errors.push("Invalid transition model specifies unknown next state target '" + transitionModel.nextState + "'.");
+                    if (!controllerModel.isVertex(transitionModel.nextStep)) {
+                        errors.push("Error while evalatuing step '" + stepDescriptor.name + "'.");
+                        errors.push("Invalid transition model specifies unknown next step target '" + transitionModel.nextStep + "'.");
                         break;
                     }
 
                     var transitionEdgeDescriptor = {
                         e: {
-                            u: stateDescriptor.name,
-                            v: transitionModel.nextState
+                            u: stepDescriptor.name,
+                            v: transitionModel.nextStep
                         },
                         p: {
                             priority: transitionPriority++,
@@ -155,14 +156,13 @@ var factoryResponse = arccore.filter.create({
                         }
                     };
                     controllerModel.addEdge(transitionEdgeDescriptor);
-                } // end for transitionModel of stateDescriptor.transitions
-            } // end for stateDescriptor of request_.states
+                } // end for transitionModel of stepDescriptor.transitions
+            } // end for stepDescriptor of request_.steps
 
-            if (errors.length)
+            if (errors.length) {
                 break;
+            }
 
-            // Attach the state namespace path (i.e. the namespace where this subcontroller's current state value will be written for observation by other subsystems)
-            controllerModel.namespaceBindings = { stateNamespacePath: request_.stateNamespace };
             response.result = controllerModel;
 
             break;
