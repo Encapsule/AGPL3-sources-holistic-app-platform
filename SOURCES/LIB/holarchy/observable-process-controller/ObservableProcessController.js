@@ -83,6 +83,8 @@ class ObservableProcessController {
         while (!inBreakScope) {
             inBreakScope = true;
 
+            const startDate = new Date();
+
             // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
             let filterResponse = this._private.controllerData.getNamespaceSpec("~");
             if (filterResponse.error) {
@@ -111,6 +113,8 @@ class ObservableProcessController {
                     continue;
                 }
 
+                // Determine if the current spec namespace has an opm binding annotation.
+                // TODO: We should validate the controller data spec wrt opm bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
                 if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
                     const opmID = record.specRef.____appdsl.opm;
                     if (arccore.identifier.irut.isIRUT(opmID).result) {
@@ -118,30 +122,102 @@ class ObservableProcessController {
                             errors.push(`Controller data namespace '${currentSpecPath}' is declared with an unregistered ObservableProcessModel binding ID '${opmID}'.`);
                             break;
                         }
-                        opmDeclarationMap[currentSpecPath] = this._private.opmMap[opmID];
+                        opmDeclarationMap[currentDataPath] = this._private.opmMap[opmID];
                         console.log(`..... ..... controller data path '${currentDataPath}' bound to OPM '${opmID}'`);
                     } else {
                         errors.push(`Controller data namespace '${currentSpecPath}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
                         break;
                     }
+                } // end if opm binding on current namespace?
+
+                // Is the current namespace an array or object used as a map?
+
+                let declaredAsArray = false;
+                switch (Object.prototype.toString.call(record.specRef.____types)) {
+                case "[object String]":
+                    if (record.specRef.____types === "jsArray") {
+                        declaredAsArray = true;
+                    }
+                    break;
+                case "[object Array]":
+                    if (record.specRef.____types.indexOf("jsArray") >= 0) {
+                        declaredAsArray = true;
+                    }
+                    break;
+                default:
+                    break;
                 }
+
+                let declaredAsMap = false;
+                if (record.specRef.____asMap) {
+                    switch (Object.prototype.toString.call(record.specRef.____types)) {
+                    case "[object String]":
+                        if (record.specRef.____types === "jsObject") {
+                            declaredAsMap = true;
+                        }
+                        break;
+                    case "[object Array]":
+                        if (record.specRef.____types.indexOf("jsObject") >= 0) {
+                            declaredAsMap = true;
+                        }
+                        break;
+                    default:
+                        break;
+                    }
+                }
+
                 // Evaluate the child namespaces of the current filter spec namespace.
                 for (let key_ in record.specRef) {
+
                     if (key_.startsWith("____")) {
                         continue;
                     }
-                    let newRecord = arccore.util.clone(record);
-                    newRecord.specPathTokens.push(key_);
-                    newRecord.dataPathTokens.push(key_); // TODO: We need to permute on collections in controller data namespace here.
-                    newRecord.specRef = record.specRef[key_];
-                    newRecord.dataRef = record.dataRef[key_]; // TODO: We need to permute on collections in controller data namespace here.
-                    namespaceQueue.push(newRecord);
+
+                    if (!declaredAsArray && !declaredAsMap) {
+                        let newRecord = arccore.util.clone(record);
+                        newRecord.specPathTokens.push(key_);
+                        newRecord.dataPathTokens.push(key_);
+                        newRecord.specRef = record.specRef[key_];
+                        newRecord.dataRef = record.dataRef[key_];
+                        namespaceQueue.push(newRecord);
+                    } else {
+                        if (declaredAsArray) {
+                            if (Object.prototype.toString.call(record.dataRef) === "[object Array]") {
+                                for (let index = 0 ; index < record.dataRef.length ; index++) {
+                                    let newRecord = arccore.util.clone(record);
+                                    newRecord.specPathTokens.push(key_);
+                                    newRecord.dataPathTokens.push(`${index}`);
+                                    newRecord.specRef = record.specRef[key_];
+                                    newRecord.dataRef = record.dataRef[index];
+                                    namespaceQueue.push(newRecord);
+                                }
+                            }
+                        } else {
+                            if (Object.prototype.toString.call(record.dataRef) === "[object Object]") {
+                                let dataKeys = Object.keys(record.dataRef);
+                                while (dataKeys.length) {
+                                    const dataKey = dataKeys.shift();
+                                    let newRecord = arccore.util.clone(record);
+                                    newRecord.specPathTokens.push(key_);
+                                    newRecord.dataPathTokens.push(dataKey);
+                                    newRecord.specRef = record.specRef[key_];
+                                    newRecord.dataRef = record.dataRef[dataKey];
+                                    namespaceQueue.push(newRecord);
+                                }
+                            }
+                        }
+                    }
                 }
             } // end while(namespaceQueue.length)
 
             if (errors.length) {
                 break;
             }
+
+            const opmBindDate = new Date();
+            const opmBindMicroseconds = opmBindDate.getTime() - startDate.getTime();
+
+            console.log(`>> Dynamic OPM model binding completed in ${opmBindMicroseconds} microseconds.`);
 
             response.result = opmDeclarationMap;
             break;
