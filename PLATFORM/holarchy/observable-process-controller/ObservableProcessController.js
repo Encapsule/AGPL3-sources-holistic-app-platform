@@ -100,6 +100,8 @@ function () {
       if (filterResponse.error) {
         throw new Error(filterResponse.error);
       }
+
+      this._private.initialEvaluation = filterResponse.result;
     } catch (exception_) {
       throw new Error("ObservableProcessController::constructor failed: ".concat(exception_.stack, "."));
     }
@@ -148,27 +150,49 @@ function () {
           break;
         }
 
-        var namespaceQueue = [{
-          path: "~",
-          specRef: filterResponse.result
-        }];
+        var controllerDataSpec = filterResponse.result;
+        filterResponse = this._private.controllerData.readNamespace("~");
+
+        if (filterResponse.error) {
+          errors.push(filterResponse.error);
+          break;
+        }
+
+        var controllerData = filterResponse.result;
         var opmDeclarationMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
 
+        var namespaceQueue = [{
+          specPathTokens: ["~"],
+          dataPathTokens: ["~"],
+          specRef: controllerDataSpec,
+          dataRef: controllerData
+        }];
+
         while (namespaceQueue.length) {
+          // Retrieve the next record from the queue.
           var record = namespaceQueue.shift();
+          var currentSpecPath = record.specPathTokens.join(".");
+          var currentDataPath = record.dataPathTokens.join(".");
+          console.log("..... inspecting spec path='".concat(currentSpecPath, "' data path='").concat(currentDataPath, "'")); // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
+
+          if (record.dataRef === undefined) {
+            console.log("..... ..... controller data path '".concat(currentDataPath, "' is undefined; spec tree branch processing complete."));
+            continue;
+          }
 
           if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
             var opmID = record.specRef.____appdsl.opm;
 
             if (arccore.identifier.irut.isIRUT(opmID).result) {
               if (!this._private.opmMap[opmID]) {
-                errors.push("Controller data namespace '".concat(record.path, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
+                errors.push("Controller data namespace '".concat(currentSpecPath, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
                 break;
               }
 
-              opmDeclarationMap[record.path] = this._private.opmMap[opmID];
+              opmDeclarationMap[currentSpecPath] = this._private.opmMap[opmID];
+              console.log("..... ..... controller data path '".concat(currentDataPath, "' bound to OPM '").concat(opmID, "'"));
             } else {
-              errors.push("Controller data namespace '".concat(record.path, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
+              errors.push("Controller data namespace '".concat(currentSpecPath, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
               break;
             }
           } // Evaluate the child namespaces of the current filter spec namespace.
@@ -179,10 +203,14 @@ function () {
               continue;
             }
 
-            namespaceQueue.push({
-              path: "".concat(record.path, ".").concat(key_),
-              specRef: record.specRef[key_]
-            });
+            var newRecord = arccore.util.clone(record);
+            newRecord.specPathTokens.push(key_);
+            newRecord.dataPathTokens.push(key_); // TODO: We need to permute on collections in controller data namespace here.
+
+            newRecord.specRef = record.specRef[key_];
+            newRecord.dataRef = record.dataRef[key_]; // TODO: We need to permute on collections in controller data namespace here.
+
+            namespaceQueue.push(newRecord);
           }
         } // end while(namespaceQueue.length)
 
@@ -191,6 +219,7 @@ function () {
           break;
         }
 
+        response.result = opmDeclarationMap;
         break;
       }
 
