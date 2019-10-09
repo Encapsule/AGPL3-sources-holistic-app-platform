@@ -141,7 +141,8 @@ function () {
       var inBreakScope = false;
 
       while (!inBreakScope) {
-        inBreakScope = true; // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
+        inBreakScope = true;
+        var startDate = new Date(); // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
         var filterResponse = this._private.controllerData.getNamespaceSpec("~");
 
@@ -178,7 +179,9 @@ function () {
           if (record.dataRef === undefined) {
             console.log("..... ..... controller data path '".concat(currentDataPath, "' is undefined; spec tree branch processing complete."));
             continue;
-          }
+          } // Determine if the current spec namespace has an opm binding annotation.
+          // TODO: We should validate the controller data spec wrt opm bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
+
 
           if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
             var opmID = record.specRef.____appdsl.opm;
@@ -189,11 +192,57 @@ function () {
                 break;
               }
 
-              opmDeclarationMap[currentSpecPath] = this._private.opmMap[opmID];
+              opmDeclarationMap[currentDataPath] = this._private.opmMap[opmID];
               console.log("..... ..... controller data path '".concat(currentDataPath, "' bound to OPM '").concat(opmID, "'"));
             } else {
               errors.push("Controller data namespace '".concat(currentSpecPath, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
               break;
+            }
+          } // end if opm binding on current namespace?
+          // Is the current namespace an array or object used as a map?
+
+
+          var declaredAsArray = false;
+
+          switch (Object.prototype.toString.call(record.specRef.____types)) {
+            case "[object String]":
+              if (record.specRef.____types === "jsArray") {
+                declaredAsArray = true;
+              }
+
+              break;
+
+            case "[object Array]":
+              if (record.specRef.____types.indexOf("jsArray") >= 0) {
+                declaredAsArray = true;
+              }
+
+              break;
+
+            default:
+              break;
+          }
+
+          var declaredAsMap = false;
+
+          if (record.specRef.____asMap) {
+            switch (Object.prototype.toString.call(record.specRef.____types)) {
+              case "[object String]":
+                if (record.specRef.____types === "jsObject") {
+                  declaredAsMap = true;
+                }
+
+                break;
+
+              case "[object Array]":
+                if (record.specRef.____types.indexOf("jsObject") >= 0) {
+                  declaredAsMap = true;
+                }
+
+                break;
+
+              default:
+                break;
             }
           } // Evaluate the child namespaces of the current filter spec namespace.
 
@@ -203,14 +252,48 @@ function () {
               continue;
             }
 
-            var newRecord = arccore.util.clone(record);
-            newRecord.specPathTokens.push(key_);
-            newRecord.dataPathTokens.push(key_); // TODO: We need to permute on collections in controller data namespace here.
+            if (!declaredAsArray && !declaredAsMap) {
+              var newRecord = arccore.util.clone(record);
+              newRecord.specPathTokens.push(key_);
+              newRecord.dataPathTokens.push(key_);
+              newRecord.specRef = record.specRef[key_];
+              newRecord.dataRef = record.dataRef[key_];
+              namespaceQueue.push(newRecord);
+            } else {
+              if (declaredAsArray) {
+                if (Object.prototype.toString.call(record.dataRef) === "[object Array]") {
+                  for (var index = 0; index < record.dataRef.length; index++) {
+                    var _newRecord = arccore.util.clone(record);
 
-            newRecord.specRef = record.specRef[key_];
-            newRecord.dataRef = record.dataRef[key_]; // TODO: We need to permute on collections in controller data namespace here.
+                    _newRecord.specPathTokens.push(key_);
 
-            namespaceQueue.push(newRecord);
+                    _newRecord.dataPathTokens.push("".concat(index));
+
+                    _newRecord.specRef = record.specRef[key_];
+                    _newRecord.dataRef = record.dataRef[index];
+                    namespaceQueue.push(_newRecord);
+                  }
+                }
+              } else {
+                if (Object.prototype.toString.call(record.dataRef) === "[object Object]") {
+                  var dataKeys = Object.keys(record.dataRef);
+
+                  while (dataKeys.length) {
+                    var dataKey = dataKeys.shift();
+
+                    var _newRecord2 = arccore.util.clone(record);
+
+                    _newRecord2.specPathTokens.push(key_);
+
+                    _newRecord2.dataPathTokens.push(dataKey);
+
+                    _newRecord2.specRef = record.specRef[key_];
+                    _newRecord2.dataRef = record.dataRef[dataKey];
+                    namespaceQueue.push(_newRecord2);
+                  }
+                }
+              }
+            }
           }
         } // end while(namespaceQueue.length)
 
@@ -219,6 +302,9 @@ function () {
           break;
         }
 
+        var opmBindDate = new Date();
+        var opmBindMicroseconds = opmBindDate.getTime() - startDate.getTime();
+        console.log(">> Dynamic OPM model binding completed in ".concat(opmBindMicroseconds, " microseconds."));
         response.result = opmDeclarationMap;
         break;
       }
