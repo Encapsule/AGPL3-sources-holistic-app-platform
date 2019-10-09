@@ -23,12 +23,30 @@ function () {
     this._private = {};
     this._private = filterResponse.result;
     this.toJSON = this.toJSON.bind(this);
+    this.getID = this.getID.bind(this);
+    this.getName = this.getName.bind(this);
+    this.getDescription = this.getDescription.bind(this);
   }
 
   _createClass(ObservableProcessModel, [{
     key: "toJSON",
     value: function toJSON() {
       return this._private;
+    }
+  }, {
+    key: "getID",
+    value: function getID() {
+      return this._private.declaration.id;
+    }
+  }, {
+    key: "getName",
+    value: function getName() {
+      return this._private.declaration.name;
+    }
+  }, {
+    key: "getDescription",
+    value: function getDescription() {
+      return this._private.declaration.description;
     }
   }]);
 

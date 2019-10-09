@@ -34,13 +34,12 @@ function () {
     var filterResponse = dataFilter.request(request_.data);
 
     if (filterResponse.error) {
-      throw new Error(factoryResponse.error);
-    }
+      throw new Error(filterResponse.error);
+    } // Private implementation state. Consumers of this class should not access the _private namespace; use class methods to interact with class instances instead.
 
-    var data = filterResponse.result; // Private implementation state. Consumers of this class should not access the _private namespace; use class methods to interact with class instances instead.
 
     this._private = {
-      storeData: data,
+      storeData: filterResponse.result,
       storeDataSpec: request_.spec,
       accessFilters: {
         read: {},
@@ -51,6 +50,7 @@ function () {
     this.toJSON = this.toJSON.bind(this);
     this.readNamespace = this.readNamespace.bind(this);
     this.writeNamespace = this.writeNamespace.bind(this);
+    this.getNamespaceSpec = this.getNamespaceSpec.bind(this);
   } // end constructor
 
 
@@ -244,6 +244,42 @@ function () {
 
       return methodResponse;
     } // writeNamespace
+
+  }, {
+    key: "getNamespaceSpec",
+    value: function getNamespaceSpec(path_) {
+      var methodResponse = {
+        error: null,
+        result: undefined
+      };
+      var errors = [];
+      var inBreakScope = false;
+
+      while (!inBreakScope) {
+        inBreakScope = true;
+        var filterResponse = getNamespaceInReferenceFromPathFilter.request({
+          namespacePath: path_,
+          sourceRef: this._private.storeDataSpec,
+          parseFilterSpec: true
+        });
+
+        if (filterResponse.error) {
+          errors.push("Cannot resolve a namespace descriptor in filter specification for path '".concat(path_, "'."));
+          errors.push(filterResponse.error);
+          break;
+        } // if error
+
+
+        methodResponse.result = filterResponse.result;
+        break;
+      }
+
+      if (errors.length) {
+        methodResponse.error = errors.join(" ");
+      }
+
+      return methodResponse;
+    } // getNamespaceSpec
 
   }]);
 
