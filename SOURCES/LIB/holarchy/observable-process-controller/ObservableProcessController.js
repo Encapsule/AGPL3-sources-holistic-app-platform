@@ -48,6 +48,8 @@ class ObservableProcessController {
                 throw new Error(filterResponse.error);
             }
 
+            this._private.initialEvaluation = filterResponse.result;
+
         } catch (exception_) {
             throw new Error(`ObservableProcessController::constructor failed: ${exception_.stack}.`);
         }
@@ -87,20 +89,39 @@ class ObservableProcessController {
                 errors.push(filterResponse.error);
                 break;
             }
-            let namespaceQueue = [ { path: "~", specRef: filterResponse.result } ];
+            const controllerDataSpec = filterResponse.result;
+            filterResponse = this._private.controllerData.readNamespace("~");
+            if (filterResponse.error) {
+                errors.push(filterResponse.error);
+                break;
+            }
+            const controllerData = filterResponse.result;
             let opmDeclarationMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
+            let namespaceQueue = [ { specPathTokens: [ "~" ], dataPathTokens: [ "~" ], specRef: controllerDataSpec, dataRef: controllerData } ];
             while (namespaceQueue.length) {
+                // Retrieve the next record from the queue.
                 let record = namespaceQueue.shift();
+                const currentSpecPath = record.specPathTokens.join(".");
+                const currentDataPath = record.dataPathTokens.join(".");
+                console.log(`..... inspecting spec path='${currentSpecPath}' data path='${currentDataPath}'`);
+
+                // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
+                if (record.dataRef === undefined) {
+                    console.log(`..... ..... controller data path '${currentDataPath}' is undefined; spec tree branch processing complete.`);
+                    continue;
+                }
+
                 if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
                     const opmID = record.specRef.____appdsl.opm;
                     if (arccore.identifier.irut.isIRUT(opmID).result) {
                         if (!this._private.opmMap[opmID]) {
-                            errors.push(`Controller data namespace '${record.path}' is declared with an unregistered ObservableProcessModel binding ID '${opmID}'.`);
+                            errors.push(`Controller data namespace '${currentSpecPath}' is declared with an unregistered ObservableProcessModel binding ID '${opmID}'.`);
                             break;
                         }
-                        opmDeclarationMap[record.path] = this._private.opmMap[opmID];
+                        opmDeclarationMap[currentSpecPath] = this._private.opmMap[opmID];
+                        console.log(`..... ..... controller data path '${currentDataPath}' bound to OPM '${opmID}'`);
                     } else {
-                        errors.push(`Controller data namespace '${record.path}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
+                        errors.push(`Controller data namespace '${currentSpecPath}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
                         break;
                     }
                 }
@@ -109,7 +130,12 @@ class ObservableProcessController {
                     if (key_.startsWith("____")) {
                         continue;
                     }
-                    namespaceQueue.push({ path: `${record.path}.${key_}`, specRef: record.specRef[key_] });
+                    let newRecord = arccore.util.clone(record);
+                    newRecord.specPathTokens.push(key_);
+                    newRecord.dataPathTokens.push(key_); // TODO: We need to permute on collections in controller data namespace here.
+                    newRecord.specRef = record.specRef[key_];
+                    newRecord.dataRef = record.dataRef[key_]; // TODO: We need to permute on collections in controller data namespace here.
+                    namespaceQueue.push(newRecord);
                 }
             } // end while(namespaceQueue.length)
 
@@ -117,8 +143,7 @@ class ObservableProcessController {
                 break;
             }
 
-
-
+            response.result = opmDeclarationMap;
             break;
 
         }
