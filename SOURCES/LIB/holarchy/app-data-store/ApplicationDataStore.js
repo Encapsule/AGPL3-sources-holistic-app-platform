@@ -22,13 +22,12 @@ class ApplicationDataStore {
 
         const filterResponse = dataFilter.request(request_.data);
         if (filterResponse.error) {
-            throw new Error(factoryResponse.error);
+            throw new Error(filterResponse.error);
         }
-        const data = filterResponse.result;
 
         // Private implementation state. Consumers of this class should not access the _private namespace; use class methods to interact with class instances instead.
         this._private = {
-            storeData: data,
+            storeData: filterResponse.result,
             storeDataSpec: request_.spec,
             accessFilters: {
                 read: {},
@@ -40,6 +39,7 @@ class ApplicationDataStore {
         this.toJSON = this.toJSON.bind(this);
         this.readNamespace = this.readNamespace.bind(this);
         this.writeNamespace = this.writeNamespace.bind(this);
+        this.getNamespaceSpec = this.getNamespaceSpec.bind(this);
 
     } // end constructor
 
@@ -162,6 +162,27 @@ class ApplicationDataStore {
         }
         return methodResponse;
     } // writeNamespace
+
+    getNamespaceSpec(path_) {
+        let methodResponse = { error: null, result: undefined };
+        let errors = [];
+        let inBreakScope = false;
+        while (!inBreakScope) {
+            inBreakScope = true;
+            const filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
+            if (filterResponse.error) {
+                errors.push(`Cannot resolve a namespace descriptor in filter specification for path '${path_}'.`);
+                errors.push(filterResponse.error);
+                break;
+            } // if error
+            methodResponse.result = filterResponse.result;
+            break;
+        }
+        if (errors.length) {
+            methodResponse.error = errors.join(" ");
+        }
+        return methodResponse;
+    } // getNamespaceSpec
 
 } // class ApplicationDataStore
 

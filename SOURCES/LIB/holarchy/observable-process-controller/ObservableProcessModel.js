@@ -12,10 +12,25 @@ class ObservableProcessModel {
         this._private = {};
         this._private = filterResponse.result;
         this.toJSON = this.toJSON.bind(this);
+        this.getID = this.getID.bind(this);
+        this.getName = this.getName.bind(this);
+        this.getDescription = this.getDescription.bind(this);
     }
 
     toJSON() {
         return this._private;
+    }
+
+    getID() {
+        return this._private.declaration.id;
+    }
+
+    getName() {
+        return this._private.declaration.name;
+    }
+
+    getDescription() {
+        return this._private.declaration.description;
     }
 
 }
