@@ -143,6 +143,7 @@ function () {
       while (!inBreakScope) {
         inBreakScope = true;
         var startDate = new Date(); // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
+        // Get a reference to the entire filter spec for the controller data store.
 
         var filterResponse = this._private.controllerData.getNamespaceSpec("~");
 
@@ -151,7 +152,8 @@ function () {
           break;
         }
 
-        var controllerDataSpec = filterResponse.result;
+        var controllerDataSpec = filterResponse.result; // Get a reference to the controller data.
+
         filterResponse = this._private.controllerData.readNamespace("~");
 
         if (filterResponse.error) {
@@ -163,8 +165,8 @@ function () {
         var opmDeclarationMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
 
         var namespaceQueue = [{
-          specPathTokens: ["~"],
-          dataPathTokens: ["~"],
+          specPath: "~",
+          dataPath: "~",
           specRef: controllerDataSpec,
           dataRef: controllerData
         }];
@@ -172,12 +174,10 @@ function () {
         while (namespaceQueue.length) {
           // Retrieve the next record from the queue.
           var record = namespaceQueue.shift();
-          var currentSpecPath = record.specPathTokens.join(".");
-          var currentDataPath = record.dataPathTokens.join(".");
-          console.log("..... inspecting spec path='".concat(currentSpecPath, "' data path='").concat(currentDataPath, "'")); // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
+          console.log("..... inspecting spec path='".concat(record.specPath, "' data path='").concat(record.dataPath, "'")); // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
 
           if (record.dataRef === undefined) {
-            console.log("..... ..... controller data path '".concat(currentDataPath, "' is undefined; spec tree branch processing complete."));
+            console.log("..... ..... controller data path '".concat(record.dataPath, "' is undefined; spec tree branch processing complete."));
             continue;
           } // Determine if the current spec namespace has an opm binding annotation.
           // TODO: We should validate the controller data spec wrt opm bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
@@ -188,14 +188,22 @@ function () {
 
             if (arccore.identifier.irut.isIRUT(opmID).result) {
               if (!this._private.opmMap[opmID]) {
-                errors.push("Controller data namespace '".concat(currentSpecPath, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
+                errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
                 break;
-              }
+              } // ----------------------------------------------------------------
+              // We found an OPM-bound namespace in the controller data.
 
-              opmDeclarationMap[currentDataPath] = this._private.opmMap[opmID];
-              console.log("..... ..... controller data path '".concat(currentDataPath, "' bound to OPM '").concat(opmID, "'"));
+
+              opmDeclarationMap[record.dataPath] = {
+                evaluationContext: {
+                  dataBinding: record,
+                  opm: this._private.opmMap[opmID]
+                }
+              }; // ----------------------------------------------------------------
+
+              console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
             } else {
-              errors.push("Controller data namespace '".concat(currentSpecPath, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
+              errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
               break;
             }
           } // end if opm binding on current namespace?
@@ -254,8 +262,8 @@ function () {
 
             if (!declaredAsArray && !declaredAsMap) {
               var newRecord = arccore.util.clone(record);
-              newRecord.specPathTokens.push(key_);
-              newRecord.dataPathTokens.push(key_);
+              newRecord.specPath = "".concat(newRecord.specPath, ".").concat(key_);
+              newRecord.dataPath = newRecord.specPath;
               newRecord.specRef = record.specRef[key_];
               newRecord.dataRef = record.dataRef[key_];
               namespaceQueue.push(newRecord);
@@ -265,10 +273,8 @@ function () {
                   for (var index = 0; index < record.dataRef.length; index++) {
                     var _newRecord = arccore.util.clone(record);
 
-                    _newRecord.specPathTokens.push(key_);
-
-                    _newRecord.dataPathTokens.push("".concat(index));
-
+                    _newRecord.specPath = "".concat(_newRecord.specPath, ".").concat(key_);
+                    _newRecord.dataPath = "".concat(_newRecord.dataPath, ".").concat(index);
                     _newRecord.specRef = record.specRef[key_];
                     _newRecord.dataRef = record.dataRef[index];
                     namespaceQueue.push(_newRecord);
@@ -283,10 +289,8 @@ function () {
 
                     var _newRecord2 = arccore.util.clone(record);
 
-                    _newRecord2.specPathTokens.push(key_);
-
-                    _newRecord2.dataPathTokens.push(dataKey);
-
+                    _newRecord2.specPath = "".concat(_newRecord2.specPath, ".").concat(key_);
+                    _newRecord2.dataPath = "".concat(_newRecord2.dataPath, ".").concat(dataKey);
                     _newRecord2.specRef = record.specRef[key_];
                     _newRecord2.dataRef = record.dataRef[dataKey];
                     namespaceQueue.push(_newRecord2);
@@ -304,7 +308,7 @@ function () {
 
         var opmBindDate = new Date();
         var opmBindMicroseconds = opmBindDate.getTime() - startDate.getTime();
-        console.log(">> Dynamic OPM model binding completed in ".concat(opmBindMicroseconds, " microseconds."));
+        console.log(">>>>> Dynamic OPM model binding completed in ".concat(opmBindMicroseconds, " microseconds."));
         response.result = opmDeclarationMap;
         break;
       }
