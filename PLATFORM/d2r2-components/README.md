@@ -5,10 +5,10 @@
 # @encapsule/d2r2-components v0.0.21 "eureka"
 
 ```
-Package: @encapsule/d2r2-components v0.0.21 "eureka" build ID "-TIIod5BTXmBg9He1mLeNw"
-Sources: Encapsule/holistic#8ed8f192e3cddbc5d33a9b90c7db2dae5b216c10
+Package: @encapsule/d2r2-components v0.0.21 "eureka" build ID "7cur6UMlQe6fHdKFnd3jgA"
+Sources: Encapsule/holistic#15e9c9add1ab69787a54d0e45a15756badc4d3a8
 Purpose: library (Node.js)
-Created: 2019-10-10T22:26:08.000Z
+Created: 2019-10-11T00:07:18.000Z
 License: MIT
 ```
 

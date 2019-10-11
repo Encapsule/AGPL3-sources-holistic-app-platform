@@ -1,4 +1,6 @@
 
+const maxEvalPasses = 64; // TODO: Migrate to constructor input w/default value.
+
 const arccore = require("@encapsule/arccore");
 const constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
 const ApplicationDataStore = require("../app-data-store/ApplicationDataStore");
@@ -34,6 +36,7 @@ class ObservableProcessController {
             }
 
             this._private.controllerData = new ApplicationDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
+            this._private.evaluationCount = 0;
 
             // Bind instance methods.
             // public
@@ -77,11 +80,18 @@ class ObservableProcessController {
     //
 
     _evaluate() {
+
         let response = { error: null, result: undefined };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
+            // ================================================================
+            // Prologue - executed before starting the outer evaluation loop.
+
+            console.log("================================================================");
+            console.log(`> ObservableProcessController::_evaluate starting system evaluation ${this._private.evaluationCount} ...`);
 
             const startDate = new Date();
 
@@ -103,140 +113,173 @@ class ObservableProcessController {
             }
             const controllerData = filterResponse.result;
 
-            let opmDeclarationMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
-            let namespaceQueue = [ { specPath: "~", dataPath: "~", specRef: controllerDataSpec, dataRef: controllerData } ];
+            // ================================================================
+            // Outer evaluation loop.
+            // An a single call to the _evaluate method comprises a sequence of
+            // one or more evaluation passes during which each bound OPM is evaluated.
+            // Additional passes are added so long one or more OPM transitioned
+            // between process steps. Or, until the maximum allowed passes / evaluation
+            // limit is surpassed.
 
-            while (namespaceQueue.length) {
-                // Retrieve the next record from the queue.
-                let record = namespaceQueue.shift();
+            let evalPassCount = 0;
+            while (evalPassCount < maxEvalPasses) {
 
-                console.log(`..... inspecting spec path='${record.specPath}' data path='${record.dataPath}'`);
+                console.log(`> ... Starting evaluation pass ${this._private.evaluationCount}:${evalPassCount} ...`);
 
-                // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
-                if (record.dataRef === undefined) {
-                    console.log(`..... ..... controller data path '${record.dataPath}' is undefined; spec tree branch processing complete.`);
-                    continue;
-                }
+                // ================================================================
+                // Dynamically locate and bind ObservableProcessModel instances based
+                // on analysis of the controller data's filter specification and the
+                // actual controller data values.
 
-                // Determine if the current spec namespace has an opm binding annotation.
-                // TODO: We should validate the controller data spec wrt opm bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
-                if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
-                    const opmID = record.specRef.____appdsl.opm;
-                    if (arccore.identifier.irut.isIRUT(opmID).result) {
-                        if (!this._private.opmMap[opmID]) {
-                            errors.push(`Controller data namespace '${record.specPath}' is declared with an unregistered ObservableProcessModel binding ID '${opmID}'.`);
+                let opmDeclarationMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
+                let namespaceQueue = [ { specPath: "~", dataPath: "~", specRef: controllerDataSpec, dataRef: controllerData } ];
+
+                while (namespaceQueue.length) {
+                    // Retrieve the next record from the queue.
+                    let record = namespaceQueue.shift();
+
+                    console.log(`..... inspecting spec path='${record.specPath}' data path='${record.dataPath}'`);
+
+                    // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
+                    if (record.dataRef === undefined) {
+                        console.log(`..... ..... controller data path '${record.dataPath}' is undefined; spec tree branch processing complete.`);
+                        continue;
+                    }
+
+                    // Determine if the current spec namespace has an opm binding annotation.
+                    // TODO: We should validate the controller data spec wrt opm bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
+                    if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
+                        const opmID = record.specRef.____appdsl.opm;
+                        if (arccore.identifier.irut.isIRUT(opmID).result) {
+                            if (!this._private.opmMap[opmID]) {
+                                errors.push(`Controller data namespace '${record.specPath}' is declared with an unregistered ObservableProcessModel binding ID '${opmID}'.`);
+                                break;
+                            }
+                            // ----------------------------------------------------------------
+                            // We found an OPM-bound namespace in the controller data.
+                            opmDeclarationMap[record.dataPath] = {
+                                evaluationContext: {
+                                    dataBinding: record,
+                                    opm: this._private.opmMap[opmID]
+                                },
+                                evaluationResponse: null
+                            };
+                            // ----------------------------------------------------------------
+                            console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
+                        } else {
+                            errors.push(`Controller data namespace '${record.specPath}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
                             break;
                         }
-                        // ----------------------------------------------------------------
-                        // We found an OPM-bound namespace in the controller data.
-                        opmDeclarationMap[record.dataPath] = {
-                            evaluationContext: {
-                                dataBinding: record,
-                                opm: this._private.opmMap[opmID]
-                            }
-                        };
-                        // ----------------------------------------------------------------
-                        console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
-                    } else {
-                        errors.push(`Controller data namespace '${record.specPath}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
-                        break;
-                    }
-                } // end if opm binding on current namespace?
+                    } // end if opm binding on current namespace?
 
-                // Is the current namespace an array or object used as a map?
+                    // Is the current namespace an array or object used as a map?
 
-                let declaredAsArray = false;
-                switch (Object.prototype.toString.call(record.specRef.____types)) {
-                case "[object String]":
-                    if (record.specRef.____types === "jsArray") {
-                        declaredAsArray = true;
-                    }
-                    break;
-                case "[object Array]":
-                    if (record.specRef.____types.indexOf("jsArray") >= 0) {
-                        declaredAsArray = true;
-                    }
-                    break;
-                default:
-                    break;
-                }
-
-                let declaredAsMap = false;
-                if (record.specRef.____asMap) {
+                    let declaredAsArray = false;
                     switch (Object.prototype.toString.call(record.specRef.____types)) {
                     case "[object String]":
-                        if (record.specRef.____types === "jsObject") {
-                            declaredAsMap = true;
+                        if (record.specRef.____types === "jsArray") {
+                            declaredAsArray = true;
                         }
                         break;
                     case "[object Array]":
-                        if (record.specRef.____types.indexOf("jsObject") >= 0) {
-                            declaredAsMap = true;
+                        if (record.specRef.____types.indexOf("jsArray") >= 0) {
+                            declaredAsArray = true;
                         }
                         break;
                     default:
                         break;
                     }
-                }
 
-                // Evaluate the child namespaces of the current filter spec namespace.
-                for (let key_ in record.specRef) {
-
-                    if (key_.startsWith("____")) {
-                        continue;
+                    let declaredAsMap = false;
+                    if (record.specRef.____asMap) {
+                        switch (Object.prototype.toString.call(record.specRef.____types)) {
+                        case "[object String]":
+                            if (record.specRef.____types === "jsObject") {
+                                declaredAsMap = true;
+                            }
+                            break;
+                        case "[object Array]":
+                            if (record.specRef.____types.indexOf("jsObject") >= 0) {
+                                declaredAsMap = true;
+                            }
+                            break;
+                        default:
+                            break;
+                        }
                     }
 
-                    if (!declaredAsArray && !declaredAsMap) {
-                        let newRecord = arccore.util.clone(record);
-                        newRecord.specPath = `${newRecord.specPath}.${key_}`;
-                        newRecord.dataPath = newRecord.specPath;
-                        newRecord.specRef = record.specRef[key_];
-                        newRecord.dataRef = record.dataRef[key_];
-                        namespaceQueue.push(newRecord);
-                    } else {
-                        if (declaredAsArray) {
-                            if (Object.prototype.toString.call(record.dataRef) === "[object Array]") {
-                                for (let index = 0 ; index < record.dataRef.length ; index++) {
-                                    let newRecord = arccore.util.clone(record);
-                                    newRecord.specPath = `${newRecord.specPath}.${key_}`;
-                                    newRecord.dataPath = `${newRecord.dataPath}.${index}`;
-                                    newRecord.specRef = record.specRef[key_];
-                                    newRecord.dataRef = record.dataRef[index];
-                                    namespaceQueue.push(newRecord);
-                                }
-                            }
+                    // Evaluate the child namespaces of the current filter spec namespace.
+                    for (let key_ in record.specRef) {
+
+                        if (key_.startsWith("____")) {
+                            continue;
+                        }
+
+                        if (!declaredAsArray && !declaredAsMap) {
+                            let newRecord = arccore.util.clone(record);
+                            newRecord.specPath = `${newRecord.specPath}.${key_}`;
+                            newRecord.dataPath = `${newRecord.dataPath}.${key_}`;
+                            newRecord.specRef = record.specRef[key_];
+                            newRecord.dataRef = record.dataRef[key_];
+                            namespaceQueue.push(newRecord);
                         } else {
-                            if (Object.prototype.toString.call(record.dataRef) === "[object Object]") {
-                                let dataKeys = Object.keys(record.dataRef);
-                                while (dataKeys.length) {
-                                    const dataKey = dataKeys.shift();
-                                    let newRecord = arccore.util.clone(record);
-                                    newRecord.specPath = `${newRecord.specPath}.${key_}`;
-                                    newRecord.dataPath = `${newRecord.dataPath}.${dataKey}`;
-                                    newRecord.specRef = record.specRef[key_];
-                                    newRecord.dataRef = record.dataRef[dataKey];
-                                    namespaceQueue.push(newRecord);
+                            if (declaredAsArray) {
+                                if (Object.prototype.toString.call(record.dataRef) === "[object Array]") {
+                                    for (let index = 0 ; index < record.dataRef.length ; index++) {
+                                        let newRecord = arccore.util.clone(record);
+                                        newRecord.specPath = `${newRecord.specPath}.${key_}`;
+                                        newRecord.dataPath = `${newRecord.dataPath}.${index}`;
+                                        newRecord.specRef = record.specRef[key_];
+                                        newRecord.dataRef = record.dataRef[index];
+                                        namespaceQueue.push(newRecord);
+                                    }
+                                }
+                            } else {
+                                if (Object.prototype.toString.call(record.dataRef) === "[object Object]") {
+                                    let dataKeys = Object.keys(record.dataRef);
+                                    while (dataKeys.length) {
+                                        const dataKey = dataKeys.shift();
+                                        let newRecord = arccore.util.clone(record);
+                                        newRecord.specPath = `${newRecord.specPath}.${key_}`;
+                                        newRecord.dataPath = `${newRecord.dataPath}.${dataKey}`;
+                                        newRecord.specRef = record.specRef[key_];
+                                        newRecord.dataRef = record.dataRef[dataKey];
+                                        namespaceQueue.push(newRecord);
+                                    }
                                 }
                             }
                         }
                     }
+                } // end while(namespaceQueue.length)
+
+                if (errors.length) {
+                    break;
                 }
-            } // end while(namespaceQueue.length)
 
-            if (errors.length) {
-                break;
-            }
+                const opmBindDate = new Date();
+                const opmBindMicroseconds = opmBindDate.getTime() - startDate.getTime();
 
-            const opmBindDate = new Date();
-            const opmBindMicroseconds = opmBindDate.getTime() - startDate.getTime();
-            console.log(`>>>>> Dynamic OPM model binding completed in ${opmBindMicroseconds} microseconds.`);
-            response.result = opmDeclarationMap;
+                response.result = opmDeclarationMap; // TODO: need to do something else with this result
+
+                console.log(`..... Dynamic OPM model binding completed in ${opmBindMicroseconds} microseconds.`);
+                console.log(`> ... Finish evaluation pass ${this._private.evaluationCount}:${evalPassCount++} ...`);
+
+                break; // out of the evaluation loop
+
+
+            } // while outer evaluation loop;
+
             break;
 
-        }
+        } // while (!inBreakScope)
+
         if (errors.length) {
             response.error = errors.join(" ");
         }
+
+        console.log(`> ObservableProcessController::_evaluate finished system evaluation ${this._private.evaluationCount++}.`);
+        console.log("================================================================");
+
         return response;
 
     } // _evaluate method
