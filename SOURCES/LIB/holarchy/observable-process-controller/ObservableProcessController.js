@@ -86,7 +86,7 @@ class ObservableProcessController {
         let response = { error: null, result: undefined };
         let errors = [];
         let inBreakScope = false;
-        const evalStopwatch = new SimpleStopwatch("eval stopwatch");
+        const evalStopwatch = new SimpleStopwatch(`eval #${this._private.evaluationCount} stopwatch`);
 
         while (!inBreakScope) {
             inBreakScope = true;
@@ -133,9 +133,13 @@ class ObservableProcessController {
                 // ================================================================
                 // Dynamically locate and bind ObservableProcessModel instances based
                 // on analysis of the controller data's filter specification and the
-                // actual controller data values.
+                // actual controller data values. This occurs at the prologue of the
+                // outer evaluation loop in order to track the addition and removal
+                // of OPM-bound objects in the controller data store that may occur
+                // as a side-effect of executing process model step enter and exit
+                // actions.
 
-                let opmInstanceMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
+                let evalFrame = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
                 let namespaceQueue = [ { specPath: "~", dataPath: "~", specRef: controllerDataSpec, dataRef: controllerData } ];
 
                 while (namespaceQueue.length) {
@@ -159,20 +163,26 @@ class ObservableProcessController {
                                 errors.push(`Controller data namespace '${record.specPath}' is declared with an unregistered ObservableProcessModel binding ID '${opmID}'.`);
                                 break;
                             }
-                            // ----------------------------------------------------------------
+
+                            // ****************************************************************
+                            // ****************************************************************
                             // We found an OPM-bound namespace in the controller data.
-                            opmInstanceMap[record.dataPath] = {
+                            const opmInstanceFrame = {
                                 evaluationContext: {
                                     dataBinding: record,
+                                    initialStep: record.dataRef.opmStep,
                                     opm: this._private.opmMap[opmID]
                                 },
                                 evaluationResponse: {
-                                    status: "pending-eval",
-                                    initialStep: record.dataRef.opmStep
+                                    status: "pending-eval"
                                 }
                             };
-                            // ----------------------------------------------------------------
+                            evalFrame[record.dataPath] = opmInstanceFrame;
                             console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
+                            console.log(opmInstanceFrame);
+                            // ****************************************************************
+                            // ****************************************************************
+
                         } else {
                             errors.push(`Controller data namespace '${record.specPath}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
                             break;
@@ -259,19 +269,45 @@ class ObservableProcessController {
                     }
                 } // end while(namespaceQueue.length)
 
+                // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the evalFrame.
+
                 evalStopwatch.mark(`pass ${evalPassCount} OPM binding complete`);
 
                 if (errors.length) {
-                    break;
+                    break; // from the outer evaluation loop
                 }
 
-                response.result = opmInstanceMap; // TODO: need to do something else with this result
-
-                // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the opmInstanceMap.
                 // ================================================================
+
+
+                // ================================================================
+                // Evaluate each discovered OPM-bound object instance in the controller
+                // data store. Note that we evaluate the model instances in their order
+                // of discovery which is somewhat arbitrary as it depends on user-defined
+                // controller data filter spec composition. Each model instance is evaluted,
+                // per it's declared step-dependent transition rules. And, if the rules
+                // and current data values indicate, the model is transitioned between
+                // steps dispatching exit actions declared on the initial step's model.
+                // And, enter actions declared on the new process step's model.
+
+                for (let controllerDataPath in evalFrame) {
+
+                    const opmInstanceFrame = evalFrame[controllerDataPath];
+                    const opmBinding = opmInstanceFrame.evaluationContext.opm;
+                    const initialStep = opmInstanceFrame.evaluationContext.initialStep;
+                    const stepDescriptor = opmBinding.getStepDescriptor(initialStep);
+
+                    console.log(`..... Evaluting '${controllerDataPath}' instance of ${opmBinding.getID()}::${opmBinding.getName()} ...`);
+                    console.log(`..... ..... model instance is currently at process step '${initialStep}' stepDescriptor=`);
+                    console.log(stepDescriptor);
+
+
+                }
 
                 evalStopwatch.mark(`eval pass ${evalPassCount} complete`);
                 console.log(`> ... Finish evaluation pass ${this._private.evaluationCount}:${evalPassCount++} ...`);
+
+                response.result = evalFrame; // TODO: need to do something else with this result
 
                 break; // ... out of the main evaluation loop
 

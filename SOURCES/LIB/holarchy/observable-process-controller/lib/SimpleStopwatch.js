@@ -5,7 +5,9 @@ class SimpleStopwatch {
     constructor(name_) {
         this.name = name_;
         this.startTime = (new Date()).getTime();
-        this.marks = [ { label: "START", ellapsed: 0 } ];
+        const startMark = { label: `START: ${name_}`, delta: 0, ellapsed: 0 };
+        this.lastMark = startMark;
+        this.marks = [ startMark ];
 
         this.mark = this.mark.bind(this);
         this.finish = this.finish.bind(this);
@@ -13,13 +15,14 @@ class SimpleStopwatch {
 
     mark(label_) {
         let ellapsed = ((new Date()).getTime)() - this.startTime;
-        const mark = { label: label_, ellapsed: ellapsed };
+        const mark = { label: label_, delta: (ellapsed - this.lastMark.ellapsed), ellapsed: ellapsed };
         this.marks.push(mark);
+        this.lastMark = mark;
         return mark;
     }
 
     finish() {
-        const finishMark = this.mark("FINISH");
+        const finishMark = this.mark(`FINISH: ${this.name}`);
 
         return {
             name: this.name,
