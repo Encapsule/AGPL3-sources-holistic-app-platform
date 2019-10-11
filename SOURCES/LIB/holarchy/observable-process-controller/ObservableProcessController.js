@@ -5,6 +5,8 @@ const arccore = require("@encapsule/arccore");
 const constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
 const ApplicationDataStore = require("../app-data-store/ApplicationDataStore");
 
+const SimpleStopwatch = require("./lib/SimpleStopwatch");
+
 class ObservableProcessController {
 
     constructor(request_) {
@@ -84,6 +86,8 @@ class ObservableProcessController {
         let response = { error: null, result: undefined };
         let errors = [];
         let inBreakScope = false;
+        const evalStopwatch = new SimpleStopwatch("eval stopwatch");
+
         while (!inBreakScope) {
             inBreakScope = true;
 
@@ -92,8 +96,6 @@ class ObservableProcessController {
 
             console.log("================================================================");
             console.log(`> ObservableProcessController::_evaluate starting system evaluation ${this._private.evaluationCount} ...`);
-
-            const startDate = new Date();
 
             // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
@@ -122,8 +124,10 @@ class ObservableProcessController {
             // limit is surpassed.
 
             let evalPassCount = 0;
+
             while (evalPassCount < maxEvalPasses) {
 
+                evalStopwatch.mark(`start pass ${evalPassCount}`);
                 console.log(`> ... Starting evaluation pass ${this._private.evaluationCount}:${evalPassCount} ...`);
 
                 // ================================================================
@@ -131,7 +135,7 @@ class ObservableProcessController {
                 // on analysis of the controller data's filter specification and the
                 // actual controller data values.
 
-                let opmDeclarationMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
+                let opmInstanceMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
                 let namespaceQueue = [ { specPath: "~", dataPath: "~", specRef: controllerDataSpec, dataRef: controllerData } ];
 
                 while (namespaceQueue.length) {
@@ -157,12 +161,15 @@ class ObservableProcessController {
                             }
                             // ----------------------------------------------------------------
                             // We found an OPM-bound namespace in the controller data.
-                            opmDeclarationMap[record.dataPath] = {
+                            opmInstanceMap[record.dataPath] = {
                                 evaluationContext: {
                                     dataBinding: record,
                                     opm: this._private.opmMap[opmID]
                                 },
-                                evaluationResponse: null
+                                evaluationResponse: {
+                                    status: "pending-eval",
+                                    initialStep: record.dataRef.opmStep
+                                }
                             };
                             // ----------------------------------------------------------------
                             console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
@@ -252,23 +259,25 @@ class ObservableProcessController {
                     }
                 } // end while(namespaceQueue.length)
 
+                evalStopwatch.mark(`pass ${evalPassCount} OPM binding complete`);
+
                 if (errors.length) {
                     break;
                 }
 
-                const opmBindDate = new Date();
-                const opmBindMicroseconds = opmBindDate.getTime() - startDate.getTime();
+                response.result = opmInstanceMap; // TODO: need to do something else with this result
 
-                response.result = opmDeclarationMap; // TODO: need to do something else with this result
+                // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the opmInstanceMap.
+                // ================================================================
 
-                console.log(`..... Dynamic OPM model binding completed in ${opmBindMicroseconds} microseconds.`);
+                evalStopwatch.mark(`eval pass ${evalPassCount} complete`);
                 console.log(`> ... Finish evaluation pass ${this._private.evaluationCount}:${evalPassCount++} ...`);
 
-                break; // out of the evaluation loop
-
+                break; // ... out of the main evaluation loop
 
             } // while outer evaluation loop;
 
+            evalStopwatch.mark(`eval ${this._private.evaluationCount++} complete`);
             break;
 
         } // while (!inBreakScope)
@@ -277,8 +286,8 @@ class ObservableProcessController {
             response.error = errors.join(" ");
         }
 
-        console.log(`> ObservableProcessController::_evaluate finished system evaluation ${this._private.evaluationCount++}.`);
-        console.log("================================================================");
+        console.log(`> ObservableProcessController::_evaluate  #${this._private.evaluationCount++} ${response.error?"aborted with error":"completed without error"}.`);
+        console.log(evalStopwatch.finish());
 
         return response;
 
