@@ -14,10 +14,13 @@ function () {
 
     this.name = name_;
     this.startTime = new Date().getTime();
-    this.marks = [{
-      label: "START",
+    var startMark = {
+      label: "START: ".concat(name_),
+      delta: 0,
       ellapsed: 0
-    }];
+    };
+    this.lastMark = startMark;
+    this.marks = [startMark];
     this.mark = this.mark.bind(this);
     this.finish = this.finish.bind(this);
   }
@@ -28,15 +31,17 @@ function () {
       var ellapsed = new Date().getTime() - this.startTime;
       var mark = {
         label: label_,
+        delta: ellapsed - this.lastMark.ellapsed,
         ellapsed: ellapsed
       };
       this.marks.push(mark);
+      this.lastMark = mark;
       return mark;
     }
   }, {
     key: "finish",
     value: function finish() {
-      var finishMark = this.mark("FINISH");
+      var finishMark = this.mark("FINISH: ".concat(this.name));
       return {
         name: this.name,
         startTime: this.startTime,

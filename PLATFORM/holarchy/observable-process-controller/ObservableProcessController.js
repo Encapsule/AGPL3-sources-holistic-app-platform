@@ -144,7 +144,7 @@ function () {
       };
       var errors = [];
       var inBreakScope = false;
-      var evalStopwatch = new SimpleStopwatch("eval stopwatch");
+      var evalStopwatch = new SimpleStopwatch("eval #".concat(this._private.evaluationCount, " stopwatch"));
 
       while (!inBreakScope) {
         inBreakScope = true; // ================================================================
@@ -185,9 +185,13 @@ function () {
           console.log("> ... Starting evaluation pass ".concat(this._private.evaluationCount, ":").concat(evalPassCount, " ...")); // ================================================================
           // Dynamically locate and bind ObservableProcessModel instances based
           // on analysis of the controller data's filter specification and the
-          // actual controller data values.
+          // actual controller data values. This occurs at the prologue of the
+          // outer evaluation loop in order to track the addition and removal
+          // of OPM-bound objects in the controller data store that may occur
+          // as a side-effect of executing process model step enter and exit
+          // actions.
 
-          var opmInstanceMap = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
+          var evalFrame = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
 
           var namespaceQueue = [{
             specPath: "~",
@@ -215,22 +219,25 @@ function () {
                 if (!this._private.opmMap[opmID]) {
                   errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
                   break;
-                } // ----------------------------------------------------------------
+                } // ****************************************************************
+                // ****************************************************************
                 // We found an OPM-bound namespace in the controller data.
 
 
-                opmInstanceMap[record.dataPath] = {
+                var opmInstanceFrame = {
                   evaluationContext: {
                     dataBinding: record,
+                    initialStep: record.dataRef.opmStep,
                     opm: this._private.opmMap[opmID]
                   },
                   evaluationResponse: {
-                    status: "pending-eval",
-                    initialStep: record.dataRef.opmStep
+                    status: "pending-eval"
                   }
-                }; // ----------------------------------------------------------------
-
+                };
+                evalFrame[record.dataPath] = opmInstanceFrame;
                 console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
+                console.log(opmInstanceFrame); // ****************************************************************
+                // ****************************************************************
               } else {
                 errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
                 break;
@@ -329,20 +336,39 @@ function () {
               }
             }
           } // end while(namespaceQueue.length)
+          // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the evalFrame.
 
 
           evalStopwatch.mark("pass ".concat(evalPassCount, " OPM binding complete"));
 
           if (errors.length) {
-            break;
-          }
-
-          response.result = opmInstanceMap; // TODO: need to do something else with this result
-          // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the opmInstanceMap.
+            break; // from the outer evaluation loop
+          } // ================================================================
           // ================================================================
+          // Evaluate each discovered OPM-bound object instance in the controller
+          // data store. Note that we evaluate the model instances in their order
+          // of discovery which is somewhat arbitrary as it depends on user-defined
+          // controller data filter spec composition. Each model instance is evaluted,
+          // per it's declared step-dependent transition rules. And, if the rules
+          // and current data values indicate, the model is transitioned between
+          // steps dispatching exit actions declared on the initial step's model.
+          // And, enter actions declared on the new process step's model.
+
+
+          for (var controllerDataPath in evalFrame) {
+            var _opmInstanceFrame = evalFrame[controllerDataPath];
+            var opmBinding = _opmInstanceFrame.evaluationContext.opm;
+            var initialStep = _opmInstanceFrame.evaluationContext.initialStep;
+            var stepDescriptor = opmBinding.getStepDescriptor(initialStep);
+            console.log("..... Evaluting '".concat(controllerDataPath, "' instance of ").concat(opmBinding.getID(), "::").concat(opmBinding.getName(), " ..."));
+            console.log("..... ..... model instance is currently at process step '".concat(initialStep, "' stepDescriptor="));
+            console.log(stepDescriptor);
+          }
 
           evalStopwatch.mark("eval pass ".concat(evalPassCount, " complete"));
           console.log("> ... Finish evaluation pass ".concat(this._private.evaluationCount, ":").concat(evalPassCount++, " ..."));
+          response.result = evalFrame; // TODO: need to do something else with this result
+
           break; // ... out of the main evaluation loop
         } // while outer evaluation loop;
 

@@ -26,6 +26,7 @@ function () {
     this.getID = this.getID.bind(this);
     this.getName = this.getName.bind(this);
     this.getDescription = this.getDescription.bind(this);
+    this.getStepDescriptor = this.getStepDescriptor.bind(this);
   }
 
   _createClass(ObservableProcessModel, [{
@@ -47,6 +48,11 @@ function () {
     key: "getDescription",
     value: function getDescription() {
       return this._private.declaration.description;
+    }
+  }, {
+    key: "getStepDescriptor",
+    value: function getStepDescriptor(stepLabel_) {
+      return this._private.declaration.steps[stepLabel_];
     }
   }]);
 
