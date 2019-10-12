@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.21 "eureka"
 
 ```
-Package: @encapsule/holarchy v0.0.21 "eureka" build ID "OspOReInQuyUnaZAL_tj2g"
-Sources: Encapsule/holistic#880a2d180692407ff8391b461e657ae8fa749f69
+Package: @encapsule/holarchy v0.0.21 "eureka" build ID "i9jO0MXsTSuXk3nA8E7Tig"
+Sources: Encapsule/holistic#11da84937447fad2548b10e480d315749e173c74
 Purpose: library (Node.js)
-Created: 2019-10-11T09:00:07.000Z
+Created: 2019-10-12T07:40:07.000Z
 License: MIT
 ```
 

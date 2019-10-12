@@ -6,7 +6,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var maxEvalPasses = 64; // TODO: Migrate to constructor input w/default value.
+var maxEvalFrames = 64; // TODO: Migrate to constructor input w/default value.
 
 var arccore = require("@encapsule/arccore");
 
@@ -92,7 +92,16 @@ function () {
         spec: request_.controllerDataSpec,
         data: request_.controllerData
       });
-      this._private.evaluationCount = 0; // Bind instance methods.
+      this._private.evaluationCount = 0;
+      this._private.toperatorDiscriminator = {
+        request: function request(request_) {
+          console.log(request_);
+          return {
+            error: null,
+            result: false
+          }; // no transition
+        }
+      }; // Bind instance methods.
       // public
 
       this.toJSON = this.toJSON.bind(this);
@@ -173,16 +182,17 @@ function () {
         var controllerData = filterResponse.result; // ================================================================
         // Outer evaluation loop.
         // An a single call to the _evaluate method comprises a sequence of
-        // one or more evaluation passes during which each bound OPM is evaluated.
-        // Additional passes are added so long one or more OPM transitioned
-        // between process steps. Or, until the maximum allowed passes / evaluation
+        // one or more evaluation frames during which each bound OPM is evaluated.
+        // Additional frames are added so long one or more OPM transitioned
+        // between process steps. Or, until the maximum allowed frames / evaluation
         // limit is surpassed.
 
-        var evalPassCount = 0;
+        var evalFrameCount = 0;
+        var evalFrames = [];
 
-        while (evalPassCount < maxEvalPasses) {
-          evalStopwatch.mark("start pass ".concat(evalPassCount));
-          console.log("> ... Starting evaluation pass ".concat(this._private.evaluationCount, ":").concat(evalPassCount, " ...")); // ================================================================
+        while (evalFrameCount < maxEvalFrames) {
+          evalStopwatch.mark("start frame ".concat(evalFrameCount));
+          console.log("> ... Starting evaluation frame ".concat(this._private.evaluationCount, ":").concat(evalFrameCount, " ...")); // ================================================================
           // Dynamically locate and bind ObservableProcessModel instances based
           // on analysis of the controller data's filter specification and the
           // actual controller data values. This occurs at the prologue of the
@@ -339,7 +349,7 @@ function () {
           // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the evalFrame.
 
 
-          evalStopwatch.mark("pass ".concat(evalPassCount, " OPM binding complete"));
+          evalStopwatch.mark("frame ".concat(evalFrameCount, " OPM binding complete"));
 
           if (errors.length) {
             break; // from the outer evaluation loop
@@ -355,25 +365,70 @@ function () {
           // And, enter actions declared on the new process step's model.
 
 
+          evalStopwatch.mark("frame ".concat(evalFrameCount, " start evaluation"));
+
           for (var controllerDataPath in evalFrame) {
             var _opmInstanceFrame = evalFrame[controllerDataPath];
+            _opmInstanceFrame.evaluationResponse.status = "evaluating";
             var opmBinding = _opmInstanceFrame.evaluationContext.opm;
             var initialStep = _opmInstanceFrame.evaluationContext.initialStep;
             var stepDescriptor = opmBinding.getStepDescriptor(initialStep);
             console.log("..... Evaluting '".concat(controllerDataPath, "' instance of ").concat(opmBinding.getID(), "::").concat(opmBinding.getName(), " ..."));
             console.log("..... ..... model instance is currently at process step '".concat(initialStep, "' stepDescriptor="));
-            console.log(stepDescriptor);
+            console.log(stepDescriptor); // ================================================================
+            // Evaluate the OPM instance's step transition ruleset.
+
+            var nextStep = null; // null (default) indicates that the OPM instance should remain in its current process step (i.e. no transition).
+
+            for (var transitionIndex = 0; transitionIndex < stepDescriptor.transitions.length; transitionIndex++) {
+              var transitionRule = stepDescriptor.transitions[transitionIndex];
+
+              var transitionResponse = this._private.toperatorDiscriminator.request(transitionRule.transitionIf);
+
+              if (transitionResponse.error) {
+                _opmInstanceFrame.evaluationResponse.status = "error";
+                _opmInstanceFrame.evaluationResponse.action = "stuck";
+                _opmInstanceFrame.evaluationResponse.error = transitionResponse.error;
+                _opmInstanceFrame.evaluationResponse.finishStep = initialStep;
+                break; // abort evaluation of transition rules for this OPM instance...
+              }
+
+              if (transitionResponse.result) {
+                nextStep = transitionRule.nextStep; // signal a process step transition
+
+                break; // skip evaluation of subsequent transition rules for this OPM instance.
+              }
+            } // If the OPM instance is stable in its current process step, continue on to evaluate the next OPM instance in the eval frame.
+
+
+            if (!nextStep && !_opmInstanceFrame.evaluationResponse.error) {
+              _opmInstanceFrame.evaluationResponse.status = "complete";
+              _opmInstanceFrame.evaluationResponse.action = "noop";
+              _opmInstanceFrame.evaluationResponse.finishStep = initialStep;
+              continue;
+            } // Transition the OPM instance to its next process step.
+            // Dispatch the OPM instance's step exit action(s).
+            // Dispatch the OPM instance's step enter action(s).
+            // Update the OPM instance's opmStep flag in the controller data store.
+
           }
 
-          evalStopwatch.mark("eval pass ".concat(evalPassCount, " complete"));
-          console.log("> ... Finish evaluation pass ".concat(this._private.evaluationCount, ":").concat(evalPassCount++, " ..."));
-          response.result = evalFrame; // TODO: need to do something else with this result
+          evalFrames.push(evalFrame);
+          evalStopwatch.mark("eval frame ".concat(evalFrameCount, " complete"));
+          console.log("> ... Finish evaluation frame ".concat(this._private.evaluationCount, ":").concat(evalFrameCount++, " ...")); // ================================================================
+          // If any of the OPM instance's in the just-completed eval frame transitioned, add another eval frame.
+          // Otherwise exit the outer eval loop and conclude the OPC evaluation algorithm.
 
           break; // ... out of the main evaluation loop
         } // while outer evaluation loop;
 
 
-        evalStopwatch.mark("eval ".concat(this._private.evaluationCount++, " complete"));
+        if (errors.length) {
+          break;
+        }
+
+        response.result = evalFrames;
+        evalStopwatch.mark("eval ".concat(this._private.evaluationCount, " complete"));
         break;
       } // while (!inBreakScope)
 
@@ -382,8 +437,13 @@ function () {
         response.error = errors.join(" ");
       }
 
+      var evalStopwatchMarks = evalStopwatch.finish();
+      response.result = {
+        evalFrames: response.result,
+        evalMarks: evalStopwatchMarks
+      };
       console.log("> ObservableProcessController::_evaluate  #".concat(this._private.evaluationCount++, " ").concat(response.error ? "aborted with error" : "completed without error", "."));
-      console.log(evalStopwatch.finish());
+      console.log(response);
       return response;
     } // _evaluate method
 

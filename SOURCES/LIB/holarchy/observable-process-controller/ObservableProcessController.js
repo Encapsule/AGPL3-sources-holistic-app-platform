@@ -1,5 +1,5 @@
 
-const maxEvalPasses = 64; // TODO: Migrate to constructor input w/default value.
+const maxEvalFrames = 64; // TODO: Migrate to constructor input w/default value.
 
 const arccore = require("@encapsule/arccore");
 const constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
@@ -39,6 +39,13 @@ class ObservableProcessController {
 
             this._private.controllerData = new ApplicationDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
             this._private.evaluationCount = 0;
+
+            this._private.toperatorDiscriminator = {
+                request: function(request_) {
+                    console.log(request_);
+                    return { error: null, result: false }; // no transition
+                }
+            };
 
             // Bind instance methods.
             // public
@@ -118,17 +125,18 @@ class ObservableProcessController {
             // ================================================================
             // Outer evaluation loop.
             // An a single call to the _evaluate method comprises a sequence of
-            // one or more evaluation passes during which each bound OPM is evaluated.
-            // Additional passes are added so long one or more OPM transitioned
-            // between process steps. Or, until the maximum allowed passes / evaluation
+            // one or more evaluation frames during which each bound OPM is evaluated.
+            // Additional frames are added so long one or more OPM transitioned
+            // between process steps. Or, until the maximum allowed frames / evaluation
             // limit is surpassed.
 
-            let evalPassCount = 0;
+            let evalFrameCount = 0;
+            let evalFrames = [];
 
-            while (evalPassCount < maxEvalPasses) {
+            while (evalFrameCount < maxEvalFrames) {
 
-                evalStopwatch.mark(`start pass ${evalPassCount}`);
-                console.log(`> ... Starting evaluation pass ${this._private.evaluationCount}:${evalPassCount} ...`);
+                evalStopwatch.mark(`start frame ${evalFrameCount}`);
+                console.log(`> ... Starting evaluation frame ${this._private.evaluationCount}:${evalFrameCount} ...`);
 
                 // ================================================================
                 // Dynamically locate and bind ObservableProcessModel instances based
@@ -271,7 +279,7 @@ class ObservableProcessController {
 
                 // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the evalFrame.
 
-                evalStopwatch.mark(`pass ${evalPassCount} OPM binding complete`);
+                evalStopwatch.mark(`frame ${evalFrameCount} OPM binding complete`);
 
                 if (errors.length) {
                     break; // from the outer evaluation loop
@@ -290,9 +298,14 @@ class ObservableProcessController {
                 // steps dispatching exit actions declared on the initial step's model.
                 // And, enter actions declared on the new process step's model.
 
+                evalStopwatch.mark(`frame ${evalFrameCount} start evaluation`);
+
                 for (let controllerDataPath in evalFrame) {
 
+
                     const opmInstanceFrame = evalFrame[controllerDataPath];
+                    opmInstanceFrame.evaluationResponse.status = "evaluating";
+
                     const opmBinding = opmInstanceFrame.evaluationContext.opm;
                     const initialStep = opmInstanceFrame.evaluationContext.initialStep;
                     const stepDescriptor = opmBinding.getStepDescriptor(initialStep);
@@ -301,19 +314,65 @@ class ObservableProcessController {
                     console.log(`..... ..... model instance is currently at process step '${initialStep}' stepDescriptor=`);
                     console.log(stepDescriptor);
 
+                    // ================================================================
+                    // Evaluate the OPM instance's step transition ruleset.
+                    let nextStep = null; // null (default) indicates that the OPM instance should remain in its current process step (i.e. no transition).
+
+                    for (let transitionIndex = 0; transitionIndex < stepDescriptor.transitions.length ; transitionIndex++) {
+                        const transitionRule = stepDescriptor.transitions[transitionIndex];
+
+                        let transitionResponse = this._private.toperatorDiscriminator.request(transitionRule.transitionIf);
+                        if (transitionResponse.error) {
+                            opmInstanceFrame.evaluationResponse.status = "error";
+                            opmInstanceFrame.evaluationResponse.action = "stuck";
+                            opmInstanceFrame.evaluationResponse.error = transitionResponse.error;
+                            opmInstanceFrame.evaluationResponse.finishStep = initialStep;
+                            break; // abort evaluation of transition rules for this OPM instance...
+                        }
+                        if (transitionResponse.result) {
+                            nextStep = transitionRule.nextStep; // signal a process step transition
+                            break; // skip evaluation of subsequent transition rules for this OPM instance.
+                        }
+                    }
+
+                    // If the OPM instance is stable in its current process step, continue on to evaluate the next OPM instance in the eval frame.
+                    if (!nextStep && !opmInstanceFrame.evaluationResponse.error) {
+                        opmInstanceFrame.evaluationResponse.status = "complete";
+                        opmInstanceFrame.evaluationResponse.action = "noop";
+                        opmInstanceFrame.evaluationResponse.finishStep = initialStep;
+                        continue;
+                    }
+
+                    // Transition the OPM instance to its next process step.
+
+                    // Dispatch the OPM instance's step exit action(s).
+
+                    // Dispatch the OPM instance's step enter action(s).
+
+                    // Update the OPM instance's opmStep flag in the controller data store.
 
                 }
 
-                evalStopwatch.mark(`eval pass ${evalPassCount} complete`);
-                console.log(`> ... Finish evaluation pass ${this._private.evaluationCount}:${evalPassCount++} ...`);
+                evalFrames.push(evalFrame);
+                evalStopwatch.mark(`eval frame ${evalFrameCount} complete`);
+                console.log(`> ... Finish evaluation frame ${this._private.evaluationCount}:${evalFrameCount++} ...`);
 
-                response.result = evalFrame; // TODO: need to do something else with this result
+                // ================================================================
+                // If any of the OPM instance's in the just-completed eval frame transitioned, add another eval frame.
+                // Otherwise exit the outer eval loop and conclude the OPC evaluation algorithm.
 
                 break; // ... out of the main evaluation loop
 
             } // while outer evaluation loop;
 
-            evalStopwatch.mark(`eval ${this._private.evaluationCount++} complete`);
+
+            if (errors.length) {
+                break;
+            }
+
+            response.result = evalFrames;
+            evalStopwatch.mark(`eval ${this._private.evaluationCount} complete`);
+
             break;
 
         } // while (!inBreakScope)
@@ -322,9 +381,15 @@ class ObservableProcessController {
             response.error = errors.join(" ");
         }
 
-        console.log(`> ObservableProcessController::_evaluate  #${this._private.evaluationCount++} ${response.error?"aborted with error":"completed without error"}.`);
-        console.log(evalStopwatch.finish());
+        const evalStopwatchMarks = evalStopwatch.finish();
 
+        response.result = {
+            evalFrames: response.result,
+            evalMarks: evalStopwatchMarks
+        };
+
+        console.log(`> ObservableProcessController::_evaluate  #${this._private.evaluationCount++} ${response.error?"aborted with error":"completed without error"}.`);
+        console.log(response);
         return response;
 
     } // _evaluate method
