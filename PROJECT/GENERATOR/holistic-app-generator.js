@@ -76,12 +76,14 @@ program.version(holisticMetadata.version).
     option("--info", "Print information about this tool.").
     parse(process.argv);
 
-console.log("================================================================");
-console.log("  ,,     ,,     ,,");
-console.log("  oo    _oo_   ,oo,      pollinate-holistic-app.js");
-console.log(" \/==\\   \/==\\   \/==\\      @encapsule/holistic v" + holisticMetadata.version + " \"" + holisticMetadata.codename + "\"");
-console.log("(\/==\\) (\/==\\) (\/==\\)     Application repo setup & maintainence utility.");
-console.log("  \\\/     \\\/     \\\/\n");
+console.log("----------------------------------------------------------------");
+console.log("O       o O       o O       o");
+console.log("| O   o | | O   o | | O   o |    holistic-app-generator.js");
+console.log("| | O | | | | O | | | | O | |    Holistic application git repository setup and maintainence utility.");
+console.log(`| o   O | | o   O | | o   O |    @encapsule/holistic v${holisticMetadata.version} "${holisticMetadata.codename}"`);
+console.log("o       O o       O o       O");
+console.log("----------------------------------------------------------------");
+
 
 if (program.info) {
     console.log("This script is a code generation tool used to initialize and update");
@@ -179,13 +181,13 @@ if (!fsStat.isDirectory()) {
 }
 
 if (!fs.existsSync(resourceFilePaths.application.appRepoGitDir)) {
-    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' does not appear to be a git repository. Have you executed `git init`?");
+    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' does not appear to be a git repository. Have you executed 'git init'?");
     process.exit(1);
 }
 
 fsStat = fs.statSync(resourceFilePaths.application.appRepoGitDir);
 if (!fsStat.isDirectory()) {
-    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' does not appear to be a git repository. Have you executed `git init`?");
+    console.error("ERROR: Invalid application repo directory. '" + appRepoDir + "' does not appear to be a git repository. Have you executed 'git init'?");
     process.exit(1);
 }
 
@@ -196,7 +198,7 @@ if (!fsStat.isDirectory()) {
 //
 filterResponse = arctoolslib.jsrcFileLoaderSync.request(resourceFilePaths.application.packageManifest);
 if (filterResponse.error) {
-    console.error("ERROR: Cannot load the target application's package manifest (package.json). Have you executed `yarn init`?");
+    console.error("ERROR: Cannot load the target application's package manifest (package.json). Have you executed 'yarn init'?");
     console.error(filterResponse.error);
     process.exit(1);
 }
@@ -537,7 +539,7 @@ touchFile(path.join(resourceFilePaths.application.appServerSourcesDir, ".gitkeep
 // holistic platform dependencies from the application's HOLISTIC
 // directory, and update the application's yarn.lock file.
 
-console.log("> ONE MOMENT PLEASE... Executing `yarn install --check-files` in '" + resourceFilePaths.application.appRepoDir + "'...");
+console.log("> ONE MOMENT PLEASE... Executing 'yarn install --check-files' in '" + resourceFilePaths.application.appRepoDir + "'...");
 console.log("");
 
 consoleOutput = syncExec({
@@ -570,8 +572,9 @@ if (!modifiedFiles.length) {
     console.log("[ " + modifiedFiles.length + " APPLICATION SOURCE FILES MODIFIED (git modified + deleted + untracked status). ]");
 }
 
-console.log(" ,-.");
-console.log(" \\ \/");
-console.log("{|||)<");
-console.log(" \/ \\");
-console.log(" `-^");
+console.log("----------------------------------------------------------------");
+console.log("(=)");
+console.log(" X");
+console.log("(=)");
+console.log(" X");
+console.log("(=)");
