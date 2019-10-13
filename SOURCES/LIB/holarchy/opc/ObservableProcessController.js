@@ -42,8 +42,17 @@ class ObservableProcessController {
 
             this._private.toperatorDiscriminator = {
                 request: function(request_) {
+                    console.log("Fake controller transition operator dispatch. request=");
                     console.log(request_);
-                    return { error: null, result: false }; // no transition
+                    return { error: null, result: true }; // no transition
+                }
+            };
+
+            this._private.actionDiscriminator = {
+                request: function(request_) {
+                    console.log("Fake controller action dispatch. request=");
+                    console.log(request_);
+                    return { error: null };
                 }
             };
 
@@ -135,7 +144,7 @@ class ObservableProcessController {
 
             while (evalFrameCount < maxEvalFrames) {
 
-                evalStopwatch.mark(`start frame ${evalFrameCount}`);
+                evalStopwatch.mark(`frame ${evalFrameCount} start evaluation`);
                 console.log(`> ... Starting evaluation frame ${this._private.evaluationCount}:${evalFrameCount} ...`);
 
                 // ================================================================
@@ -326,11 +335,16 @@ class ObservableProcessController {
                             opmInstanceFrame.evaluationResponse.status = "error";
                             opmInstanceFrame.evaluationResponse.action = "stuck";
                             opmInstanceFrame.evaluationResponse.error = transitionResponse.error;
+                            opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
                             opmInstanceFrame.evaluationResponse.finishStep = initialStep;
                             break; // abort evaluation of transition rules for this OPM instance...
                         }
                         if (transitionResponse.result) {
                             nextStep = transitionRule.nextStep; // signal a process step transition
+                            opmInstanceFrame.evaluationResponse.status = "transitioning";
+                            opmInstanceFrame.evaluationResponse.action = "pending";
+                            opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
+                            opmInstanceFrame.evaluationResponse.actions = { exit: [], exitErrors: 0, enter: [], enterErrors: 0, stepTransitionResponse: null, totalErrors: 0 };
                             break; // skip evaluation of subsequent transition rules for this OPM instance.
                         }
                     }
@@ -345,16 +359,48 @@ class ObservableProcessController {
 
                     // Transition the OPM instance to its next process step.
 
+                    // Get the stepDescriptor for the next process step that declares the actions to take on step entry.
+                    const nextStepDescriptor = opmBinding.getStepDescriptor(nextStep);
+
                     // Dispatch the OPM instance's step exit action(s).
+                    opmInstanceFrame.evaluationResponse.action = "step-exit-action-dispatch";
+                    for (let exitActionIndex = 0 ; exitActionIndex < stepDescriptor.actions.exit.length ; exitActionIndex++) {
+                        const actionRequest = stepDescriptor.actions.exit[exitActionIndex];
+                        const actionResponse = this._private.actionDiscriminator.request(actionRequest);
+                        opmInstanceFrame.evaluationResponse.actions.exit.push({ actionRequest: actionRequest, actionResponse: actionResponse });
+                        if (actionResponse.error) {
+                            opmInstanceFrame.evaluationResponse.actions.exitErrors++;
+                            opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+                        }
+                    }
 
                     // Dispatch the OPM instance's step enter action(s).
+                    opmInstanceFrame.evaluationResponse.action = "step-enter-action-dispatch";
+                    for (let enterActionIndex = 0 ; enterActionIndex < nextStepDescriptor.actions.enter.length ; enterActionIndex++) {
+                        const actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
+                        const actionResponse = this._private.actionDiscriminator.request(actionRequest);
+                        opmInstanceFrame.evaluationResponse.actions.enter.push({ actionRequest: actionRequest, actionResponse: actionResponse });
+                        if (actionResponse.error) {
+                            opmInstanceFrame.evaluationResponse.actions.enterErrors++;
+                            opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+                        }
+                    }
 
                     // Update the OPM instance's opmStep flag in the controller data store.
+                    let transitionResponse = this._private.controllerData.writeNamespace(`${controllerDataPath}.opmStep`, nextStep);
+                    opmInstanceFrame.evaluationResponse.actions.stepTransitionResponse = transitionResponse;
+                    if (transitionResponse.error) {
+                        opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+                    }
 
-                }
+                    opmInstanceFrame.evaluationResponse.status = "completed";
+                    opmInstanceFrame.evaluationResponse.action = "transitioned";
+                    opmInstanceFrame.evaluationResponse.finishStep = nextStep;
+
+                } // controllerDataPath in evalFrame
 
                 evalFrames.push(evalFrame);
-                evalStopwatch.mark(`eval frame ${evalFrameCount} complete`);
+                evalStopwatch.mark(`frame ${evalFrameCount} end evaluation`);
                 console.log(`> ... Finish evaluation frame ${this._private.evaluationCount}:${evalFrameCount++} ...`);
 
                 // ================================================================
@@ -371,7 +417,6 @@ class ObservableProcessController {
             }
 
             response.result = evalFrames;
-            evalStopwatch.mark(`eval ${this._private.evaluationCount} complete`);
 
             break;
 

@@ -61,7 +61,7 @@ class ApplicationDataStore {
                 // Cache miss. Create a new read filter for the requested namespace.
                 const operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
                 let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
-                if (filterResponse.error) {
+                if (filterResponse.error || !filterResponse.result) {
                     errors.push(`Cannot read app data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
@@ -111,7 +111,7 @@ class ApplicationDataStore {
                 const parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
                 const targetNamespace = pathTokens[pathTokens.length - 1];
                 let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
-                if (filterResponse.error) {
+                if (filterResponse.error || !filterResponse.result) {
                     errors.push(`Cannot write app data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;

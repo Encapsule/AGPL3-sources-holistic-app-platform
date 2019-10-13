@@ -85,7 +85,7 @@ function () {
             parseFilterSpec: true
           });
 
-          if (filterResponse.error) {
+          if (filterResponse.error || !filterResponse.result) {
             errors.push("Cannot read app data store namespace path '".concat(path_, "' because it is not possible to construct a read filter for this namespace."));
             errors.push(filterResponse.error);
             break;
@@ -167,7 +167,7 @@ function () {
               parseFilterSpec: true
             });
 
-            if (filterResponse.error) {
+            if (filterResponse.error || !filterResponse.result) {
               errors.push("Cannot write app data store namespace path '".concat(path_, "' because it is not possible to construct a write filter for this namespace."));
               errors.push(filterResponse.error);
               return "break";

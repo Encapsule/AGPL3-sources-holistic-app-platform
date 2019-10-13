@@ -95,11 +95,21 @@ function () {
       this._private.evaluationCount = 0;
       this._private.toperatorDiscriminator = {
         request: function request(request_) {
+          console.log("Fake controller transition operator dispatch. request=");
           console.log(request_);
           return {
             error: null,
-            result: false
+            result: true
           }; // no transition
+        }
+      };
+      this._private.actionDiscriminator = {
+        request: function request(request_) {
+          console.log("Fake controller action dispatch. request=");
+          console.log(request_);
+          return {
+            error: null
+          };
         }
       }; // Bind instance methods.
       // public
@@ -191,7 +201,7 @@ function () {
         var evalFrames = [];
 
         while (evalFrameCount < maxEvalFrames) {
-          evalStopwatch.mark("start frame ".concat(evalFrameCount));
+          evalStopwatch.mark("frame ".concat(evalFrameCount, " start evaluation"));
           console.log("> ... Starting evaluation frame ".concat(this._private.evaluationCount, ":").concat(evalFrameCount, " ...")); // ================================================================
           // Dynamically locate and bind ObservableProcessModel instances based
           // on analysis of the controller data's filter specification and the
@@ -383,19 +393,31 @@ function () {
             for (var transitionIndex = 0; transitionIndex < stepDescriptor.transitions.length; transitionIndex++) {
               var transitionRule = stepDescriptor.transitions[transitionIndex];
 
-              var transitionResponse = this._private.toperatorDiscriminator.request(transitionRule.transitionIf);
+              var _transitionResponse = this._private.toperatorDiscriminator.request(transitionRule.transitionIf);
 
-              if (transitionResponse.error) {
+              if (_transitionResponse.error) {
                 _opmInstanceFrame.evaluationResponse.status = "error";
                 _opmInstanceFrame.evaluationResponse.action = "stuck";
-                _opmInstanceFrame.evaluationResponse.error = transitionResponse.error;
+                _opmInstanceFrame.evaluationResponse.error = _transitionResponse.error;
+                _opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
                 _opmInstanceFrame.evaluationResponse.finishStep = initialStep;
                 break; // abort evaluation of transition rules for this OPM instance...
               }
 
-              if (transitionResponse.result) {
+              if (_transitionResponse.result) {
                 nextStep = transitionRule.nextStep; // signal a process step transition
 
+                _opmInstanceFrame.evaluationResponse.status = "transitioning";
+                _opmInstanceFrame.evaluationResponse.action = "pending";
+                _opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
+                _opmInstanceFrame.evaluationResponse.actions = {
+                  exit: [],
+                  exitErrors: 0,
+                  enter: [],
+                  enterErrors: 0,
+                  stepTransitionResponse: null,
+                  totalErrors: 0
+                };
                 break; // skip evaluation of subsequent transition rules for this OPM instance.
               }
             } // If the OPM instance is stable in its current process step, continue on to evaluate the next OPM instance in the eval frame.
@@ -407,14 +429,65 @@ function () {
               _opmInstanceFrame.evaluationResponse.finishStep = initialStep;
               continue;
             } // Transition the OPM instance to its next process step.
-            // Dispatch the OPM instance's step exit action(s).
-            // Dispatch the OPM instance's step enter action(s).
-            // Update the OPM instance's opmStep flag in the controller data store.
+            // Get the stepDescriptor for the next process step that declares the actions to take on step entry.
 
-          }
+
+            var nextStepDescriptor = opmBinding.getStepDescriptor(nextStep); // Dispatch the OPM instance's step exit action(s).
+
+            _opmInstanceFrame.evaluationResponse.action = "step-exit-action-dispatch";
+
+            for (var exitActionIndex = 0; exitActionIndex < stepDescriptor.actions.exit.length; exitActionIndex++) {
+              var actionRequest = stepDescriptor.actions.exit[exitActionIndex];
+
+              var actionResponse = this._private.actionDiscriminator.request(actionRequest);
+
+              _opmInstanceFrame.evaluationResponse.actions.exit.push({
+                actionRequest: actionRequest,
+                actionResponse: actionResponse
+              });
+
+              if (actionResponse.error) {
+                _opmInstanceFrame.evaluationResponse.actions.exitErrors++;
+                _opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+              }
+            } // Dispatch the OPM instance's step enter action(s).
+
+
+            _opmInstanceFrame.evaluationResponse.action = "step-enter-action-dispatch";
+
+            for (var enterActionIndex = 0; enterActionIndex < nextStepDescriptor.actions.enter.length; enterActionIndex++) {
+              var _actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
+
+              var _actionResponse = this._private.actionDiscriminator.request(_actionRequest);
+
+              _opmInstanceFrame.evaluationResponse.actions.enter.push({
+                actionRequest: _actionRequest,
+                actionResponse: _actionResponse
+              });
+
+              if (_actionResponse.error) {
+                _opmInstanceFrame.evaluationResponse.actions.enterErrors++;
+                _opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+              }
+            } // Update the OPM instance's opmStep flag in the controller data store.
+
+
+            var transitionResponse = this._private.controllerData.writeNamespace("".concat(controllerDataPath, ".opmStep"), nextStep);
+
+            _opmInstanceFrame.evaluationResponse.actions.stepTransitionResponse = transitionResponse;
+
+            if (transitionResponse.error) {
+              _opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+            }
+
+            _opmInstanceFrame.evaluationResponse.status = "completed";
+            _opmInstanceFrame.evaluationResponse.action = "transitioned";
+            _opmInstanceFrame.evaluationResponse.finishStep = nextStep;
+          } // controllerDataPath in evalFrame
+
 
           evalFrames.push(evalFrame);
-          evalStopwatch.mark("eval frame ".concat(evalFrameCount, " complete"));
+          evalStopwatch.mark("frame ".concat(evalFrameCount, " end evaluation"));
           console.log("> ... Finish evaluation frame ".concat(this._private.evaluationCount, ":").concat(evalFrameCount++, " ...")); // ================================================================
           // If any of the OPM instance's in the just-completed eval frame transitioned, add another eval frame.
           // Otherwise exit the outer eval loop and conclude the OPC evaluation algorithm.
@@ -428,7 +501,6 @@ function () {
         }
 
         response.result = evalFrames;
-        evalStopwatch.mark("eval ".concat(this._private.evaluationCount, " complete"));
         break;
       } // while (!inBreakScope)
 

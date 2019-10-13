@@ -34,7 +34,8 @@ var inputFilterSpec = {
       description: {
         ____label: "Step Description (optional)",
         ____description: "Optional short description of the purpose, significance, role, and/or semantic(s) of this step in this controller model.",
-        ____accept: ["jsString", "jsUndefined"]
+        ____accept: "jsString",
+        ____defaultValue: "Missing description!"
       },
       actions: {
         ____label: "Step Transition Actions (optional)",

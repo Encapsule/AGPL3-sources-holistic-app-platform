@@ -6,13 +6,13 @@ var ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
 
 var appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
 
-var ObservableProcessController = require("./observable-process-controller/ObservableProcessController");
+var ObservableProcessController = require("./opc/ObservableProcessController");
 
-var ObservableProcessModel = require("./observable-process-controller/ObservableProcessModel");
+var ObservableProcessModel = require("./opc/ObservableProcessModel");
 
-var TransitionOperator = require("./observable-process-controller/TransitionOperator");
+var TransitionOperator = require("./opc/TransitionOperator");
 
-var ControllerAction = require("./observable-process-controller/ControllerAction");
+var ControllerAction = require("./opc/ControllerAction");
 
 module.exports = {
   __meta: {
