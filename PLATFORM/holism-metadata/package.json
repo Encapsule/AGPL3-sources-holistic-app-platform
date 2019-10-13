@@ -1,0 +1,37 @@
+{
+    "name": "@encapsule/holism-metadata",
+    "version": "0.0.21",
+    "codename": "eureka",
+    "buildID": "cubywcF-SqCU9dmJ_YufqA",
+    "buildTime": 1570981960,
+    "buildSource": "c83c72e138a7ca132e89a1c95ffe3098b656f603",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holism-metadata.git"
+    },
+    "author": "Encapsule",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "http://chrisrussell.net"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holism-metadata/issues"
+    },
+    "homepage": "https://github.com/Encapsule/holism-metadata#readme",
+    "description": "Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.",
+    "keywords": [
+        "Encapsule",
+        "holism",
+        "http",
+        "metadata",
+        "integration"
+    ],
+    "main": "metadata-store-constructor-factory.js",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.6"
+    }
+}

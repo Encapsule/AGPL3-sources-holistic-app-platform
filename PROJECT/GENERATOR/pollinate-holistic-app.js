@@ -18,7 +18,9 @@ const holisticPlatformRuntimePackages = [
     "@encapsule/d2r2",
     "@encapsule/d2r2-components",
     "@encapsule/holarchy",
+    "@encapsule/hash-router",
     "@encapsule/holism",
+    "@encapsule/holism-metadata",
     "@encapsule/holism-services",
     "@encapsule/hrequest"
 ];

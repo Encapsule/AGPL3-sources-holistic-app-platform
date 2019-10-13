@@ -2,8 +2,6 @@
 const packageMeta = require("./package.json");
 
 const ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
-const appMetadataStoreConstructorFilterFactory = require("./app-metadata-store/metadata-store-constructor-factory");
-
 const ObservableProcessController = require("./opc/ObservableProcessController");
 const ObservableProcessModel = require("./opc/ObservableProcessModel");
 const TransitionOperator = require("./opc/TransitionOperator");
@@ -18,13 +16,6 @@ module.exports = {
         codename: packageMeta.codename,
         build: packageMeta.buildID,
         source: packageMeta.buildSource
-    },
-
-    // The application metadata store is a bit odd insofar as it does not factor into the core OPC/OPM/OPS runtime architecture.
-
-    ApplicationMetadataStore: { // TODO: Create a little ES6 class to abstract metadata store.
-        // Creates an application-specific application metadata store constructor filter.
-        makeInstanceConstructor: appMetadataStoreConstructorFilterFactory
     },
 
     // TBD if we actually export this ES6 class or encapsulate access using OPC action filters.

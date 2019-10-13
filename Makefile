@@ -28,28 +28,34 @@ DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_HOLARCHY=$(DIR_SOURCES_LIB)/holarchy
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
+DIR_SOURCES_LIB_HOLISM_METADATA=$(DIR_SOURCES_LIB)/holism-metadata
 DIR_SOURCES_LIB_HOLISM_SERVICES=$(DIR_SOURCES_LIB)/holism-services
 DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 DIR_SOURCES_LIB_D2R2=$(DIR_SOURCES_LIB)/d2r2
 DIR_SOURCES_LIB_D2R2_COMPONENTS=$(DIR_SOURCES_LIB)/d2r2-components
+DIR_SOURCES_LIB_HASH_ROUTER=$(DIR_SOURCES_LIB)/hash-router
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
 DIR_BUILD_LIB_HOLARCHY=$(DIR_BUILD_LIB)/holarchy
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
+DIR_BUILD_LIB_HOLISM_METADATA=$(DIR_BUILD_LIB)/holism-metadata
 DIR_BUILD_LIB_HOLISM_SERVICES=$(DIR_BUILD_LIB)/holism-services
 DIR_BUILD_LIB_HREQUEST=$(DIR_BUILD_LIB)/hrequest
 DIR_BUILD_LIB_D2R2=$(DIR_BUILD_LIB)/d2r2
 DIR_BUILD_LIB_D2R2_COMPONENTS=$(DIR_BUILD_LIB)/d2r2-components
+DIR_BUILD_LIB_HASH_ROUTER=$(DIR_BUILD_LIB)/hash-router
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLARCHY=$(DIR_DISTS_LIB)/holarchy
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
+DIR_DIST_LIB_HOLISM_METADATA=$(DIR_DISTS_LIB)/holism-metadata
 DIR_DIST_LIB_HOLISM_SERVICES=$(DIR_DISTS_LIB)/holism-services
 DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 DIR_DIST_LIB_D2R2=$(DIR_DISTS_LIB)/d2r2
 DIR_DIST_LIB_D2R2_COMPONENTS=$(DIR_DISTS_LIB)/d2r2-components
+DIR_DIST_LIB_HASH_ROUTER=$(DIR_DISTS_LIB)/hash-router
 
 DIR_PLATFORM=$(DIR_ROOT)/PLATFORM
 
@@ -95,8 +101,18 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo source_packages_clean target complete.
 
-source_packages_build: env_initialize env_generate_build_tag source_package_build_holism source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2 source_package_build_d2r2_components
+source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2 source_package_build_d2r2_components
 	@echo source_packages_build complete.
+
+source_package_build_hash_router:
+	@echo source_package_build_hash_router target starting...
+	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HASH_ROUTER)/
+	mkdir -p $(DIR_BUILD_LIB_HASH_ROUTER)
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HASH_ROUTER)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HASH_ROUTER)/* $(DIR_BUILD_LIB_HASH_ROUTER)/
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/hash-router" > $(DIR_BUILD_LIB_HASH_ROUTER)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HASH_ROUTER)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HASH_ROUTER)
 
 source_package_build_holism:
 	@echo source_package_build_holism target starting...
@@ -135,6 +151,16 @@ source_package_build_holism_services:
 	#	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_SERVICES)/service-health-check.js --output $(DIR_BUILD_LIB_HOLISM_SERVICES)/doc/service-health-check.md
 	#	$(TOOL_GEN_FILTER_README) --filter $(DIR_BUILD_LIB_HOLISM_SERVICES)/service-options-as-html-content.js --output $(DIR_BUILD_LIB_HOLISM_SERVICES)/doc/service-options-as-html-content.md
 	@echo source_package_build_holism_services target complete.
+
+source_package_build_holism_metadata:
+	@echo source_package_build_holism_metadata target starting...
+	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM_METADATA)/
+	mkdir -p $(DIR_BUILD_LIB_HOLISM_METADATA)
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_METADATA)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HOLISM_METADATA)/* $(DIR_BUILD_LIB_HOLISM_METADATA)/
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism-metadata" > $(DIR_BUILD_LIB_HOLISM_METADATA)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM_METADATA)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISM_METADATA)
 
 source_package_build_hrequest:
 	@echo source_package_build_hrequest...
@@ -215,6 +241,8 @@ dist_packages_initialize: dist_packages_clean
 	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
 	git clone git@github.com:Encapsule/d2r2.git $(DIR_DIST_LIB_D2R2)
 	git clone git@github.com:Encapsule/d2r2-components.git $(DIR_DIST_LIB_D2R2_COMPONENTS)
+	git clone git@github.com:Encapsule/holism-metadata.git $(DIR_DIST_LIB_HOLISM_METADATA)
+	git clone git@github.com:Encapsule/hash-router.git $(DIR_DIST_LIB_HASH_ROUTER)
 	@echo FINISH TARGET: dist_packages_initialize
 
 # OPTIONAL: check the status of the package distribution repositories.
@@ -240,6 +268,12 @@ dist_packages_status:
 	cd $(DIR_DIST_LIB_D2R2_COMPONENTS) && git remote -v && git status
 
 	@echo ================================================================
+	cd $(DIR_DIST_LIB_HOLISM_METADATA) && git remote -v && git status
+
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_HASH_ROUTER) && git remote -v && git status
+
+	@echo ================================================================
 	@echo FINISH TARGET: dist_packages_status
 
 dist_packages_clean: dist_packages_reset
@@ -250,8 +284,14 @@ dist_packages_reset:
 	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router
 	@echo COMPLETE TARGET: dist_packages_update
+
+dist_package_update_hash_router:
+	@echo dist_package_update_hash_router starting...
+	mkdir -p $(DIR_DIST_LIB_HASH_ROUTER)
+	cp -Rp $(DIR_BUILD_LIB_HASH_ROUTER) $(DIR_DISTS_LIB)
+	@echo dist_package_update_hash_router complete.
 
 dist_package_update_holarchy:
 	@echo stage_package_holism target starting...
@@ -269,7 +309,13 @@ dist_package_update_holism_services:
 	@echo stage_package_holism_services target starting...
 	mkdir -p $(DIR_DIST_LIB_HOLISM_SERVICES)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM_SERVICES) $(DIR_DISTS_LIB)
-	@echo stage_package_holism complete.
+	@echo stage_package_holism_services complete.
+
+dist_package_update_holism_metadata:
+	@echo stage_package_holism_metadata target starting...
+	mkdir -p $(DIR_DIST_LIB_HOLISM_METADATA)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM_METADATA) $(DIR_DISTS_LIB)
+	@echo stage_package_holism_metadata complete.
 
 dist_package_update_hrequest:
 	@echo stage_package_hrequest target starting...

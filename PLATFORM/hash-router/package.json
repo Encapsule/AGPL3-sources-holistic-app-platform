@@ -1,0 +1,34 @@
+{
+    "name": "@encapsule/hash-router",
+    "version": "0.0.21",
+    "codename": "eureka",
+    "buildID": "cubywcF-SqCU9dmJ_YufqA",
+    "buildTime": 1570981960,
+    "buildSource": "c83c72e138a7ca132e89a1c95ffe3098b656f603",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/hash-router.git"
+    },
+    "author": "Encapsule",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "http://chrisrussell.net"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/hash-router/issues"
+    },
+    "homepage": "https://github.com/Encapsule/hash-router#readme",
+    "description": "A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.",
+    "keywords": [
+        "HTML5",
+        "browser",
+        "client",
+        "hash",
+        "router"
+    ],
+    "main": "minimal-hash-router.js"
+}
