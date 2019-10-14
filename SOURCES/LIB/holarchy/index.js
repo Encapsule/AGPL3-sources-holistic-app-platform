@@ -1,7 +1,7 @@
 
 const packageMeta = require("./package.json");
 
-const ApplicationDataStore = require("./app-data-store/ApplicationDataStore");
+const ControllerDataStore = require("./opc/ControllerDataStore");
 const ObservableProcessController = require("./opc/ObservableProcessController");
 const ObservableProcessModel = require("./opc/ObservableProcessModel");
 const TransitionOperator = require("./opc/TransitionOperator");
@@ -18,9 +18,8 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    // TBD if we actually export this ES6 class or encapsulate access using OPC action filters.
-    // Consider changing the name of this to Observable Process State (OPS)
-    ApplicationDataStore: ApplicationDataStore,
+    // Deprecated
+    ApplicationDataStore: ControllerDataStore,
 
     // Observable Process Controller ES6 class
     ObservableProcessController: ObservableProcessController,

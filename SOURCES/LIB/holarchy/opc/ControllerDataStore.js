@@ -1,18 +1,16 @@
-// @encapsule/holistic/SOURCES/LIB/holarchy/common/data/ApplictionDataStore.js
-//
 
 const arccore = require("@encapsule/arccore");
 const getNamespaceInReferenceFromPathFilter = require("./lib/get-namespace-in-reference-from-path");
 
-class ApplicationDataStore {
+class ControllerDataStore {
 
     // request = { spec: object, data: variant }
     constructor(request_) {
 
         const factoryResponse = arccore.filter.create({
             operationID: "3aDV_cacQByO0tTzVrBxnA",
-            operationName: "Aplication Data Store Constructor",
-            operationDescription: "Constructs an in-memory data structure used to maintain shared application state data at runtime.",
+            operationName: "Controller Data Store Constructor",
+            operationDescription: "Constructs an in-memory data structure used to maintain shared controller data at runtime.",
             inputFilterSpec: request_.spec
         });
         if (factoryResponse.error) {
@@ -62,20 +60,20 @@ class ApplicationDataStore {
                 const operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
                 let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error || !filterResponse.result) {
-                    errors.push(`Cannot read app data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
+                    errors.push(`Cannot read controller data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
                 const targetNamespaceSpec = filterResponse.result;
                 filterResponse = arccore.filter.create({
                     operationID: operationId,
-                    operationName: `App Data Read Filter ${operationId}`,
+                    operationName: `Controller Data Read Filter ${operationId}`,
                     operationDescription: `Validated/normalized read operations from ADS namespace '${path_}'.`,
                     bodyFunction: () => { return getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeData }); },
                     outputFilterSpec: targetNamespaceSpec,
                 });
                 if (filterResponse.error) {
-                    errors.push(`Cannot read app data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
+                    errors.push(`Cannot read controller data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
@@ -105,21 +103,21 @@ class ApplicationDataStore {
                 const operationId = arccore.identifier.irut.fromReference("write-filter" + path_).result;
                 const pathTokens = path_.split(".");
                 if (pathTokens.length < 2) {
-                    errors.push(`Cannot write to app data store namespace '${path_}'; invalid attempt to overwrite the entire store.`);
+                    errors.push(`Cannot write to controller data store namespace '${path_}'; invalid attempt to overwrite the entire store.`);
                     break;
                 } // if invalid write attempt
                 const parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
                 const targetNamespace = pathTokens[pathTokens.length - 1];
                 let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error || !filterResponse.result) {
-                    errors.push(`Cannot write app data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
+                    errors.push(`Cannot write controller data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
                 const targetNamespaceSpec = filterResponse.result;
                 filterResponse = arccore.filter.create({
                     operationID: operationId,
-                    operationName: `App Data Write Filter ${operationId}`,
+                    operationName: `Controller Data Write Filter ${operationId}`,
                     operationDescription: `Validated/normalized write to ADS namespace '${path_}'.`,
                     inputFilterSpec: targetNamespaceSpec,
                     bodyFunction: (request_) => {
@@ -146,7 +144,7 @@ class ApplicationDataStore {
                     },
                 });
                 if (filterResponse.error) {
-                    errors.push(`Cannot write app data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
+                    errors.push(`Cannot write controller data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
@@ -184,6 +182,6 @@ class ApplicationDataStore {
         return methodResponse;
     } // getNamespaceSpec
 
-} // class ApplicationDataStore
+} // class ControllerDataStore
 
-module.exports = ApplicationDataStore;
+module.exports = ControllerDataStore;

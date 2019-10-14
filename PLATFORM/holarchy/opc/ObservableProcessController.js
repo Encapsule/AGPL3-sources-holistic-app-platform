@@ -10,9 +10,9 @@ var maxEvalFrames = 64; // TODO: Migrate to constructor input w/default value.
 
 var arccore = require("@encapsule/arccore");
 
-var constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
+var constructorRequestFilter = require("./lib/ObservableProcessController-constructor-filter");
 
-var ApplicationDataStore = require("../app-data-store/ApplicationDataStore");
+var ControllerDataStore = require("./ControllerDataStore");
 
 var SimpleStopwatch = require("./lib/SimpleStopwatch");
 
@@ -74,8 +74,7 @@ function () {
               }
             }
           }
-        } // TODO: Move ApplicationDataStore class into OPC library (or flatten). Rename class to ControllerDataStore.
-
+        }
       } catch (err) {
         _didIteratorError = true;
         _iteratorError = err;
@@ -91,7 +90,7 @@ function () {
         }
       }
 
-      this._private.controllerData = new ApplicationDataStore({
+      this._private.controllerData = new ControllerDataStore({
         spec: request_.controllerDataSpec,
         data: request_.controllerData
       });
@@ -164,6 +163,7 @@ function () {
   }, {
     key: "_evaluate",
     value: function _evaluate() {
+      // You are standing at the top of a double black diamond. There is 0.25-meter of fresh untouched powder. A raven watches from a tree. You are here alone...
       var response = {
         error: null,
         result: undefined
@@ -368,6 +368,9 @@ function () {
           if (errors.length) {
             break; // from the outer evaluation loop
           } // ================================================================
+          //
+          // ¯\_(ツ)_/¯ - following along? hang on for the fun part ...
+          //
           // ================================================================
           // Evaluate each discovered OPM-bound object instance in the controller
           // data store. Note that we evaluate the model instances in their order
@@ -375,8 +378,8 @@ function () {
           // controller data filter spec composition. Each model instance is evaluted,
           // per it's declared step-dependent transition rules. And, if the rules
           // and current data values indicate, the model is transitioned between
-          // steps dispatching exit actions declared on the initial step's model.
-          // And, enter actions declared on the new process step's model.
+          // steps dispatching exit and enter actions declared optionally on the
+          // step we're exiting and/or the step we're entering.
 
 
           for (var controllerDataPath in evalFrame) {
@@ -515,7 +518,7 @@ function () {
 
       response.result = {
         evalFrames: evalFrames,
-        evalMarks: evalStopwatch.stop()
+        evalStopwatch: evalStopwatch.stop()
       };
       console.log("> ObservableProcessController::_evaluate  #".concat(this._private.evaluationCount++, " ").concat(response.error ? "ABORTED WITH ERROR" : "completed without error", "."));
       console.log(response);

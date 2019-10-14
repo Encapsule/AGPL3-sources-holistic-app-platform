@@ -2,8 +2,8 @@
 const maxEvalFrames = 64; // TODO: Migrate to constructor input w/default value.
 
 const arccore = require("@encapsule/arccore");
-const constructorRequestFilter = require("./ObservableProcessController-constructor-filter");
-const ApplicationDataStore = require("../app-data-store/ApplicationDataStore");
+const constructorRequestFilter = require("./lib/ObservableProcessController-constructor-filter");
+const ControllerDataStore = require("./ControllerDataStore");
 
 const SimpleStopwatch = require("./lib/SimpleStopwatch");
 
@@ -39,8 +39,7 @@ class ObservableProcessController {
                 }
             }
 
-            // TODO: Move ApplicationDataStore class into OPC library (or flatten). Rename class to ControllerDataStore.
-            this._private.controllerData = new ApplicationDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
+            this._private.controllerData = new ControllerDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
             this._private.evaluationCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate method.
 
             // TEMPORARY SHIM
@@ -106,6 +105,8 @@ class ObservableProcessController {
     //
 
     _evaluate() {
+
+        // You are standing at the top of a double black diamond. There is 0.25-meter of fresh untouched powder. A raven watches from a tree. You are here alone...
 
         let response = { error: null, result: undefined };
         let errors = [];
@@ -300,8 +301,9 @@ class ObservableProcessController {
                 }
 
                 // ================================================================
-
-
+                //
+                // ¯\_(ツ)_/¯ - following along? hang on for the fun part ...
+                //
                 // ================================================================
                 // Evaluate each discovered OPM-bound object instance in the controller
                 // data store. Note that we evaluate the model instances in their order
@@ -309,8 +311,8 @@ class ObservableProcessController {
                 // controller data filter spec composition. Each model instance is evaluted,
                 // per it's declared step-dependent transition rules. And, if the rules
                 // and current data values indicate, the model is transitioned between
-                // steps dispatching exit actions declared on the initial step's model.
-                // And, enter actions declared on the new process step's model.
+                // steps dispatching exit and enter actions declared optionally on the
+                // step we're exiting and/or the step we're entering.
 
                 for (let controllerDataPath in evalFrame) {
 
@@ -429,7 +431,7 @@ class ObservableProcessController {
         // - This does not mean that your OPM's encode what you think they do.
         response.result = {
             evalFrames: evalFrames,
-            evalMarks: evalStopwatch.stop()
+            evalStopwatch: evalStopwatch.stop()
         };
 
         console.log(`> ObservableProcessController::_evaluate  #${this._private.evaluationCount++} ${response.error?"ABORTED WITH ERROR":"completed without error"}.`);
