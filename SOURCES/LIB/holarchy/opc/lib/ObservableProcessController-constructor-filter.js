@@ -24,7 +24,7 @@ const factoryResponse = arccore.filter.create(
                 ____opaque: true
             },
 
-            observableProcessModels: {
+            observableProcessModelSets: {
                 ____label: "Observable Process Model Sets",
                 ____description: "An array of arrays of unique ObservableProcessModel class instances.",
                 ____types: "jsArray",
@@ -41,7 +41,7 @@ const factoryResponse = arccore.filter.create(
             }, // observableProcessModels
 
             // Transition operator filters are aggregated in an arccore.discrimintor filter for dispatch by the OPC during OPM evaluation.
-            transitionOperatorFilters: {
+            transitionOperatorSets: {
                 ____label: "Transition Operator Filter Sets",
                 ____description: "An array of arrays of unique TransitionOperatorFilter class instances.",
                 ____types: "jsArray",
@@ -58,7 +58,7 @@ const factoryResponse = arccore.filter.create(
             }, // transitionOperatorFilters
 
             // Controller action filters are aggregated in an arccore.discriminator filter for dispatch by the OPC during OPM evaluation. And, in response to external events of interest to OPM's.
-            controllerActionFilters: {
+            controllerActionSets: {
                 ____label: "Controller Action Filter Sets",
                 ____description: "An array of arrays of unique ControllerActionFilter class instances.",
                 ____types: "jsArray",

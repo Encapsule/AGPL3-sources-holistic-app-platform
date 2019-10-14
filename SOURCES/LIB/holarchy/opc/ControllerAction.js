@@ -5,16 +5,15 @@ class ControllerAction {
 
     construction(request_) {
 
-        this._private = {};
-
-        this.toJSON = this.toJSON.bind(this);
-
         request_;
 
+        this._private = {};
+
+        this.getFilter = this.getFilter.bind(this);
     }
 
-    toJSON() {
-        return this._private;
+    getFilter() {
+        return this._private.filter;
     }
 
 }

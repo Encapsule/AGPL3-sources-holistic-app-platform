@@ -16,20 +16,23 @@ class ObservableProcessController {
             // Allocate private, per-class-instance state.
             this._private = {};
 
+            // ----------------------------------------------------------------
             // Normalize the incoming request descriptor object.
             let filterResponse = constructorRequestFilter.request(request_);
             if (filterResponse.error) {
                 throw new Error(filterResponse.error);
             }
 
+            // ----------------------------------------------------------------
             // Keep a copy of the normalized request passed to the constructor.
             // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
             this._private.construction = filterResponse.result;
 
+            // ----------------------------------------------------------------
             // Build a map of ObservableControllerModel instances.
             // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
             this._private.opmMap = {};
-            for (let opmArray of request_.observableProcessModels) {
+            for (let opmArray of request_.observableProcessModelSets) {
                 for (let opm of opmArray) {
                     const opmID = opm.getID();
                     if (this._private.opmMap[opmID]) {
@@ -39,27 +42,56 @@ class ObservableProcessController {
                 }
             }
 
+            // ----------------------------------------------------------------
+            // Build an arccore.discriminator filter instance to route transition
+            // operatror request messages to a registered transition operator
+            // filter for processing.
+            let transitionOperatorFilters = [];
+            request_.transitionOperatorSets.forEach(transitionOperatorSet_ => {
+                transitionOperatorSet_.forEach(transitionOperatorInstance_ => {
+                    transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
+                });
+            });
+            if (transitionOperatorFilters.length < 2) {
+                throw new Error("You must register at least two unique TransitionOperator class instances to construct an ObservableProcessController instance.");
+            }
+            filterResponse = arccore.discriminator.create({
+                options: { action: "routeRequest" },
+                filters: transitionOperatorFilters
+            });
+            if (filterResponse.error) {
+                throw new Error(`Unable to construct a discriminator filter instance to route transition operator request messages. ${filterResponse.error}`);
+            }
+
+            // ----------------------------------------------------------------
+            // Build an arccore.discrimintor filter instance to route controller
+            // action request messages to a registitered controller action filter
+            // for processing.
+            let controllerActionFilters = [];
+            request_.controllerActionSets.forEach(controllerActionSet_ => {
+                controllerActionSet_.forEach(controllerActionInstance_ => {
+                    controllerActionFilters.push(controllerActionInstance_.getFilter());
+                });
+            });
+            // TODO: ASFT we may want to relax this to allow OPC instantiations that are pure FSM transition logic?
+            if (controllerActionFilters.length < 2) {
+                throw new Error("You must register at least two unique ControllerAction class instances to construct an ObservableProcessController instance.");
+            }
+            filterResponse = arccore.discriminator.create({
+                options: { action: "routeRequest" },
+                filters: controllerActionFilters
+            });
+            if (filterResponse.error) {
+                throw new Error(`Unable to construct a discriminator filter instance to route controller action request messages. ${filterResponse.error}`);
+            }
+            this._private.actionDiscriminator = filterResponse.result;
+
+            // Complete initialization of the instance.
             this._private.controllerData = new ControllerDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
             this._private.evaluationCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate method.
+            this._private.lastEvaluation = null; // This is overwritten by calls to ObservableProcessController::_evaluate
 
-            // TEMPORARY SHIM
-            this._private.toperatorDiscriminator = {
-                request: function(request_) {
-                    console.log("Fake controller transition operator dispatch. request=");
-                    console.log(request_);
-                    return { error: null, result: true }; // no transition
-                }
-            };
-
-            // TEMPORARY SHIM
-            this._private.actionDiscriminator = {
-                request: function(request_) {
-                    console.log("Fake controller action dispatch. request=");
-                    console.log(request_);
-                    return { error: null };
-                }
-            };
-
+            // ----------------------------------------------------------------
             // Bind instance methods.
             // public
             this.toJSON = this.toJSON.bind(this);
@@ -67,16 +99,14 @@ class ObservableProcessController {
             // private
             this._evaluate = this._evaluate.bind(this);
 
+            // ----------------------------------------------------------------
             // Wake the beast up...
             // TODO: I am not 100% sure it's the best choice to perform the preliminary evaluation in the constructor.
-
-            this._private.lastEvaluation = null; // This is overwritten by calls to ObservableProcessController::_evaluate
 
             filterResponse = this._evaluate();
             if (filterResponse.error) {
                 throw new Error(filterResponse.error);
             }
-
 
         } catch (exception_) {
             throw new Error(`ObservableProcessController::constructor failed: ${exception_.stack}.`);

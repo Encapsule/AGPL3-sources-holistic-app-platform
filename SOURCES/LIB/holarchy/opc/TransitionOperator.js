@@ -9,6 +9,11 @@ class TransitionOperator {
             throw new Error(filterResponse.error);
         }
         this._private.transitionOperatorFilter = filterResponse.result;
+        this.getFilter = this.getFilter.bind(this);
+    }
+
+    getFilter() {
+        return this._private.transitionOperatorFilter;
     }
 
 }
