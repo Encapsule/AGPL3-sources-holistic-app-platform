@@ -9,46 +9,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var SimpleStopwatch =
 /*#__PURE__*/
 function () {
+  // Instance construction starts the timer.
   function SimpleStopwatch(name_) {
     _classCallCheck(this, SimpleStopwatch);
 
     this.name = name_;
     this.startTime = new Date().getTime();
-    var startMark = {
-      label: "START: ".concat(name_),
-      delta: 0,
-      ellapsed: 0
-    };
-    this.lastMark = startMark;
-    this.marks = [startMark];
+    this.marks = []; // API methods
+
     this.mark = this.mark.bind(this);
-    this.finish = this.finish.bind(this);
-  }
+    this.stop = this.stop.bind(this);
+    this.getMarks = this.getMarks.bind(this);
+    this.mark("START: ".concat(this.name));
+  } // Call the mark method to record the time of event(s) between construction (start) and a call to the stop method.
+
 
   _createClass(SimpleStopwatch, [{
     key: "mark",
     value: function mark(label_) {
-      var ellapsed = new Date().getTime() - this.startTime;
+      var now = new Date().getTime();
+      var ellapsedTotal = now - this.startTime;
+      var ellapsedDelta = 0;
+
+      if (this.marks.length > 0) {
+        var lastMark = this.marks[this.marks.length - 1];
+        ellapsedDelta = ellapsedTotal - lastMark.ellapsedTotal;
+      }
+
       var mark = {
         label: label_,
-        delta: ellapsed - this.lastMark.ellapsed,
-        ellapsed: ellapsed
+        ellapsedDelta: ellapsedDelta,
+        ellapsedTotal: ellapsedTotal
       };
       this.marks.push(mark);
-      this.lastMark = mark;
+      console.log("**** ".concat(JSON.stringify(mark)));
       return mark;
+    } // Call stop to stop the stopwatch timer and freeze the marks log.
+
+  }, {
+    key: "stop",
+    value: function stop() {
+      var finishMark = this.mark("STOP: ".concat(this.name));
+      return {
+        marks: this.marks,
+        name: this.name,
+        timeStart: this.startTime,
+        timeStop: this.startTime + finishMark.ellapsedTotal,
+        totalMicroseconds: finishMark.ellapsedTotal
+      };
     }
   }, {
-    key: "finish",
-    value: function finish() {
-      var finishMark = this.mark("FINISH: ".concat(this.name));
-      return {
-        name: this.name,
-        startTime: this.startTime,
-        finishTime: this.startTime + finishMark.ellapsed,
-        totalMicroseconds: finishMark.ellapsed,
-        marks: this.marks
-      };
+    key: "getMarks",
+    value: function getMarks() {
+      return this.marks;
     }
   }]);
 

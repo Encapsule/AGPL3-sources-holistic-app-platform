@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.21",
     "codename": "eureka",
-    "buildID": "B7zAkzNHRYKzgPBlPjb1RQ",
-    "buildTime": 1570983610,
-    "buildSource": "00cd013425f24eb9175d0ca6e59f4613606932d3",
+    "buildID": "L9KSzc2fT-WkAQG90Xd8hQ",
+    "buildTime": 1571030460,
+    "buildSource": "580dfa6ab6ce55f424296921e89f6362611350b0",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"

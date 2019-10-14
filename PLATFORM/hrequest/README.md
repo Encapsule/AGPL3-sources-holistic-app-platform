@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.21 "eureka"
 
 ```
-Package: @encapsule/hrequest v0.0.21 "eureka" build ID "B7zAkzNHRYKzgPBlPjb1RQ"
-Sources: Encapsule/holistic#00cd013425f24eb9175d0ca6e59f4613606932d3
+Package: @encapsule/hrequest v0.0.21 "eureka" build ID "L9KSzc2fT-WkAQG90Xd8hQ"
+Sources: Encapsule/holistic#580dfa6ab6ce55f424296921e89f6362611350b0
 Purpose: library (Node.js)
-Created: 2019-10-13T16:20:10.000Z
+Created: 2019-10-14T05:21:00.000Z
 License: MIT
 ```
 

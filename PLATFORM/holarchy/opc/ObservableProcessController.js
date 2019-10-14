@@ -31,9 +31,11 @@ function () {
       if (filterResponse.error) {
         throw new Error(filterResponse.error);
       } // Keep a copy of the normalized request passed to the constructor.
+      // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
 
 
       this._private.construction = filterResponse.result; // Build a map of ObservableControllerModel instances.
+      // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
 
       this._private.opmMap = {};
       var _iteratorNormalCompletion = true;
@@ -72,7 +74,8 @@ function () {
               }
             }
           }
-        }
+        } // TODO: Move ApplicationDataStore class into OPC library (or flatten). Rename class to ControllerDataStore.
+
       } catch (err) {
         _didIteratorError = true;
         _iteratorError = err;
@@ -92,7 +95,9 @@ function () {
         spec: request_.controllerDataSpec,
         data: request_.controllerData
       });
-      this._private.evaluationCount = 0;
+      this._private.evaluationCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate method.
+      // TEMPORARY SHIM
+
       this._private.toperatorDiscriminator = {
         request: function request(request_) {
           console.log("Fake controller transition operator dispatch. request=");
@@ -102,7 +107,8 @@ function () {
             result: true
           }; // no transition
         }
-      };
+      }; // TEMPORARY SHIM
+
       this._private.actionDiscriminator = {
         request: function request(request_) {
           console.log("Fake controller action dispatch. request=");
@@ -118,14 +124,15 @@ function () {
       this.act = this.act.bind(this); // private
 
       this._evaluate = this._evaluate.bind(this); // Wake the beast up...
+      // TODO: I am not 100% sure it's the best choice to perform the preliminary evaluation in the constructor.
+
+      this._private.lastEvaluation = null; // This is overwritten by calls to ObservableProcessController::_evaluate
 
       filterResponse = this._evaluate();
 
       if (filterResponse.error) {
         throw new Error(filterResponse.error);
       }
-
-      this._private.initialEvaluation = filterResponse.result;
     } catch (exception_) {
       throw new Error("ObservableProcessController::constructor failed: ".concat(exception_.stack, "."));
     }
@@ -164,6 +171,7 @@ function () {
       var errors = [];
       var inBreakScope = false;
       var evalStopwatch = new SimpleStopwatch("eval #".concat(this._private.evaluationCount, " stopwatch"));
+      var evalFrames = [];
 
       while (!inBreakScope) {
         inBreakScope = true; // ================================================================
@@ -197,12 +205,8 @@ function () {
         // between process steps. Or, until the maximum allowed frames / evaluation
         // limit is surpassed.
 
-        var evalFrameCount = 0;
-        var evalFrames = [];
-
-        while (evalFrameCount < maxEvalFrames) {
-          evalStopwatch.mark("frame ".concat(evalFrameCount, " start evaluation"));
-          console.log("> ... Starting evaluation frame ".concat(this._private.evaluationCount, ":").concat(evalFrameCount, " ...")); // ================================================================
+        while (evalFrames.length < maxEvalFrames) {
+          evalStopwatch.mark("frame ".concat(evalFrames.length, " start opm instance binding")); // ================================================================
           // Dynamically locate and bind ObservableProcessModel instances based
           // on analysis of the controller data's filter specification and the
           // actual controller data values. This occurs at the prologue of the
@@ -359,7 +363,7 @@ function () {
           // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the evalFrame.
 
 
-          evalStopwatch.mark("frame ".concat(evalFrameCount, " OPM binding complete"));
+          evalStopwatch.mark("frame ".concat(evalFrames.length, " end opm instance binding / start evaluation"));
 
           if (errors.length) {
             break; // from the outer evaluation loop
@@ -374,8 +378,6 @@ function () {
           // steps dispatching exit actions declared on the initial step's model.
           // And, enter actions declared on the new process step's model.
 
-
-          evalStopwatch.mark("frame ".concat(evalFrameCount, " start evaluation"));
 
           for (var controllerDataPath in evalFrame) {
             var _opmInstanceFrame = evalFrame[controllerDataPath];
@@ -486,36 +488,38 @@ function () {
           } // controllerDataPath in evalFrame
 
 
-          evalFrames.push(evalFrame);
-          evalStopwatch.mark("frame ".concat(evalFrameCount, " end evaluation"));
-          console.log("> ... Finish evaluation frame ".concat(this._private.evaluationCount, ":").concat(evalFrameCount++, " ...")); // ================================================================
+          evalStopwatch.mark("frame ".concat(evalFrames.length, " end evaluation"));
+          console.log("> ... Finish evaluation frame ".concat(this._private.evaluationCount, ":").concat(evalFrames.length, " ..."));
+          evalFrames.push(evalFrame); // ================================================================
           // If any of the OPM instance's in the just-completed eval frame transitioned, add another eval frame.
           // Otherwise exit the outer eval loop and conclude the OPC evaluation algorithm.
+          // TODO break on out as a temporary measure until the transition operators and actions are working.
 
           break; // ... out of the main evaluation loop
         } // while outer evaluation loop;
 
 
-        if (errors.length) {
-          break;
-        }
-
-        response.result = evalFrames;
         break;
       } // while (!inBreakScope)
 
 
       if (errors.length) {
-        response.error = errors.join(" ");
-      }
+        response.error = errors.join(" "); // override response.error with a string value. by filter convention, this means that response.result is invalid.
+      } // Note that in all cases the response descriptor object returned by ObservableProcessController:_evaluate is informational.
+      // If !response.result (i.e. no error) then the following is true:
+      // - There were no errors encountered while dynamically binding OPM instances in OPD.
+      // - There were no errors encountered during OPM instance evaluation including transition evaluations, and consequent action request dispatches.
+      // - This does not mean that your operator and action filters are correct.
+      // - This does not mean that your OPM's encode what you think they do.
 
-      var evalStopwatchMarks = evalStopwatch.finish();
+
       response.result = {
-        evalFrames: response.result,
-        evalMarks: evalStopwatchMarks
+        evalFrames: evalFrames,
+        evalMarks: evalStopwatch.stop()
       };
-      console.log("> ObservableProcessController::_evaluate  #".concat(this._private.evaluationCount++, " ").concat(response.error ? "aborted with error" : "completed without error", "."));
+      console.log("> ObservableProcessController::_evaluate  #".concat(this._private.evaluationCount++, " ").concat(response.error ? "ABORTED WITH ERROR" : "completed without error", "."));
       console.log(response);
+      this._private.lastEvaluation = response;
       return response;
     } // _evaluate method
 
