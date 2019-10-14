@@ -2,35 +2,48 @@
 
 class SimpleStopwatch {
 
+    // Instance construction starts the timer.
     constructor(name_) {
         this.name = name_;
         this.startTime = (new Date()).getTime();
-        const startMark = { label: `START: ${name_}`, delta: 0, ellapsed: 0 };
-        this.lastMark = startMark;
-        this.marks = [ startMark ];
-
+        this.marks = [];
+        // API methods
         this.mark = this.mark.bind(this);
-        this.finish = this.finish.bind(this);
+        this.stop = this.stop.bind(this);
+        this.getMarks = this.getMarks.bind(this);
+        this.mark(`START: ${this.name}`);
     }
 
+    // Call the mark method to record the time of event(s) between construction (start) and a call to the stop method.
     mark(label_) {
-        let ellapsed = ((new Date()).getTime)() - this.startTime;
-        const mark = { label: label_, delta: (ellapsed - this.lastMark.ellapsed), ellapsed: ellapsed };
+        const now = (new Date()).getTime();
+        const ellapsedTotal = now - this.startTime;
+        let ellapsedDelta = 0;
+        if (this.marks.length >0) {
+            const lastMark = this.marks[this.marks.length - 1];
+            ellapsedDelta = ellapsedTotal - lastMark.ellapsedTotal;
+        }
+        const mark = { label: label_, ellapsedDelta: ellapsedDelta, ellapsedTotal: ellapsedTotal };
         this.marks.push(mark);
-        this.lastMark = mark;
+        console.log(`**** ${JSON.stringify(mark)}`);
         return mark;
     }
 
-    finish() {
-        const finishMark = this.mark(`FINISH: ${this.name}`);
+    // Call stop to stop the stopwatch timer and freeze the marks log.
+    stop() {
+        const finishMark = this.mark(`STOP: ${this.name}`);
 
         return {
+            marks: this.marks,
             name: this.name,
-            startTime: this.startTime,
-            finishTime: (this.startTime + finishMark.ellapsed),
-            totalMicroseconds: finishMark.ellapsed,
-            marks: this.marks
+            timeStart: this.startTime,
+            timeStop: (this.startTime + finishMark.ellapsedTotal),
+            totalMicroseconds: finishMark.ellapsedTotal
         };
+    }
+
+    getMarks() {
+        return this.marks;
     }
 
 }
