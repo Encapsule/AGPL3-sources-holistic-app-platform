@@ -5,10 +5,10 @@
 # @encapsule/holism-services v0.0.21 "eureka"
 
 ```
-Package: @encapsule/holism-services v0.0.21 "eureka" build ID "FahpncwVQQSqEfvVLd51bw"
-Sources: Encapsule/holistic#801f4b5a11a762b3d09fe05da563bc0f1a6d678b
+Package: @encapsule/holism-services v0.0.21 "eureka" build ID "2LmG9r8PRmy1b2ZhF9AmoQ"
+Sources: Encapsule/holistic#e3a80d029e7b2c7746c36591dd9f9a4b3268c0b4
 Purpose: library (Node.js)
-Created: 2019-10-14T06:35:43.000Z
+Created: 2019-10-14T06:38:22.000Z
 License: MIT
 ```
 
