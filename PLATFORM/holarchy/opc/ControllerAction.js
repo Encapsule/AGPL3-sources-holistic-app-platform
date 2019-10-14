@@ -17,14 +17,14 @@ function () {
   _createClass(ControllerAction, [{
     key: "construction",
     value: function construction(request_) {
-      this._private = {};
-      this.toJSON = this.toJSON.bind(this);
       request_;
+      this._private = {};
+      this.getFilter = this.getFilter.bind(this);
     }
   }, {
-    key: "toJSON",
-    value: function toJSON() {
-      return this._private;
+    key: "getFilter",
+    value: function getFilter() {
+      return this._private.filter;
     }
   }]);
 
