@@ -6,7 +6,7 @@ module.exports = new TransitionOperator({
   id: "0JIva4IFSm6Xm7i38g8uUA",
   name: "OR Transition Expression Operator",
   description: "missing description",
-  operatorFilterSpec: {
+  operatorRequestSpec: {
     ____types: "jsObject",
     or: {
       ____types: "jsArray",
@@ -38,7 +38,7 @@ module.exports = new TransitionOperator({
       try {
         for (var _iterator = request_.operator.or[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var operatorRequest = _step.value;
-          var operatorResponse = request_.context.transitionOperatorsDiscriminator.request({
+          var operatorResponse = request_.context.transitionDispatcher.request({
             context: request_.context,
             operator: operatorRequest
           });

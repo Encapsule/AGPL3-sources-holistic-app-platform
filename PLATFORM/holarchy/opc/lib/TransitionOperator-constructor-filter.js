@@ -19,7 +19,7 @@ var factoryResponse = arccore.filter.create({
     description: {
       ____accept: "jsString"
     },
-    operatorFilterSpec: {
+    operatorRequestSpec: {
       ____accept: "jsObject"
     },
     bodyFunction: {
@@ -44,18 +44,26 @@ var factoryResponse = arccore.filter.create({
           ____label: request_.name + " Request",
           ____types: "jsObject",
           context: {
+            ____label: "OPC Context Descriptor",
+            ____description: "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
             ____types: "jsObject",
-            appStateModel: {
+            namespace: {
+              ____label: "OPM Binding Namespace",
+              ____description: "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+              ____accept: "jsString"
+            },
+            opd: {
+              ____label: "OPD Store",
+              ____description: "A reference to an OPC instance's ObservableProcessData store.",
               ____accept: "jsObject"
             },
-            appDataStore: {
-              ____accept: "jsObject"
-            },
-            transitionOperatorsDiscriminator: {
+            transitionDispatcher: {
+              ____label: "OPC Transition Dispatcher",
+              ____description: "A reference to an OPC instance's transition operator dispatcher instance.",
               ____accept: "jsObject"
             }
           },
-          operator: request_.operatorFilterSpec
+          operator: request_.operatorRequestSpec
         },
         bodyFunction: request_.bodyFunction,
         outputFilterSpec: {

@@ -40,63 +40,28 @@ function () {
       this._private.construction = filterResponse.result; // ----------------------------------------------------------------
       // Build a map of ObservableControllerModel instances.
       // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
+      // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
 
       this._private.opmMap = {};
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
 
-      try {
-        for (var _iterator = request_.observableProcessModelSets[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var opmArray = _step.value;
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
+      for (var index0 = 0; index0 < request_.observableProcessModelSets.length; index0++) {
+        var modelSet = request_.observableProcessModelSets[index0];
 
-          try {
-            for (var _iterator2 = opmArray[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var opm = _step2.value;
-              var opmID = opm.getID();
+        for (var index1 = 0; index1 < modelSet.length; index1++) {
+          var opm = modelSet[index1];
+          var opmID = opm.getID();
 
-              if (this._private.opmMap[opmID]) {
-                throw new Error("Illegal duplicate ObservableProcessModel identifier '".concat(opmID, "' for model name '").concat(opm.getName(), "' with description '").concat(opm.getDescription(), "'."));
-              }
-
-              this._private.opmMap[opmID] = opm;
-            }
-          } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                _iterator2.return();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
-            }
+          if (this._private.opmMap[opmID]) {
+            throw new Error("Illegal duplicate ObservableProcessModel identifier '".concat(opmID, "' for model name '").concat(opm.getName(), "' with description '").concat(opm.getDescription(), "'."));
           }
-        } // ----------------------------------------------------------------
-        // Build an arccore.discriminator filter instance to route transition
-        // operatror request messages to a registered transition operator
-        // filter for processing.
 
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
+          this._private.opmMap[opmID] = opm;
         }
-      }
+      } // ----------------------------------------------------------------
+      // Build an arccore.discriminator filter instance to route transition
+      // operatror request messages to a registered transition operator
+      // filter for processing.
+
 
       var transitionOperatorFilters = []; // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
 
@@ -458,7 +423,14 @@ function () {
             for (var transitionIndex = 0; transitionIndex < stepDescriptor.transitions.length; transitionIndex++) {
               var transitionRule = stepDescriptor.transitions[transitionIndex];
 
-              var _transitionResponse = this._private.transitionDispatcher.request(transitionRule.transitionIf);
+              var _transitionResponse = this._private.transitionDispatcher.request({
+                context: {
+                  namespace: controllerDataPath,
+                  opd: this._private.controllerData,
+                  transitionDispatcher: this._private.transitionDispatcher
+                },
+                operator: transitionRule.transitionIf
+              });
 
               if (_transitionResponse.error) {
                 _opmInstanceFrame.evaluationResponse.status = "error";
