@@ -6,21 +6,23 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var transitionOperatorDefinitionFilter = require("./lib/transition-operator-definition-filter");
+var constructorFilter = require("./lib/TransitionOperator-constructor-filter");
 
-var TransitionOperator =
+module.exports =
 /*#__PURE__*/
 function () {
   function TransitionOperator(constructionData_) {
     _classCallCheck(this, TransitionOperator);
 
-    var filterResponse = transitionOperatorDefinitionFilter.request(constructionData_);
+    var filterResponse = constructorFilter.request(constructionData_);
 
     if (filterResponse.error) {
       throw new Error(filterResponse.error);
     }
 
-    this._private.transitionOperatorFilter = filterResponse.result;
+    this._private = {
+      transitionOperatorFilter: filterResponse.result
+    };
     this.getFilter = this.getFilter.bind(this);
   }
 
@@ -33,5 +35,3 @@ function () {
 
   return TransitionOperator;
 }();
-
-module.exports = TransitionOperator;

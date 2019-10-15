@@ -1,8 +1,7 @@
-// sources/client/app-data-model/transition-operators/transition-operator-and-filter.js
 
-const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
+const TransitionOperator = require("../../opc/TransitionOperator");
 
-var factoryResponse = transitionOperatorFilterFactory.request({
+module.exports = new TransitionOperator({
     id: "YgABX95wR86GCYrYaDLISA",
     name: "AND Transition Expression Operator",
     description: "missing description",
@@ -49,8 +48,3 @@ var factoryResponse = transitionOperatorFilterFactory.request({
         return response;
     }
 });
-
-if (factoryResponse.error)
-    throw new Error(factoryResponse.error);
-
-module.exports = factoryResponse.result;

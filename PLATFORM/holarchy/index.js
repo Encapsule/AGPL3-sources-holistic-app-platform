@@ -12,6 +12,8 @@ var TransitionOperator = require("./opc/TransitionOperator");
 
 var ControllerAction = require("./opc/ControllerAction");
 
+var TransitionOperators = require("./lib/toperators");
+
 module.exports = {
   __meta: {
     author: packageMeta.author,
@@ -21,12 +23,18 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
-  // Deprecated
+  // DEPRECATED: ApplicationStateController is deprecated. We will be migrating to ObservableProcessController that allocates and manages an instance of ObservableProcessData.
+  // So we will no longer need to export the class; clients of the @encapsule/holarchy library need only instantiate ObservableProcessController instance.
   ApplicationDataStore: ControllerDataStore,
-  // Observable Process Controller ES6 class
+  // Observable Process Controller ES6 class.
   ObservableProcessController: ObservableProcessController,
-  // Observable Process Model ES6 class
+  // Observable Process Model ES6 class.
   ObservableProcessModel: ObservableProcessModel,
+  // TransitionOperator filter wrapper ES6 class.
   TransitionOperator: TransitionOperator,
-  ControllerAction: ControllerAction
+  // ControllerAction filter wrapper ES6 class.
+  ControllerAction: ControllerAction,
+  core: {
+    TransitionOperators: TransitionOperators
+  }
 };

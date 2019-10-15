@@ -1,8 +1,8 @@
 // transition-operator-always-filter.js
 
-const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
+const TransitionOperator = require("../../opc/TransitionOperator");
 
-var factoryResponse = transitionOperatorFilterFactory.request({
+module.exports = new TransitionOperator({
     id: "e89cwnP4Qd6MocAhzdOJgw",
     name: "Always (TRUE) Transition Operator",
     description: "Always returns true forcing a state transition to occur.",
@@ -12,8 +12,4 @@ var factoryResponse = transitionOperatorFilterFactory.request({
     },
     bodyFunction: function () { return { error: null, result: true }; }
 });
-if (factoryResponse.error)
-    throw new Error(factoryResponse.error);
-
-module.exports = factoryResponse.result;
 

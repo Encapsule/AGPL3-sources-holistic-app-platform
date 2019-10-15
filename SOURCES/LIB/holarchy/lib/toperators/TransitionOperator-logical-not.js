@@ -1,8 +1,7 @@
-// sources/client/app-data-model/transition-operators/transition-operator-not-filter.js
 
-const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
+const TransitionOperator = require("../../opc/TransitionOperator");
 
-var factoryResponse = transitionOperatorFilterFactory.request({
+module.exports = new TransitionOperator({
     id:  "TLSHkl73SO-utuzM7dyN2g",
     name: "NOT Transition Expression Operator",
     description: "Input negation operator.",
@@ -37,8 +36,3 @@ var factoryResponse = transitionOperatorFilterFactory.request({
         return response;
     }
 });
-
-if (factoryResponse.error)
-    throw new Error(factoryResponse.error);
-
-module.exports = factoryResponse.result;

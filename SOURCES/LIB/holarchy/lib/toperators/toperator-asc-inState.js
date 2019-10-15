@@ -18,7 +18,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
             inBreakScope = true;
             var args = request_.operator.inState.split(":");
             if (args.length !== 2) {
-                errors.unshift("Invalid subcontroller:state refernce specified.");
+                errors.unshift("Invalid subcontroller:state reference specified.");
                 break;
             }
             var subcontrollerInfo = request_.context.appStateModel.controllerMap[args[0]];

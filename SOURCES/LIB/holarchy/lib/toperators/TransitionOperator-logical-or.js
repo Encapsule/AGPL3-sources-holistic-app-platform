@@ -1,8 +1,7 @@
-// sources/client/app-data-model/transition-operators/transition-operator-or-filter.js
 
-const transitionOperatorFilterFactory = require("../app-state-controller-toperator-factory");
+const TransitionOperator = require("../../opc/TransitionOperator");
 
-var factoryResponse = transitionOperatorFilterFactory.request({
+module.exports = new TransitionOperator({
     id:  "0JIva4IFSm6Xm7i38g8uUA",
     name: "OR Transition Expression Operator",
     description: "missing description",
@@ -22,7 +21,7 @@ var factoryResponse = transitionOperatorFilterFactory.request({
         while (!inBreakScope) {
             inBreakScope = true;
             if (!request_.operator.or.length) {
-                errors.push("Cannot evaluate AND operation with zero operands.");
+                errors.push("Cannot evaluate OR operation with zero operands.");
                 break;
             }
             for (var operatorRequest of request_.operator.or) {
@@ -49,8 +48,3 @@ var factoryResponse = transitionOperatorFilterFactory.request({
         return response;
     }
 });
-
-if (factoryResponse.error)
-    throw new Error(factoryResponse.error);
-
-module.exports = factoryResponse.result;
