@@ -13,6 +13,8 @@ class ObservableProcessController {
 
         try {
 
+            console.log("ObservableProcessController::constructor starting...");
+
             // Allocate private, per-class-instance state.
             this._private = {};
 
@@ -47,20 +49,24 @@ class ObservableProcessController {
             // operatror request messages to a registered transition operator
             // filter for processing.
             let transitionOperatorFilters = [];
+            // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
             request_.transitionOperatorSets.forEach(transitionOperatorSet_ => {
                 transitionOperatorSet_.forEach(transitionOperatorInstance_ => {
                     transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
                 });
             });
-            if (transitionOperatorFilters.length < 2) {
-                throw new Error("You must register at least two unique TransitionOperator class instances to construct an ObservableProcessController instance.");
-            }
-            filterResponse = arccore.discriminator.create({
-                options: { action: "routeRequest" },
-                filters: transitionOperatorFilters
-            });
-            if (filterResponse.error) {
-                throw new Error(`Unable to construct a discriminator filter instance to route transition operator request messages. ${filterResponse.error}`);
+            if (transitionOperatorFilters.length >= 2) {
+                filterResponse = arccore.discriminator.create({
+                    options: { action: "routeRequest" },
+                    filters: transitionOperatorFilters
+                });
+                if (filterResponse.error) {
+                    throw new Error(`Unable to construct a discriminator filter instance to route transition operator request messages. ${filterResponse.error}`);
+                }
+                this._private.transitionDispatcher = filterResponse.result;
+            } else {
+                console.log("WARNING: No TransitionOperator class instances have been registered!");
+                this._private.transitionDispatcher = { request: function() { return { error: "No TransitionOperator class instances registered!" }; } };
             }
 
             // ----------------------------------------------------------------
@@ -68,23 +74,25 @@ class ObservableProcessController {
             // action request messages to a registitered controller action filter
             // for processing.
             let controllerActionFilters = [];
+            // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
             request_.controllerActionSets.forEach(controllerActionSet_ => {
                 controllerActionSet_.forEach(controllerActionInstance_ => {
                     controllerActionFilters.push(controllerActionInstance_.getFilter());
                 });
             });
-            // TODO: ASFT we may want to relax this to allow OPC instantiations that are pure FSM transition logic?
-            if (controllerActionFilters.length < 2) {
-                throw new Error("You must register at least two unique ControllerAction class instances to construct an ObservableProcessController instance.");
+            if (controllerActionFilters.length >= 2) {
+                filterResponse = arccore.discriminator.create({
+                    options: { action: "routeRequest" },
+                    filters: controllerActionFilters
+                });
+                if (filterResponse.error) {
+                    throw new Error(`Unable to construct a discriminator filter instance to route controller action request messages. ${filterResponse.error}`);
+                }
+                this._private.actionDispatcher = filterResponse.result;
+            } else {
+                console.log("WARNING: No ControllerAction class instances have been registered!");
+                this._private.actionDispatcher = { request: function() { return { error: "No ControllerAction class instances registered!" }; } };
             }
-            filterResponse = arccore.discriminator.create({
-                options: { action: "routeRequest" },
-                filters: controllerActionFilters
-            });
-            if (filterResponse.error) {
-                throw new Error(`Unable to construct a discriminator filter instance to route controller action request messages. ${filterResponse.error}`);
-            }
-            this._private.actionDiscriminator = filterResponse.result;
 
             // Complete initialization of the instance.
             this._private.controllerData = new ControllerDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
@@ -111,6 +119,9 @@ class ObservableProcessController {
         } catch (exception_) {
             throw new Error(`ObservableProcessController::constructor failed: ${exception_.stack}.`);
         }
+
+        console.log("ObservableProcessController::constructor complete.");
+
 
     } // end constructor function
 
@@ -332,7 +343,7 @@ class ObservableProcessController {
 
                 // ================================================================
                 //
-                // ¯\_(ツ)_/¯ - following along? hang on for the fun part ...
+                // ¯\_(ツ)_/¯ - following along? Hang on for the fun part ...
                 //
                 // ================================================================
                 // Evaluate each discovered OPM-bound object instance in the controller
@@ -363,11 +374,9 @@ class ObservableProcessController {
 
                     for (let transitionIndex = 0; transitionIndex < stepDescriptor.transitions.length ; transitionIndex++) {
                         const transitionRule = stepDescriptor.transitions[transitionIndex];
-
-                        let transitionResponse = this._private.toperatorDiscriminator.request(transitionRule.transitionIf);
+                        let transitionResponse = this._private.transitionDispatcher.request(transitionRule.transitionIf);
                         if (transitionResponse.error) {
                             opmInstanceFrame.evaluationResponse.status = "error";
-                            opmInstanceFrame.evaluationResponse.action = "stuck";
                             opmInstanceFrame.evaluationResponse.error = transitionResponse.error;
                             opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
                             opmInstanceFrame.evaluationResponse.finishStep = initialStep;
@@ -376,17 +385,20 @@ class ObservableProcessController {
                         if (transitionResponse.result) {
                             nextStep = transitionRule.nextStep; // signal a process step transition
                             opmInstanceFrame.evaluationResponse.status = "transitioning";
-                            opmInstanceFrame.evaluationResponse.action = "pending";
                             opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
                             opmInstanceFrame.evaluationResponse.actions = { exit: [], exitErrors: 0, enter: [], enterErrors: 0, stepTransitionResponse: null, totalErrors: 0 };
                             break; // skip evaluation of subsequent transition rules for this OPM instance.
                         }
                     }
 
+                    // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+                    if (opmInstanceFrame.evaluationResponse.status === "error") {
+                        continue;
+                    }
+
                     // If the OPM instance is stable in its current process step, continue on to evaluate the next OPM instance in the eval frame.
-                    if (!nextStep && !opmInstanceFrame.evaluationResponse.error) {
-                        opmInstanceFrame.evaluationResponse.status = "complete";
-                        opmInstanceFrame.evaluationResponse.action = "noop";
+                    if (!nextStep) {
+                        opmInstanceFrame.evaluationResponse.status = "noop";
                         opmInstanceFrame.evaluationResponse.finishStep = initialStep;
                         continue;
                     }
@@ -400,7 +412,7 @@ class ObservableProcessController {
                     opmInstanceFrame.evaluationResponse.action = "step-exit-action-dispatch";
                     for (let exitActionIndex = 0 ; exitActionIndex < stepDescriptor.actions.exit.length ; exitActionIndex++) {
                         const actionRequest = stepDescriptor.actions.exit[exitActionIndex];
-                        const actionResponse = this._private.actionDiscriminator.request(actionRequest);
+                        const actionResponse = this._private.actionDispatcher.request(actionRequest);
                         opmInstanceFrame.evaluationResponse.actions.exit.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
                             opmInstanceFrame.evaluationResponse.actions.exitErrors++;
@@ -412,7 +424,7 @@ class ObservableProcessController {
                     opmInstanceFrame.evaluationResponse.action = "step-enter-action-dispatch";
                     for (let enterActionIndex = 0 ; enterActionIndex < nextStepDescriptor.actions.enter.length ; enterActionIndex++) {
                         const actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
-                        const actionResponse = this._private.actionDiscriminator.request(actionRequest);
+                        const actionResponse = this._private.actionDispatcher.request(actionRequest);
                         opmInstanceFrame.evaluationResponse.actions.enter.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
                             opmInstanceFrame.evaluationResponse.actions.enterErrors++;
