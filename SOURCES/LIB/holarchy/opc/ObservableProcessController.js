@@ -33,9 +33,12 @@ class ObservableProcessController {
             // ----------------------------------------------------------------
             // Build a map of ObservableControllerModel instances.
             // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
+            // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
             this._private.opmMap = {};
-            for (let opmArray of request_.observableProcessModelSets) {
-                for (let opm of opmArray) {
+            for (let index0 = 0 ; index0 < request_.observableProcessModelSets.length ; index0++) {
+                const modelSet = request_.observableProcessModelSets[index0];
+                for (let index1 = 0 ; index1 < modelSet.length ; index1++) {
+                    const opm = modelSet[index1];
                     const opmID = opm.getID();
                     if (this._private.opmMap[opmID]) {
                         throw new Error(`Illegal duplicate ObservableProcessModel identifier '${opmID}' for model name '${opm.getName()}' with description '${opm.getDescription()}'.`);
@@ -374,7 +377,14 @@ class ObservableProcessController {
 
                     for (let transitionIndex = 0; transitionIndex < stepDescriptor.transitions.length ; transitionIndex++) {
                         const transitionRule = stepDescriptor.transitions[transitionIndex];
-                        let transitionResponse = this._private.transitionDispatcher.request(transitionRule.transitionIf);
+                        let transitionResponse = this._private.transitionDispatcher.request({
+                            context: {
+                                namespace: controllerDataPath,
+                                opd: this._private.controllerData,
+                                transitionDispatcher: this._private.transitionDispatcher
+                            },
+                            operator: transitionRule.transitionIf
+                        });
                         if (transitionResponse.error) {
                             opmInstanceFrame.evaluationResponse.status = "error";
                             opmInstanceFrame.evaluationResponse.error = transitionResponse.error;

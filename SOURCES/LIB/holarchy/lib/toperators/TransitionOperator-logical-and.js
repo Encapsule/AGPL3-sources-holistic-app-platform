@@ -5,7 +5,7 @@ module.exports = new TransitionOperator({
     id: "YgABX95wR86GCYrYaDLISA",
     name: "AND Transition Expression Operator",
     description: "missing description",
-    operatorFilterSpec: {
+    operatorRequestSpec: {
         ____types: "jsObject",
         and: {
             ____types: "jsArray",
@@ -25,7 +25,7 @@ module.exports = new TransitionOperator({
                 break;
             }
             for (var operatorRequest of request_.operator.and) {
-                var operatorResponse = request_.context.transitionOperatorsDiscriminator.request({
+                var operatorResponse = request_.context.transitionDispatcher.request({
                     context: request_.context,
                     operator: operatorRequest
                 });

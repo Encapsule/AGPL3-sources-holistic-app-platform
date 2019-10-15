@@ -5,7 +5,7 @@ module.exports = new TransitionOperator({
     id:  "TLSHkl73SO-utuzM7dyN2g",
     name: "NOT Transition Expression Operator",
     description: "Input negation operator.",
-    operatorFilterSpec: {
+    operatorRequestSpec: {
         ____types: "jsObject",
         not: {
             ____accept: "jsObject"
@@ -17,7 +17,7 @@ module.exports = new TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            var operatorResponse = request_.context.transitionOperatorsDiscriminator.request({
+            var operatorResponse = request_.context.transitionDispatcher.request({
                 context: request_.context,
                 operator: request_.operator.not
             });

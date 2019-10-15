@@ -1,11 +1,14 @@
 
-module.exports = [
+// OPC core transition operators:
 
-    // Core logical operators
-    require("./TransitionOperator-logical-and"),
-    require("./TransitionOperator-logical-not"),
-    require("./TransitionOperator-logical-or"),
-    require("./TransitionOperator-logical-true")
+module.exports = {
 
-];
+    logical: [
+        require("./TransitionOperator-logical-and"),
+        require("./TransitionOperator-logical-not"),
+        require("./TransitionOperator-logical-or"),
+        require("./TransitionOperator-logical-true"),
+    ]
+
+};
 
