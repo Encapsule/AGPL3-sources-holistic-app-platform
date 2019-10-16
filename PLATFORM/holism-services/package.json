@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.21",
     "codename": "eureka",
-    "buildID": "LGEgQaG4QHOSzOKjusbRhQ",
-    "buildTime": 1571214004,
-    "buildSource": "ec7ea963bfccbd5e5e15a3413085ee15244974e6",
+    "buildID": "QJ_yj2GxS2qW2a66CokkzQ",
+    "buildTime": 1571219253,
+    "buildSource": "332606802269b876e3a44dcfe2bfa2b88c2c38c8",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"
