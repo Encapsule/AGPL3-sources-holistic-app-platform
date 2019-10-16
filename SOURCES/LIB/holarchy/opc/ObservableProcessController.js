@@ -422,7 +422,14 @@ class ObservableProcessController {
                     opmInstanceFrame.evaluationResponse.action = "step-exit-action-dispatch";
                     for (let exitActionIndex = 0 ; exitActionIndex < stepDescriptor.actions.exit.length ; exitActionIndex++) {
                         const actionRequest = stepDescriptor.actions.exit[exitActionIndex];
-                        const actionResponse = this._private.actionDispatcher.request(actionRequest);
+                        const actionResponse = this._private.actionDispatcher.request({
+                            context: {
+                                namespace: controllerDataPath,
+                                opd: this._private.controllerData,
+                                act: this.act
+                            },
+                            action: actionRequest
+                        });
                         opmInstanceFrame.evaluationResponse.actions.exit.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
                             opmInstanceFrame.evaluationResponse.actions.exitErrors++;
@@ -434,7 +441,14 @@ class ObservableProcessController {
                     opmInstanceFrame.evaluationResponse.action = "step-enter-action-dispatch";
                     for (let enterActionIndex = 0 ; enterActionIndex < nextStepDescriptor.actions.enter.length ; enterActionIndex++) {
                         const actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
-                        const actionResponse = this._private.actionDispatcher.request(actionRequest);
+                        const actionResponse = this._private.actionDispatcher.request({
+                            context: {
+                                namespace: controllerDataPath,
+                                opd: this._private.controllerData,
+                                act: this.act
+                            },
+                            action: actionRequest
+                        });
                         opmInstanceFrame.evaluationResponse.actions.enter.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
                             opmInstanceFrame.evaluationResponse.actions.enterErrors++;

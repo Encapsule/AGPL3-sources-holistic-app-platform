@@ -478,7 +478,14 @@ function () {
             for (var exitActionIndex = 0; exitActionIndex < stepDescriptor.actions.exit.length; exitActionIndex++) {
               var actionRequest = stepDescriptor.actions.exit[exitActionIndex];
 
-              var actionResponse = this._private.actionDispatcher.request(actionRequest);
+              var actionResponse = this._private.actionDispatcher.request({
+                context: {
+                  namespace: controllerDataPath,
+                  opd: this._private.controllerData,
+                  act: this.act
+                },
+                action: actionRequest
+              });
 
               _opmInstanceFrame.evaluationResponse.actions.exit.push({
                 actionRequest: actionRequest,
@@ -497,7 +504,14 @@ function () {
             for (var enterActionIndex = 0; enterActionIndex < nextStepDescriptor.actions.enter.length; enterActionIndex++) {
               var _actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
 
-              var _actionResponse = this._private.actionDispatcher.request(_actionRequest);
+              var _actionResponse = this._private.actionDispatcher.request({
+                context: {
+                  namespace: controllerDataPath,
+                  opd: this._private.controllerData,
+                  act: this.act
+                },
+                action: _actionRequest
+              });
 
               _opmInstanceFrame.evaluationResponse.actions.enter.push({
                 actionRequest: _actionRequest,
