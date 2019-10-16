@@ -6,6 +6,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+// Looking for this module? Search for the IRUT OPCx0kGjRNWmE-yeMt6C0Q
 var maxEvalFrames = 64; // TODO: Migrate to constructor input w/default value.
 
 var arccore = require("@encapsule/arccore");
@@ -178,6 +179,10 @@ function () {
     key: "act",
     value: function act(request_) {
       request_;
+      console.log("ObservableProcessController::act method called!");
+      return {
+        error: "Not implemented"
+      };
     } // act method
     // ================================================================
     // PRIVATE IMPLEMENTATION METHODS
@@ -433,6 +438,7 @@ function () {
               });
 
               if (_transitionResponse.error) {
+                console.error(_transitionResponse.error);
                 _opmInstanceFrame.evaluationResponse.status = "error";
                 _opmInstanceFrame.evaluationResponse.error = _transitionResponse.error;
                 _opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
@@ -476,16 +482,18 @@ function () {
             _opmInstanceFrame.evaluationResponse.action = "step-exit-action-dispatch";
 
             for (var exitActionIndex = 0; exitActionIndex < stepDescriptor.actions.exit.length; exitActionIndex++) {
+              // Dispatch the action request.
               var actionRequest = stepDescriptor.actions.exit[exitActionIndex];
-
-              var actionResponse = this._private.actionDispatcher.request({
+              var dispatcherRequest = {
+                actionRequest: actionRequest,
                 context: {
-                  namespace: controllerDataPath,
-                  opd: this._private.controllerData,
+                  dataPath: controllerDataPath,
+                  cds: this._private.controllerData,
                   act: this.act
-                },
-                action: actionRequest
-              });
+                }
+              };
+
+              var actionResponse = this._private.actionDispatcher.request(dispatcherRequest);
 
               _opmInstanceFrame.evaluationResponse.actions.exit.push({
                 actionRequest: actionRequest,
@@ -493,25 +501,29 @@ function () {
               });
 
               if (actionResponse.error) {
+                console.error(actionResponse.error);
+                console.error(dispatcherRequest);
                 _opmInstanceFrame.evaluationResponse.actions.exitErrors++;
                 _opmInstanceFrame.evaluationResponse.actions.totalErrors++;
               }
-            } // Dispatch the OPM instance's step enter action(s).
+            } // TODO: Consider control flow gates based on accumulated errors.
+            // Dispatch the OPM instance's step enter action(s).
 
 
             _opmInstanceFrame.evaluationResponse.action = "step-enter-action-dispatch";
 
             for (var enterActionIndex = 0; enterActionIndex < nextStepDescriptor.actions.enter.length; enterActionIndex++) {
               var _actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
-
-              var _actionResponse = this._private.actionDispatcher.request({
+              var _dispatcherRequest = {
+                actionRequest: _actionRequest,
                 context: {
-                  namespace: controllerDataPath,
-                  opd: this._private.controllerData,
+                  dataPath: controllerDataPath,
+                  cds: this._private.controllerData,
                   act: this.act
-                },
-                action: _actionRequest
-              });
+                }
+              };
+
+              var _actionResponse = this._private.actionDispatcher.request(_dispatcherRequest);
 
               _opmInstanceFrame.evaluationResponse.actions.enter.push({
                 actionRequest: _actionRequest,
@@ -519,10 +531,13 @@ function () {
               });
 
               if (_actionResponse.error) {
+                console.error(_actionResponse.error);
+                console.error(_dispatcherRequest);
                 _opmInstanceFrame.evaluationResponse.actions.enterErrors++;
                 _opmInstanceFrame.evaluationResponse.actions.totalErrors++;
               }
-            } // Update the OPM instance's opmStep flag in the controller data store.
+            } // TODO: Consider control flow gates based on accumulated errors.
+            // Update the OPM instance's opmStep flag in the controller data store.
 
 
             var transitionResponse = this._private.controllerData.writeNamespace("".concat(controllerDataPath, ".opmStep"), nextStep);
@@ -530,6 +545,7 @@ function () {
             _opmInstanceFrame.evaluationResponse.actions.stepTransitionResponse = transitionResponse;
 
             if (transitionResponse.error) {
+              console.error(transitionResponse.error);
               _opmInstanceFrame.evaluationResponse.actions.totalErrors++;
             }
 

@@ -46,28 +46,28 @@ var factoryResponse = arccore.filter.create({
             ____label: "OPC Context Descriptor",
             ____description: "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
             ____types: "jsObject",
-            namespace: {
+            dataPath: {
               ____label: "OPM Binding Namespace",
               ____description: "Dot-delimited path to the current OPM instance's associated data in the OPD.",
               ____accept: "jsString"
             },
-            opd: {
-              ____label: "OPD Store",
-              ____description: "A reference to an OPC instance's ObservableProcessData store.",
+            cds: {
+              ____label: "ControllerDataStore Reference",
+              ____description: "A reference to an OPC instance's ControllerDataStore instance.",
               ____accept: "jsObject"
             },
-            actionDispatcher: {
-              ____label: "OPC Action Dispatcher",
+            act: {
+              ____label: "OPC Action Request Dispatcher",
               ____description: "A reference to ObservableProcessController.act method.",
               ____accept: "jsFunction"
             }
           },
-          action: request_.actionRequestSpec
+          actionRequest: request_.actionRequestSpec
         },
-        bodyFunction: request_.bodyFunction,
         outputFilterSpec: {
           ____accept: "jsBoolean"
-        }
+        },
+        bodyFunction: request_.bodyFunction
       });
 
       if (innerFactoryResponse.error) {
@@ -83,7 +83,7 @@ var factoryResponse = arccore.filter.create({
     return response;
   },
   outputFilterSpec: {
-    ____label: "Transition Operator Filter",
+    ____label: "Controller Action Filter",
     ____accept: "jsObject"
   }
 });

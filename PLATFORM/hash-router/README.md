@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.21 "eureka"
 
 ```
-Package: @encapsule/hash-router v0.0.21 "eureka" build ID "QJ_yj2GxS2qW2a66CokkzQ"
-Sources: Encapsule/holistic#332606802269b876e3a44dcfe2bfa2b88c2c38c8
+Package: @encapsule/hash-router v0.0.21 "eureka" build ID "Muwd1ViGTsyTXluGt30dWw"
+Sources: Encapsule/holistic#22c041d2a87a5069d4c916950ac4d1f58d552c48
 Purpose: library (Node.js)
-Created: 2019-10-16T09:47:33.000Z
+Created: 2019-10-16T17:31:40.000Z
 License: MIT
 ```
 
