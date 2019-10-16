@@ -1,3 +1,4 @@
+// Looking for this module? Search for the IRUT OPCx0kGjRNWmE-yeMt6C0Q
 
 const maxEvalFrames = 64; // TODO: Migrate to constructor input w/default value.
 
@@ -140,6 +141,8 @@ class ObservableProcessController {
 
     act(request_) {
         request_;
+        console.log("ObservableProcessController::act method called!");
+        return { error: "Not implemented" };
     } // act method
 
     // ================================================================
@@ -386,6 +389,7 @@ class ObservableProcessController {
                             operator: transitionRule.transitionIf
                         });
                         if (transitionResponse.error) {
+                            console.error(transitionResponse.error);
                             opmInstanceFrame.evaluationResponse.status = "error";
                             opmInstanceFrame.evaluationResponse.error = transitionResponse.error;
                             opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
@@ -421,45 +425,57 @@ class ObservableProcessController {
                     // Dispatch the OPM instance's step exit action(s).
                     opmInstanceFrame.evaluationResponse.action = "step-exit-action-dispatch";
                     for (let exitActionIndex = 0 ; exitActionIndex < stepDescriptor.actions.exit.length ; exitActionIndex++) {
+                        // Dispatch the action request.
                         const actionRequest = stepDescriptor.actions.exit[exitActionIndex];
-                        const actionResponse = this._private.actionDispatcher.request({
+                        const dispatcherRequest = {
+                            actionRequest: actionRequest,
                             context: {
-                                namespace: controllerDataPath,
-                                opd: this._private.controllerData,
+                                dataPath: controllerDataPath,
+                                cds: this._private.controllerData,
                                 act: this.act
-                            },
-                            action: actionRequest
-                        });
+                            }
+                        };
+                        const actionResponse = this._private.actionDispatcher.request(dispatcherRequest);
                         opmInstanceFrame.evaluationResponse.actions.exit.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
+                            console.error(actionResponse.error);
+                            console.error(dispatcherRequest);
                             opmInstanceFrame.evaluationResponse.actions.exitErrors++;
                             opmInstanceFrame.evaluationResponse.actions.totalErrors++;
                         }
                     }
 
+                    // TODO: Consider control flow gates based on accumulated errors.
+
                     // Dispatch the OPM instance's step enter action(s).
                     opmInstanceFrame.evaluationResponse.action = "step-enter-action-dispatch";
                     for (let enterActionIndex = 0 ; enterActionIndex < nextStepDescriptor.actions.enter.length ; enterActionIndex++) {
                         const actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
-                        const actionResponse = this._private.actionDispatcher.request({
+                        const dispatcherRequest = {
+                            actionRequest: actionRequest,
                             context: {
-                                namespace: controllerDataPath,
-                                opd: this._private.controllerData,
+                                dataPath: controllerDataPath,
+                                cds: this._private.controllerData,
                                 act: this.act
-                            },
-                            action: actionRequest
-                        });
+                            }
+                        };
+                        const actionResponse = this._private.actionDispatcher.request(dispatcherRequest);
                         opmInstanceFrame.evaluationResponse.actions.enter.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
+                            console.error(actionResponse.error);
+                            console.error(dispatcherRequest);
                             opmInstanceFrame.evaluationResponse.actions.enterErrors++;
                             opmInstanceFrame.evaluationResponse.actions.totalErrors++;
                         }
                     }
 
+                    // TODO: Consider control flow gates based on accumulated errors.
+
                     // Update the OPM instance's opmStep flag in the controller data store.
                     let transitionResponse = this._private.controllerData.writeNamespace(`${controllerDataPath}.opmStep`, nextStep);
                     opmInstanceFrame.evaluationResponse.actions.stepTransitionResponse = transitionResponse;
                     if (transitionResponse.error) {
+                        console.error(transitionResponse.error);
                         opmInstanceFrame.evaluationResponse.actions.totalErrors++;
                     }
 
