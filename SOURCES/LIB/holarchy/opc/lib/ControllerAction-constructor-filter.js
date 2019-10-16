@@ -3,7 +3,7 @@
 const arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
-    operationID: "actXQlKYQ9KDriZba3t00w"
+    operationID: "actXQlKYQ9KDriZba3t00w",
     operationName: "Controller Action Filter Factory",
     operationDescription: "Constructs a controller action filter plug-in compatible with ObservableProcessModel and ObversableProcessController.",
     inputFilterSpec: {

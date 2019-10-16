@@ -3,9 +3,9 @@
 var arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
-  operationID: "-99RI_6HTsiQgwN2OV1xXQ",
-  operationName: "Transition Operator Filter Factory",
-  operationDescription: "Constructs a transition operator filter plug-in that is compatible with ObservableProcessModel and ObservableProcessController.",
+  operationID: "actXQlKYQ9KDriZba3t00w",
+  operationName: "Controller Action Filter Factory",
+  operationDescription: "Constructs a controller action filter plug-in compatible with ObservableProcessModel and ObversableProcessController.",
   inputFilterSpec: {
     ____label: "Filter Factory Request",
     ____types: "jsObject",
@@ -18,7 +18,7 @@ var factoryResponse = arccore.filter.create({
     description: {
       ____accept: "jsString"
     },
-    operatorRequestSpec: {
+    actionRequestSpec: {
       ____accept: "jsObject"
     },
     bodyFunction: {
@@ -56,13 +56,13 @@ var factoryResponse = arccore.filter.create({
               ____description: "A reference to an OPC instance's ObservableProcessData store.",
               ____accept: "jsObject"
             },
-            transitionDispatcher: {
-              ____label: "OPC Transition Dispatcher",
-              ____description: "A reference to an OPC instance's transition operator dispatcher instance.",
-              ____accept: "jsObject"
+            actionDispatcher: {
+              ____label: "OPC Action Dispatcher",
+              ____description: "A reference to ObservableProcessController.act method.",
+              ____accept: "jsFunction"
             }
           },
-          operator: request_.operatorRequestSpec
+          action: request_.actionRequestSpec
         },
         bodyFunction: request_.bodyFunction,
         outputFilterSpec: {

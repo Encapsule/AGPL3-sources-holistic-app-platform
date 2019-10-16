@@ -6,29 +6,32 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// const arccore = require("@encapsule/arccore");
-var ControllerAction =
+var constructorFilter = require("./lib/ControllerAction-constructor-filter");
+
+module.exports =
 /*#__PURE__*/
 function () {
-  function ControllerAction() {
+  function ControllerAction(constructionData_) {
     _classCallCheck(this, ControllerAction);
+
+    var filterResponse = constructorFilter.request(constructionData_);
+
+    if (filterResponse.error) {
+      throw new Error(filterResponse.error);
+    }
+
+    this._private = {
+      controllerActionFilter: filterResponse.result
+    };
+    this.getFilter = this.getFilter.bind(this);
   }
 
   _createClass(ControllerAction, [{
-    key: "construction",
-    value: function construction(request_) {
-      request_;
-      this._private = {};
-      this.getFilter = this.getFilter.bind(this);
-    }
-  }, {
     key: "getFilter",
     value: function getFilter() {
-      return this._private.filter;
+      return this._private.controllerActionFilter;
     }
   }]);
 
   return ControllerAction;
 }();
-
-module.exports = ControllerAction;

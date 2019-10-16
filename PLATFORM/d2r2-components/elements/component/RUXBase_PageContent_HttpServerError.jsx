@@ -91,7 +91,11 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             }, metadata.site.name, " Error ", renderData.http.code, ': ', renderData.http.message));
             content.push(React.createElement("div", {
               key: makeKey()
-            }, React.createElement("p", null, "The ", metadata.site.name, " application server cannot process your request."), React.createElement("p", {
+            }, React.createElement("p", null, React.createElement("span", {
+              style: {
+                fontSize: "larger"
+              }
+            }, "The ", metadata.site.name, " application server cannot process your request.")), React.createElement("p", {
               style: theme.base.PageContent_HttpServerError.errorMessage
             }, renderData.error_message)));
             if (!this.state.showRawResponse) content.push(React.createElement("div", {
@@ -113,6 +117,26 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                 style: theme.classPRE
               }, JSON.stringify(renderData, undefined, 4)));
             }
+            content.push(React.createElement("div", {
+              key: makeKey(),
+              style: {
+                marginTop: "1em",
+                fontWeight: "bold",
+                textAlign: "right"
+              }
+            }, "[ ", React.createElement("a", {
+              href: "/",
+              title: "Go home..."
+            }, "Home"), " ] [ ", React.createElement("a", {
+              href: "/login",
+              title: "Login..."
+            }, "Login"), " ] [ ", React.createElement("a", {
+              href: "/logout",
+              title: "Logout..."
+            }, "Logout"), " ] [ ", React.createElement("a", {
+              href: "/user",
+              title: "User settings..."
+            }, "User"), " ]"));
             break;
         }
 

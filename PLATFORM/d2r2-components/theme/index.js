@@ -71,12 +71,12 @@ module.exports = {
         borderRadius: "0.5em",
         fontFamily: "Nunito, Arial, Helevita",
         // via Google Fonts
+        fontSize: "16pt",
         margin: "1em",
         padding: "1em"
       },
       errorMessage: {
-        fontWeight: "bold",
-        fontSize: "14pt"
+        fontSize: "16pt"
       }
     },
     PageContent_HttpServerError: {

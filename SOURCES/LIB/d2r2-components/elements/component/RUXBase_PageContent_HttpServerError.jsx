@@ -52,7 +52,7 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             default:
                 content.push(<h1 key={makeKey()}>{metadata.site.name} Error {renderData.http.code}{': '}{renderData.http.message}</h1>);
                 content.push(<div key={makeKey()}>
-                             <p>The {metadata.site.name} application server cannot process your request.</p>
+                             <p><span style={{ fontSize: "larger" }}>The {metadata.site.name} application server cannot process your request.</span></p>
                              <p style={theme.base.PageContent_HttpServerError.errorMessage}>{renderData.error_message}</p>
                              </div>);
 
@@ -73,6 +73,13 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                                  </pre>);
                 }
 
+                content.push(<div key={makeKey()} style={{ marginTop: "1em", fontWeight: "bold", textAlign: "right" }} >
+                             [ <a href="/" title="Go home...">Home</a> ]
+                             [ <a href="/login" title="Login...">Login</a> ]
+                             [ <a href="/logout" title="Logout...">Logout</a> ]
+                             [ <a href="/user" title="User settings...">User</a> ]
+                             </div>
+                            );
                 break;
             }
 
