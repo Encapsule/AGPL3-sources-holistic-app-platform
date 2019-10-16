@@ -1,17 +1,18 @@
 
+
 const arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
-    operationID: "-99RI_6HTsiQgwN2OV1xXQ",
-    operationName: "Transition Operator Filter Factory",
-    operationDescription: "Constructs a transition operator filter plug-in that is compatible with ObservableProcessModel and ObservableProcessController.",
+    operationID: "actXQlKYQ9KDriZba3t00w"
+    operationName: "Controller Action Filter Factory",
+    operationDescription: "Constructs a controller action filter plug-in compatible with ObservableProcessModel and ObversableProcessController.",
     inputFilterSpec: {
         ____label: "Filter Factory Request",
         ____types: "jsObject",
         id: { ____accept: "jsString" },
         name: { ____accept: "jsString" },
         description: { ____accept: "jsString" },
-        operatorRequestSpec: { ____accept: "jsObject" },
+        actionRequestSpec: { ____accept: "jsObject" },
         bodyFunction: { ____accept: "jsFunction" }
     },
     bodyFunction: function(request_) {
@@ -42,13 +43,13 @@ var factoryResponse = arccore.filter.create({
                             ____accept: "jsObject"
 
                         },
-                        transitionDispatcher: {
-                            ____label: "OPC Transition Dispatcher",
-                            ____description: "A reference to an OPC instance's transition operator dispatcher instance.",
-                            ____accept: "jsObject"
+                        actionDispatcher: {
+                            ____label: "OPC Action Dispatcher",
+                            ____description: "A reference to ObservableProcessController.act method.",
+                            ____accept: "jsFunction"
                         }
                     },
-                    operator: request_.operatorRequestSpec
+                    action: request_.actionRequestSpec
                 },
                 bodyFunction: request_.bodyFunction,
                 outputFilterSpec: { ____accept: "jsBoolean" }

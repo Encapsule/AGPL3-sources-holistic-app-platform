@@ -1,21 +1,19 @@
 
-// const arccore = require("@encapsule/arccore");
+const constructorFilter = require("./lib/ControllerAction-constructor-filter");
 
-class ControllerAction {
-
-    construction(request_) {
-
-        request_;
-
-        this._private = {};
-
+module.exports = class ControllerAction {
+    constructor(constructionData_) {
+        let filterResponse = constructorFilter.request(constructionData_);
+        if (filterResponse.error) {
+            throw new Error(filterResponse.error);
+        }
+        this._private = {
+            controllerActionFilter: filterResponse.result
+        };
         this.getFilter = this.getFilter.bind(this);
     }
-
     getFilter() {
-        return this._private.filter;
+        return this._private.controllerActionFilter;
     }
+};
 
-}
-
-module.exports = ControllerAction;
