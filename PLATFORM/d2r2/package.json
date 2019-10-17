@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2",
     "version": "0.0.21",
     "codename": "eureka",
-    "buildID": "Muwd1ViGTsyTXluGt30dWw",
-    "buildTime": 1571247100,
-    "buildSource": "22c041d2a87a5069d4c916950ac4d1f58d552c48",
+    "buildID": "QqfCrl9zSQ-BnWfxaPd24Q",
+    "buildTime": 1571285225,
+    "buildSource": "1abc02b1e7193e88dafca5eb0ac920a460a8918f",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2.git"
