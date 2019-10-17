@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const constructorRequestFilter = require("./lib/ObservableProcessController-constructor-filter");
-const evaluateRequestFilter = require("./lib/ObservableProcessController-evaluate-filter");
+const evaluateFilter = require("./lib/ObservableProcessController-evaluate-filter");
 const ControllerDataStore = require("./ControllerDataStore");
 
 
@@ -98,8 +98,8 @@ class ObservableProcessController {
 
             // Complete initialization of the instance.
             this._private.controllerData = new ControllerDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
-            this._private.evaluationCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate method.
-            this._private.lastEvaluation = null; // This is overwritten by calls to ObservableProcessController::_evaluate
+            this._private.evaluationCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate.
+            this._private.lastEvaluationResponse = null; // This is overwritten by calls to ObservableProcessController::_evaluate.
 
             // ----------------------------------------------------------------
             // Bind instance methods.
@@ -150,7 +150,17 @@ class ObservableProcessController {
     //
 
     _evaluate() {
-        return evaluateRequestFilter.request({ opc: this });
+        // TODO: We can at this point in the execution flow deep copy the CDS,
+        // execute the evaluation against the copy. Then depending on the
+        // results of the evaluation:
+        // * If no error(s), swap out the old CDS instance for the new.
+        // * Otherwise, report the evaluation result and leave the contents of the CDS unmodified by the operation.
+
+        // Deletegate to the evaluation filter.
+        this._private.lastEvaluationResponse =  evaluateFilter.request({ opcRef: this });
+        // Increment the OPC's evaluation count.
+        this._private.evaluationCount++;
+        return this._private.lastEvaluationResponse;
     } // _evaluate method
 
 }
