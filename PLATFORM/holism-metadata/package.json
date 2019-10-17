@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-metadata",
     "version": "0.0.21",
     "codename": "eureka",
-    "buildID": "QqfCrl9zSQ-BnWfxaPd24Q",
-    "buildTime": 1571285225,
-    "buildSource": "1abc02b1e7193e88dafca5eb0ac920a460a8918f",
+    "buildID": "6CUiUxuDRJSgg5MXuvkyLA",
+    "buildTime": 1571353432,
+    "buildSource": "a1c34855ed9aeac55321da49f1c45c41d3a6717f",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-metadata.git"

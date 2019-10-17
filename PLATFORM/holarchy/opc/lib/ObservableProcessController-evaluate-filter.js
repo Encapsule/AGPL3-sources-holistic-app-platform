@@ -1,5 +1,6 @@
 "use strict";
 
+// Copyright (C) 2019 Christopher D. Russell
 var arccore = require("@encapsule/arccore");
 
 var SimpleStopwatch = require("./SimpleStopwatch");
@@ -30,14 +31,17 @@ var factoryResponse = arccore.filter.create({
     };
     var errors = [];
     var inBreakScope = false;
-    var opc = opcEvaluateRequest_.opc;
-    var evalStopwatch = new SimpleStopwatch("OPC evaluation #".concat(opc._private.evaluationCount, " stopwatch"));
+    var opcRef = opcEvaluateRequest_.opcRef;
+    var evalStopwatch = new SimpleStopwatch("OPC evaluation #".concat(opcRef._private.evaluationCount, " stopwatch"));
     var result = {
+      evalNumber: opcRef._private.evaluationCount,
       evalFrames: [],
-      evalStopwatch: null,
-      framesEvaluated: 0,
-      totalErrors: 0,
-      totalTransitions: 0
+      summary: {
+        evalStopwatch: null,
+        framesEvaluated: 0,
+        totalErrors: 0,
+        totalTransitions: 0
+      }
     }; // ****************************************************************
     // Outer loop used to aid flow of control and error reporting.
 
@@ -46,9 +50,9 @@ var factoryResponse = arccore.filter.create({
       // Prologue - executed before starting the outer evaluation loop.
 
       console.log("================================================================");
-      console.log("> ObservableProcessController::_evaluate starting system evaluation ".concat(opc._private.evaluationCount, " ...")); // Get a reference to the entire filter spec for the controller data store.
+      console.log("> ObservableProcessController::_evaluate starting system evaluation ".concat(opcRef._private.evaluationCount, " ...")); // Get a reference to the entire filter spec for the controller data store.
 
-      var filterResponse = opc._private.controllerData.getNamespaceSpec("~");
+      var filterResponse = opcRef._private.controllerData.getNamespaceSpec("~");
 
       if (filterResponse.error) {
         errors.push(filterResponse.error);
@@ -57,7 +61,7 @@ var factoryResponse = arccore.filter.create({
 
       var controllerDataSpec = filterResponse.result; // Get a reference to the controller data.
 
-      filterResponse = opc._private.controllerData.readNamespace("~");
+      filterResponse = opcRef._private.controllerData.readNamespace("~");
 
       if (filterResponse.error) {
         errors.push(filterResponse.error);
@@ -73,7 +77,17 @@ var factoryResponse = arccore.filter.create({
       // limit is surpassed.
 
       while (result.evalFrames.length < maxEvalFrames) {
-        evalStopwatch.mark("frame ".concat(result.evalFrames.length, " start OPM instance binding")); // ================================================================
+        evalStopwatch.mark("frame ".concat(result.evalFrames.length, " start OPM instance binding"));
+        var evalFrame = {
+          bindings: {},
+          summary: {
+            bindingCount: 0,
+            transitionCount: 0,
+            errorCount: 0,
+            failures: {},
+            transitions: {}
+          }
+        }; // ================================================================
         // Dynamically locate and bind ObservableProcessModel instances based
         // on analysis of the controller data's filter specification and the
         // actual controller data values. This occurs at the prologue of the
@@ -82,8 +96,6 @@ var factoryResponse = arccore.filter.create({
         // as a side-effect of executing process model step enter and exit
         // actions.
         // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
-
-        var evalFrame = {}; // A dictionary that maps controller data namespace declaration paths to their associated ObservableProcessModel class instances.
 
         var namespaceQueue = [{
           specPath: "~",
@@ -108,7 +120,7 @@ var factoryResponse = arccore.filter.create({
             var opmID = record.specRef.____appdsl.opm;
 
             if (arccore.identifier.irut.isIRUT(opmID).result) {
-              if (!opc._private.opmMap[opmID]) {
+              if (!opcRef._private.opmMap[opmID]) {
                 errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
                 break;
               } // ****************************************************************
@@ -120,13 +132,13 @@ var factoryResponse = arccore.filter.create({
                 evaluationContext: {
                   dataBinding: record,
                   initialStep: record.dataRef.opmStep,
-                  opm: opc._private.opmMap[opmID]
+                  opm: opcRef._private.opmMap[opmID]
                 },
                 evaluationResponse: {
                   status: "pending-eval"
                 }
               };
-              evalFrame[record.dataPath] = opmInstanceFrame;
+              evalFrame.bindings[record.dataPath] = opmInstanceFrame;
               console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
               console.log(opmInstanceFrame); // ****************************************************************
               // ****************************************************************
@@ -253,8 +265,8 @@ var factoryResponse = arccore.filter.create({
         // step we're exiting and/or the step we're entering.
 
 
-        for (var controllerDataPath in evalFrame) {
-          var _opmInstanceFrame = evalFrame[controllerDataPath];
+        for (var controllerDataPath in evalFrame.bindings) {
+          var _opmInstanceFrame = evalFrame.bindings[controllerDataPath];
           _opmInstanceFrame.evaluationResponse.status = "evaluating";
           var opmBinding = _opmInstanceFrame.evaluationContext.opm;
           var initialStep = _opmInstanceFrame.evaluationContext.initialStep;
@@ -269,11 +281,11 @@ var factoryResponse = arccore.filter.create({
           for (var transitionRuleIndex = 0; transitionRuleIndex < stepDescriptor.transitions.length; transitionRuleIndex++) {
             var transitionRule = stepDescriptor.transitions[transitionRuleIndex];
 
-            var _transitionResponse = opc._private.transitionDispatcher.request({
+            var _transitionResponse = opcRef._private.transitionDispatcher.request({
               context: {
                 namespace: controllerDataPath,
-                opd: opc._private.controllerData,
-                transitionDispatcher: opc._private.transitionDispatcher
+                opd: opcRef._private.controllerData,
+                transitionDispatcher: opcRef._private.transitionDispatcher
               },
               operator: transitionRule.transitionIf
             }); // TODO: These structures are currently ad-hoc; create a filter spec for the entire response.result of _evaluate method and nail these details down.
@@ -332,12 +344,12 @@ var factoryResponse = arccore.filter.create({
               actionRequest: actionRequest,
               context: {
                 dataPath: controllerDataPath,
-                cds: opc._private.controllerData,
-                act: opc.act
+                cds: opcRef._private.controllerData,
+                act: opcRef.act
               }
             };
 
-            var actionResponse = opc._private.actionDispatcher.request(dispatcherRequest);
+            var actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
 
             _opmInstanceFrame.evaluationResponse.actions.exit.push({
               actionRequest: actionRequest,
@@ -362,12 +374,12 @@ var factoryResponse = arccore.filter.create({
               actionRequest: _actionRequest,
               context: {
                 dataPath: controllerDataPath,
-                cds: opc._private.controllerData,
-                act: opc.act
+                cds: opcRef._private.controllerData,
+                act: opcRef.act
               }
             };
 
-            var _actionResponse = opc._private.actionDispatcher.request(_dispatcherRequest);
+            var _actionResponse = opcRef._private.actionDispatcher.request(_dispatcherRequest);
 
             _opmInstanceFrame.evaluationResponse.actions.enter.push({
               actionRequest: _actionRequest,
@@ -384,7 +396,7 @@ var factoryResponse = arccore.filter.create({
           // Update the OPM instance's opmStep flag in the controller data store.
 
 
-          var transitionResponse = opc._private.controllerData.writeNamespace("".concat(controllerDataPath, ".opmStep"), nextStep);
+          var transitionResponse = opcRef._private.controllerData.writeNamespace("".concat(controllerDataPath, ".opmStep"), nextStep);
 
           _opmInstanceFrame.evaluationResponse.actions.stepTransitionResponse = transitionResponse;
 
@@ -400,16 +412,14 @@ var factoryResponse = arccore.filter.create({
 
 
         evalStopwatch.mark("frame ".concat(result.evalFrames.length, " end OPM instance evaluation"));
-        console.log("> ... Finish evaluation frame ".concat(opc._private.evaluationCount, ":").concat(result.evalFrames.length, " ..."));
-        result.evalFrames.push({
-          opmInstanceMap: evalFrame
-        }); // ================================================================
+        console.log("> ... Finish evaluation frame ".concat(opcRef._private.evaluationCount, ":").concat(result.evalFrames.length, " ..."));
+        result.evalFrames.push(evalFrame); // ================================================================
         // If any of the OPM instance's in the just-completed eval frame transitioned, add another eval frame.
         // Otherwise exit the outer eval loop and conclude the OPC evaluation algorithm.
         // TODO break on out as a temporary measure until the transition operators and actions are working.
 
         break; // ... out of the main evaluation loop
-      } // while outer evaluation loop;
+      } // while outer frame evaluation loop;
 
 
       break;
@@ -426,11 +436,12 @@ var factoryResponse = arccore.filter.create({
     // - This does not mean that your OPM's encode what you think they do.
 
 
-    result.evalStopwatch = evalStopwatch.stop();
+    result.summary.evalStopwatch = evalStopwatch.stop();
+    result.summary.framesCount = result.evalFrames.length;
     response.result = result;
-    console.log("> ObservableProcessController::_evaluate  #".concat(opc._private.evaluationCount++, " ").concat(response.error ? "ABORTED WITH ERROR" : "completed without error", "."));
+    console.log("> ObservableProcessController::_evaluate  #".concat(result.evalNumber, " ").concat(response.error ? "ABORTED WITH ERROR" : "completed", "."));
+    console.log("..... OPC evalution #".concat(result.evalNumber, " sequenced ").concat(result.summary.framesCount, " frame(s) in ").concat(result.summary.evalStopwatch.totalMicroseconds, " microseconds."));
     console.log(response);
-    opc._private.lastEvaluation = response;
     return response;
   }
 });
