@@ -135,7 +135,7 @@ function () {
         spec: request_.controllerDataSpec,
         data: request_.controllerData
       });
-      this._private.evaluationCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate.
+      this._private.evalCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate.
 
       this._private.lastEvaluationResponse = null; // This is overwritten by calls to ObservableProcessController::_evaluate.
       // ----------------------------------------------------------------
@@ -201,7 +201,7 @@ function () {
         opcRef: this
       }); // Increment the OPC's evaluation count.
 
-      this._private.evaluationCount++;
+      this._private.evalCount++;
       return this._private.lastEvaluationResponse;
     } // _evaluate method
 
