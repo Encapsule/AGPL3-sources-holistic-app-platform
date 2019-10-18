@@ -30,16 +30,16 @@ const factoryResponse = arccore.filter.create({
         let errors = [];
         let inBreakScope = false;
         const opcRef = opcEvaluateRequest_.opcRef;
-        const evalStopwatch = new SimpleStopwatch(`OPC evaluation #${opcRef._private.evaluationCount} stopwatch`);
+        const evalStopwatch = new SimpleStopwatch(`OPC evaluation #${opcRef._private.evalCount} stopwatch`);
 
         let result = {
-            evalNumber: opcRef._private.evaluationCount,
+            evalNumber: opcRef._private.evalCount,
             evalFrames: [],
             summary: {
                 evalStopwatch: null,
-                framesEvaluated: 0,
-                totalErrors: 0,
-                totalTransitions: 0
+                frameCount: 0,
+                errorCount: 0,
+                transitionCount: 0
             }
         };
 
@@ -52,7 +52,7 @@ const factoryResponse = arccore.filter.create({
             // Prologue - executed before starting the outer evaluation loop.
 
             console.log("================================================================");
-            console.log(`> ObservableProcessController::_evaluate starting system evaluation ${opcRef._private.evaluationCount} ...`);
+            console.log(`> ObservableProcessController::_evaluate starting system evaluation ${opcRef._private.evalCount} ...`);
 
             // Get a reference to the entire filter spec for the controller data store.
             let filterResponse = opcRef._private.controllerData.getNamespaceSpec("~");
@@ -93,7 +93,14 @@ const factoryResponse = arccore.filter.create({
                     }
                 };
 
-                // ================================================================
+                // ****************************************************************
+                // ****************************************************************
+                // ****************************************************************
+                // FRAME-SCOPE OPM INSTANCE BINDING
+                // ****************************************************************
+                // ****************************************************************
+                // ****************************************************************
+
                 // Dynamically locate and bind ObservableProcessModel instances based
                 // on analysis of the controller data's filter specification and the
                 // actual controller data values. This occurs at the prologue of the
@@ -132,13 +139,25 @@ const factoryResponse = arccore.filter.create({
                             // ****************************************************************
                             // We found an OPM-bound namespace in the controller data.
                             const opmInstanceFrame = {
-                                evaluationContext: {
+                                evalRequest: {
                                     dataBinding: record,
                                     initialStep: record.dataRef.opmStep,
-                                    opm: opcRef._private.opmMap[opmID]
+                                    opmRef: opcRef._private.opmMap[opmID]
                                 },
-                                evaluationResponse: {
-                                    status: "pending-eval"
+                                evalResponse: {
+                                    status: "pending",
+                                    actions: {
+                                        p1: [],
+                                        p2: [],
+                                        p3: [],
+                                        p4: null
+                                    },
+                                    errors: {
+                                        p1: 0,
+                                        p2: 0,
+                                        p3: 0,
+                                        p4: 0
+                                    }
                                 }
                             };
                             evalFrame.bindings[record.dataPath] = opmInstanceFrame;
@@ -241,8 +260,17 @@ const factoryResponse = arccore.filter.create({
                     // As a matter of implementation policy, we do not further evaluation of an OPM instance
                     // if any error is encountered during the evaluation of the model's transition operator
                     // expression.
+                    // TODO: I don't think we're handling errors here correctly?
                     break; // from the outer evaluation loop
                 }
+
+                // ****************************************************************
+                // ****************************************************************
+                // ****************************************************************
+                // FRAME-SCOPE OPM INSTANCE EVALUATION
+                // ****************************************************************
+                // ****************************************************************
+                // ****************************************************************
 
                 // ================================================================
                 //
@@ -261,69 +289,80 @@ const factoryResponse = arccore.filter.create({
                 for (let controllerDataPath in evalFrame.bindings) {
 
                     const opmInstanceFrame = evalFrame.bindings[controllerDataPath];
-                    opmInstanceFrame.evaluationResponse.status = "evaluating";
+                    opmInstanceFrame.evaluationResponse.status = "evaluation";
 
-                    const opmBinding = opmInstanceFrame.evaluationContext.opm;
-                    const initialStep = opmInstanceFrame.evaluationContext.initialStep;
-                    const stepDescriptor = opmBinding.getStepDescriptor(initialStep);
+                    const opmRef = opmInstanceFrame.evalRequest.opmRef;
+                    const initialStep = opmInstanceFrame.evalRequest.initialStep;
+                    const stepDescriptor = opmRef.getStepDescriptor(initialStep);
 
-                    console.log(`..... Evaluting '${controllerDataPath}' instance of ${opmBinding.getID()}::${opmBinding.getName()} ...`);
+                    console.log(`..... Evaluting '${controllerDataPath}' instance of ${opmRef.getID()}::${opmRef.getName()} ...`);
                     console.log(`..... ..... model instance is currently at process step '${initialStep}' stepDescriptor=`);
                     console.log(stepDescriptor);
 
                     // ================================================================
+                    // ================================================================
+                    // ================================================================
+                    // PHASE 1 - BOUND OPM INSTANCE STEP TRANSITION EVALUATION
+                    // ================================================================
+                    // ================================================================
+                    // ================================================================
+
                     // Evaluate the OPM instance's step transition ruleset.
                     let nextStep = null; // null (default) indicates that the OPM instance should remain in its current process step (i.e. no transition).
 
                     for (let transitionRuleIndex = 0; transitionRuleIndex < stepDescriptor.transitions.length ; transitionRuleIndex++) {
+
                         const transitionRule = stepDescriptor.transitions[transitionRuleIndex];
-                        let transitionResponse = opcRef._private.transitionDispatcher.request({
+
+                        const operatorRequest = {
                             context: {
                                 namespace: controllerDataPath,
                                 opd: opcRef._private.controllerData,
                                 transitionDispatcher: opcRef._private.transitionDispatcher
                             },
                             operator: transitionRule.transitionIf
-                        });
-                        // TODO: These structures are currently ad-hoc; create a filter spec for the entire response.result of _evaluate method and nail these details down.
+                        };
+
+                        let transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+
 
                         if (transitionResponse.error) {
                             console.error(transitionResponse.error);
-                            opmInstanceFrame.evaluationResponse.status = "error";
-                            opmInstanceFrame.evaluationResponse.error = transitionResponse.error;
-                            opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
-                            opmInstanceFrame.evaluationResponse.finishStep = initialStep;
+                            opmInstanceFrame.evalResponse.status = "error";
+                            opmInstanceFrame.evalResponse.error = transitionResponse.error;
+                            opmInstanceFrame.evalResponse.transitionIf = transitionRule.transitionIf;
+                            opmInstanceFrame.evalResponse.finishStep = initialStep;
                             break; // abort evaluation of transition rules for this OPM instance...
                         }
                         if (transitionResponse.result) {
                             // Setup to transition between process steps...
                             nextStep = transitionRule.nextStep; // signal a process step transition
-                            opmInstanceFrame.evaluationResponse.status = "transitioning";
-                            opmInstanceFrame.evaluationResponse.transitionIf = transitionRule.transitionIf;
-                            opmInstanceFrame.evaluationResponse.actions = { exit: [], exitErrors: 0, enter: [], enterErrors: 0, stepTransitionResponse: null, totalErrors: 0 };
+                            opmInstanceFrame.evalResponse.status = "transitioning";
+                            opmInstanceFrame.evalResponse.transitionIf = transitionRule.transitionIf;
+                            opmInstanceFrame.evalResponse.actions = { exit: [], exitErrors: 0, enter: [], enterErrors: 0, stepTransitionResponse: null, totalErrors: 0 };
                             break; // skip evaluation of subsequent transition rules for this OPM instance.
                         }
                     } // for transitionRuleIndex
 
                     // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
-                    if (opmInstanceFrame.evaluationResponse.status === "error") {
+                    if (opmInstanceFrame.evalResponse.status === "error") {
                         continue;
                     }
 
                     // If the OPM instance is stable in its current process step, continue on to evaluate the next OPM instance in the eval frame.
                     if (!nextStep) {
-                        opmInstanceFrame.evaluationResponse.status = "noop";
-                        opmInstanceFrame.evaluationResponse.finishStep = initialStep;
+                        opmInstanceFrame.evalResponse.status = "noop";
+                        opmInstanceFrame.evalResponse.finishStep = initialStep;
                         continue;
                     }
 
                     // Transition the OPM instance to its next process step.
 
                     // Get the stepDescriptor for the next process step that declares the actions to take on step entry.
-                    const nextStepDescriptor = opmBinding.getStepDescriptor(nextStep);
+                    const nextStepDescriptor = opmRef.getStepDescriptor(nextStep);
 
                     // Dispatch the OPM instance's step exit action(s).
-                    opmInstanceFrame.evaluationResponse.action = "step-exit-action-dispatch";
+                    opmInstanceFrame.evalResponse.status = "transitioning-dispatch-exit-actions";
                     for (let exitActionIndex = 0 ; exitActionIndex < stepDescriptor.actions.exit.length ; exitActionIndex++) {
                         // Dispatch the action request.
                         const actionRequest = stepDescriptor.actions.exit[exitActionIndex];
@@ -336,19 +375,19 @@ const factoryResponse = arccore.filter.create({
                             }
                         };
                         const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
-                        opmInstanceFrame.evaluationResponse.actions.exit.push({ actionRequest: actionRequest, actionResponse: actionResponse });
+                        opmInstanceFrame.evalResponse.actions.exit.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
                             console.error(dispatcherRequest);
-                            opmInstanceFrame.evaluationResponse.actions.exitErrors++;
-                            opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+                            opmInstanceFrame.evalResponse.actions.exitErrors++;
+                            opmInstanceFrame.evalResponse.actions.totalErrors++;
                         }
                     }
 
                     // TODO: Consider control flow gates based on accumulated errors.
 
                     // Dispatch the OPM instance's step enter action(s).
-                    opmInstanceFrame.evaluationResponse.action = "step-enter-action-dispatch";
+                    opmInstanceFrame.evalResponse.status = "transitioning-dispatch-enter-actions";
                     for (let enterActionIndex = 0 ; enterActionIndex < nextStepDescriptor.actions.enter.length ; enterActionIndex++) {
                         const actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
                         const dispatcherRequest = {
@@ -360,33 +399,33 @@ const factoryResponse = arccore.filter.create({
                             }
                         };
                         const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
-                        opmInstanceFrame.evaluationResponse.actions.enter.push({ actionRequest: actionRequest, actionResponse: actionResponse });
+                        opmInstanceFrame.evalResponse.actions.enter.push({ actionRequest: actionRequest, actionResponse: actionResponse });
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
                             console.error(dispatcherRequest);
-                            opmInstanceFrame.evaluationResponse.actions.enterErrors++;
-                            opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+                            opmInstanceFrame.evalResponse.actions.enterErrors++;
+                            opmInstanceFrame.evalResponse.actions.totalErrors++;
                         }
                     }
 
                     // TODO: Consider control flow gates based on accumulated errors.
 
                     // Update the OPM instance's opmStep flag in the controller data store.
+                    opmInstanceFrame.evalResponse.status = "transitioning-finalize";
                     let transitionResponse = opcRef._private.controllerData.writeNamespace(`${controllerDataPath}.opmStep`, nextStep);
-                    opmInstanceFrame.evaluationResponse.actions.stepTransitionResponse = transitionResponse;
+                    opmInstanceFrame.evalResponse.actions.stepTransitionResponse = transitionResponse;
                     if (transitionResponse.error) {
                         console.error(transitionResponse.error);
-                        opmInstanceFrame.evaluationResponse.actions.totalErrors++;
+                        opmInstanceFrame.evalResponse.actions.totalErrors++;
                     }
 
-                    opmInstanceFrame.evaluationResponse.status = "completed";
-                    opmInstanceFrame.evaluationResponse.action = "transitioned";
-                    opmInstanceFrame.evaluationResponse.finishStep = nextStep;
+                    opmInstanceFrame.evalResponse.status = "transitioned";
+                    opmInstanceFrame.evalResponse.finishStep = nextStep;
 
                 } // controllerDataPath in evalFrame
 
                 evalStopwatch.mark(`frame ${result.evalFrames.length} end OPM instance evaluation`);
-                console.log(`> ... Finish evaluation frame ${opcRef._private.evaluationCount}:${result.evalFrames.length} ...`);
+                console.log(`> ... Finish evaluation frame ${opcRef._private.evalCount}:${result.evalFrames.length} ...`);
                 result.evalFrames.push(evalFrame);
 
                 // ================================================================
