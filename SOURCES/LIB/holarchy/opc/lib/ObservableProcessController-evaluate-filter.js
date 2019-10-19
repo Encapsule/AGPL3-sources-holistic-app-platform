@@ -490,7 +490,6 @@ const factoryResponse = arccore.filter.create({
 
         console.log(`> ObservableProcessController::_evaluate  #${result.evalNumber} ${response.error?"ABORTED WITH ERROR":"completed"}.`);
         console.log(`..... OPC evalution #${result.evalNumber} sequenced ${result.summary.framesCount} frame(s) in ${result.summary.evalStopwatch.totalMicroseconds} microseconds.`);
-        console.log(response);
 
         return response;
     },

@@ -150,17 +150,35 @@ class ObservableProcessController {
     //
 
     _evaluate() {
+
         // TODO: We can at this point in the execution flow deep copy the CDS,
         // execute the evaluation against the copy. Then depending on the
         // results of the evaluation:
         // * If no error(s), swap out the old CDS instance for the new.
         // * Otherwise, report the evaluation result and leave the contents of the CDS unmodified by the operation.
 
+        console.log("****************************************************************");
+        console.log("****************************************************************");
+        console.log("ObservableProcessController::_evaluate starting...");
+        console.log("================================================================");
+        console.log("================================================================");
+
         // Deletegate to the evaluation filter.
-        this._private.lastEvaluationResponse =  evaluateFilter.request({ opcRef: this });
-        // Increment the OPC's evaluation count.
+        const evalFilterResponse = evaluateFilter.request({ opcRef: this });
+        this._private.lastEvaluationResponse =  evalFilterResponse;
         this._private.evalCount++;
-        return this._private.lastEvaluationResponse;
+
+        console.log("================================================================");
+        console.log("================================================================");
+        console.log(evalFilterResponse);
+        console.log("================================================================");
+        console.log("================================================================");
+        console.log("ObservableProcessController::_evaluate complete.");
+        console.log("****************************************************************");
+        console.log("****************************************************************");
+
+        return evalFilterResponse;
+
     } // _evaluate method
 
 }
