@@ -2,9 +2,9 @@
     "name": "@encapsule/hash-router",
     "version": "0.0.21",
     "codename": "eureka",
-    "buildID": "xx_AydRyQu25qP5EydeTHg",
-    "buildTime": 1571457179,
-    "buildSource": "d32bc89eae73aeef692a67ea8cb54b85e3a0550f",
+    "buildID": "DtPXNz5bSremDGT5dCRJ_g",
+    "buildTime": 1571480513,
+    "buildSource": "8145e05a30d0ac5cbb0fd5b46f778271318e643c",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hash-router.git"

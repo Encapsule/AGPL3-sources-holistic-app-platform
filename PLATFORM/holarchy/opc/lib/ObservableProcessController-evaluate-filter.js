@@ -142,6 +142,7 @@ var factoryResponse = arccore.filter.create({
                 },
                 evalResponse: {
                   status: "pending",
+                  finishStep: null,
                   actions: {
                     p1: [],
                     p2: [],
@@ -149,14 +150,17 @@ var factoryResponse = arccore.filter.create({
                     p4: null
                   },
                   errors: {
+                    p0: 0,
                     p1: 0,
                     p2: 0,
                     p3: 0,
-                    p4: 0
+                    p4: 0,
+                    total: 0
                   }
                 }
               };
-              evalFrame.bindings[record.dataPath] = opmInstanceFrame;
+              var key = arccore.identifier.irut.fromReference(record.dataPath).result;
+              evalFrame.bindings[key] = opmInstanceFrame;
               console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
               console.log(opmInstanceFrame); // ****************************************************************
               // ****************************************************************
@@ -291,9 +295,11 @@ var factoryResponse = arccore.filter.create({
         // step we're exiting and/or the step we're entering.
 
 
-        for (var controllerDataPath in evalFrame.bindings) {
-          var _opmInstanceFrame = evalFrame.bindings[controllerDataPath];
-          _opmInstanceFrame.evaluationResponse.status = "evaluation";
+        for (var controllerDataPathHash in evalFrame.bindings) {
+          // Derefermce the opmInstanceFrame created during phase #0 binding.
+          var _opmInstanceFrame = evalFrame.bindings[controllerDataPathHash];
+          _opmInstanceFrame.evalResponse.status = "evaluation";
+          var controllerDataPath = _opmInstanceFrame.evalRequest.dataBinding.dataPath;
           var opmRef = _opmInstanceFrame.evalRequest.opmRef;
           var initialStep = _opmInstanceFrame.evalRequest.initialStep;
           var stepDescriptor = opmRef.getStepDescriptor(initialStep);
@@ -310,6 +316,8 @@ var factoryResponse = arccore.filter.create({
 
           var nextStep = null; // null (default) indicates that the OPM instance should remain in its current process step (i.e. no transition).
 
+          _opmInstanceFrame.evalResponse.status = "evaluation-check-transitions";
+
           for (var transitionRuleIndex = 0; transitionRuleIndex < stepDescriptor.transitions.length; transitionRuleIndex++) {
             var transitionRule = stepDescriptor.transitions[transitionRuleIndex];
             var operatorRequest = {
@@ -323,12 +331,18 @@ var factoryResponse = arccore.filter.create({
 
             var _transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
 
+            _opmInstanceFrame.evalResponse.actions.p1.push({
+              request: operatorRequest,
+              response: _transitionResponse
+            });
+
             if (_transitionResponse.error) {
               console.error(_transitionResponse.error);
               _opmInstanceFrame.evalResponse.status = "error";
-              _opmInstanceFrame.evalResponse.error = _transitionResponse.error;
-              _opmInstanceFrame.evalResponse.transitionIf = transitionRule.transitionIf;
-              _opmInstanceFrame.evalResponse.finishStep = initialStep;
+              _opmInstanceFrame.evalResponse.errors.p1++;
+              _opmInstanceFrame.evalResponse.errors.total++;
+              _opmInstanceFrame.evalResponse.finishStep = initialStep; // TODO: This is not yet complete?
+
               break; // abort evaluation of transition rules for this OPM instance...
             }
 
@@ -337,15 +351,6 @@ var factoryResponse = arccore.filter.create({
               nextStep = transitionRule.nextStep; // signal a process step transition
 
               _opmInstanceFrame.evalResponse.status = "transitioning";
-              _opmInstanceFrame.evalResponse.transitionIf = transitionRule.transitionIf;
-              _opmInstanceFrame.evalResponse.actions = {
-                exit: [],
-                exitErrors: 0,
-                enter: [],
-                enterErrors: 0,
-                stepTransitionResponse: null,
-                totalErrors: 0
-              };
               break; // skip evaluation of subsequent transition rules for this OPM instance.
             }
           } // for transitionRuleIndex
@@ -383,16 +388,17 @@ var factoryResponse = arccore.filter.create({
 
             var actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
 
-            _opmInstanceFrame.evalResponse.actions.exit.push({
-              actionRequest: actionRequest,
-              actionResponse: actionResponse
+            _opmInstanceFrame.evalResponse.actions.p2.push({
+              request: actionRequest,
+              response: actionResponse
             });
 
             if (actionResponse.error) {
               console.error(actionResponse.error);
               console.error(dispatcherRequest);
-              _opmInstanceFrame.evalResponse.actions.exitErrors++;
-              _opmInstanceFrame.evalResponse.actions.totalErrors++;
+              _opmInstanceFrame.evalResponse.errors.p2++;
+              _opmInstanceFrame.evalResponse.errors.total++;
+              _opmInstanceFrame.evalResponse.finishStep = initialStep;
             }
           } // TODO: Consider control flow gates based on accumulated errors.
           // Dispatch the OPM instance's step enter action(s).
@@ -413,16 +419,18 @@ var factoryResponse = arccore.filter.create({
 
             var _actionResponse = opcRef._private.actionDispatcher.request(_dispatcherRequest);
 
-            _opmInstanceFrame.evalResponse.actions.enter.push({
-              actionRequest: _actionRequest,
-              actionResponse: _actionResponse
+            _opmInstanceFrame.evalResponse.actions.p3.push({
+              request: _actionRequest,
+              response: _actionResponse
             });
 
             if (_actionResponse.error) {
               console.error(_actionResponse.error);
               console.error(_dispatcherRequest);
-              _opmInstanceFrame.evalResponse.actions.enterErrors++;
+              _opmInstanceFrame.evalResponse.errors.p3++;
+              _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.actions.totalErrors++;
+              _opmInstanceFrame.evalResponse.finishStep = initialStep;
             }
           } // TODO: Consider control flow gates based on accumulated errors.
           // Update the OPM instance's opmStep flag in the controller data store.
@@ -432,11 +440,13 @@ var factoryResponse = arccore.filter.create({
 
           var transitionResponse = opcRef._private.controllerData.writeNamespace("".concat(controllerDataPath, ".opmStep"), nextStep);
 
-          _opmInstanceFrame.evalResponse.actions.stepTransitionResponse = transitionResponse;
+          _opmInstanceFrame.evalResponse.actions.p4 = transitionResponse;
 
           if (transitionResponse.error) {
             console.error(transitionResponse.error);
-            _opmInstanceFrame.evalResponse.actions.totalErrors++;
+            _opmInstanceFrame.evalResponse.errors.p4++;
+            _opmInstanceFrame.evalResponse.errors.total++;
+            _opmInstanceFrame.evalResponse.finishStep = initialStep;
           }
 
           _opmInstanceFrame.evalResponse.status = "transitioned";
