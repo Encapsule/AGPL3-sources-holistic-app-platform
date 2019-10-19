@@ -67,6 +67,7 @@ var factoryResponse = arccore.filter.create({
         serverContext.generator[packageMeta.name] = packageMeta.version;
         serverContext.instanceID = arccore.identifier.irut.fromEther(); // every new @encapsule/holism server instance gets an IRUT for use in tracking deployments
 
+
         serverContext.stats = {
             created: new Date(),
             started: null,
@@ -74,6 +75,11 @@ var factoryResponse = arccore.filter.create({
             responses: 0,
             errors: 0
         };
+
+        console.log("****************************************************************");
+        console.log("****************************************************************");
+        console.log("****************************************************************");
+        console.log(`>>>>> NEW @encapsule/holism v${packageMeta.version} ${packageMeta.codename} app server instance '${serverContext.instanceID}' created at ${serverContext.stats.created.toString()}`);
 
         var inBreakScope = false;
         while (!inBreakScope) {
@@ -638,9 +644,12 @@ var factoryResponse = arccore.filter.create({
                 listen: function(port_) {
                     var serverName = routingModel.getGraphName();
                     serverContext.stats.started = new Date();
-                    console.log("\n* Starting " + serverName + " HTTP server:");
                     httpServer.listen(port_, function() {
-                        console.log("> " + serverName + " HTTP listening on port " + port_ + "...");
+                        console.log("****************************************************************");
+                        console.log("****************************************************************");
+                        console.log("****************************************************************");
+                        console.log(`>>>>> STARTING @encapsule/holism v${packageMeta.version} ${packageMeta.codename} app server instance '${serverContext.instanceID}' started at ${serverContext.stats.started.toString()}`);
+                        console.log(`>>>>> ${serverName} HTTP server listing on localhost:${port_}...`);
                     });
                 }
             };
