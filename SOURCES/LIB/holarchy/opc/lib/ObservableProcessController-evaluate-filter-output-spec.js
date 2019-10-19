@@ -61,7 +61,7 @@ const opcEvalResultSpec = {
                 ____asMap: true,
 
                 // This is the filter-style dot-delimited absolute path to the OPM instance's backing data in the CDS.
-                cdsDataPath: {
+                cdsDataPathIRUT: {
                     ____label: "OPM Instance Frame",
                     ____description: "A descriptor object that models the output of the OPM instance frame.",
                     ____types: "jsObject",
@@ -136,11 +136,9 @@ const opcEvalResultSpec = {
 
                         actions: {
                             ____types: "jsObject",
-                            ____defaultValue: {},
 
                             p1: { // OPM step transition operator request message dispatch response sequence
                                 ____types: "jsArray",
-                                ____defaultValue: [],
                                 evalDescriptor: {
                                     ____accept: "jsObject"
                                     // TODO complete this
@@ -149,7 +147,6 @@ const opcEvalResultSpec = {
 
                             p2: { // OPM step exit action request message dispatch response sequence
                                 ____types: "jsArray",
-                                ____defaultValue: [],
                                 evalDescriptor: {
                                     ____accept: "jsObject"
                                     // TODO complete this
@@ -158,7 +155,6 @@ const opcEvalResultSpec = {
 
                             p3: { // OPM step enter action request message dispatch response sequence
                                 ____types: "jsArray",
-                                ____defaultValue: []
                             }, // p3
 
                             p4: { // OPM step transition finalize response
@@ -200,13 +196,12 @@ const opcEvalResultSpec = {
 
                     } // evaluationResponse
 
-                } // cdsDataPath
+                } // cdsDataPathIRUT
 
             }, // bindings
 
             summary: {
                 ____types: "jsObject",
-                ____defaultValue: {},
 
                 bindingCount: {
                     ____label: "Frame Binding Count",
@@ -229,9 +224,8 @@ const opcEvalResultSpec = {
                 failures: {
                     ____types: "jsObject",
                     ____asMap: true,
-                    ____defaultValue: {},
 
-                    cdsDataPath: {
+                    cdsDataPathIRUT: {
                         ____types: "jsObject",
 
                         opm: {
@@ -257,7 +251,7 @@ const opcEvalResultSpec = {
                     ____asMap: true,
                     ____defaultValue: {},
 
-                    cdsDataPath: {
+                    cdsDataPathHash: {
                         ____types: "jsObject",
 
                         opm: {

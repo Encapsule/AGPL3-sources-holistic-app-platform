@@ -146,6 +146,7 @@ const factoryResponse = arccore.filter.create({
                                 },
                                 evalResponse: {
                                     status: "pending",
+                                    finishStep: null,
                                     actions: {
                                         p1: [],
                                         p2: [],
@@ -153,14 +154,17 @@ const factoryResponse = arccore.filter.create({
                                         p4: null
                                     },
                                     errors: {
+                                        p0: 0,
                                         p1: 0,
                                         p2: 0,
                                         p3: 0,
-                                        p4: 0
+                                        p4: 0,
+                                        total: 0
                                     }
                                 }
                             };
-                            evalFrame.bindings[record.dataPath] = opmInstanceFrame;
+                            const key = arccore.identifier.irut.fromReference(record.dataPath).result;
+                            evalFrame.bindings[key] = opmInstanceFrame;
                             console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
                             console.log(opmInstanceFrame);
                             // ****************************************************************
@@ -286,11 +290,14 @@ const factoryResponse = arccore.filter.create({
                 // steps dispatching exit and enter actions declared optionally on the
                 // step we're exiting and/or the step we're entering.
 
-                for (let controllerDataPath in evalFrame.bindings) {
+                for (let controllerDataPathHash in evalFrame.bindings) {
 
-                    const opmInstanceFrame = evalFrame.bindings[controllerDataPath];
-                    opmInstanceFrame.evaluationResponse.status = "evaluation";
+                    // Derefermce the opmInstanceFrame created during phase #0 binding.
+                    const opmInstanceFrame = evalFrame.bindings[controllerDataPathHash];
 
+                    opmInstanceFrame.evalResponse.status = "evaluation";
+
+                    const controllerDataPath = opmInstanceFrame.evalRequest.dataBinding.dataPath;
                     const opmRef = opmInstanceFrame.evalRequest.opmRef;
                     const initialStep = opmInstanceFrame.evalRequest.initialStep;
                     const stepDescriptor = opmRef.getStepDescriptor(initialStep);
@@ -310,6 +317,8 @@ const factoryResponse = arccore.filter.create({
                     // Evaluate the OPM instance's step transition ruleset.
                     let nextStep = null; // null (default) indicates that the OPM instance should remain in its current process step (i.e. no transition).
 
+                    opmInstanceFrame.evalResponse.status = "evaluation-check-transitions";
+
                     for (let transitionRuleIndex = 0; transitionRuleIndex < stepDescriptor.transitions.length ; transitionRuleIndex++) {
 
                         const transitionRule = stepDescriptor.transitions[transitionRuleIndex];
@@ -325,23 +334,27 @@ const factoryResponse = arccore.filter.create({
 
                         let transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
 
+                        opmInstanceFrame.evalResponse.actions.p1.push({
+                            request: operatorRequest,
+                            response: transitionResponse
+                        });
 
                         if (transitionResponse.error) {
                             console.error(transitionResponse.error);
                             opmInstanceFrame.evalResponse.status = "error";
-                            opmInstanceFrame.evalResponse.error = transitionResponse.error;
-                            opmInstanceFrame.evalResponse.transitionIf = transitionRule.transitionIf;
+                            opmInstanceFrame.evalResponse.errors.p1++;
+                            opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
+                            // TODO: This is not yet complete?
                             break; // abort evaluation of transition rules for this OPM instance...
                         }
                         if (transitionResponse.result) {
                             // Setup to transition between process steps...
                             nextStep = transitionRule.nextStep; // signal a process step transition
                             opmInstanceFrame.evalResponse.status = "transitioning";
-                            opmInstanceFrame.evalResponse.transitionIf = transitionRule.transitionIf;
-                            opmInstanceFrame.evalResponse.actions = { exit: [], exitErrors: 0, enter: [], enterErrors: 0, stepTransitionResponse: null, totalErrors: 0 };
                             break; // skip evaluation of subsequent transition rules for this OPM instance.
                         }
+
                     } // for transitionRuleIndex
 
                     // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
@@ -362,7 +375,9 @@ const factoryResponse = arccore.filter.create({
                     const nextStepDescriptor = opmRef.getStepDescriptor(nextStep);
 
                     // Dispatch the OPM instance's step exit action(s).
+
                     opmInstanceFrame.evalResponse.status = "transitioning-dispatch-exit-actions";
+
                     for (let exitActionIndex = 0 ; exitActionIndex < stepDescriptor.actions.exit.length ; exitActionIndex++) {
                         // Dispatch the action request.
                         const actionRequest = stepDescriptor.actions.exit[exitActionIndex];
@@ -374,13 +389,21 @@ const factoryResponse = arccore.filter.create({
                                 act: opcRef.act
                             }
                         };
+
                         const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
-                        opmInstanceFrame.evalResponse.actions.exit.push({ actionRequest: actionRequest, actionResponse: actionResponse });
+
+                        opmInstanceFrame.evalResponse.actions.p2.push({
+                            request: actionRequest,
+                            response: actionResponse
+                        });
+
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
                             console.error(dispatcherRequest);
-                            opmInstanceFrame.evalResponse.actions.exitErrors++;
-                            opmInstanceFrame.evalResponse.actions.totalErrors++;
+
+                            opmInstanceFrame.evalResponse.errors.p2++;
+                            opmInstanceFrame.evalResponse.errors.total++;
+                            opmInstanceFrame.evalResponse.finishStep = initialStep;
                         }
                     }
 
@@ -399,12 +422,17 @@ const factoryResponse = arccore.filter.create({
                             }
                         };
                         const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
-                        opmInstanceFrame.evalResponse.actions.enter.push({ actionRequest: actionRequest, actionResponse: actionResponse });
+
+                        opmInstanceFrame.evalResponse.actions.p3.push({ request: actionRequest, response: actionResponse });
+
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
                             console.error(dispatcherRequest);
-                            opmInstanceFrame.evalResponse.actions.enterErrors++;
+
+                            opmInstanceFrame.evalResponse.errors.p3++;
+                            opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.actions.totalErrors++;
+                            opmInstanceFrame.evalResponse.finishStep = initialStep;
                         }
                     }
 
@@ -412,11 +440,16 @@ const factoryResponse = arccore.filter.create({
 
                     // Update the OPM instance's opmStep flag in the controller data store.
                     opmInstanceFrame.evalResponse.status = "transitioning-finalize";
+
                     let transitionResponse = opcRef._private.controllerData.writeNamespace(`${controllerDataPath}.opmStep`, nextStep);
-                    opmInstanceFrame.evalResponse.actions.stepTransitionResponse = transitionResponse;
+
+                    opmInstanceFrame.evalResponse.actions.p4 = transitionResponse;
+
                     if (transitionResponse.error) {
                         console.error(transitionResponse.error);
-                        opmInstanceFrame.evalResponse.actions.totalErrors++;
+                        opmInstanceFrame.evalResponse.errors.p4++;
+                        opmInstanceFrame.evalResponse.errors.total++;
+                        opmInstanceFrame.evalResponse.finishStep = initialStep;
                     }
 
                     opmInstanceFrame.evalResponse.status = "transitioned";
