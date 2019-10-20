@@ -149,7 +149,7 @@ const opcEvalResultSpec = {
                             ____label: "OPM Frame Status",
                             ____description: "A string enumeration similar to a process step name indicating the status of this specific OPM instance evaluation in the context of this evaluation frame.",
                             ____accept: "jsString",
-                            ____inValueSet: [ "pending", "evaluating", "transitioning", "transitioned", "error" ]
+                            ____inValueSet: [ "pending", "analyzing", "noop", "transitioning", "transitioned", "error" ]
                         }, // status
                         finishStep: {
                             ____label: "Finish Step",
