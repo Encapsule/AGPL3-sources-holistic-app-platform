@@ -169,8 +169,15 @@ const factoryResponse = arccore.filter.create({
                                     }
                                 }
                             };
+
+                            // Generate an IRUT based on the CDS path to use as key in the binding map.
                             const key = arccore.identifier.irut.fromReference(record.dataPath).result;
+
+                            // Register the new binding the the evalFrame.
                             evalFrame.bindings[key] = opmInstanceFrame;
+
+                            evalFrame.summary.counts.bindings++;
+
                             console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
                             console.log(opmInstanceFrame);
                             // ****************************************************************
@@ -178,6 +185,7 @@ const factoryResponse = arccore.filter.create({
 
                         } else {
                             errors.push(`Controller data namespace '${record.specPath}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
+                            evalFrame.summary.counts.errors++;
                             break;
                         }
                     } // end if opm binding on current namespace?
@@ -263,7 +271,6 @@ const factoryResponse = arccore.filter.create({
                 } // end while(namespaceQueue.length)
 
                 // We have completed dynamically locating all instances of OPM-bound data objects in the controller data store and the results are stored in the evalFrame.
-
                 evalStopwatch.mark(`frame ${result.evalFrames.length} end OPM instance binding / start OPM instance evaluation`);
 
                 if (errors.length) {
