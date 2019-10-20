@@ -11,6 +11,7 @@ const opcEvalResultSpec = {
         ____accept: "jsNumber"
     },
 
+    // TOP LEVEL SUMMARY OF THE EVALUATION.
     summary: {
         ____label: "OPC Evaluation Summary",
         ____description: "A descriptor object containing OPC evaluation summary metrics.",
@@ -24,23 +25,28 @@ const opcEvalResultSpec = {
             // TODO: Keep going down the tree... This is important which is why we're passing this data through a filter ;-)
         },
 
-        frameCount: {
-            ____label: "Frames Evaluated",
-            ____description: "A count of the total number of frames sequenced during this OPC evaluation.",
-            ____accept: "jsNumber"
-        },
+        counts: {
+            ____types: "jsObject",
 
-        errorCount: {
-            ____label: "OPC Evaluation Error Count",
-            ____description: "A count of the total number of errors encountered during this OPC evaluation.",
-            ____accept: "jsNumber"
-        },
+            frames: {
+                ____label: "Total Frames",
+                ____description: "Total number of frames evaluated.",
+                ____accept: "jsNumber"
+            },
 
-        transitionCount: {
-            ____label: "OPM Instance Step Transition Count",
-            ____description: "A count of the total number of OPM instance process step transitions that occurred during this OPC evaluation.",
-            ____accept: "jsNumber"
-        }
+            errors: {
+                ____label: "Total Errors",
+                ____description: "Total number of errors that occured.",
+                ____accept: "jsNumber"
+            },
+
+            transitions: {
+                ____label: "Total Transitions",
+                ____description: "Total number of OPM instances.",
+                ____accept: "jsNumber"
+            }
+
+        } // counts
 
     }, // summary
 
@@ -53,6 +59,58 @@ const opcEvalResultSpec = {
             ____label: "OPC Evaluation Frame",
             ____description: "An evaluation frame comprises some outer summary information. And, a map of OPM instances evaluated during the frame.",
             ____types: "jsObject",
+
+            summary: {
+                ____types: "jsObject",
+
+                counts: {
+                    ____types: "jsObject",
+
+                    bindings: {
+                        ____label: "Total Bindings",
+                        ____description: "Total number of OPM instances discovered and bound for evaluation.",
+                        ____accept: "jsNumber"
+                    },
+
+                    transitions: {
+                        ____label: "Total Transitions",
+                        ____description: "Total number of bound OPM instances that transitioned from one process step to another in this frame.",
+                        ____accept: "jsNumber"
+                    },
+
+                    errors: {
+                        ____label: "Total Errors",
+                        ____description: "Total number of error(s) that occurred during the evaluation of this frame.",
+                        ____accept: "jsNumber"
+                    }
+
+                },
+
+                reports: {
+                    ____types: "jsObject",
+
+                    transitions: {
+                        ____label: "Transitioned OPM Instances",
+                        ____description: "An array of the OPM instances that transitioned in this frame.",
+                        ____types: "jsArray",
+                        element: {
+                            ____label: "OPM Instance IRUT",
+                            ____accept: "jsString"
+                        }
+                    },
+
+                    errors: {
+                        ____label: "Failed OPM Instances",
+                        ____description: "An array of the OPM instances that reported an error in this frame.",
+                        ____types: "jsArray",
+                        element: {
+                            ____label: "OPM Instance IRUT",
+                            ____accept: "jsString"
+                        }
+                    }
+                }
+
+            }, // summary
 
             bindings: {
                 ____label: "OPM Instance Binding Map",
@@ -123,7 +181,7 @@ const opcEvalResultSpec = {
                             ____label: "OPM Frame Status",
                             ____description: "A string enumeration similar to a process step name indicating the status of this specific OPM instance evaluation in the context of this evaluation frame.",
                             ____accept: "jsString",
-                            ____inValueSet: [ "pending", "evaluating", "transitioning", "transitioning-dispatch-exit-actions", "transitioning-dispatch-enter-actions", "noop", "transitioned", "error" ]
+                            ____inValueSet: [ "pending", "evaluating", "transitioning", "transitioned", "error" ]
 
                         }, // status
 
@@ -134,10 +192,10 @@ const opcEvalResultSpec = {
 
                         }, // finishStep
 
-                        actions: {
+                        phases: {
                             ____types: "jsObject",
 
-                            p1: { // OPM step transition operator request message dispatch response sequence
+                            p1_toperator: { // OPM step transition operator request message dispatch response sequence
                                 ____types: "jsArray",
                                 evalDescriptor: {
                                     ____accept: "jsObject"
@@ -145,7 +203,7 @@ const opcEvalResultSpec = {
                                 }
                             }, // p1
 
-                            p2: { // OPM step exit action request message dispatch response sequence
+                            p2_exit: { // OPM step exit action request message dispatch response sequence
                                 ____types: "jsArray",
                                 evalDescriptor: {
                                     ____accept: "jsObject"
@@ -153,11 +211,14 @@ const opcEvalResultSpec = {
                                 }
                             }, // p2
 
-                            p3: { // OPM step enter action request message dispatch response sequence
+                            p3_enter: { // OPM step enter action request message dispatch response sequence
                                 ____types: "jsArray",
+                                evalDescriptor: {
+                                    ____accept: "jsObject"
+                                    // TODO complete this
                             }, // p3
 
-                            p4: { // OPM step transition finalize response
+                            p4_finalize: { // OPM step transition finalize response
                                 ____accept: [ "jsObject", "jsNull" ],
                                 // TODO: Finish this filter response spec
                             } // p4
@@ -168,23 +229,19 @@ const opcEvalResultSpec = {
                             ____types: "jsObject",
                             ____defaultValue: {},
 
-                            p0: { // binding
+                            p1_toperator: {
                                 ____types: "jsNumber",
                             },
 
-                            p1: { // operator dispatch
+                            p2_exit: { // exit action dispatch
                                 ____types: "jsNumber",
                             },
 
-                            p2: { // exit action dispatch
+                            p3_enter: { // enter action dispatch
                                 ____types: "jsNumber",
                             },
 
-                            p3: { // enter action dispatch
-                                ____types: "jsNumber",
-                            },
-
-                            p4: { // finalize
+                            p4_finalize: { // finalize
                                 ____types: "jsNumber",
                             },
 
@@ -198,83 +255,7 @@ const opcEvalResultSpec = {
 
                 } // cdsDataPathIRUT
 
-            }, // bindings
-
-            summary: {
-                ____types: "jsObject",
-
-                bindingCount: {
-                    ____label: "Frame Binding Count",
-                    ____description: "The number of OPM model instances discovered during the evaluation for this frame.",
-                    ____accept: "jsNumber"
-                },
-
-                transitionCount: {
-                    ____label: "Frame Transition Count",
-                    ____description: "The number of bound OPM instances that transitioned from one process step to another during the evaluation of this frame.",
-                    ____accept: "jsNumber"
-                },
-
-                errorCount: {
-                    ____label: "Frame Error Count",
-                    ____description: "The number of errors that occurred during the evaluation of this frame.",
-                    ____accept: "jsNumber"
-                },
-
-                failures: {
-                    ____types: "jsObject",
-                    ____asMap: true,
-
-                    cdsDataPathIRUT: {
-                        ____types: "jsObject",
-
-                        opm: {
-                            ____accept: "jsString",
-                        }, // opm
-
-                        step: {
-                            ____types: "jsObject",
-
-                            initial: {
-                                ____accept: "jsString"
-                            },
-
-                            finish: {
-                                ____accept: "jsString"
-                            }
-                        } // step
-                    } // failureSummaryDescriptor
-                }, // failures
-
-                transitions: {
-                    ____types: "jsObject",
-                    ____asMap: true,
-                    ____defaultValue: {},
-
-                    cdsDataPathHash: {
-                        ____types: "jsObject",
-
-                        opm: {
-                            ____accept: "jsString"
-                        }, // opm
-
-                        step: {
-                            ____types: "jsObject",
-
-                            initial: {
-                                ____accept: "jsString"
-                            }, // initial
-
-                            fininsh: {
-                                ____accept: "jsString"
-                            } // final
-                        } // step
-
-                    } // transitionSummaryDescriptor
-
-                } // transitions
-
-            } // summary
+            } // bindings
 
         } // evalFrame
 

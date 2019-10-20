@@ -1,4 +1,3 @@
-// Looking for this module? Search for the IRUT OPCx0kGjRNWmE-yeMt6C0Q
 
 const arccore = require("@encapsule/arccore");
 const constructorRequestFilter = require("./lib/ObservableProcessController-constructor-filter");
@@ -11,6 +10,8 @@ class ObservableProcessController {
     constructor(request_) {
 
         try {
+
+            // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
 
             console.log("ObservableProcessController::constructor starting...");
 
@@ -119,7 +120,14 @@ class ObservableProcessController {
             }
 
         } catch (exception_) {
-            throw new Error(`ObservableProcessController::constructor failed: ${exception_.stack}.`);
+            throw new Error(
+                [
+                    "ObservableProcessController::constructor failed due to exception.",
+                    exception_.name,
+                    exception_.message,
+                    exception_.stack
+                ].join(" ")
+            );
         }
 
         console.log("ObservableProcessController::constructor complete.");
@@ -150,6 +158,8 @@ class ObservableProcessController {
     //
 
     _evaluate() {
+
+        // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
 
         // TODO: We can at this point in the execution flow deep copy the CDS,
         // execute the evaluation against the copy. Then depending on the

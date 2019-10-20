@@ -34,13 +34,15 @@ const factoryResponse = arccore.filter.create({
 
         let result = {
             evalNumber: opcRef._private.evalCount,
-            evalFrames: [],
             summary: {
                 evalStopwatch: null,
-                frameCount: 0,
-                errorCount: 0,
-                transitionCount: 0
-            }
+                counts: {
+                    frames: 0,
+                    errors: 0,
+                    transitions: 0
+                }
+            },
+            evalFrames: [] // <- each iteration of the outer "frames" loop pushes an evalFrame descriptor
         };
 
         // ****************************************************************
@@ -83,13 +85,17 @@ const factoryResponse = arccore.filter.create({
                 evalStopwatch.mark(`frame ${result.evalFrames.length} start OPM instance binding`);
 
                 let evalFrame = {
-                    bindings: {},
+                    bindings: {}, // <- IRUT : OPM instance frame map
                     summary: {
-                        bindingCount: 0,
-                        transitionCount: 0,
-                        errorCount: 0,
-                        failures: {},
-                        transitions: {}
+                        counts: {
+                            bindings: 0,
+                            transitions: 0,
+                            errors: 0
+                        },
+                        reports: {
+                            transitions: [],
+                            errors: []
+                        }
                     }
                 };
 
@@ -147,18 +153,18 @@ const factoryResponse = arccore.filter.create({
                                 evalResponse: {
                                     status: "pending",
                                     finishStep: null,
-                                    actions: {
-                                        p1: [],
-                                        p2: [],
-                                        p3: [],
-                                        p4: null
+                                    phases: {
+                                        p1_toperator: [],
+                                        p2_exit: [],
+                                        p3_enter: [],
+                                        p4_finalize: null
                                     },
                                     errors: {
                                         p0: 0,
-                                        p1: 0,
-                                        p2: 0,
-                                        p3: 0,
-                                        p4: 0,
+                                        p1_toperator: 0,
+                                        p2_exit: 0,
+                                        p3_enter: 0,
+                                        p4_finalize: 0,
                                         total: 0
                                     }
                                 }
@@ -334,7 +340,7 @@ const factoryResponse = arccore.filter.create({
 
                         let transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
 
-                        opmInstanceFrame.evalResponse.actions.p1.push({
+                        opmInstanceFrame.evalResponse.phases.p1_toperator.push({
                             request: operatorRequest,
                             response: transitionResponse
                         });
@@ -342,7 +348,7 @@ const factoryResponse = arccore.filter.create({
                         if (transitionResponse.error) {
                             console.error(transitionResponse.error);
                             opmInstanceFrame.evalResponse.status = "error";
-                            opmInstanceFrame.evalResponse.errors.p1++;
+                            opmInstanceFrame.evalResponse.errors.p1_toperator++;
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
                             // TODO: This is not yet complete?
@@ -392,7 +398,7 @@ const factoryResponse = arccore.filter.create({
 
                         const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
 
-                        opmInstanceFrame.evalResponse.actions.p2.push({
+                        opmInstanceFrame.evalResponse.phases.p2_exit.push({
                             request: actionRequest,
                             response: actionResponse
                         });
@@ -401,7 +407,7 @@ const factoryResponse = arccore.filter.create({
                             console.error(actionResponse.error);
                             console.error(dispatcherRequest);
 
-                            opmInstanceFrame.evalResponse.errors.p2++;
+                            opmInstanceFrame.evalResponse.errors.p2_exit++;
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
                         }
@@ -423,15 +429,17 @@ const factoryResponse = arccore.filter.create({
                         };
                         const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
 
-                        opmInstanceFrame.evalResponse.actions.p3.push({ request: actionRequest, response: actionResponse });
+                        opmInstanceFrame.evalResponse.phases.p3_enter.push({
+                            request: actionRequest,
+                            response: actionResponse
+                        });
 
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
                             console.error(dispatcherRequest);
 
-                            opmInstanceFrame.evalResponse.errors.p3++;
+                            opmInstanceFrame.evalResponse.errors.p3_enter++;
                             opmInstanceFrame.evalResponse.errors.total++;
-                            opmInstanceFrame.evalResponse.actions.totalErrors++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
                         }
                     }
@@ -443,11 +451,11 @@ const factoryResponse = arccore.filter.create({
 
                     let transitionResponse = opcRef._private.controllerData.writeNamespace(`${controllerDataPath}.opmStep`, nextStep);
 
-                    opmInstanceFrame.evalResponse.actions.p4 = transitionResponse;
+                    opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 
                     if (transitionResponse.error) {
                         console.error(transitionResponse.error);
-                        opmInstanceFrame.evalResponse.errors.p4++;
+                        opmInstanceFrame.evalResponse.errors.p4_finalize++;
                         opmInstanceFrame.evalResponse.errors.total++;
                         opmInstanceFrame.evalResponse.finishStep = initialStep;
                     }
