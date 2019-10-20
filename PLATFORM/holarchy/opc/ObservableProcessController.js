@@ -6,7 +6,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-// Looking for this module? Search for the IRUT OPCx0kGjRNWmE-yeMt6C0Q
 var arccore = require("@encapsule/arccore");
 
 var constructorRequestFilter = require("./lib/ObservableProcessController-constructor-filter");
@@ -22,6 +21,7 @@ function () {
     _classCallCheck(this, ObservableProcessController);
 
     try {
+      // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
       console.log("ObservableProcessController::constructor starting..."); // Allocate private, per-class-instance state.
 
       this._private = {}; // ----------------------------------------------------------------
@@ -155,7 +155,7 @@ function () {
         throw new Error(filterResponse.error);
       }
     } catch (exception_) {
-      throw new Error("ObservableProcessController::constructor failed: ".concat(exception_.stack, "."));
+      throw new Error(["ObservableProcessController::constructor failed due to exception.", exception_.name, exception_.message, exception_.stack].join(" "));
     }
 
     console.log("ObservableProcessController::constructor complete.");
@@ -191,18 +191,32 @@ function () {
   }, {
     key: "_evaluate",
     value: function _evaluate() {
+      // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
       // TODO: We can at this point in the execution flow deep copy the CDS,
       // execute the evaluation against the copy. Then depending on the
       // results of the evaluation:
       // * If no error(s), swap out the old CDS instance for the new.
       // * Otherwise, report the evaluation result and leave the contents of the CDS unmodified by the operation.
-      // Deletegate to the evaluation filter.
-      this._private.lastEvaluationResponse = evaluateFilter.request({
-        opcRef: this
-      }); // Increment the OPC's evaluation count.
+      console.log("****************************************************************");
+      console.log("****************************************************************");
+      console.log("ObservableProcessController::_evaluate starting...");
+      console.log("================================================================");
+      console.log("================================================================"); // Deletegate to the evaluation filter.
 
+      var evalFilterResponse = evaluateFilter.request({
+        opcRef: this
+      });
+      this._private.lastEvaluationResponse = evalFilterResponse;
       this._private.evalCount++;
-      return this._private.lastEvaluationResponse;
+      console.log("================================================================");
+      console.log("================================================================");
+      console.log(evalFilterResponse);
+      console.log("================================================================");
+      console.log("================================================================");
+      console.log("ObservableProcessController::_evaluate complete.");
+      console.log("****************************************************************");
+      console.log("****************************************************************");
+      return evalFilterResponse;
     } // _evaluate method
 
   }]);
