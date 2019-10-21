@@ -117,21 +117,25 @@ var opcEvalResultSpec = {
                 ____description: "A filter-style dot-delimited namespace path URI referencing this OPM instance's shared data object in the CDS.",
                 ____accept: "jsString"
               },
-              dataRef: {
-                ____label: "Data Binding Reference",
-                ____description: "A reference to the CDS data namespace bound to this OPM instance (always a descriptor object).",
-                ____accept: "jsObject" // This will always be an object because OPM instances may only be bound to objects used has descriptors (as opposed to a dictionary/map/associative array)
 
+              /* Clip this reference into the CDS out of the response.result
+              dataRef: {
+                  ____label: "Data Binding Reference",
+                  ____description: "A reference to the CDS data namespace bound to this OPM instance (always a descriptor object).",
+                  ____accept: "jsObject" // This will always be an object because OPM instances may only be bound to objects used has descriptors (as opposed to a dictionary/map/associative array)
               },
+              */
               specPath: {
                 ____label: "Data Binding Spec Path",
                 ____description: "A filter-style dot-delimited namespace path URI referencing the filter spec namespace descriptor associated with dataPath.",
                 ____accept: "jsString"
-              },
-              specRef: {
-                ____label: "Data Binding Spec Reference",
-                ____description: "A reference to the filter spec namespace descriptor associated with dataRef.",
-                ____accept: "jsObject" // This will always be an object because filter specs are always objects.
+                /* Clip this reference into the CDS out of the response.result
+                specRef: {
+                    ____label: "Data Binding Spec Reference",
+                    ____description: "A reference to the filter spec namespace descriptor associated with dataRef.",
+                    ____accept: "jsObject" // This will always be an object because filter specs are always objects.
+                }
+                */
 
               }
             },
