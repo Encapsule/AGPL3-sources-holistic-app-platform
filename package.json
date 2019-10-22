@@ -1,7 +1,7 @@
 {
   "name": "holistic",
-  "version": "0.0.21",
-  "codename": "eureka",
+  "version": "0.0.22",
+  "codename": "gregor",
   "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
   "author": "Encapsule",
   "contributors": [
