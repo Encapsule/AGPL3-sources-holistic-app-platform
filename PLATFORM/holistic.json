@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.21",
-    "codename": "eureka",
+    "version": "0.0.22",
+    "codename": "gregor",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "Wg_tDK8vQLqSxILK6NvRpQ",
-    "buildSource": "98b7f609529ec4faa14a962516f9665c735946c8",
-    "buildTime": 1571647079,
-    "buildDateISO": "2019-10-21T08:37:59.000Z"
+    "buildID": "KJegmwIqS_my-pHxylEaGw",
+    "buildSource": "5e5ef0e0d27c29208cb23a574bd9cd874f35dfc0",
+    "buildTime": 1571958394,
+    "buildDateISO": "2019-10-24T23:06:34.000Z"
 }

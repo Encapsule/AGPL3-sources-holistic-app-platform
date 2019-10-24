@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/d2r2 v0.0.21 "eureka"
+# @encapsule/d2r2 v0.0.22 "gregor"
 
 ```
-Package: @encapsule/d2r2 v0.0.21 "eureka" build ID "Wg_tDK8vQLqSxILK6NvRpQ"
-Sources: Encapsule/holistic#98b7f609529ec4faa14a962516f9665c735946c8
+Package: @encapsule/d2r2 v0.0.22 "gregor" build ID "KJegmwIqS_my-pHxylEaGw"
+Sources: Encapsule/holistic#5e5ef0e0d27c29208cb23a574bd9cd874f35dfc0
 Purpose: library (Node.js)
-Created: 2019-10-21T08:37:59.000Z
+Created: 2019-10-24T23:06:34.000Z
 License: MIT
 ```
 
@@ -50,7 +50,7 @@ Data-Driven React Render (d2r2) library for Node.js and modern browser clients.
 
 The `@encapsule/d2r2` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/d2r2 Package Distribution](https://npmjs.com/package/@encapsule/d2r2/v/0.0.21) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/d2r2 Package Distribution](https://npmjs.com/package/@encapsule/d2r2/v/0.0.22) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/d2r2 git Repository](https://github.com/Encapsule/d2r2) ([GitHub](https://github.com/Encapsule))
 
 <hr>
