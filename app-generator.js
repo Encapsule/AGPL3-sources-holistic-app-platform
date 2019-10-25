@@ -1,0 +1,1 @@
+PROJECT/GENERATOR/holistic-app-generator.js
