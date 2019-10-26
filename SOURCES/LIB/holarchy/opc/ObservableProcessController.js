@@ -85,6 +85,9 @@ class ObservableProcessController {
                 this._private.actionDispatcher = { request: function() { return { error: "No ControllerAction class instances registered!" }; } };
             }
 
+            // Construct the contained Observable Controller Data that the OCP instance uses to manage the state associated with OPM instances.
+            this._private.controlerData = new ControllerDataStore({ spec: this._private. BUSTED !!! LEFT OFF HERE
+
 
 
             // Complete initialization of the instance.

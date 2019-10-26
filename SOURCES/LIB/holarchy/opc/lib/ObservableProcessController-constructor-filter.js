@@ -192,10 +192,10 @@ const factoryResponse = arccore.filter.create(
                     } // if opm-bound instance
 
 
-                    // Build a property map for the vertex. These will be the namespace's filter spec directives.
-                    let vertexProperty = {};
 
-                    // Evaluate non-filter spec directive children of the filter spec namespace descriptor object.
+                    // Evaluate non-filter spec directive children of the filter spec namespace descriptor objec.
+                    // to build a property map for the vertex. These will be the namespace's filter spec directives.
+                    let vertexProperty = {};
                     let workingSpecRef = provisionalSpecRef?provisionalSpecRef:record.specRef;
 
                     let keys = Object.keys(workingSpecRef);
@@ -207,12 +207,37 @@ const factoryResponse = arccore.filter.create(
                             namespaceQueue.push({ lastSpecPath: record.specPath, specPath: `${record.specPath}.${key}`, specRef: workingSpecRef[key] });
                         }
                     }
+                    // Set the graph vertex property containing this merged namespace's filter spec directives.
                     result.ocdiDigraph.setVertexProperty(vertexProperty);
                 } // while namespaceQueue.length
+
                 if (errors.length) {
                     break;
                 }
 
+                // ================================================================
+                // Now traverse the merged filter spec digraph model to synthesize the OCP's runtime OCD spec.
+                let inducedSpecRef = null;
+                let pathTokenStack = [];
+
+                let traversalResponse = digraph.directed.breadthFirstTraverse({
+                    digraph: result.ocdiDigraph,
+                    visitor: {
+
+                        onExampleVertex: ({ u, g }) => {
+                            const uProps = g.getVertexProperties(u);
+                            if (u === "~") {
+                                inducedSpecRef = uProps;
+                            } else {
+                                const tokens = u.split(".");
+
+                            }
+                        }
+                    }
+                });
+
+                // ================================================================
+                // Finish up if no error(s).
                 if (!errors.length) {
                     response.result = { request_, ...result };
                 }
