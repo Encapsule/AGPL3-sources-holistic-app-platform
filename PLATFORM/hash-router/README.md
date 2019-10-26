@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.22 "gregor"
 
 ```
-Package: @encapsule/hash-router v0.0.22 "gregor" build ID "KJegmwIqS_my-pHxylEaGw"
-Sources: Encapsule/holistic#5e5ef0e0d27c29208cb23a574bd9cd874f35dfc0
+Package: @encapsule/hash-router v0.0.22 "gregor" build ID "_Pr2P0aXTtOkH7OmkF7k_A"
+Sources: Encapsule/holistic#f8764ce318f645f860aabb13a534e9e5ae396de7
 Purpose: library (Node.js)
-Created: 2019-10-24T23:06:34.000Z
+Created: 2019-10-26T08:39:44.000Z
 License: MIT
 ```
 

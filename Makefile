@@ -181,12 +181,13 @@ source_package_build_hrequest:
 
 source_package_build_holarchy:
 	@echo source_package_build_holarchy...
-	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLARCHY)/
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)
 
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY)/* $(DIR_BUILD_LIB_HOLARCHY)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLARCHY) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLARCHY)
+
+	#	$(TOOL_ESLINT) $(DIR_BUILD_LIB_HOLARCHY)/
 
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holarchy" > $(DIR_BUILD_LIB_HOLARCHY)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLARCHY)
@@ -196,12 +197,13 @@ source_package_build_holarchy:
 
 source_package_build_d2r2:
 	@echo source_package_build_d2r2...
-	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_D2R2)/
 	mkdir -p $(DIR_BUILD_LIB_D2R2)
 
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2)/* $(DIR_BUILD_LIB_D2R2)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2)
+
+	#	$(TOOL_ESLINT) $(DIR_BUILD_LIB_D2R2)/
 
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/d2r2" > $(DIR_BUILD_LIB_D2R2)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_D2R2)
@@ -211,19 +213,19 @@ source_package_build_d2r2:
 
 source_package_build_d2r2_components:
 	@echo source_package_build_d2r2_components...
-	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/
 	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)
 
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2_COMPONENTS)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/* $(DIR_BUILD_LIB_D2R2_COMPONENTS)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2_COMPONENTS) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2_COMPONENTS)
 
+	#	$(TOOL_ESLINT) $(DIR_BUILD_LIB_D2R2_COMPONENTS)/
+
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/d2r2-components" > $(DIR_BUILD_LIB_D2R2_COMPONENTS)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_D2R2_COMPONENTS)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_D2R2_COMPONENTS)
 	#	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)/docs
 	@echo source_package_build_d2r2 complete.
-
 
 
 # ================================================================

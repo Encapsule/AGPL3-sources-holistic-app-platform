@@ -31,36 +31,20 @@ function () {
 
       if (filterResponse.error) {
         throw new Error(filterResponse.error);
-      } // ----------------------------------------------------------------
-      // Keep a copy of the normalized request passed to the constructor.
-      // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
+      } // ****************************************************************
+      // ****************************************************************
+      // KEEP A COPY OF THE NORMALIZED OUTPUT OF THE CONSTRUCTION FILTER
+      // We no longer care about the request input; internal methods
+      // should only access this._private. External access to this values
+      // at your own peril as no gaurantee whatsoever across versions
+      // is made on _prviate namespace entities.
 
 
-      this._private.construction = filterResponse.result; // ----------------------------------------------------------------
-      // Build a map of ObservableControllerModel instances.
-      // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
-      // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
-
-      this._private.opmMap = {};
-
-      for (var index0 = 0; index0 < request_.observableProcessModelSets.length; index0++) {
-        var modelSet = request_.observableProcessModelSets[index0];
-
-        for (var index1 = 0; index1 < modelSet.length; index1++) {
-          var opm = modelSet[index1];
-          var opmID = opm.getID();
-
-          if (this._private.opmMap[opmID]) {
-            throw new Error("Illegal duplicate ObservableProcessModel identifier '".concat(opmID, "' for model name '").concat(opm.getName(), "' with description '").concat(opm.getDescription(), "'."));
-          }
-
-          this._private.opmMap[opmID] = opm;
-        }
-      } // ----------------------------------------------------------------
+      this._private = filterResponse.result; // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
+      // ----------------------------------------------------------------
       // Build an arccore.discriminator filter instance to route transition
       // operatror request messages to a registered transition operator
       // filter for processing.
-
 
       var transitionOperatorFilters = []; // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
 

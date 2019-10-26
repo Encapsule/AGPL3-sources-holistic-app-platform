@@ -1,5 +1,9 @@
 "use strict";
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var arccore = require("@encapsule/arccore");
 
 var factoryResponse = arccore.filter.create({
@@ -10,14 +14,29 @@ var factoryResponse = arccore.filter.create({
     ____label: "OPC Constructor Request",
     ____description: "Reqeust descriptor object passed to the constructor of the ObservableProcessController class.",
     ____types: "jsObject",
-    controllerDataSpec: {
-      ____label: "Controller Data Specification",
-      ____description: "An arccore.filter specification declaring the structure and schema of shared controller data including the placement and namespace assignments of OPM instance(s).",
+    id: {
+      ____label: "OPC ID",
+      ____description: "An IRUT identifier assigned to this specific OPC configuration.",
+      ____accept: "jsString"
+    },
+    name: {
+      ____label: "OPC Name",
+      ____description: "A short name given to this specific OCP configuration.",
+      ____accept: "jsString"
+    },
+    description: {
+      ____label: "OPC Description",
+      ____description: "A short descripion of the function and/or role of this OPC configuration.",
+      ____accept: "jsString"
+    },
+    observableControllerDataSpec: {
+      ____label: "OCD Filter Spec",
+      ____description: "Filter spec defining the structure and OPM binding semantics of the OPCI's shared OPDI store.",
       ____accept: "jsObject"
     },
-    controllerData: {
-      ____label: "Initial Controller Data",
-      ____description: "Data used to initialize the the controller data store.",
+    observableControllerData: {
+      ____label: "OCD Init Data",
+      ____description: "Reference to data to be used to construct the OPCI's shared OPDI store.",
       ____opaque: true
     },
     observableProcessModelSets: {
@@ -69,9 +88,170 @@ var factoryResponse = arccore.filter.create({
         }
       } // controllerActionFilters
 
-    } // inputFilterSpec
+    }
+  },
+  // inputFilterSpec
+  outputFilterSpec: {
+    ____opaque: true
+  },
+  bodyFunction: function bodyFunction(request_) {
+    var response = {
+      error: null
+    };
+    var errors = [];
+    var inBreakScope = false;
 
-  } // request descriptor object
+    while (!inBreakScope) {
+      inBreakScope = true; // Note that if no failure occurs in this filter then response.result will be assigned to OPCI this._private namespace.
+
+      var result = {}; // Populate as we go and assign to response.result iff !response.error.
+      // ================================================================
+      // Build a map of ObservableControllerModel instances.
+      // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
+      // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
+
+      result.opmMap = {};
+
+      for (var index0 = 0; index0 < request_.observableProcessModelSets.length; index0++) {
+        var modelSet = request_.observableProcessModelSets[index0];
+
+        for (var index1 = 0; index1 < modelSet.length; index1++) {
+          var opm = modelSet[index1];
+          var opmID = opm.getID();
+
+          if (result.opmMap[opmID]) {
+            errors.push("Illegal duplicate ObservableProcessModel identifier '".concat(opmID, "' for model name '").concat(opm.getName(), "' with description '").concat(opm.getDescription(), "'."));
+            break;
+          }
+
+          result.opmMap[opmID] = opm;
+        }
+
+        if (errors.length) {
+          break;
+        }
+      }
+
+      if (errors.length) {
+        break;
+      } // ================================================================
+      // Find all the OPM-bound namespaces in the developer-defined controller data spec
+      // and synthesize the runtime filter spec to be used for OPMI data my merging the
+      // OPM's template spec and the developer-defined spec.
+
+
+      console.log("> Inspecting registered OPM..."); // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
+
+      var _factoryResponse = arccore.graph.directed.create({
+        graphName: "".concat(request_.id, "::").concat(request_.name, " OCDI Spec Digraph"),
+        graphDescription: "A digraph model that represents the synthesized filter spec to be used to constrain the OCPI's shared OCDI store."
+      });
+
+      if (_factoryResponse.error) {
+        errors.push(_factoryResponse.error);
+        break;
+      }
+
+      result.ocdiDigraph = _factoryResponse.result;
+      var opmiSpecPaths = [];
+      var namespaceQueue = [{
+        lastSpecPath: null,
+        specPath: "~",
+        specRef: request_.observableControllerDataSpec
+      }];
+
+      while (namespaceQueue.length) {
+        // Retrieve the next record from the queue.
+        var record = namespaceQueue.shift();
+        console.log("..... inspecting spec path='".concat(record.specPath, "' ... ")); // For every namespace in the developer-provided spec, create a vertex in the digraph.
+
+        var vertexName = record.specPath;
+        result.ocdiDigraph.addVertex(vertexName);
+
+        if (record.lastSpecPath) {
+          result.ocdiDigraph.addEdge({
+            e: {
+              u: record.lastSpecPath,
+              v: vertexName
+            }
+          });
+        } // Determine if the current spec namespace has an OPM binding annotation.
+        // TODO: We should validate the controller data spec wrt OPM bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
+
+
+        var provisionalSpecRef = null;
+
+        if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
+          // Extract the OPM IRUT identifer from the developer-defined OCD spec namespace descriptor ____appdsl annotation.
+          var _opmID = record.specRef.____appdsl.opm; // Verify that it's actually an IRUT.
+
+          if (arccore.identifier.irut.isIRUT(_opmID).result) {
+            // Save the spec path and opmRef in an array.
+            var _opm = result.opmMap[_opmID];
+            opmiSpecPaths.push({
+              specPath: record.specPath,
+              opmRef: _opm
+            });
+            var opcSpecOverlay = {
+              "opc_3TNZytsvQyaYrjV2-L4sLA": {
+                ____types: "jsObject",
+                ____defaultValue: {}
+              }
+            };
+
+            var opmSpecOverlay = _opm.getDataSpec();
+
+            provisionalSpecRef = _objectSpread({}, record.specRef, opmSpecOverlay, opcSpecOverlay);
+          } // if opm binding
+          else {
+              console.warn("WANRING: Invalid OPM binding IRUT found while evaluating developer-defined OPC spec path \"".concat(record.specPath, "\"."));
+            }
+        } // if opm-bound instance
+        // Build a property map for the vertex. These will be the namespace's filter spec directives.
+
+
+        var vertexProperty = {}; // Evaluate non-filter spec directive children of the filter spec namespace descriptor object.
+
+        var workingSpecRef = provisionalSpecRef ? provisionalSpecRef : record.specRef;
+        var keys = Object.keys(workingSpecRef);
+
+        while (keys.length) {
+          var key = keys.shift();
+
+          if (key.startsWith("____")) {
+            vertexProperty[key] = workingSpecRef[key];
+          } else {
+            namespaceQueue.push({
+              lastSpecPath: record.specPath,
+              specPath: "".concat(record.specPath, ".").concat(key),
+              specRef: workingSpecRef[key]
+            });
+          }
+        }
+
+        result.ocdiDigraph.setVertexProperty(vertexProperty);
+      } // while namespaceQueue.length
+
+
+      if (errors.length) {
+        break;
+      }
+
+      if (!errors.length) {
+        response.result = _objectSpread({
+          request_: request_
+        }, result);
+      }
+    } // !inBreakScope
+
+
+    if (errors.length) {
+      response.error = errors.join(" ");
+    }
+
+    return response;
+  } // bodyFunction
+  // request descriptor object
 
 });
 

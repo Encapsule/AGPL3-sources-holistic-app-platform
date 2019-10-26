@@ -12,7 +12,7 @@ module.exports = {
     "rules": {
         "no-console": "off",
         "indent": [
-            "error",
+            "warn",
             4
         ],
         "linebreak-style": [
