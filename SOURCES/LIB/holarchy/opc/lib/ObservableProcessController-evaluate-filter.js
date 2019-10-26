@@ -45,6 +45,10 @@ const factoryResponse = arccore.filter.create({
             evalFrames: [] // <- each iteration of the outer "frames" loop pushes an evalFrame descriptor
         };
 
+        // OUTER LOOP (CONTROL FLOW AND ERROR REPORTING)
+        //    MIDDLE LOOP (OPCI EVALUATION FRAME)
+        //        INNER LOOP (OPMI EVALUATION FRAME)
+
         // ****************************************************************
         // Outer loop used to aid flow of control and error reporting.
         while (!inBreakScope) {

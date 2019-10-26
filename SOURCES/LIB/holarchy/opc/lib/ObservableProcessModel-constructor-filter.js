@@ -1,4 +1,4 @@
-// app-state-controller-model-factory.js
+// ObservableProcessModel-constructor-filter.js
 
 const arccore = require("@encapsule/arccore");
 
@@ -20,6 +20,13 @@ const inputFilterSpec = {
         ____label: "Controller Description",
         ____description: "A short description of the function or subsystem that this controller models to help developers understand the application state system model partitioning.",
         ____accept: "jsString"
+    },
+
+    opmDataSpec: {
+        ____label: "Runtime Data Spec",
+        ____description: "A filter spec that defines this OPM's required base properties. At runtime, OCP merges this information w/developer defined props and uses this merge to constrain OCDI.",
+        ____accept: "jsObject",
+        ____defaultValue: { ____types: "jsObject" }
     },
 
     steps: {
@@ -191,8 +198,9 @@ const factoryResponse = arccore.filter.create({
     } // inputFilterSpec
 });
 
-if (factoryResponse.error)
+if (factoryResponse.error) {
     throw new Error(factoryResponse.error);
+}
 
 module.exports = factoryResponse.result;
 

@@ -11,11 +11,13 @@ class ObservableProcessModel {
 
         this._private = {};
         this._private = filterResponse.result;
+
         this.toJSON = this.toJSON.bind(this);
         this.getID = this.getID.bind(this);
         this.getName = this.getName.bind(this);
         this.getDescription = this.getDescription.bind(this);
         this.getStepDescriptor = this.getStepDescriptor.bind(this);
+        this.getDataSpec = this.getDataSpec.bind(this);
     }
 
     toJSON() {
@@ -36,6 +38,10 @@ class ObservableProcessModel {
 
     getStepDescriptor(stepLabel_) {
         return this._private.declaration.steps[stepLabel_];
+    }
+
+    getDataSpec() {
+        return this._private.declaration.opmDataSpec;
     }
 
 }

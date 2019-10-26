@@ -25,27 +25,15 @@ class ObservableProcessController {
                 throw new Error(filterResponse.error);
             }
 
-            // ----------------------------------------------------------------
-            // Keep a copy of the normalized request passed to the constructor.
-            // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
-            this._private.construction = filterResponse.result;
+            // ****************************************************************
+            // ****************************************************************
+            // KEEP A COPY OF THE NORMALIZED OUTPUT OF THE CONSTRUCTION FILTER
+            // We no longer care about the request input; internal methods
+            // should only access this._private. External access to this values
+            // at your own peril as no gaurantee whatsoever across versions
+            // is made on _prviate namespace entities.
 
-            // ----------------------------------------------------------------
-            // Build a map of ObservableControllerModel instances.
-            // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
-            // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
-            this._private.opmMap = {};
-            for (let index0 = 0 ; index0 < request_.observableProcessModelSets.length ; index0++) {
-                const modelSet = request_.observableProcessModelSets[index0];
-                for (let index1 = 0 ; index1 < modelSet.length ; index1++) {
-                    const opm = modelSet[index1];
-                    const opmID = opm.getID();
-                    if (this._private.opmMap[opmID]) {
-                        throw new Error(`Illegal duplicate ObservableProcessModel identifier '${opmID}' for model name '${opm.getName()}' with description '${opm.getDescription()}'.`);
-                    }
-                    this._private.opmMap[opmID] = opm;
-                }
-            }
+            this._private = filterResponse.result; // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
 
             // ----------------------------------------------------------------
             // Build an arccore.discriminator filter instance to route transition
@@ -96,6 +84,8 @@ class ObservableProcessController {
                 console.log("WARNING: No ControllerAction class instances have been registered!");
                 this._private.actionDispatcher = { request: function() { return { error: "No ControllerAction class instances registered!" }; } };
             }
+
+
 
             // Complete initialization of the instance.
             this._private.controllerData = new ControllerDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
