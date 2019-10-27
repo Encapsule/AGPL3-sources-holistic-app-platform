@@ -1,7 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
-const constructorRequestFilter = require("./lib/ObservableProcessController-constructor-filter");
-const evaluateFilter = require("./lib/ObservableProcessController-evaluate-filter");
+const constructorRequestFilter = require("./filters/ObservableProcessController-constructor-filter");
+const evaluateFilter = require("./filters/ObservableProcessController-evaluate-filter");
 const ControllerDataStore = require("./ControllerDataStore");
 
 
@@ -35,7 +35,7 @@ class ObservableProcessController {
 
             this._private = filterResponse.result; // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
 
-            // ----------------------------------------------------------------
+            // ================================================================
             // Build an arccore.discriminator filter instance to route transition
             // operatror request messages to a registered transition operator
             // filter for processing.
@@ -60,7 +60,7 @@ class ObservableProcessController {
                 this._private.transitionDispatcher = { request: function() { return { error: "No TransitionOperator class instances registered!" }; } };
             }
 
-            // ----------------------------------------------------------------
+            // ================================================================
             // Build an arccore.discrimintor filter instance to route controller
             // action request messages to a registitered controller action filter
             // for processing.
@@ -85,13 +85,13 @@ class ObservableProcessController {
                 this._private.actionDispatcher = { request: function() { return { error: "No ControllerAction class instances registered!" }; } };
             }
 
-            // Construct the contained Observable Controller Data that the OCP instance uses to manage the state associated with OPM instances.
-            this._private.controlerData = new ControllerDataStore({ spec: this._private. BUSTED !!! LEFT OFF HERE
-
-
-
+            // ================================================================
             // Complete initialization of the instance.
-            this._private.controllerData = new ControllerDataStore({ spec: request_.controllerDataSpec, data: request_.controllerData });
+
+            // Construct the contained Observable Controller Data that the OCP instance uses to manage the state associated with OPM instances.
+            this._private.controllerData = new ControllerDataStore({ spec: this._private.ocdSpec, data: request_.observableControllerData});
+
+
             this._private.evalCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate.
             this._private.lastEvaluationResponse = null; // This is overwritten by calls to ObservableProcessController::_evaluate.
 
@@ -111,6 +111,8 @@ class ObservableProcessController {
             if (filterResponse.error) {
                 throw new Error(filterResponse.error);
             }
+
+            // And, we're live.
 
         } catch (exception_) {
             throw new Error(

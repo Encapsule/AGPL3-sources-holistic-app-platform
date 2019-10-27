@@ -1,5 +1,5 @@
 
-const constructorFilter = require("./lib/TransitionOperator-constructor-filter");
+const constructorFilter = require("./filters/TransitionOperator-constructor-filter");
 
 module.exports = class TransitionOperator {
     constructor(constructionData_) {

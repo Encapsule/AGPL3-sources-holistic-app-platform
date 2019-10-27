@@ -1,6 +1,6 @@
 
 const arccore = require("@encapsule/arccore");
-const getNamespaceInReferenceFromPathFilter = require("./lib/get-namespace-in-reference-from-path");
+const getNamespaceInReferenceFromPathFilter = require("./filters/get-namespace-in-reference-from-path");
 
 class ControllerDataStore {
 
