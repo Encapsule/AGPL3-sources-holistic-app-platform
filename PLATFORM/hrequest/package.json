@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.22",
     "codename": "gregor",
-    "buildID": "_Pr2P0aXTtOkH7OmkF7k_A",
-    "buildTime": 1572079184,
-    "buildSource": "f8764ce318f645f860aabb13a534e9e5ae396de7",
+    "buildID": "CtVorDNHSgqcVUPBNtZ3cg",
+    "buildTime": 1572154593,
+    "buildSource": "a14d9917a59a585d8acd1377e76b895954b04149",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

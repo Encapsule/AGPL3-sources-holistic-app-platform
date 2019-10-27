@@ -8,9 +8,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var arccore = require("@encapsule/arccore");
 
-var constructorRequestFilter = require("./lib/ObservableProcessController-constructor-filter");
+var constructorRequestFilter = require("./filters/ObservableProcessController-constructor-filter");
 
-var evaluateFilter = require("./lib/ObservableProcessController-evaluate-filter");
+var evaluateFilter = require("./filters/ObservableProcessController-evaluate-filter");
 
 var ControllerDataStore = require("./ControllerDataStore");
 
@@ -41,7 +41,7 @@ function () {
 
 
       this._private = filterResponse.result; // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
-      // ----------------------------------------------------------------
+      // ================================================================
       // Build an arccore.discriminator filter instance to route transition
       // operatror request messages to a registered transition operator
       // filter for processing.
@@ -76,7 +76,7 @@ function () {
             };
           }
         };
-      } // ----------------------------------------------------------------
+      } // ================================================================
       // Build an arccore.discrimintor filter instance to route controller
       // action request messages to a registitered controller action filter
       // for processing.
@@ -112,12 +112,14 @@ function () {
             };
           }
         };
-      } // Complete initialization of the instance.
+      } // ================================================================
+      // Complete initialization of the instance.
+      // Construct the contained Observable Controller Data that the OCP instance uses to manage the state associated with OPM instances.
 
 
       this._private.controllerData = new ControllerDataStore({
-        spec: request_.controllerDataSpec,
-        data: request_.controllerData
+        spec: this._private.ocdSpec,
+        data: request_.observableControllerData
       });
       this._private.evalCount = 0; // Keep track of the total number of calls to ObservableProcessController::_evaluate.
 
@@ -137,7 +139,8 @@ function () {
 
       if (filterResponse.error) {
         throw new Error(filterResponse.error);
-      }
+      } // And, we're live.
+
     } catch (exception_) {
       throw new Error(["ObservableProcessController::constructor failed due to exception.", exception_.name, exception_.message, exception_.stack].join(" "));
     }

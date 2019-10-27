@@ -104,13 +104,14 @@ var factoryResponse = arccore.filter.create({
     while (!inBreakScope) {
       inBreakScope = true; // Note that if no failure occurs in this filter then response.result will be assigned to OPCI this._private namespace.
 
-      var result = {}; // Populate as we go and assign to response.result iff !response.error.
+      var result = {
+        opmMap: {},
+        ocdSpec: {}
+      }; // Populate as we go and assign to response.result iff !response.error.
       // ================================================================
       // Build a map of ObservableControllerModel instances.
       // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
       // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
-
-      result.opmMap = {};
 
       for (var index0 = 0; index0 < request_.observableProcessModelSets.length; index0++) {
         var modelSet = request_.observableProcessModelSets[index0];
@@ -134,30 +135,20 @@ var factoryResponse = arccore.filter.create({
 
       if (errors.length) {
         break;
-      } // ================================================================
+      }
+
+      console.log("> Inspecting registered OPM..."); // ================================================================
       // Find all the OPM-bound namespaces in the developer-defined controller data spec
       // and synthesize the runtime filter spec to be used for OPMI data my merging the
       // OPM's template spec and the developer-defined spec.
+      // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
-
-      console.log("> Inspecting registered OPM..."); // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
-
-      var _factoryResponse = arccore.graph.directed.create({
-        graphName: "".concat(request_.id, "::").concat(request_.name, " OCDI Spec Digraph"),
-        graphDescription: "A digraph model that represents the synthesized filter spec to be used to constrain the OCPI's shared OCDI store."
-      });
-
-      if (_factoryResponse.error) {
-        errors.push(_factoryResponse.error);
-        break;
-      }
-
-      result.ocdiDigraph = _factoryResponse.result;
       var opmiSpecPaths = [];
       var namespaceQueue = [{
         lastSpecPath: null,
         specPath: "~",
-        specRef: request_.observableControllerDataSpec
+        specRef: request_.observableControllerDataSpec,
+        newSpecRef: result.ocdSpec
       }];
 
       while (namespaceQueue.length) {
@@ -165,19 +156,8 @@ var factoryResponse = arccore.filter.create({
         var record = namespaceQueue.shift();
         console.log("..... inspecting spec path='".concat(record.specPath, "' ... ")); // For every namespace in the developer-provided spec, create a vertex in the digraph.
 
-        var vertexName = record.specPath;
-        result.ocdiDigraph.addVertex(vertexName);
-
-        if (record.lastSpecPath) {
-          result.ocdiDigraph.addEdge({
-            e: {
-              u: record.lastSpecPath,
-              v: vertexName
-            }
-          });
-        } // Determine if the current spec namespace has an OPM binding annotation.
+        var vertexName = record.specPath; // Determine if the current spec namespace has an OPM binding annotation.
         // TODO: We should validate the controller data spec wrt OPM bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
-
 
         var provisionalSpecRef = null;
 
@@ -207,35 +187,33 @@ var factoryResponse = arccore.filter.create({
               console.warn("WANRING: Invalid OPM binding IRUT found while evaluating developer-defined OPC spec path \"".concat(record.specPath, "\"."));
             }
         } // if opm-bound instance
-        // Build a property map for the vertex. These will be the namespace's filter spec directives.
+        // Use the provision sepc if defined. Otherwise, continue to process the spec from the queue record.
 
 
-        var vertexProperty = {}; // Evaluate non-filter spec directive children of the filter spec namespace descriptor object.
+        var workingSpecRef = provisionalSpecRef ? provisionalSpecRef : record.specRef; // Evaluate the properties of the current namespace descriptor in the workingSpec.
 
-        var workingSpecRef = provisionalSpecRef ? provisionalSpecRef : record.specRef;
+        var vertexProperty = {};
         var keys = Object.keys(workingSpecRef);
 
         while (keys.length) {
           var key = keys.shift();
 
           if (key.startsWith("____")) {
-            vertexProperty[key] = workingSpecRef[key];
+            record.newSpecRef[key] = workingSpecRef[key];
           } else {
+            record.newSpecRef[key] = {};
             namespaceQueue.push({
               lastSpecPath: record.specPath,
               specPath: "".concat(record.specPath, ".").concat(key),
-              specRef: workingSpecRef[key]
+              specRef: workingSpecRef[key],
+              newSpecRef: record.newSpecRef[key]
             });
           }
         }
-
-        result.ocdiDigraph.setVertexProperty(vertexProperty);
       } // while namespaceQueue.length
+      // ================================================================
+      // Finish up if no error(s).
 
-
-      if (errors.length) {
-        break;
-      }
 
       if (!errors.length) {
         response.result = _objectSpread({

@@ -8,7 +8,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var arccore = require("@encapsule/arccore");
 
-var getNamespaceInReferenceFromPathFilter = require("./lib/get-namespace-in-reference-from-path");
+var getNamespaceInReferenceFromPathFilter = require("./filters/get-namespace-in-reference-from-path");
 
 var ControllerDataStore =
 /*#__PURE__*/
