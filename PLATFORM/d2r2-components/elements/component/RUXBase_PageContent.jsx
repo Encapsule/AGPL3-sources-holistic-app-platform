@@ -8,7 +8,7 @@ var React = require('react');
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
   id: "aEV3VWjNS_60Xb_q33o-kA",
-  name: "RUXBase_PageContent",
+  name: "<RUXBase_PageContent/>",
   description: "<RUXBase_PageContent/> React component data binding filter.",
   renderDataBindingSpec: {
     ____types: "jsObject",

@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-metadata",
     "version": "0.0.22",
     "codename": "gregor",
-    "buildID": "CtVorDNHSgqcVUPBNtZ3cg",
-    "buildTime": 1572154593,
-    "buildSource": "a14d9917a59a585d8acd1377e76b895954b04149",
+    "buildID": "jfZ1cBykTZ2tlLTvq1mIVQ",
+    "buildTime": 1572237707,
+    "buildSource": "a242c7422b0b5b2cff0ca959ee68335523061209",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-metadata.git"

@@ -31,7 +31,7 @@ var holismHttpResponseErrorResultSpec = require("@encapsule/holism/lib/iospecs/h
 var holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descriptor.data;
 var factoryResponse = reactComponentBindingFilterFactory.create({
   id: "dzAy_Q-9SYauqxeeO0EIEQ",
-  name: "HolismHttpServerErrorPageView",
+  name: "<HolismHttpServerErrorPageView/>",
   description: "Responsible for rendering HTTP request errors produced by the @encapsule/holism server package.",
   // This is the format of an HTML render request to be routed to the React component specified below.
   renderDataBindingSpec: holismHttpErrorDataSpec,
