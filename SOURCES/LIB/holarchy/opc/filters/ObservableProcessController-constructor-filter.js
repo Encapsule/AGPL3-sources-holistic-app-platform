@@ -84,6 +84,7 @@ const factoryResponse = arccore.filter.create(
 
         }, // inputFilterSpec
         outputFilterSpec: {
+            // TODO: Specify this object....
             ____opaque: true
         },
         bodyFunction: function(request_) {
@@ -95,7 +96,8 @@ const factoryResponse = arccore.filter.create(
                 // Note that if no failure occurs in this filter then response.result will be assigned to OPCI this._private namespace.
                 let result = {
                     opmMap: {},
-                    ocdSpec: {}
+                    ocdSpec: {},
+                    opcActorStack: []
                 }; // Populate as we go and assign to response.result iff !response.error.
                 // ================================================================
                 // Build a map of ObservableControllerModel instances.
@@ -146,10 +148,7 @@ const factoryResponse = arccore.filter.create(
                             const opm = result.opmMap[opmID];
                             opmiSpecPaths.push({ specPath: record.specPath, opmRef: opm });
                             const opcSpecOverlay = {
-                                "opc_3TNZytsvQyaYrjV2-L4sLA": {
-                                    ____types: "jsObject",
-                                    ____defaultValue: {}
-                                }
+                                ____types: "jsObject",
                             };
                             const opmSpecOverlay = opm.getDataSpec();
                             provisionalSpecRef = { ...record.specRef, ...opmSpecOverlay, ...opcSpecOverlay };

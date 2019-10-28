@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2",
     "version": "0.0.22",
     "codename": "gregor",
-    "buildID": "jfZ1cBykTZ2tlLTvq1mIVQ",
-    "buildTime": 1572237707,
-    "buildSource": "a242c7422b0b5b2cff0ca959ee68335523061209",
+    "buildID": "lm5PJxXRSjiLpGz0tNavjg",
+    "buildTime": 1572300758,
+    "buildSource": "13fa8970b5b334e79fcd13339c5b0d1ecdf71f61",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2.git"

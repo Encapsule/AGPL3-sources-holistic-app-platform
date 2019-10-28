@@ -92,6 +92,7 @@ var factoryResponse = arccore.filter.create({
   },
   // inputFilterSpec
   outputFilterSpec: {
+    // TODO: Specify this object....
     ____opaque: true
   },
   bodyFunction: function bodyFunction(request_) {
@@ -106,7 +107,8 @@ var factoryResponse = arccore.filter.create({
 
       var result = {
         opmMap: {},
-        ocdSpec: {}
+        ocdSpec: {},
+        opcActorStack: []
       }; // Populate as we go and assign to response.result iff !response.error.
       // ================================================================
       // Build a map of ObservableControllerModel instances.
@@ -173,10 +175,7 @@ var factoryResponse = arccore.filter.create({
               opmRef: _opm
             });
             var opcSpecOverlay = {
-              "opc_3TNZytsvQyaYrjV2-L4sLA": {
-                ____types: "jsObject",
-                ____defaultValue: {}
-              }
+              ____types: "jsObject"
             };
 
             var opmSpecOverlay = _opm.getDataSpec();

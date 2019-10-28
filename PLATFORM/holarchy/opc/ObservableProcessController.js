@@ -163,8 +163,39 @@ function () {
   }, {
     key: "act",
     value: function act(request_) {
-      request_;
-      console.log("ObservableProcessController::act method called!");
+      var response = {
+        error: null
+      };
+      var errors = [];
+      var inBreakScope = false;
+
+      while (!inBreakScope) {
+        inBreakScope = true; // Push the stack.
+
+        this._private.opcActorStack.push(request_);
+
+        console.log("WE ARE ABOUT TO ACT.");
+
+        var actionResponse = this._private.actionDispatcher.request(request_);
+
+        if (actionResponse.error) {
+          errors.push(actionResponse.error);
+        }
+
+        this._private.opcActorStack.pop();
+
+        if (!this._private.opcActorStack.length) {
+          response.result = this._private.evaluate();
+        }
+
+        break;
+      }
+
+      if (errors.length) {
+        response.error = errors.join(" ");
+      }
+
+      return response;
       return {
         error: "Not implemented"
       };
