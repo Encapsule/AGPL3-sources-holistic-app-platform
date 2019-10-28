@@ -10,7 +10,7 @@ const ReactMarkdown = require('react-markdown');
 var factoryResponse = reactComponentBindingFilterFactory.create({
 
     id: "O4p4w9-cTAuhDP-oJG14bA",
-    name: "HolisticMarkdownContent",
+    name: "<HolisticMarkdownContent/>",
     description: "Renders markdown data as HTLM content via the react-markdown library.",
     renderDataBindingSpec: {
         ____types: "jsObject",

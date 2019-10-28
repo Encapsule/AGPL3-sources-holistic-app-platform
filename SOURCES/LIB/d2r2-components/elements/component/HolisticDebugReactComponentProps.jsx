@@ -7,7 +7,7 @@ const reactComponentBindingFilterFactory = require('../binding-factory');
 var factoryResponse = reactComponentBindingFilterFactory.create({
 
     id: "Zp6gd5TLRWm-a-2kb3qu2w",
-    name: "HolisticDebugReactComponentProps",
+    name: "<HolisticDebugReactComponentProps/>",
     description: "<HolisticDebugReactComponentProps/> allows developers to view raw this.props data.",
     renderDataBindingSpec: {
     ____types: "jsObject",

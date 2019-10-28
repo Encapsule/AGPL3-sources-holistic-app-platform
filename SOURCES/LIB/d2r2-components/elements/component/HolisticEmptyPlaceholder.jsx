@@ -9,7 +9,7 @@ const ReactMarkdown = require('react-markdown');
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
     id: "8AdCdPImQB-wE7z7nzXS5Q",
-    name: "HolisticEmptyPlaceholder",
+    name: "<HolisticEmptyPlaceholder/>",
     description: "Renders an empty <span/>.",
     renderDataBindingSpec: {
         ____types: "jsObject",

@@ -10,15 +10,24 @@ const holismHttpResponseErrorResultSpec = require("@encapsule/holism/lib/iospecs
 const holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descriptor.data;
 
 var holismHttpErrorMessageSpec = arccore.util.clone(holismHttpResponseErrorResultSpec.error_descriptor.data['ESCW71rwTz24meWiZpJb4A']); // snips off the routing namespace & deep copies
+
 // ----------------------------------------------------------------
 // EXERCISE EXTREME CAUTION.
 // For production purposes we never want to share the deserialized request headers.
+
 delete holismHttpErrorMessageSpec.request.headers; // i.e. filter this data out of the React view entirely so it's not rendered on the server or the client
+// ^--- good - we're working on a cloned copy at least
+//
+// TODO: Oct 2019 --- the above comment was once a valid concern. However, I've come around to
+// think that it is not the job of React component authors to care much about such details.
+// If React gets handed some data it's clean. Period. It's the responsibility of the app
+// developer to take care of the data before it's handed off to React.
+
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
 
     id: "hO7kzwr3SmmnWFJQ6mUEiQ",
-    name: "HolismHttpServerErrorPageContent",
+    name: "<HolismHttpServerErrorPageContent/>",
     description: "Renders the inner page content of @encapsule/holism-produced HTTP server error message.",
 
     renderDataBindingSpec: {

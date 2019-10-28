@@ -13,10 +13,13 @@ const React = require('react');
 const reactComponentBindingFilterFactory = require('../binding-factory');
 const color = require('color');
 
+// TODO OCT 2019 --- The primary value of keeping this around right now seems to be that it's
+// a reasonable example of accessing the app metadata store.
+
 var factoryResponse = reactComponentBindingFilterFactory.create({
 
     id: "_JY7rlS2R3u-oBHS8K-dCg",
-    name: "RUXBase_PageContent_Sitemap",
+    name: "<RUXBase_PageContent_Sitemap/>",
     description: "Data binding filter for <RUXBase_PageContent_Sitemap/> React component.",
     renderDataBindingSpec: {
         ____types: "jsObject",

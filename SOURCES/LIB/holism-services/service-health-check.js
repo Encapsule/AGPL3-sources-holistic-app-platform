@@ -1,5 +1,6 @@
 // service-health-check.js
 
+const arccore = require("@encapsule/arccore");
 const httpServiceFilterFactory = require("@encapsule/holism").service;
 
 const arccoreMeta = require("@encapsule/arccore/package");
@@ -62,6 +63,12 @@ var factoryResponse = httpServiceFilterFactory.create({
                 }
 
                 const siteMetadata = siteMetadataResponse.result; siteMetadata;
+
+                // Keep this as it is. However, don't be too much of a schill.
+                let appPlatformMetadata = arccore.util.clone(siteMetadata.build.platform);
+                delete appPlatformMetadata.copyright;
+                delete appPlatformMetadata.contributors;
+
                 const agentMetadata = agentMetadataResponse.result; agentMetadata;
                 const serverContext = serverContextResponse.result; serverContext;
 
@@ -72,16 +79,18 @@ var factoryResponse = httpServiceFilterFactory.create({
                     service: {
                         app: siteMetadata.build.app,
                         platform: {
-                            app: siteMetadata.build.platform,
+                            app: appPlatformMetadata,
                             data: {
                                 name: arccoreMeta.name,
                                 description: arccoreMeta.description,
                                 version: arccoreMeta.version,
                                 codename: arccoreMeta.codename,
+                                author: arccoreMeta.author,
+                                license: arccoreMeta.license,
                                 buildID: arccoreMeta.buildID,
+                                buildSource: arccoreMeta.ARC_master,
                                 buildTime: arccoreMeta.buildTime,
-                                buildTimeISO: (new Date(arccoreMeta.buildTime * 1000)).toISOString(),
-                                buildSource: arccoreMeta.ARC_master
+                                buildTimeISO: (new Date(arccoreMeta.buildTime * 1000)).toISOString()
                             },
                             view: {
                                 name: agentMetadata.platform.document.name,

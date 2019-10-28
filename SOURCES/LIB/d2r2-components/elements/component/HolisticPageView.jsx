@@ -6,7 +6,7 @@ const reactComponentBindingFilterFactory = require('../binding-factory');
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
     id: "hCuVI2B6TbumErHrzPQjfQ",
-    name: "HolisticPageView",
+    name: "<HolisticPageView/>",
     description: "Common single-page HTML5 page view template for use with D2R2.",
     renderDataBindingSpec: {
         ____types: "jsObject",
