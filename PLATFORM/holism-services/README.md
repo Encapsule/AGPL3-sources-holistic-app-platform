@@ -5,10 +5,10 @@
 # @encapsule/holism-services v0.0.22 "gregor"
 
 ```
-Package: @encapsule/holism-services v0.0.22 "gregor" build ID "d_aEQPQjRyWyb43D-jc16w"
-Sources: Encapsule/holistic#c0d5d9caa61b25fb404eec35b2c6734838ce6ea5
+Package: @encapsule/holism-services v0.0.22 "gregor" build ID "ZtRyye_-SD-viH0Nm2efTA"
+Sources: Encapsule/holistic#6203e7504178f6ba4b73c3724f31a73967dceec6
 Purpose: library (Node.js)
-Created: 2019-10-30T00:09:56.000Z
+Created: 2019-10-30T21:46:41.000Z
 License: MIT
 ```
 

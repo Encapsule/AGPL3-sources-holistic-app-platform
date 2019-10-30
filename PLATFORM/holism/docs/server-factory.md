@@ -226,7 +226,17 @@ This filter normalizes the value of `input` passed to its `request` method using
                 "____label": "Maximum Allowed Input Characters",
                 "____description": "The maximum number of characters the server is allowed to read from a ServerRequest stream.",
                 "____accept": "jsNumber",
-                "____defaultValue": 4095
+                "____defaultValue": 262144
+            },
+            "request_data_abuse_factor": {
+                "____label": "Reqeust Data Abuse Factor",
+                "____description": "Buffer incoming data up to max characters. Thereafter, drop data until the client finishes (and respond with HTTP 413). Or, until total request data received exceeds max chars * abuse factor in which case we close the request socket and effectively hangup on the client w/out a response.",
+                "____accept": "jsNumber",
+                "____inRangeInclusive": {
+                    "begin": 0,
+                    "end": 1
+                },
+                "____defaultValue": 0.5
             }
         },
         "files": {
@@ -474,8 +484,8 @@ If no error then the value assigned to `response.result` is normalized per the f
 
 | filter identifier | version independent | version dependent |
 |--------|---------------------|-------------------|
-| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cTi0BDQyt8KeLn4T371elQ` |
-| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `FV9dSBmKhL_CT5VvyNGc9A` |
+| operation | `b46LcK7ORNu-lD_yUOsAuw` | `cdwYBDQgYsKe3iAT3__ilQ` |
+| input contract | `SdwEXwAQNTkVgYmpe-NNjw` | `HTVwwWNeO0gYsqiR67I19Q` |
 | output contract | `E-MD52v_-9inRlNG1BsAZw` | `DuBPhn0s0PijrJBkos9aTw` |
 
 ### Configuration
@@ -491,5 +501,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.6 toolset.<br>
-Document updated Tue Oct 29 2019 17:09:58 GMT-0700 (Pacific Daylight Time)
+Document updated Wed Oct 30 2019 14:46:42 GMT-0700 (Pacific Daylight Time)
 

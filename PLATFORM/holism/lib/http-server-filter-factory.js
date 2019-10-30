@@ -151,7 +151,9 @@ var factoryResponse = arccore.filter.create({
                         session: anonymousUserSessionData,
                         data: {
                             query: (parseUrl && parseUrl.search && parseUrl.search.length > 0)?parseUrl.query:undefined,
-                            body: "" // <-- empty UTF8 string populated as IncomingStream data events fire. See httpRequest_.on('data'). Set to null if message body length exceeded.
+                            body: "", // <-- empty UTF8 string populated as IncomingStream data events fire. See httpRequest_.on('data'). Set to null if message body length exceeded.
+                            overrun: 0, // iff body === null this is a tally of dropped characters received from the client request stream
+                            hangup: false // iff overrun > 0 then hangup indicates if the incoming request has been destroyed for abuse. iff overrun > 0 && !hangup send a 413 on("end, fn). Otherwise on("end", fn) is a noop.
                         }
                     };
 
@@ -235,35 +237,44 @@ var factoryResponse = arccore.filter.create({
                        - Should also be predicated on resource authentication flags
                     */
                     httpRequest_.on("data", function(data_) {
+
+                        // Handle the case where we have already determined that we're not going to accept this request.
+
+                        if (requestDescriptor.data.body === null) {
+
+                            // Incoming request has exceeded max allowed request body length.
+                            requestDescriptor.data.overrun += data_.length; // tally their continued attempts to buffer while dropping the data.
+                            console.warn(`!---> ${routeMethodName}::data MAX BUFFER exceeded by ${requestDescriptor.data.overrun} characters. Monitoring request for abuse to determine how/if to respond...`);
+
+                            // Determine if we consider the continued attempts to buffer abusive or not.
+                            const abuseThreshold = Math.ceil(serverContext.config.options.max_input_characters * serverContext.config.options.request_data_abuse_factor);
+
+                            if (requestDescriptor.data.overrun > abuseThreshold) {
+                                // We consider this an abuse of our app server and simply close the socket connection to the client w/no HTTP response.
+                                httpRequest_.destroy("server terminated connection due to abuse policy");
+                                requestDescriptor.data.hangup = true;
+                                console.warn(`!!!!> ${routeMethodName}::data ABUSE DEFENSE ACTIVATED. Destroying socket w/out further response.`);
+                            }
+
+                            // At this point the client has not yet exceeded the abuse threshold. Allow continued attempts to buffer (but drop the data)
+                            return;
+
+                        } // end we are not going to accept this request because it is too large
+
                         const dataOverrun = requestDescriptor.data.body.length + data_.length - serverContext.config.options.max_input_characters;
-                        if (dataOverrun <= 0) {
-                            requestDescriptor.data.body += data_;
-                            console.log("----> " + routeMethodName + "::data " + requestDescriptor.data.body.length);
+
+                        if (dataOverrun > 0) {
+                            // Per policy - we now transition to "no we will not take this request but will wait to see if you're abusive" mode.
+                            requestDescriptor.data.body = null; // tell on("end", fn) DO NOT DISPATCH this request. We are not accepting it.
+                            requestDescriptor.data.overrun = dataOverrun; // start to track the extent to which the request violates our limit
+                            console.warn(`!---> ${routeMethodName}::data MAX BUFFER exceeded by ${dataOverrun} characters. Monitoring request for abuse to determine how/if to respond...`);
                             return;
                         }
 
-                        requestDescriptor.data.body = null;
-                        const message = `Per HTTP request data buffer limit of ${serverContext.config.options.max_input_characters} exceeded. Aborting at overrun by ${dataOverrun} characters.`;
-                        httpRequest_.destroy(message);
-
-                        var innerResponse = errorResponseFilter.request({
-                            integrations: serverContext.integrations,
-                            streams: { request: httpRequest_, response: httpResponse_ },
-                            request_descriptor: requestDescriptor,
-                            error_descriptor: {
-                                http: { code: 413 },
-                                content: { encoding: "utf8", type: "application/json" },
-                                data: {
-                                    error_message: "Request size exceeds maximum allowed by server.",
-                                    error_context: { source_tag: "Le50YXPTR8i0TgstT4RUGg" }
-                                }
-                            }
-                        });
-
-                        if (innerResponse.error) {
-                            var problem = "During server attempt to respond to client request with error 404: " + innerResponse.error;
-                            reportHorribleMishap(problem);
-                        }
+                        // OKAY: Buffer the data transmitted via the incoming request stream.
+                        requestDescriptor.data.body += data_;
+                        console.log(`----> ${routeMethodName}::data ${requestDescriptor.data.body.length} continue buffering...`);
+                        return;
 
                     });
 
@@ -280,7 +291,37 @@ var factoryResponse = arccore.filter.create({
 
                     httpRequest_.on("end", function() {
 
+                        // If we hungup on the request, do nothing at all.
+                        if (requestDescriptor.data.hangup) {
+                            // Do nothing. The socket has been closed. Empirically, I am not sure this code is reachable. Keep it here for safety; docs are scant.
+                            return;
+                        }
+
+                        // If we do not have a Buffer AND we did not hangup then overrun > 0 and we want to respond with a friendly HTTP 413 error.
                         if (requestDescriptor.data.body === null) {
+
+                            const message = `Per HTTP request data buffer limit of ${serverContext.config.options.max_input_characters} exceeded. Request body data length overrun by ${requestDescriptor.data.overrun} characters.`;
+
+
+                            var innerResponse = errorResponseFilter.request({
+                                integrations: serverContext.integrations,
+                                streams: { request: httpRequest_, response: httpResponse_ },
+                                request_descriptor: requestDescriptor,
+                                error_descriptor: {
+                                    http: { code: 413 },
+                                    content: { encoding: "utf8", type: "application/json" },
+                                    data: {
+                                        error_message: message,
+                                        error_context: { source_tag: "Le50YXPTR8i0TgstT4RUGg" }
+                                    }
+                                }
+                            });
+
+                            if (innerResponse.error) {
+                                var problem = "During server attempt to respond to client request with error 413: " + innerResponse.error;
+                                reportHorribleMishap(problem);
+                            }
+
                             return;
                         }
 
@@ -288,7 +329,7 @@ var factoryResponse = arccore.filter.create({
                         // service filter. If so, call it and affect conditional redirect of incoming request.
                         if (serverContext.integrations.filters.http_request_redirector) {
 
-                            var innerResponse = serverContext.integrations.filters.http_request_redirector.request({
+                            innerResponse = serverContext.integrations.filters.http_request_redirector.request({
                                 request_descriptor: requestDescriptor,
                                 appStateContext: serverContext.integrations.appStateContext
                             });
