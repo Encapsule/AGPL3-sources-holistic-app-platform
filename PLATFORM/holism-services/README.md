@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holism-services v0.0.22 "gregor"
+# @encapsule/holism-services v0.0.23 "fortine"
 
 ```
-Package: @encapsule/holism-services v0.0.22 "gregor" build ID "d_aEQPQjRyWyb43D-jc16w"
-Sources: Encapsule/holistic#c0d5d9caa61b25fb404eec35b2c6734838ce6ea5
+Package: @encapsule/holism-services v0.0.23 "fortine" build ID "6pVt5UTdSLqCi1j0ZDzJYA"
+Sources: Encapsule/holistic#1fea828360ab90e4f98195d1e464ab82bfbd6438
 Purpose: library (Node.js)
-Created: 2019-10-30T00:09:56.000Z
+Created: 2019-10-30T18:41:36.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ A small collection of useful [service filter](https://encapsule.io/docs/holism/s
 
 The `@encapsule/holism-services` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holism-services Package Distribution](https://npmjs.com/package/@encapsule/holism-services/v/0.0.22) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holism-services Package Distribution](https://npmjs.com/package/@encapsule/holism-services/v/0.0.23) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holism-services git Repository](https://github.com/Encapsule/holism-services) ([GitHub](https://github.com/Encapsule))
 
 <hr>

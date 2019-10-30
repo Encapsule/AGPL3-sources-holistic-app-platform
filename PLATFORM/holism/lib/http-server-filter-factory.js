@@ -261,7 +261,7 @@ var factoryResponse = arccore.filter.create({
                         });
 
                         if (innerResponse.error) {
-                            var problem = "During server attempt to respond to client request with error 404: " + innerResponse.error;
+                            var problem = "During server attempt to respond to client request with error 413: " + innerResponse.error;
                             reportHorribleMishap(problem);
                         }
 

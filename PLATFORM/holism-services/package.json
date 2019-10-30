@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism-services",
-    "version": "0.0.22",
-    "codename": "gregor",
-    "buildID": "d_aEQPQjRyWyb43D-jc16w",
-    "buildTime": 1572394196,
-    "buildSource": "c0d5d9caa61b25fb404eec35b2c6734838ce6ea5",
+    "version": "0.0.23",
+    "codename": "fortine",
+    "buildID": "6pVt5UTdSLqCi1j0ZDzJYA",
+    "buildTime": 1572460896,
+    "buildSource": "1fea828360ab90e4f98195d1e464ab82bfbd6438",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"
@@ -36,6 +36,6 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.6",
-        "@encapsule/holism": "0.0.22"
+        "@encapsule/holism": "0.0.23"
     }
 }
