@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.22 "gregor"
 
 ```
-Package: @encapsule/hrequest v0.0.22 "gregor" build ID "x9HL6QuZQ4O9r1WPE--FBw"
-Sources: Encapsule/holistic#fcb79538287c179e930e64f6f842dce4d9c8dee7
+Package: @encapsule/hrequest v0.0.22 "gregor" build ID "d_aEQPQjRyWyb43D-jc16w"
+Sources: Encapsule/holistic#c0d5d9caa61b25fb404eec35b2c6734838ce6ea5
 Purpose: library (Node.js)
-Created: 2019-10-28T23:30:48.000Z
+Created: 2019-10-30T00:09:56.000Z
 License: MIT
 ```
 

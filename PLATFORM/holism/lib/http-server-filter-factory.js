@@ -151,7 +151,7 @@ var factoryResponse = arccore.filter.create({
                         session: anonymousUserSessionData,
                         data: {
                             query: (parseUrl && parseUrl.search && parseUrl.search.length > 0)?parseUrl.query:undefined,
-                            body: "" // <-- empty UTF8 string populated as IncomingStream data events fire. See httpRequest_.on('data')
+                            body: "" // <-- empty UTF8 string populated as IncomingStream data events fire. See httpRequest_.on('data'). Set to null if message body length exceeded.
                         }
                     };
 
@@ -235,28 +235,36 @@ var factoryResponse = arccore.filter.create({
                        - Should also be predicated on resource authentication flags
                     */
                     httpRequest_.on("data", function(data_) {
-                        requestDescriptor.data.body += data_;
-                        var dataLength = requestDescriptor.data.body.length;
-                        if (dataLength > serverContext.config.options.max_input_characters) {
-                            var innerResponse = errorResponseFilter.request({
-                                integrations: serverContext.integrations,
-                                streams: { request: httpRequest_, response: httpResponse_ },
-                                request_descriptor: requestDescriptor,
-                                error_descriptor: {
-                                    http: { code: 413 },
-                                    content: { encoding: "utf8", type: "application/json" },
-                                    data: {
-                                        error_message: "Request size exceeds maximum allowed by server.",
-                                        error_context: { source_tag: "Le50YXPTR8i0TgstT4RUGg" }
-                                    }
-                                }
-                            });
-                            if (innerResponse.error) {
-                                var problem = "During server attempt to respond to client request with error 404: " + innerResponse.error;
-                                reportHorribleMishap(problem);
-                            }
+                        const dataOverrun = requestDescriptor.data.body.length + data_.length - serverContext.config.options.max_input_characters;
+                        if (dataOverrun <= 0) {
+                            requestDescriptor.data.body += data_;
+                            console.log("----> " + routeMethodName + "::data " + requestDescriptor.data.body.length);
+                            return;
                         }
-                        console.log("----> " + routeMethodName + "::data " + requestDescriptor.data.body.length);
+
+                        requestDescriptor.data.body = null;
+                        const message = `Per HTTP request data buffer limit of ${serverContext.config.options.max_input_characters} exceeded. Aborting at overrun by ${dataOverrun} characters.`;
+                        httpRequest_.destroy(message);
+
+                        var innerResponse = errorResponseFilter.request({
+                            integrations: serverContext.integrations,
+                            streams: { request: httpRequest_, response: httpResponse_ },
+                            request_descriptor: requestDescriptor,
+                            error_descriptor: {
+                                http: { code: 413 },
+                                content: { encoding: "utf8", type: "application/json" },
+                                data: {
+                                    error_message: "Request size exceeds maximum allowed by server.",
+                                    error_context: { source_tag: "Le50YXPTR8i0TgstT4RUGg" }
+                                }
+                            }
+                        });
+
+                        if (innerResponse.error) {
+                            var problem = "During server attempt to respond to client request with error 404: " + innerResponse.error;
+                            reportHorribleMishap(problem);
+                        }
+
                     });
 
                     httpRequest_.on("error", function(error_) {
@@ -271,6 +279,10 @@ var factoryResponse = arccore.filter.create({
                     // to various plug-ins (filters that we classify by role: integration, service).
 
                     httpRequest_.on("end", function() {
+
+                        if (requestDescriptor.data.body === null) {
+                            return;
+                        }
 
                         // Determine if the application has registered an HTTP request redirector
                         // service filter. If so, call it and affect conditional redirect of incoming request.
