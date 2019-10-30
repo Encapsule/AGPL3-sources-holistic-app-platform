@@ -293,7 +293,9 @@ var factoryResponse = arccore.filter.create({
 
                         // If we hungup on the request, do nothing at all.
                         if (requestDescriptor.data.hangup) {
-                            // Do nothing. The socket has been closed. Empirically, I am not sure this code is reachable. Keep it here for safety; docs are scant.
+                            // Do nothing. The socket has been closed. Empirically, we do not always get on("end", fn) callback after destroying the request stream socket.
+                            // Docs are scant on this behavior at this level of detail that I could understand. This seems to work fine by catching the case where we
+                            // do receive this callback after hanging up. So explicitly do nothing because there's nothing to respond to at this point.
                             return;
                         }
 
