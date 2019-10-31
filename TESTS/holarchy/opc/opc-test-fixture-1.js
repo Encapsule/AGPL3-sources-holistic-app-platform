@@ -73,7 +73,7 @@ module.exports = function(testRequest_) {
                         assert.equal(opciConstructorResponse.response.error, testRequest_.opciResponse.error);
                     });
 
-                    it("opci constructor resposne result should be false", function() {
+                    it("opci constructor response result should be false", function() {
                         assert.isFalse(opciConstructorResponse.response.result);
                     });
 
