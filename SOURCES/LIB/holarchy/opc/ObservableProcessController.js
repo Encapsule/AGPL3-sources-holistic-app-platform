@@ -13,52 +13,69 @@ class ObservableProcessController {
 
         console.log("ObservableProcessController::constructor starting...");
 
-        // ----------------------------------------------------------------
-        // Bind instance methods.
-        // public
-        this.toJSON = this.toJSON.bind(this);
-        this.act = this.act.bind(this);
-        // private
-        this._evaluate = this._evaluate.bind(this);
+        let errors = [];
+        let inBreakScope = false;
 
-        // Allocate private, per-class-instance state.
-        this._private = {};
+        while (!inBreakScope) {
+            inBreakScope = true;
 
-        // ----------------------------------------------------------------
-        // Normalize the incoming request descriptor object.
-        let filterResponse = constructorRequestFilter.request(request_);
-        if (filterResponse.error) {
-            this._private.constructionError = filterResponse;
-            return;
-            // throw new Error(filterResponse.error);
-        }
+            // ----------------------------------------------------------------
+            // Bind instance methods.
+            // public
+            this.isValid = this.isValid.bind(this);
+            this.toJSON = this.toJSON.bind(this);
+            this.act = this.act.bind(this);
+            // private
+            this._evaluate = this._evaluate.bind(this);
 
-        // ****************************************************************
-        // ****************************************************************
-        // KEEP A COPY OF THE NORMALIZED OUTPUT OF THE CONSTRUCTION FILTER
-        // We no longer care about the request input; internal methods
-        // should only access this._private. External access to this values
-        // at your own peril as no gaurantee whatsoever across versions
-        // is made on _prviate namespace entities.
+            // Allocate private, per-class-instance state.
+            this._private = {};
 
-        this._private = filterResponse.result; // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
+            // ----------------------------------------------------------------
+            // Normalize the incoming request descriptor object.
+            let filterResponse = constructorRequestFilter.request(request_);
+            if (filterResponse.error) {
+                errors.push("Failed while processing constructor request.");
+                errors.push(filterResponse.error);
+                break;
+            }
 
-        // ----------------------------------------------------------------
-        // Wake the beast up...
-        // TODO: I am not 100% sure it's the best choice to perform the preliminary evaluation in the constructor.
+            // ****************************************************************
+            // ****************************************************************
+            // KEEP A COPY OF THE NORMALIZED OUTPUT OF THE CONSTRUCTION FILTER
+            // We no longer care about the request input; internal methods
+            // should only access this._private. External access to this values
+            // at your own peril as no gaurantee whatsoever across versions
+            // is made on _prviate namespace entities.
 
-        filterResponse = this._evaluate();
-        if (filterResponse.error) {
-            this._private.constructionError = filterResponse;
-            return;
-            // throw new Error(filterResponse.error);
+            this._private = filterResponse.result; // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
+
+            // ----------------------------------------------------------------
+            // Wake the beast up...
+            // TODO: I am not 100% sure it's the best choice to perform the preliminary evaluation in the constructor.
+
+            filterResponse = this._evaluate();
+            if (filterResponse.error) {
+                errors.push("Failed while executing first system evaluation.");
+                errors.push(filterResponse.error);
+                break;
+            }
+
+            break;
+
+        } // while(!inBreakScope)
+
+        if (errors.length) {
+            errors.unshift("ObservableProcessController::constructor failed yielding a zombie instance.");
+            this._private.constructionError = { error: errors.join(" ") };
         }
 
         if (this._private.constructionError) {
-            console.error(`ObservableProcessController::constructor failed: ${this._private.construcitonError.error}`);
+            console.error(`ObservableProcessController::constructor failed: ${this._private.constructionError.error}`);
         } else {
             console.log("ObservableProcessController::constructor complete.");
         }
+
 
     } // end constructor function
 
@@ -68,18 +85,33 @@ class ObservableProcessController {
     // should be via public API methods. Do not dereference the _private data
     // namespace or call underscore-prefixed private class methods.
 
-    toJSON() {
-        if (this._private.constructionError) {
-            return this._private.constructionError;
+    // Determines if the OPMI is valid or not.
+
+    // Called w/no options_, returns Boolean true iff ObservableProcessController::constructor succeeded. Otherwise false.
+    isValid(options_) {
+        if (!options_ || !options_.getError) {
+            return this._private.constructionError?false:true;
         }
+        return {
+            error: this._private.constructionError?this._private.constructionError.error:null,
+            result: this._private.constructionError?false:true
+        };
+    }
+
+    // Produces a serializable object representing the internal state of this OPCI.
+    toJSON() {
+        if (!this.isValid()) {
+            return this.isValid({ getError: true });
+        }
+
         return this._private;
     } // toJSON method
 
 
     act(request_) {
 
-        if (this._private.constructionError) {
-            return this._private.constructionError;
+        if (!this.isValid()) {
+            return this.isValid({ getError: true });
         }
 
         let response = { error: null };

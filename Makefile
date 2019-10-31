@@ -10,6 +10,7 @@ $(info DIR_ROOT is $(DIR_ROOT))
 DIR_MODULES=$(DIR_ROOT)/node_modules
 DIR_TOOLBIN=$(DIR_MODULES)/.bin
 TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
+TOOL_MOCHA=$(DIR_TOOLBIN)/mocha
 
 DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
@@ -351,6 +352,7 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	mkdir -p $(DIR_PLATFORM)
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM)/
 	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM)
+	$(TOOL_MOCHA) TESTS/
 	@echo FINISH TARGET: platform_update
 
 # ================================================================
@@ -360,9 +362,14 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 clean: source_packages_clean
 	@echo Clean operation complete.
 
-scrub: source_packages_clean dist_packages_clean
+scrub: clean dist_packages_clean platform_clean
 	@echo Scrub operation complete.
 
-reset: source_packages_clean dist_packages_clean env_clean_cache
+scrubdate: scrub platform_update
+	@echo Scrubbed platform update complete. Staged platform RTL git diffs should be checked prior to commit.
+
+reset: scrub env_clean_cache
 	@echo Reset operation complete.
+
+
 
