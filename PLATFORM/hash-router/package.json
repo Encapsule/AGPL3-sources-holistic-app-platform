@@ -2,9 +2,9 @@
     "name": "@encapsule/hash-router",
     "version": "0.0.23",
     "codename": "fortine",
-    "buildID": "6pVt5UTdSLqCi1j0ZDzJYA",
-    "buildTime": 1572460896,
-    "buildSource": "1fea828360ab90e4f98195d1e464ab82bfbd6438",
+    "buildID": "bc8ik-1HQSq5eiulYpjyAQ",
+    "buildTime": 1572480573,
+    "buildSource": "c8ec617b5fad36c74e28146b47916a5f84b0d571",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hash-router.git"

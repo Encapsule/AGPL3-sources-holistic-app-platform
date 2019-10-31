@@ -55,7 +55,14 @@ module.exports = {
                 ____label: "Maximum Allowed Input Characters",
                 ____description: "The maximum number of characters the server is allowed to read from a ServerRequest stream.",
                 ____accept: "jsNumber",
-                ____defaultValue: 0xFFF //~4K
+                ____defaultValue: 0x40000 // 262,144-characters allowed for per-request client data bufferred by on("data", fn) by default.
+            },
+            request_data_abuse_factor: {
+                ____label: "Reqeust Data Abuse Factor",
+                ____description: "Buffer incoming data up to max characters. Thereafter, drop data until the client finishes (and respond with HTTP 413). Or, until total request data received exceeds max chars * abuse factor in which case we close the request socket and effectively hangup on the client w/out a response.",
+                ____accept: "jsNumber",
+                ____inRangeInclusive: { begin: 0.0, end: 1.0 }, // i.e. accept at most 2x the max before hanging up
+                ____defaultValue: 0.5 // by default accept 1.5 max before hanging up.
             }
         },
         files: {
