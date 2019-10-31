@@ -1,4 +1,6 @@
 const arccore = require("@encapsule/arccore");
+const ControllerDataStore = require("../ControllerDataStore");
+
 
 const factoryResponse = arccore.filter.create(
     {
@@ -27,17 +29,24 @@ const factoryResponse = arccore.filter.create(
             observableControllerDataSpec: {
                 ____label: "OCD Filter Spec",
                 ____description: "Filter spec defining the structure and OPM binding semantics of the OPCI's shared OPDI store.",
-                ____accept: "jsObject"
+                ____accept: "jsObject",
+                ____defaultValue: {
+                    ____label: "Default OCD Filter Spec",
+                    ____description: "No OCD data spec specified so you get the default.",
+                    ____types: "jsObject"
+                }
             },
             observableControllerData: {
                 ____label: "OCD Init Data",
                 ____description: "Reference to data to be used to construct the OPCI's shared OPDI store.",
-                ____opaque: true
+                ____accept: "jsObject",
+                ____defaultValue: {} 
             },
             observableProcessModelSets: {
                 ____label: "Observable Process Model Sets",
                 ____description: "An array of arrays of unique ObservableProcessModel class instances.",
                 ____types: "jsArray",
+                ____defaultValue: [],
                 index: {
                     ____label: "Observable Process Model Set",
                     ____description: "An array of unique ObservableProcessModel class instances.",
@@ -54,6 +63,7 @@ const factoryResponse = arccore.filter.create(
                 ____label: "Transition Operator Filter Sets",
                 ____description: "An array of arrays of unique TransitionOperatorFilter class instances.",
                 ____types: "jsArray",
+                ____defaultValue: [],
                 index: {
                     ____label: "Transition Operator Filter Set",
                     ____description: "An an array of unique TransitionOperatorFilter class instances.",
@@ -70,6 +80,7 @@ const factoryResponse = arccore.filter.create(
                 ____label: "Controller Action Filter Sets",
                 ____description: "An array of arrays of unique ControllerActionFilter class instances.",
                 ____types: "jsArray",
+                ____defaultValue: [],
                 index: {
                     ____label: "Controller Action Filter Set",
                     ____description: "An array of unique ControllerActionFilter class instances.",
@@ -186,7 +197,7 @@ const factoryResponse = arccore.filter.create(
                 // both world's. Construct OCP correctly, it just works like a standard ES6 class instance. Construct it incorrectly, you get a stillborn
                 // instance that will only give you a copy of its death certificate.
                 try {
-                    result.ocdi = new ControllerDataStore({ spec: this._private.ocdSpec, data: request_.observableControllerData});
+                    result.ocdi = new ControllerDataStore({ spec: result.ocdSpec, data: request_.observableControllerData});
                 } catch (exception_) {
                     errors.push(exception_.message);
                     break;

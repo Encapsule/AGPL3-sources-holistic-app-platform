@@ -61,7 +61,7 @@ const factoryResponse = arccore.filter.create({
             console.log(`> ObservableProcessController::_evaluate starting system evaluation ${opcRef._private.evalCount} ...`);
 
             // Get a reference to the entire filter spec for the controller data store.
-            let filterResponse = opcRef._private.controllerData.getNamespaceSpec("~");
+            let filterResponse = opcRef._private.ocdi.getNamespaceSpec("~");
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
                 break;
@@ -97,7 +97,7 @@ const factoryResponse = arccore.filter.create({
                 };
 
                 // Get a reference to the controller data.
-                filterResponse = opcRef._private.controllerData.readNamespace("~");
+                filterResponse = opcRef._private.ocdi.readNamespace("~");
                 if (filterResponse.error) {
                     errors.push(filterResponse.error);
                     break;

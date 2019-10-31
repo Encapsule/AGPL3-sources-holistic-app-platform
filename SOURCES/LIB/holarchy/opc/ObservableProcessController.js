@@ -2,8 +2,6 @@
 const arccore = require("@encapsule/arccore");
 const constructorRequestFilter = require("./filters/ObservableProcessController-constructor-filter");
 const evaluateFilter = require("./filters/ObservableProcessController-evaluate-filter");
-const ControllerDataStore = require("./ControllerDataStore");
-
 
 class ObservableProcessController {
 
