@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-metadata",
     "version": "0.0.23",
     "codename": "fortine",
-    "buildID": "M1CyjSmgRziu6X_-LDQLqQ",
-    "buildTime": 1572567422,
-    "buildSource": "80dc842798286ae4343475f8e9d2737170881dec",
+    "buildID": "T4qpsRI6QUOPtlxwI4zIZw",
+    "buildTime": 1572585606,
+    "buildSource": "e7d09bccb2a0d0b6f8f9b35a5da8d9b6318599c6",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-metadata.git"

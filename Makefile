@@ -371,5 +371,10 @@ scrubdate: scrub platform_update
 reset: scrub env_clean_cache
 	@echo Reset operation complete.
 
+test:
+	$(TOOL_MOCHA) TESTS/
+
+test-debug:
+	$(TOOL_MOCHA) --insepct-brk TESTS/
 
 

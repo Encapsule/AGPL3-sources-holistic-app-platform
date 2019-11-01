@@ -19,6 +19,7 @@ function () {
     _classCallCheck(this, ObservableProcessController);
 
     // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
+    console.log("================================================================");
     console.log("ObservableProcessController::constructor starting...");
     var errors = [];
     var inBreakScope = false;
@@ -78,8 +79,10 @@ function () {
 
     if (this._private.constructionError) {
       console.error("ObservableProcessController::constructor failed: ".concat(this._private.constructionError.error));
+      console.log("================================================================");
     } else {
       console.log("ObservableProcessController::constructor complete.");
+      console.log("================================================================");
     }
   } // end constructor function
   // ================================================================
@@ -158,9 +161,6 @@ function () {
       }
 
       return response;
-      return {
-        error: "Not implemented"
-      };
     } // act method
     // ================================================================
     // PRIVATE IMPLEMENTATION METHODS
@@ -177,10 +177,8 @@ function () {
       // results of the evaluation:
       // * If no error(s), swap out the old CDS instance for the new.
       // * Otherwise, report the evaluation result and leave the contents of the CDS unmodified by the operation.
-      console.log("****************************************************************");
-      console.log("****************************************************************");
-      console.log("ObservableProcessController::_evaluate starting...");
       console.log("================================================================");
+      console.log("ObservableProcessController::_evaluate starting...");
       console.log("================================================================"); // Deletegate to the evaluation filter.
 
       var evalFilterResponse = evaluateFilter.request({
@@ -189,14 +187,10 @@ function () {
       this._private.lastEvaluationResponse = evalFilterResponse;
       this._private.evalCount++;
       console.log("================================================================");
-      console.log("================================================================");
       console.log(evalFilterResponse);
       console.log(JSON.stringify(evalFilterResponse, undefined, 2));
-      console.log("================================================================");
-      console.log("================================================================");
       console.log("ObservableProcessController::_evaluate complete.");
-      console.log("****************************************************************");
-      console.log("****************************************************************");
+      console.log("================================================================");
       return evalFilterResponse;
     } // _evaluate method
 

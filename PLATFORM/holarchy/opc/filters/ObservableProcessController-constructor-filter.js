@@ -24,12 +24,14 @@ var factoryResponse = arccore.filter.create({
     name: {
       ____label: "OPC Name",
       ____description: "A short name given to this specific OCP configuration.",
-      ____accept: "jsString"
+      ____accept: "jsString",
+      ____defaultValue: "[no name was declared this OPCI]"
     },
     description: {
       ____label: "OPC Description",
       ____description: "A short descripion of the function and/or role of this OPC configuration.",
-      ____accept: "jsString"
+      ____accept: "jsString",
+      ____defaultValue: "[no description was declared for this OPCI]"
     },
     observableControllerDataSpec: {
       ____label: "OCD Filter Spec",
@@ -103,8 +105,49 @@ var factoryResponse = arccore.filter.create({
   },
   // inputFilterSpec
   outputFilterSpec: {
-    // TODO: Specify this object....
-    ____opaque: true
+    ____types: "jsObject",
+    id: {
+      ____accept: "jsString"
+    },
+    iid: {
+      ____accept: "jsString"
+    },
+    name: {
+      ____accept: "jsString"
+    },
+    description: {
+      ____accept: "jsString"
+    },
+    opmMap: {
+      ____accept: "jsObject"
+    },
+    opmiSpecPaths: {
+      ____accept: "jsArray"
+    },
+    ocdSpec: {
+      ____accept: "jsObject"
+    },
+    ocdi: {
+      ____accept: "jsObject"
+    },
+    transitionDispatcher: {
+      ____accept: "jsObject"
+    },
+    actionDispatcher: {
+      ____accept: "jsObject"
+    },
+    evalCount: {
+      ____accept: "jsNumber",
+      ____defaultValue: 0
+    },
+    lastEvalResponse: {
+      ____accept: ["jsObject", "jsNull"],
+      ____defaultValue: null
+    },
+    opcActorStack: {
+      ____accept: "jsArray",
+      ____defaultValue: []
+    }
   },
   bodyFunction: function bodyFunction(request_) {
     var response = {
@@ -112,22 +155,51 @@ var factoryResponse = arccore.filter.create({
     };
     var errors = [];
     var inBreakScope = false;
+    var filterResponse;
 
     var _loop = function _loop() {
       inBreakScope = true; // Note that if no failure occurs in this filter then response.result will be assigned to OPCI this._private namespace.
 
       var result = {
+        id: null,
+        iid: null,
+        name: null,
+        description: null,
         opmMap: {},
         opmiSpecPaths: [],
         ocdSpec: {},
         ocdi: null,
         operatorDispatcher: null,
-        actionDispather: null,
+        actionDispatcher: null,
         evalCount: 0,
         lastEvalResponse: null,
         opcActorStack: []
       }; // Populate as we go and assign to response.result iff !response.error.
-      // ================================================================
+      // Before we even get started, confirm that that the id is valid.
+
+      if (request_.id === "demo") {
+        result.id = arccore.identifier.irut.fromEther();
+      } else {
+        filterResponse = arccore.identifier.irut.isIRUT(request_.id);
+
+        if (filterResponse.error) {
+          errors.push(filterResponse.error);
+          return "break";
+        }
+
+        if (!filterResponse.result) {
+          errors.push("Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned.");
+          errors.push(filterResponse.guidance);
+          return "break";
+        }
+
+        result.id = request_.id;
+      }
+
+      result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
+
+      result.name = request_.name;
+      result.description = request_.description; // ================================================================
       // Build a map of ObservableControllerModel instances.
       // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
       // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
@@ -275,11 +347,11 @@ var factoryResponse = arccore.filter.create({
           return "break";
         }
 
-        result.operatorDispatcher = filterResponse.result;
+        result.transitionDispatcher = filterResponse.result;
       } else {
         console.log("WARNING: No TransitionOperator class instances have been registered!"); // Register a dummy discriminator.
 
-        result.operatorDispatcher = {
+        result.transitionDispatcher = {
           request: function request() {
             return {
               error: "No TransitionOperator class instances registered!"
