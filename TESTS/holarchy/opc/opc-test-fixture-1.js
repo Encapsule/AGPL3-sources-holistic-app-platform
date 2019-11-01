@@ -20,7 +20,7 @@ const { ObservableProcessController } = require("../../../PLATFORM/holarchy");
 module.exports = function(testRequest_) {
 
     let opci = null;
-    let opciConstructorResponse = null;
+    let opciStatusDescriptor = null;
 
     describe(`ObservableProcessController Test Harness Test ${testNumber++} :: name: "${testRequest_.name}" description: "${testRequest_.description}"`, function() {
 
@@ -39,92 +39,95 @@ module.exports = function(testRequest_) {
         describe("Insepct newly-constructed opci", function() {
 
             before(function() {
-                opciConstructorResponse = {
+                opciStatusDescriptor = {
                     valid: opci.isValid(),
                     response: opci.isValid({ getError: true })
                 };
             });
 
             it("Confirm standard opci validity API is working as expected.", function() {
-                assert.isNotNull(opciConstructorResponse);
-                assert.isObject(opciConstructorResponse);
-                assert.property(opciConstructorResponse, "valid");
-                assert.isBoolean(opciConstructorResponse.valid);
-                assert.property(opciConstructorResponse, "response");
-                assert.isObject(opciConstructorResponse.response);
-                assert.property(opciConstructorResponse.response, "error");
-                assert.property(opciConstructorResponse.response, "result");
+                assert.isNotNull(opciStatusDescriptor);
+                assert.isObject(opciStatusDescriptor);
+                assert.property(opciStatusDescriptor, "valid");
+                assert.isBoolean(opciStatusDescriptor.valid);
+                assert.property(opciStatusDescriptor, "response");
+                assert.isObject(opciStatusDescriptor.response);
+                assert.property(opciStatusDescriptor.response, "error");
+                assert.property(opciStatusDescriptor.response, "result");
             });
 
             if (testRequest_.opciResponse.error) {
 
-                describe("opci is expected to have failed during construction per definition of this test. examining...", function() {
+                describe("opc construction is expected to fail and return a zombie ocpi", function() {
 
-                    it("opci is expected to be invalid.", function() {
-                        assert.isFalse(opciConstructorResponse.valid);
+                    it("opci.isValid() is expected to return false.", function() {
+                        assert.isFalse(opciStatusDescriptor.valid);
                     });
 
-                    it("opci is expected to report constructor error response", function() {
-                        assert.isString(opciConstructorResponse.response.error);
-                        assert.isBoolean(opciConstructorResponse.response.result);
+                    it("opci.isValid({ getError: true}) is expected to return construction error response object", function() {
+                        assert.isObject(opciStatusDescriptor.response);
+                        assert.property(opciStatusDescriptor.response, "error");
+                        assert.property(opciStatusDescriptor.response, "result");
                     });
 
                     it("opci constructor response error should match expected value", function() {
-                        assert.equal(opciConstructorResponse.response.error, testRequest_.opciResponse.error);
+                        assert.isString(opciStatusDescriptor.response.error);
+                        assert.equal(opciStatusDescriptor.response.error, testRequest_.opciResponse.error);
                     });
 
                     it("opci constructor response result should be false", function() {
-                        assert.isFalse(opciConstructorResponse.response.result);
+                        assert.isBoolean(opciStatusDescriptor.response.result);
+                        assert.isFalse(opciStatusDescriptor.response.result);
                     });
 
-                });
+                    let zombieCheckResponse = null;
 
-                let zombieCheckResponse = null;
+                    describe("opci zombie public toJSON method check", function() {
 
-                describe("opci zombie public toJSON method check", function() {
+                        before(function() {
+                            zombieCheckResponse = opci.toJSON();
+                        });
 
-                    before(function() {
-                        zombieCheckResponse = opci.toJSON();
+                        it("opci zombie method is expected to have returned a response object", function() {
+                            assert.isObject(zombieCheckResponse);
+                            assert.property(zombieCheckResponse, "error");
+                            assert.property(zombieCheckResponse, "result");
+                        });
+
+                        it("opci zombie method response result should be false", function() {
+                            assert.isBoolean(zombieCheckResponse.result);
+                            assert.isFalse(zombieCheckResponse.result);
+                        });
+
+                        it("opci zombie method response error should match expected", function() {
+                            assert.isString(zombieCheckResponse.error);
+                            assert.equal(zombieCheckResponse.error, testRequest_.opciResponse.error);
+                        });
+
                     });
 
-                    it("opci zombie method is expected to have returned a response object", function() {
-                        assert.isObject(zombieCheckResponse);
-                        assert.property(zombieCheckResponse, "error");
-                        assert.property(zombieCheckResponse, "result");
-                    });
+                    describe("opci zombie public act method check", function() {
 
-                    it("opci zombie method response result should be false", function() {
-                        assert.isBoolean(zombieCheckResponse.result);
-                        assert.isFalse(zombieCheckResponse.result);
-                    });
+                        before(function() {
+                            zombieCheckResponse = opci.act();
+                        });
 
-                    it("opci zombie method response error should match expected", function() {
-                        assert.isString(zombieCheckResponse.error);
-                        assert.equal(zombieCheckResponse.error, testRequest_.opciResponse.error);
-                    });
+                        it("opci zombie method is expected to have returned a response object", function() {
+                            assert.isObject(zombieCheckResponse);
+                            assert.property(zombieCheckResponse, "error");
+                            assert.property(zombieCheckResponse, "result");
+                        });
 
-                });
+                        it("opci zombie method response result should be false", function() {
+                            assert.isBoolean(zombieCheckResponse.result);
+                            assert.isFalse(zombieCheckResponse.result);
+                        });
 
-                describe("opci zombie public act method check", function() {
+                        it("opci zombie method response error should match expected", function() {
+                            assert.isString(zombieCheckResponse.error);
+                            assert.equal(zombieCheckResponse.error, testRequest_.opciResponse.error);
+                        });
 
-                    before(function() {
-                        zombieCheckResponse = opci.act();
-                    });
-
-                    it("opci zombie method is expected to have returned a response object", function() {
-                        assert.isObject(zombieCheckResponse);
-                        assert.property(zombieCheckResponse, "error");
-                        assert.property(zombieCheckResponse, "result");
-                    });
-
-                    it("opci zombie method response result should be false", function() {
-                        assert.isBoolean(zombieCheckResponse.result);
-                        assert.isFalse(zombieCheckResponse.result);
-                    });
-
-                    it("opci zombie method response error should match expected", function() {
-                        assert.isString(zombieCheckResponse.error);
-                        assert.equal(zombieCheckResponse.error, testRequest_.opciResponse.error);
                     });
 
                 });
@@ -132,16 +135,25 @@ module.exports = function(testRequest_) {
 
             } else {
 
-                it("The new OCPI is expected to be valid. Confirm this.", function() {
-                    assert.isTrue(opci.isValid());
+                describe("opc construction is expected to return a valid opci", function() {
+
+                    it("opci.isValid() should return true.", function() {
+                        assert.isTrue(opciStatusDescriptor.valid);
+                    });
+
+                    it("opci.isValid({ getError: true }) is expected to return a response object", function() {
+                        assert.isObject(opciStatusDescriptor.response);
+                        assert.property(opciStatusDescriptor.response, "error");
+                        assert.property(opciStatusDescriptor.response, "result");
+                    });
+
+
                 });
-                it("The new OCPI is expected to return expected extended validity response data.", function() {
-                    assert.deepEqual(opci.isValid({ getError: true }), {}, "Actual vs. expected value failure.");
-                });
+
             }
+
         });
 
     });
-
 
 };

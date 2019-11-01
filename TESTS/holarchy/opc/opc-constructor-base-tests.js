@@ -1,5 +1,6 @@
 const fixture = require("./opc-test-fixture-1");
 
+// TEST EMPTY CONSTRUCTOR CALL
 fixture({
     name: "Undefined constructor request",
     description: "Send nothing (undefined) to OPC constructor.",
@@ -9,6 +10,7 @@ fixture({
     }
 });
 
+// TEST CONTRUCTOR CALL W/EMPTY OBJECT (This proves that the constructor filter is online so if it passes we can just move on and assume the constructor will reject bad input.
 fixture({
     name: "Barely defined constructor request",
     description: "Send nothing an empty object to OPC constructor.",
@@ -18,10 +20,7 @@ fixture({
     }
 });
 
-// There are lots of other variants of on the request input document that we do not have to explicitly test because they're enforced by arccore.filter.
-
-// Test expected and special constructor behaviors related to the OPC ID.
-
+// TEST CONSTRUCTOR CALL W/INVALID IRUT ID
 fixture({
     name: "Minimal constructor request #1: Invalid ID",
     description: "Test basic constructor request variant #1 by passing a bad IRUT as the ID.",
@@ -31,5 +30,15 @@ fixture({
     }
 });
 
+//
 
+// TEST CONSTRUCTOR CALL w/DEMO IRUT ID
+fixture({
+    name: "Minimal constructor with 'demo' ID",
+    description: "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID.",
+    opcRequest: { id: "demo" },
+    opciResponse: {
+        error: null,
+    }
+});
 
