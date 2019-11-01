@@ -5,10 +5,10 @@
 # @encapsule/holism-metadata v0.0.23 "fortine"
 
 ```
-Package: @encapsule/holism-metadata v0.0.23 "fortine" build ID "uIwS6RgQSP6TXZRLvZCQ-g"
-Sources: Encapsule/holistic#a7c9ca3efca10564f560ed640adee72550d556d5
+Package: @encapsule/holism-metadata v0.0.23 "fortine" build ID "qzIEyT3fQF-eA0t2KMXuOQ"
+Sources: Encapsule/holistic#51dfe887bbbe8d9f08801cc84dc479e70f2af4bc
 Purpose: library (Node.js)
-Created: 2019-11-01T15:38:16.000Z
+Created: 2019-11-01T15:47:57.000Z
 License: MIT
 ```
 

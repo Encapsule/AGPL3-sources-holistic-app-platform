@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.23",
     "codename": "fortine",
-    "buildID": "uIwS6RgQSP6TXZRLvZCQ-g",
-    "buildTime": 1572622696,
-    "buildSource": "a7c9ca3efca10564f560ed640adee72550d556d5",
+    "buildID": "qzIEyT3fQF-eA0t2KMXuOQ",
+    "buildTime": 1572623277,
+    "buildSource": "51dfe887bbbe8d9f08801cc84dc479e70f2af4bc",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
