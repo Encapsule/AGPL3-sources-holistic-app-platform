@@ -9,6 +9,7 @@ class ObservableProcessController {
 
         // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
 
+        console.log("================================================================");
         console.log("ObservableProcessController::constructor starting...");
 
         let errors = [];
@@ -70,8 +71,11 @@ class ObservableProcessController {
 
         if (this._private.constructionError) {
             console.error(`ObservableProcessController::constructor failed: ${this._private.constructionError.error}`);
+            console.log("================================================================");
         } else {
             console.log("ObservableProcessController::constructor complete.");
+            console.log("================================================================");
+
         }
 
 
@@ -142,7 +146,6 @@ class ObservableProcessController {
         }
         return response;
 
-        return { error: "Not implemented" };
     } // act method
 
     // ================================================================
@@ -152,38 +155,25 @@ class ObservableProcessController {
     //
 
     _evaluate() {
-
         // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
-
         // TODO: We can at this point in the execution flow deep copy the CDS,
         // execute the evaluation against the copy. Then depending on the
         // results of the evaluation:
         // * If no error(s), swap out the old CDS instance for the new.
         // * Otherwise, report the evaluation result and leave the contents of the CDS unmodified by the operation.
-
-        console.log("****************************************************************");
-        console.log("****************************************************************");
+        console.log("================================================================");
         console.log("ObservableProcessController::_evaluate starting...");
         console.log("================================================================");
-        console.log("================================================================");
-
         // Deletegate to the evaluation filter.
         const evalFilterResponse = evaluateFilter.request({ opcRef: this });
         this._private.lastEvaluationResponse =  evalFilterResponse;
         this._private.evalCount++;
-
-        console.log("================================================================");
         console.log("================================================================");
         console.log(evalFilterResponse);
         console.log(JSON.stringify(evalFilterResponse, undefined, 2));
-        console.log("================================================================");
-        console.log("================================================================");
         console.log("ObservableProcessController::_evaluate complete.");
-        console.log("****************************************************************");
-        console.log("****************************************************************");
-
+        console.log("================================================================");
         return evalFilterResponse;
-
     } // _evaluate method
 
 }

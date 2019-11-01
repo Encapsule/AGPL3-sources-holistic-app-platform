@@ -362,7 +362,6 @@ const factoryResponse = arccore.filter.create({
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p1_toperator++;
                             opmInstanceFrame.evalResponse.errors.total++;
-                            opmInstanceFrame.evalResponse.summary.reports.errors.push(cdsPathIRUT_);
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
                             break; // abort evaluation of transition rules for this OPM instance...
                         }

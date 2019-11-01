@@ -14,17 +14,19 @@ const factoryResponse = arccore.filter.create(
             id: {
                 ____label: "OPC ID",
                 ____description: "An IRUT identifier assigned to this specific OPC configuration.",
-                ____accept: "jsString"
+                ____accept: "jsString",
             },
             name: {
                 ____label: "OPC Name",
                 ____description: "A short name given to this specific OCP configuration.",
-                ____accept: "jsString"
+                ____accept: "jsString",
+                ____defaultValue: "[no name was declared this OPCI]"
             },
             description: {
                 ____label: "OPC Description",
                 ____description: "A short descripion of the function and/or role of this OPC configuration.",
-                ____accept: "jsString"
+                ____accept: "jsString",
+                ____defaultValue: "[no description was declared for this OPCI]"
             },
             observableControllerDataSpec: {
                 ____label: "OCD Filter Spec",
@@ -40,7 +42,7 @@ const factoryResponse = arccore.filter.create(
                 ____label: "OCD Init Data",
                 ____description: "Reference to data to be used to construct the OPCI's shared OPDI store.",
                 ____accept: "jsObject",
-                ____defaultValue: {} 
+                ____defaultValue: {}
             },
             observableProcessModelSets: {
                 ____label: "Observable Process Model Sets",
@@ -95,27 +97,67 @@ const factoryResponse = arccore.filter.create(
 
         }, // inputFilterSpec
         outputFilterSpec: {
-            // TODO: Specify this object....
-            ____opaque: true
+            ____types: "jsObject",
+            id: { ____accept: "jsString" },
+            iid: { ____accept: "jsString" },
+            name: { ____accept: "jsString" },
+            description: { ____accept: "jsString" },
+            opmMap: { ____accept: "jsObject" },
+            opmiSpecPaths: { ____accept: "jsArray" },
+            ocdSpec: { ____accept: "jsObject" },
+            ocdi: { ____accept: "jsObject" },
+            transitionDispatcher: { ____accept: "jsObject" },
+            actionDispatcher: { ____accept: "jsObject" },
+            evalCount: { ____accept: "jsNumber", ____defaultValue: 0 },
+            lastEvalResponse: { ____accept: [ "jsObject", "jsNull" ], ____defaultValue: null },
+            opcActorStack: { ____accept: "jsArray", ____defaultValue: [] }
         },
         bodyFunction: function(request_) {
             let response = { error: null };
             let errors = [];
             let inBreakScope = false;
+            let filterResponse;
             while (!inBreakScope) {
                 inBreakScope = true;
+
                 // Note that if no failure occurs in this filter then response.result will be assigned to OPCI this._private namespace.
                 let result = {
+                    id: null,
+                    iid: null,
+                    name: null,
+                    description: null,
                     opmMap: {},
                     opmiSpecPaths: [],
                     ocdSpec: {},
                     ocdi: null,
                     operatorDispatcher: null,
-                    actionDispather: null,
+                    actionDispatcher: null,
                     evalCount: 0,
                     lastEvalResponse: null,
                     opcActorStack: [],
                 }; // Populate as we go and assign to response.result iff !response.error.
+
+                // Before we even get started, confirm that that the id is valid.
+                if (request_.id === "demo") {
+                    result.id = arccore.identifier.irut.fromEther();
+                } else {
+                    filterResponse = arccore.identifier.irut.isIRUT(request_.id);
+                    if (filterResponse.error) {
+                        errors.push(filterResponse.error);
+                        break;
+                    }
+                    if (!filterResponse.result) {
+                        errors.push("Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned.");
+                        errors.push(filterResponse.guidance);
+                        break;
+                    }
+                    result.id = request_.id;
+                }
+
+                result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
+                result.name = request_.name;
+                result.description = request_.description;
+
                 // ================================================================
                 // Build a map of ObservableControllerModel instances.
                 // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
@@ -227,11 +269,11 @@ const factoryResponse = arccore.filter.create(
                         errors.push(filterRepsonse.error);
                         break;
                     }
-                    result.operatorDispatcher = filterResponse.result;
+                    result.transitionDispatcher = filterResponse.result;
                 } else {
                     console.log("WARNING: No TransitionOperator class instances have been registered!");
                     // Register a dummy discriminator.
-                    result.operatorDispatcher = { request: function() { return { error: "No TransitionOperator class instances registered!" }; } };
+                    result.transitionDispatcher = { request: function() { return { error: "No TransitionOperator class instances registered!" }; } };
                 }
 
                 // ================================================================
