@@ -79,11 +79,13 @@ function () {
 
     if (this._private.constructionError) {
       console.error("ObservableProcessController::constructor failed: ".concat(this._private.constructionError.error));
-      console.log("================================================================");
     } else {
       console.log("ObservableProcessController::constructor complete.");
-      console.log("================================================================");
     }
+
+    console.log("opci=");
+    console.log(this);
+    console.log("================================================================");
   } // end constructor function
   // ================================================================
   // PUBLIC API METHODS
@@ -187,9 +189,9 @@ function () {
       this._private.lastEvaluationResponse = evalFilterResponse;
       this._private.evalCount++;
       console.log("================================================================");
-      console.log(evalFilterResponse);
-      console.log(JSON.stringify(evalFilterResponse, undefined, 2));
       console.log("ObservableProcessController::_evaluate complete.");
+      console.log("Evaluation response=");
+      console.log(evalFilterResponse);
       console.log("================================================================");
       return evalFilterResponse;
     } // _evaluate method

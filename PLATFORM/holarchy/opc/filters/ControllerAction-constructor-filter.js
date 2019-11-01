@@ -51,9 +51,9 @@ var factoryResponse = arccore.filter.create({
               ____description: "Dot-delimited path to the current OPM instance's associated data in the OPD.",
               ____accept: "jsString"
             },
-            cds: {
-              ____label: "ControllerDataStore Reference",
-              ____description: "A reference to an OPC instance's ControllerDataStore instance.",
+            ocdi: {
+              ____label: "OCD Store Instance",
+              ____description: "A reference to the OCD store instance managed by OPC.",
               ____accept: "jsObject"
             },
             act: {

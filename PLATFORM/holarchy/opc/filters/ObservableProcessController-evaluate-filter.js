@@ -176,6 +176,7 @@ var factoryResponse = arccore.filter.create({
               evalFrame.bindings[key] = opmInstanceFrame;
               evalFrame.summary.counts.bindings++;
               console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
+              console.log("opmInstanceFrame=");
               console.log(opmInstanceFrame); // ****************************************************************
               // ****************************************************************
             } else {
@@ -320,6 +321,7 @@ var factoryResponse = arccore.filter.create({
           var stepDescriptor = opmRef.getStepDescriptor(initialStep);
           console.log("..... Evaluting '".concat(cdsPath, "' instance of ").concat(opmRef.getID(), "::").concat(opmRef.getName(), " ..."));
           console.log("..... ..... model instance is currently at process step '".concat(initialStep, "' stepDescriptor="));
+          console.log("stepDescriptor=");
           console.log(stepDescriptor); // ================================================================
           // ================================================================
           // ================================================================
@@ -338,7 +340,7 @@ var factoryResponse = arccore.filter.create({
             var operatorRequest = {
               context: {
                 namespace: cdsPath,
-                opd: opcRef._private.controllerData,
+                ocdi: opcRef._private.ocdi,
                 transitionDispatcher: opcRef._private.transitionDispatcher
               },
               operator: transitionRule.transitionIf
@@ -402,7 +404,7 @@ var factoryResponse = arccore.filter.create({
               actionRequest: actionRequest,
               context: {
                 dataPath: cdsPath,
-                cds: opcRef._private.controllerData,
+                ocdi: opcRef._private.ocdi,
                 act: opcRef.act
               }
             };
@@ -416,7 +418,6 @@ var factoryResponse = arccore.filter.create({
 
             if (actionResponse.error) {
               console.error(actionResponse.error);
-              console.error(dispatcherRequest);
               _opmInstanceFrame.evalResponse.errors.p2_exit++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
@@ -440,7 +441,7 @@ var factoryResponse = arccore.filter.create({
               actionRequest: _actionRequest,
               context: {
                 dataPath: cdsPath,
-                cds: opcRef._private.controllerData,
+                ocdi: opcRef._private.ocdi,
                 act: opcRef.act
               }
             };
@@ -454,7 +455,6 @@ var factoryResponse = arccore.filter.create({
 
             if (_actionResponse.error) {
               console.error(_actionResponse.error);
-              console.error(_dispatcherRequest);
               _opmInstanceFrame.evalResponse.errors.p3_enter++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
@@ -472,7 +472,7 @@ var factoryResponse = arccore.filter.create({
 
           _opmInstanceFrame.evalResponse.status = "transitioning-finalize";
 
-          var transitionResponse = opcRef._private.controllerData.writeNamespace("".concat(cdsPath, ".opmStep"), nextStep);
+          var transitionResponse = opcRef._private.ocdi.writeNamespace("".concat(cdsPath, ".opmStep"), nextStep);
 
           _opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 

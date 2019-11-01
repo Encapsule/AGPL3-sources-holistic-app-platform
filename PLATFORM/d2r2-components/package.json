@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2-components",
     "version": "0.0.23",
     "codename": "fortine",
-    "buildID": "T4qpsRI6QUOPtlxwI4zIZw",
-    "buildTime": 1572585606,
-    "buildSource": "e7d09bccb2a0d0b6f8f9b35a5da8d9b6318599c6",
+    "buildID": "uIwS6RgQSP6TXZRLvZCQ-g",
+    "buildTime": 1572622696,
+    "buildSource": "a7c9ca3efca10564f560ed640adee72550d556d5",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2-components.git"

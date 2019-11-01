@@ -184,6 +184,7 @@ const factoryResponse = arccore.filter.create({
                             evalFrame.summary.counts.bindings++;
 
                             console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
+                            console.log("opmInstanceFrame=")
                             console.log(opmInstanceFrame);
                             // ****************************************************************
                             // ****************************************************************
@@ -322,6 +323,7 @@ const factoryResponse = arccore.filter.create({
 
                     console.log(`..... Evaluting '${cdsPath}' instance of ${opmRef.getID()}::${opmRef.getName()} ...`);
                     console.log(`..... ..... model instance is currently at process step '${initialStep}' stepDescriptor=`);
+                    console.log("stepDescriptor=");
                     console.log(stepDescriptor);
 
                     // ================================================================
@@ -344,7 +346,7 @@ const factoryResponse = arccore.filter.create({
                         const operatorRequest = {
                             context: {
                                 namespace: cdsPath,
-                                opd: opcRef._private.controllerData,
+                                ocdi: opcRef._private.ocdi,
                                 transitionDispatcher: opcRef._private.transitionDispatcher
                             },
                             operator: transitionRule.transitionIf
@@ -410,7 +412,7 @@ const factoryResponse = arccore.filter.create({
                             actionRequest: actionRequest,
                             context: {
                                 dataPath: cdsPath,
-                                cds: opcRef._private.controllerData,
+                                ocdi: opcRef._private.ocdi,
                                 act: opcRef.act
                             }
                         };
@@ -424,8 +426,6 @@ const factoryResponse = arccore.filter.create({
 
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
-                            console.error(dispatcherRequest);
-
                             opmInstanceFrame.evalResponse.errors.p2_exit++;
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
@@ -449,7 +449,7 @@ const factoryResponse = arccore.filter.create({
                             actionRequest: actionRequest,
                             context: {
                                 dataPath: cdsPath,
-                                cds: opcRef._private.controllerData,
+                                ocdi: opcRef._private.ocdi,
                                 act: opcRef.act
                             }
                         };
@@ -462,8 +462,6 @@ const factoryResponse = arccore.filter.create({
 
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
-                            console.error(dispatcherRequest);
-
                             opmInstanceFrame.evalResponse.errors.p3_enter++;
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
@@ -482,7 +480,7 @@ const factoryResponse = arccore.filter.create({
                     // Update the OPM instance's opmStep flag in the controller data store.
                     opmInstanceFrame.evalResponse.status = "transitioning-finalize";
 
-                    let transitionResponse = opcRef._private.controllerData.writeNamespace(`${cdsPath}.opmStep`, nextStep);
+                    let transitionResponse = opcRef._private.ocdi.writeNamespace(`${cdsPath}.opmStep`, nextStep);
                     opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 
                     if (transitionResponse.error) {

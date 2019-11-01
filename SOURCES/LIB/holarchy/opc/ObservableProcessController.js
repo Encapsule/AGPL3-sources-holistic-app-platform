@@ -71,13 +71,13 @@ class ObservableProcessController {
 
         if (this._private.constructionError) {
             console.error(`ObservableProcessController::constructor failed: ${this._private.constructionError.error}`);
-            console.log("================================================================");
         } else {
             console.log("ObservableProcessController::constructor complete.");
-            console.log("================================================================");
-
         }
 
+        console.log("opci=");
+        console.log(this);
+        console.log("================================================================");
 
     } // end constructor function
 
