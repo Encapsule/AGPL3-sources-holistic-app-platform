@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.23",
     "codename": "fortine",
-    "buildID": "6pVt5UTdSLqCi1j0ZDzJYA",
-    "buildTime": 1572460896,
-    "buildSource": "1fea828360ab90e4f98195d1e464ab82bfbd6438",
+    "buildID": "M1CyjSmgRziu6X_-LDQLqQ",
+    "buildTime": 1572567422,
+    "buildSource": "80dc842798286ae4343475f8e9d2737170881dec",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"

@@ -79,8 +79,8 @@ program.version(holisticMetadata.version).
 console.log("----------------------------------------------------------------");
 console.log("O       o O       o O       o");
 console.log("| O   o | | O   o | | O   o |    holistic-app-generator.js");
-console.log("| | O | | | | O | | | | O | |    Holistic application git repository setup and maintainence utility.");
-console.log(`| o   O | | o   O | | o   O |    @encapsule/holistic v${holisticMetadata.version} "${holisticMetadata.codename}"`);
+console.log("| | O | | | | O | | | | O | |    Holistic application git repository setup and maintenance utility.");
+console.log(`| o   O | | o   O | | o   O |    @encapsule/holistic v${holisticMetadata.version} "${holisticMetadata.codename} ${holisiticMetadata.buildID}"`);
 console.log("o       O o       O o       O");
 console.log("----------------------------------------------------------------");
 

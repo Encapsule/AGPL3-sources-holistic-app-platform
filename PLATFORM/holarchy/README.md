@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.23 "fortine"
 
 ```
-Package: @encapsule/holarchy v0.0.23 "fortine" build ID "6pVt5UTdSLqCi1j0ZDzJYA"
-Sources: Encapsule/holistic#1fea828360ab90e4f98195d1e464ab82bfbd6438
+Package: @encapsule/holarchy v0.0.23 "fortine" build ID "M1CyjSmgRziu6X_-LDQLqQ"
+Sources: Encapsule/holistic#80dc842798286ae4343475f8e9d2737170881dec
 Purpose: library (Node.js)
-Created: 2019-10-30T18:41:36.000Z
+Created: 2019-11-01T00:17:02.000Z
 License: MIT
 ```
 
