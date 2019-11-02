@@ -20,19 +20,26 @@ const factoryResponse = arccore.filter.create({
 
             // Note that if no failure occurs in this filter then response.result will be assigned to OPCI this._private namespace.
             let result = {
+                // meta
                 id: null,
                 iid: null,
                 name: null,
                 description: null,
+
                 opmMap: {},
+
+                ocdTemplateSpec: null,
+                ocdRuntimeSpec: {},
                 opmiSpecPaths: [],
-                ocdSpec: {},
                 ocdi: null,
+
                 operatorDispatcher: null,
                 actionDispatcher: null,
+
                 evalCount: 0,
                 lastEvalResponse: null,
                 opcActorStack: [],
+
             }; // Populate as we go and assign to response.result iff !response.error.
 
             // Before we even get started, confirm that that the id is valid. And, take care of defaulting name and description (that depends on id so that's why we don't use ____defaultValue)
@@ -85,7 +92,8 @@ const factoryResponse = arccore.filter.create({
             // and synthesize the runtime filter spec to be used for OPMI data my merging the
             // OPM's template spec and the developer-defined spec.
             // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
-            let namespaceQueue = [ { lastSpecPath: null , specPath: "~", specRef: request_.observableControllerDataSpec, newSpecRef: result.ocdSpec } ];
+            result.ocdTemplateSpec = request_.ocdTemplateSpec;
+            let namespaceQueue = [ { lastSpecPath: null , specPath: "~", specRef: request_.ocdTemplateSpec, newSpecRef: result.ocdRuntimeSpec } ];
             while (namespaceQueue.length) {
                 // Retrieve the next record from the queue.
                 let record = namespaceQueue.shift();
@@ -137,8 +145,11 @@ const factoryResponse = arccore.filter.create({
             // both world's. Construct OCP correctly, it just works like a standard ES6 class instance. Construct it incorrectly, you get a stillborn
             // instance that will only give you a copy of its death certificate.
             try {
-                result.ocdi = new ControllerDataStore({ spec: result.ocdSpec, data: request_.observableControllerData});
+                result.ocdi = new ControllerDataStore({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
             } catch (exception_) {
+                errors.push("Unfortunately we could not construct the contained OCD instance due to an error.");
+                errors.push("Typically you will encounter this sort of thing when you are working on your ocd template spec and/or your ocd init data and get out of sync.");
+                errors.push("OCD is deliberately _very_ picky. Luckily, it's also quite specific about its objections. Sort through the following and it will lead you to your error.");
                 errors.push(exception_.message);
                 break;
             }
