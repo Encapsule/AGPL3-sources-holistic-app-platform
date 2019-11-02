@@ -50,9 +50,6 @@ As a brief aside, I'm not 100% pleased w/the above as it is still too closely co
 
 So, at some point in the future (maybe early 2020 or whenever we decide this is substantially stable) I intend to do some additional work to @encapsule/holistic monorepo build to make it product docs. And, a distribution package version of `appgen` I can publish in the npm registry for initial public consumption.
 
-
-[![Holistic Platform](https://encapsule.io/images/encapsule-holistic.svg "Holistic Platform")](https://encapsule.io/docs/holistic)
-
 ## Derived apps and services
 
 `./appgen` is an executable alias for the `./PROJECT/GENERATOR/holistic-app-gen.js` script that is used to initialize and subsequently upgrade derived app/service projects.

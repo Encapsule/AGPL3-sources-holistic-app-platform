@@ -1,6 +1,5 @@
 // @encapsule/holistic/SOURCES/LIB/holarchy/opc/filters/iospecs/opc-method-constructor-output-spec.js
 
-
 module.exports = {
     ____types: "jsObject",
 
@@ -28,9 +27,38 @@ module.exports = {
         ____accept: "jsString"
     },
 
-    opmMap: { ____accept: "jsObject" },
+    opmMap: {
+        ____label: "OPM Map",
+        ____description: "A flattend map of the OPM instances passed into the OPC constructor method.",
+        ____types: "jsObject",
+        ____asMap: true,
+        opmId: { // ObservableProcessModel ES6 class instance reference
+            ____label: "OPM Class Instance Reference",
+            ____description: "Reference to an OPM class instance passed to the OPC constructor method.",
+            ____accept: "jsObject" // We do not validate ES6 classes w/filter. They're designed to be valid by construction. Or, in zombie state.
+        }
+    },
 
-    opmiSpecPaths: { ____accept: "jsArray" },
+    opmiSpecPaths: {
+        ____label: "OPMI Spec Paths",
+        ____description: "Array of abstract OPM to OCD data namespace binding descriptors created by the OPC constructor. There will be one element per dev-defined OCD spec namespace w/registered OPM binding appdsl annotation.",
+        ____types: "jsArray",
+        opmiBindingDescriptor: {
+            ____label: "OPMI Binding Descriptor",
+            ____description: "Descriptor object that relates a developer-defined OCD namespace path with its registered OPM instance.",
+            ____types: "jsObject",
+            specPath: {
+                ____label: "OCD Spec Path",
+                ____description: "Filter-style dot-delimited path to the OCD spec namespace with ____appdsl: { opm: IRUT } } annotation.",
+                ____accept: "jsString"
+            },
+            opmiRef: { // ObservableProcessModel ES6 class instance reference
+                ____label: "OPM Class Instance Reference",
+                ____description: "Reference to an OPM class instance passed to the OPC constructor method.",
+                ____accept: "jsObject" // We do not validate ES6 classes w/filter. They're designed to be valid by construction. Or, in zombie state.
+            }
+        }
+    },
 
     ocdSpec: { ____accept: "jsObject" },
 
