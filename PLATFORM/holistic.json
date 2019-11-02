@@ -12,12 +12,12 @@
         {
             "name": "Christopher D. Russell",
             "email": "cdr@encapsule.io",
-            "url": "http://chrisrussell.net"
+            "url": "https://github.com/ChrisRus"
         }
     ],
     "license": "MIT",
-    "buildID": "qzIEyT3fQF-eA0t2KMXuOQ",
-    "buildSource": "51dfe887bbbe8d9f08801cc84dc479e70f2af4bc",
-    "buildTime": 1572623277,
-    "buildDateISO": "2019-11-01T15:47:57.000Z"
+    "buildID": "V9cX10AzToeOjCdEnbCruQ",
+    "buildSource": "e8babe8f26c967abf2c7a60037c0885072acaa6f",
+    "buildTime": 1572710042,
+    "buildDateISO": "2019-11-02T15:54:02.000Z"
 }

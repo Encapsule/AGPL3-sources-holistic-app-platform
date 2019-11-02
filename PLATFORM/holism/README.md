@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.23 "fortine"
 
 ```
-Package: @encapsule/holism v0.0.23 "fortine" build ID "qzIEyT3fQF-eA0t2KMXuOQ"
-Sources: Encapsule/holistic#51dfe887bbbe8d9f08801cc84dc479e70f2af4bc
+Package: @encapsule/holism v0.0.23 "fortine" build ID "V9cX10AzToeOjCdEnbCruQ"
+Sources: Encapsule/holistic#e8babe8f26c967abf2c7a60037c0885072acaa6f
 Purpose: library (Node.js)
-Created: 2019-11-01T15:47:57.000Z
+Created: 2019-11-02T15:54:02.000Z
 License: MIT
 ```
 
@@ -53,4 +53,4 @@ The `@encapsule/holism` library package is published on [npmjs](https://npmjs.co
 
 Published under [MIT](LICENSE) license by [Encapsule Project](https://encapsule.io) Seattle, Washington
 
-Copyright &copy; 2019 [Christopher D. Russell](http://chrisrussell.net)
+Copyright &copy; 2019 [Christopher D. Russell](https://github.com/ChrisRus)

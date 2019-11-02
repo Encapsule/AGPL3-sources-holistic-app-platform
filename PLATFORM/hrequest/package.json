@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.23",
     "codename": "fortine",
-    "buildID": "qzIEyT3fQF-eA0t2KMXuOQ",
-    "buildTime": 1572623277,
-    "buildSource": "51dfe887bbbe8d9f08801cc84dc479e70f2af4bc",
+    "buildID": "V9cX10AzToeOjCdEnbCruQ",
+    "buildTime": 1572710042,
+    "buildSource": "e8babe8f26c967abf2c7a60037c0885072acaa6f",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
@@ -14,7 +14,7 @@
         {
             "name": "Christopher D. Russell",
             "email": "cdr@encapsule.io",
-            "url": "http://chrisrussell.net"
+            "url": "https://github.com/ChrisRus"
         }
     ],
     "license": "MIT",
