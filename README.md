@@ -2,85 +2,97 @@
 
 # Encapsule/holistic
 
-## Access
-
-The `Encapsule/holistic` repository will be published under the MIT license later in 2019 when it is both stable and well-documented. But, until it's ready this repository is **private** and accessible only to specific members of the Encapsule Project GitHub organization. **DO NOT PUBLISH**
-
 ## Summary
 
-This repository provides common dependency management, build, test, and packaging for the Encapsule Project application development stack for Node.js/HTML5.
+This repo serves as my development home base for working on the platform runtime libraries and tools behind the `appgen` script.
 
-## Packages
+Briefly, `appgen` creates and updates a derived app and/or service project in a separate repo through code generation, and interaction with your locally installed `git`.
 
-The following Encapsule Project Node.js packages are generated from source code and build process versioned in this git repository:
+The files created include:
 
-- [@encapsule/holism](https://github.com/Encapsule/holism) - Declaratively-configured HTTP 1.1 application server for Node.js extensible with plug-in filter objects.
-- [@encapsule/holistic](https://github.com/Encapsule/holistic) - Framework for buiding full-stack Node.js/HTML5 applications derived from React and Encapsule Project infrastructure.
-- [@encapsule/hrequest](https://github.com/Encapsule/hrequest) - Declaratively-configured asynchronous HTTP request filters for Node.js and browser clients.
-- [@encapsule/holarchy](https://github.com/Encapsule/holarchy) - future library not yet published
-- [@encapsule/holan](https://github.com/Encapsule/holan) - future library not yet published
+- Project configuration artifacts such as `package.json` and `yarn.lock` that define all of required dependencies and versions.
+- `Makefile` with registered shortcuts in `package.json` that builds, tests, and packages a derived "holistic application" for test deployment on localhost. Or, wherever in the cloud.
+- Copies of the latest @encapsule/holistic runtime library packages.
 
-Distribution packages (i.e. they have a `package.json` file) are built from sources stored in the `SOURCES/LIB` directory.
+## Documentation
 
-The build process is codified as a GNU Makefile that leverages 3rd-party and custom tools stored in `node_modules` and `PROJECT` directories respectively.
+Currently, there's no documentation about how to use the holistic platform.
 
-Final distribution packages are staged into the `DISTS/LIB` directory.
+The goal was (is) to only write documentation manually for _arccore_. And, then never again. The code should self-document thereafter.
 
-Disitribution packages are symbolically linked into this package's `node_modules` directory.
+I want to see if this is possible for @encapsule/holistic. And, I want to see what points people find difficult to understand and apply.
 
-## Applications
+An approach where we incrementally add documentation by (e.g.) creating a markdown doc w/a script that runs during build time seems feasible.
 
-### Infusion
+## Encpasule/holistic monorepo access
 
-#### Asset Generation
+@encapsule/holistic repo on GitHub is managed by me (i.e. [ChrisRus](https://github.com/ChrisRus)).
 
-##### package.json
+The work contained in this repo + the @encapsule/arccore package represent a massive investment (risk) over many years.
 
-- `yarn run` targets
-    - install
-    - clean
-    - build
-    - test
-    - start
-    - package
-- 3rd-party build/test/runtime dependencies
-    - Application-specific dependencies (from application's original package.json)
-    - Holistic framework dependencies (from holistic framework package)
+Please use GitHub 2FA and protect your access to this repo.
 
-##### yarn.lock
-    - udpated commit hashes for any/all of the application's build/test/packaging/and runtime dependencies
+### License
 
-##### Runtime
-    - Inline copies of the core runtime libraries that comprise the holistic web application framework.
+The `appgen` utility writes MIT-licensed files into an external project repo. It's the files that are written to the external repo that are MIT-licensed.
 
+Those resources are built, tested, and perfected here in this repo. But, this repo **is not a community open source project.**
 
-### Catridges
+Rather, it is part of a long-running effort to adapt a set of design principles and practices to modern web development and distributed cloud services.
+
+And, it's not currently public in any form. Let's keep it that way until we prove it's worth all the effort it took to build it.
+
+So offically, you shouldn't take anything from this repo and bolt it into your whatever you're building unless it got put into your repo by `appgen`. Then it's MIT-licensed and you can do whatever you like with it.
+
+### Next steps
+
+As a brief aside, I'm not 100% pleased w/the above as it is still too closely coupled to derived app service development.
+
+So, at some point in the future (maybe early 2020 or whenever we decide this is substantially stable) I intend to do some additional work to @encapsule/holistic monorepo build to make it product docs. And, a distribution package version of `appgen` I can publish in the npm registry for initial public consumption.
 
 
+[![Holistic Platform](https://encapsule.io/images/encapsule-holistic.svg "Holistic Platform")](https://encapsule.io/docs/holistic)
+
+## Derived apps and services
+
+`./appgen` is an executable alias for the `./PROJECT/GENERATOR/holistic-app-gen.js` script that is used to initialize and subsequently upgrade derived app/service projects.
+
+It works by using your local Node.js installation as an execution host from where it performs code generation, filesystem operations, and git interactions with your local clone (or new) git repo.
+
+### Create a new holistic app project
+
+```
+$ mkdir test
+$ cd test
+$ git init
+$ yarn init
+$ git commit -a
+$ appgen
+$ git status // see what it did
+$ git commit -a
+$ Makefile
+// ? :) it crashes due to missing entry point(s)
+```
+
+What this gets you is a pristine environment to build holistic platform-derived apps (+ React). All setup. Ready to go.
+
+But, `appgen` doesn't actually build your app. It just sets you up to build your app using a pre-configured build environment that includes:
+
+- `Makefile` that controls everything.
+- Managed platform and application dependencies.
+- Dependency checking and version checking.
+- Synthesized `package.json`.
+- Tool chains for building, packaging and, testing:
+    - eslint for source code static analysis
+    - Babel toolchain for transpilation of sources
+    - webpack for bundling hundreds of discrete JavaScript files into a single bundle we can version and tag for aggressive caching.
+- Developer shortcuts for common build, debug, clean, package, publish operations.
+- Copies of @encapsule/holistic platform RTL packages (currently eight of them) registered via package.json (so referenced normally - not from SOURCE tree)
+- Dependency on @encapsule/arccore (1 package containing 8 libs).
+- Dependency on @encapsule/arctools (1 package containing a small collection of useful command line scripts that are registered under your project's `./node_modules/.bin/`
 
 <hr>
 
 Published by [Encapsule Project](https://encapsule.io) Seattle, Washington
 
-Copyright &copy; 2011-2019 [Christopher D. Russell](http://chrisrussell.net)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Copyright &copy; 2011-2019 [Christopher D. Russell](https://github.com/ChrisRus)
