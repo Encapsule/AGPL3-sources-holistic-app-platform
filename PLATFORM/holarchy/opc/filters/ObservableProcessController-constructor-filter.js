@@ -127,7 +127,7 @@ var factoryResponse = arccore.filter.create({
             var _opm = result.opmMap[_opmID];
             result.opmiSpecPaths.push({
               specPath: record.specPath,
-              opmRef: _opm
+              opmiRef: _opm
             });
             var opcSpecOverlay = {
               ____types: "jsObject"
