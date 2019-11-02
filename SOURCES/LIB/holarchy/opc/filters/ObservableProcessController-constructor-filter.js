@@ -100,7 +100,7 @@ const factoryResponse = arccore.filter.create({
                     if (arccore.identifier.irut.isIRUT(opmID).result) {
                         // Save the spec path and opmRef in an array.
                         const opm = result.opmMap[opmID];
-                        result.opmiSpecPaths.push({ specPath: record.specPath, opmRef: opm });
+                        result.opmiSpecPaths.push({ specPath: record.specPath, opmiRef: opm });
                         const opcSpecOverlay = {
                             ____types: "jsObject",
                         };
