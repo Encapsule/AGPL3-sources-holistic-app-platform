@@ -3,8 +3,9 @@
 
 const arccore = require("@encapsule/arccore");
 const SimpleStopwatch = require("./SimpleStopwatch");
-const opcEvaluateRequestSpec = require("./ObservableProcessController-evaluate-filter-input-spec");
-const opcEvaluateResultSpec = require("./ObservableProcessController-evaluate-filter-output-spec");
+
+const opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-spec");
+const opcMethodEvaluateOutputSpec = require("./iospecs/opc-method-evaluate-output-spec");
 
 const maxEvalFrames = 10; // TODO: Migrate to constructor input w/default value.
 
@@ -13,8 +14,8 @@ const factoryResponse = arccore.filter.create({
     operationID: "T7PiatEGTo2dbdy8jOMHQg",
     operationName: "OPC Evaluation Filter",
     operationDescription: "Encapsulates the OPC's core OPM instance evaluation algorithm providing a detailed audit trail of the algorithm's execution.",
-    inputFilterSpec:  opcEvaluateRequestSpec,
-    outputFilterSpec: opcEvaluateResultSpec,
+    inputFilterSpec:  opcMethodEvaluateInputSpec,
+    outputFilterSpec: opcMethodEvaluateOutputSpec,
 
     bodyFunction: function(opcEvaluateRequest_) {
 
