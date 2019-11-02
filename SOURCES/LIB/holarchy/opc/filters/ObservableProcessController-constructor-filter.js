@@ -9,28 +9,29 @@ const factoryResponse = arccore.filter.create(
         operationDescription: "Filter used to normalize the request descriptor object passed to ObservableProcessController constructor function.",
         inputFilterSpec: {
             ____label: "OPC Constructor Request",
-            ____description: "Reqeust descriptor object passed to the constructor of the ObservableProcessController class.",
+            ____description: "ObservableProcessController::constructor function delegates its single in-param to this filter that uses the following filter spec to validate/normalize it before executing bodyFunction.",
             ____types: "jsObject",
             id: {
-                ____label: "OPC ID",
-                ____description: "An IRUT identifier assigned to this specific OPC configuration.",
-                ____accept: "jsString",
+                // holistic-derived apps inherit a platform dependency on @encapsule/arctools package that is installed in
+                // the derived app's node_modules directory w/tools registered in node_modules/.bin/arc*. From the root
+                // of your package, $ ./node_modules/.bin/arc_generateIRUT
+                ____label: "OCP System VIID IRUT",
+                ____description: "Developer-assigned unique 22-character IRUT identifier used as the Version-Independent Indentifier (VIID) of this specific OCP system model. (preferred but optional) ",
+                ____accept: "jsString" // IRUT (preferred) or "demo" to receive one-time random IRUT (enforced in bodyFunction)
             },
             name: {
-                ____label: "OPC Name",
-                ____description: "A short name given to this specific OCP configuration.",
-                ____accept: "jsString",
-                ____defaultValue: "[no name was declared this OPCI]"
+                ____label: "OCP System Name",
+                ____description: "Developer-defined short name assigned to this OPC system model.",
+                ____accept: [ "jsString", "jsUndefined" ] // default assigned conditionally in bodyFunction
             },
             description: {
-                ____label: "OPC Description",
-                ____description: "A short descripion of the function and/or role of this OPC configuration.",
-                ____accept: "jsString",
-                ____defaultValue: "[no description was declared for this OPCI]"
+                ____label: "OCP System Description",
+                ____description: "Developer-defined short descripion of the function and/or role of this OPC configuration.",
+                ____accept: [ "jsString", "jsUndefined" ] // default assigned conditionally in bodyFunction
             },
             observableControllerDataSpec: {
-                ____label: "OCD Filter Spec",
-                ____description: "Filter spec defining the structure and OPM binding semantics of the OPCI's shared OPDI store.",
+                ____label: "OCD Filter Specification",
+                ____description: "A developer-defined arccore.filter specification that defines a strongly-typed memory store that is used in lieu of the stack to maintain process state.",
                 ____accept: "jsObject",
                 ____defaultValue: {
                     ____label: "Default OCD Filter Spec",
@@ -40,8 +41,8 @@ const factoryResponse = arccore.filter.create(
             },
             observableControllerData: {
                 ____label: "OCD Init Data",
-                ____description: "Reference to data to be used to construct the OPCI's shared OPDI store.",
-                ____accept: "jsObject",
+                ____description: "Reference to data to be used to construct the OPCI's shared OCD store.",
+                ____accept: "jsObject", // OCD store instances are always modeled as a descriptor object.
                 ____defaultValue: {}
             },
             observableProcessModelSets: {
@@ -137,7 +138,7 @@ const factoryResponse = arccore.filter.create(
                     opcActorStack: [],
                 }; // Populate as we go and assign to response.result iff !response.error.
 
-                // Before we even get started, confirm that that the id is valid.
+                // Before we even get started, confirm that that the id is valid. And, take care of defaulting name and description (that depends on id so that's why we don't use ____defaultValue)
                 if (request_.id === "demo") {
                     result.id = arccore.identifier.irut.fromEther();
                 } else {
@@ -155,8 +156,8 @@ const factoryResponse = arccore.filter.create(
                 }
 
                 result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
-                result.name = request_.name;
-                result.description = request_.description;
+                result.name = request_.name?request_.name:`[ no name specified for OCPI "${result.id}" ]`;
+                result.description = request_.descriptor?request_.descriptor:`[ no description specified for OCP "${result.id}" ]`;
 
                 // ================================================================
                 // Build a map of ObservableControllerModel instances.
