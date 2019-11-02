@@ -26,23 +26,32 @@ module.exports = {
     ____accept: ["jsString", "jsUndefined"] // default assigned conditionally in bodyFunction
 
   },
-  observableControllerDataSpec: {
-    ____label: "OCD Filter Specification",
-    ____description: "A developer-defined arccore.filter specification that defines a strongly-typed memory store that is used in lieu of the stack to maintain process state.",
+  ocdTemplateSpec: {
+    ____label: "OCD Template Spec",
+    ____description: "A developer-defined filter spec that defines a hierarchy of namespace names, type, value constraint, and default values along with OPM bindings that are used as a template to deduce the runtime OCD spec.",
     ____accept: "jsObject",
     ____defaultValue: {
-      ____label: "Default OCD Filter Spec",
-      ____description: "No OCD data spec specified so you get the default.",
-      ____types: "jsObject"
+      ____label: "Default OCD Template Spec",
+      ____description: "No OCD data spec specified so you get the default which doesn't do a whole lot...",
+      ____types: "jsObject",
+      ____defaultValue: {},
+      // omit and it will cascade into an OPC default constructor failure
+      message: {
+        ____label: "Hello Message",
+        ____description: "This is a placeholder for the default hello, world! message.",
+        ____accept: "jsString",
+        ____defaultValue: "Hello, world!"
+      }
     }
   },
-  observableControllerData: {
-    ____label: "OCD Init Data",
-    ____description: "Reference to data to be used to construct the OPCI's shared OCD store.",
+  ocdInitData: {
+    ____label: "Initial State Data",
+    ____description: "Optional reference to a descriptor object containing full or partial information to be passed to the OCD constructor. This information is applied during construction and prior to first evaluation.",
     ____accept: "jsObject",
     // OCD store instances are always modeled as a descriptor object.
     ____defaultValue: {}
   },
+  // ^^ --- just reworked and don't trust ... v--- not yet touched
   observableProcessModelSets: {
     ____label: "Observable Process Model Sets",
     ____description: "An array of arrays of unique ObservableProcessModel class instances.",

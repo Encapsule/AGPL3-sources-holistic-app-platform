@@ -58,8 +58,17 @@ module.exports = {
       }
     }
   },
-  ocdSpec: {
-    ____accept: "jsObject"
+  ocdTemplateSpec: {
+    ____label: "OCD Template Spec",
+    ____description: "Copy of the developer-defined OCD template spec passed to OCP constructor.",
+    ____accept: "jsObject" // You can't filter a filter spec w/a filter spec. But you can accept an opaque object and validate the incoming spec by building a filter which is what we do here.
+
+  },
+  ocdRuntimeSpec: {
+    ____label: "OCD Runtime Spec",
+    ____description: "OCP constructor synthesizes the OCD runtime spec from the dev-defined OCD template spec, its specific OPM bindings, and the set of registered OPM instances passed to the constructor.",
+    ____accept: "jsObject" // You can't filter a filter spec w/a filter spec. But you can accept an opaque object and validate the incoming spec by building a filter which is what we do here.
+
   },
   ocdi: {
     ____accept: "jsObject"
