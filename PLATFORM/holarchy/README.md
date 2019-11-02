@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.23 "fortine"
 
 ```
-Package: @encapsule/holarchy v0.0.23 "fortine" build ID "qzIEyT3fQF-eA0t2KMXuOQ"
-Sources: Encapsule/holistic#51dfe887bbbe8d9f08801cc84dc479e70f2af4bc
+Package: @encapsule/holarchy v0.0.23 "fortine" build ID "uV5abI1oQwuDPwNZt5mEiQ"
+Sources: Encapsule/holistic#abd32843d407f333831010e31c4d1d6cc3786f05
 Purpose: library (Node.js)
-Created: 2019-11-01T15:47:57.000Z
+Created: 2019-11-02T14:18:33.000Z
 License: MIT
 ```
 
@@ -51,4 +51,4 @@ The `@encapsule/holarchy` library package is published on [npmjs](https://npmjs.
 
 Published under [MIT](LICENSE) license by [Encapsule Project](https://encapsule.io) Seattle, Washington
 
-Copyright &copy; 2019 [Christopher D. Russell](http://chrisrussell.net)
+Copyright &copy; 2019 [Christopher D. Russell](https://github.com/ChrisRus)

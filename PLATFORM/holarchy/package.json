@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.23",
     "codename": "fortine",
-    "buildID": "qzIEyT3fQF-eA0t2KMXuOQ",
-    "buildTime": 1572623277,
-    "buildSource": "51dfe887bbbe8d9f08801cc84dc479e70f2af4bc",
+    "buildID": "uV5abI1oQwuDPwNZt5mEiQ",
+    "buildTime": 1572704313,
+    "buildSource": "abd32843d407f333831010e31c4d1d6cc3786f05",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
@@ -14,7 +14,7 @@
         {
             "name": "Christopher D. Russell",
             "email": "cdr@encapsule.io",
-            "url": "http://chrisrussell.net"
+            "url": "https://github.com/ChrisRus"
         }
     ],
     "license": "MIT",
