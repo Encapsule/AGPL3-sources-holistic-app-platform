@@ -77,11 +77,11 @@ program.version(holisticMetadata.version).
     parse(process.argv);
 
 console.log("----------------------------------------------------------------");
-console.log("O       o O       o O       o");
-console.log("| O   o | | O   o | | O   o |    holistic-app-generator.js");
-console.log("| | O | | | | O | | | | O | |    Holistic application git repository setup and maintenance utility.");
-console.log(`| o   O | | o   O | | o   O |    @encapsule/holistic v${holisticMetadata.version} "${holisticMetadata.codename} ${holisticMetadata.buildID}"`);
-console.log("o       O o       O o       O");
+console.log(`O       o O       o O       o    holistic-app-gen.js - SaaS/PaaS software development and runtime platform generation utility.`);
+console.log(`| O   o | | O   o | | O   o |    Holistic App Platform tools and lib sources are Copyright (C) ${holisticMetadata.copyright.year} ${holisticMetadata.copyright.holder}`);
+console.log(`| | O | | | | O | | | | O | |    Files created by this program are MIT-licensed assets managed and controlled by project owners.`);
+console.log(`| o   O | | o   O | | o   O |    ${holisticMetadata.author}/${holisticMetadata.name} v${holisticMetadata.version} ${holisticMetadata.codename} created ${holisticMetadata.buildDateISO}`);
+console.log(`o       O o       O o       O    commit: ${holisticMetadata.buildSource} build: ${holisticMetadata.buildID}`);
 console.log("----------------------------------------------------------------");
 
 
