@@ -1,7 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
-const constructorRequestFilter = require("./filters/ObservableProcessController-constructor-filter");
-const evaluateFilter = require("./filters/ObservableProcessController-evaluate-filter");
+const constructorRequestFilter = require("./filters/opc-method-constructor-filter");
+const evaluateFilter = require("./filters/opc-method-evaluate-filter");
 
 class ObservableProcessController {
 

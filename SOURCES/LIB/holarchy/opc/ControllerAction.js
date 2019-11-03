@@ -1,5 +1,5 @@
 
-const constructorFilter = require("./filters/ControllerAction-constructor-filter");
+const constructorFilter = require("./filters/cac-method-constructor-filter");
 
 module.exports = class ControllerAction {
     constructor(constructionData_) {

@@ -1,5 +1,5 @@
 
-const constructorRequestFilter = require("./filters/ObservableProcessModel-constructor-filter");
+const constructorRequestFilter = require("./filters/opm-method-constructor-filter");
 
 class ObservableProcessModel {
 
