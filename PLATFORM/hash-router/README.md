@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.23 "fortine"
 
 ```
-Package: @encapsule/hash-router v0.0.23 "fortine" build ID "4hlbBKHQSXiGQO68eZ2DQw"
-Sources: Encapsule/holistic#152c38f6546206fa400385a9e952b2f7e9af7bba
+Package: @encapsule/hash-router v0.0.23 "fortine" build ID "4F6wUjeETsCP0vr_zAOMKA"
+Sources: Encapsule/holistic#5661187528e839bdaf160d6e77d5a2c1f022209f
 Purpose: library (Node.js)
-Created: 2019-11-02T22:15:39.000Z
+Created: 2019-11-03T17:03:49.000Z
 License: MIT
 ```
 
