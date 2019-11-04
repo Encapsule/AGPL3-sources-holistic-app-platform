@@ -8,9 +8,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var arccore = require("@encapsule/arccore");
 
-var constructorRequestFilter = require("./filters/ObservableProcessController-constructor-filter");
+var constructorRequestFilter = require("./filters/opc-method-constructor-filter");
 
-var evaluateFilter = require("./filters/ObservableProcessController-evaluate-filter");
+var evaluateFilter = require("./filters/opc-method-evaluate-filter");
 
 var ObservableProcessController =
 /*#__PURE__*/

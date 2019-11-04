@@ -2,7 +2,7 @@
 
 var packageMeta = require("./package.json");
 
-var ControllerDataStore = require("./opc/ControllerDataStore");
+var ObservableControllerData = require("./opc/ObservableControllerData");
 
 var ObservableProcessController = require("./opc/ObservableProcessController");
 
@@ -23,9 +23,6 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
-  // DEPRECATED: ApplicationStateController is deprecated. We will be migrating to ObservableProcessController that allocates and manages an instance of ObservableProcessData.
-  // So we will no longer need to export the class; clients of the @encapsule/holarchy library need only instantiate ObservableProcessController instance.
-  ApplicationDataStore: ControllerDataStore,
   // Observable Process Controller ES6 class.
   ObservableProcessController: ObservableProcessController,
   // Observable Process Model ES6 class.
@@ -36,5 +33,9 @@ module.exports = {
   ControllerAction: ControllerAction,
   core: {
     TransitionOperators: TransitionOperators
-  }
+  },
+  // ================================================================
+  // DEPRECATED: ApplicationStateController is deprecated. We will be migrating to ObservableProcessController that allocates and manages an instance of ObservableProcessData.
+  // So we will no longer need to export the class; clients of the @encapsule/holarchy library need only instantiate ObservableProcessController instance.
+  ApplicationDataStore: ObservableControllerData
 };

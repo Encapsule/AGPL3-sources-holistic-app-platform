@@ -51,7 +51,6 @@ module.exports = {
     // OCD store instances are always modeled as a descriptor object.
     ____defaultValue: {}
   },
-  // ^^ --- just reworked and don't trust ... v--- not yet touched
   observableProcessModelSets: {
     ____label: "Observable Process Model Sets",
     ____description: "An array of arrays of unique ObservableProcessModel class instances.",

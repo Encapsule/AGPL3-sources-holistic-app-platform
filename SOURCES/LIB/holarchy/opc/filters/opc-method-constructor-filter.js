@@ -1,5 +1,5 @@
 const arccore = require("@encapsule/arccore");
-const ControllerDataStore = require("../ControllerDataStore");
+const ObservableControllerData = require("../ObservableControllerData");
 
 const opcMethodConstructorInputSpec = require("./iospecs/opc-method-constructor-input-spec");
 const opcMethodConstructorOutputSpec = require("./iospecs/opc-method-constructor-output-spec");
@@ -145,7 +145,7 @@ const factoryResponse = arccore.filter.create({
             // both world's. Construct OCP correctly, it just works like a standard ES6 class instance. Construct it incorrectly, you get a stillborn
             // instance that will only give you a copy of its death certificate.
             try {
-                result.ocdi = new ControllerDataStore({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
+                result.ocdi = new ObservableControllerData({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
             } catch (exception_) {
                 errors.push("Unfortunately we could not construct the contained OCD instance due to an error.");
                 errors.push("Typically you will encounter this sort of thing when you are working on your ocd template spec and/or your ocd init data and get out of sync.");

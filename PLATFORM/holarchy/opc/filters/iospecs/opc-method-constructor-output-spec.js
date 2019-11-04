@@ -89,22 +89,40 @@ module.exports = {
     ____accept: "jsObject" // We do not validate ES6 classes w/filter. They're designed to be valid by construction. Or, in zombie state.
 
   },
+  // Created by the opc constructor filter. Used to implement OPC's plug-and-play runtime type-safe logical transition operator expression grammar and evaluation engine.
   transitionDispatcher: {
-    ____accept: "jsObject"
+    ____label: "Transition Operator MR Dispatcher",
+    ____description: "Filter that accepts an arbitrary request message that is routed to 1:N registered TransitionOperator class instances based on the request message signature.",
+    ____accept: "jsObject" // this is an arcccore.discriminator filter instance reference that we do not further validate here
+
   },
+  // Created by the opc constructor filter. Used to implement OPC's plug-and-play runtime type-safe controller action command grammar and evaluation engine.
   actionDispatcher: {
-    ____accept: "jsObject"
+    ____label: "Controller Action MR Dispatcher",
+    ____description: "Filter that accepts an arbitrary request message this routed to 1:N registered ControllerAction class instances based on the request message signature.",
+    ____accept: "jsObject" // this is an arccore.discriminator filter instance reference that we do not furhter validate here
+
   },
+  // Created by the opc constructor filter. Post-construction this value is managed by the public OPC.act method.
+  opcActorStack: {
+    ____label: "Actor Stack",
+    ____description: "Actor stack tracks the depth of calls through the public OPC.act method in order to automatically trigger re-evaluation of the OPC's hosted system model upon completion of every external invocation.",
+    ____accept: "jsArray",
+    ____defaultValue: []
+  },
+  // Created by the opc constructor filter. Post-construction this value is managed by the OPC evalaution filter.
   evalCount: {
+    ____label: "OPC Instance Eval Count",
+    ____description: "The total number of times this OPC instance's hosted system definition has been evaluated. This is a useful high-level metric for determining if and how much an OPC instance is being used.",
     ____accept: "jsNumber",
     ____defaultValue: 0
   },
+  // Created by the opc constructor filter. Post-construction this value is managed by the OPC evaluation filter.
   lastEvalResponse: {
+    ____label: "OPC Evaluation Report Descriptor",
+    ____description: "A complex descriptor object containing a hierarchical audit of the execution of OPC's evaluation filter algorithm.",
     ____accept: ["jsObject", "jsNull"],
-    ____defaultValue: null
-  },
-  opcActorStack: {
-    ____accept: "jsArray",
-    ____defaultValue: []
+    ____defaultValue: null // null indicates that initial post-construction evaluation of the OPC's system model has not yet been completed.
+
   }
-};
+}; // OPC constructor filter response.result --> OPC this._private in the OPC::constructor function

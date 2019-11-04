@@ -6,7 +6,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var arccore = require("@encapsule/arccore");
 
-var ControllerDataStore = require("../ControllerDataStore");
+var ObservableControllerData = require("../ObservableControllerData");
 
 var opcMethodConstructorInputSpec = require("./iospecs/opc-method-constructor-input-spec");
 
@@ -181,7 +181,7 @@ var factoryResponse = arccore.filter.create({
 
 
       try {
-        result.ocdi = new ControllerDataStore({
+        result.ocdi = new ObservableControllerData({
           spec: result.ocdRuntimeSpec,
           data: request_.ocdInitData
         });

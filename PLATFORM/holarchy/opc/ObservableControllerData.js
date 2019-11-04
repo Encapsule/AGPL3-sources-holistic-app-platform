@@ -10,17 +10,17 @@ var arccore = require("@encapsule/arccore");
 
 var getNamespaceInReferenceFromPathFilter = require("./filters/get-namespace-in-reference-from-path");
 
-var ControllerDataStore =
+var ObservableControllerData =
 /*#__PURE__*/
 function () {
-  // request = { spec: object, data: variant }
-  function ControllerDataStore(request_) {
-    _classCallCheck(this, ControllerDataStore);
+  // request = { spec: filter descriptor object, data: variant }
+  function ObservableControllerData(request_) {
+    _classCallCheck(this, ObservableControllerData);
 
     var factoryResponse = arccore.filter.create({
       operationID: "3aDV_cacQByO0tTzVrBxnA",
-      operationName: "Controller Data Store Constructor",
-      operationDescription: "Constructs an in-memory data structure used to maintain shared controller data at runtime.",
+      operationName: "OCD Constructor Request Processor",
+      operationDescription: "Validate/normalize data per input spec to deduce initial runtime value of the state data managed by an OPC class instance.",
       inputFilterSpec: request_.spec
     });
 
@@ -52,7 +52,7 @@ function () {
   } // end constructor
 
 
-  _createClass(ControllerDataStore, [{
+  _createClass(ObservableControllerData, [{
     key: "toJSON",
     value: function toJSON() {
       // Only return the data; no other runtime state maintained by this class instance should ever be serialized.
@@ -281,8 +281,8 @@ function () {
 
   }]);
 
-  return ControllerDataStore;
-}(); // class ControllerDataStore
+  return ObservableControllerData;
+}(); // class ObservableControllerData
 
 
-module.exports = ControllerDataStore;
+module.exports = ObservableControllerData;
