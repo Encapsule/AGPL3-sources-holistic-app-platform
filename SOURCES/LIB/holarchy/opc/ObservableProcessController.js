@@ -165,7 +165,7 @@ class ObservableProcessController {
         this._private.evalCount++;
         console.log("================================================================");
         console.log("ObservableProcessController::_evaluate complete.");
-        console.log("Evaluation response=");
+        console.log("evalResponse=");
         console.log(evalFilterResponse);
         console.log("================================================================");
         return evalFilterResponse;

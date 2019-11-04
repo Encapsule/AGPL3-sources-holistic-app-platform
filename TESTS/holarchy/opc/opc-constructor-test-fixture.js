@@ -17,12 +17,25 @@ let testNumber = 1;
 // Module under test
 const { ObservableProcessController } = require("../../../PLATFORM/holarchy");
 
+/*
+  {
+    id: IRUT
+    name: test name
+    description: test description
+    opcRequest: optional opc constructor request descriptor obejct
+    expectedError: null | expected construction error
+    expectedResults: {
+        ocdRuntimeSpec: synthesize filter spec
+    }
+   }
+*/
+
 module.exports = function(testRequest_) {
 
     let opci = null;
     let opciStatusDescriptor = null;
 
-    describe(`ObservableProcessController Test Harness Test ${testNumber++} :: name: "${testRequest_.name}" description: "${testRequest_.description}"`, function() {
+    describe(`OPC test fixture run ${testNumber++} test id "${testRequest_.id}" // ${testRequest_.name}: ${testRequest_.description}`, function() {
 
         before(function() {
             const constructionWrapper = function() {
@@ -56,7 +69,7 @@ module.exports = function(testRequest_) {
                 assert.property(opciStatusDescriptor.response, "result");
             });
 
-            if (testRequest_.opciResponse.error) {
+            if (testRequest_.expectedError) {
 
                 describe("opc construction is expected to fail and return a zombie ocpi", function() {
 
@@ -70,9 +83,10 @@ module.exports = function(testRequest_) {
                         assert.property(opciStatusDescriptor.response, "result");
                     });
 
-                    it("opci constructor response error should match expected value", function() {
+                    it("opci constructor response error should match expected value by equal comparison", function() {
                         assert.isString(opciStatusDescriptor.response.error);
-                        assert.equal(opciStatusDescriptor.response.error, testRequest_.opciResponse.error);
+                        // equal compare creates a short error and compact log of actual vs expected that's easy to cut/paste to editor for analysis, and if okay to expected error/results
+                        assert.equal(opciStatusDescriptor.response.error, testRequest_.expectedError);
                     });
 
                     it("opci constructor response result should be false", function() {
@@ -101,7 +115,7 @@ module.exports = function(testRequest_) {
 
                         it("opci zombie method response error should match expected", function() {
                             assert.isString(zombieCheckResponse.error);
-                            assert.equal(zombieCheckResponse.error, testRequest_.opciResponse.error);
+                            assert.equal(zombieCheckResponse.error, testRequest_.expectedError);
                         });
 
                     });
@@ -125,7 +139,7 @@ module.exports = function(testRequest_) {
 
                         it("opci zombie method response error should match expected", function() {
                             assert.isString(zombieCheckResponse.error);
-                            assert.equal(zombieCheckResponse.error, testRequest_.opciResponse.error);
+                            assert.equal(zombieCheckResponse.error, testRequest_.expectedError);
                         });
 
                     });
@@ -147,6 +161,29 @@ module.exports = function(testRequest_) {
                         assert.property(opciStatusDescriptor.response, "result");
                     });
 
+                    if (testRequest_.expectedResults) {
+
+                        describe("Inspecting OCP instance state against expectations.", function() {
+
+                            it("OPCI should have a _private namespace", function() {
+                                assert.property(opci, "_private");
+                                assert.isObject(opci._private);
+                            });
+
+                            it("OCPI._private should an ocdRuntimeSpec namespace", function() {
+                                assert.property(opci._private, "ocdRuntimeSpec");
+                                assert.isObject(opci._private.ocdRuntimeSpec);
+                            });
+
+                            // We perform this comparison using JSON strings because filter specs are _alway_ deserialized JSON. No functions or higher-order types in filter specs at all by design.
+                            it("OPCI._private.ocdRuntimeSpec filter spec should match expected value (JSON comparison)", function() {
+                                assert.deepEqual(JSON.stringify(opci._private.ocdRuntimeSpec), testRequest_.expectedResults.ocdRuntimeSpecJSON);
+                            });
+
+
+                        });
+
+                    }
 
                 });
 
