@@ -48,20 +48,21 @@ function () {
       // ****************************************************************
       // KEEP A COPY OF THE NORMALIZED OUTPUT OF THE CONSTRUCTION FILTER
       // We no longer care about the request input; internal methods
-      // should only access this._private. External access to this values
-      // at your own peril as no gaurantee whatsoever across versions
-      // is made on _prviate namespace entities.
+      // should only access this._private. Clients of this class should
+      // not deference data in an OPC instance's _private namespace.
+      // The names, types, and semantics of this information can change
+      // release to release as an implementation of this library. Only
+      // ever rely on public methods which we will try to keep stable.
+      //
 
 
-      this._private = filterResponse.result; // TODO: Evaluate and trim as a later optimization to reduce per-instance memory overhead.
-      // ----------------------------------------------------------------
-      // Wake the beast up...
-      // TODO: I am not 100% sure it's the best choice to perform the preliminary evaluation in the constructor.
+      this._private = filterResponse.result; // ----------------------------------------------------------------
+      // Wake the beast up... Perform the initial post-construction evaluation.
 
       filterResponse = this._evaluate();
 
       if (filterResponse.error) {
-        errors.push("Failed while executing first system evaluation.");
+        errors.push("Failed while executing the first post-construction system evaluation.");
         errors.push(filterResponse.error);
         break;
       }
@@ -174,11 +175,6 @@ function () {
     key: "_evaluate",
     value: function _evaluate() {
       // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
-      // TODO: We can at this point in the execution flow deep copy the CDS,
-      // execute the evaluation against the copy. Then depending on the
-      // results of the evaluation:
-      // * If no error(s), swap out the old CDS instance for the new.
-      // * Otherwise, report the evaluation result and leave the contents of the CDS unmodified by the operation.
       console.log("================================================================");
       console.log("ObservableProcessController::_evaluate starting...");
       console.log("================================================================"); // Deletegate to the evaluation filter.
@@ -186,11 +182,11 @@ function () {
       var evalFilterResponse = evaluateFilter.request({
         opcRef: this
       });
-      this._private.lastEvaluationResponse = evalFilterResponse;
+      this._private.lastEvalResponse = evalFilterResponse;
       this._private.evalCount++;
       console.log("================================================================");
       console.log("ObservableProcessController::_evaluate complete.");
-      console.log("Evaluation response=");
+      console.log("evalResponse=");
       console.log(evalFilterResponse);
       console.log("================================================================");
       return evalFilterResponse;
