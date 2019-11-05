@@ -3,11 +3,6 @@ const fixture = require("./opc-constructor-test-fixture");
 
 // Frequently used comparison values:
 
-const expectedDefaultOCDRuntimeSpecJSON = `{"____label":"Default OCD Template Spec","____description":"No OCD data spec specified so you get the default which doesn't do a whole lot...","____types":"jsObject","____defaultValue":{},"message":{"____label":"Hello Message","____description":"This is a placeholder for the default hello, world! message.","____accept":"jsString","____defaultValue":"Hello, world!"}}`;
-
-
-
-
 // TEST EMPTY CONSTRUCTOR CALL
 fixture({
     id: "gwtkQR51TYm93K32K6QHNA",
@@ -55,7 +50,7 @@ fixture({
     opcRequest: { id: "l_P652EhQU6_z7afrV-PMQ" },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: expectedDefaultOCDRuntimeSpecJSON
+        ocdRuntimeSpecJSON: `{"____label":"OPC [l_P652EhQU6_z7afrV-PMQ::[ no name specified for OPCI \\"l_P652EhQU6_z7afrV-PMQ\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
     }
 });
 
@@ -72,7 +67,7 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: expectedDefaultOCDRuntimeSpecJSON
+        ocdRuntimeSpecJSON: `{"____label":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
     }
 });
 
@@ -82,13 +77,13 @@ fixture({
     name: "Minimal constructor valid ID + object descriptor template spec.",
     description: "Confirm default construcion variant #3",
     opcRequest: {
-        id: "juolo4dqSgKdLEYLoHJJ1Q",
+        id:  "_wvEVTx7RZyJSEjhvRSpkA",
         name: "Valid ID w/minimal but valid custom ocd template spec.",
         ocdTemplateSpec: { ____types: "jsObject" }
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: expectedDefaultOCDRuntimeSpecJSON
+        ocdRuntimeSpecJSON: `{"____label":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
     }
 });
 
@@ -99,13 +94,13 @@ fixture({
     name: "Minimal constructor valid ID + ____accept object descriptor template spec.",
     description: "Confirm default construcion variant #4",
     opcRequest: {
-        id: "juolo4dqSgKdLEYLoHJJ1Q",
+        id: "G_tL4QIkT3CdeyCLpjUArA",
         name: "Valid ID w/minimal but valid custom ocd template spec.",
         ocdTemplateSpec: { ____accept: "jsObject" }
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: expectedDefaultOCDRuntimeSpecJSON
+        ocdRuntimeSpecJSON: `{"____label":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
     }
 });
 
@@ -122,25 +117,23 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: expectedDefaultOCDRuntimeSpecJSON
+        ocdRuntimeSpecJSON: `{"____label":"OPC [x_2nFrVRT8WmarYAytlHJw::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
     }
 });
-
-
 
 
 
 // TEST CONSTRUCTOR CALL w/VALID ID AND DATA IN OBVIOUS VIOLATION OF OCD CONSTRAINTS DEFAULT SPEC
 fixture({
     id: "FxMOqQPARcGcMZ24x2tq7A",
-    name: "Valid ID but invalid data",
-    description: "Use a real IRUT to get a do-nothing default constructed (minimalistic) OPC instance.",
+    name: "Valid ID but invalid OCD init data",
+    description: "Attempt to construct minimalistic OPC w/init data in violation of OCD runtime spec",
     opcRequest: {
         id: "FxMOqQPARcGcMZ24x2tq7A",
-        // we so not specify a template spec so inherit default which is an object with string property message.
-        ocdInitData: { message: 5 } // so this should fail because message is defined to be a string
+        // we so not specify a template spec so inherit default which is an object.
+        ocdInitData: "This should cause a type error."
     },
-    expectedError: "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Unfortunately we could not construct the contained OCD instance due to an error. Typically you will encounter this sort of thing when you are working on your ocd template spec and/or your ocd init data and get out of sync. OCD is deliberately _very_ picky. Luckily, it's also quite specific about its objections. Sort through the following and it will lead you to your error. Filter [3aDV_cacQByO0tTzVrBxnA::OCD Constructor Request Processor] failed while normalizing request input. Error at path '~.message': Value of type 'jsNumber' not in allowed type set [jsString]."
+    expectedError: "nope"
 });
 
 

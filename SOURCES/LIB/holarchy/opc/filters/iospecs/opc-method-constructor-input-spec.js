@@ -28,21 +28,8 @@ module.exports = {
     },
 
     ocdTemplateSpec: {
-        ____label: "OCD Template Spec",
-        ____description: "A developer-defined filter spec that defines a hierarchy of namespace names, type, value constraint, and default values along with OPM bindings that are used as a template to deduce the runtime OCD spec.",
-        ____accept: "jsObject",
-        ____defaultValue: {
-            ____label: "Default OCD Template Spec",
-            ____description: "No OCD data spec specified so you get the default which doesn't do a whole lot...",
-            ____types: "jsObject",
-            ____defaultValue: {}, // omit and it will cascade into an OPC default constructor failure
-            message: {
-                ____label: "Hello Message",
-                ____description: "This is a placeholder for the default hello, world! message.",
-                ____accept: "jsString",
-                ____defaultValue: "Hello, world!"
-            }
-        }
+        ____accept: "jsObject", // replaced by OPC
+        ____defaultValue: {} // by default take the OPC-defined OCD runtime spec (useful really only for testing)
     },
 
     ocdInitData: {
