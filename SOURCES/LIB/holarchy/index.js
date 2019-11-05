@@ -21,7 +21,7 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    // Observable Process Controller ES6 class.
+    // ObservableProcessController ES6 class.
     ObservableProcessController: ObservableProcessController,
 
     // Observable Process Model ES6 class.
@@ -33,13 +33,22 @@ module.exports = {
     // ControllerAction filter wrapper ES6 class.
     ControllerAction: ControllerAction,
 
-    core: {
+    // ObservableControllerData ES6 class.
+    // Ocassionally it's useful to apply OCD standalone.
+    // Mostly, we just use the OCD instance managed
+    // inside of an OPC however.
+    ObservableControllerData: ObservableControllerData,
+
+    core: { // TODO: lib/core/ or split out to separate holistic-generated package.
         TransitionOperators: TransitionOperators
     },
 
     // ================================================================
-    // DEPRECATED: ApplicationStateController is deprecated. We will be migrating to ObservableProcessController that allocates and manages an instance of ObservableProcessData.
-    // So we will no longer need to export the class; clients of the @encapsule/holarchy library need only instantiate ObservableProcessController instance.
+    // DEPRECATED: ApplicationStateController is deprecated.
+    // ObservableControllerData class is aliased below. It is backwards
+    // compatible with ApplicationDataStore. Once we integrate OPC
+    // this export will be removed. If you actually want an uncontrolled
+    // OCD then the class is exported above.
     ApplicationDataStore: ObservableControllerData,
 
 };

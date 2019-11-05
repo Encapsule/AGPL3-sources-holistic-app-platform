@@ -15,7 +15,7 @@ const assert = chai.assert;
 let testNumber = 1;
 
 // Module under test
-const { ObservableProcessController } = require("../../../PLATFORM/holarchy");
+const { ObservableProcessController, ObservableControllerData } = require("../../../PLATFORM/holarchy");
 
 /*
   {
@@ -71,7 +71,7 @@ module.exports = function(testRequest_) {
 
             if (testRequest_.expectedError) {
 
-                describe("opc construction is expected to fail and return a zombie ocpi", function() {
+                describe("opc construction is expected to fail and return a zombie opci", function() {
 
                     it("opci.isValid() is expected to return false.", function() {
                         assert.isFalse(opciStatusDescriptor.valid);
@@ -163,23 +163,54 @@ module.exports = function(testRequest_) {
 
                     if (testRequest_.expectedResults) {
 
-                        describe("Inspecting OCP instance state against expectations.", function() {
+                        describe("Inspecting OPC instance state against expectations.", function() {
 
                             it("OPCI should have a _private namespace", function() {
                                 assert.property(opci, "_private");
                                 assert.isObject(opci._private);
                             });
 
-                            it("OCPI._private should an ocdRuntimeSpec namespace", function() {
+                            it("OPCI._private should have an ocdRuntimeSpec namespace and it should be an object", function() {
                                 assert.property(opci._private, "ocdRuntimeSpec");
                                 assert.isObject(opci._private.ocdRuntimeSpec);
                             });
 
                             // We perform this comparison using JSON strings because filter specs are _alway_ deserialized JSON. No functions or higher-order types in filter specs at all by design.
                             it("OPCI._private.ocdRuntimeSpec filter spec should match expected value (JSON comparison)", function() {
-                                assert.deepEqual(JSON.stringify(opci._private.ocdRuntimeSpec), testRequest_.expectedResults.ocdRuntimeSpecJSON);
+                                assert.equal(JSON.stringify(opci._private.ocdRuntimeSpec), testRequest_.expectedResults.ocdRuntimeSpecJSON);
                             });
 
+                            it("OPCI._private should have an ocdi property and it should be an instance of ObservableControllerData", function() {
+                                assert.property(opci._private, "ocdi");
+                                assert.instanceOf(opci._private.ocdi, ObservableControllerData);
+                            });
+
+                            describe("Inspect the OCP's contained observable controller data store (OCD instance).", function() {
+                                let ocdiReadNamespaceResponse = null;
+                                before(function() {
+                                    ocdiReadNamespaceResponse = opci._private.ocdi.readNamespace("~");
+                                });
+
+                                it("opci._private.ocdi.readNamespace(~) should have returned an object", function() {
+                                    assert.isNotNull(ocdiReadNamespaceResponse);
+                                    assert.isObject(ocdiReadNamespaceResponse);
+                                });
+
+                                it("opci._private.ocdi.readNamespace(~) response should be a standard filter repsonse descriptor", function() {
+                                    assert.property(ocdiReadNamespaceResponse, "error");
+                                });
+
+                                it("opci._private.ocdi.readNamespace(~) should not return a response error", function() {
+                                    assert.isNull(ocdiReadNamespaceResponse.error);
+                                });
+
+                                it("OPCI._private.ocdi.readNamespace(~) JSON should match expected value", function() {
+                                    assert.property(ocdiReadNamespaceResponse, "result");
+                                    assert.isObject(ocdiReadNamespaceResponse.result);
+                                    assert.equal(JSON.stringify(ocdiReadNamespaceResponse.result), testRequest_.expectedResults.opciStateJSON);
+                                });
+
+                            });
 
                         });
 

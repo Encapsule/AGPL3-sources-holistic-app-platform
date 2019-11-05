@@ -50,7 +50,8 @@ fixture({
     opcRequest: { id: "l_P652EhQU6_z7afrV-PMQ" },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [l_P652EhQU6_z7afrV-PMQ::[ no name specified for OPCI \\"l_P652EhQU6_z7afrV-PMQ\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
+        ocdRuntimeSpecJSON: `{"____label":"OPC [l_P652EhQU6_z7afrV-PMQ::[ no name specified for OPCI \\"l_P652EhQU6_z7afrV-PMQ\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        opciStateJSON: "{}"
     }
 });
 
@@ -67,7 +68,8 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
+        ocdRuntimeSpecJSON: `{"____label":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        opciStateJSON: "{}"
     }
 });
 
@@ -83,7 +85,8 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
+        ocdRuntimeSpecJSON: `{"____label":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        opciStateJSON: "{}"
     }
 });
 
@@ -100,40 +103,54 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
+        ocdRuntimeSpecJSON: `{"____label":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        opciStateJSON: "{}"
     }
 });
 
-// TEST CONSTRUCTION CALL w/VALID ID AND DESCRIPTOR OBJECT CUSTOM OCD TEMPLATE SPEC (should be equivalent to default construction)
+// TEST CONSTRUCTION CALL w/VALID ID AND DESCRIPTOR OBJECT W/CUSTOM OCD TEMPLATE SPEC (ATTEMPT TO TAKE OVER ROOT ~)
 fixture({
     id: "x_2nFrVRT8WmarYAytlHJw",
-
-    name: "Minimal constructor valid ID + ____accept object descriptor template spec.",
-    description: "Confirm default construcion variant #4",
+    name: "Minimal OCD template that squats on ~",
+    description: "Dev OCD template spec should not be able to change ~ filter spec directives - only add subprops",
     opcRequest: {
         id: "x_2nFrVRT8WmarYAytlHJw",
-        name: "Valid ID w/minimal but valid custom ocd template spec.",
+        name: "Actually a default-constructed minimally configred OPC instance.",
         ocdTemplateSpec: { ____accept: "jsObject" }
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [x_2nFrVRT8WmarYAytlHJw::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`
+        ocdRuntimeSpecJSON: `{"____label":"OPC [x_2nFrVRT8WmarYAytlHJw::Actually a default-constructed minimally configred OPC instance.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance's shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        opciStateJSON: "{}"
     }
 });
 
 
 
-// TEST CONSTRUCTOR CALL w/VALID ID AND DATA IN OBVIOUS VIOLATION OF OCD CONSTRAINTS DEFAULT SPEC
+// TEST CONSTRUCTOR CALL w/VALID ID AND A SMALL OCD TEMPLATE W/NO BINDINGS (TEST THE MERGE ON ~)
 fixture({
     id: "FxMOqQPARcGcMZ24x2tq7A",
     name: "Valid ID but invalid OCD init data",
     description: "Attempt to construct minimalistic OPC w/init data in violation of OCD runtime spec",
     opcRequest: {
         id: "FxMOqQPARcGcMZ24x2tq7A",
-        // we so not specify a template spec so inherit default which is an object.
-        ocdInitData: "This should cause a type error."
+        ocdTemplateSpec: {
+            // Whatever we do not control the root namespace, ~.
+            // AND, OPC will ensure that the runtime OCD spec root namespace, ~, is a descriptor object that's default constructable.
+            ____types: "jsObject",
+            testString: {
+                ____label: "Test Namespace 1",
+                ____accept: "jsString",
+                ____defaultValue: "Please specify a value for ~.testString."
+            }
+        }
     },
-    expectedError: "nope"
+    expectedError: null,
+    expectedResults: {
+        ocdRuntimeSpecJSON: `{"____label":"OPC [FxMOqQPARcGcMZ24x2tq7A::[ no name specified for OPCI \\"FxMOqQPARcGcMZ24x2tq7A\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
+
+        opciStateJSON: `{"testString":"Please specify a value for ~.testString."}`
+    }
 });
 
 
