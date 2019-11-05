@@ -73,8 +73,8 @@ var factoryResponse = arccore.filter.create({
 
       result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
 
-      result.name = request_.name ? request_.name : "[ no name specified for OPCI \"".concat(result.id, "\" ]");
-      result.description = request_.descriptor ? request_.descriptor : "[ no description specified for OPC \"".concat(result.id, "\" ]"); // ================================================================
+      result.name = request_.name ? request_.name : "Unnamed OPC";
+      result.description = request_.descriptor ? request_.descriptor : "Undescribed OPC"; // ================================================================
       // Build a map of ObservableControllerModel instances.
       // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
       // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
@@ -112,7 +112,8 @@ var factoryResponse = arccore.filter.create({
       // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
       var ocdRuntimeBaseSpec = _objectSpread({
-        ____label: "OPC [".concat(result.id, "::").concat(result.name, "] Observable Process Runtime State")
+        ____label: "OPC [".concat(result.id, "::").concat(result.name, "] Observable Controller Data Store"),
+        ____description: "OPC [".concat(result.id, "::").concat(result.name, "] system process runtime state data managed by OPC instance.")
       }, ocdRuntimeSpecAspects.aspects.opcProcessStateRootOverlaySpec);
 
       var keys = Object.keys(request_.ocdTemplateSpec);

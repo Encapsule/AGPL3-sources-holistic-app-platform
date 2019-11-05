@@ -5,10 +5,10 @@
 # @encapsule/d2r2 v0.0.23 "fortine"
 
 ```
-Package: @encapsule/d2r2 v0.0.23 "fortine" build ID "sG3XginJQoGmL6WHEOM2SA"
-Sources: Encapsule/holistic#68639e7aad677385561ef137604292c7b18d7343
+Package: @encapsule/d2r2 v0.0.23 "fortine" build ID "r8EoglijQTChHbGokg8GTw"
+Sources: Encapsule/holistic#1ae07381cd8dbe2df5e739f4d3b2ad4ed6f216a5
 Purpose: library (Node.js)
-Created: 2019-11-05T08:44:46.000Z
+Created: 2019-11-05T18:04:01.000Z
 License: MIT
 ```
 
