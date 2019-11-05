@@ -5,7 +5,6 @@ module.exports = {
 
         opcProcessStateRootOverlaySpec: {
             // ____label: <generated dynamically>
-            ____description: "This is the OCD runtime filter spec that defines the shape of the OPC instance's shared observable process memory space.",
             ____types: "jsObject",
             ____defaultValue: {}
         },

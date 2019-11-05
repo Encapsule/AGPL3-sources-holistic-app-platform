@@ -63,8 +63,8 @@ const factoryResponse = arccore.filter.create({
             }
 
             result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
-            result.name = request_.name?request_.name:`[ no name specified for OPCI "${result.id}" ]`;
-            result.description = request_.descriptor?request_.descriptor:`[ no description specified for OPC "${result.id}" ]`;
+            result.name = request_.name?request_.name:"Unnamed OPC";
+            result.description = request_.descriptor?request_.descriptor:"Undescribed OPC";
 
             // ================================================================
             // Build a map of ObservableControllerModel instances.
@@ -101,7 +101,8 @@ const factoryResponse = arccore.filter.create({
             // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
             const ocdRuntimeBaseSpec = {
-                ____label: `OPC [${result.id}::${result.name}] Observable Process Runtime State`,
+                ____label: `OPC [${result.id}::${result.name}] Observable Controller Data Store`,
+                ____description: `OPC [${result.id}::${result.name}] system process runtime state data managed by OPC instance.`,
                 ...ocdRuntimeSpecAspects.aspects.opcProcessStateRootOverlaySpec
             };
 

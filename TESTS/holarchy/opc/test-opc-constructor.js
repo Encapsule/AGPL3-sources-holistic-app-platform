@@ -50,7 +50,7 @@ fixture({
     opcRequest: { id: "l_P652EhQU6_z7afrV-PMQ" },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [l_P652EhQU6_z7afrV-PMQ::[ no name specified for OPCI \\"l_P652EhQU6_z7afrV-PMQ\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        ocdRuntimeSpecJSON: `{"____label":"OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] Observable Controller Data Store","____description":"OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
     }
 });
@@ -68,7 +68,7 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        ocdRuntimeSpecJSON: `{"____label":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Controller Data Store","____description":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
     }
 });
@@ -85,7 +85,7 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        ocdRuntimeSpecJSON: `{"____label":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] Observable Controller Data Store","____description":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
     }
 });
@@ -103,7 +103,7 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        ocdRuntimeSpecJSON: `{"____label":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] Observable Controller Data Store","____description":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
     }
 });
@@ -120,7 +120,7 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [x_2nFrVRT8WmarYAytlHJw::Actually a default-constructed minimally configred OPC instance.] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance's shared observable process memory space.","____types":"jsObject","____defaultValue":{}}`,
+        ocdRuntimeSpecJSON: `{"____label":"OPC [x_2nFrVRT8WmarYAytlHJw::Actually a default-constructed minimally configred OPC instance.] Observable Controller Data Store","____description":"OPC [x_2nFrVRT8WmarYAytlHJw::Actually a default-constructed minimally configred OPC instance.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
     }
 });
@@ -144,8 +144,7 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [FxMOqQPARcGcMZ24x2tq7A::[ no name specified for OPCI \\"FxMOqQPARcGcMZ24x2tq7A\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
-
+        ocdRuntimeSpecJSON: `{"____label":"OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] Observable Controller Data Store","____description":"OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
         opciStateJSON: `{"testString":"Please specify a value for ~.testString."}`
     }
 });
@@ -169,8 +168,7 @@ fixture({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [DipB21oZR5ihBCYESC5HWw::[ no name specified for OPCI \\"DipB21oZR5ihBCYESC5HWw\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
-
+        ocdRuntimeSpecJSON: `{"____label":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] Observable Controller Data Store","____description":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
         opciStateJSON: `{"testString":"Hello, World!"}`
     }
 });
