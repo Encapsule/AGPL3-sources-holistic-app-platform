@@ -91,7 +91,7 @@ fixture({
 });
 
 
-// TEST CONSTRUCTION CALL w/VALID ID AND DESCRIPTOR OBJECT CUSTOM OCD TEMPLATE SPEC (should be equivalent to default construction)
+
 fixture({
     id: "G_tL4QIkT3CdeyCLpjUArA",
     name: "Minimal constructor valid ID + ____accept object descriptor template spec.",
@@ -108,7 +108,7 @@ fixture({
     }
 });
 
-// TEST CONSTRUCTION CALL w/VALID ID AND DESCRIPTOR OBJECT W/CUSTOM OCD TEMPLATE SPEC (ATTEMPT TO TAKE OVER ROOT ~)
+
 fixture({
     id: "x_2nFrVRT8WmarYAytlHJw",
     name: "Minimal OCD template that squats on ~",
@@ -127,16 +127,13 @@ fixture({
 
 
 
-// TEST CONSTRUCTOR CALL w/VALID ID AND A SMALL OCD TEMPLATE W/NO BINDINGS (TEST THE MERGE ON ~)
 fixture({
     id: "FxMOqQPARcGcMZ24x2tq7A",
-    name: "Valid ID but invalid OCD init data",
-    description: "Attempt to construct minimalistic OPC w/init data in violation of OCD runtime spec",
+    name: "Valid ID defined small ocdTempalte",
+    description: "Test our ability to extend the OPC-managed root namespace, ~.",
     opcRequest: {
         id: "FxMOqQPARcGcMZ24x2tq7A",
         ocdTemplateSpec: {
-            // Whatever we do not control the root namespace, ~.
-            // AND, OPC will ensure that the runtime OCD spec root namespace, ~, is a descriptor object that's default constructable.
             ____types: "jsObject",
             testString: {
                 ____label: "Test Namespace 1",
@@ -154,4 +151,29 @@ fixture({
 });
 
 
-// TEST CONSTRUCTION CALL w/VALID ID AND CUSTOM TEMPLATE SPEC THAT IS NOT ROOTED IN AN OBJECT OR OPAQUE
+fixture({
+    id: "DipB21oZR5ihBCYESC5HWw",
+    name: "Valid ID, ocdTemplateSpec, data",
+    description: "Valid OPC instance + dev ocdTemplateSpec + valid init data",
+    opcRequest: {
+        id: "DipB21oZR5ihBCYESC5HWw",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            testString: {
+                ____label: "Test Namespace 1",
+                ____accept: "jsString",
+                ____defaultValue: "Please specify a value for ~.testString."
+            }
+        },
+        ocdInitData: { testString: "Hello, World!" }
+    },
+    expectedError: null,
+    expectedResults: {
+        ocdRuntimeSpecJSON: `{"____label":"OPC [DipB21oZR5ihBCYESC5HWw::[ no name specified for OPCI \\"DipB21oZR5ihBCYESC5HWw\\" ]] Observable Process Runtime State","____description":"This is the OCD runtime filter spec that defines the shape of the OPC instance\'s shared observable process memory space.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
+
+        opciStateJSON: `{"testString":"Hello, World!"}`
+    }
+});
+
+
+

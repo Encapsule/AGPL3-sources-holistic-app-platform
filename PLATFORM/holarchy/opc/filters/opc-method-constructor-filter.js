@@ -8,6 +8,8 @@ var arccore = require("@encapsule/arccore");
 
 var ObservableControllerData = require("../ObservableControllerData");
 
+var ocdRuntimeSpecAspects = require("./iospecs/ocd-runtime-spec-aspects");
+
 var opcMethodConstructorInputSpec = require("./iospecs/opc-method-constructor-input-spec");
 
 var opcMethodConstructorOutputSpec = require("./iospecs/opc-method-constructor-output-spec");
@@ -46,7 +48,9 @@ var factoryResponse = arccore.filter.create({
         lastEvalResponse: null,
         opcActorStack: []
       }; // Populate as we go and assign to response.result iff !response.error.
-      // Before we even get started, confirm that that the id is valid. And, take care of defaulting name and description (that depends on id so that's why we don't use ____defaultValue)
+      // Before we even get started, confirm that that the ID is valid.
+      // And, take care of defaulting name and description (that depends on id
+      // so that's why we don't use ____defaultValue)
 
       if (request_.id === "demo") {
         result.id = arccore.identifier.irut.fromEther();
@@ -69,8 +73,8 @@ var factoryResponse = arccore.filter.create({
 
       result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
 
-      result.name = request_.name ? request_.name : "[ no name specified for OCPI \"".concat(result.id, "\" ]");
-      result.description = request_.descriptor ? request_.descriptor : "[ no description specified for OCP \"".concat(result.id, "\" ]"); // ================================================================
+      result.name = request_.name ? request_.name : "[ no name specified for OPCI \"".concat(result.id, "\" ]");
+      result.description = request_.descriptor ? request_.descriptor : "[ no description specified for OPC \"".concat(result.id, "\" ]"); // ================================================================
       // Build a map of ObservableControllerModel instances.
       // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
       // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
@@ -97,19 +101,38 @@ var factoryResponse = arccore.filter.create({
 
       if (errors.length) {
         return "break";
-      }
+      } // Save the normalized copy of the dev-specified ocdTemplateSpec. This is useful to developers.
 
-      console.log("> Inspecting registered OPM..."); // ================================================================
+
+      result.ocdTemplateSpec = request_.ocdTemplateSpec;
+      console.log("> Analyzing OCD template spec and model registrations..."); // ================================================================
       // Find all the OPM-bound namespaces in the developer-defined controller data spec
       // and synthesize the runtime filter spec to be used for OPMI data my merging the
       // OPM's template spec and the developer-defined spec.
       // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
-      result.ocdTemplateSpec = request_.ocdTemplateSpec;
+      var ocdRuntimeBaseSpec = _objectSpread({
+        ____label: "OPC [".concat(result.id, "::").concat(result.name, "] Observable Process Runtime State")
+      }, ocdRuntimeSpecAspects.aspects.opcProcessStateRootOverlaySpec);
+
+      var keys = Object.keys(request_.ocdTemplateSpec);
+
+      while (keys.length) {
+        var key = keys.shift();
+
+        if (key.startsWith("____")) {
+          continue;
+        }
+
+        ocdRuntimeBaseSpec[key] = request_.ocdTemplateSpec[key];
+      }
+
       var namespaceQueue = [{
         lastSpecPath: null,
         specPath: "~",
-        specRef: request_.ocdTemplateSpec,
+        specRef:
+        /*request_.ocdTemplateSpec*/
+        ocdRuntimeBaseSpec,
         newSpecRef: result.ocdRuntimeSpec
       }];
 
@@ -149,20 +172,20 @@ var factoryResponse = arccore.filter.create({
 
         var workingSpecRef = provisionalSpecRef ? provisionalSpecRef : record.specRef; // Evaluate the properties of the current namespace descriptor in the workingSpec.
 
-        var keys = Object.keys(workingSpecRef);
+        var _keys = Object.keys(workingSpecRef);
 
-        while (keys.length) {
-          var key = keys.shift();
+        while (_keys.length) {
+          var _key = _keys.shift();
 
-          if (key.startsWith("____")) {
-            record.newSpecRef[key] = workingSpecRef[key];
+          if (_key.startsWith("____")) {
+            record.newSpecRef[_key] = workingSpecRef[_key];
           } else {
-            record.newSpecRef[key] = {};
+            record.newSpecRef[_key] = {};
             namespaceQueue.push({
               lastSpecPath: record.specPath,
-              specPath: "".concat(record.specPath, ".").concat(key),
-              specRef: workingSpecRef[key],
-              newSpecRef: record.newSpecRef[key]
+              specPath: "".concat(record.specPath, ".").concat(_key),
+              specRef: workingSpecRef[_key],
+              newSpecRef: record.newSpecRef[_key]
             });
           }
         }
@@ -170,17 +193,20 @@ var factoryResponse = arccore.filter.create({
 
 
       if (errors.length) {
+        errros.unshift("While synthesizing OCD runtime spec:");
         return "break";
-      } // ================================================================
-      // Construct the contained Observable Controller Data that the OCP instance uses to manage the state associated with OPM instances.
+      }
+
+      console.log("> OCD runtime spec synthesized."); // ================================================================
+      // Construct the contained Observable Controller Data that the OPC instance uses to manage the state associated with OPM instances.
       // TODO: OCD constructor function still throws. We're hiding that here. Convert it over to report construction errors on method access
-      // just like OCP. In hindsight, I wanted to provide a nice ES6 class API for OCP w/out having to explain the reason why you don't
+      // just like OPC. In hindsight, I wanted to provide a nice ES6 class API for OPC w/out having to explain the reason why you don't
       // use operator new but instead call a createInstance factory method. With delayed report of construction error, we get the best of
-      // both world's. Construct OCP correctly, it just works like a standard ES6 class instance. Construct it incorrectly, you get a stillborn
+      // both world's. Construct OPC correctly, it just works like a standard ES6 class instance. Construct it incorrectly, you get a stillborn
       // instance that will only give you a copy of its death certificate.
 
-
       try {
+        console.log("> Initialzing OPC instance process state using OCD runtime spec and developer-defined OCD init data.");
         result.ocdi = new ObservableControllerData({
           spec: result.ocdRuntimeSpec,
           data: request_.ocdInitData
@@ -191,14 +217,16 @@ var factoryResponse = arccore.filter.create({
         errors.push("OCD is deliberately _very_ picky. Luckily, it's also quite specific about its objections. Sort through the following and it will lead you to your error.");
         errors.push(exception_.message);
         return "break";
-      } // ================================================================
+      }
+
+      console.log("> OPC instance process state initialized."); // ================================================================
       // Build an arccore.discriminator filter instance to route transition
       // operatror request messages to a registered transition operator
       // filter for processing.
 
-
       var transitionOperatorFilters = []; // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
 
+      console.log("> Analyzing registered TransitionOperator class instances...");
       request_.transitionOperatorSets.forEach(function (transitionOperatorSet_) {
         transitionOperatorSet_.forEach(function (transitionOperatorInstance_) {
           transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
@@ -223,8 +251,9 @@ var factoryResponse = arccore.filter.create({
         }
 
         result.transitionDispatcher = filterResponse.result;
+        console.log("> OPC instance transition operator request dispatched initialized.");
       } else {
-        console.log("WARNING: No TransitionOperator class instances have been registered!"); // Register a dummy discriminator.
+        console.warn("WARNING: No TransitionOperator class instances have been registered!"); // Register a dummy discriminator.
 
         result.transitionDispatcher = {
           request: function request() {
@@ -241,6 +270,7 @@ var factoryResponse = arccore.filter.create({
 
       var controllerActionFilters = []; // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
 
+      console.log("> Analyzing registered ControllerAction class instances...");
       request_.controllerActionSets.forEach(function (controllerActionSet_) {
         controllerActionSet_.forEach(function (controllerActionInstance_) {
           controllerActionFilters.push(controllerActionInstance_.getFilter());
@@ -265,8 +295,9 @@ var factoryResponse = arccore.filter.create({
         }
 
         result.actionDispatcher = filterResponse.result;
+        console.log("> OPC instance controller action request dispatched initialized.");
       } else {
-        console.log("WARNING: No ControllerAction class instances have been registered!");
+        console.warn("WARNING: No ControllerAction class instances have been registered!");
         result.actionDispatcher = {
           request: function request() {
             return {
@@ -281,7 +312,7 @@ var factoryResponse = arccore.filter.create({
       if (!errors.length) {
         response.result = _objectSpread({
           request_: request_
-        }, result);
+        }, result); // validated+normalized request_ overwritten with ...result
       }
     };
 

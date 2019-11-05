@@ -153,7 +153,7 @@ function () {
         this._private.opcActorStack.pop();
 
         if (!this._private.opcActorStack.length) {
-          response.result = this._private.evaluate();
+          response.result = this._evaluate();
         }
 
         break;
