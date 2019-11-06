@@ -19,7 +19,8 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            // Note that if no failure occurs in this filter then response.result will be assigned to OPCI this._private namespace.
+            // Note that if no failure occurs in this filter then response.result
+            // will be assigned to OPCI this._private namespace.
             let result = {
                 // meta
                 id: null,
@@ -77,7 +78,8 @@ const factoryResponse = arccore.filter.create({
                     const opm = modelSet[index1];
                     const opmID = opm.getID();
                     if (result.opmMap[opmID]) {
-                        errors.push(`Illegal duplicate ObservableProcessModel identifier '${opmID}' for model name '${opm.getName()}' with description '${opm.getDescription()}'.`);
+                        errors.push("While processing ObservableProcessModel instance registrations:");
+                        errors.push(`Illegal duplicate OPM identifier '${opmID}' for model name '${opm.getName()}' with description '${opm.getDescription()}'.`);
                         break;
                     }
                     result.opmMap[opmID] = opm;
@@ -90,8 +92,16 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            // Instantiate a temporary filter for the purposes of validating and normalizing the developer-specified OCD template spec.
+            let factoryResponse = arccore.filter.create({  operationID: "demo", inputFilterSpec: request_.ocdTemplateSpec });
+            if (factoryResponse.error) {
+                errors.push("While attempting to verify and normalize developer-defined request.ocdTemplateSpec:");
+                errors.push(factoryResponse.error);
+                break;
+            }
+
             // Save the normalized copy of the dev-specified ocdTemplateSpec. This is useful to developers.
-            result.ocdTemplateSpec = request_.ocdTemplateSpec;
+            result.ocdTemplateSpec = factoryResponse.result.filterDescriptor.inputFilterSpec;
 
             console.log("> Analyzing OCD template spec and model registrations...");
             // ================================================================
@@ -128,6 +138,21 @@ const factoryResponse = arccore.filter.create({
                     const opmID = record.specRef.____appdsl.opm;
                     // Verify that it's actually an IRUT.
                     if (arccore.identifier.irut.isIRUT(opmID).result) {
+                        //
+                        // Found a dev-specific template spec namespace with an OPM binding annoation...
+                        // Do not take action on namespaces that are declared to be anything other than
+                        // a descriptor object; as with the root OCD namespace,~, beyond the requirement
+                        // that the binding namespace be a descriptor object, any other developer-specified
+                        // filter spec qunderscore directives are stripped by OPC during OCD runtime spec
+                        // synthesis. The remainder of the OPM's descriptor object definition is then
+                        // merged over bound namespace. Namespace name collisions are resolved in favor
+                        // of the bound OPM's descriptor object filter spec W/OUT WARNING
+                        //
+
+
+
+
+
                         // Save the spec path and opmRef in an array.
                         const opm = result.opmMap[opmID];
                         result.opmiSpecPaths.push({ specPath: record.specPath, opmiRef: opm });

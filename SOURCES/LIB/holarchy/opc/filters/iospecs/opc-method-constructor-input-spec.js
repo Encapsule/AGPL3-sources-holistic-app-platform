@@ -29,7 +29,7 @@ module.exports = {
 
     ocdTemplateSpec: {
         ____accept: "jsObject", // replaced by OPC
-        ____defaultValue: {} // by default take the OPC-defined OCD runtime spec (useful really only for testing)
+        ____defaultValue: { ____types: "jsObject" } // by default take the OPC-defined OCD runtime spec (useful really only for testing because it doesn't contain any app state data.
     },
 
     ocdInitData: {

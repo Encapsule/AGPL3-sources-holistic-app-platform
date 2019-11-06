@@ -1,10 +1,10 @@
 
-const fixture = require("./opc-constructor-test-fixture");
+const runTest = require("./opc-constructor-test-fixture");
 
 // Frequently used comparison values:
 
 // TEST EMPTY CONSTRUCTOR CALL
-fixture({
+runTest({
     id: "gwtkQR51TYm93K32K6QHNA",
     name: "Undefined constructor request",
     description: "Send nothing (undefined) to OPC constructor.",
@@ -13,7 +13,7 @@ fixture({
 });
 
 // TEST CONTRUCTOR CALL W/EMPTY OBJECT (This proves that the constructor filter is online so if it passes we can just move on and assume the constructor will reject bad input.
-fixture({
+runTest({
     id: "iQ5RngZ0QNyH67mVrlwo4w",
     name: "Barely defined constructor request",
     description: "Send nothing an empty object to OPC constructor.",
@@ -22,7 +22,7 @@ fixture({
 });
 
 // TEST CONSTRUCTOR CALL W/INVALID IRUT ID
-fixture({
+runTest({
     id:"QvEwWTkbT8G_SQsmWmg2zQ",
     name: "Minimal constructor request #1: Invalid ID",
     description: "Test basic constructor request variant #1 by passing a bad IRUT as the ID.",
@@ -33,7 +33,7 @@ fixture({
 //
 
 // TEST CONSTRUCTOR CALL w/DEMO IRUT ID
-fixture({
+runTest({
     id: "pcAvtzoITt-q-ut90VhcVA",
     name: "Minimal constructor with 'demo' ID",
     description: "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID.",
@@ -43,7 +43,7 @@ fixture({
 
 
 // TEST CONSTRUCTOR CALL w/TEST (REAL) IRUT BUT OTHERWISE TAKE ALL DEFAULTS
-fixture({
+runTest({
     id: "l_P652EhQU6_z7afrV-PMQ",
     name: "Minimal constructor valid ID all default inputs",
     description: "Confirm default construction variant #1",
@@ -57,7 +57,7 @@ fixture({
 
 
 // TEST CONSTRUCTION CALL w/VALID ID AND OPAQUE CUSTOM OCD TEMPLATE SPEC (should be equivalent to default construction)
-fixture({
+runTest({
     id: "juolo4dqSgKdLEYLoHJJ1Q",
     name: "Miniaml constructor valid ID opaque template spec",
     description: "Confirm default constructor variant #2",
@@ -74,7 +74,7 @@ fixture({
 });
 
 // TEST CONSTRUCTION CALL w/VALID ID AND DESCRIPTOR OBJECT CUSTOM OCD TEMPLATE SPEC (should be equivalent to default construction)
-fixture({
+runTest({
     id: "_wvEVTx7RZyJSEjhvRSpkA",
     name: "Minimal constructor valid ID + object descriptor template spec.",
     description: "Confirm default construcion variant #3",
@@ -92,7 +92,7 @@ fixture({
 
 
 
-fixture({
+runTest({
     id: "G_tL4QIkT3CdeyCLpjUArA",
     name: "Minimal constructor valid ID + ____accept object descriptor template spec.",
     description: "Confirm default construcion variant #4",
@@ -109,7 +109,7 @@ fixture({
 });
 
 
-fixture({
+runTest({
     id: "x_2nFrVRT8WmarYAytlHJw",
     name: "Minimal OCD template that squats on ~",
     description: "Dev OCD template spec should not be able to change ~ filter spec directives - only add subprops",
@@ -127,7 +127,7 @@ fixture({
 
 
 
-fixture({
+runTest({
     id: "FxMOqQPARcGcMZ24x2tq7A",
     name: "Valid ID defined small ocdTempalte",
     description: "Test our ability to extend the OPC-managed root namespace, ~.",
@@ -150,7 +150,7 @@ fixture({
 });
 
 
-fixture({
+runTest({
     id: "DipB21oZR5ihBCYESC5HWw",
     name: "Valid ID, ocdTemplateSpec, data",
     description: "Valid OPC instance + dev ocdTemplateSpec + valid init data",
@@ -171,6 +171,49 @@ fixture({
         ocdRuntimeSpecJSON: `{"____label":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] Observable Controller Data Store","____description":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
         opciStateJSON: `{"testString":"Hello, World!"}`
     }
+});
+
+
+runTest({
+    id: "fzc39RvNTLmHF5UNn_-Fng",
+    name: "Valid ID, ocdTemplateSpec, data",
+    description: "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data",
+    opcRequest: {
+        id: "fzc39RvNTLmHF5UNn_-Fng",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            testString: {
+                ____label: "Test Namespace 1",
+                ____accept: "jsString",
+                ____defaultValue: "Please specify a value for ~.testString."
+            }
+        },
+        ocdInitData: { testString: 3.1415926536 }
+    },
+    expectedError: "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Unfortunately we could not construct the contained OCD instance due to an error. Typically you will encounter this sort of thing when you are working on your ocd template spec and/or your ocd init data and get out of sync. OCD is deliberately _very_ picky. Luckily, it\'s also quite specific about its objections. Sort through the following and it will lead you to your error. Filter [3aDV_cacQByO0tTzVrBxnA::OCD Constructor Request Processor] failed while normalizing request input. Error at path \'~.testString\': Value of type \'jsNumber\' not in allowed type set [jsString]."
+});
+
+
+runTest({
+    id: "dirl1VuNQCmBrzbJXWMTtA",
+    name: "Valid ID but invalid ocdTemplateSpec #1",
+    description: "Confirm the operation of the OPC constructor filters internal validation/normalization of dev-defined OCD template spec.",
+    opcRequest: {
+        id: "dirl1VuNQCmBrzbJXWMTtA",
+        ocdTemplateSpec: {}
+    },
+    expectedError: "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace \'~.inputFilterSpec\': Missing required \'____accept\', \'____types\', or \'_____opaque\' type constraint directive."
+});
+
+runTest({
+    id: "ChcuyPLCSQCsICTprPzfog",
+    name: "Valid ID but invalid ocdTemplateSpec #2",
+    description: "Prove a bit more about our ability to reject bad dev-defined OCD template spec",
+    opcRequest: {
+        id: "ChcuyPLCSQCsICTprPzfog",
+        ocdTemplateSpec: { ____notAQunderscoreDirective: true }
+    },
+    expectedError: "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace \'~.inputFilterSpec\': Unrecognized typemap directive \'____notAQunderscoreDirective\' not allowed in declaration."
 });
 
 

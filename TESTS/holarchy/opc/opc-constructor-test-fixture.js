@@ -144,6 +144,17 @@ module.exports = function(testRequest_) {
 
                     });
 
+                    /*
+                    if (opciStatusDescriptor.valid) {
+                        // we expect this to be false if we're down this branch of the test
+                        describe("OPCI IS NOT IN ZOMBIE STATE AS EXPECTED. Dumping instance state", function() {
+                            it("OPC not in post-constructor zombie state as expected. Dumping this_.private", function() {
+                                assert.deepEqual(opci._this, {});
+                            });
+                        });
+                    }
+                    */
+
                 });
 
 
@@ -153,6 +164,10 @@ module.exports = function(testRequest_) {
 
                     it("opci.isValid() should return true.", function() {
                         assert.isTrue(opciStatusDescriptor.valid);
+                    });
+
+                    it("opci constructor should not have returned a constructor error", function() {
+                        assert.deepEqual(opciStatusDescriptor.response, { error: null, result: true });
                     });
 
                     it("opci.isValid({ getError: true }) is expected to return a response object", function() {
