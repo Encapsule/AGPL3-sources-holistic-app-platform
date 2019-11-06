@@ -3,6 +3,9 @@ const runTest = require("./opc-constructor-test-fixture");
 
 // Frequently used comparison values:
 
+const baseConstructorWarningsJSON = `["WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]`;
+
+
 // TEST EMPTY CONSTRUCTOR CALL
 runTest({
     id: "gwtkQR51TYm93K32K6QHNA",
@@ -38,7 +41,8 @@ runTest({
     name: "Minimal constructor with 'demo' ID",
     description: "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID.",
     opcRequest: { id: "demo" },
-    expectedError: null
+    expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON
 });
 
 
@@ -49,6 +53,7 @@ runTest({
     description: "Confirm default construction variant #1",
     opcRequest: { id: "l_P652EhQU6_z7afrV-PMQ" },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] Observable Controller Data Store","____description":"OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
@@ -67,6 +72,7 @@ runTest({
         ocdTemplateSpec: { ____opaque: true }
     },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Controller Data Store","____description":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
@@ -84,6 +90,7 @@ runTest({
         ocdTemplateSpec: { ____types: "jsObject" }
     },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] Observable Controller Data Store","____description":"OPC [_wvEVTx7RZyJSEjhvRSpkA::Valid ID w/minimal but valid custom ocd template spec.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
@@ -102,6 +109,7 @@ runTest({
         ocdTemplateSpec: { ____accept: "jsObject" }
     },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] Observable Controller Data Store","____description":"OPC [G_tL4QIkT3CdeyCLpjUArA::Valid ID w/minimal but valid custom ocd template spec.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
@@ -119,6 +127,7 @@ runTest({
         ocdTemplateSpec: { ____accept: "jsObject" }
     },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [x_2nFrVRT8WmarYAytlHJw::Actually a default-constructed minimally configred OPC instance.] Observable Controller Data Store","____description":"OPC [x_2nFrVRT8WmarYAytlHJw::Actually a default-constructed minimally configred OPC instance.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
         opciStateJSON: "{}"
@@ -143,6 +152,7 @@ runTest({
         }
     },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] Observable Controller Data Store","____description":"OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
         opciStateJSON: `{"testString":"Please specify a value for ~.testString."}`
@@ -167,6 +177,7 @@ runTest({
         ocdInitData: { testString: "Hello, World!" }
     },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] Observable Controller Data Store","____description":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
         opciStateJSON: `{"testString":"Hello, World!"}`
@@ -217,4 +228,22 @@ runTest({
 });
 
 
+runTest({
+    id: "np4M1LDWSyeNXOmFYJulhA",
+    name: "Test invalid filter spec binding #1",
+    description: "Pass an OCD template spec w/invalid OPM binding to the OPC constructor. Expected to warn but not fail.",
+    opcRequest: {
+        id: "np4M1LDWSyeNXOmFYJulhA",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            app: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { opm: "np4M1LDWSyeNXOmFYJulhA" }
+            }
+        }
+    },
+    expectedError: null,
+    expectedWarningsJSON: `["WARNING: OCD runtime spec path \'~.app\' will not be bound to OPM ID \'np4M1LDWSyeNXOmFYJulhA\'. Unknown/unregistered OPM specified.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]`
 
+});

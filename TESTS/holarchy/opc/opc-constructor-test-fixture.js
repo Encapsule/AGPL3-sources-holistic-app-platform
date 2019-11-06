@@ -33,7 +33,7 @@ const { ObservableProcessController, ObservableControllerData } = require("../..
 module.exports = function(testRequest_) {
 
     let opci = null;
-    let opciStatusDescriptor = null;
+    let opciStatus = null;
 
     describe(`OPC test fixture run ${testNumber++} test id "${testRequest_.id}" // ${testRequest_.name}: ${testRequest_.description}`, function() {
 
@@ -52,21 +52,21 @@ module.exports = function(testRequest_) {
         describe("Insepct newly-constructed opci", function() {
 
             before(function() {
-                opciStatusDescriptor = {
+                opciStatus = {
                     valid: opci.isValid(),
                     response: opci.isValid({ getError: true })
                 };
             });
 
             it("Confirm standard opci validity API is working as expected.", function() {
-                assert.isNotNull(opciStatusDescriptor);
-                assert.isObject(opciStatusDescriptor);
-                assert.property(opciStatusDescriptor, "valid");
-                assert.isBoolean(opciStatusDescriptor.valid);
-                assert.property(opciStatusDescriptor, "response");
-                assert.isObject(opciStatusDescriptor.response);
-                assert.property(opciStatusDescriptor.response, "error");
-                assert.property(opciStatusDescriptor.response, "result");
+                assert.isNotNull(opciStatus);
+                assert.isObject(opciStatus);
+                assert.property(opciStatus, "valid");
+                assert.isBoolean(opciStatus.valid);
+                assert.property(opciStatus, "response");
+                assert.isObject(opciStatus.response);
+                assert.property(opciStatus.response, "error");
+                assert.property(opciStatus.response, "result");
             });
 
             if (testRequest_.expectedError) {
@@ -74,24 +74,24 @@ module.exports = function(testRequest_) {
                 describe("opc construction is expected to fail and return a zombie opci", function() {
 
                     it("opci.isValid() is expected to return false.", function() {
-                        assert.isFalse(opciStatusDescriptor.valid);
+                        assert.isFalse(opciStatus.valid);
                     });
 
                     it("opci.isValid({ getError: true}) is expected to return construction error response object", function() {
-                        assert.isObject(opciStatusDescriptor.response);
-                        assert.property(opciStatusDescriptor.response, "error");
-                        assert.property(opciStatusDescriptor.response, "result");
+                        assert.isObject(opciStatus.response);
+                        assert.property(opciStatus.response, "error");
+                        assert.property(opciStatus.response, "result");
                     });
 
                     it("opci constructor response error should match expected value by equal comparison", function() {
-                        assert.isString(opciStatusDescriptor.response.error);
+                        assert.isString(opciStatus.response.error);
                         // equal compare creates a short error and compact log of actual vs expected that's easy to cut/paste to editor for analysis, and if okay to expected error/results
-                        assert.equal(opciStatusDescriptor.response.error, testRequest_.expectedError);
+                        assert.equal(opciStatus.response.error, testRequest_.expectedError);
                     });
 
                     it("opci constructor response result should be false", function() {
-                        assert.isBoolean(opciStatusDescriptor.response.result);
-                        assert.isFalse(opciStatusDescriptor.response.result);
+                        assert.isBoolean(opciStatus.response.result);
+                        assert.isFalse(opciStatus.response.result);
                     });
 
                     let zombieCheckResponse = null;
@@ -145,7 +145,7 @@ module.exports = function(testRequest_) {
                     });
 
                     /*
-                    if (opciStatusDescriptor.valid) {
+                    if (opciStatus.valid) {
                         // we expect this to be false if we're down this branch of the test
                         describe("OPCI IS NOT IN ZOMBIE STATE AS EXPECTED. Dumping instance state", function() {
                             it("OPC not in post-constructor zombie state as expected. Dumping this_.private", function() {
@@ -163,17 +163,17 @@ module.exports = function(testRequest_) {
                 describe("opc construction is expected to return a valid opci", function() {
 
                     it("opci.isValid() should return true.", function() {
-                        assert.isTrue(opciStatusDescriptor.valid);
+                        assert.isTrue(opciStatus.valid);
                     });
 
                     it("opci constructor should not have returned a constructor error", function() {
-                        assert.deepEqual(opciStatusDescriptor.response, { error: null, result: true });
+                        assert.deepEqual(opciStatus.response, { error: null, result: true });
                     });
 
                     it("opci.isValid({ getError: true }) is expected to return a response object", function() {
-                        assert.isObject(opciStatusDescriptor.response);
-                        assert.property(opciStatusDescriptor.response, "error");
-                        assert.property(opciStatusDescriptor.response, "result");
+                        assert.isObject(opciStatus.response);
+                        assert.property(opciStatus.response, "error");
+                        assert.property(opciStatus.response, "result");
                     });
 
                     if (testRequest_.expectedResults) {
@@ -227,8 +227,17 @@ module.exports = function(testRequest_) {
 
                             });
 
+
                         });
 
+                    }
+
+                    if (testRequest_.expectedWarningsJSON) {
+                        describe("Inspect the OPC's construction warnings array against expected values.", function() {
+                            it("The list of OPC construction warnings JSON should match expected value JSON.", function() {
+                                assert.equal(JSON.stringify(opci._private.constructionWarnings), testRequest_.expectedWarningsJSON);
+                            });
+                        });
                     }
 
                 });
@@ -238,5 +247,12 @@ module.exports = function(testRequest_) {
         });
 
     });
+
+    return {
+        testResults: {
+            opci: opci,
+            opciStatus: opciStatus
+        }
+    };
 
 };

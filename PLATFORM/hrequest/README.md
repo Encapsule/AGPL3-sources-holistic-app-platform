@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.23 "fortine"
 
 ```
-Package: @encapsule/hrequest v0.0.23 "fortine" build ID "r8EoglijQTChHbGokg8GTw"
-Sources: Encapsule/holistic#1ae07381cd8dbe2df5e739f4d3b2ad4ed6f216a5
+Package: @encapsule/hrequest v0.0.23 "fortine" build ID "_ijd3_BHRqCkfZykvqFf_Q"
+Sources: Encapsule/holistic#0b7fe5ad86fe2c9ba5ed75b5d5f00183f788633f
 Purpose: library (Node.js)
-Created: 2019-11-05T18:04:01.000Z
+Created: 2019-11-06T20:58:39.000Z
 License: MIT
 ```
 

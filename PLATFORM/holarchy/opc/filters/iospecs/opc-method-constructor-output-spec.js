@@ -124,5 +124,16 @@ module.exports = {
     ____accept: ["jsObject", "jsNull"],
     ____defaultValue: null // null indicates that initial post-construction evaluation of the OPC's system model has not yet been completed.
 
+  },
+  constructionWarnings: {
+    ____label: "Construction Warnings",
+    ____description: "Keep track of warnings issued during OPC construction. Primarily for testing purposes now. Later, we can expose as part of developer toolset somehow.",
+    ____types: "jsArray",
+    ____defaultValue: [],
+    warning: {
+      ____label: "Warning String",
+      ____description: "A non-critical advisory message for devleopers. Used to track nuanced behavior during OPC constructor.",
+      ____accept: "jsString"
+    }
   }
 }; // OPC constructor filter response.result --> OPC this._private in the OPC::constructor function
