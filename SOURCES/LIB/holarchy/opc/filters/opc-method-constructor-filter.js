@@ -183,13 +183,13 @@ const factoryResponse = arccore.filter.create({
                            ) {
 
                             // Issue a warning and move on. No binding.
-
                             const warningMessage = `WARNING: OCD runtime spec path '${record.specPath}' will not be bound to OPM ID '${opmID}'. Type constraint must be ____types: "jsObject" to bind to an OPM.`;
                             result.constructionWarnings.push(warningMessage);
                             console.warn(warningMessage);
                             console.log({ specRef: record.specRef, specPath: record.specPath });
                             provisionalSpecRef = { ...record.specRef };
                             delete provisionalSpecRef.____appdsl.opm;
+                            provisionalSpecRef.____appdsl.opcWarning = warningMessage;
 
                         } // if namespace binding ignored due to spec problem
                         else { // determine if there's a corresponding OPM registration.
@@ -204,10 +204,12 @@ const factoryResponse = arccore.filter.create({
                                 // Save the spec path and opmRef in an array.
                                 result.opmiSpecPaths.push({ specPath: record.specPath, opmiRef: opm });
 
+                                // TODO: This is the area of the code that Phil flagged.
+                                // We're not quite done yet here; these are manifests constants in the aspects module
+                                // now. I just haven't had time to splice it in and write the corresponding tests yet.
                                 const opcSpecOverlay = {
                                     ____types: "jsObject",
                                 };
-
                                 const opmSpecOverlay = opm.getDataSpec();
                                 provisionalSpecRef = { ...record.specRef, ...opmSpecOverlay, ...opcSpecOverlay };
 
@@ -218,7 +220,9 @@ const factoryResponse = arccore.filter.create({
                                 result.constructionWarnings.push(warningMessage);
                                 console.warn(warningMessage);
                                 provisionalSpecRef = { ...record.specRef };
+                                provisionalSpecRef.____appdsl.opcWarning = warningMessage;
                                 delete provisionalSpecRef.____appdsl.opm;
+
                             } // else no opm registered to complete this binding with
 
                         } // else the binding is on a valid namespace descriptor and we'll consider it
@@ -229,6 +233,7 @@ const factoryResponse = arccore.filter.create({
                         result.constructionWarnings.push(warningMessage);
                         console.warn(warningMessage);
                         provisionalSpecRef = { ...record.specRef };
+                        provisionalSpecRef.____appdsl.opcWarning = warningMessage;
                         delete provisionalSpecRef.____appdsl.opm;
                     }
                 } // if opm-bound instance

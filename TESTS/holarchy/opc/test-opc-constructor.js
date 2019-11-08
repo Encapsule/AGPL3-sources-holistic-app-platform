@@ -1,5 +1,5 @@
 
-const runTest = require("./opc-constructor-test-fixture");
+const runTest = require("./harness-opc-constructor");
 
 // Frequently used comparison values:
 
@@ -68,7 +68,7 @@ runTest({
     expectedError: null,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] Observable Controller Data Store","____description":"OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
-        opciStateJSON: "{}"
+        ocdiRuntimeDataJSON: "{}"
     },
     expectedWarningsJSON: baseConstructorWarningsJSON
 });
@@ -90,7 +90,7 @@ runTest({
     expectedError: null,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Controller Data Store","____description":"OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}`,
-        opciStateJSON: "{}"
+        ocdiRuntimeDataJSON: "{}"
     },
     expectedWarningsJSON: baseConstructorWarningsJSON
 });
@@ -225,7 +225,7 @@ runTest({
     expectedError: null,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] Observable Controller Data Store","____description":"OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
-        opciStateJSON: `{"testString":"Please specify a value for ~.testString."}`
+        ocdiRuntimeDataJSON: `{"testString":"Please specify a value for ~.testString."}`
     },
     expectedWarningsJSON: baseConstructorWarningsJSON
 
@@ -276,7 +276,7 @@ runTest({
     expectedError: null,
     expectedResults: {
         ocdRuntimeSpecJSON: `{"____label":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] Observable Controller Data Store","____description":"OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"testString":{"____label":"Test Namespace 1","____accept":"jsString","____defaultValue":"Please specify a value for ~.testString."}}`,
-        opciStateJSON: `{"testString":"Hello, World!"}`,
+        ocdiRuntimeDataJSON: `{"testString":"Hello, World!"}`,
     },
     expectedWarningsJSON: baseConstructorWarningsJSON
 });
@@ -285,11 +285,10 @@ runTest({
 // ********************************************************************************
 // ********************************************************************************
 // ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
-
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1 (BAD IRUT)
 runTest({
     id: "np4M1LDWSyeNXOmFYJulhA",
-    name: "Test invalid filter spec binding #1",
+    name: "Invalid OPC template spec binding #1",
     description: "Pass an OCD template spec w/invalid OPM binding IRUT",
     opcRequest: {
         id: "np4M1LDWSyeNXOmFYJulhA",
@@ -304,10 +303,120 @@ runTest({
     },
     expectedError: null,
     expectedResults: {
-        ocdRuntimeSpecJSON: `{"____label":"OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] Observable Controller Data Store","____description":"OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"app":{"____types":"jsObject","____defaultValue":{},"____appdsl":{}}}`,
-        opciStateJSON: `{"app":{}}`
+        ocdRuntimeSpecJSON: '{"____label":"OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] Observable Controller Data Store","____description":"OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"app":{"____types":"jsObject","____defaultValue":{},"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.app\' will not be bound to OPM ID \'not and IRUT\'. Invalid ID IRUT specified."}}}',
+        ocdiRuntimeDataJSON: '{"app":{}}'
     },
     expectedWarningsJSON: `["WARNING: OCD runtime spec path '~.app' will not be bound to OPM ID 'not and IRUT'. Invalid ID IRUT specified.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]`
+
 });
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #2 (BAD BINDING TYPE #1)
+runTest({
+    id: "197ZsgbfRRGGMWqhwmaBDg",
+    name: "Invalid OPC template spec binding #2",
+    description: "OCD spec namespace bound to OPM not allowed to use ____opaque directive.",
+    opcRequest: {
+        id: "197ZsgbfRRGGMWqhwmaBDg",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            badNamespace: {
+                ____opaque: true,
+                ____appdsl: { opm: "197ZsgbfRRGGMWqhwmaBDg" } // valid IRUT so we'll check the binding namespace type constraint
+            }
+        }
+    },
+    expectedError: null,
+    expectedResults: {
+        ocdRuntimeSpecJSON: '{"____label":"OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] Observable Controller Data Store","____description":"OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____opaque":true,"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'197ZsgbfRRGGMWqhwmaBDg\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM."}}}',
+        ocdiRuntimeDataJSON: "{}"
+    },
+    expectedWarningsJSON: ""
+});
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #3
+runTest({
+    id: "rxFiX7H-TDG0GsxqtRekoA",
+    name: "Invalid OPC template spec binding #3",
+    description: "OCD spec namespace bound to OPM not allowed to use ____accept directive.",
+    opcRequest: {
+        id: "rxFiX7H-TDG0GsxqtRekoA",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            badNamespace: {
+                ____accept: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { opm: "rxFiX7H-TDG0GsxqtRekoA" }
+            }
+        }
+    },
+
+    expectedError: "",
+
+    expectedResults: {
+
+        ocdRuntimeSpecJSON: '{"____label":"OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] Observable Controller Data Store","____description":"OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____accept":"jsObject","____defaultValue":{},"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'rxFiX7H-TDG0GsxqtRekoA\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM."}}}',
+
+        ocdiRuntimeDataJSON: '{"badNamespace":{}}'
+
+    },
+
+    expectedWarningsJSON: ""
+
+});
+
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+
+
+
+// ********************************************************************************
+// ********************************************************************************
+// ********************************************************************************
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+
 
 

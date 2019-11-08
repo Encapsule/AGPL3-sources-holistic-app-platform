@@ -1,4 +1,4 @@
-// @encapsule/holistic/TESTS/holarchy/opc/opc-test-fixture-1.js
+// @encapsule/holistic/TESTS/holarchy/opc/harness-opc-constructor.js
 //
 // A "fixture" is a function that performs a battery of tests on a
 // module under test. Here the module is ObservableProcessController
@@ -9,36 +9,57 @@
 // straight out w/node. Luckily, mocha supports --inspect-brk
 //
 
+const arccore = require("@encapsule/arccore");
 const chai = require("chai");
 const assert = chai.assert;
-
-let testNumber = 1;
 
 // Module under test
 const { ObservableProcessController, ObservableControllerData } = require("../../../PLATFORM/holarchy");
 
-/*
-  {
-    id: IRUT
-    name: test name
-    description: test description
-    opcRequest: optional opc constructor request descriptor obejct
-    expectedError: null | expected construction error
-    expectedResults: {
-        ocdRuntimeSpec: synthesize filter spec
+
+const factoryResponse = arccore.filter.create({
+    operationID: "bxGOxHvYSrON0A1zRum3NA",
+    operationName: "OPC Constructor Test Vector Filter",
+    operationDescriptor: "Ensures that the test request message passed to the harness is validated and normally. Establishes invariants for the harness function.",
+    inputFilterSpec: {
+        ____types: "jsObject",
+        id: { ____accept: "jsString" },
+        name: { ____accept: "jsString" },
+        description: { ____accept: "jsString" },
+        ocdRequest: { ____accept: [ "jsUndefined", "jsObject" ] },
+        expectedResults: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            ocdTemplateSpecJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
+            ocdiRuntimeDataJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }
+        },
+
+        expectedError: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
+        expectedWarningsJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }
     }
-   }
-*/
+});
+if (factoryResponse.error) {
+    throw new Error(factoryResponse.error);
+}
+const testVectorFilter = factoryResponse.result;
+
+let testNumber = 1;
 
 module.exports = function(testRequest_) {
 
     let opci = null;
     let opciStatus = null;
 
+
     describe(`OPC test fixture run ${testNumber++} test id "${testRequest_.id}" // ${testRequest_.name}: ${testRequest_.description}`, function() {
 
         before(function() {
             const constructionWrapper = function() {
+                // Throw on test vector validation/normalization error. The test vector (request descriptor) must be valid in order to execute the Mocha-based test harness code.
+                const filterResponse = testVectorFilter.request(testRequest_);
+                if (filterResponse.error) {
+                    throw new Error(filterResponse.error);
+                }
                 opci = new ObservableProcessController(testRequest_.opcRequest);
             }
             assert.doesNotThrow(constructionWrapper);
@@ -222,7 +243,7 @@ module.exports = function(testRequest_) {
                                 it("OPCI._private.ocdi.readNamespace(~) JSON should match expected value", function() {
                                     assert.property(ocdiReadNamespaceResponse, "result");
                                     assert.isObject(ocdiReadNamespaceResponse.result);
-                                    assert.equal(JSON.stringify(ocdiReadNamespaceResponse.result), testRequest_.expectedResults.opciStateJSON);
+                                    assert.equal(JSON.stringify(ocdiReadNamespaceResponse.result), testRequest_.expectedResults.ocdiRuntimeDataJSON);
                                 });
 
                             });
