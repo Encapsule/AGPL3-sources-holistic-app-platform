@@ -21,6 +21,7 @@ const factoryResponse = arccore.filter.create({
 
             // Note that if no failure occurs in this filter then response.result
             // will be assigned to OPCI this._private namespace.
+
             let result = {
                 // meta
                 id: null,
@@ -46,6 +47,7 @@ const factoryResponse = arccore.filter.create({
 
             }; // Populate as we go and assign to response.result iff !response.error.
 
+            // ================================================================
             // Before we even get started, confirm that that the ID is valid.
             // And, take care of defaulting name and description (that depends on id
             // so that's why we don't use ____defaultValue)
@@ -65,6 +67,8 @@ const factoryResponse = arccore.filter.create({
                 result.id = request_.id;
             }
 
+            // ================================================================
+            // Keep copies of normalized and validated metadata entries.
             result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
             result.name = request_.name?request_.name:"Unnamed OPC";
             result.description = request_.descriptor?request_.descriptor:"Undescribed OPC";
@@ -94,6 +98,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            // ================================================================
             // Instantiate a temporary filter for the purposes of validating and normalizing the developer-specified OCD template spec.
             let factoryResponse = arccore.filter.create({  operationID: "demo", inputFilterSpec: request_.ocdTemplateSpec });
             if (factoryResponse.error) {
@@ -101,16 +106,28 @@ const factoryResponse = arccore.filter.create({
                 errors.push(factoryResponse.error);
                 break;
             }
-
             // Save the normalized copy of the dev-specified ocdTemplateSpec. This is useful to developers.
             result.ocdTemplateSpec = factoryResponse.result.filterDescriptor.inputFilterSpec;
 
-            console.log("> Analyzing OCD template spec and model registrations...");
             // ================================================================
             // Find all the OPM-bound namespaces in the developer-defined controller data spec
             // and synthesize the runtime filter spec to be used for OPMI data my merging the
             // OPM's template spec and the developer-defined spec.
             // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
+
+            console.log("> Analyzing OCD template spec and model registrations...");
+
+            const errorRootNamespace = `Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: "jsObject" quanderscore directive; no other directives are allowed in ~ namespace.`
+
+            // Analyze the type constraint on the root namespace, ~, of the ocdTemplateSpec.
+            if (request_.ocdTemplateSpec.____opaque ||
+                request_.ocdTemplateSpec.____accept ||
+                Array.isArray(request_.ocdTemplateSpec.____types) ||
+                (request_.ocdTemplateSpec.____types !== "jsObject")
+               ) {
+                errors.push(errorRootNamespace);
+                break;
+            }
 
             const ocdRuntimeBaseSpec = {
                 ____label: `OPC [${result.id}::${result.name}] Observable Controller Data Store`,
@@ -119,13 +136,21 @@ const factoryResponse = arccore.filter.create({
             };
 
             const keys = Object.keys(request_.ocdTemplateSpec);
+            let quanderscoreCount = 0;
             while (keys.length) {
                 const key = keys.shift();
                 if (key.startsWith("____")) {
+                    quanderscoreCount++;
                     continue;
                 }
                 ocdRuntimeBaseSpec[key] = request_.ocdTemplateSpec[key];
-            }
+            } // while keys
+
+            if (quanderscoreCount > 1) {
+                errors.push(errorRootNamespace);
+                break;
+            } // if quanderscoreCount > 1
+
 
             let namespaceQueue = [ { lastSpecPath: null , specPath: "~", specRef: /*request_.ocdTemplateSpec*/ocdRuntimeBaseSpec, newSpecRef: result.ocdRuntimeSpec } ];
             while (namespaceQueue.length) {
