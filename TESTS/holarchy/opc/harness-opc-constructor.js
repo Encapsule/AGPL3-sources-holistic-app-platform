@@ -253,17 +253,15 @@ module.exports = function(testRequest_) {
 
                     }
 
-                    if (testRequest_.expectedWarningsJSON) {
-                        describe("Inspect the OPC's construction warnings array against expected values.", function() {
-                            it("The list of OPC construction warnings JSON should match expected value JSON.", function() {
-                                assert.equal(JSON.stringify(opci._private.constructionWarnings), testRequest_.expectedWarningsJSON);
-                            });
-                        });
-                    }
-
                 });
 
-            }
+            } // else
+
+            describe("Inspect the OPC's construction warnings array against expected values.", function() {
+                it("The list of OPC construction warnings JSON should match expected value JSON.", function() {
+                    assert.equal(JSON.stringify(opci._private.constructionWarnings), testRequest_.expectedWarningsJSON);
+                });
+            });
 
         });
 

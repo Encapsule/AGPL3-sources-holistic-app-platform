@@ -53,6 +53,7 @@ runTest({
     description: "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID.",
     opcRequest: { id: "demo" },
     expectedError: null,
+    expectedWarningsJSON: baseConstructorWarningsJSON
 });
 
 
@@ -333,7 +334,7 @@ runTest({
         ocdRuntimeSpecJSON: '{"____label":"OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] Observable Controller Data Store","____description":"OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____opaque":true,"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'197ZsgbfRRGGMWqhwmaBDg\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM."}}}',
         ocdiRuntimeDataJSON: "{}"
     },
-    expectedWarningsJSON: ""
+    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'197ZsgbfRRGGMWqhwmaBDg\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
 });
 
 
@@ -366,8 +367,7 @@ runTest({
         ocdiRuntimeDataJSON: '{"badNamespace":{}}'
 
     },
-
-    expectedWarningsJSON: ""
+    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'rxFiX7H-TDG0GsxqtRekoA\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
 
 });
 
