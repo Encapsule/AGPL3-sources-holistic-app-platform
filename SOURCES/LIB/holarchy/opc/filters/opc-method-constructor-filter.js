@@ -178,14 +178,13 @@ const factoryResponse = arccore.filter.create({
                         //
                         if (record.specRef.____opaque ||
                             record.specRef.____accept ||
-                            (Array.isArray(record.specRef.____types) && (record.specRef.____types.length !== 1)) ||
-                            (Array.isArray(record.specRef.____types) && (record.specRef.____types[0] !== "jsObject")) ||
+                            Array.isArray(record.specRef.____types) ||
                             (record.specRef.____types !== "jsObject")
                            ) {
 
-                            // Issue a wanring and move on. No binding.
+                            // Issue a warning and move on. No binding.
 
-                            const warningMessage = `WARNING: OCD runtime spec path '${record.specPath}' will not be bound to OPM ID '${opmID}'. Incorrectly declared filter spec namespace descriptor for OPM bindig.`;
+                            const warningMessage = `WARNING: OCD runtime spec path '${record.specPath}' will not be bound to OPM ID '${opmID}'. Type constraint must be ____types: "jsObject" to bind to an OPM.`;
                             result.constructionWarnings.push(warningMessage);
                             console.warn(warningMessage);
                             console.log({ specRef: record.specRef, specPath: record.specPath });
