@@ -238,7 +238,7 @@ const factoryResponse = arccore.filter.create({
                     }
                 } // if opm-bound instance
 
-                // Use the provision sepc if defined. Otherwise, continue to process the spec from the queue record.
+                // Use the provision spec if defined. Otherwise, continue to process the spec from the queue record.
                 let workingSpecRef = provisionalSpecRef?provisionalSpecRef:record.specRef;
                 // Evaluate the properties of the current namespace descriptor in the workingSpec.
                 let keys = Object.keys(workingSpecRef);

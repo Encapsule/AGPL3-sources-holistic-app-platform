@@ -358,8 +358,7 @@ runTest({
         }
     },
 
-    expectedError: "",
-
+    expectedError: null,
     expectedResults: {
 
         ocdRuntimeSpecJSON: '{"____label":"OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] Observable Controller Data Store","____description":"OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____accept":"jsObject","____defaultValue":{},"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'rxFiX7H-TDG0GsxqtRekoA\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM."}}}',
@@ -376,19 +375,86 @@ runTest({
 // ********************************************************************************
 // ********************************************************************************
 // ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #4
+runTest({
+    id: "Pe4ks7bQQ9KQee1T8qTRHw",
+    name: "Invalid OPC Template sepc binding #4",
+    description: "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive.",
+    opcRequest: {
+        id: "Pe4ks7bQQ9KQee1T8qTRHw",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            badNamespace: {
+                ____types: [ "jsObject" ], // array of type constraints allowed
+                ____appdsl: { opm: "Pe4ks7bQQ9KQee1T8qTRHw" }, // ....so this will be ignored leaving this namespace as-it-is-defined here in the runtime spec
+                ____defaultValue: {} // which means we better provide a default value or the OPC constructor will not support default construction per things we've already locked down if the tests above pass.
+            }
+        }
+    },
+    expectedError: null,
+    expectedResults: {
+        ocdRuntimeSpecJSON: '{"____label":"OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] Observable Controller Data Store","____description":"OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____types":["jsObject"],"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'Pe4ks7bQQ9KQee1T8qTRHw\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM."},"____defaultValue":{}}}',
+        ocdiRuntimeDataJSON: '{"badNamespace":{}}'
+    },
+    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'Pe4ks7bQQ9KQee1T8qTRHw\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
+});
 
 
 // ********************************************************************************
 // ********************************************************************************
 // ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #5
+runTest({
+    id:  "H2zMrBw4TBie5A2mwH4BRg",
+    name: "Invalid OCD template spec binding #5",
+    description: "OCD spec namespace bound to OPM not must declare ____types: \"jsObject\".",
+    opcRequest: {
+        id: "H2zMrBw4TBie5A2mwH4BRg",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            badNamespace: {
+                ____types: "jsArray",
+                ____defaultValue: [],
+                ____appdsl: { opm:"H2zMrBw4TBie5A2mwH4BRg" }
+            }
+        }
+    },
+    expectedError: null,
+    expectedResults: {
+        ocdRuntimeSpecJSON: '{"____label":"OPC [H2zMrBw4TBie5A2mwH4BRg::Unnamed OPC] Observable Controller Data Store","____description":"OPC [H2zMrBw4TBie5A2mwH4BRg::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____types":"jsArray","____defaultValue":[],"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'H2zMrBw4TBie5A2mwH4BRg\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM."}}}',
+        ocdiRuntimeDataJSON: '{"badNamespace":[]}'
+    },
+    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'H2zMrBw4TBie5A2mwH4BRg\'. Type constraint must be ____types: \\"jsObject\\" to bind to an OPM.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
+});
 
 
+
 // ********************************************************************************
 // ********************************************************************************
 // ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
+// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #6
+runTest({
+    id: "T-apDENPTAO6iQShA-2qBQ",
+    name: "Invalid OCD template spec binding #6",
+    description: "OCD template spec namespace bound to OPM must specify the ID of a registered OPM instance to bind.",
+    opcRequest: {
+        id: "T-apDENPTAO6iQShA-2qBQ",
+        ocdTemplateSpec: {
+            ____types: "jsObject",
+            badNamespace: {
+                ____types: "jsObject", // correct
+                ____defaultValue: {}, // okay
+                ____appdsl: { opm: "T-apDENPTAO6iQShA-2qBQ" } // not registered
+            }
+        }
+    },
+    expectedError: null,
+    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'T-apDENPTAO6iQShA-2qBQ\'. Unknown/unregistered OPM specified.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
+    expectedResults: {
+        ocdRuntimeSpecJSON: '{"____label":"OPC [T-apDENPTAO6iQShA-2qBQ::Unnamed OPC] Observable Controller Data Store","____description":"OPC [T-apDENPTAO6iQShA-2qBQ::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____types":"jsObject","____defaultValue":{},"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'T-apDENPTAO6iQShA-2qBQ\'. Unknown/unregistered OPM specified."}}}',
+        ocdiRuntimeDataJSON: '{"badNamespace":{}}'
+    }
+});
 
 
 

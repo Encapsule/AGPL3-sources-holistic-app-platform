@@ -27,15 +27,14 @@ const factoryResponse = arccore.filter.create({
         name: { ____accept: "jsString" },
         description: { ____accept: "jsString" },
         ocdRequest: { ____accept: [ "jsUndefined", "jsObject" ] },
+        expectedError: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
+        expectedWarningsJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
         expectedResults: {
             ____types: "jsObject",
             ____defaultValue: {},
             ocdTemplateSpecJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
             ocdiRuntimeDataJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }
-        },
-
-        expectedError: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
-        expectedWarningsJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }
+        }
     }
 });
 if (factoryResponse.error) {
