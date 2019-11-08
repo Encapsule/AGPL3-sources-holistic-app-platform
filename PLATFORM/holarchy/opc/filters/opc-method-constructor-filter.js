@@ -50,6 +50,7 @@ var factoryResponse = arccore.filter.create({
         opcActorStack: [],
         constructionWarnings: []
       }; // Populate as we go and assign to response.result iff !response.error.
+      // ================================================================
       // Before we even get started, confirm that that the ID is valid.
       // And, take care of defaulting name and description (that depends on id
       // so that's why we don't use ____defaultValue)
@@ -71,7 +72,9 @@ var factoryResponse = arccore.filter.create({
         }
 
         result.id = request_.id;
-      }
+      } // ================================================================
+      // Keep copies of normalized and validated metadata entries.
+
 
       result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
 
@@ -104,7 +107,8 @@ var factoryResponse = arccore.filter.create({
 
       if (errors.length) {
         return "break";
-      } // Instantiate a temporary filter for the purposes of validating and normalizing the developer-specified OCD template spec.
+      } // ================================================================
+      // Instantiate a temporary filter for the purposes of validating and normalizing the developer-specified OCD template spec.
 
 
       var factoryResponse = arccore.filter.create({
@@ -119,12 +123,19 @@ var factoryResponse = arccore.filter.create({
       } // Save the normalized copy of the dev-specified ocdTemplateSpec. This is useful to developers.
 
 
-      result.ocdTemplateSpec = factoryResponse.result.filterDescriptor.inputFilterSpec;
-      console.log("> Analyzing OCD template spec and model registrations..."); // ================================================================
+      result.ocdTemplateSpec = factoryResponse.result.filterDescriptor.inputFilterSpec; // ================================================================
       // Find all the OPM-bound namespaces in the developer-defined controller data spec
       // and synthesize the runtime filter spec to be used for OPMI data my merging the
       // OPM's template spec and the developer-defined spec.
       // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
+
+      console.log("> Analyzing OCD template spec and model registrations...");
+      var errorRootNamespace = "Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."; // Analyze the type constraint on the root namespace, ~, of the ocdTemplateSpec.
+
+      if (request_.ocdTemplateSpec.____opaque || request_.ocdTemplateSpec.____accept || Array.isArray(request_.ocdTemplateSpec.____types) || request_.ocdTemplateSpec.____types !== "jsObject") {
+        errors.push(errorRootNamespace);
+        return "break";
+      }
 
       var ocdRuntimeBaseSpec = _objectSpread({
         ____label: "OPC [".concat(result.id, "::").concat(result.name, "] Observable Controller Data Store"),
@@ -132,16 +143,25 @@ var factoryResponse = arccore.filter.create({
       }, ocdRuntimeSpecAspects.aspects.opcProcessStateRootOverlaySpec);
 
       var keys = Object.keys(request_.ocdTemplateSpec);
+      var quanderscoreCount = 0;
 
       while (keys.length) {
         var key = keys.shift();
 
         if (key.startsWith("____")) {
+          quanderscoreCount++;
           continue;
         }
 
         ocdRuntimeBaseSpec[key] = request_.ocdTemplateSpec[key];
-      }
+      } // while keys
+
+
+      if (quanderscoreCount > 1) {
+        errors.push(errorRootNamespace);
+        return "break";
+      } // if quanderscoreCount > 1
+
 
       var namespaceQueue = [{
         lastSpecPath: null,
@@ -174,9 +194,9 @@ var factoryResponse = arccore.filter.create({
             // merged over bound namespace. Namespace name collisions are resolved in favor
             // of the bound OPM's descriptor object filter spec W/OUT WARNING
             //
-            if (record.specRef.____opaque || record.specRef.____accept || Array.isArray(record.specRef.____types) && record.specRef.____types.length !== 1 || Array.isArray(record.specRef.____types) && record.specRef.____types[0] !== "jsObject" || record.specRef.____types !== "jsObject") {
-              // Issue a wanring and move on. No binding.
-              var warningMessage = "WARNING: OCD runtime spec path '".concat(record.specPath, "' will not be bound to OPM ID '").concat(_opmID, "'. Incorrectly declared filter spec namespace descriptor for OPM bindig.");
+            if (record.specRef.____opaque || record.specRef.____accept || Array.isArray(record.specRef.____types) || record.specRef.____types !== "jsObject") {
+              // Issue a warning and move on. No binding.
+              var warningMessage = "WARNING: OCD runtime spec path '".concat(record.specPath, "' will not be bound to OPM ID '").concat(_opmID, "'. Type constraint must be ____types: \"jsObject\" to bind to an OPM.");
               result.constructionWarnings.push(warningMessage);
               console.warn(warningMessage);
               console.log({
@@ -185,6 +205,7 @@ var factoryResponse = arccore.filter.create({
               });
               provisionalSpecRef = _objectSpread({}, record.specRef);
               delete provisionalSpecRef.____appdsl.opm;
+              provisionalSpecRef.____appdsl.opcWarning = warningMessage;
             } // if namespace binding ignored due to spec problem
             else {
                 // determine if there's a corresponding OPM registration.
@@ -197,7 +218,10 @@ var factoryResponse = arccore.filter.create({
                   result.opmiSpecPaths.push({
                     specPath: record.specPath,
                     opmiRef: _opm
-                  });
+                  }); // TODO: This is the area of the code that Phil flagged.
+                  // We're not quite done yet here; these are manifests constants in the aspects module
+                  // now. I just haven't had time to splice it in and write the corresponding tests yet.
+
                   var opcSpecOverlay = {
                     ____types: "jsObject"
                   };
@@ -212,6 +236,7 @@ var factoryResponse = arccore.filter.create({
                   result.constructionWarnings.push(_warningMessage);
                   console.warn(_warningMessage);
                   provisionalSpecRef = _objectSpread({}, record.specRef);
+                  provisionalSpecRef.____appdsl.opcWarning = _warningMessage;
                   delete provisionalSpecRef.____appdsl.opm;
                 } // else no opm registered to complete this binding with
 
@@ -224,6 +249,7 @@ var factoryResponse = arccore.filter.create({
               result.constructionWarnings.push(_warningMessage2);
               console.warn(_warningMessage2);
               provisionalSpecRef = _objectSpread({}, record.specRef);
+              provisionalSpecRef.____appdsl.opcWarning = _warningMessage2;
               delete provisionalSpecRef.____appdsl.opm;
             }
         } // if opm-bound instance

@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-metadata",
     "version": "0.0.24",
     "codename": "trego",
-    "buildID": "tg6mnPb4Sn-oaWAoSdctFw",
-    "buildTime": 1573172290,
-    "buildSource": "31ee5c20e51aa46dfd7995fcc70d84d390fe0df8",
+    "buildID": "YAVpD3zlRdGyyhFhgKmUcg",
+    "buildTime": 1573230358,
+    "buildSource": "f4d27681804968f9fe5079b8c7c54f67ac63bab0",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-metadata.git"
