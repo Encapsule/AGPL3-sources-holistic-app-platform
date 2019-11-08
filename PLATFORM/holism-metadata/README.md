@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holism-metadata v0.0.23 "fortine"
+# @encapsule/holism-metadata v0.0.24 "trego"
 
 ```
-Package: @encapsule/holism-metadata v0.0.23 "fortine" build ID "KAZOEFLXRrWx0q9hGbvTPg"
-Sources: Encapsule/holistic#36f5a85612bcb5ac4dfc4218fd755953309741f4
+Package: @encapsule/holism-metadata v0.0.24 "trego" build ID "tg6mnPb4Sn-oaWAoSdctFw"
+Sources: Encapsule/holistic#31ee5c20e51aa46dfd7995fcc70d84d390fe0df8
 Purpose: library (Node.js)
-Created: 2019-11-06T21:16:41.000Z
+Created: 2019-11-08T00:18:10.000Z
 License: MIT
 ```
 
@@ -50,7 +50,7 @@ blah blah this is some text in the documentation markdown array.
 
 The `@encapsule/holism-metadata` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holism-metadata Package Distribution](https://npmjs.com/package/@encapsule/holism-metadata/v/0.0.23) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holism-metadata Package Distribution](https://npmjs.com/package/@encapsule/holism-metadata/v/0.0.24) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holism-metadata git Repository](https://github.com/Encapsule/holism-metadata) ([GitHub](https://github.com/Encapsule))
 
 ## Body section 1

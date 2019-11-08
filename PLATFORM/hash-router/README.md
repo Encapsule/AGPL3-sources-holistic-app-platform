@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/hash-router v0.0.23 "fortine"
+# @encapsule/hash-router v0.0.24 "trego"
 
 ```
-Package: @encapsule/hash-router v0.0.23 "fortine" build ID "KAZOEFLXRrWx0q9hGbvTPg"
-Sources: Encapsule/holistic#36f5a85612bcb5ac4dfc4218fd755953309741f4
+Package: @encapsule/hash-router v0.0.24 "trego" build ID "tg6mnPb4Sn-oaWAoSdctFw"
+Sources: Encapsule/holistic#31ee5c20e51aa46dfd7995fcc70d84d390fe0df8
 Purpose: library (Node.js)
-Created: 2019-11-06T21:16:41.000Z
+Created: 2019-11-08T00:18:10.000Z
 License: MIT
 ```
 
@@ -67,7 +67,7 @@ blah blah blah Reusable React components for blah blah blah.
 
 The `@encapsule/hash-router` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/hash-router Package Distribution](https://npmjs.com/package/@encapsule/hash-router/v/0.0.23) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/hash-router Package Distribution](https://npmjs.com/package/@encapsule/hash-router/v/0.0.24) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/hash-router git Repository](https://github.com/Encapsule/hash-router) ([GitHub](https://github.com/Encapsule))
 
 <hr>

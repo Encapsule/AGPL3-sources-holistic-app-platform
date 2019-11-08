@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/hrequest v0.0.23 "fortine"
+# @encapsule/hrequest v0.0.24 "trego"
 
 ```
-Package: @encapsule/hrequest v0.0.23 "fortine" build ID "KAZOEFLXRrWx0q9hGbvTPg"
-Sources: Encapsule/holistic#36f5a85612bcb5ac4dfc4218fd755953309741f4
+Package: @encapsule/hrequest v0.0.24 "trego" build ID "tg6mnPb4Sn-oaWAoSdctFw"
+Sources: Encapsule/holistic#31ee5c20e51aa46dfd7995fcc70d84d390fe0df8
 Purpose: library (Node.js)
-Created: 2019-11-06T21:16:41.000Z
+Created: 2019-11-08T00:18:10.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ Developer API and examples: [Encapsule Project hrequest documentation](https://e
 
 The `@encapsule/hrequest` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.23) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.24) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/hrequest git Repository](https://github.com/Encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
 
 <hr>
