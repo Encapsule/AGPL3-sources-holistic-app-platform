@@ -1,5 +1,6 @@
 const arccore = require("@encapsule/arccore");
 const ObservableControllerData = require("../ObservableControllerData");
+
 const ocdRuntimeSpecAspects = require("./iospecs/ocd-runtime-spec-aspects");
 
 const opcMethodConstructorInputSpec = require("./iospecs/opc-method-constructor-input-spec");
@@ -89,13 +90,19 @@ const factoryResponse = arccore.filter.create({
                         break;
                     }
                     result.opmMap[opmID] = opm;
-                }
+                } // for model in array
                 if (errors.length) {
                     break;
                 }
-            }
+            } // for array of models in array
             if (errors.length) {
                 break;
+            }
+
+            if (!Object.keys(result.opmMap).length) {
+                const message = "WARNING: No ObservableProcessModel class instances registered!";
+                console.warn(message);
+                result.constructionWarnings.push(message);
             }
 
             // ================================================================
@@ -150,7 +157,6 @@ const factoryResponse = arccore.filter.create({
                 break;
             } // if quanderscoreCount > 1
 
-
             let namespaceQueue = [ { lastSpecPath: null , specPath: "~", specRef: /*request_.ocdTemplateSpec*/ocdRuntimeBaseSpec, newSpecRef: result.ocdRuntimeSpec } ];
             while (namespaceQueue.length) {
                 // Retrieve the next record from the queue.
@@ -201,16 +207,13 @@ const factoryResponse = arccore.filter.create({
                                 // BINDING TO REGISTERED OPM
                                 // Yes - There is a registered OPM with this ID. Perform the requisite filter spec merge into the OCD runtime spec.
 
-                                // Save the spec path and opmRef in an array.
-                                result.opmiSpecPaths.push({ specPath: record.specPath, opmiRef: opm });
+                                // Save the spec path and opmRef in an array. This allows us to see all the live bindings in the OCD runtime spec.
+                                result.opmiSpecPaths.push({ specPath: record.specPath, opmiRef: opm }); // TODO: This should probably just be the OPM ID
 
-                                // TODO: This is the area of the code that Phil flagged.
-                                // We're not quite done yet here; these are manifests constants in the aspects module
-                                // now. I just haven't had time to splice it in and write the corresponding tests yet.
-                                const opcSpecOverlay = {
-                                    ____types: "jsObject",
-                                };
-                                const opmSpecOverlay = opm.getDataSpec();
+                                const opcSpecOverlay = ocdRuntimeSpecAspects.opcProcessModelBindingRootOverlay;
+
+                                const opmSpecOverlay = opm.getDataSpec(); // TODO: Ensure OPM constructor filter correctly verified an OPM's template spec.
+
                                 provisionalSpecRef = { ...record.specRef, ...opmSpecOverlay, ...opcSpecOverlay };
 
                             } else {

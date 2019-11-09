@@ -3,7 +3,7 @@ const runTest = require("./harness-opc-constructor");
 
 // Frequently used comparison values:
 
-const baseConstructorWarningsJSON = `["WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]`;
+const baseConstructorWarningsJSON = '["WARNING: No ObservableProcessModel class instances registered!","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]';
 
 
 // ********************************************************************************
@@ -303,12 +303,11 @@ runTest({
         }
     },
     expectedError: null,
+    expectedWarningsJSON: '["WARNING: No ObservableProcessModel class instances registered!","WARNING: OCD runtime spec path \'~.app\' will not be bound to OPM ID \'not and IRUT\'. Invalid ID IRUT specified.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
     expectedResults: {
         ocdRuntimeSpecJSON: '{"____label":"OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] Observable Controller Data Store","____description":"OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"app":{"____types":"jsObject","____defaultValue":{},"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.app\' will not be bound to OPM ID \'not and IRUT\'. Invalid ID IRUT specified."}}}',
         ocdiRuntimeDataJSON: '{"app":{}}'
-    },
-    expectedWarningsJSON: `["WARNING: OCD runtime spec path '~.app' will not be bound to OPM ID 'not and IRUT'. Invalid ID IRUT specified.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]`
-
+    }
 });
 
 // ********************************************************************************
@@ -330,11 +329,11 @@ runTest({
         }
     },
     expectedError: null,
+    expectedWarningsJSON: '["WARNING: No ObservableProcessModel class instances registered!","WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'197ZsgbfRRGGMWqhwmaBDg\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
     expectedResults: {
         ocdRuntimeSpecJSON: '{"____label":"OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] Observable Controller Data Store","____description":"OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____opaque":true,"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'197ZsgbfRRGGMWqhwmaBDg\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\"."}}}',
         ocdiRuntimeDataJSON: "{}"
-    },
-    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'197ZsgbfRRGGMWqhwmaBDg\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
+    }
 });
 
 
@@ -358,11 +357,11 @@ runTest({
         }
     },
     expectedError: null,
+    expectedWarningsJSON: '["WARNING: No ObservableProcessModel class instances registered!","WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'rxFiX7H-TDG0GsxqtRekoA\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
     expectedResults: {
         ocdRuntimeSpecJSON: '{"____label":"OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] Observable Controller Data Store","____description":"OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____accept":"jsObject","____defaultValue":{},"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'rxFiX7H-TDG0GsxqtRekoA\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\"."}}}',
         ocdiRuntimeDataJSON: '{"badNamespace":{}}'
-    },
-    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'rxFiX7H-TDG0GsxqtRekoA\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
+    }
 });
 
 
@@ -387,11 +386,11 @@ runTest({
         }
     },
     expectedError: null,
+    expectedWarningsJSON: '["WARNING: No ObservableProcessModel class instances registered!","WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'Pe4ks7bQQ9KQee1T8qTRHw\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
     expectedResults: {
         ocdRuntimeSpecJSON: '{"____label":"OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] Observable Controller Data Store","____description":"OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____types":["jsObject"],"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'Pe4ks7bQQ9KQee1T8qTRHw\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\"."},"____defaultValue":{}}}',
         ocdiRuntimeDataJSON: '{"badNamespace":{}}'
-    },
-    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'Pe4ks7bQQ9KQee1T8qTRHw\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
+    }
 });
 
 
@@ -415,11 +414,11 @@ runTest({
         }
     },
     expectedError: null,
+    expectedWarningsJSON: '["WARNING: No ObservableProcessModel class instances registered!","WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'H2zMrBw4TBie5A2mwH4BRg\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
     expectedResults: {
         ocdRuntimeSpecJSON: '{"____label":"OPC [H2zMrBw4TBie5A2mwH4BRg::Unnamed OPC] Observable Controller Data Store","____description":"OPC [H2zMrBw4TBie5A2mwH4BRg::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____types":"jsArray","____defaultValue":[],"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'H2zMrBw4TBie5A2mwH4BRg\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\"."}}}',
         ocdiRuntimeDataJSON: '{"badNamespace":[]}'
-    },
-    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'H2zMrBw4TBie5A2mwH4BRg\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]'
+    }
 });
 
 // ********************************************************************************
@@ -444,7 +443,7 @@ runTest({
         }
     },
     expectedError: null,
-    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'VxYuiGoHRfuKRHp7PBik7Q\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
+    expectedWarningsJSON: '["WARNING: No ObservableProcessModel class instances registered!","WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'VxYuiGoHRfuKRHp7PBik7Q\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\".","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
     expectedResults: {
         ocdRuntimeSpecJSON: '{"____label":"OPC [VxYuiGoHRfuKRHp7PBik7Q::Unnamed OPC] Observable Controller Data Store","____description":"OPC [VxYuiGoHRfuKRHp7PBik7Q::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____types":"jsObject","____defaultValue":{},"____asMap":true,"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'VxYuiGoHRfuKRHp7PBik7Q\'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \\"jsObject\\"."},"mapKey":{"____accept":"jsString"}}}',
         ocdiRuntimeDataJSON: '{"badNamespace":{}}'
@@ -474,40 +473,11 @@ runTest({
         }
     },
     expectedError: null,
-    expectedWarningsJSON: '["WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'T-apDENPTAO6iQShA-2qBQ\'. Unknown/unregistered OPM specified.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
+    expectedWarningsJSON: '["WARNING: No ObservableProcessModel class instances registered!","WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'T-apDENPTAO6iQShA-2qBQ\'. Unknown/unregistered OPM specified.","WARNING: No TransitionOperator class instances have been registered!","WARNING: No ControllerAction class instances have been registered!"]',
     expectedResults: {
         ocdRuntimeSpecJSON: '{"____label":"OPC [T-apDENPTAO6iQShA-2qBQ::Unnamed OPC] Observable Controller Data Store","____description":"OPC [T-apDENPTAO6iQShA-2qBQ::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{},"badNamespace":{"____types":"jsObject","____defaultValue":{},"____appdsl":{"opcWarning":"WARNING: OCD runtime spec path \'~.badNamespace\' will not be bound to OPM ID \'T-apDENPTAO6iQShA-2qBQ\'. Unknown/unregistered OPM specified."}}}',
         ocdiRuntimeDataJSON: '{"badNamespace":{}}'
     }
 });
-
-
-
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
-
-
-
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
-
-
-
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
-
-
-
-// ********************************************************************************
-// ********************************************************************************
-// ********************************************************************************
-// TEST INVALID OCD TEMPLATE SPEC OPM BINDING #1
-
 
 
