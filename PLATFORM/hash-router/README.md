@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.24 "trego"
 
 ```
-Package: @encapsule/hash-router v0.0.24 "trego" build ID "YAVpD3zlRdGyyhFhgKmUcg"
-Sources: Encapsule/holistic#f4d27681804968f9fe5079b8c7c54f67ac63bab0
+Package: @encapsule/hash-router v0.0.24 "trego" build ID "IGbd1cPmRpCcPWnf25lTAQ"
+Sources: Encapsule/holistic#c0a683a344ee2d50449126afdfb6984b7509802e
 Purpose: library (Node.js)
-Created: 2019-11-08T16:25:58.000Z
+Created: 2019-11-09T16:19:45.000Z
 License: MIT
 ```
 

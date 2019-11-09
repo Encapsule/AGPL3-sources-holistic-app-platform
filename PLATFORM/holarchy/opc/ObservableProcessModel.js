@@ -6,6 +6,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+// ObservableProcessModel.js
 var constructorRequestFilter = require("./filters/opm-method-constructor-filter");
 
 var ObservableProcessModel =
@@ -14,6 +15,7 @@ function () {
   function ObservableProcessModel(request_) {
     _classCallCheck(this, ObservableProcessModel);
 
+    // TODO: OPM should not throw.
     var filterResponse = constructorRequestFilter.request(request_);
 
     if (filterResponse.error) {

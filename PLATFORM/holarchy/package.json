@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.24",
     "codename": "trego",
-    "buildID": "YAVpD3zlRdGyyhFhgKmUcg",
-    "buildTime": 1573230358,
-    "buildSource": "f4d27681804968f9fe5079b8c7c54f67ac63bab0",
+    "buildID": "IGbd1cPmRpCcPWnf25lTAQ",
+    "buildTime": 1573316385,
+    "buildSource": "c0a683a344ee2d50449126afdfb6984b7509802e",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"
