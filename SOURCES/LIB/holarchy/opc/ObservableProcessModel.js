@@ -1,9 +1,13 @@
 
+// ObservableProcessModel.js
+
 const constructorRequestFilter = require("./filters/opm-method-constructor-filter");
 
 class ObservableProcessModel {
 
     constructor(request_) {
+
+        // TODO: OPM should not throw.
         let filterResponse = constructorRequestFilter.request(request_);
         if (filterResponse.error) {
             throw new Error(filterResponse.error);
