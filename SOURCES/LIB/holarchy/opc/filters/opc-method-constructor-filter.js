@@ -110,9 +110,8 @@ const factoryResponse = arccore.filter.create({
             result.ocdTemplateSpec = factoryResponse.result.filterDescriptor.inputFilterSpec;
 
             // ================================================================
-            // Find all the OPM-bound namespaces in the developer-defined controller data spec
-            // and synthesize the runtime filter spec to be used for OPMI data my merging the
-            // OPM's template spec and the developer-defined spec.
+            // Find all the OPM-bound namespaces in the developer-defined OCD template spec
+            // and synthesize the OCD's runtime filter spec from template + OPM-provided template + OPC overlay aspects.
             // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
             console.log("> Analyzing OCD template spec and model registrations...");
@@ -178,12 +177,13 @@ const factoryResponse = arccore.filter.create({
                         //
                         if (record.specRef.____opaque ||
                             record.specRef.____accept ||
+                            record.specRef.____asMap ||
                             Array.isArray(record.specRef.____types) ||
                             (record.specRef.____types !== "jsObject")
                            ) {
 
                             // Issue a warning and move on. No binding.
-                            const warningMessage = `WARNING: OCD runtime spec path '${record.specPath}' will not be bound to OPM ID '${opmID}'. Type constraint must be ____types: "jsObject" to bind to an OPM.`;
+                            const warningMessage = `WARNING: OCD runtime spec path '${record.specPath}' will not be bound to OPM ID '${opmID}'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: "jsObject".`;
                             result.constructionWarnings.push(warningMessage);
                             console.warn(warningMessage);
                             console.log({ specRef: record.specRef, specPath: record.specPath });
@@ -269,9 +269,7 @@ const factoryResponse = arccore.filter.create({
                 console.log("> Initialzing OPC instance process state using OCD runtime spec and developer-defined OCD init data.");
                 result.ocdi = new ObservableControllerData({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
             } catch (exception_) {
-                errors.push("Unfortunately we could not construct the contained OCD instance due to an error.");
-                errors.push("Typically you will encounter this sort of thing when you are working on your ocd template spec and/or your ocd init data and get out of sync.");
-                errors.push("OCD is deliberately _very_ picky. Luckily, it's also quite specific about its objections. Sort through the following and it will lead you to your error.");
+                errors.push("Unable to initialize the OPC instance's shared OCD store due to constructor failure:");
                 errors.push(exception_.message);
                 break;
             }
