@@ -1,6 +1,7 @@
 // harness-filter-1.js
 
 const arccore = require("@encapsule/arccore");
+const assert = require("./chai-assert-fascade");
 
 const factoryResponse = arccore.filter.create({
     operationID: "hzFRPBzOT1CgOuCaVffNRQ",
@@ -16,7 +17,8 @@ const factoryResponse = arccore.filter.create({
     bodyFunction: function(request_) {
 
         console.log(`Filter1: ${request_.filter1.message}`);
-        return { error: null };
+
+        return assert.isString(request_);
 
     }
 

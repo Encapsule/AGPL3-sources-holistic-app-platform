@@ -53,7 +53,10 @@ runTest({
     description: "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID.",
     opcRequest: { id: "demo" },
     expectedError: null,
-    expectedWarningsJSON: baseConstructorWarningsJSON
+    expectedWarningsJSON: baseConstructorWarningsJSON,
+    expectedResults: {
+        ocdRuntimeSpecJSON: '{"____label":"OPC [XjDsnqOhSPmhhC0icp-PNw::Unnamed OPC] Observable Controller Data Store","____description":"OPC [XjDsnqOhSPmhhC0icp-PNw::Unnamed OPC] system process runtime state data managed by OPC instance.","____types":"jsObject","____defaultValue":{}}'
+    }
 });
 
 

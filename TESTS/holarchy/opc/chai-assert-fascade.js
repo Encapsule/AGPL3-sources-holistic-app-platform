@@ -13,14 +13,27 @@ while (assertFuncs.length) {
     const funcName = assertFuncs.shift();
     // Replace all functions (seemingly unbound) on the assert namesapce descriptor with fascades.
     if (Object.prototype.toString.call(assert[funcName]) === "[object Function]") {
+
         const originalFunction = assert[funcName];
         assertFascade[funcName] = function() {
             let args = [].slice.call(arguments, 0);
-            let response = { error: null, result: args };
+
+            let response = {
+                error: null,
+                result: {
+                    assert: {
+                        name: funcName,
+                        arg: args,
+                        exception: null
+                    }
+                }
+            };
+
             try {
                 originalFunction(args);
             } catch (exception_) {
-                response.error = exception_;
+                response.error = exception_.toString();
+                response.result.assert.exception = exception_
             }
             return response;
         };

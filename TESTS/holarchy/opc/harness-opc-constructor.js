@@ -20,18 +20,17 @@ const { ObservableProcessController, ObservableControllerData } = require("../..
 const factoryResponse = arccore.filter.create({
     operationID: "bxGOxHvYSrON0A1zRum3NA",
     operationName: "OPC Constructor Test Vector Filter",
-    operationDescriptor: "Ensures that the test request message passed to the harness is validated and normally. Establishes invariants for the harness function.",
+    operationDescriptor: "Ensures test vector invariants for the test harness implementation.",
     inputFilterSpec: {
         ____types: "jsObject",
         id: { ____accept: "jsString" },
         name: { ____accept: "jsString" },
         description: { ____accept: "jsString" },
-        ocdRequest: { ____accept: [ "jsUndefined", "jsObject" ] },
+        opcRequest: { ____accept: [ "jsUndefined", "jsObject" ] },
         expectedError: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
         expectedWarningsJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
         expectedResults: {
-            ____types: "jsObject",
-            ____defaultValue: {},
+            ____types: [ "jsUndefined", "jsObject" ],
             ocdTemplateSpecJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
             ocdiRuntimeDataJSON: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }
         }
@@ -46,20 +45,21 @@ let testNumber = 1;
 
 module.exports = function(testRequest_) {
 
+    let testRequest = testRequest_; // copied for evaluation of harness scaffolding. overwriten by test setup w/filtered value.
     let opci = null;
     let opciStatus = null;
 
-
-    describe(`OPC test fixture run ${testNumber++} test id "${testRequest_.id}" // ${testRequest_.name}: ${testRequest_.description}`, function() {
+    describe(`OPC test fixture run ${testNumber++} test id "${testRequest.id}" // ${testRequest.name}: ${testRequest.description}`, function() {
 
         before(function() {
             const constructionWrapper = function() {
-                // Throw on test vector validation/normalization error. The test vector (request descriptor) must be valid in order to execute the Mocha-based test harness code.
+                // Validate and normalize the incoming testRequest_.
                 const filterResponse = testVectorFilter.request(testRequest_);
                 if (filterResponse.error) {
                     throw new Error(filterResponse.error);
                 }
-                opci = new ObservableProcessController(testRequest_.opcRequest);
+                testRequest = filterResponse.result;
+                opci = new ObservableProcessController(testRequest.opcRequest);
             }
             assert.doesNotThrow(constructionWrapper);
         });
@@ -89,7 +89,7 @@ module.exports = function(testRequest_) {
                 assert.property(opciStatus.response, "result");
             });
 
-            if (testRequest_.expectedError) {
+            if (testRequest.expectedError) {
 
                 describe("opc construction is expected to fail and return a zombie opci", function() {
 
@@ -106,7 +106,7 @@ module.exports = function(testRequest_) {
                     it("opci constructor response error should match expected value by equal comparison", function() {
                         assert.isString(opciStatus.response.error);
                         // equal compare creates a short error and compact log of actual vs expected that's easy to cut/paste to editor for analysis, and if okay to expected error/results
-                        assert.equal(opciStatus.response.error, testRequest_.expectedError);
+                        assert.equal(opciStatus.response.error, testRequest.expectedError);
                     });
 
                     it("opci constructor response result should be false", function() {
@@ -135,7 +135,7 @@ module.exports = function(testRequest_) {
 
                         it("opci zombie method response error should match expected", function() {
                             assert.isString(zombieCheckResponse.error);
-                            assert.equal(zombieCheckResponse.error, testRequest_.expectedError);
+                            assert.equal(zombieCheckResponse.error, testRequest.expectedError);
                         });
 
                     });
@@ -159,7 +159,7 @@ module.exports = function(testRequest_) {
 
                         it("opci zombie method response error should match expected", function() {
                             assert.isString(zombieCheckResponse.error);
-                            assert.equal(zombieCheckResponse.error, testRequest_.expectedError);
+                            assert.equal(zombieCheckResponse.error, testRequest.expectedError);
                         });
 
                     });
@@ -196,7 +196,7 @@ module.exports = function(testRequest_) {
                         assert.property(opciStatus.response, "result");
                     });
 
-                    if (testRequest_.expectedResults) {
+                    if (testRequest.expectedResults) {
 
                         describe("Inspecting OPC instance state against expectations.", function() {
 
@@ -212,7 +212,7 @@ module.exports = function(testRequest_) {
 
                             // We perform this comparison using JSON strings because filter specs are _alway_ deserialized JSON. No functions or higher-order types in filter specs at all by design.
                             it("OPCI._private.ocdRuntimeSpec filter spec should match expected value (JSON comparison)", function() {
-                                assert.equal(JSON.stringify(opci._private.ocdRuntimeSpec), testRequest_.expectedResults.ocdRuntimeSpecJSON);
+                                assert.equal(JSON.stringify(opci._private.ocdRuntimeSpec), testRequest.expectedResults.ocdRuntimeSpecJSON);
                             });
 
                             it("OPCI._private should have an ocdi property and it should be an instance of ObservableControllerData", function() {
@@ -242,7 +242,7 @@ module.exports = function(testRequest_) {
                                 it("OPCI._private.ocdi.readNamespace(~) JSON should match expected value", function() {
                                     assert.property(ocdiReadNamespaceResponse, "result");
                                     assert.isObject(ocdiReadNamespaceResponse.result);
-                                    assert.equal(JSON.stringify(ocdiReadNamespaceResponse.result), testRequest_.expectedResults.ocdiRuntimeDataJSON);
+                                    assert.equal(JSON.stringify(ocdiReadNamespaceResponse.result), testRequest.expectedResults.ocdiRuntimeDataJSON);
                                 });
 
                             });
@@ -258,7 +258,7 @@ module.exports = function(testRequest_) {
 
             describe("Inspect the OPC's construction warnings array against expected values.", function() {
                 it("The list of OPC construction warnings JSON should match expected value JSON.", function() {
-                    assert.equal(JSON.stringify(opci._private.constructionWarnings), testRequest_.expectedWarningsJSON);
+                    assert.equal(JSON.stringify(opci._private.constructionWarnings), testRequest.expectedWarningsJSON);
                 });
             });
 

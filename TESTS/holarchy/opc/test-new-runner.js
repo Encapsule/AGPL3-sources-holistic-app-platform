@@ -11,8 +11,7 @@ const runnerResponse = runner.request({
     ],
     testRequestSets: [
         [
-            "fuck you",
-            {}
+            { filter1: { message: "hello, this is a test vector" } },
         ]
     ]
 });
