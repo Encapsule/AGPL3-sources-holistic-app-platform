@@ -26,7 +26,7 @@ const factoryResponse = arccore.filter.create({
                 id: { ____accept: "jsString" },
                 name: { ____accept: "jsString" },
                 description: { ____accept: "jsString" },
-                expectedOutcome: { ____accept: "jsString", ____inValueSet: [ "pass", "fail" ] },
+                // expectedOutcome: { ____accept: "jsString", ____inValueSet: [ "pass", "fail" ] },
                 harnessRequest: request_.harnessRequestInputSpec
             };
 
