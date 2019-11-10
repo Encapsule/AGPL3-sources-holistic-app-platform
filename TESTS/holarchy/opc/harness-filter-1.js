@@ -1,32 +1,32 @@
 // harness-filter-1.js
 
-const arccore = require("@encapsule/arccore");
-const assert = require("./chai-assert-fascade");
+// const arccore = require("@encapsule/arccore");
+// const assert = require("../../lib/chai-assert-fascade");
 
-const factoryResponse = arccore.filter.create({
-    operationID: "hzFRPBzOT1CgOuCaVffNRQ",
 
-    inputFilterSpec: {
+const harnessFactory = require("../../lib/holistic-test-harness-factory");
+
+const factoryResponse = harnessFactory.request({
+    id:  "F1zguurrS9-fcdvLk7TCrg",
+    name: "@ncapsule/holarchy OPC Test Harness",
+    description: "@encapsule/holarchy OPC test harness filter for holistic test runner.",
+    harnessRequestInputSpec: {
         ____types: "jsObject",
-        filter1: {
-            ____types: "jsObject",
-            message: { ____accept: "jsString" }
+        testMessage: {
+            ____accept: "jsString"
         }
     },
-
-    bodyFunction: function(request_) {
-
-        console.log(`Filter1: ${request_.filter1.message}`);
-
-        return assert.isString(request_);
-
+    harnessBodyFunction: function(reuqest_) {
+        console.log("Reached the inside body function.");
+        return { error: null };
+    },
+    harnessResultOutputSpec: {
+        ____accept: "jsObject"
     }
-
-
 });
 
 if (factoryResponse.error) {
-    throw new Error(factoryRespnse.error);
+    throw new Error(factoryResponse.error);
 }
 
 module.exports = factoryResponse.result;

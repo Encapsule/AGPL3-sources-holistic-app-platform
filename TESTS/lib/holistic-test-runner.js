@@ -16,29 +16,30 @@ mkdirp(inputDirectory);
 const factoryResponse = arccore.filter.create({
 
     operationID: "XkT3fzhYT0izLU_P2WF54Q",
-    operationName: "Holarchy Test Runner",
-    operationDescription: "Accepts an array of array of test request descriptors.",
+    operationName: "Holistic Test Runner",
+    operationDescription: "Holistic test runner is an test execution framework and reporting tool based on the chai assertion, arccore.filter, arccore.discriminator, and arccore.graph libs.",
     inputFilterSpec: {
         ____types: "jsObject",
-
         testHarnessFilters: {
             ____types: "jsArray",
-            testHarnessFilter: { ____accept: "jsObject" }
+            ____defaultValue: [],
+            testHarnessFilter: { ____accept: "jsObject" } // test harness filter instance reference
         },
-
         testRequestSets: {
             ____types: "jsArray",
+            ____defaultValue: [],
             testRequestSet: {
                 ____types: "jsArray",
                 testRequest: {
+                    ____types: [ "jsUndefined" , "jsObject" ],
                     id: { ____accept: "jsString" },
                     name: { ____accept: "jsString" },
                     description: { ____accept: "jsString" },
+                    expectedOutcome: { ____accept: "jsString", ____inValueSet: [ "pass", "fail" ] },
                     harnessRequest: { ____accept: [ "jsUndefined", "jsObject" ] }
                 }
             }
         }
-
     },
 
     bodyFunction: function(request_) {
@@ -73,12 +74,9 @@ const factoryResponse = arccore.filter.create({
 
                 const testSet = request_.testRequestSets[setNumber];
                 for (let testNumber = 0 ; testNumber < testSet.length ; testNumber++) {
-
-                    console.log(`..... Dispatching test #${dispatchCount} - [${testRequest.id}::${testRequest.name}]`);
-
                     const testRequest = testSet[testNumber];
+                    console.log(`..... Dispatching test #${dispatchCount} - [${testRequest.id}::${testRequest.name}]`);
                     const testResponse = harnessDispatcher.request(testRequest);
-
                     const testEvalDescriptor = { testRequest, testResponse };
                     const testEvalDescriptorJSON = JSON.stringify(testEvalDescriptor, undefined, 4);
                     const testOutputFilename = path.join(outputDirectory, `test-${testRequest.id}.json`);

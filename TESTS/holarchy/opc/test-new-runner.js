@@ -1,19 +1,32 @@
 
-const runner = require("./runner");
+const holisticTestRunner = require("../../lib/holistic-test-runner");
 
-const harnessFilter1 = require("./harness-filter-1");
-const harnessFilter2 = require("./harness-filter-2");
+const testHarnessFilters = [
+    require("./harness-filter-1"),
+    require("./harness-filter-2")
+];
 
-const runnerResponse = runner.request({
-    testHarnessFilters: [
-        harnessFilter1,
-        harnessFilter2,
-    ],
+
+const runnerResponse = holisticTestRunner.request({
+
+    testHarnessFilters: testHarnessFilters,
+
     testRequestSets: [
+
         [
-            { filter1: { message: "hello, this is a test vector" } },
+            {
+                id: "IRyR4YazRuWiZp9Rzj6-WA",
+                name: "Adhoc Test #1",
+                description: "A quick test of the new holistic test runner, test harness factory, and test harness infrastructure.",
+                expectedOutcome: "pass",
+                harnessRequest: {
+                    testMessage: "This request should get routed to harness-filter-1."
+                }
+            }
         ]
+
     ]
+
 });
 
 console.log(runnerResponse);
