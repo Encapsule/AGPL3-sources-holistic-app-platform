@@ -372,9 +372,9 @@ reset: scrub env_clean_cache
 	@echo Reset operation complete.
 
 test:
-	$(TOOL_MOCHA) TESTS/
+	$(DIR_ROOT)/TESTS/run-all-tests.js
 
 test-debug:
-	$(TOOL_MOCHA) --insepct-brk TESTS/
+	node --inspect-brk TESTS/run-all-tests.js
 
 

@@ -1,0 +1,10 @@
+{
+    "testRequest": {
+        "id": "rxFiX7H-TDG0GsxqtRekoA",
+        "name": "Invalid OPC template spec binding #3",
+        "description": "OCD spec namespace bound to OPM not allowed to use ____accept directive."
+    },
+    "testResponse": {
+        "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+    }
+}

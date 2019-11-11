@@ -1,0 +1,10 @@
+{
+    "testRequest": {
+        "id": "fzc39RvNTLmHF5UNn_-Fng",
+        "name": "Valid ID, ocdTemplateSpec, data",
+        "description": "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data"
+    },
+    "testResponse": {
+        "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+    }
+}

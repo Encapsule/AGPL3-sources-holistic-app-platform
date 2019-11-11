@@ -1,0 +1,13 @@
+{
+    "testRequest": {
+        "id": "IRyR4YazRuWiZp9Rzj6-WA",
+        "name": "Adhoc Test #1",
+        "description": "A quick test of the new holistic test runner, test harness factory, and test harness infrastructure.",
+        "harnessRequest": {
+            "testMessage": "This request should get routed to harness-filter-1."
+        }
+    },
+    "testResponse": {
+        "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing response result. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+    }
+}

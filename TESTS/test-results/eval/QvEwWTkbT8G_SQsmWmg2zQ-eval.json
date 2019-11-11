@@ -1,0 +1,10 @@
+{
+    "testRequest": {
+        "id": "QvEwWTkbT8G_SQsmWmg2zQ",
+        "name": "Minimal constructor request #1: Invalid ID",
+        "description": "Test basic constructor request variant #1 by passing a bad IRUT as the ID."
+    },
+    "testResponse": {
+        "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+    }
+}
