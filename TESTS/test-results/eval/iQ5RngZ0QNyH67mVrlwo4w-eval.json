@@ -1,10 +1,11 @@
 {
-    "testRequest": {
-        "id": "iQ5RngZ0QNyH67mVrlwo4w",
-        "name": "Barely defined constructor request",
-        "description": "Send nothing an empty object to OPC constructor."
-    },
-    "testResponse": {
-        "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-    }
+  "testRequest": {
+    "id": "iQ5RngZ0QNyH67mVrlwo4w",
+    "name": "Barely defined constructor request",
+    "description": "Send nothing an empty object to OPC constructor."
+  },
+  "testResponse": {
+    "error": "Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+    "result": null
+  }
 }
