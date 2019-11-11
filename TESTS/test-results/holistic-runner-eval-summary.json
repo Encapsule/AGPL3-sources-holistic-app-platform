@@ -2,6 +2,20 @@
   "error": null,
   "result": {
     "NVELEE9lQ96cdVpidNlsPQ": {
+      "summary": {
+        "requests": 0,
+        "dispatched": [],
+        "rejected": [],
+        "neutral": [],
+        "pass": {
+          "expected": [],
+          "actual": []
+        },
+        "fail": {
+          "expected": [],
+          "actual": []
+        }
+      },
       "harnessEvalDescriptors": [
         {
           "testRequest": {
@@ -13,237 +27,7 @@
             }
           },
           "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing response result. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "gwtkQR51TYm93K32K6QHNA",
-            "name": "Undefined constructor request",
-            "description": "Send nothing (undefined) to OPC constructor."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "iQ5RngZ0QNyH67mVrlwo4w",
-            "name": "Barely defined constructor request",
-            "description": "Send nothing an empty object to OPC constructor."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "QvEwWTkbT8G_SQsmWmg2zQ",
-            "name": "Minimal constructor request #1: Invalid ID",
-            "description": "Test basic constructor request variant #1 by passing a bad IRUT as the ID."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "pcAvtzoITt-q-ut90VhcVA",
-            "name": "Minimal constructor with 'demo' ID",
-            "description": "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "l_P652EhQU6_z7afrV-PMQ",
-            "name": "Minimal constructor valid ID all default inputs",
-            "description": "Confirm default construction variant #1"
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "juolo4dqSgKdLEYLoHJJ1Q",
-            "name": "Miniaml constructor w/minimal valid ocdTemplateSpec",
-            "description": "Confirm minimal ocdTemplateSpec same as default construction."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "dirl1VuNQCmBrzbJXWMTtA",
-            "name": "Invalid OCD template spec #1",
-            "description": "OCD template spec must be a valid filter spec."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "ChcuyPLCSQCsICTprPzfog",
-            "name": "Invalid OCD template spec #2",
-            "description": "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "ZbwxkWJgTEKjxXpYX0_h7Q",
-            "name": "Invliad OCD template spec #3",
-            "description": "OCD template spec ~ namespace is not allowed to use the ____opaque directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "ElMglky8TBGkzkd6W4690A",
-            "name": "Invalid OCD template spec #4",
-            "description": "OCD template spec ~ namespace is not allowed to use the ____accept directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "waM_L9rTT6ySTY4ja__K3g",
-            "name": "Invalid OCD template spec #5",
-            "description": "OCD template namespace ~ is not allowed to use an array value for the ____types directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "X5zbSBkaQeG6Wft5cGVRwg",
-            "name": "Invalid OCD template spec #6",
-            "description": "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "nCoUIS0RTlmuKUSpimee7A",
-            "name": "Invalid OCD template spec #7",
-            "description": "OCD template namespace ~ is only allowed to use one quanderscore directive, ____types."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "FxMOqQPARcGcMZ24x2tq7A",
-            "name": "Invalid OCD template spec #7",
-            "description": "Test our ability to extend the OPC-managed root namespace, ~."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "fzc39RvNTLmHF5UNn_-Fng",
-            "name": "Valid ID, ocdTemplateSpec, data",
-            "description": "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data"
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "DipB21oZR5ihBCYESC5HWw",
-            "name": "Valid ID, ocdTemplateSpec, data",
-            "description": "Valid OPC instance + dev ocdTemplateSpec + valid init data"
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "np4M1LDWSyeNXOmFYJulhA",
-            "name": "Invalid OPC template spec binding #1",
-            "description": "Pass an OCD template spec w/invalid OPM binding IRUT"
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "197ZsgbfRRGGMWqhwmaBDg",
-            "name": "Invalid OPC template spec binding #2",
-            "description": "OCD spec namespace bound to OPM not allowed to use ____opaque directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "rxFiX7H-TDG0GsxqtRekoA",
-            "name": "Invalid OPC template spec binding #3",
-            "description": "OCD spec namespace bound to OPM not allowed to use ____accept directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "Pe4ks7bQQ9KQee1T8qTRHw",
-            "name": "Invalid OPC Template sepc binding #4",
-            "description": "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "H2zMrBw4TBie5A2mwH4BRg",
-            "name": "Invalid OCD template spec binding #5",
-            "description": "OCD template spec namespace bound to OPM must declare ____types: \"jsObject\"."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "VxYuiGoHRfuKRHp7PBik7Q",
-            "name": "Invalid OCD template spec binding #6",
-            "description": "OCD template spec namespace bound to OPM must not use the ____asMap directive."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "T-apDENPTAO6iQShA-2qBQ",
-            "name": "Invalid OCD template spec binding #7",
-            "description": "OCD template spec namespace bound to OPM must specify the ID of a registered OPM instance to bind."
-          },
-          "testResponse": {
-            "error": "Filter [lKOTuiS7789XU03L0pRxew::Discriminator Filter] failed while performing main operation. Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing request input. Error at path '~.harnessRequest': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+            "error": "Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing response result. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
           }
         }
       ]
