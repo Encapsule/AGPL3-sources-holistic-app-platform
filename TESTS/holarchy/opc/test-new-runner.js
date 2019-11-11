@@ -1,4 +1,5 @@
 
+const path = require("path");
 const holisticTestRunner = require("../../lib/holistic-test-runner");
 
 const testHarnessFilters = [
@@ -9,8 +10,8 @@ const testHarnessFilters = [
 
 const runnerResponse = holisticTestRunner.request({
 
+    logsRootDir: path.resolve(path.join(__dirname, "test-logs")),
     testHarnessFilters: testHarnessFilters,
-
     testRequestSets: [
 
         [ // HOLOTEST TESTS
@@ -326,4 +327,5 @@ const runnerResponse = holisticTestRunner.request({
 
 });
 
-console.log(runnerResponse);
+console.log(JSON.stringify(runnerResponse));
+

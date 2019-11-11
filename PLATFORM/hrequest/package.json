@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.24",
     "codename": "trego",
-    "buildID": "IGbd1cPmRpCcPWnf25lTAQ",
-    "buildTime": 1573316385,
-    "buildSource": "c0a683a344ee2d50449126afdfb6984b7509802e",
+    "buildID": "Un_QZhyLTfmKCA-yk0nfmg",
+    "buildTime": 1573443814,
+    "buildSource": "f1894cbf132269d5e5ea148df031aca65251347e",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
@@ -33,7 +33,7 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.6",
+        "@encapsule/arccore": "0.1.7",
         "query-string": "^6.2.0",
         "request": "^2.88.0"
     }
