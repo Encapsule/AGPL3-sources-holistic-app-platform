@@ -624,15 +624,15 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@encapsule/arccore@0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@encapsule/arccore/-/arccore-0.1.6.tgz#1af81054e82c30aa4e9c330c96570a169ec89bcd"
-  integrity sha512-ISwIdB/d3IHA4+75gjHelf8bquxZ/R49usd87qHW7x8joOmqwL0IsZGaC5zxpWefIkMjFwAD69+uMcenO47i9g==
+"@encapsule/arccore@0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@encapsule/arccore/-/arccore-0.1.7.tgz#ed67ab9ccacafdf90be7fb066157070276a1a425"
+  integrity sha512-xDUHhqaJd4erG7OkRc+ozWipCIJanU4ZUgW2IlrX50OtgD4uH5mX4IsDX+SZFYSpED/vsDNGMmHhDiyDBZd6sQ==
 
-"@encapsule/arctools@0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@encapsule/arctools/-/arctools-0.1.6.tgz#5ae660675e9198e6cdd79dbeb92a5683cdae37a1"
-  integrity sha512-Q7GsEsGVGT7M8s5rdXNigNaoy2mOP8k4cBNybwUqBciOM7G4vfJzk3t3MwGk+rD7uQu+aFzcf1zgIsadoaDEug==
+"@encapsule/arctools@0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@encapsule/arctools/-/arctools-0.1.7.tgz#74c57f08012746e528cffafb2a6fa5aa663179fe"
+  integrity sha512-AieiQeaPfrPD3Q6Zerjf1FjQKYOZM6zVDbX5/KnE/T7lK2XcGw8GFqclvb/4C4c55RrHid2Y7+ks2Xili3H4MA==
   dependencies:
     chalk "^1.1.1"
     commander "^2.9.0"
