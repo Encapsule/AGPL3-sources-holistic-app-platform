@@ -74,6 +74,23 @@ const factoryResponse = arccore.filter.create({
         ____types: "jsObject",
         "NVELEE9lQ96cdVpidNlsPQ": {
             ____types: "jsObject",
+            summary: {
+                ____types: "jsObject",
+                requests: { ____types : "jsNumber" },
+                dispatched: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                rejected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                neutral: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                pass: {
+                    ____types: "jsObject",
+                    expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                    actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                },
+                fail: {
+                    ____types: "jsObject",
+                    expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                    actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                }
+            },
             harnessEvalDescriptors: {
                 ____types: "jsArray",
                 harnessEvalDescriptor: {
@@ -84,7 +101,7 @@ const factoryResponse = arccore.filter.create({
                     testResponse: {
                         ____types: "jsObject",
                         error: { ____accept: [ "jsNull", "jsString" ] },
-                        result: { ____accept: [ "jsUndefined", "jsObject" ] }
+                        result: { ____opaque: true } // we cannot reasonably predict this value at this level of abstraction
                     }
                 }
             }
@@ -96,23 +113,40 @@ const factoryResponse = arccore.filter.create({
             error: null,
             result: {
                 "NVELEE9lQ96cdVpidNlsPQ": {
+                    summary: {
+                        requests: 0,
+                        dispatched: [],
+                        rejected: [],
+                        neutral: [],
+                        pass: {
+                            expected: [],
+                            actual: []
+                        },
+                        fail: {
+                            expected: [],
+                            actual: []
+                        },
+                    },
                     harnessEvalDescriptors: []
                 }
             }
         };
+        const resultPayload = response.result["NVELEE9lQ96cdVpidNlsPQ"];
+
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
             console.log("> Initializing test harness dispatcher...");
             const factoryResponse = arccore.discriminator.create({
-                options: { action: "routeRequest" },
+                options: { action: "getFilter" },
                 filters: request_.testHarnessFilters
             });
             if (factoryResponse.error) {
                 errors.push(factoryResponse.error);
                 break;
             }
+
             const harnessDispatcher = factoryResponse.result;
             console.log("..... Test harness dispatcher initialized.");
             let dispatchCount = 1;
@@ -121,15 +155,22 @@ const factoryResponse = arccore.filter.create({
                 const testSet = request_.testRequestSets[setNumber];
                 for (let testNumber = 0 ; testNumber < testSet.length ; testNumber++) {
                     const testRequest = testSet[testNumber];
-                    console.log(`..... Running test #${dispatchCount++} : [${testRequest.id}::${testRequest.name}]`);
-                    const testResponse = harnessDispatcher.request(testRequest);
+                    console.log(`..... Running test #${resultPayload.summary.requests} : [${testRequest.id}::${testRequest.name}]`);
+
+                    let testResponse = harnessDispatcher.request(testRequest); // try to resolve the harness filter from the test request message.
+                    if (!testResponse.error) {
+                        const harnessFilter = testResponse.result;
+                        testResponse = harnessFilter.request(testRequest); // dispatch the actual test vector
+                    }
+
                     const testEvalDescriptor = { testRequest, testResponse };
-                    const testEvalDescriptorJSON = JSON.stringify(testEvalDescriptor, undefined, 4);
+                    const testEvalDescriptorJSON = JSON.stringify(testEvalDescriptor, undefined, 2);
                     fs.writeFileSync(getHarnessEvalFilename(request_.logsRootDir, testRequest.id), testEvalDescriptorJSON);
                     response.result["NVELEE9lQ96cdVpidNlsPQ"].harnessEvalDescriptors.push(testEvalDescriptor);
                 } // for testNumber
             } // for setNumber
             break;
+
         } // while (!inBreakScope)
         if (errors.length) {
             response.error = errors.join(" ");
