@@ -20,16 +20,38 @@ const runnerResponse = holisticTestRunner.request({
     testHarnessFilters: testHarnessFilters,
     testRequestSets: [
 
-        [ // HOLOTEST TESTS
+        [ // HOLODECK RUNNER TESTS
+
             {
-                id: "IRyR4YazRuWiZp9Rzj6-WA",
-                name: "Adhoc Test #1",
-                description: "A quick test of the new holistic test runner, test harness factory, and test harness infrastructure.",
+                id: "zxKqk_YOTme-e0AExJUhmg",
+                name: "Bad message test #1",
+                description: "Attempt to call the harness-filter-1 test harness plug-in.",
                 expectedOutcome: "pass",
                 harnessRequest: {
-                    testMessage: "This request should get routed to harness-filter-1."
+                    testMessage: { message: "Hello, is anyone there?" }
+                }
+            },
+
+            {
+                id: "IRyR4YazRuWiZp9Rzj6-WA",
+                name: "Call test harness #1",
+                description: "Attempt to call the harness-filter-1 test harness plug-in.",
+                expectedOutcome: "pass",
+                harnessRequest: {
+                    testMessage1: "This request should get routed to harness-filter-1."
+                }
+            },
+
+            {
+                id: "sBB6rshGQu2f7S5rA2x9eg",
+                name: "Call test harness #2",
+                description: "Attempt to call the harness-filter-2 test harness plug-in.",
+                expectedOutput: "pass",
+                harnessRequest: {
+                    testMessage2: "This request should get routed to harness-filter-2."
                 }
             }
+
         ],
 
         // require("./holarchy/opc/test-request-set-opc-constructor")

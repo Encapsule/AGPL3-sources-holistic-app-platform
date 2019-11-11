@@ -377,4 +377,7 @@ test:
 test-debug:
 	node --inspect-brk TESTS/run-all-tests.js
 
+iruts:
+	$(DIR_TOOLBIN)/arc_generateIRUT
+
 

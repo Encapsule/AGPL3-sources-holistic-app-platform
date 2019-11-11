@@ -3,31 +3,79 @@
   "result": {
     "NVELEE9lQ96cdVpidNlsPQ": {
       "summary": {
-        "requests": 0,
-        "dispatched": [],
-        "rejected": [],
-        "neutral": [],
-        "pass": {
-          "expected": [],
-          "actual": []
+        "requests": 3,
+        "runnerStats": {
+          "dispatched": [
+            1,
+            2
+          ],
+          "rejected": [
+            0
+          ],
+          "errors": []
         },
-        "fail": {
-          "expected": [],
-          "actual": []
+        "runnerEval": {
+          "neutral": [],
+          "pass": {
+            "expected": [],
+            "actual": []
+          },
+          "fail": {
+            "expected": [],
+            "actual": []
+          }
         }
       },
       "harnessEvalDescriptors": [
         {
           "testRequest": {
-            "id": "IRyR4YazRuWiZp9Rzj6-WA",
-            "name": "Adhoc Test #1",
-            "description": "A quick test of the new holistic test runner, test harness factory, and test harness infrastructure.",
+            "id": "zxKqk_YOTme-e0AExJUhmg",
+            "name": "Bad message test #1",
+            "description": "Attempt to call the harness-filter-1 test harness plug-in.",
             "harnessRequest": {
-              "testMessage": "This request should get routed to harness-filter-1."
+              "testMessage": {
+                "message": "Hello, is anyone there?"
+              }
             }
           },
           "testResponse": {
-            "error": "Filter [F1zguurrS9-fcdvLk7TCrg::@ncapsule/holarchy OPC Test Harness] failed while normalizing response result. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+            "error": "Runner rejecting unrecognized test request. No harness filter registered to handle this request message type: Filter [z33OY1YU2o-Zin-AcwzE_g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::[F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1] Runtime Host], [PNk82RnxGfHBhcGFLbItsg::[d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2] Runtime Host]}."
+          }
+        },
+        {
+          "testRequest": {
+            "id": "IRyR4YazRuWiZp9Rzj6-WA",
+            "name": "Call test harness #1",
+            "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+            "harnessRequest": {
+              "testMessage1": "This request should get routed to harness-filter-1."
+            }
+          },
+          "testResponse": {
+            "error": null,
+            "result": {
+              "F1zguurrS9-fcdvLk7TCrg": {
+                "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+              }
+            }
+          }
+        },
+        {
+          "testRequest": {
+            "id": "sBB6rshGQu2f7S5rA2x9eg",
+            "name": "Call test harness #2",
+            "description": "Attempt to call the harness-filter-2 test harness plug-in.",
+            "harnessRequest": {
+              "testMessage2": "This request should get routed to harness-filter-2."
+            }
+          },
+          "testResponse": {
+            "error": null,
+            "result": {
+              "d8zMijUSTZiQlbk__HX6gA": {
+                "sBB6rshGQu2f7S5rA2x9eg": "This request should get routed to harness-filter-2."
+              }
+            }
           }
         }
       ]

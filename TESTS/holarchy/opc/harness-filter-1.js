@@ -8,20 +8,19 @@ const harnessFactory = require("../../lib/holistic-test-harness-factory");
 
 const factoryResponse = harnessFactory.request({
     id:  "F1zguurrS9-fcdvLk7TCrg",
-    name: "@ncapsule/holarchy OPC Test Harness",
-    description: "@encapsule/holarchy OPC test harness filter for holistic test runner.",
+    name: "Holodeck Runner Test Harness #1",
+    description: "A simple holodeck test harness filter to test out the runner.",
     harnessRequestInputSpec: {
         ____types: "jsObject",
-        testMessage: {
+        testMessage1: {
             ____accept: "jsString"
         }
     },
-    harnessBodyFunction: function(reuqest_) {
-        console.log("Reached the inside body function.");
-        return { error: null, result: undefined };
+    harnessBodyFunction: function(request_) {
+        return { error: null, result: request_.harnessRequest.testMessage1 };
     },
     harnessResultOutputSpec: {
-        ____accept: "jsObject"
+        ____accept: "jsString"
     }
 });
 

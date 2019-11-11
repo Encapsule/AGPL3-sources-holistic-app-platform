@@ -77,18 +77,25 @@ const factoryResponse = arccore.filter.create({
             summary: {
                 ____types: "jsObject",
                 requests: { ____types : "jsNumber" },
-                dispatched: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                rejected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                neutral: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                pass: {
+                runnerStats: {
                     ____types: "jsObject",
-                    expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                    actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                    dispatched: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                    rejected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                    errors: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
                 },
-                fail: {
+                runnerEval: {
                     ____types: "jsObject",
-                    expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                    actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                    neutral: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                    pass: {
+                        ____types: "jsObject",
+                        expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                        actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                    },
+                    fail: {
+                        ____types: "jsObject",
+                        expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                        actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                    }
                 }
             },
             harnessEvalDescriptors: {
@@ -115,17 +122,22 @@ const factoryResponse = arccore.filter.create({
                 "NVELEE9lQ96cdVpidNlsPQ": {
                     summary: {
                         requests: 0,
-                        dispatched: [],
-                        rejected: [],
-                        neutral: [],
-                        pass: {
-                            expected: [],
-                            actual: []
+                        runnerStats: {
+                            dispatched: [],
+                            rejected: [],
+                            errors: []
                         },
-                        fail: {
-                            expected: [],
-                            actual: []
-                        },
+                        runnerEval: {
+                            neutral: [],
+                            pass: {
+                                expected: [],
+                                actual: []
+                            },
+                            fail: {
+                                expected: [],
+                                actual: []
+                            }
+                        }
                     },
                     harnessEvalDescriptors: []
                 }
@@ -158,15 +170,23 @@ const factoryResponse = arccore.filter.create({
                     console.log(`..... Running test #${resultPayload.summary.requests} : [${testRequest.id}::${testRequest.name}]`);
 
                     let testResponse = harnessDispatcher.request(testRequest); // try to resolve the harness filter from the test request message.
-                    if (!testResponse.error) {
+                    if (testResponse.error) {
+                        testResponse.error = `Runner rejecting unrecognized test request. No harness filter registered to handle this request message type: ${testResponse.error}`;
+                        resultPayload.summary.runnerStats.rejected.push(resultPayload.summary.requests);
+                    } else {
                         const harnessFilter = testResponse.result;
                         testResponse = harnessFilter.request(testRequest); // dispatch the actual test vector
+                        resultPayload.summary.runnerStats.dispatched.push(resultPayload.summary.requests);
+                        if (testResponse.error) {
+                            testResponse.error = `Runner failing test request due to error reported by harness filter: ${testResponse.error}`;
+                            resultPayload.summary.runnerStats.errors.push(resultPayload.summary.requests);
+                        }
                     }
-
                     const testEvalDescriptor = { testRequest, testResponse };
                     const testEvalDescriptorJSON = JSON.stringify(testEvalDescriptor, undefined, 2);
                     fs.writeFileSync(getHarnessEvalFilename(request_.logsRootDir, testRequest.id), testEvalDescriptorJSON);
                     response.result["NVELEE9lQ96cdVpidNlsPQ"].harnessEvalDescriptors.push(testEvalDescriptor);
+                    resultPayload.summary.requests++;
                 } // for testNumber
             } // for setNumber
             break;
