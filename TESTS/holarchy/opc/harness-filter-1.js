@@ -18,7 +18,7 @@ const factoryResponse = harnessFactory.request({
     },
     harnessBodyFunction: function(reuqest_) {
         console.log("Reached the inside body function.");
-        return { error: null };
+        return { error: null, result: undefined };
     },
     harnessResultOutputSpec: {
         ____accept: "jsObject"
