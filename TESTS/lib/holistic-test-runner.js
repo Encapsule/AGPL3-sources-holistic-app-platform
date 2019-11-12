@@ -85,22 +85,22 @@ const factoryResponse = arccore.filter.create({
                 requests: { ____types : "jsNumber" },
                 runnerStats: {
                     ____types: "jsObject",
-                    dispatched: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                    rejected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                    errors: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                    dispatched: { ____types: "jsArray", evalIndex: { ____types: "jsString" } },
+                    rejected: { ____types: "jsArray", evalIndex: { ____types: "jsString" } },
+                    errors: { ____types: "jsArray", evalIndex: { ____types: "jsString" } }
                 },
                 runnerEval: {
                     ____types: "jsObject",
-                    neutral: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
+                    neutral: { ____types: "jsArray", evalIndex: { ____types: "jsString" } },
                     pass: {
                         ____types: "jsObject",
-                        expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                        actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                        expected: { ____types: "jsArray", evalIndex: { ____types: "jsString" } },
+                        actual: { ____types: "jsArray", evalIndex: { ____types: "jsString" } }
                     },
                     fail: {
                         ____types: "jsObject",
-                        expected: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } },
-                        actual: { ____types: "jsArray", evalIndex: { ____types: "jsNumber" } }
+                        expected: { ____types: "jsArray", evalIndex: { ____types: "jsString" } },
+                        actual: { ____types: "jsArray", evalIndex: { ____types: "jsString" } }
                     }
                 }
             },
@@ -111,13 +111,21 @@ const factoryResponse = arccore.filter.create({
                     ____asMap: true,
                     holodeckRunnerEvalReportId: {
                         ____types: "jsObject",
-                        harnessRequest: {
-                            ____accept: "jsObject" // TODO: I think we rely on the harness dispatcher to discriminate this? Yea - I think that the harness factory provides strong gaurantees. Confirm, and remove this todo.
-                        },
-                        harnessResponse: {
+                        ____asMap: true,
+                        holodeckHarnessId: {
                             ____types: "jsObject",
-                            error: { ____accept: [ "jsNull", "jsString" ] },
-                            result: { ____opaque: true } // we cannot reasonably predict this value at this level of abstraction
+                            ____asMap: true,
+                            vectorId: {
+                                ____types: "jsObject",
+                                harnessRequest: {
+                                    ____accept: "jsObject" // TODO: I think we rely on the harness dispatcher to discriminate this? Yea - I think that the harness factory provides strong gaurantees. Confirm, and remove this todo.
+                                },
+                                harnessResponse: {
+                                    ____types: "jsObject",
+                                    error: { ____accept: [ "jsNull", "jsString" ] },
+                                    result: { ____opaque: true } // we cannot reasonably predict this value at this level of abstraction
+                                }
+                            }
                         }
                     }
                 }
@@ -174,21 +182,25 @@ const factoryResponse = arccore.filter.create({
                 for (let testNumber = 0 ; testNumber < testSet.length ; testNumber++) {
                     const testRequest = testSet[testNumber];
                     console.log(`..... Running test #${resultPayload.summary.requests} : [${testRequest.id}::${testRequest.name}]`);
+                    let harnessFilter = null;
                     let testResponse = harnessDispatcher.request(testRequest); // try to resolve the harness filter from the test request message.
                     if (testResponse.error) {
                         testResponse.error = `Runner cannot locate a harness filter to process this request type: ${testResponse.error}`;
-                        resultPayload.summary.runnerStats.rejected.push(resultPayload.summary.requests);
+                        resultPayload.summary.runnerStats.rejected.push(testRequest.id);
                     } else {
-                        const harnessFilter = testResponse.result;
+                        harnessFilter = testResponse.result;
                         testResponse = harnessFilter.request(testRequest); // dispatch the actual test vector
-                        resultPayload.summary.runnerStats.dispatched.push(resultPayload.summary.requests);
+                        resultPayload.summary.runnerStats.dispatched.push(testRequest.id);
                         if (testResponse.error) {
                             testResponse.error = `The harness filter registered to handle this message type rejected your request with an error: ${testResponse.error}`;
-                            resultPayload.summary.runnerStats.errors.push(resultPayload.summary.requests);
+                            resultPayload.summary.runnerStats.errors.push(testRequest.id);
                         }
                     }
                     const testEvalDescriptor = {};
-                    testEvalDescriptor[idHolodeckRunnerEvalReport] = {
+                    testEvalDescriptor[idHolodeckRunnerEvalReport] = {};
+                    const harnessFilterId = harnessFilter?harnessFilter.filterDescriptor.operationID:"000000000000000000";
+                    testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId] = {};
+                    testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId][testRequest.id] = {
                         harnessRequest: testRequest,
                         harnessResponse: testResponse
                     };
@@ -198,6 +210,10 @@ const factoryResponse = arccore.filter.create({
                     resultPayload.summary.requests++;
                 } // for testNumber
             } // for setNumber
+
+            resultPayload.summary.runnerStats.dispatched.sort();
+            resultPayload.summary.runnerStats.rejected.sort();
+            resultPayload.summary.runnerStats.errors.sort();
             break;
 
         } // while (!inBreakScope)
