@@ -171,14 +171,14 @@ const factoryResponse = arccore.filter.create({
 
                     let testResponse = harnessDispatcher.request(testRequest); // try to resolve the harness filter from the test request message.
                     if (testResponse.error) {
-                        testResponse.error = `Runner rejecting unrecognized test request. No harness filter registered to handle this request message type: ${testResponse.error}`;
+                        testResponse.error = `Runner cannot locate a harness filter to process this request type: ${testResponse.error}`;
                         resultPayload.summary.runnerStats.rejected.push(resultPayload.summary.requests);
                     } else {
                         const harnessFilter = testResponse.result;
                         testResponse = harnessFilter.request(testRequest); // dispatch the actual test vector
                         resultPayload.summary.runnerStats.dispatched.push(resultPayload.summary.requests);
                         if (testResponse.error) {
-                            testResponse.error = `Runner failing test request due to error reported by harness filter: ${testResponse.error}`;
+                            testResponse.error = `The harness filter registered to handle this message type rejected your request with an error: ${testResponse.error}`;
                             resultPayload.summary.runnerStats.errors.push(resultPayload.summary.requests);
                         }
                     }
@@ -218,12 +218,29 @@ const runnerFascade = { // fake filter
         {
             throw new Error("Bad request. Runner wrapper needs you to specify a string value 'logsRootDir' (fully-qualified filesystem directory path).");
         }
+
         console.log(`> Initializing test runner log directory '${runnerRequest_.logsRootDir}'...`);
         mkdirp(runnerRequest_.logsRootDir);
+
         const runnerResponse = holisticTestRunner.request(runnerRequest_);
+
         console.log("> Finalizing results and writing summary log...");
         const responseJSON = JSON.stringify(runnerResponse, undefined, 2);
         fs.writeFileSync(getEvalSummaryFilename(runnerRequest_.logsRootDir), responseJSON);
+
+        if (!runnerResponse.error) {
+            const resultPayload = runnerResponse.result["NVELEE9lQ96cdVpidNlsPQ"];
+
+            console.log("Runner summary:");
+            console.log(`> total test vectors ......... ${resultPayload.summary.requests}`);
+            console.log(`> total dispatched vectors ... ${resultPayload.summary.runnerStats.dispatched.length}`);
+            console.log(`> total harness results .,.... ${resultPayload.summary.runnerStats.dispatched.length - resultPayload.summary.runnerStats.errors.length}`);
+            console.log(`> total harness errors ...,... ${resultPayload.summary.runnerStats.errors.length}`);
+            console.log(`> total rejected vectors ..... ${resultPayload.summary.runnerStats.rejected.length}`);
+        } else {
+            console.log(`Runner failed with error: ${runnerResponse.error}`);
+        }
+
         return runnerResponse;
     }
 };

@@ -58,8 +58,8 @@ const factoryResponse = arccore.filter.create({
 
             innerResponse = arccore.filter.create({
                 operationID: runtimeHarnessFilterID,
-                operationName: `[${factoryRequest_.id}::${factoryRequest_.name}] Runtime Host`,
-                operationDescription: "Wraps custom harness plug-in [${factoryRequest_.id}::${factoryRequest_.name} in generic runtime filter wrapper compatible with holodeck runner.",
+                operationName: `Runner Harness Proxy::<${factoryRequest_.id}::${factoryRequest_.name}>`,
+                operationDescription: "Wraps custom harness plug-in [${factoryRequest_.id}::${factoryRequest_.name}] in generic runtime proxy filter wrapper compatible with holodeck runner.",
                 inputFilterSpec: harnessRuntimeInputSpec,
                 outputFilterSpec: harnessRuntimeOutputSpec,
                 bodyFunction: function(testRequest_) {
