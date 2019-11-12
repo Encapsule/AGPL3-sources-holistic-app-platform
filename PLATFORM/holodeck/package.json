@@ -1,5 +1,5 @@
 {
-    "name": "@encapsule/hrequest",
+    "name": "@encapsule/holodeck",
     "version": "0.0.24",
     "codename": "trego",
     "buildID": "-aVkeAB3R7iUJLZW6Y9bxA",
@@ -7,7 +7,7 @@
     "buildSource": "8a57c96a70e67a0dc5b101cf64b4faaa3f839cb1",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Encapsule/hrequest.git"
+        "url": "git+https://github.com/Encapsule/holodeck.git"
     },
     "author": "Encapsule",
     "contributors": [
@@ -19,22 +19,15 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Encapsule/hrequest/issues"
+        "url": "https://github.com/Encapsule/holodeck/issues"
     },
-    "homepage": "https://github.com/Encapsule/hrequest#readme",
-    "description": "HTTP request filters for Node.js and browser clients.",
+    "homepage": "https://github.com/Encapsule/holodeck#readme",
+    "description": "Holdeck is a synchronous test runner and test harness system used to test @encapsule/holistic RTL's and derived apps and services.",
     "keywords": [
-        "HTTP",
-        "request",
-        "filter",
-        "node",
-        "browser",
         "Encapsule"
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.7",
-        "query-string": "^6.2.0",
-        "request": "^2.88.0"
+        "@encapsule/arccore": "0.1.7"
     }
 }

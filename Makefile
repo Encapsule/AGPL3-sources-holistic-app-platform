@@ -35,6 +35,7 @@ DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 DIR_SOURCES_LIB_D2R2=$(DIR_SOURCES_LIB)/d2r2
 DIR_SOURCES_LIB_D2R2_COMPONENTS=$(DIR_SOURCES_LIB)/d2r2-components
 DIR_SOURCES_LIB_HASH_ROUTER=$(DIR_SOURCES_LIB)/hash-router
+DIR_SOURCES_LIB_HOLODECK=$(DIR_SOURCES_LIB)/holodeck
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
@@ -46,6 +47,7 @@ DIR_BUILD_LIB_HREQUEST=$(DIR_BUILD_LIB)/hrequest
 DIR_BUILD_LIB_D2R2=$(DIR_BUILD_LIB)/d2r2
 DIR_BUILD_LIB_D2R2_COMPONENTS=$(DIR_BUILD_LIB)/d2r2-components
 DIR_BUILD_LIB_HASH_ROUTER=$(DIR_BUILD_LIB)/hash-router
+DIR_BUILD_LIB_HOLODECK=$(DIR_BUILD_LIB)/holodeck
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
 DIR_DISTS_LIB=$(DIR_DISTS)/LIB
@@ -57,6 +59,7 @@ DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
 DIR_DIST_LIB_D2R2=$(DIR_DISTS_LIB)/d2r2
 DIR_DIST_LIB_D2R2_COMPONENTS=$(DIR_DISTS_LIB)/d2r2-components
 DIR_DIST_LIB_HASH_ROUTER=$(DIR_DISTS_LIB)/hash-router
+DIR_DIST_LIB_HOLODECK=$(DIR_DISTS_LIB)/holodeck
 
 DIR_PLATFORM=$(DIR_ROOT)/PLATFORM
 
@@ -102,7 +105,7 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo source_packages_clean target complete.
 
-source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2 source_package_build_d2r2_components
+source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2 source_package_build_d2r2_components source_package_build_holodeck
 	@echo source_packages_build complete.
 
 source_package_build_hash_router:
@@ -188,13 +191,26 @@ source_package_build_holarchy:
 	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY)/* $(DIR_BUILD_LIB_HOLARCHY)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLARCHY) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLARCHY)
 
-	#	$(TOOL_ESLINT) $(DIR_BUILD_LIB_HOLARCHY)/
-
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holarchy" > $(DIR_BUILD_LIB_HOLARCHY)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLARCHY)
 	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLARCHY)
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)/docs
 	@echo source_package_build_holarchy complete.
+
+source_package_build_holodeck:
+	@echo source_package_build_holodeck...
+	mkdir -p $(DIR_BUILD_LIB_HOLODECK)
+
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLODECK)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HOLODECK)/* $(DIR_BUILD_LIB_HOLODECK)/
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLODECK) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLODECK)
+
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holodeck" > $(DIR_BUILD_LIB_HOLODECK)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLODECK)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLODECK)
+	mkdir -p $(DIR_BUILD_LIB_HOLODECK)/docs
+	@echo source_package_build_holodeck complete.
+
 
 source_package_build_d2r2:
 	@echo source_package_build_d2r2...
@@ -203,8 +219,6 @@ source_package_build_d2r2:
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2)/* $(DIR_BUILD_LIB_D2R2)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2)
-
-	#	$(TOOL_ESLINT) $(DIR_BUILD_LIB_D2R2)/
 
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/d2r2" > $(DIR_BUILD_LIB_D2R2)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_D2R2)
@@ -219,8 +233,6 @@ source_package_build_d2r2_components:
 	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2_COMPONENTS)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/* $(DIR_BUILD_LIB_D2R2_COMPONENTS)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2_COMPONENTS) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2_COMPONENTS)
-
-	#	$(TOOL_ESLINT) $(DIR_BUILD_LIB_D2R2_COMPONENTS)/
 
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/d2r2-components" > $(DIR_BUILD_LIB_D2R2_COMPONENTS)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_D2R2_COMPONENTS)
@@ -246,6 +258,7 @@ dist_packages_initialize: dist_packages_clean
 	git clone git@github.com:Encapsule/d2r2-components.git $(DIR_DIST_LIB_D2R2_COMPONENTS)
 	git clone git@github.com:Encapsule/holism-metadata.git $(DIR_DIST_LIB_HOLISM_METADATA)
 	git clone git@github.com:Encapsule/hash-router.git $(DIR_DIST_LIB_HASH_ROUTER)
+	git clone git@github.com:Encapsule/holodeck.git $(DIR_DIST_LIB_HOLODECK)
 	@echo FINISH TARGET: dist_packages_initialize
 
 # OPTIONAL: check the status of the package distribution repositories.
@@ -260,6 +273,9 @@ dist_packages_status:
 
 	@echo ================================================================
 	cd $(DIR_DIST_LIB_HOLISM_SERVICES) && git remote -v && git status
+
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_HOLODECK) && git remote -v && git status
 
 	@echo ================================================================
 	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
@@ -287,56 +303,62 @@ dist_packages_reset:
 	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck
 	@echo COMPLETE TARGET: dist_packages_update
 
 dist_package_update_hash_router:
-	@echo dist_package_update_hash_router starting...
+	@echo BEGIN TARGET: dist_package_update_hash_router
 	mkdir -p $(DIR_DIST_LIB_HASH_ROUTER)
 	cp -Rp $(DIR_BUILD_LIB_HASH_ROUTER) $(DIR_DISTS_LIB)
-	@echo dist_package_update_hash_router complete.
+	@echo END TARGET: dist_package_update_hash_router
 
 dist_package_update_holarchy:
-	@echo stage_package_holism target starting...
+	@echo BEGIN TARGET: dist_package_update_holarchy
 	mkdir -p $(DIR_DIST_LIB_HOLARCHY)
 	cp -Rp $(DIR_BUILD_LIB_HOLARCHY) $(DIR_DISTS_LIB)
-	@echo stage_package_holism complete.
+	@echo END TARGET: dist_package_update_holarchy
 
 dist_package_update_holism:
-	@echo stage_package_holism target starting...
+	@echo BEGIN TARGET: dist_package_update_holism
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
-	@echo stage_package_holism complete.
+	@echo END TARGET: dist_package_update_holism
 
 dist_package_update_holism_services:
-	@echo stage_package_holism_services target starting...
+	@echo BEGIN TARGET: dist_package_update_holism_services
 	mkdir -p $(DIR_DIST_LIB_HOLISM_SERVICES)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM_SERVICES) $(DIR_DISTS_LIB)
-	@echo stage_package_holism_services complete.
+	@echo END TARGET: dist_package_update_holism_services
 
 dist_package_update_holism_metadata:
-	@echo stage_package_holism_metadata target starting...
+	@echo BEGIN TARGET: dist_package_update_holism_metadata
 	mkdir -p $(DIR_DIST_LIB_HOLISM_METADATA)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM_METADATA) $(DIR_DISTS_LIB)
-	@echo stage_package_holism_metadata complete.
+	@echo END TARGET: dist_package_update_holism_metadata
+
+dist_package_update_holodeck:
+	@echo BEGIN TARGET: dist_package_update_holodeck
+	mkdir -p $(DIR_DIST_LIB_HOLODECK)
+	cp -Rp $(DIR_BUILD_LIB_HOLODECK) $(DIR_DISTS_LIB)
+	@echo END TARGET: dist_package_update_holodeck
 
 dist_package_update_hrequest:
-	@echo stage_package_hrequest target starting...
+	@echo BEGIN TARGET: dist_package_update_hrequest
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
 	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
-	@echo stage_package_hrequest target complete.
+	@echo END TARGET: dist_package_update_hrequest
 
 dist_package_update_d2r2:
-	@echo stage_package_d2r2 target starting...
+	@echo BEGIN TARGET: dist_package_update_d2r2
 	mkdir -p $(DIR_DIST_LIB_D2R2)
 	cp -Rp $(DIR_BUILD_LIB_D2R2) $(DIR_DISTS_LIB)
-	@echo stage_package_d2r2 target complete.
+	@echo END TARGET: dist_package_update_hrequest
 
 dist_package_update_d2r2_components:
-	@echo stage_package_d2r2_components target starting...
+	@echo BEGIN TARGET: dist_package_update_d2r2_components
 	mkdir -p $(DIR_DIST_LIB_D2R2_COMPONENTS)
 	cp -Rp $(DIR_BUILD_LIB_D2R2_COMPONENTS) $(DIR_DISTS_LIB)
-	@echo stage_package_d2r2_components target complete.
+	@echo END TARGET: dist_package_update_d2r2_components
 
 
 # ================================================================

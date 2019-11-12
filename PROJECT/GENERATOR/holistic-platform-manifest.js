@@ -15,6 +15,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
             reset: "make reset",
             server: "yarn build && yarn start",
             "debug-server": "yarn build && node --inspect-brk ./BUILD/runtime-phase3/SERVER/server.js",
+            iruts: "./node_modules/.bin/arc_generateIRUT"
 
         }
     },
@@ -32,8 +33,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "css-loader": "3.0.0",
         "style-loader": "0.23.1",
         "handlebars": "^4.0.12",
-        // "mocha": "^5.2.0",
-        // "chai": "^4.2.0",
+        "chai": "^4.2.0",
 
         // Holistic platform runtime library dependencies.
         "@encapsule/arccore": arccore.__meta.version,
@@ -45,6 +45,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@encapsule/holism": "./HOLISTIC/holism",
         "@encapsule/holism-metadata": "./HOLISTIC/holism-metadata",
         "@encapsule/holism-services": "./HOLISTIC/holism-services",
+        "@encapsule/holodeck": "./HOLISTIC/holodeck",
         "@encapsule/hrequest": "./HOLISTIC/hrequest",
 
         // Third-party runtime library dependencies.

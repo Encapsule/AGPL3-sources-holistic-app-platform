@@ -1,8 +1,8 @@
 // harness-filter-3.js
 
-const harnessFactory = require("../../lib/holistic-test-harness-factory");
+const holodeck = require("../../../PLATFORM/holodeck");
 
-const factoryResponse = harnessFactory.request({
+const factoryResponse = holodeck.harnessFactory.request({
     id: "EmU3C0AASciHnBpz-xMmgA",
     name: "Holodeck Runner Test Harness #3",
     description: "A simple holodeck test harness filter to test out the runner.",

@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.24 "trego"
 
 ```
-Package: @encapsule/holarchy v0.0.24 "trego" build ID "BUhtxEWoSt6R61vjrEd6pA"
-Sources: Encapsule/holistic#956aaa2815c50ccd35b9739e33e9ef531d8f3cda
+Package: @encapsule/holarchy v0.0.24 "trego" build ID "-aVkeAB3R7iUJLZW6Y9bxA"
+Sources: Encapsule/holistic#8a57c96a70e67a0dc5b101cf64b4faaa3f839cb1
 Purpose: library (Node.js)
-Created: 2019-11-12T06:50:17.000Z
+Created: 2019-11-12T20:41:39.000Z
 License: MIT
 ```
 
