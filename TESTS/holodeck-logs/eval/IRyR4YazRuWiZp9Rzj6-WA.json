@@ -1,17 +1,19 @@
 {
-  "testRequest": {
-    "id": "IRyR4YazRuWiZp9Rzj6-WA",
-    "name": "Call test harness #1",
-    "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+  "dosRgxmiR66ongCbJB78ow": {
     "harnessRequest": {
-      "testMessage1": "This request should get routed to harness-filter-1."
-    }
-  },
-  "testResponse": {
-    "error": null,
-    "result": {
-      "F1zguurrS9-fcdvLk7TCrg": {
-        "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+      "id": "IRyR4YazRuWiZp9Rzj6-WA",
+      "name": "Call test harness #1",
+      "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+      "harnessRequest": {
+        "testMessage1": "This request should get routed to harness-filter-1."
+      }
+    },
+    "harnessResponse": {
+      "error": null,
+      "result": {
+        "F1zguurrS9-fcdvLk7TCrg": {
+          "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+        }
       }
     }
   }

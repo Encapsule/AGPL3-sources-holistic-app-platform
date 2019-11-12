@@ -1,15 +1,17 @@
 {
-  "testRequest": {
-    "id": "cQ3Z1fhsTICqkY3uKQXaFQ",
-    "name": "Call test harness #3 (complete message signalling force error)",
-    "description": "Attempt to call harness-filter-3 signalling that its implementation should return a response.error.",
+  "dosRgxmiR66ongCbJB78ow": {
     "harnessRequest": {
-      "testMessage3": {
-        "message": "error"
+      "id": "cQ3Z1fhsTICqkY3uKQXaFQ",
+      "name": "Call test harness #3 (complete message signalling force error)",
+      "description": "Attempt to call harness-filter-3 signalling that its implementation should return a response.error.",
+      "harnessRequest": {
+        "testMessage3": {
+          "message": "error"
+        }
       }
+    },
+    "harnessResponse": {
+      "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while performing main operation. Filter [EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3] failed while performing main operation. We were asked to report an error."
     }
-  },
-  "testResponse": {
-    "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while performing main operation. Filter [EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3] failed while performing main operation. We were asked to report an error."
   }
 }

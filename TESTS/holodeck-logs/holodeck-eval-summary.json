@@ -1,7 +1,7 @@
 {
   "error": null,
   "result": {
-    "NVELEE9lQ96cdVpidNlsPQ": {
+    "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
         "requests": 30,
         "runnerStats": {
@@ -58,350 +58,410 @@
       },
       "harnessEvalDescriptors": [
         {
-          "testRequest": {
-            "id": "zxKqk_YOTme-e0AExJUhmg",
-            "name": "Bad message test #1",
-            "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+          "dosRgxmiR66ongCbJB78ow": {
             "harnessRequest": {
-              "testMessage": {
-                "message": "Hello, is anyone there?"
+              "id": "zxKqk_YOTme-e0AExJUhmg",
+              "name": "Bad message test #1",
+              "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+              "harnessRequest": {
+                "testMessage": {
+                  "message": "Hello, is anyone there?"
+                }
               }
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
             }
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
           }
         },
         {
-          "testRequest": {
-            "id": "IRyR4YazRuWiZp9Rzj6-WA",
-            "name": "Call test harness #1",
-            "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+          "dosRgxmiR66ongCbJB78ow": {
             "harnessRequest": {
-              "testMessage1": "This request should get routed to harness-filter-1."
-            }
-          },
-          "testResponse": {
-            "error": null,
-            "result": {
-              "F1zguurrS9-fcdvLk7TCrg": {
-                "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+              "id": "IRyR4YazRuWiZp9Rzj6-WA",
+              "name": "Call test harness #1",
+              "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+              "harnessRequest": {
+                "testMessage1": "This request should get routed to harness-filter-1."
+              }
+            },
+            "harnessResponse": {
+              "error": null,
+              "result": {
+                "F1zguurrS9-fcdvLk7TCrg": {
+                  "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+                }
               }
             }
           }
         },
         {
-          "testRequest": {
-            "id": "sBB6rshGQu2f7S5rA2x9eg",
-            "name": "Call test harness #2",
-            "description": "Attempt to call the harness-filter-2 test harness plug-in.",
+          "dosRgxmiR66ongCbJB78ow": {
             "harnessRequest": {
-              "testMessage2": "This request should get routed to harness-filter-2."
-            }
-          },
-          "testResponse": {
-            "error": null,
-            "result": {
-              "d8zMijUSTZiQlbk__HX6gA": {
-                "sBB6rshGQu2f7S5rA2x9eg": "This request should get routed to harness-filter-2."
+              "id": "sBB6rshGQu2f7S5rA2x9eg",
+              "name": "Call test harness #2",
+              "description": "Attempt to call the harness-filter-2 test harness plug-in.",
+              "harnessRequest": {
+                "testMessage2": "This request should get routed to harness-filter-2."
+              }
+            },
+            "harnessResponse": {
+              "error": null,
+              "result": {
+                "d8zMijUSTZiQlbk__HX6gA": {
+                  "sBB6rshGQu2f7S5rA2x9eg": "This request should get routed to harness-filter-2."
+                }
               }
             }
           }
         },
         {
-          "testRequest": {
-            "id": "ak8rhTiORTWXueau74RlHA",
-            "name": "Call test harness #3 (incomplete message)",
-            "description": "Attempt to call the harness-filter-3 test harness plug-in w/incomplete request mesage.",
+          "dosRgxmiR66ongCbJB78ow": {
             "harnessRequest": {
-              "testMessage3": {
-                "superflous": [
-                  "This array is not included in the harness-filter-3 test harness input spec so it's simply clipped off by the harness input filter stage and never passed to the harness bodyFunction.",
-                  "We know that our harness filter test examples all have a fairly predictable harnessRequest signature. Here we use knowledge of how arccore.discriminator works inside to craft a",
-                  "a test that routes through discriminator to select the harness. But, when called the harness rejects the harnessRequest because although it was sufficient to get through arccore.discrminator,",
-                  "(because after seeing testMessage3 discrminator knows it can only be harness-filter-3) it was nonetheless insufficiently complete to pass harness input spec."
-                ]
+              "id": "ak8rhTiORTWXueau74RlHA",
+              "name": "Call test harness #3 (incomplete message)",
+              "description": "Attempt to call the harness-filter-3 test harness plug-in w/incomplete request mesage.",
+              "harnessRequest": {
+                "testMessage3": {
+                  "superflous": [
+                    "This array is not included in the harness-filter-3 test harness input spec so it's simply clipped off by the harness input filter stage and never passed to the harness bodyFunction.",
+                    "We know that our harness filter test examples all have a fairly predictable harnessRequest signature. Here we use knowledge of how arccore.discriminator works inside to craft a",
+                    "a test that routes through discriminator to select the harness. But, when called the harness rejects the harnessRequest because although it was sufficient to get through arccore.discrminator,",
+                    "(because after seeing testMessage3 discrminator knows it can only be harness-filter-3) it was nonetheless insufficiently complete to pass harness input spec."
+                  ]
+                }
               }
+            },
+            "harnessResponse": {
+              "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.harnessRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
+              "result": null
             }
-          },
-          "testResponse": {
-            "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.harnessRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
-            "result": null
           }
         },
         {
-          "testRequest": {
-            "id": "cQ3Z1fhsTICqkY3uKQXaFQ",
-            "name": "Call test harness #3 (complete message signalling force error)",
-            "description": "Attempt to call harness-filter-3 signalling that its implementation should return a response.error.",
+          "dosRgxmiR66ongCbJB78ow": {
             "harnessRequest": {
-              "testMessage3": {
-                "message": "error"
+              "id": "cQ3Z1fhsTICqkY3uKQXaFQ",
+              "name": "Call test harness #3 (complete message signalling force error)",
+              "description": "Attempt to call harness-filter-3 signalling that its implementation should return a response.error.",
+              "harnessRequest": {
+                "testMessage3": {
+                  "message": "error"
+                }
               }
+            },
+            "harnessResponse": {
+              "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while performing main operation. Filter [EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3] failed while performing main operation. We were asked to report an error."
             }
-          },
-          "testResponse": {
-            "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while performing main operation. Filter [EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3] failed while performing main operation. We were asked to report an error."
           }
         },
         {
-          "testRequest": {
-            "id": "LC56jkxeQJ2mgWfwGklLEQ",
-            "name": "Call test harness #3 (valid message)",
-            "description": "Attempt to call harness-filter-3 with a valid message.",
+          "dosRgxmiR66ongCbJB78ow": {
             "harnessRequest": {
-              "testMessage3": {
-                "message": "This message should be delivered and returned by harness-filter-3."
+              "id": "LC56jkxeQJ2mgWfwGklLEQ",
+              "name": "Call test harness #3 (valid message)",
+              "description": "Attempt to call harness-filter-3 with a valid message.",
+              "harnessRequest": {
+                "testMessage3": {
+                  "message": "This message should be delivered and returned by harness-filter-3."
+                }
+              }
+            },
+            "harnessResponse": {
+              "error": null,
+              "result": {
+                "EmU3C0AASciHnBpz-xMmgA": {
+                  "LC56jkxeQJ2mgWfwGklLEQ": "This message should be delivered and returned by harness-filter-3."
+                }
               }
             }
-          },
-          "testResponse": {
-            "error": null,
-            "result": {
-              "EmU3C0AASciHnBpz-xMmgA": {
-                "LC56jkxeQJ2mgWfwGklLEQ": "This message should be delivered and returned by harness-filter-3."
-              }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "gwtkQR51TYm93K32K6QHNA",
+              "name": "Undefined constructor request",
+              "description": "Send nothing (undefined) to OPC constructor."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
             }
           }
         },
         {
-          "testRequest": {
-            "id": "gwtkQR51TYm93K32K6QHNA",
-            "name": "Undefined constructor request",
-            "description": "Send nothing (undefined) to OPC constructor."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "iQ5RngZ0QNyH67mVrlwo4w",
+              "name": "Barely defined constructor request",
+              "description": "Send nothing an empty object to OPC constructor."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "iQ5RngZ0QNyH67mVrlwo4w",
-            "name": "Barely defined constructor request",
-            "description": "Send nothing an empty object to OPC constructor."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "QvEwWTkbT8G_SQsmWmg2zQ",
+              "name": "Minimal constructor request #1: Invalid ID",
+              "description": "Test basic constructor request variant #1 by passing a bad IRUT as the ID."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "QvEwWTkbT8G_SQsmWmg2zQ",
-            "name": "Minimal constructor request #1: Invalid ID",
-            "description": "Test basic constructor request variant #1 by passing a bad IRUT as the ID."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "pcAvtzoITt-q-ut90VhcVA",
+              "name": "Minimal constructor with 'demo' ID",
+              "description": "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "pcAvtzoITt-q-ut90VhcVA",
-            "name": "Minimal constructor with 'demo' ID",
-            "description": "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "l_P652EhQU6_z7afrV-PMQ",
+              "name": "Minimal constructor valid ID all default inputs",
+              "description": "Confirm default construction variant #1"
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "l_P652EhQU6_z7afrV-PMQ",
-            "name": "Minimal constructor valid ID all default inputs",
-            "description": "Confirm default construction variant #1"
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "juolo4dqSgKdLEYLoHJJ1Q",
+              "name": "Miniaml constructor w/minimal valid ocdTemplateSpec",
+              "description": "Confirm minimal ocdTemplateSpec same as default construction."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "juolo4dqSgKdLEYLoHJJ1Q",
-            "name": "Miniaml constructor w/minimal valid ocdTemplateSpec",
-            "description": "Confirm minimal ocdTemplateSpec same as default construction."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "dirl1VuNQCmBrzbJXWMTtA",
+              "name": "Invalid OCD template spec #1",
+              "description": "OCD template spec must be a valid filter spec."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "dirl1VuNQCmBrzbJXWMTtA",
-            "name": "Invalid OCD template spec #1",
-            "description": "OCD template spec must be a valid filter spec."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "ChcuyPLCSQCsICTprPzfog",
+              "name": "Invalid OCD template spec #2",
+              "description": "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "ChcuyPLCSQCsICTprPzfog",
-            "name": "Invalid OCD template spec #2",
-            "description": "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "ZbwxkWJgTEKjxXpYX0_h7Q",
+              "name": "Invliad OCD template spec #3",
+              "description": "OCD template spec ~ namespace is not allowed to use the ____opaque directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "ZbwxkWJgTEKjxXpYX0_h7Q",
-            "name": "Invliad OCD template spec #3",
-            "description": "OCD template spec ~ namespace is not allowed to use the ____opaque directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "ElMglky8TBGkzkd6W4690A",
+              "name": "Invalid OCD template spec #4",
+              "description": "OCD template spec ~ namespace is not allowed to use the ____accept directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "ElMglky8TBGkzkd6W4690A",
-            "name": "Invalid OCD template spec #4",
-            "description": "OCD template spec ~ namespace is not allowed to use the ____accept directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "waM_L9rTT6ySTY4ja__K3g",
+              "name": "Invalid OCD template spec #5",
+              "description": "OCD template namespace ~ is not allowed to use an array value for the ____types directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "waM_L9rTT6ySTY4ja__K3g",
-            "name": "Invalid OCD template spec #5",
-            "description": "OCD template namespace ~ is not allowed to use an array value for the ____types directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "X5zbSBkaQeG6Wft5cGVRwg",
+              "name": "Invalid OCD template spec #6",
+              "description": "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "X5zbSBkaQeG6Wft5cGVRwg",
-            "name": "Invalid OCD template spec #6",
-            "description": "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "nCoUIS0RTlmuKUSpimee7A",
+              "name": "Invalid OCD template spec #7",
+              "description": "OCD template namespace ~ is only allowed to use one quanderscore directive, ____types."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "nCoUIS0RTlmuKUSpimee7A",
-            "name": "Invalid OCD template spec #7",
-            "description": "OCD template namespace ~ is only allowed to use one quanderscore directive, ____types."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "FxMOqQPARcGcMZ24x2tq7A",
+              "name": "Invalid OCD template spec #7",
+              "description": "Test our ability to extend the OPC-managed root namespace, ~."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "FxMOqQPARcGcMZ24x2tq7A",
-            "name": "Invalid OCD template spec #7",
-            "description": "Test our ability to extend the OPC-managed root namespace, ~."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "fzc39RvNTLmHF5UNn_-Fng",
+              "name": "Valid ID, ocdTemplateSpec, data",
+              "description": "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data"
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "fzc39RvNTLmHF5UNn_-Fng",
-            "name": "Valid ID, ocdTemplateSpec, data",
-            "description": "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data"
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "DipB21oZR5ihBCYESC5HWw",
+              "name": "Valid ID, ocdTemplateSpec, data",
+              "description": "Valid OPC instance + dev ocdTemplateSpec + valid init data"
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "DipB21oZR5ihBCYESC5HWw",
-            "name": "Valid ID, ocdTemplateSpec, data",
-            "description": "Valid OPC instance + dev ocdTemplateSpec + valid init data"
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "np4M1LDWSyeNXOmFYJulhA",
+              "name": "Invalid OPC template spec binding #1",
+              "description": "Pass an OCD template spec w/invalid OPM binding IRUT"
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "np4M1LDWSyeNXOmFYJulhA",
-            "name": "Invalid OPC template spec binding #1",
-            "description": "Pass an OCD template spec w/invalid OPM binding IRUT"
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "197ZsgbfRRGGMWqhwmaBDg",
+              "name": "Invalid OPC template spec binding #2",
+              "description": "OCD spec namespace bound to OPM not allowed to use ____opaque directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "197ZsgbfRRGGMWqhwmaBDg",
-            "name": "Invalid OPC template spec binding #2",
-            "description": "OCD spec namespace bound to OPM not allowed to use ____opaque directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "rxFiX7H-TDG0GsxqtRekoA",
+              "name": "Invalid OPC template spec binding #3",
+              "description": "OCD spec namespace bound to OPM not allowed to use ____accept directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "rxFiX7H-TDG0GsxqtRekoA",
-            "name": "Invalid OPC template spec binding #3",
-            "description": "OCD spec namespace bound to OPM not allowed to use ____accept directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "Pe4ks7bQQ9KQee1T8qTRHw",
+              "name": "Invalid OPC Template sepc binding #4",
+              "description": "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "Pe4ks7bQQ9KQee1T8qTRHw",
-            "name": "Invalid OPC Template sepc binding #4",
-            "description": "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "H2zMrBw4TBie5A2mwH4BRg",
+              "name": "Invalid OCD template spec binding #5",
+              "description": "OCD template spec namespace bound to OPM must declare ____types: \"jsObject\"."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "H2zMrBw4TBie5A2mwH4BRg",
-            "name": "Invalid OCD template spec binding #5",
-            "description": "OCD template spec namespace bound to OPM must declare ____types: \"jsObject\"."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "VxYuiGoHRfuKRHp7PBik7Q",
+              "name": "Invalid OCD template spec binding #6",
+              "description": "OCD template spec namespace bound to OPM must not use the ____asMap directive."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "VxYuiGoHRfuKRHp7PBik7Q",
-            "name": "Invalid OCD template spec binding #6",
-            "description": "OCD template spec namespace bound to OPM must not use the ____asMap directive."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "T-apDENPTAO6iQShA-2qBQ",
+              "name": "Invalid OCD template spec binding #7",
+              "description": "OCD template spec namespace bound to OPM must specify the ID of a registered OPM instance to bind."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         },
         {
-          "testRequest": {
-            "id": "T-apDENPTAO6iQShA-2qBQ",
-            "name": "Invalid OCD template spec binding #7",
-            "description": "OCD template spec namespace bound to OPM must specify the ID of a registered OPM instance to bind."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
-          }
-        },
-        {
-          "testRequest": {
-            "id": "4nw2B9oVQYm1ZspZqotrRA",
-            "name": "OCD template spec OPM binding #1",
-            "description": "OPM binding test #1: Baseline - registered OPM's but no declared bindigs."
-          },
-          "testResponse": {
-            "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+          "dosRgxmiR66ongCbJB78ow": {
+            "harnessRequest": {
+              "id": "4nw2B9oVQYm1ZspZqotrRA",
+              "name": "OCD template spec OPM binding #1",
+              "description": "OPM binding test #1: Baseline - registered OPM's but no declared bindigs."
+            },
+            "harnessResponse": {
+              "error": "Runner cannot locate a harness filter to process this request type: Filter [aSHImFxXVcGbsmmCfn-KbA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NAI0AkdUR1RWWVZZJQclBw::Runner Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [PNk82RnxGfHBhcGFLbItsg::Runner Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>]}."
+            }
           }
         }
       ]

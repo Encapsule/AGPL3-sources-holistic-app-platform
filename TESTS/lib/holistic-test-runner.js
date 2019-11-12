@@ -5,6 +5,11 @@ const mkdirp = require("mkdirp");
 const path = require("path");
 const fs = require("fs");
 
+const idHolodeckRunner = "XkT3fzhYT0izLU_P2WF54Q";
+const idHolodeckRunnerEvalReport = "dosRgxmiR66ongCbJB78ow";
+
+
+
 function getEvalSummaryFilename(dirPath_) {
     mkdirp(dirPath_);
     return path.join(dirPath_, "holodeck-eval-summary.json");
@@ -29,9 +34,9 @@ function getHarnessBaselineFilename(dirPath_, testID) {
 
 const factoryResponse = arccore.filter.create({
 
-    operationID: "XkT3fzhYT0izLU_P2WF54Q",
-    operationName: "Holistic Test Runner",
-    operationDescription: "Holistic test runner is an test execution framework and reporting tool based on the chai assertion, arccore.filter, arccore.discriminator, and arccore.graph libs.",
+    operationID: idHolodeckRunner,
+    operationName: "Holodeck Test Runner",
+    operationDescription: "Holodeck is an extensible test runner, execution framework, and reporting tool based on the chai assertion, arccore.filter, arccore.discriminator, and arccore.graph libraries.",
 
     inputFilterSpec: {
         ____types: "jsObject",
@@ -72,7 +77,8 @@ const factoryResponse = arccore.filter.create({
 
     outputFilterSpec: {
         ____types: "jsObject",
-        "NVELEE9lQ96cdVpidNlsPQ": {
+        ____asMap: true,
+        holodeckRunnerId: {
             ____types: "jsObject",
             summary: {
                 ____types: "jsObject",
@@ -102,13 +108,17 @@ const factoryResponse = arccore.filter.create({
                 ____types: "jsArray",
                 harnessEvalDescriptor: {
                     ____types: "jsObject",
-                    testRequest: {
-                        ____accept: "jsObject" // TODO: I think we rely on the harness dispatcher to discriminate this?
-                    },
-                    testResponse: {
+                    ____asMap: true,
+                    holodeckRunnerEvalReportId: {
                         ____types: "jsObject",
-                        error: { ____accept: [ "jsNull", "jsString" ] },
-                        result: { ____opaque: true } // we cannot reasonably predict this value at this level of abstraction
+                        harnessRequest: {
+                            ____accept: "jsObject" // TODO: I think we rely on the harness dispatcher to discriminate this? Yea - I think that the harness factory provides strong gaurantees. Confirm, and remove this todo.
+                        },
+                        harnessResponse: {
+                            ____types: "jsObject",
+                            error: { ____accept: [ "jsNull", "jsString" ] },
+                            result: { ____opaque: true } // we cannot reasonably predict this value at this level of abstraction
+                        }
                     }
                 }
             }
@@ -116,35 +126,32 @@ const factoryResponse = arccore.filter.create({
     },
 
     bodyFunction: function(request_) {
-        let response = {
-            error: null,
-            result: {
-                "NVELEE9lQ96cdVpidNlsPQ": {
-                    summary: {
-                        requests: 0,
-                        runnerStats: {
-                            dispatched: [],
-                            rejected: [],
-                            errors: []
-                        },
-                        runnerEval: {
-                            neutral: [],
-                            pass: {
-                                expected: [],
-                                actual: []
-                            },
-                            fail: {
-                                expected: [],
-                                actual: []
-                            }
-                        }
-                    },
-                    harnessEvalDescriptors: []
-                }
-            }
-        };
-        const resultPayload = response.result["NVELEE9lQ96cdVpidNlsPQ"];
 
+        const result = {};
+        result[idHolodeckRunner] = {
+            summary: {
+                requests: 0,
+                runnerStats: {
+                    dispatched: [],
+                    rejected: [],
+                    errors: []
+                },
+                runnerEval: {
+                    neutral: [],
+                    pass: {
+                        expected: [],
+                        actual: []
+                    },
+                    fail: {
+                        expected: [],
+                        actual: []
+                    }
+                }
+            },
+            harnessEvalDescriptors: []
+        };
+        const response = { error: null, result: result };
+        const resultPayload = response.result[idHolodeckRunner];
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
@@ -158,7 +165,6 @@ const factoryResponse = arccore.filter.create({
                 errors.push(factoryResponse.error);
                 break;
             }
-
             const harnessDispatcher = factoryResponse.result;
             console.log("..... Test harness dispatcher initialized.");
             let dispatchCount = 1;
@@ -168,7 +174,6 @@ const factoryResponse = arccore.filter.create({
                 for (let testNumber = 0 ; testNumber < testSet.length ; testNumber++) {
                     const testRequest = testSet[testNumber];
                     console.log(`..... Running test #${resultPayload.summary.requests} : [${testRequest.id}::${testRequest.name}]`);
-
                     let testResponse = harnessDispatcher.request(testRequest); // try to resolve the harness filter from the test request message.
                     if (testResponse.error) {
                         testResponse.error = `Runner cannot locate a harness filter to process this request type: ${testResponse.error}`;
@@ -182,10 +187,14 @@ const factoryResponse = arccore.filter.create({
                             resultPayload.summary.runnerStats.errors.push(resultPayload.summary.requests);
                         }
                     }
-                    const testEvalDescriptor = { testRequest, testResponse };
+                    const testEvalDescriptor = {};
+                    testEvalDescriptor[idHolodeckRunnerEvalReport] = {
+                        harnessRequest: testRequest,
+                        harnessResponse: testResponse
+                    };
                     const testEvalDescriptorJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
                     fs.writeFileSync(getHarnessEvalFilename(request_.logsRootDir, testRequest.id), testEvalDescriptorJSON);
-                    response.result["NVELEE9lQ96cdVpidNlsPQ"].harnessEvalDescriptors.push(testEvalDescriptor);
+                    resultPayload.harnessEvalDescriptors.push(testEvalDescriptor);
                     resultPayload.summary.requests++;
                 } // for testNumber
             } // for setNumber
@@ -205,8 +214,8 @@ if (factoryResponse.error) {
 
 const holisticTestRunner = factoryResponse.result;
 
+// ================================================================
 // Build the test runner wrapper function (looks like a filter but it's not);
-
 const runnerFascade = { // fake filter
     ...holisticTestRunner,
     request: function(runnerRequest_) {
@@ -229,8 +238,7 @@ const runnerFascade = { // fake filter
         fs.writeFileSync(getEvalSummaryFilename(runnerRequest_.logsRootDir), responseJSON);
 
         if (!runnerResponse.error) {
-            const resultPayload = runnerResponse.result["NVELEE9lQ96cdVpidNlsPQ"];
-
+            const resultPayload = runnerResponse.result[idHolodeckRunner];
             console.log("Runner summary:");
             console.log(`> total test vectors ......... ${resultPayload.summary.requests}`);
             console.log(`> total dispatched vectors ... ${resultPayload.summary.runnerStats.dispatched.length}`);

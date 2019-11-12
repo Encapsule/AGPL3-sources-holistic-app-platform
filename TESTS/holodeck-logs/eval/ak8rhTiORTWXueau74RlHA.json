@@ -1,21 +1,23 @@
 {
-  "testRequest": {
-    "id": "ak8rhTiORTWXueau74RlHA",
-    "name": "Call test harness #3 (incomplete message)",
-    "description": "Attempt to call the harness-filter-3 test harness plug-in w/incomplete request mesage.",
+  "dosRgxmiR66ongCbJB78ow": {
     "harnessRequest": {
-      "testMessage3": {
-        "superflous": [
-          "This array is not included in the harness-filter-3 test harness input spec so it's simply clipped off by the harness input filter stage and never passed to the harness bodyFunction.",
-          "We know that our harness filter test examples all have a fairly predictable harnessRequest signature. Here we use knowledge of how arccore.discriminator works inside to craft a",
-          "a test that routes through discriminator to select the harness. But, when called the harness rejects the harnessRequest because although it was sufficient to get through arccore.discrminator,",
-          "(because after seeing testMessage3 discrminator knows it can only be harness-filter-3) it was nonetheless insufficiently complete to pass harness input spec."
-        ]
+      "id": "ak8rhTiORTWXueau74RlHA",
+      "name": "Call test harness #3 (incomplete message)",
+      "description": "Attempt to call the harness-filter-3 test harness plug-in w/incomplete request mesage.",
+      "harnessRequest": {
+        "testMessage3": {
+          "superflous": [
+            "This array is not included in the harness-filter-3 test harness input spec so it's simply clipped off by the harness input filter stage and never passed to the harness bodyFunction.",
+            "We know that our harness filter test examples all have a fairly predictable harnessRequest signature. Here we use knowledge of how arccore.discriminator works inside to craft a",
+            "a test that routes through discriminator to select the harness. But, when called the harness rejects the harnessRequest because although it was sufficient to get through arccore.discrminator,",
+            "(because after seeing testMessage3 discrminator knows it can only be harness-filter-3) it was nonetheless insufficiently complete to pass harness input spec."
+          ]
+        }
       }
+    },
+    "harnessResponse": {
+      "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.harnessRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
+      "result": null
     }
-  },
-  "testResponse": {
-    "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.harnessRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
-    "result": null
   }
 }
