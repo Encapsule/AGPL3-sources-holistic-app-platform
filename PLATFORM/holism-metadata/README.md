@@ -5,10 +5,10 @@
 # @encapsule/holism-metadata v0.0.24 "trego"
 
 ```
-Package: @encapsule/holism-metadata v0.0.24 "trego" build ID "Un_QZhyLTfmKCA-yk0nfmg"
-Sources: Encapsule/holistic#f1894cbf132269d5e5ea148df031aca65251347e
+Package: @encapsule/holism-metadata v0.0.24 "trego" build ID "BUhtxEWoSt6R61vjrEd6pA"
+Sources: Encapsule/holistic#956aaa2815c50ccd35b9739e33e9ef531d8f3cda
 Purpose: library (Node.js)
-Created: 2019-11-11T03:43:34.000Z
+Created: 2019-11-12T06:50:17.000Z
 License: MIT
 ```
 

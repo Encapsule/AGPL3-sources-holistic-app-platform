@@ -2,9 +2,9 @@
     "name": "@encapsule/hash-router",
     "version": "0.0.24",
     "codename": "trego",
-    "buildID": "Un_QZhyLTfmKCA-yk0nfmg",
-    "buildTime": 1573443814,
-    "buildSource": "f1894cbf132269d5e5ea148df031aca65251347e",
+    "buildID": "BUhtxEWoSt6R61vjrEd6pA",
+    "buildTime": 1573541417,
+    "buildSource": "956aaa2815c50ccd35b9739e33e9ef531d8f3cda",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hash-router.git"

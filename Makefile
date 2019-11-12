@@ -352,7 +352,7 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	mkdir -p $(DIR_PLATFORM)
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM)/
 	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM)
-	$(TOOL_MOCHA) TESTS/
+	$(DIR_ROOT)/TESTS/holodeck-tests.js
 	@echo FINISH TARGET: platform_update
 
 # ================================================================
