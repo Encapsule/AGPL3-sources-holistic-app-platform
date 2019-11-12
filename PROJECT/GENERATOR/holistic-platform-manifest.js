@@ -7,16 +7,17 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
 
     applicationPackageManifest: {
         scripts: {
-            install: "# Installation complete.",
-            build: "make application",
-            start: "node ./BUILD/runtime-phase3/SERVER/server.js",
+            install: "# Installation complete. Enjoy the holistic platform 8>",
             clean: "make clean",
             scrub: "make scrub",
             reset: "make reset",
+            build: "make application",
+            start: "node ./BUILD/runtime-phase3/SERVER/server.js",
             server: "yarn build && yarn start",
             "debug-server": "yarn build && node --inspect-brk ./BUILD/runtime-phase3/SERVER/server.js",
-            iruts: "./node_modules/.bin/arc_generateIRUT"
-
+            iruts: "./node_modules/.bin/arc_generateIRUT",
+            platform: 'echo "HOLISTIC APP PLATFORM JSON (created by appgen) ===" && cat ./HOLISTIC/holistic.json && echo "\nHOLISTIC APP MANIFEST (created by developer) ===" && cat ./holistic-app.json && echo "\nHOLISTIC APP PACKAGE (created by appgen) ===" && cat ./package.json',
+            holodeck: "./TEST/holodeck/run-test-program.js"
         }
     },
 

@@ -18,14 +18,8 @@ const factoryResponse = arccore.filter.create({
             ____types: "jsObject",
             scripts: {
                 ____types: "jsObject",
-                install: { ____accept: "jsString" },
-                build: { ____accept: "jsString" },
-                start: { ____accept: "jsString" },
-                clean: { ____accept: "jsString" },
-                scrub: { ____accept: "jsString" },
-                reset: { ____accept: "jsString" },
-                server: { ____accept: "jsString" },
-                "debug-server": { ____accept: "jsString" }
+                ____asMap: true,
+                scriptName: { ____accept: "jsString" }
             }
 
         }, // appPackageManifest
