@@ -88,7 +88,7 @@ const runnerResponse = holisticTestRunner.request({
 
         ],
 
-        // require("./holarchy/opc/test-request-set-opc-constructor")
+        require("./holarchy/opc/test-request-set-opc-constructor")
 
     ]
 
