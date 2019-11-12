@@ -7,12 +7,12 @@ const fs = require("fs");
 
 function getEvalSummaryFilename(dirPath_) {
     mkdirp(dirPath_);
-    return path.join(dirPath_, "holistic-runner-eval-summary.json");
+    return path.join(dirPath_, "holodeck-eval-summary.json");
 }
 
 function getBaseSummaryFilename(dirPath_) {
     mkdirp(dirPath_);
-    return path.join(dirPath_, "holistic-runner-base-summary.json");
+    return path.join(dirPath_, "holodeck-base-summary.json");
 }
 
 function getHarnessEvalFilename(dirPath_, testID_) {
