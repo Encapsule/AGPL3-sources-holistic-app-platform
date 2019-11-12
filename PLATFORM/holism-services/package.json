@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.24",
     "codename": "trego",
-    "buildID": "-aVkeAB3R7iUJLZW6Y9bxA",
-    "buildTime": 1573591299,
-    "buildSource": "8a57c96a70e67a0dc5b101cf64b4faaa3f839cb1",
+    "buildID": "yaJuJmzVS4CWUONBURgTFg",
+    "buildTime": 1573602523,
+    "buildSource": "1a8c8e488ccdb4b6610a232d178d574185ef9383",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"
