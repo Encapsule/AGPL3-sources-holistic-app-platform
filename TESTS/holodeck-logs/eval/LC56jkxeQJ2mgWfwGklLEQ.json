@@ -1,20 +1,24 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "harnessRequest": {
-      "id": "LC56jkxeQJ2mgWfwGklLEQ",
-      "name": "Call test harness #3 (valid message)",
-      "description": "Attempt to call harness-filter-3 with a valid message.",
-      "harnessRequest": {
-        "testMessage3": {
-          "message": "This message should be delivered and returned by harness-filter-3."
-        }
-      }
-    },
-    "harnessResponse": {
-      "error": null,
-      "result": {
-        "EmU3C0AASciHnBpz-xMmgA": {
-          "LC56jkxeQJ2mgWfwGklLEQ": "This message should be delivered and returned by harness-filter-3."
+    "Tf1N_QhYCFivF68XscKxwg": {
+      "LC56jkxeQJ2mgWfwGklLEQ": {
+        "harnessRequest": {
+          "id": "LC56jkxeQJ2mgWfwGklLEQ",
+          "name": "Call test harness #3 (valid message)",
+          "description": "Attempt to call harness-filter-3 with a valid message.",
+          "harnessRequest": {
+            "testMessage3": {
+              "message": "This message should be delivered and returned by harness-filter-3."
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "EmU3C0AASciHnBpz-xMmgA": {
+              "LC56jkxeQJ2mgWfwGklLEQ": "This message should be delivered and returned by harness-filter-3."
+            }
+          }
         }
       }
     }
