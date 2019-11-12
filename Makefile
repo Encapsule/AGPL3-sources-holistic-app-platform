@@ -372,10 +372,10 @@ reset: scrub env_clean_cache
 	@echo Reset operation complete.
 
 test:
-	$(DIR_ROOT)/TESTS/run-all-tests.js
+	$(DIR_ROOT)/TESTS/holodeck-tests.js
 
 test-debug:
-	node --inspect-brk TESTS/run-all-tests.js
+	node --inspect-brk TESTS/holodeck-tests.js
 
 iruts:
 	$(DIR_TOOLBIN)/arc_generateIRUT

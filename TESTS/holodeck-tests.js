@@ -16,7 +16,7 @@ const runnerResponse = holisticTestRunner.request({
     name: "Holistic Platform Test Vectors",
     description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
 
-    logsRootDir: path.resolve(path.join(__dirname, "test-results")),
+    logsRootDir: path.resolve(path.join(__dirname, "holodeck-logs")),
 
     testHarnessFilters: testHarnessFilters,
     testRequestSets: [
