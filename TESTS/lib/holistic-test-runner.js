@@ -18,7 +18,7 @@ function getBaseSummaryFilename(dirPath_) {
 function getHarnessEvalFilename(dirPath_, testID_) {
     const dirPath = path.join(dirPath_, "eval");
     mkdirp(dirPath);
-    return path.join(dirPath, `${testID_}-eval.json`);
+    return path.join(dirPath, `${testID_}.json`);
 }
 
 function getHarnessBaselineFilename(dirPath_, testID) {
