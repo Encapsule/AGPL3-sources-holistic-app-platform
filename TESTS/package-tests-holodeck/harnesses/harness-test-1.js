@@ -1,24 +1,19 @@
-// harness-filter-2.js
-
-// const arccore = require("@encapsule/arccore");
-// const assert = require("../../lib/chai-assert-fascade");
-
+// harness-filter-1.js
 
 const harnessFactory = require("../../lib/holistic-test-harness-factory");
 
 const factoryResponse = harnessFactory.request({
-    id: "d8zMijUSTZiQlbk__HX6gA",
-
-    name: "Holodeck Runner Test Harness #2",
+    id: "F1zguurrS9-fcdvLk7TCrg",
+    name: "Holodeck Runner Test Harness #1",
     description: "A simple holodeck test harness filter to test out the runner.",
     harnessRequestInputSpec: {
         ____types: "jsObject",
-        testMessage2: {
+        testMessage1: {
             ____accept: "jsString"
         }
     },
     harnessBodyFunction: function(request_) {
-        return { error: null, result: request_.harnessRequest.testMessage2 };
+        return { error: null, result: request_.harnessRequest.testMessage1 };
     },
     harnessResultOutputSpec: {
         ____accept: "jsString"

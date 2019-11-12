@@ -183,7 +183,7 @@ const factoryResponse = arccore.filter.create({
                         }
                     }
                     const testEvalDescriptor = { testRequest, testResponse };
-                    const testEvalDescriptorJSON = JSON.stringify(testEvalDescriptor, undefined, 2);
+                    const testEvalDescriptorJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
                     fs.writeFileSync(getHarnessEvalFilename(request_.logsRootDir, testRequest.id), testEvalDescriptorJSON);
                     response.result["NVELEE9lQ96cdVpidNlsPQ"].harnessEvalDescriptors.push(testEvalDescriptor);
                     resultPayload.summary.requests++;
@@ -225,7 +225,7 @@ const runnerFascade = { // fake filter
         const runnerResponse = holisticTestRunner.request(runnerRequest_);
 
         console.log("> Finalizing results and writing summary log...");
-        const responseJSON = JSON.stringify(runnerResponse, undefined, 2);
+        const responseJSON = `${JSON.stringify(runnerResponse, undefined, 2)}\n`;
         fs.writeFileSync(getEvalSummaryFilename(runnerRequest_.logsRootDir), responseJSON);
 
         if (!runnerResponse.error) {
