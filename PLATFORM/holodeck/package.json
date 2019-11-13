@@ -2,9 +2,9 @@
     "name": "@encapsule/holodeck",
     "version": "0.0.25",
     "codename": "stryker",
-    "buildID": "kUGFmKUjRkWzXEIC0i0D3w",
-    "buildTime": 1573623487,
-    "buildSource": "24a3a616ac393987a099296e705fd50d3f62f47d",
+    "buildID": "RaUOaHIJS2CdqbCl6gHJFQ",
+    "buildTime": 1573625813,
+    "buildSource": "c22e52f644b01b8fa23119f5cfe77004a1ab2a2a",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holodeck.git"
