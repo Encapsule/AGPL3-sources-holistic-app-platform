@@ -131,7 +131,7 @@ var factoryResponse = arccore.filter.create({
       } // Save the normalized copy of the dev-specified ocdTemplateSpec. This is useful to developers.
 
 
-      result.ocdTemplateSpec = factoryResponse.result.filterDescriptor.inputFilterSpec; // ================================================================
+      result.ocdTemplateSpec = arccore.util.clone(factoryResponse.result.filterDescriptor.inputFilterSpec); // ================================================================
       // Find all the OPM-bound namespaces in the developer-defined OCD template spec
       // and synthesize the OCD's runtime filter spec from template + OPM-provided template + OPC overlay aspects.
       // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
