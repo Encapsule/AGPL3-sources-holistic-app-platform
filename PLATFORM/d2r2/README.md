@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/d2r2 v0.0.24 "trego"
+# @encapsule/d2r2 v0.0.25 "stryker"
 
 ```
-Package: @encapsule/d2r2 v0.0.24 "trego" build ID "yaJuJmzVS4CWUONBURgTFg"
-Sources: Encapsule/holistic#1a8c8e488ccdb4b6610a232d178d574185ef9383
+Package: @encapsule/d2r2 v0.0.25 "stryker" build ID "_baBMqOrTIu3fwlwrlcQtQ"
+Sources: Encapsule/holistic#c848dd99bf4c28e4c67ee54ed43be8f7de7a7efb
 Purpose: library (Node.js)
-Created: 2019-11-12T23:48:43.000Z
+Created: 2019-11-13T03:10:38.000Z
 License: MIT
 ```
 
@@ -50,7 +50,7 @@ Data-Driven React Render (d2r2) library for Node.js and modern browser clients.
 
 The `@encapsule/d2r2` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/d2r2 Package Distribution](https://npmjs.com/package/@encapsule/d2r2/v/0.0.24) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/d2r2 Package Distribution](https://npmjs.com/package/@encapsule/d2r2/v/0.0.25) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/d2r2 git Repository](https://github.com/Encapsule/d2r2) ([GitHub](https://github.com/Encapsule))
 
 <hr>
