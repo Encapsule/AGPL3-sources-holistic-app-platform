@@ -135,7 +135,7 @@ const resourceFilePaths = {
         packageModulesDir: path.join(appRepoDir, "node_modules"),
         packageReadme: path.join(appRepoDir, "README.md"),
         packageLicense: path.join(appRepoDir, "LICENSE"),
-	packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
+	    packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
         packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
         packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"), // template generated
@@ -205,7 +205,7 @@ if (filterResponse.error) {
 var applicationPackageManifest = filterResponse.result.resource; // ... as specified by developer(s) and this script.
 
 if (applicationPackageManifest.name === "holistic") {
-    console.error("ERROR: INVALID APPLICATION REPOSITORY DIRECTORY!");
+    console.error("ERROR: INVALID APPLICATION REPOSITORY DIRECTORY! YOU CANNOT APPGEN THE HOLISTIC REPO ITSELF!");
     process.exit(1);
 }
 

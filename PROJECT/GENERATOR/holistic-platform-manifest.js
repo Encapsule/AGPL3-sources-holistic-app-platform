@@ -16,8 +16,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
             server: "yarn build && yarn start",
             "debug-server": "yarn build && node --inspect-brk ./BUILD/runtime-phase3/SERVER/server.js",
             iruts: "./node_modules/.bin/arc_generateIRUT",
-            platform: 'echo "HOLISTIC APP PLATFORM JSON (created by appgen) ===" && cat ./HOLISTIC/holistic.json && echo "\nHOLISTIC APP MANIFEST (created by developer) ===" && cat ./holistic-app.json && echo "\nHOLISTIC APP PACKAGE (created by appgen) ===" && cat ./package.json',
-            holodeck: "./TEST/holodeck/run-test-program.js"
+            appinfo: 'echo "\nHOLISTIC APP MANIFEST (created by developer) ===" && cat ./holistic-app.json && echo "\nHOLISTIC APP PACKAGE (created by appgen) ===" && cat ./package.json && "HOLISTIC APP PLATFORM JSON (Tools and RTL\'s installed by appgen) ===" && cat ./HOLISTIC/holistic.json &&',
+            holodeck: "./TESTS/holodeck/run-test-program.js"
         }
     },
 

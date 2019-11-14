@@ -2,9 +2,9 @@
     "name": "@encapsule/hash-router",
     "version": "0.0.25",
     "codename": "stryker",
-    "buildID": "P0ZTqRrnTXm_uwRznNX3TA",
-    "buildTime": 1573681142,
-    "buildSource": "6cd2a6b0e47d4323aede46b7b6fd6e2318ba2b1c",
+    "buildID": "oGfmDfTLRKG0__q48G2-VA",
+    "buildTime": 1573745516,
+    "buildSource": "30733bc2c751f8e3828a205aa104b611337c7287",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hash-router.git"
