@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.25 "stryker"
 
 ```
-Package: @encapsule/holism v0.0.25 "stryker" build ID "yaG0yYtuRryctYhDx83hWg"
-Sources: Encapsule/holistic#ffee22c5f7a4c9cef62845774959f9e734e1b12a
+Package: @encapsule/holism v0.0.25 "stryker" build ID "NE3BD8_-TfecW8eFmn8hng"
+Sources: Encapsule/holistic#21db4b65201e84acd0af44f1b4193d3ca9b3b988
 Purpose: library (Node.js)
-Created: 2019-11-15T09:36:19.000Z
+Created: 2019-11-15T16:26:57.000Z
 License: MIT
 ```
 

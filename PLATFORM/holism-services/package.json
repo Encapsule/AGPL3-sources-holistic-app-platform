@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.25",
     "codename": "stryker",
-    "buildID": "yaG0yYtuRryctYhDx83hWg",
-    "buildTime": 1573810579,
-    "buildSource": "ffee22c5f7a4c9cef62845774959f9e734e1b12a",
+    "buildID": "NE3BD8_-TfecW8eFmn8hng",
+    "buildTime": 1573835217,
+    "buildSource": "21db4b65201e84acd0af44f1b4193d3ca9b3b988",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"
