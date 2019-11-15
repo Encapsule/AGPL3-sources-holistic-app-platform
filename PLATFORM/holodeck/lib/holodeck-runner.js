@@ -6,6 +6,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var arccore = require("@encapsule/arccore");
 
+var childProcess = require("child_process");
+
 var mkdirp = require("mkdirp");
 
 var path = require("path");
@@ -15,27 +17,56 @@ var fs = require("fs");
 var idHolodeckRunner = "XkT3fzhYT0izLU_P2WF54Q";
 var idHolodeckRunnerEvalReport = "dosRgxmiR66ongCbJB78ow";
 
-function getEvalSummaryFilename(dirPath_) {
-  mkdirp(dirPath_);
-  return path.join(dirPath_, "holodeck-eval-summary.json");
+function getLogDir(logsRootDir_) {
+  mkdirp(logsRootDir_);
+  return logsRootDir_;
 }
 
-function getBaseSummaryFilename(dirPath_) {
-  mkdirp(dirPath_);
-  return path.join(dirPath_, "holodeck-base-summary.json");
+function getEvalSummaryFilename(logsRootDir_) {
+  return path.join(getLogDir(logsRootDir_), "holodeck-eval-summary.json");
 }
 
-function getHarnessEvalFilename(dirPath_, testID_) {
-  var dirPath = path.join(dirPath_, "eval");
+function getBaseSummaryFilename(logsRootDir_) {
+  return path.join(getLogDir(logsRootDir_), "holodeck-base-summary.json");
+}
+
+function getLogEvalDir(logsRootDir_) {
+  var dirPath = path.join(getLogDir(logsRootDir_), "eval");
   mkdirp(dirPath);
-  return path.join(dirPath, "".concat(testID_, ".json"));
+  return dirPath;
 }
 
-function getHarnessBaselineFilename(dirPath_, testID) {
-  var dirPath = path.join(dirPath_, "base");
-  mkdirp(dirPath);
-  return path.join(dirPath, "".concat(testID_, "-base.json"));
+function getHarnessEvalFilename(logsRootDir_, testID_) {
+  return path.join(getLogEvalDir(logsRootDir_), "".concat(testID_, ".json"));
 }
+
+function getHarnessEvalDiffFilename(logsRootDir_, testID_) {
+  return path.join(getLogEvalDir(logsRootDir_), "".concat(testID_, "-diff.json"));
+}
+
+function getLogBaseDir(logsRootDir_) {
+  var dirPath = path.join(getLogDir(logsRootDir_), "base");
+  mkdirp(dirPath);
+  return dirPath;
+}
+
+function getHarnessBaselineFilename(logsRootDir_, testID_) {
+  return path.join(getLogBaseDir(logsRootDir_), "".concat(testID_, ".json"));
+}
+
+function getHarnessBaseDiffFilename(logsRootDir__, testID_) {
+  return path.join(getLogBaseDir(logsRootDir_), "".concat(testID_, "-diff.jaon"));
+}
+
+function syncExec(request_) {
+  // request_ = { command: string, cwd: string,  }
+  // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
+  // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
+  return childProcess.execSync(request_.command, {
+    cwd: request_.cwd
+  }).toString('utf8').trim();
+} // syncExec
+
 
 var factoryResponse = arccore.filter.create({
   operationID: idHolodeckRunner,
@@ -128,8 +159,24 @@ var factoryResponse = arccore.filter.create({
             harnessRequest: testRequest,
             harnessResponse: testResponse
           };
-          var testEvalDescriptorJSON = "".concat(JSON.stringify(testEvalDescriptor, undefined, 2), "\n");
-          fs.writeFileSync(getHarnessEvalFilename(request_.logsRootDir, testRequest.id), testEvalDescriptorJSON);
+          var harnessEvalFilename = getHarnessEvalFilename(request_.logsRootDir, testRequest.id);
+          var harnessEvalJSON = "".concat(JSON.stringify(testEvalDescriptor, undefined, 2), "\n");
+          fs.writeFileSync(harnessEvalFilename, harnessEvalJSON);
+          var gitDiffResponse = syncExec({
+            command: "git diff --raw ".concat(harnessEvalFilename),
+            cwd: getLogEvalDir(request_.logsRootDir)
+          });
+          var harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
+
+          if (gitDiffResponse.legnth) {
+            fs.writeFileSync(harnessEvalDiffFilename, gitDiffResponse);
+          } else {
+            syncExec({
+              command: "rm -f ".concat(harnessEvalDiffFilename),
+              cwd: getLogEvalDir(request_.logsRootDir)
+            });
+          }
+
           resultPayload.harnessEvalDescriptors.push(testEvalDescriptor);
           resultPayload.summary.requests++;
         } // for testNumber

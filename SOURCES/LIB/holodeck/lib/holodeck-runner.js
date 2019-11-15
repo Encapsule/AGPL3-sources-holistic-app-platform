@@ -1,6 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
 
+const childProcess = require("child_process");
 const mkdirp = require("mkdirp");
 const path = require("path");
 const fs = require("fs");
@@ -8,29 +9,54 @@ const fs = require("fs");
 const idHolodeckRunner = "XkT3fzhYT0izLU_P2WF54Q";
 const idHolodeckRunnerEvalReport = "dosRgxmiR66ongCbJB78ow";
 
-
-
-function getEvalSummaryFilename(dirPath_) {
-    mkdirp(dirPath_);
-    return path.join(dirPath_, "holodeck-eval-summary.json");
+function getLogDir(logsRootDir_) {
+    mkdirp(logsRootDir_);
+    return logsRootDir_;
 }
 
-function getBaseSummaryFilename(dirPath_) {
-    mkdirp(dirPath_);
-    return path.join(dirPath_, "holodeck-base-summary.json");
+function getEvalSummaryFilename(logsRootDir_) {
+    return path.join(getLogDir(logsRootDir_), "holodeck-eval-summary.json");
 }
 
-function getHarnessEvalFilename(dirPath_, testID_) {
-    const dirPath = path.join(dirPath_, "eval");
+function getBaseSummaryFilename(logsRootDir_) {
+    return path.join(getLogDir(logsRootDir_), "holodeck-base-summary.json");
+}
+
+function getLogEvalDir(logsRootDir_) {
+    const dirPath = path.join(getLogDir(logsRootDir_), "eval");
     mkdirp(dirPath);
-    return path.join(dirPath, `${testID_}.json`);
+    return dirPath;
 }
 
-function getHarnessBaselineFilename(dirPath_, testID) {
-    const dirPath = path.join(dirPath_, "base");
-    mkdirp(dirPath);
-    return path.join(dirPath, `${testID_}-base.json`);
+function getHarnessEvalFilename(logsRootDir_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_), `${testID_}.json`);
 }
+
+function getHarnessEvalDiffFilename(logsRootDir_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-diff.json`);
+}
+
+function getLogBaseDir(logsRootDir_) {
+    const dirPath = path.join(getLogDir(logsRootDir_), "base");
+    mkdirp(dirPath);
+    return dirPath;
+}
+
+function getHarnessBaselineFilename(logsRootDir_, testID_) {
+    return path.join(getLogBaseDir(logsRootDir_), `${testID_}.json`);
+}
+
+function getHarnessBaseDiffFilename(logsRootDir__, testID_) {
+    return path.join(getLogBaseDir(logsRootDir_), `${testID_}-diff.jaon`);
+}
+
+function syncExec(request_) {
+    // request_ = { command: string, cwd: string,  }
+    // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
+    // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
+    return childProcess.execSync(request_.command, { cwd: request_.cwd }).toString('utf8').trim();
+} // syncExec
+
 
 const factoryResponse = arccore.filter.create({
 
@@ -112,8 +138,26 @@ const factoryResponse = arccore.filter.create({
                         harnessRequest: testRequest,
                         harnessResponse: testResponse
                     };
-                    const testEvalDescriptorJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
-                    fs.writeFileSync(getHarnessEvalFilename(request_.logsRootDir, testRequest.id), testEvalDescriptorJSON);
+
+                    const harnessEvalFilename = getHarnessEvalFilename(request_.logsRootDir, testRequest.id);
+                    const harnessEvalJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
+                    fs.writeFileSync(harnessEvalFilename, harnessEvalJSON);
+
+                    const gitDiffResponse = syncExec({
+                        command: `git diff --raw ${harnessEvalFilename}`,
+                        cwd: getLogEvalDir(request_.logsRootDir)
+                    });
+
+                    const harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
+                    if (gitDiffResponse.legnth) {
+                        fs.writeFileSync(harnessEvalDiffFilename, gitDiffResponse);
+                    } else {
+                        syncExec({
+                            command: `rm -f ${harnessEvalDiffFilename}`,
+                            cwd: getLogEvalDir(request_.logsRootDir)
+                        });
+                    }
+
                     resultPayload.harnessEvalDescriptors.push(testEvalDescriptor);
                     resultPayload.summary.requests++;
                 } // for testNumber

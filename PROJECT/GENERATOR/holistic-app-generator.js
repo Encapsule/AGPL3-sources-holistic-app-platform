@@ -13,17 +13,8 @@ const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with En
 const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
 
 const holisticMetadata = require("../../PLATFORM/holistic");
+const holisticPlatformRuntimePackageDependencies = require("../PLATFORM/PACKAGES");
 const holisticPlatformManifest = require("./holistic-platform-manifest");
-const holisticPlatformRuntimePackages = [
-    "@encapsule/d2r2",
-    "@encapsule/d2r2-components",
-    "@encapsule/holarchy",
-    "@encapsule/hash-router",
-    "@encapsule/holism",
-    "@encapsule/holism-metadata",
-    "@encapsule/holism-services",
-    "@encapsule/hrequest"
-];
 
 const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
 const packageMapFilter = require('./LIB/package-map-filter');
@@ -411,7 +402,7 @@ console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'
 // that have appeared in the application's package.json are installed. And, that yarn.lock
 // is updated.
 
-for (key of holisticPlatformRuntimePackages) {
+for (key in holisticPlatformRuntimePackageDependencies) {
     console.log("> Updating holistic platform runtime package dependency '" + key + "'...");
     consoleOutput = syncExec({
         cwd: resourceFilePaths.application.packageModulesDir,
