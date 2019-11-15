@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-metadata",
     "version": "0.0.25",
     "codename": "stryker",
-    "buildID": "88J6ldbnRnKkCEBLzyal9A",
-    "buildTime": 1573856338,
-    "buildSource": "5e2c45108991b798badbc343877b444a0e570f43",
+    "buildID": "vXvtaTT7TeqfzPRHRTFS0w",
+    "buildTime": 1573859816,
+    "buildSource": "008c8fe69c452ebc1294392da8ac3f34aa4078e4",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-metadata.git"

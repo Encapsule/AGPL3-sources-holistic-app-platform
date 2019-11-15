@@ -62,9 +62,12 @@ function syncExec(request_) {
   // request_ = { command: string, cwd: string,  }
   // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
   // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
-  return childProcess.execSync(request_.command, {
+  console.log("Subprocess command '".concat(request_.command, "' in working directory '").concat(request_.cwd, "':"));
+  var response = childProcess.execSync(request_.command, {
     cwd: request_.cwd
   }).toString('utf8').trim();
+  console.log(response);
+  return response;
 } // syncExec
 
 
@@ -168,8 +171,8 @@ var factoryResponse = arccore.filter.create({
           });
           var harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
 
-          if (gitDiffResponse.legnth) {
-            fs.writeFileSync(harnessEvalDiffFilename, gitDiffResponse);
+          if (gitDiffResponse.length) {
+            fs.writeFileSync(harnessEvalDiffFilename, "".concat(gitDiffResponse, "\n"));
           } else {
             syncExec({
               command: "rm -f ".concat(harnessEvalDiffFilename),
