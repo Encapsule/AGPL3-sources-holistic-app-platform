@@ -6,7 +6,7 @@
           "id": "IRyR4YazRuWiZp9Rzj6-WA",
           "name": "Call test harness #1",
           "description": "Attempt to call the harness-filter-1 test harness plug-in.",
-          "harnessRequest": {
+          "vectorRequest": {
             "testMessage1": "This request should get routed to harness-filter-1."
           }
         },

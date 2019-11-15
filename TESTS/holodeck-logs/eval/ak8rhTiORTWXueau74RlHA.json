@@ -6,7 +6,7 @@
           "id": "ak8rhTiORTWXueau74RlHA",
           "name": "Call test harness #3 (incomplete message)",
           "description": "Attempt to call the harness-filter-3 test harness plug-in w/incomplete request mesage.",
-          "harnessRequest": {
+          "vectorRequest": {
             "testMessage3": {
               "superflous": [
                 "This array is not included in the harness-filter-3 test harness input spec so it's simply clipped off by the harness input filter stage and never passed to the harness bodyFunction.",
@@ -18,7 +18,7 @@
           }
         },
         "harnessResponse": {
-          "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Runner Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.harnessRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
+          "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.vectorRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
           "result": null
         }
       }

@@ -28,7 +28,7 @@ module.exports = {
     ____defaultValue: [],
     testRequestSet: {
       ____types: "jsArray",
-      testRequest: {
+      harnessRequest: {
         ____types: ["jsUndefined", "jsObject"],
         id: {
           ____accept: "jsString"
@@ -40,7 +40,7 @@ module.exports = {
           ____accept: "jsString"
         },
         // expectedOutcome: { ____accept: "jsString", ____inValueSet: [ "pass", "fail" ] },
-        harnessRequest: {
+        vectorRequest: {
           ____accept: ["jsUndefined", "jsObject"]
         }
       }

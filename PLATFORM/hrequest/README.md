@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.25 "stryker"
 
 ```
-Package: @encapsule/hrequest v0.0.25 "stryker" build ID "oGfmDfTLRKG0__q48G2-VA"
-Sources: Encapsule/holistic#30733bc2c751f8e3828a205aa104b611337c7287
+Package: @encapsule/hrequest v0.0.25 "stryker" build ID "yaG0yYtuRryctYhDx83hWg"
+Sources: Encapsule/holistic#ffee22c5f7a4c9cef62845774959f9e734e1b12a
 Purpose: library (Node.js)
-Created: 2019-11-14T15:31:56.000Z
+Created: 2019-11-15T09:36:19.000Z
 License: MIT
 ```
 

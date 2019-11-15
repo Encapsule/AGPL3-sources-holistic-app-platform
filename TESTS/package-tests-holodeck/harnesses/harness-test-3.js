@@ -6,7 +6,8 @@ const factoryResponse = holodeck.harnessFactory.request({
     id: "EmU3C0AASciHnBpz-xMmgA",
     name: "Holodeck Runner Test Harness #3",
     description: "A simple holodeck test harness filter to test out the runner.",
-    harnessRequestInputSpec: {
+
+    testVectorRequestInputSpec: {
         ____types: "jsObject",
         testMessage3: {
             ____types: "jsObject",
@@ -16,12 +17,12 @@ const factoryResponse = holodeck.harnessFactory.request({
         }
     },
     harnessBodyFunction: function(request_) {
-        if (request_.harnessRequest.testMessage3.message === "error") {
+        if (request_.vectorRequest.testMessage3.message === "error") {
             return { error: "We were asked to report an error." };
         }
-        return { error: null, result: request_.harnessRequest.testMessage3.message };
+        return { error: null, result: request_.vectorRequest.testMessage3.message };
     },
-    harnessResultOutputSpec: {
+    testVectorResultOutputSpec: {
         ____accept: "jsString"
     }
 });

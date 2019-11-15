@@ -7,7 +7,7 @@ module.exports = [
             name: "Bad message test #1",
             description: "Attempt to call the harness-filter-1 test harness plug-in.",
             expectedOutcome: "pass",
-            harnessRequest: {
+            vectorRequest: {
                 testMessage: { message: "Hello, is anyone there?" }
             }
         },
@@ -17,7 +17,7 @@ module.exports = [
             name: "Call test harness #1",
             description: "Attempt to call the harness-filter-1 test harness plug-in.",
             expectedOutcome: "pass",
-            harnessRequest: {
+            vectorRequest: {
                 testMessage1: "This request should get routed to harness-filter-1."
             }
         },
@@ -27,7 +27,7 @@ module.exports = [
             name: "Call test harness #2",
             description: "Attempt to call the harness-filter-2 test harness plug-in.",
             expectedOutput: "pass",
-            harnessRequest: {
+            vectorRequest: {
                 testMessage2: "This request should get routed to harness-filter-2."
             }
         },
@@ -37,7 +37,7 @@ module.exports = [
             name: "Call test harness #3 (incomplete message)",
             description: "Attempt to call the harness-filter-3 test harness plug-in w/incomplete request mesage.",
             expectedOutput: "pass",
-            harnessRequest: {
+            vectorRequest: {
                 testMessage3: {
                     superflous: [
                         "This array is not included in the harness-filter-3 test harness input spec so it's simply clipped off by the harness input filter stage and never passed to the harness bodyFunction.",
@@ -54,7 +54,7 @@ module.exports = [
             name: "Call test harness #3 (complete message signalling force error)",
             description: "Attempt to call harness-filter-3 signalling that its implementation should return a response.error.",
             expectedOutput: "pass",
-            harnessRequest: { testMessage3: { message: "error" } }
+            vectorRequest: { testMessage3: { message: "error" } }
         },
 
         {
@@ -62,8 +62,17 @@ module.exports = [
             name: "Call test harness #3 (valid message)",
             description: "Attempt to call harness-filter-3 with a valid message.",
             expectedOutput: "pass",
-            harnessRequest: { testMessage3: { message: "This message should be delivered and returned by harness-filter-3." } }
+            vectorRequest: { testMessage3: { message: "This message should be delivered and returned by harness-filter-3." } }
+        },
+
+        {
+            id: "UHqiKKLkTMmLBGXI4lRxEA",
+            name: "Call test harness #4",
+            description: "Call test harness #4 which is hardwired to throw an exception. This confirms baseline for holodeck's harness factory's handling of bad developer input.",
+            expectedResult: "pass", // TODO: This is not used; it's currently a per-test penalty.
+            vectorRequest: { testMessage4: { thisIsOpqaue: "so i can do wahtever i want... and it doesn't matter anyway. the harness is hard-wired to explode." } }
         }
+
     ]
 
 ];

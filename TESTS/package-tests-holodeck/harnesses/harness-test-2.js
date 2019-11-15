@@ -7,17 +7,17 @@ const factoryResponse = holodeck.harnessFactory.request({
 
     name: "Holodeck Runner Test Harness #2",
     description: "A simple holodeck test harness filter to test out the runner.",
-    harnessRequestInputSpec: {
+    testVectorRequestInputSpec: {
         ____types: "jsObject",
         testMessage2: {
             ____accept: "jsString"
         }
     },
-    harnessBodyFunction: function(request_) {
-        return { error: null, result: request_.harnessRequest.testMessage2 };
-    },
-    harnessResultOutputSpec: {
+    testVectorResultOutputSpec: {
         ____accept: "jsString"
+    },
+    harnessBodyFunction: function(request_) {
+        return { error: null, result: request_.vectorRequest.testMessage2 };
     }
 });
 
