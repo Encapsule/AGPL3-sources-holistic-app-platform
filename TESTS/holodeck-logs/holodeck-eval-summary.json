@@ -6,9 +6,7 @@
     "totalHarnessErrors": 3,
     "totalRejectedVectors": 25
   },
-  "gitDiffTree": [
-    ":100644 000000 981b5a562020ddd98c1003fd6ea5ca6e4bd582b2 0000000000000000000000000000000000000000 D\tTESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA-diff.json"
-  ],
+  "gitDiffTree": null,
   "runnerReponse": {
     "error": null,
     "result": {
