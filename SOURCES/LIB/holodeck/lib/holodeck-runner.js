@@ -36,6 +36,10 @@ function getHarnessEvalDiffFilename(logsRootDir_, testID_) {
     return path.join(getLogEvalDir(logsRootDir_), `${testID_}-diff.json`);
 }
 
+function getHarnessEvalDiffTreeFilename(logsRootDir_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-diff-tree.json`);
+}
+
 function getLogBaseDir(logsRootDir_) {
     const dirPath = path.join(getLogDir(logsRootDir_), "base");
     mkdirp(dirPath);
@@ -50,6 +54,8 @@ function getHarnessBaseDiffFilename(logsRootDir__, testID_) {
     return path.join(getLogBaseDir(logsRootDir_), `${testID_}-diff.jaon`);
 }
 
+
+
 function syncExec(request_) {
     // request_ = { command: string, cwd: string,  }
     // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
@@ -62,15 +68,16 @@ function syncExec(request_) {
 
 
 const factoryResponse = arccore.filter.create({
-
+    // Every filter must define some basic metadata.
     operationID: idHolodeckRunner,
     operationName: "Holodeck Test Runner",
     operationDescription: "Holodeck is an extensible test runner, execution framework, and reporting tool based on the chai assertion, arccore.filter, arccore.discriminator, and arccore.graph libraries.",
-
+    // Filter specs delcare API runtime data invariants for the `bodyFunction` request/response I/O.
     inputFilterSpec: require("./iospecs/holodeck-runner-input-spec"),
     outputFilterSpec: require("./iospecs/holodeck-runner-output-spec"),
 
     bodyFunction: function(request_) {
+        // The request_ in-param is guaranteed to be valid per `inputFilterSpec` (or bodyFunction is simply not dispatched by filter).
 
         const result = {};
         result[idHolodeckRunner] = {
@@ -113,11 +120,19 @@ const factoryResponse = arccore.filter.create({
             const harnessDispatcher = factoryResponse.result;
             console.log("..... Test harness dispatcher initialized.");
             let dispatchCount = 1;
+
+            // Loop thought the outer set of test sets. And, inner test sets to dispatch each individual test vector through a (hopefully) appropriate holodeck harness filter plug-in.
             console.log("> Dispatching test sets...");
+            // Outer set of test sets...
             for (let setNumber = 0 ; setNumber < request_.testRequestSets.length ; setNumber++) {
                 const testSet = request_.testRequestSets[setNumber];
+                // Inner set of test vectors...
                 for (let testNumber = 0 ; testNumber < testSet.length ; testNumber++) {
                     const testRequest = testSet[testNumber];
+
+                    // Here we leverage an arccore.discriminator to route the test vector (a message) to an appropriate handler
+                    // for further processing (because the runner doesn't know how to actually test anything - this is entirely
+                    // a function of the holodeck handler filter plug-ins registered with the holodeck runner.
                     console.log(`..... Running test #${resultPayload.summary.requests} : [${testRequest.id}::${testRequest.name}]`);
                     let harnessFilter = null;
                     let testResponse = harnessDispatcher.request(testRequest); // try to resolve the harness filter from the test request message.
@@ -133,6 +148,17 @@ const factoryResponse = arccore.filter.create({
                             resultPayload.summary.runnerStats.errors.push(testRequest.id);
                         }
                     }
+
+                    // If this was a typical filter designed for use inside an application or a service we would
+                    // probably do some error checking at this point and fail the request if something went wrong.
+                    // But, we're writing a test runner and in this case we want the test runner to _never_ fail
+                    // (except if it's passed blatantly bad configuration). And, always persist the response of
+                    // attempting to dispatch each test vector to a JSON file that we can compare and analyze with
+                    // git. Because these evaluation logs are very tightly constrained using filters throughout
+                    // holodeck runner and harness factory-produced harness filter plug-ins we can gain great
+                    // insight into the correct or incorrect operation of our implementation code via git diff
+                    // without having to specifiy and maintain very fine-grained analysis scripts, and large
+                    // amounts of hand-maintained "expected results" data.
                     const testEvalDescriptor = {};
                     testEvalDescriptor[idHolodeckRunnerEvalReport] = {};
                     const harnessFilterId = harnessFilter?harnessFilter.filterDescriptor.operationID:"000000000000000000";
@@ -146,6 +172,8 @@ const factoryResponse = arccore.filter.create({
                     const harnessEvalJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
                     fs.writeFileSync(harnessEvalFilename, harnessEvalJSON);
 
+
+                    // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
                     const gitDiffResponse = syncExec({
                         command: `git diff --raw ${harnessEvalFilename}`,
                         cwd: getLogEvalDir(request_.logsRootDir)
@@ -157,6 +185,21 @@ const factoryResponse = arccore.filter.create({
                     } else {
                         syncExec({
                             command: `rm -f ${harnessEvalDiffFilename}`,
+                            cwd: getLogEvalDir(request_.logsRootDir)
+                        });
+                    }
+
+                    const gitDiffTreeResponse = syncExec({
+                        command: `git diff-tree --no-commit-id -r @~ ${harnessEvalFilename}`,
+                        cwd: getLogEvalDir(request_.logsRootDir)
+                    });
+
+                    const harnessEvalDiffTreeFilename = getHarnessEvalDiffTreeFilename(request_.logsRootDir, testRequest.id);
+                    if (gitDiffTreeResponse.length) {
+                        fs.writeFileSync(harnessEvalDiffTreeFilename, `${gitDiffTreeResponse}\n`);
+                    } else {
+                        syncExec({
+                            command: `rm -f ${harnessEvalDiffTreeFilename}`,
                             cwd: getLogEvalDir(request_.logsRootDir)
                         });
                     }
@@ -175,6 +218,14 @@ const factoryResponse = arccore.filter.create({
         if (errors.length) {
             response.error = errors.join(" ");
         }
+        // This is a standard-form filter response object { error: null | string, result: variant }.
+        // In this case we have specified an `outputFilterSpec` that provides our caller with invariant
+        // guarantees over the output of `response` returned by this `bodyFunction`. This means that
+        // if `bodyFunction` produces a response result (i.e. response.error !== null) then filter
+        // will possibly invalidate the response (i.e. will set response.error = "error string...")
+        // iff response.result violates the constraints declared by `outputFilterSpec`.
+        // This is important because the runner output is often serialized to JSON and written to
+        // a commited file for comparison and analysis with git.
         return response;
     }
 });
@@ -205,20 +256,51 @@ const runnerFascade = { // fake filter
         const runnerResponse = holisticTestRunner.request(runnerRequest_);
 
         console.log("> Finalizing results and writing summary log...");
-        const responseJSON = `${JSON.stringify(runnerResponse, undefined, 2)}\n`;
-        fs.writeFileSync(getEvalSummaryFilename(runnerRequest_.logsRootDir), responseJSON);
+
+        const analysis = {};
 
         if (!runnerResponse.error) {
             const resultPayload = runnerResponse.result[idHolodeckRunner];
             console.log("Runner summary:");
-            console.log(`> total test vectors ......... ${resultPayload.summary.requests}`);
-            console.log(`> total dispatched vectors ... ${resultPayload.summary.runnerStats.dispatched.length}`);
-            console.log(`> total harness results .,.... ${resultPayload.summary.runnerStats.dispatched.length - resultPayload.summary.runnerStats.errors.length}`);
-            console.log(`> total harness errors ...,... ${resultPayload.summary.runnerStats.errors.length}`);
-            console.log(`> total rejected vectors ..... ${resultPayload.summary.runnerStats.rejected.length}`);
+
+            analysis.totalTestVectors = resultPayload.summary.requests;
+            console.log(`> total test vectors ......... ${analysis.totalTestVectors}`);
+
+            analysis.totalDispatchedVectors = resultPayload.summary.runnerStats.dispatched.length;
+            console.log(`> total dispatched vectors ... ${analysis.totalDispatchedVectors}`);
+
+            analysis.totalHarnessResults = resultPayload.summary.runnerStats.dispatched.length - resultPayload.summary.runnerStats.errors.length;
+            console.log(`> total harness results .,.... ${analysis.totalHarnessResults}`);
+
+            analysis.totalHarnessErrors = resultPayload.summary.runnerStats.errors.length;
+            console.log(`> total harness errors ...,... ${analysis.totalHarnessErrors}`);
+
+            analysis.totalRejectedVectors = resultPayload.summary.runnerStats.rejected.length;
+            console.log(`> total rejected vectors ..... ${analysis.totalRejectedVectors}`);
         } else {
-            console.log(`Runner failed with error: ${runnerResponse.error}`);
+            console.error(`Runner failed with error: ${runnerResponse.error}`);
+            console.log("Holodeck test vector evaluation log files may have been created/modified.");
+            console.log("Holodeck runner evaluation summary files have not been generated due to error.");
+            return runnerResponse;
         }
+
+        console.log("..... runner returned a response result. Analyzing...");
+
+        const gitDiffTreeResponse = syncExec({
+            command: `git diff-tree --no-commit-id -r @~ ./`,
+            cwd: getLogEvalDir(runnerRequest_.logsRootDir)
+        });
+
+        const gitDiffTreeOutput = (gitDiffTreeResponse && gitDiffTreeResponse.length)?gitDiffTreeResponse.split("\n"):null;
+
+        const evalResponse = {
+            analysis: analysis,
+            gitDiffTree: gitDiffTreeOutput,
+            runnerReponse: runnerResponse
+        };
+
+        const responseJSON = `${JSON.stringify(evalResponse, undefined, 2)}\n`;
+        fs.writeFileSync(getEvalSummaryFilename(runnerRequest_.logsRootDir), responseJSON);
 
         return runnerResponse;
     }
