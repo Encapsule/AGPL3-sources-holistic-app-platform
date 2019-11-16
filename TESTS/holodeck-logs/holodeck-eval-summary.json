@@ -7,8 +7,7 @@
     "totalRejectedVectors": 25
   },
   "gitDiffTree": [
-    ":100644 100644 5332e2132e22719bceca6897ef9655e4a2ab08a7 8b137891791fe96927ad78e64b0aad7bded08bdc M\tTESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA-diff-tree.json",
-    ":100644 100644 041319129e1014fed182d64a31cc35baa1a96e7a 8b137891791fe96927ad78e64b0aad7bded08bdc M\tTESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA-diff.json"
+    ":100644 100644 8b137891791fe96927ad78e64b0aad7bded08bdc 541531158e28027f8620338bac2629b787ac5153 M\tTESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA-diff-tree.json"
   ],
   "runnerReponse": {
     "error": null,
