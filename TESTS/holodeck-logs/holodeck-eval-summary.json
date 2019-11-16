@@ -1,20 +1,18 @@
 {
   "analysis": {
-    "totalTestVectors": 31,
-    "totalDispatchedVectors": 6,
-    "totalHarnessResults": 3,
+    "totalTestVectors": 32,
+    "totalDispatchedVectors": 7,
+    "totalHarnessResults": 4,
     "totalHarnessErrors": 3,
     "totalRejectedVectors": 25
   },
-  "gitDiffTree": [
-    ":100644 100644 541531158e28027f8620338bac2629b787ac5153 8b137891791fe96927ad78e64b0aad7bded08bdc M\tTESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA-diff-tree.json"
-  ],
+  "gitDiffTree": null,
   "runnerReponse": {
     "error": null,
     "result": {
       "XkT3fzhYT0izLU_P2WF54Q": {
         "summary": {
-          "requests": 31,
+          "requests": 32,
           "runnerStats": {
             "dispatched": [
               "IRyR4YazRuWiZp9Rzj6-WA",
@@ -22,6 +20,7 @@
               "UHqiKKLkTMmLBGXI4lRxEA",
               "ak8rhTiORTWXueau74RlHA",
               "cQ3Z1fhsTICqkY3uKQXaFQ",
+              "dvJ5Nc_ERQucUlVnrPqXBQ",
               "sBB6rshGQu2f7S5rA2x9eg"
             ],
             "rejected": [
@@ -108,6 +107,30 @@
                     "result": {
                       "F1zguurrS9-fcdvLk7TCrg": {
                         "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "dosRgxmiR66ongCbJB78ow": {
+              "NAI0AkdUR1RWWVZZJQclBw": {
+                "dvJ5Nc_ERQucUlVnrPqXBQ": {
+                  "harnessRequest": {
+                    "id": "dvJ5Nc_ERQucUlVnrPqXBQ",
+                    "name": "Call test harness #1a",
+                    "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+                    "vectorRequest": {
+                      "testMessage1": "This request should get routed to harness-filter-1."
+                    }
+                  },
+                  "harnessResponse": {
+                    "error": null,
+                    "result": {
+                      "F1zguurrS9-fcdvLk7TCrg": {
+                        "dvJ5Nc_ERQucUlVnrPqXBQ": "This request should get routed to harness-filter-1."
                       }
                     }
                   }
