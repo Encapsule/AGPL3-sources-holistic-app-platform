@@ -23,6 +23,16 @@ module.exports = [
         },
 
         {
+            id: "dvJ5Nc_ERQucUlVnrPqXBQ",
+            name: "Call test harness #1a",
+            description: "Attempt to call the harness-filter-1 test harness plug-in.",
+            expectedOutcome: "pass",
+            vectorRequest: {
+                testMessage1: "This request should get routed to harness-filter-1."
+            }
+        },
+
+        {
             id: "sBB6rshGQu2f7S5rA2x9eg",
             name: "Call test harness #2",
             description: "Attempt to call the harness-filter-2 test harness plug-in.",
