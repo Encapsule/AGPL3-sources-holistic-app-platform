@@ -6,9 +6,7 @@
     "totalHarnessErrors": 3,
     "totalRejectedVectors": 25
   },
-  "gitDiffTree": [
-    ":100644 100644 7ab6289f970ab831f01995c23fef03b34d5ee365 8b137891791fe96927ad78e64b0aad7bded08bdc M\tTESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ-diff-tree.json"
-  ],
+  "gitDiffTree": null,
   "runnerReponse": {
     "error": null,
     "result": {
@@ -125,14 +123,14 @@
                     "name": "Call test harness #1a",
                     "description": "Attempt to call the harness-filter-1 test harness plug-in.",
                     "vectorRequest": {
-                      "testMessage1": "This request should get routed to harness-filter-1."
+                      "testMessage1": "F2cngZ2cRhWMLxqoS9yZZw"
                     }
                   },
                   "harnessResponse": {
                     "error": null,
                     "result": {
                       "F1zguurrS9-fcdvLk7TCrg": {
-                        "dvJ5Nc_ERQucUlVnrPqXBQ": "This request should get routed to harness-filter-1."
+                        "dvJ5Nc_ERQucUlVnrPqXBQ": "F2cngZ2cRhWMLxqoS9yZZw"
                       }
                     }
                   }
