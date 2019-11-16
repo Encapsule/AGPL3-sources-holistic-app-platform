@@ -1,5 +1,7 @@
 // HOLODECK RUNNER TESTS
 
+const arccore = require("@encapsule/arccore");
+
 module.exports = [
     [
         {
@@ -28,7 +30,7 @@ module.exports = [
             description: "Attempt to call the harness-filter-1 test harness plug-in.",
             expectedOutcome: "pass",
             vectorRequest: {
-                testMessage1: "This request should get routed to harness-filter-1."
+                testMessage1: arccore.identifier.irut.fromEther()
             }
         },
 
