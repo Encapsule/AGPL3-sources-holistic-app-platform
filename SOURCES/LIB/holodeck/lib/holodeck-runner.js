@@ -172,7 +172,6 @@ const factoryResponse = arccore.filter.create({
                     const harnessEvalJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
                     fs.writeFileSync(harnessEvalFilename, harnessEvalJSON);
 
-
                     // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
                     const gitDiffResponse = syncExec({
                         command: `git diff --raw ${harnessEvalFilename}`,
@@ -180,14 +179,7 @@ const factoryResponse = arccore.filter.create({
                     });
 
                     const harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
-                    if (gitDiffResponse.length) {
-                        fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
-                    } else {
-                        syncExec({
-                            command: `rm -f ${harnessEvalDiffFilename}`,
-                            cwd: getLogEvalDir(request_.logsRootDir)
-                        });
-                    }
+                    fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
 
                     const gitDiffTreeResponse = syncExec({
                         command: `git diff-tree --no-commit-id -r @~ ${harnessEvalFilename}`,
@@ -195,14 +187,7 @@ const factoryResponse = arccore.filter.create({
                     });
 
                     const harnessEvalDiffTreeFilename = getHarnessEvalDiffTreeFilename(request_.logsRootDir, testRequest.id);
-                    if (gitDiffTreeResponse.length) {
-                        fs.writeFileSync(harnessEvalDiffTreeFilename, `${gitDiffTreeResponse}\n`);
-                    } else {
-                        syncExec({
-                            command: `rm -f ${harnessEvalDiffTreeFilename}`,
-                            cwd: getLogEvalDir(request_.logsRootDir)
-                        });
-                    }
+                    fs.writeFileSync(harnessEvalDiffTreeFilename, `${gitDiffTreeResponse}\n`);
 
                     resultPayload.harnessEvalDescriptors.push(testEvalDescriptor);
                     resultPayload.summary.requests++;
