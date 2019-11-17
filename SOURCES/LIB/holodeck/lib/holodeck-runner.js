@@ -1,4 +1,8 @@
 
+const gitDiffCommand_testVectorEvalJSON = "git diff --stat --numstat -p --dirstat --word-diff=porcelain";
+const gitDiffTreeCommand_testVectorEvalJSON = "git diff-tree --no-commit-id -r @~..@";
+
+
 const arccore = require("@encapsule/arccore");
 
 const childProcess = require("child_process");
@@ -54,15 +58,13 @@ function getHarnessBaseDiffFilename(logsRootDir__, testID_) {
     return path.join(getLogBaseDir(logsRootDir_), `${testID_}-diff.jaon`);
 }
 
-
-
 function syncExec(request_) {
     // request_ = { command: string, cwd: string,  }
     // https://stackoverflow.com/questions/30134236/use-child-process-execsync-but-keep-output-in-console
     // return childProcess.execSync(request_.command, { cwd: request_.cwd, stdio: [0,1,2] });
-    console.log(`Subprocess command '${request_.command}' in working directory '${request_.cwd}':`);
     const response = childProcess.execSync(request_.command, { cwd: request_.cwd }).toString('utf8').trim();
-    console.log(response);
+    // console.log(`Subprocess command '${request_.command}' in working directory '${request_.cwd}':`);
+    // console.log(response);
     return response;
 } // syncExec
 
@@ -174,20 +176,20 @@ const factoryResponse = arccore.filter.create({
 
                     // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
                     const gitDiffResponse = syncExec({
-                        command: `git diff --raw ${harnessEvalFilename}`,
+                        command: `${gitDiffCommand_testVectorEvalJSON} ${harnessEvalFilename}`,
                         cwd: getLogEvalDir(request_.logsRootDir)
                     });
-
                     const harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
                     fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
 
+                    /*
                     const gitDiffTreeResponse = syncExec({
-                        command: `git diff-tree --no-commit-id -r @~ ${harnessEvalFilename}`,
+                        command: `${gitDiffTreeCommand_testVectorEvalJSON} ${harnessEvalFilename}`,
                         cwd: getLogEvalDir(request_.logsRootDir)
                     });
-
                     const harnessEvalDiffTreeFilename = getHarnessEvalDiffTreeFilename(request_.logsRootDir, testRequest.id);
                     fs.writeFileSync(harnessEvalDiffTreeFilename, `${gitDiffTreeResponse}\n`);
+                    */
 
                     resultPayload.harnessEvalDescriptors.push(testEvalDescriptor);
                     resultPayload.summary.requests++;

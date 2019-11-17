@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2-components",
     "version": "0.0.25",
     "codename": "stryker",
-    "buildID": "vXvtaTT7TeqfzPRHRTFS0w",
-    "buildTime": 1573859816,
-    "buildSource": "008c8fe69c452ebc1294392da8ac3f34aa4078e4",
+    "buildID": "-03YyOLgRCOqhGktP2wyXw",
+    "buildTime": 1573948615,
+    "buildSource": "84dbfa2a09e1edb39f1c4c1aa52bc1786e3b4189",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2-components.git"

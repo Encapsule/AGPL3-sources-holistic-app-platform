@@ -6,7 +6,10 @@
     "totalHarnessErrors": 3,
     "totalRejectedVectors": 25
   },
-  "gitDiffTree": null,
+  "gitDiffTree": [
+    ":100644 100644 8b137891791fe96927ad78e64b0aad7bded08bdc cdf484e0ed087c86aff64e666049d89a85fab871 M\tTESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ-diff.json",
+    ":100644 100644 fc9f8a2107401d7f0d90a27409b62999d6bcc51d 444ebf6f27e9c429b5de95e3b2d9f26fb91194ae M\tTESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json"
+  ],
   "runnerReponse": {
     "error": null,
     "result": {
@@ -123,14 +126,14 @@
                     "name": "Call test harness #1a",
                     "description": "Attempt to call the harness-filter-1 test harness plug-in.",
                     "vectorRequest": {
-                      "testMessage1": "XMKIHeYjTnmALf_NEb2jNg"
+                      "testMessage1": "rzt7wYt6R9evO2FvxM0c_g"
                     }
                   },
                   "harnessResponse": {
                     "error": null,
                     "result": {
                       "F1zguurrS9-fcdvLk7TCrg": {
-                        "dvJ5Nc_ERQucUlVnrPqXBQ": "XMKIHeYjTnmALf_NEb2jNg"
+                        "dvJ5Nc_ERQucUlVnrPqXBQ": "rzt7wYt6R9evO2FvxM0c_g"
                       }
                     }
                   }
