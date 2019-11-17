@@ -180,8 +180,11 @@ const factoryResponse = arccore.filter.create({
                     };
 
                     const harnessEvalFilename = getHarnessEvalFilename(request_.logsRootDir, testRequest.id);
+                    const harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
+                    const harnessEvalDiffChangeLinesFilename = getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, testRequest.id);
+
                     const harnessEvalJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
-                    fs.writeFileSync(harnessEvalFilename, harnessEvalJSON);
+                    fs.writeFileSync(harnessEvalFilename, harnessEvalJSON); // Always write the harness evaluation JSON log
 
                     // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
                     const gitDiffResponse = syncExec({
@@ -189,35 +192,36 @@ const factoryResponse = arccore.filter.create({
                         cwd: getLogEvalDir(request_.logsRootDir)
                     });
 
-                    const gitDiffResponseLines = gitDiffResponse.split("\n");
-
-                    const harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
                     if (gitDiffResponse.length) {
                         fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
+
+                        const gitDiffResponseLines = gitDiffResponse.split("\n");
+
+                        const gitDiffResponseLinesChanges = [];
+                        gitDiffResponseLines.forEach(function(line_) {
+                            if (line_.startsWith("@@") && line_.endsWith("@@")) {
+                                gitDiffResponseLinesChanges.push(line_);
+                            }
+                        });
+
+                        if (gitDiffResponseLinesChanges.length) {
+                            fs.writeFileSync(harnessEvalDiffChangeLinesFilename, `${gitDiffResponseLinesChanges.join("\n")}\n`);
+                        } else {
+                            syncExec({
+                                command: `rm -f ${harnessEvalDiffChangeLinesFilename}`,
+                                cwd: getLogEvalDir(request_.logsRootDir)
+                            });
+                        }
+
                     } else {
                         syncExec({
                             command: `rm -f ${harnessEvalDiffFilename}`,
                             cwd: getLogEvalDir(request_.logsRootDir)
                         });
-                    }
-
-                    const gitDiffResponseLinesChanges = [];
-                    gitDiffResponseLines.forEach(function(line_) {
-                        if (line_.startsWith("@@") && line_.endsWith("@@")) {
-                            gitDiffResponseLinesChanges.push(line_);
-                        }
-                    });
-
-                    const harnessEvalDiffChangeLinesFilename = getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, testRequest.id);
-                    if (gitDiffResponseLinesChanges.length) {
-                        fs.writeFileSync(harnessEvalDiffChangeLinesFilename, gitDiffResponseLinesChanges.join("\n"));
-                    } else {
                         syncExec({
-                            command: `rm -f ${harnessEvalDiffChangeLinesFilename}`,
-                            cwd: getLogEvalDir(request_.logsRootDir)
+                            command: `rm -f ${harnessEvalDiffChangeLinesFilename}`
                         });
                     }
-
 
                     /*
                     const gitDiffTreeResponse = syncExec({
@@ -275,7 +279,6 @@ const runnerFascade = { // fake filter
         }
 
         console.log(`> Initializing test runner log directory '${runnerRequest_.logsRootDir}'...`);
-        mkdirp(runnerRequest_.logsRootDir);
 
         const runnerResponse = holisticTestRunner.request(runnerRequest_);
 
@@ -311,7 +314,7 @@ const runnerFascade = { // fake filter
         console.log("..... runner returned a response result. Analyzing...");
 
         const gitDiffTreeResponse = syncExec({
-            command: `git diff-tree --no-commit-id -r @~ ./`,
+            command: `git diff --unified=0 ${getLogDir(runnerRequest_.logsRootDir)}`,
             cwd: getLogEvalDir(runnerRequest_.logsRootDir)
         });
 
