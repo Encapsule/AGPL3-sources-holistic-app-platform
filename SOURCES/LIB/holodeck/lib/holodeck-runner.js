@@ -192,7 +192,7 @@ const factoryResponse = arccore.filter.create({
                     const gitDiffResponseLines = gitDiffResponse.split("\n");
 
                     const harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
-                    if (gitDiffResponseLines.length) {
+                    if (gitDiffResponse.length) {
                         fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
                     } else {
                         syncExec({

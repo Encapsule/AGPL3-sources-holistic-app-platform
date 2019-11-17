@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.25 "stryker"
 
 ```
-Package: @encapsule/hash-router v0.0.25 "stryker" build ID "qPeHzu9AQyiDzc5GkI74sw"
-Sources: Encapsule/holistic#cc9fba4faf3ea6aeb6e69124f0e52009dba81b92
+Package: @encapsule/hash-router v0.0.25 "stryker" build ID "pObY3gLjRvi8GyFnGXvSjw"
+Sources: Encapsule/holistic#2378d66f9b9e3a59964ecff759278e4fc6ff17b8
 Purpose: library (Node.js)
-Created: 2019-11-17T02:28:15.000Z
+Created: 2019-11-17T02:41:30.000Z
 License: MIT
 ```
 
