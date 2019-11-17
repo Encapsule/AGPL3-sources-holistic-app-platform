@@ -114,14 +114,14 @@
                   "name": "Call test harness #1a",
                   "description": "Attempt to call the harness-filter-1 test harness plug-in.",
                   "vectorRequest": {
-                    "testMessage1": "sgMNKK27Si-KxP2rMIG9Qg"
+                    "testMessage1": "Zbu-jlEKQpWEijX9noDUyA"
                   }
                 },
                 "harnessResponse": {
                   "error": null,
                   "result": {
                     "F1zguurrS9-fcdvLk7TCrg": {
-                      "dvJ5Nc_ERQucUlVnrPqXBQ": "sgMNKK27Si-KxP2rMIG9Qg"
+                      "dvJ5Nc_ERQucUlVnrPqXBQ": "Zbu-jlEKQpWEijX9noDUyA"
                     }
                   }
                 }
