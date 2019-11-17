@@ -1,1 +1,30 @@
+1	1	TESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA.json
+ TESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ 100.0% TESTS/holodeck-logs/eval/
 
+diff --git a/TESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA.json b/TESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA.json
+index afd051e..c842cdd 100644
+--- a/TESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA.json
++++ b/TESTS/holodeck-logs/eval/UHqiKKLkTMmLBGXI4lRxEA.json
+@@ -13,7 +13,7 @@
+           }
+~
+         },
+~
+         "harnessResponse": {
+~
+           "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Oq86r58cnxxUB1QHdiB2IA::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: Oh, snap! (Error: Oh, snap!\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/TESTS/package-tests-holodeck/harnesses/harness-test-4.js:23:15)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:79:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction 
+-(/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:158:42)\n
++(/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:161:42)\n
+     at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request 
+-(/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:249:45)\n
++(/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:252:45)\n
+     at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/holodeck-tests.js:8:39)\n    at Module._compile (internal/modules/cjs/loader.js:688:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10))."
+~
+         }
+~
+       }
+~
+     }
+~

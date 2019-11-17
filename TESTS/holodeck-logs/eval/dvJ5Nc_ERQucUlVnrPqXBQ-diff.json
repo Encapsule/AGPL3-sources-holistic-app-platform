@@ -1,1 +1,42 @@
-:100644 100644 fc9f8a2... 0000000... M	TESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json
+2	2	TESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json
+ TESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ 100.0% TESTS/holodeck-logs/eval/
+
+diff --git a/TESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json b/TESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json
+index 444ebf6..ed4451c 100644
+--- a/TESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json
++++ b/TESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json
+@@ -7,14 +7,14 @@
+           "name": "Call test harness #1a",
+~
+           "description": "Attempt to call the harness-filter-1 test harness plug-in.",
+~
+           "vectorRequest": {
+~
+             "testMessage1": 
+-"F2cngZ2cRhWMLxqoS9yZZw"
++"XMKIHeYjTnmALf_NEb2jNg"
+~
+           }
+~
+         },
+~
+         "harnessResponse": {
+~
+           "error": null,
+~
+           "result": {
+~
+             "F1zguurrS9-fcdvLk7TCrg": {
+~
+               "dvJ5Nc_ERQucUlVnrPqXBQ": 
+-"F2cngZ2cRhWMLxqoS9yZZw"
++"XMKIHeYjTnmALf_NEb2jNg"
+~
+             }
+~
+           }
+~
+         }
+~
