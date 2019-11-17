@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.25 "stryker"
 
 ```
-Package: @encapsule/holarchy v0.0.25 "stryker" build ID "-03YyOLgRCOqhGktP2wyXw"
-Sources: Encapsule/holistic#84dbfa2a09e1edb39f1c4c1aa52bc1786e3b4189
+Package: @encapsule/holarchy v0.0.25 "stryker" build ID "qPeHzu9AQyiDzc5GkI74sw"
+Sources: Encapsule/holistic#cc9fba4faf3ea6aeb6e69124f0e52009dba81b92
 Purpose: library (Node.js)
-Created: 2019-11-16T23:56:55.000Z
+Created: 2019-11-17T02:28:15.000Z
 License: MIT
 ```
 

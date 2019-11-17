@@ -1,5 +1,8 @@
 
-const gitDiffCommand_testVectorEvalJSON = "git diff --stat --numstat -p --dirstat --word-diff=porcelain";
+// good const gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --stat --numstat -p --dirstat=lines --word-diff=plain";
+
+const gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --word-diff=plain";
+
 const gitDiffTreeCommand_testVectorEvalJSON = "git diff-tree --no-commit-id -r @~..@";
 
 
@@ -37,13 +40,18 @@ function getHarnessEvalFilename(logsRootDir_, testID_) {
 }
 
 function getHarnessEvalDiffFilename(logsRootDir_, testID_) {
-    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-diff.json`);
+    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-git-diff`);
+}
+
+function getHarnessEvalDiffChangeLinesFilename(logsRootDir_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-git-diff-change-lines`);
 }
 
 function getHarnessEvalDiffTreeFilename(logsRootDir_, testID_) {
-    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-diff-tree.json`);
+    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-git-diff-tree`);
 }
 
+/*
 function getLogBaseDir(logsRootDir_) {
     const dirPath = path.join(getLogDir(logsRootDir_), "base");
     mkdirp(dirPath);
@@ -55,8 +63,9 @@ function getHarnessBaselineFilename(logsRootDir_, testID_) {
 }
 
 function getHarnessBaseDiffFilename(logsRootDir__, testID_) {
-    return path.join(getLogBaseDir(logsRootDir_), `${testID_}-diff.jaon`);
+    return path.join(getLogBaseDir(logsRootDir_), `${testID_}-diff`);
 }
+*/
 
 function syncExec(request_) {
     // request_ = { command: string, cwd: string,  }
@@ -179,8 +188,36 @@ const factoryResponse = arccore.filter.create({
                         command: `${gitDiffCommand_testVectorEvalJSON} ${harnessEvalFilename}`,
                         cwd: getLogEvalDir(request_.logsRootDir)
                     });
+
+                    const gitDiffResponseLines = gitDiffResponse.split("\n");
+
                     const harnessEvalDiffFilename = getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
-                    fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
+                    if (gitDiffResponseLines.length) {
+                        fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
+                    } else {
+                        syncExec({
+                            command: `rm -f ${harnessEvalDiffFilename}`,
+                            cwd: getLogEvalDir(request_.logsRootDir)
+                        });
+                    }
+
+                    const gitDiffResponseLinesChanges = [];
+                    gitDiffResponseLines.forEach(function(line_) {
+                        if (line_.startsWith("@@") && line_.endsWith("@@")) {
+                            gitDiffResponseLinesChanges.push(line_);
+                        }
+                    });
+
+                    const harnessEvalDiffChangeLinesFilename = getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, testRequest.id);
+                    if (gitDiffResponseLinesChanges.length) {
+                        fs.writeFileSync(harnessEvalDiffChangeLinesFilename, gitDiffResponseLinesChanges.join("\n"));
+                    } else {
+                        syncExec({
+                            command: `rm -f ${harnessEvalDiffChangeLinesFilename}`,
+                            cwd: getLogEvalDir(request_.logsRootDir)
+                        });
+                    }
+
 
                     /*
                     const gitDiffTreeResponse = syncExec({

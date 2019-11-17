@@ -9,7 +9,8 @@ const runnerResponse = holodeckRunner.request({
     id: "TxK2RjDjS2mQLkm_N8b6_Q",
     name: "Holistic Platform Test Vectors",
     description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
-    logsRootDir: path.resolve(path.join(__dirname, "holodeck-logs")),
+
+    logsRootDir: path.resolve(path.join(__dirname, "logs")),
 
     testHarnessFilters: [
             ...require("./package-tests-holodeck/harnesses"),

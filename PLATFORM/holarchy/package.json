@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy",
     "version": "0.0.25",
     "codename": "stryker",
-    "buildID": "-03YyOLgRCOqhGktP2wyXw",
-    "buildTime": 1573948615,
-    "buildSource": "84dbfa2a09e1edb39f1c4c1aa52bc1786e3b4189",
+    "buildID": "qPeHzu9AQyiDzc5GkI74sw",
+    "buildTime": 1573957695,
+    "buildSource": "cc9fba4faf3ea6aeb6e69124f0e52009dba81b92",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"

@@ -7,8 +7,7 @@
     "totalRejectedVectors": 25
   },
   "gitDiffTree": [
-    ":100644 100644 8b137891791fe96927ad78e64b0aad7bded08bdc cdf484e0ed087c86aff64e666049d89a85fab871 M\tTESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ-diff.json",
-    ":100644 100644 fc9f8a2107401d7f0d90a27409b62999d6bcc51d 444ebf6f27e9c429b5de95e3b2d9f26fb91194ae M\tTESTS/holodeck-logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json"
+    ":000000 100644 0000000000000000000000000000000000000000 5b71b086a9258f5df5da6572349e2ccf811bc3f9 A\tTESTS/logs/eval/dvJ5Nc_ERQucUlVnrPqXBQ.json"
   ],
   "runnerReponse": {
     "error": null,
@@ -126,14 +125,14 @@
                     "name": "Call test harness #1a",
                     "description": "Attempt to call the harness-filter-1 test harness plug-in.",
                     "vectorRequest": {
-                      "testMessage1": "rzt7wYt6R9evO2FvxM0c_g"
+                      "testMessage1": "yEg0e9auTPWB4z4nV44WMQ"
                     }
                   },
                   "harnessResponse": {
                     "error": null,
                     "result": {
                       "F1zguurrS9-fcdvLk7TCrg": {
-                        "dvJ5Nc_ERQucUlVnrPqXBQ": "rzt7wYt6R9evO2FvxM0c_g"
+                        "dvJ5Nc_ERQucUlVnrPqXBQ": "yEg0e9auTPWB4z4nV44WMQ"
                       }
                     }
                   }
@@ -254,7 +253,7 @@
                     }
                   },
                   "harnessResponse": {
-                    "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Oq86r58cnxxUB1QHdiB2IA::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: Oh, snap! (Error: Oh, snap!\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/TESTS/package-tests-holodeck/harnesses/harness-test-4.js:23:15)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:79:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:161:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:252:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/holodeck-tests.js:8:39)\n    at Module._compile (internal/modules/cjs/loader.js:688:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10))."
+                    "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Oq86r58cnxxUB1QHdiB2IA::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: Oh, snap! (Error: Oh, snap!\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/TESTS/package-tests-holodeck/harnesses/harness-test-4.js:23:15)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:79:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at _loop (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:168:42)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:247:11)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:293:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:8:39)\n    at Module._compile (internal/modules/cjs/loader.js:688:30))."
                   }
                 }
               }
