@@ -21,13 +21,23 @@ function getLogDir(logsRootDir_) {
     return logsRootDir_;
 }
 
-function getEvalSummaryFilename(logsRootDir_) {
-    return path.join(getLogDir(logsRootDir_), "holodeck-eval-summary.json");
+function getRunnerEvalSummaryFilename(logsRootDir_) {
+    return path.join(getLogDir(logsRootDir_), "summary.json");
 }
 
+function getRunnerInducedGitDiffsFilename(logsRootDir_) {
+    return path.join(getLogDir(logsRootDir_), "induced-git-diffs.json");
+}
+
+function getRunnerResponseFilename(logsRootDir_) {
+    return path.join(getLogDir(logsRootDir_), "runner-response.json");
+}
+
+/*
 function getBaseSummaryFilename(logsRootDir_) {
     return path.join(getLogDir(logsRootDir_), "holodeck-base-summary.json");
 }
+*/
 
 function getLogEvalDir(logsRootDir_) {
     const dirPath = path.join(getLogDir(logsRootDir_), "eval");
@@ -44,7 +54,7 @@ function getHarnessEvalDiffFilename(logsRootDir_, testID_) {
 }
 
 function getHarnessEvalDiffChangeLinesFilename(logsRootDir_, testID_) {
-    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-git-diff-change-lines`);
+    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-change-lines`);
 }
 
 function getHarnessEvalDiffTreeFilename(logsRootDir_, testID_) {
@@ -314,20 +324,15 @@ const runnerFascade = { // fake filter
         console.log("..... runner returned a response result. Analyzing...");
 
         const gitDiffTreeResponse = syncExec({
-            command: `git diff --unified=0 ${getLogDir(runnerRequest_.logsRootDir)}`,
+            command: `git diff --unified=0 ${getLogEvalDir(runnerRequest_.logsRootDir)}`,
             cwd: getLogEvalDir(runnerRequest_.logsRootDir)
         });
 
         const gitDiffTreeOutput = (gitDiffTreeResponse && gitDiffTreeResponse.length)?gitDiffTreeResponse.split("\n"):null;
 
-        const evalResponse = {
-            analysis: analysis,
-            gitDiffTree: gitDiffTreeOutput,
-            runnerReponse: runnerResponse
-        };
-
-        const responseJSON = `${JSON.stringify(evalResponse, undefined, 2)}\n`;
-        fs.writeFileSync(getEvalSummaryFilename(runnerRequest_.logsRootDir), responseJSON);
+        fs.writeFileSync(getRunnerEvalSummaryFilename(runnerRequest_.logsRootDir), `${JSON.stringify(analysis, undefined, 2)}\n`);
+        fs.writeFileSync(getRunnerInducedGitDiffsFilename(runnerRequest_.logsRootDir), `${JSON.stringify(gitDiffTreeOutput, undefined, 2)}\n`);
+        fs.writeFileSync(getRunnerResponseFilename(runnerRequest_.logsRootDir), `${JSON.stringify(runnerResponse, undefined, 2)}\n`);
 
         return runnerResponse;
     }
