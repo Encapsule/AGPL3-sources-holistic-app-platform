@@ -1,6 +1,6 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "PNk82RnxGfHBhcGFLbItsg": {
+    "kFKvLRgHKYYDMExB7PQjIA": {
       "sBB6rshGQu2f7S5rA2x9eg": {
         "harnessRequest": {
           "id": "sBB6rshGQu2f7S5rA2x9eg",
@@ -13,8 +13,14 @@
         "harnessResponse": {
           "error": null,
           "result": {
-            "d8zMijUSTZiQlbk__HX6gA": {
-              "sBB6rshGQu2f7S5rA2x9eg": "This request should get routed to harness-filter-2."
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "d8zMijUSTZiQlbk__HX6gA": {
+                "sBB6rshGQu2f7S5rA2x9eg": "This request should get routed to harness-filter-2."
+              }
             }
           }
         }

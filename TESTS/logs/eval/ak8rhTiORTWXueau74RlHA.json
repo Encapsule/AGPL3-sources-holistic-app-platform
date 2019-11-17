@@ -1,6 +1,6 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "Tf1N_QhYCFivF68XscKxwg": {
+    "YKGvFlRJKQNp0UxWWe4jwA": {
       "ak8rhTiORTWXueau74RlHA": {
         "harnessRequest": {
           "id": "ak8rhTiORTWXueau74RlHA",
@@ -18,7 +18,7 @@
           }
         },
         "harnessResponse": {
-          "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [Tf1N_QhYCFivF68XscKxwg::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.vectorRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
+          "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>] failed while normalizing request input. Error at path '~.vectorRequest.testMessage3.message': Value of type 'jsUndefined' not in allowed type set [jsString].",
           "result": null
         }
       }

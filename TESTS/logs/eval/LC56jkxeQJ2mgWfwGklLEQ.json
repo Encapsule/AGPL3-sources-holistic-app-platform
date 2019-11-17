@@ -1,6 +1,6 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "Tf1N_QhYCFivF68XscKxwg": {
+    "YKGvFlRJKQNp0UxWWe4jwA": {
       "LC56jkxeQJ2mgWfwGklLEQ": {
         "harnessRequest": {
           "id": "LC56jkxeQJ2mgWfwGklLEQ",
@@ -15,8 +15,14 @@
         "harnessResponse": {
           "error": null,
           "result": {
-            "EmU3C0AASciHnBpz-xMmgA": {
-              "LC56jkxeQJ2mgWfwGklLEQ": "This message should be delivered and returned by harness-filter-3."
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "EmU3C0AASciHnBpz-xMmgA": {
+                "LC56jkxeQJ2mgWfwGklLEQ": "This message should be delivered and returned by harness-filter-3."
+              }
             }
           }
         }

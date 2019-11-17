@@ -1,6 +1,6 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "NAI0AkdUR1RWWVZZJQclBw": {
+    "DUGjLpXu6s7PYw43guW2jg": {
       "IRyR4YazRuWiZp9Rzj6-WA": {
         "harnessRequest": {
           "id": "IRyR4YazRuWiZp9Rzj6-WA",
@@ -13,8 +13,14 @@
         "harnessResponse": {
           "error": null,
           "result": {
-            "F1zguurrS9-fcdvLk7TCrg": {
-              "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "F1zguurrS9-fcdvLk7TCrg": {
+                "IRyR4YazRuWiZp9Rzj6-WA": "This request should get routed to harness-filter-1."
+              }
             }
           }
         }
