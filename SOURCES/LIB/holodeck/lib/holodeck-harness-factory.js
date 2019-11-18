@@ -1,12 +1,15 @@
 
 const arccore = require("@encapsule/arccore");
 
+const harnessFactoryInputSpec = require("./iospecs/holodeck-harness-factory-input-spec");
+const harnessFactoryOutputSpec = require("./iospecs/holodeck-harness-factory-output-spec");
+
 const factoryResponse = arccore.filter.create({
     operationID: "4LIYsbDbTJmVWEYgDLJ7Jw",
-    operationName: "Holistic Test Harness Factory",
-    operationDescription: "A filter that generates a holistic test harness filter.",
-    inputFilterSpec: require("./iospecs/holodeck-harness-factory-input-spec"),
-    outputFilterSpec: require("./iospecs/holodeck-harness-factory-output-spec"),
+    operationName: "Holodeck Harness Factory",
+    operationDescription: "A filter that generates a holdeck harness plug-in filter.",
+    inputFilterSpec: harnessFactoryInputSpec,
+    outputFilterSpec: harnessFactoryOutputSpec,
 
     bodyFunction: function(factoryRequest_) {
         const response = { error: null };
@@ -14,6 +17,14 @@ const factoryResponse = arccore.filter.create({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
+            // This is the input filter spec for the inner plug-in filter - the harness that wraps
+            // the developer's provided harness bodyFunction inside of a standardized filter that
+            // is called by an outer proxy filter. The proxy handles the upstream interface details
+            // of parsing incoming runner requests and dispatching them to the plug-in harness filter.
+            // And, then boxing up the response received from the inner plug-in and returning it
+            // back to the runner. This allows the developer-defined harness bodyFunction to be very
+            // simple.
 
             const harnessPluginFilterInputSpec = {
                 ____types: "jsObject",
@@ -38,22 +49,29 @@ const factoryResponse = arccore.filter.create({
             }
             const harnessPluginFilter = innerResponse.result;
 
-            const harnessPluginProxyFilterID = arccore.identifier.irut.fromReference(`${factoryRequest_.id}::runtime filter`).result;
             const harnessPluginProxyName = `Harness Proxy::<${factoryRequest_.id}::${factoryRequest_.name}>`;
+            const harnessPluginProxyFilterID = arccore.identifier.irut.fromReference(harnessPluginProxyName).result;
             const harnessPluginProxyFilterOutputSpec = {
+                ____label: "Harness Proxy Result",
+                ____description: "A descriptor object derived from the inner plug-in harness filter's response + options and analysis.",
                 ____types: "jsObject",
-                ____asMap: true,
-                harnessID: {
+                harnessOptions: harnessFactoryInputSpec.harnessOptions,
+                harnessDispatch: {
                     ____types: "jsObject",
                     ____asMap: true,
-                    testID: factoryRequest_.testVectorResultOutputSpec
+                    harnessID: {
+                        ____types: "jsObject",
+                        ____asMap: true,
+                        testID: factoryRequest_.testVectorResultOutputSpec
+                    }
                 }
             };
 
             innerResponse = arccore.filter.create({
                 operationID: harnessPluginProxyFilterID,
                 operationName: harnessPluginProxyName,
-                operationDescription: `Wraps custom harness plug-in [${factoryRequest_.id}::${factoryRequest_.name}] in generic runtime proxy filter wrapper compatible with holodeck runner.`,
+                operationDescription:
+                `Wraps custom harness plug-in [${factoryRequest_.id}::${factoryRequest_.name}] in generic runtime proxy filter wrapper compatible with holodeck runner.`,
                 inputFilterSpec: harnessPluginFilterInputSpec,
                 outputFilterSpec: harnessPluginProxyFilterOutputSpec,
                 bodyFunction: function(testRequest_) {
@@ -73,9 +91,12 @@ const factoryResponse = arccore.filter.create({
                             errors.push(`Unexpected harness filter exception: ${harnessException_.message} (${harnessException_.stack}).`);
                             break;
                         }
-                        response.result = {};
-                        response.result[factoryRequest_.id] = {};
-                        response.result[factoryRequest_.id][testRequest_.id] = pluginResponse.result;
+                        response.result = {
+                            harnessOptions: { ...factoryRequest_.harnessOptions },
+                            harnessDispatch: {}
+                        };
+                        response.result.harnessDispatch[factoryRequest_.id] = {};
+                        response.result.harnessDispatch[factoryRequest_.id][testRequest_.id] = pluginResponse.result;
                         break;
                     }
                     if (errors.length) {

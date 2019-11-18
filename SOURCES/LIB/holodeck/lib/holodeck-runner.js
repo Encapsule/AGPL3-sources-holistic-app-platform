@@ -1,11 +1,6 @@
 
 // good const gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --stat --numstat -p --dirstat=lines --word-diff=plain";
-
-// better
-const gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --word-diff=plain";
-
-// TODO: I think we're not using this command but instead back to git-diff?
-const gitDiffTreeCommand_testVectorEvalJSON = "git diff-tree --no-commit-id -r @~..@";
+const gitDiffCommand_testVectorEvalJSON = "git diff --word-diff=plain"; // --unified=<dynamic> better
 
 const fs = require("fs");
 const arccore = require("@encapsule/arccore");
@@ -110,7 +105,7 @@ const factoryResponse = arccore.filter.create({
                     testEvalDescriptor[idHolodeckRunnerEvalReport] = {};
                     const harnessFilterId = harnessFilter?harnessFilter.filterDescriptor.operationID:"000000000000000000";
                     testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId] = {};
-                    testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId][testRequest.id] = {
+                    const boxedResponse = testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId][testRequest.id] = {
                         harnessRequest: testRequest,
                         harnessResponse: testResponse
                     };
@@ -120,11 +115,25 @@ const factoryResponse = arccore.filter.create({
                     const harnessEvalDiffChangeLinesFilename = helpers.getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, testRequest.id);
 
                     const harnessEvalJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
+
+                    // WRITE THE MAIN HARNESS EVALUATION JSON LOG FILE UNCONDITIONALLY.
                     fs.writeFileSync(harnessEvalFilename, harnessEvalJSON); // Always write the harness evaluation JSON log
 
+                    const gitDiffUnified = 8; // experiment - if idempotent, then use course (not granular) default git diff hunk size.
+
+                    if (!boxedResponse.harnessResponse.error) {
+                        if (!boxedResponse.harnessResponse.result.harnessOptions.idempotent) {
+                            gitDiffUnified = boxedResponse.harnessResponse.result.harnessOptions.gitDiffHunkSize;
+                        }
+                    }
+
                     // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
+
+                    const diffCommand = `git diff -p --unified=${gitDiffUnified} --numstat --dirstat=lines --word-diff=plain ${harnessEvalFilename}`;
+                    console.log("$ " + diffCommand);
+
                     const gitDiffResponse = helpers.syncExec({
-                        command: `${gitDiffCommand_testVectorEvalJSON} ${harnessEvalFilename}`,
+                        command: diffCommand,
                         cwd: helpers.getLogEvalDir(request_.logsRootDir)
                     });
 

@@ -5,10 +5,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // good const gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --stat --numstat -p --dirstat=lines --word-diff=plain";
-// better
-var gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --word-diff=plain"; // TODO: I think we're not using this command but instead back to git-diff?
-
-var gitDiffTreeCommand_testVectorEvalJSON = "git diff-tree --no-commit-id -r @~..@";
+var gitDiffCommand_testVectorEvalJSON = "git diff --word-diff=plain"; // --unified=<dynamic> better
 
 var fs = require("fs");
 
@@ -122,19 +119,30 @@ var factoryResponse = arccore.filter.create({
           testEvalDescriptor[idHolodeckRunnerEvalReport] = {};
           var harnessFilterId = harnessFilter ? harnessFilter.filterDescriptor.operationID : "000000000000000000";
           testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId] = {};
-          testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId][testRequest.id] = {
+          var boxedResponse = testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId][testRequest.id] = {
             harnessRequest: testRequest,
             harnessResponse: testResponse
           };
           var harnessEvalFilename = helpers.getHarnessEvalFilename(request_.logsRootDir, testRequest.id);
           var harnessEvalDiffFilename = helpers.getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
           var harnessEvalDiffChangeLinesFilename = helpers.getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, testRequest.id);
-          var harnessEvalJSON = "".concat(JSON.stringify(testEvalDescriptor, undefined, 2), "\n");
-          fs.writeFileSync(harnessEvalFilename, harnessEvalJSON); // Always write the harness evaluation JSON log
-          // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
+          var harnessEvalJSON = "".concat(JSON.stringify(testEvalDescriptor, undefined, 2), "\n"); // WRITE THE MAIN HARNESS EVALUATION JSON LOG FILE UNCONDITIONALLY.
 
+          fs.writeFileSync(harnessEvalFilename, harnessEvalJSON); // Always write the harness evaluation JSON log
+
+          var gitDiffUnified = 8; // experiment - if idempotent, then use course (not granular) default git diff hunk size.
+
+          if (!boxedResponse.harnessResponse.error) {
+            if (!boxedResponse.harnessResponse.result.harnessOptions.idempotent) {
+              gitDiffUnified = boxedResponse.harnessResponse.result.harnessOptions.gitDiffHunkSize;
+            }
+          } // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
+
+
+          var diffCommand = "git diff -p --unified=".concat(gitDiffUnified, " --numstat --dirstat=lines --word-diff=plain ").concat(harnessEvalFilename);
+          console.log("$ " + diffCommand);
           var gitDiffResponse = helpers.syncExec({
-            command: "".concat(gitDiffCommand_testVectorEvalJSON, " ").concat(harnessEvalFilename),
+            command: diffCommand,
             cwd: helpers.getLogEvalDir(request_.logsRootDir)
           });
 

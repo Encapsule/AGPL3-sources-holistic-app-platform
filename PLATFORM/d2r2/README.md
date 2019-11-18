@@ -5,10 +5,10 @@
 # @encapsule/d2r2 v0.0.25 "stryker"
 
 ```
-Package: @encapsule/d2r2 v0.0.25 "stryker" build ID "6q0hUagiRRebHD5Q-niJnQ"
-Sources: Encapsule/holistic#faaa2c84d60056e818e4a237f62dc2c9b49ae25f
+Package: @encapsule/d2r2 v0.0.25 "stryker" build ID "ijwRVqUNRda17AOFQemNSg"
+Sources: Encapsule/holistic#e530d9654816e7f637a4cd93f696189fcdb5d754
 Purpose: library (Node.js)
-Created: 2019-11-17T17:14:38.000Z
+Created: 2019-11-18T13:23:22.000Z
 License: MIT
 ```
 

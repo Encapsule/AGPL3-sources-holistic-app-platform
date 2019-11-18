@@ -1,13 +1,21 @@
 "use strict";
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var arccore = require("@encapsule/arccore");
+
+var harnessFactoryInputSpec = require("./iospecs/holodeck-harness-factory-input-spec");
+
+var harnessFactoryOutputSpec = require("./iospecs/holodeck-harness-factory-output-spec");
 
 var factoryResponse = arccore.filter.create({
   operationID: "4LIYsbDbTJmVWEYgDLJ7Jw",
-  operationName: "Holistic Test Harness Factory",
-  operationDescription: "A filter that generates a holistic test harness filter.",
-  inputFilterSpec: require("./iospecs/holodeck-harness-factory-input-spec"),
-  outputFilterSpec: require("./iospecs/holodeck-harness-factory-output-spec"),
+  operationName: "Holodeck Harness Factory",
+  operationDescription: "A filter that generates a holdeck harness plug-in filter.",
+  inputFilterSpec: harnessFactoryInputSpec,
+  outputFilterSpec: harnessFactoryOutputSpec,
   bodyFunction: function bodyFunction(factoryRequest_) {
     var response = {
       error: null
@@ -16,7 +24,14 @@ var factoryResponse = arccore.filter.create({
     var inBreakScope = false;
 
     var _loop = function _loop() {
-      inBreakScope = true;
+      inBreakScope = true; // This is the input filter spec for the inner plug-in filter - the harness that wraps
+      // the developer's provided harness bodyFunction inside of a standardized filter that
+      // is called by an outer proxy filter. The proxy handles the upstream interface details
+      // of parsing incoming runner requests and dispatching them to the plug-in harness filter.
+      // And, then boxing up the response received from the inner plug-in and returning it
+      // back to the runner. This allows the developer-defined harness bodyFunction to be very
+      // simple.
+
       var harnessPluginFilterInputSpec = {
         ____types: "jsObject",
         id: {
@@ -46,15 +61,21 @@ var factoryResponse = arccore.filter.create({
       }
 
       var harnessPluginFilter = innerResponse.result;
-      var harnessPluginProxyFilterID = arccore.identifier.irut.fromReference("".concat(factoryRequest_.id, "::runtime filter")).result;
       var harnessPluginProxyName = "Harness Proxy::<".concat(factoryRequest_.id, "::").concat(factoryRequest_.name, ">");
+      var harnessPluginProxyFilterID = arccore.identifier.irut.fromReference(harnessPluginProxyName).result;
       var harnessPluginProxyFilterOutputSpec = {
+        ____label: "Harness Proxy Result",
+        ____description: "A descriptor object derived from the inner plug-in harness filter's response + options and analysis.",
         ____types: "jsObject",
-        ____asMap: true,
-        harnessID: {
+        harnessOptions: harnessFactoryInputSpec.harnessOptions,
+        harnessDispatch: {
           ____types: "jsObject",
           ____asMap: true,
-          testID: factoryRequest_.testVectorResultOutputSpec
+          harnessID: {
+            ____types: "jsObject",
+            ____asMap: true,
+            testID: factoryRequest_.testVectorResultOutputSpec
+          }
         }
       };
       innerResponse = arccore.filter.create({
@@ -87,9 +108,12 @@ var factoryResponse = arccore.filter.create({
               break;
             }
 
-            response.result = {};
-            response.result[factoryRequest_.id] = {};
-            response.result[factoryRequest_.id][testRequest_.id] = pluginResponse.result;
+            response.result = {
+              harnessOptions: _objectSpread({}, factoryRequest_.harnessOptions),
+              harnessDispatch: {}
+            };
+            response.result.harnessDispatch[factoryRequest_.id] = {};
+            response.result.harnessDispatch[factoryRequest_.id][testRequest_.id] = pluginResponse.result;
             break;
           }
 

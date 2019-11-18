@@ -13,13 +13,13 @@ const runnerResponse = holodeckRunner.request({
     logsRootDir: path.resolve(path.join(__dirname, "logs")),
 
     testHarnessFilters: [
-            ...require("./package-tests-holodeck/harnesses"),
-            ...require("./package-tests-holarchy/harnesses")
+        ...require("./package-tests-holodeck/harnesses"),
+        ...require("./package-tests-holarchy/harnesses")
     ],
 
     testRequestSets: [
-            ...require("./package-tests-holodeck/vector-sets"),
-            ...require("./package-tests-holarchy/vector-sets")
+        ...require("./package-tests-holodeck/vector-sets"),
+        ...require("./package-tests-holarchy/vector-sets")
     ]
 
 });

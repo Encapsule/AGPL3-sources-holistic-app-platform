@@ -36,5 +36,9 @@
     },
     "bin": {
         "appgen": "./appgen"
+    },
+    "scripts": {
+        "scrubdate": "make scrubdate",
+        "test": "make test"
     }
 }
