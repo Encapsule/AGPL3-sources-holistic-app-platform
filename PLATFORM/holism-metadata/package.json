@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism-metadata",
-    "version": "0.0.25",
-    "codename": "stryker",
-    "buildID": "ijwRVqUNRda17AOFQemNSg",
-    "buildTime": 1574083402,
-    "buildSource": "e530d9654816e7f637a4cd93f696189fcdb5d754",
+    "version": "0.0.26",
+    "codename": "crazy-raven",
+    "buildID": "XkHVjQC9TX-qMaRfTZ88vg",
+    "buildTime": 1574300500,
+    "buildSource": "b20ba5964119c738542f1d1de8c31182ec8efb98",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-metadata.git"

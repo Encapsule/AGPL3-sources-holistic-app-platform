@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.25",
-    "codename": "stryker",
+    "version": "0.0.26",
+    "codename": "crazy-raven",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "ijwRVqUNRda17AOFQemNSg",
-    "buildSource": "e530d9654816e7f637a4cd93f696189fcdb5d754",
-    "buildTime": 1574083402,
-    "buildDateISO": "2019-11-18T13:23:22.000Z"
+    "buildID": "XkHVjQC9TX-qMaRfTZ88vg",
+    "buildSource": "b20ba5964119c738542f1d1de8c31182ec8efb98",
+    "buildTime": 1574300500,
+    "buildDateISO": "2019-11-21T01:41:40.000Z"
 }
