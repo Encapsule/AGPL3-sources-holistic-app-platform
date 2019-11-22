@@ -8,15 +8,15 @@ function getLogDir(logsRootDir_) {
 };
 
 function getRunnerEvalSummaryFilename(logsRootDir_, runnerID_) {
-    return path.join(getLogDir(logsRootDir_), `summary-${runnerID_}.json`);
+    return path.join(getLogDir(logsRootDir_), `${runnerID_}-runner-summary.json`);
 };
 
 function getRunnerInducedGitDiffsFilename(logsRootDir_, runnerID_) {
-    return path.join(getLogDir(logsRootDir_), `induced-git-diffs-${runnerID_}.json`);
+    return path.join(getLogDir(logsRootDir_), `${runnerID_}-runner-induced-git-diffs.json`);
 };
 
 function getRunnerResponseFilename(logsRootDir_, runnerID_) {
-    return path.join(getLogDir(logsRootDir_), `runner-response-${runnerID_}.json`);
+    return path.join(getLogDir(logsRootDir_), `${runnerID_}-runner-response.json`);
 };
 
 function getLogEvalDir(logsRootDir_) {
