@@ -131,19 +131,22 @@ class ObservableProcessController {
 
             if (actionResponse.error) {
                 errors.push(actionResponse.error);
+                break;
+            }
+
+            if (!this._private.opcActorStack.length === 1) {
+                response = this._evaluate();
             }
 
             this._private.opcActorStack.pop();
 
-            if (!this._private.opcActorStack.length) {
-                response.result = this._evaluate();
-            }
-
             break;
         }
+
         if (errors.length) {
             response.error = errors.join(" ");
         }
+
         return response;
 
     } // act method
