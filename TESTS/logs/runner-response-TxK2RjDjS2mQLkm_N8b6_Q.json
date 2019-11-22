@@ -236,7 +236,7 @@
                   }
                 },
                 "harnessResponse": {
-                  "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: Oh, snap! (Error: Oh, snap!\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/TESTS/package-tests-holodeck/harnesses/harness-test-4.js:23:15)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:100:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:98:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:225:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:8:39)\n    at Module._compile (internal/modules/cjs/loader.js:688:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10))."
+                  "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: Oh, snap! (Error: Oh, snap!\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/TESTS/package-tests-holodeck/harnesses/harness-test-4.js:23:15)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38496)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:100:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38496)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:98:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38496)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:225:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:8:39)\n    at Module._compile (internal/modules/cjs/loader.js:799:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:810:10))."
                 }
               }
             }
@@ -266,16 +266,16 @@
                     "harnessDispatch": {
                       "TLUZ3YPUTXK8fXhh6t3-Ew": {
                         "yHBXQnMzTc-uD67HICQx-g": [
-                          "ytRHD3a_QvyluTLkktro9g",
-                          "CLshl80ZQD2yK0qrkjBllg",
-                          "NXy6j0m1SLyqo-xlVbT-yg",
-                          "ScvKr5A9Qr6sc4e4uqnOSw",
-                          "BUMFcnN1Q7-ocsybyVadWw",
-                          "FBrGrJoDQQy54tiFMO4PPQ",
-                          "baa0tPTDRfmJzvj4fjmmkg",
-                          "8m1vlCAERnqvxmu5IxRmWQ",
-                          "yaBDgVewSYC43z6E8cWvzA",
-                          "36JEXYrgTPmgpJLrk4FvZg"
+                          "gU3oBVIGTbSeuquPZmmv9w",
+                          "xbcaynJnTZ6gcLhe0cwcAw",
+                          "3JO7FAEsRaqqqHvaz1hlcw",
+                          "vNz4KFKmQHCd1vqM8oTdfw",
+                          "fWc_qsdZTc2XBqBdBf68TA",
+                          "1MxYwK_ZQoGD1xUlcgmKqQ",
+                          "egGouMamR0iGO4AO1qvLoQ",
+                          "vAVYa2NFQfOJlZFcahmoVQ",
+                          "EjQ0gLOTQDeGHwez3p5teA",
+                          "Bj781vpFTASCyW9uIa84LA"
                         ]
                       }
                     }
