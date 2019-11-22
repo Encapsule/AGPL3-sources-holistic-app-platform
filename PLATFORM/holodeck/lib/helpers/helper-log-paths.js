@@ -12,51 +12,51 @@ function getLogDir(logsRootDir_) {
 ;
 
 function getRunnerEvalSummaryFilename(logsRootDir_, runnerID_) {
-  return path.join(getLogDir(logsRootDir_), "summary-".concat(runnerID_, ".json"));
+  return path.join(getLogDir(logsRootDir_), "".concat(runnerID_, "-runner-summary.json"));
 }
 
 ;
 
 function getRunnerInducedGitDiffsFilename(logsRootDir_, runnerID_) {
-  return path.join(getLogDir(logsRootDir_), "induced-git-diffs-".concat(runnerID_, ".json"));
+  return path.join(getLogDir(logsRootDir_), "".concat(runnerID_, "-runner-induced-git-diffs.json"));
 }
 
 ;
 
 function getRunnerResponseFilename(logsRootDir_, runnerID_) {
-  return path.join(getLogDir(logsRootDir_), "runner-response-".concat(runnerID_, ".json"));
+  return path.join(getLogDir(logsRootDir_), "".concat(runnerID_, "-runner-response.json"));
 }
 
 ;
 
-function getLogEvalDir(logsRootDir_) {
-  var dirPath = path.join(getLogDir(logsRootDir_), "eval");
+function getLogEvalDir(logsRootDir_, runnerID_) {
+  var dirPath = path.join(getLogDir(logsRootDir_), "".concat(runnerID_, "-eval"));
   mkdirp(dirPath);
   return dirPath;
 }
 
 ;
 
-function getHarnessEvalFilename(logsRootDir_, testID_) {
-  return path.join(getLogEvalDir(logsRootDir_), "".concat(testID_, ".json"));
+function getHarnessEvalFilename(logsRootDir_, runnerID_, testID_) {
+  return path.join(getLogEvalDir(logsRootDir_, runnerID_), "".concat(testID_, ".json"));
 }
 
 ;
 
-function getHarnessEvalDiffFilename(logsRootDir_, testID_) {
-  return path.join(getLogEvalDir(logsRootDir_), "".concat(testID_, "-git-diff"));
+function getHarnessEvalDiffFilename(logsRootDir_, runnerID_, testID_) {
+  return path.join(getLogEvalDir(logsRootDir_, runnerID_), "".concat(testID_, "-git-diff"));
 }
 
 ;
 
-function getHarnessEvalDiffChangeLinesFilename(logsRootDir_, testID_) {
-  return path.join(getLogEvalDir(logsRootDir_), "".concat(testID_, "-change-lines"));
+function getHarnessEvalDiffChangeLinesFilename(logsRootDir_, runnerID_, testID_) {
+  return path.join(getLogEvalDir(logsRootDir_, runnerID_), "".concat(testID_, "-change-lines"));
 }
 
 ;
 
-function getHarnessEvalDiffTreeFilename(logsRootDir_, testID_) {
-  return path.join(getLogEvalDir(logsRootDir_), "".concat(testID_, "-git-diff-tree"));
+function getHarnessEvalDiffTreeFilename(logsRootDir_, runnerID_, testID_) {
+  return path.join(getLogEvalDir(logsRootDir_, runnerID_), "".concat(testID_, "-git-diff-tree"));
 }
 
 ;

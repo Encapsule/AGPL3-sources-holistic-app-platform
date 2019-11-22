@@ -2,8 +2,9 @@
 const childProcess = require("child_process");
 
 module.exports = {
+    // request_ = { command: string, cwd: string,  }
     syncExec: function(request_) {
-        // request_ = { command: string, cwd: string,  }
+
         // RETURN RESULT TO CALLER
         const response = childProcess.execSync(request_.command, { cwd: request_.cwd }).toString('utf8').trim();
 

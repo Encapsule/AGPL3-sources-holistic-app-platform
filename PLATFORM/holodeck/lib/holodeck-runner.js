@@ -123,9 +123,9 @@ var factoryResponse = arccore.filter.create({
             harnessRequest: testRequest,
             harnessResponse: testResponse
           };
-          var harnessEvalFilename = helpers.getHarnessEvalFilename(request_.logsRootDir, testRequest.id);
-          var harnessEvalDiffFilename = helpers.getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
-          var harnessEvalDiffChangeLinesFilename = helpers.getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, testRequest.id);
+          var harnessEvalFilename = helpers.getHarnessEvalFilename(request_.logsRootDir, request_.id, testRequest.id);
+          var harnessEvalDiffFilename = helpers.getHarnessEvalDiffFilename(request_.logsRootDir, request_.id, testRequest.id);
+          var harnessEvalDiffChangeLinesFilename = helpers.getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, request_.id, testRequest.id);
           var harnessEvalJSON = "".concat(JSON.stringify(testEvalDescriptor, undefined, 2), "\n"); // WRITE THE MAIN HARNESS EVALUATION JSON LOG FILE UNCONDITIONALLY.
 
           fs.writeFileSync(harnessEvalFilename, harnessEvalJSON); // Always write the harness evaluation JSON log
@@ -139,11 +139,11 @@ var factoryResponse = arccore.filter.create({
           } // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
 
 
-          var diffCommand = "git diff -p --unified=".concat(gitDiffUnified, " --numstat --dirstat=lines --word-diff=plain ").concat(harnessEvalFilename);
-          console.log("$ " + diffCommand);
+          var diffCommand = "git diff -p --unified=".concat(gitDiffUnified, " --numstat --dirstat=lines --word-diff=plain ").concat(harnessEvalFilename); // console.log("$ " + diffCommand);
+
           var gitDiffResponse = helpers.syncExec({
             command: diffCommand,
-            cwd: helpers.getLogEvalDir(request_.logsRootDir)
+            cwd: helpers.getLogEvalDir(request_.logsRootDir, request_.id)
           });
 
           if (gitDiffResponse.length) {
@@ -162,14 +162,14 @@ var factoryResponse = arccore.filter.create({
               } else {
                 helpers.syncExec({
                   command: "rm -f ".concat(harnessEvalDiffChangeLinesFilename),
-                  cwd: helpers.getLogEvalDir(request_.logsRootDir)
+                  cwd: helpers.getLogEvalDir(request_.logsRootDir, request_.id)
                 });
               }
             })();
           } else {
             helpers.syncExec({
               command: "rm -f ".concat(harnessEvalDiffFilename),
-              cwd: helpers.getLogEvalDir(request_.logsRootDir)
+              cwd: helpers.getLogEvalDir(request_.logsRootDir, request_.id)
             });
             helpers.syncExec({
               command: "rm -f ".concat(harnessEvalDiffChangeLinesFilename)
@@ -228,7 +228,7 @@ var runnerFascade = _objectSpread({}, holisticTestRunner, {
 
     if (!runnerResponse.error) {
       var resultPayload = runnerResponse.result[idHolodeckRunner];
-      console.log("Runner summary:");
+      console.log("Runner '".concat(runnerRequest_.id, "' summary:"));
       analysis.totalTestVectors = resultPayload.summary.requests;
       console.log("> total test vectors ......... ".concat(analysis.totalTestVectors));
       analysis.totalDispatchedVectors = resultPayload.summary.runnerStats.dispatched.length;
@@ -248,8 +248,8 @@ var runnerFascade = _objectSpread({}, holisticTestRunner, {
 
     console.log("..... runner returned a response result. Analyzing...");
     var gitDiffTreeResponse = helpers.syncExec({
-      command: "git diff --unified=0 ".concat(helpers.getLogEvalDir(runnerRequest_.logsRootDir)),
-      cwd: helpers.getLogEvalDir(runnerRequest_.logsRootDir)
+      command: "git diff --unified=0 ".concat(helpers.getLogEvalDir(runnerRequest_.logsRootDir, runnerRequest_.id)),
+      cwd: helpers.getLogEvalDir(runnerRequest_.logsRootDir, runnerRequest_.id)
     });
     var gitDiffTreeOutput = gitDiffTreeResponse && gitDiffTreeResponse.length ? gitDiffTreeResponse.split("\n") : null;
     fs.writeFileSync(helpers.getRunnerEvalSummaryFilename(runnerRequest_.logsRootDir, runnerRequest_.id), "".concat(JSON.stringify(analysis, undefined, 2), "\n"));

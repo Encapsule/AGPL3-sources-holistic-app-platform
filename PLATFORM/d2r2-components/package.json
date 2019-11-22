@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2-components",
     "version": "0.0.26",
     "codename": "crazy-raven",
-    "buildID": "XkHVjQC9TX-qMaRfTZ88vg",
-    "buildTime": 1574300500,
-    "buildSource": "b20ba5964119c738542f1d1de8c31182ec8efb98",
+    "buildID": "Chi5uvzDT-6AG8-a1BjTHw",
+    "buildTime": 1574405555,
+    "buildSource": "1d017b3df63a9acb1dcedac7dbd3916b83309c21",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2-components.git"

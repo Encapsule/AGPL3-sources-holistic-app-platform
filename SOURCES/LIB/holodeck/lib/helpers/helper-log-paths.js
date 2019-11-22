@@ -19,26 +19,26 @@ function getRunnerResponseFilename(logsRootDir_, runnerID_) {
     return path.join(getLogDir(logsRootDir_), `${runnerID_}-runner-response.json`);
 };
 
-function getLogEvalDir(logsRootDir_) {
-    const dirPath = path.join(getLogDir(logsRootDir_), "eval");
+function getLogEvalDir(logsRootDir_, runnerID_) {
+    const dirPath = path.join(getLogDir(logsRootDir_), `${runnerID_}-eval`);
     mkdirp(dirPath);
     return dirPath;
 };
 
-function getHarnessEvalFilename(logsRootDir_, testID_) {
-    return path.join(getLogEvalDir(logsRootDir_), `${testID_}.json`);
+function getHarnessEvalFilename(logsRootDir_, runnerID_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_, runnerID_), `${testID_}.json`);
 };
 
-function getHarnessEvalDiffFilename(logsRootDir_, testID_) {
-    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-git-diff`);
+function getHarnessEvalDiffFilename(logsRootDir_, runnerID_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_, runnerID_), `${testID_}-git-diff`);
 };
 
-function getHarnessEvalDiffChangeLinesFilename(logsRootDir_, testID_) {
-    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-change-lines`);
+function getHarnessEvalDiffChangeLinesFilename(logsRootDir_, runnerID_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_, runnerID_), `${testID_}-change-lines`);
 };
 
-function getHarnessEvalDiffTreeFilename(logsRootDir_, testID_) {
-    return path.join(getLogEvalDir(logsRootDir_), `${testID_}-git-diff-tree`);
+function getHarnessEvalDiffTreeFilename(logsRootDir_, runnerID_, testID_) {
+    return path.join(getLogEvalDir(logsRootDir_, runnerID_), `${testID_}-git-diff-tree`);
 };
 
 module.exports = {

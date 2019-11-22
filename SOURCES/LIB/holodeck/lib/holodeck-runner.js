@@ -110,9 +110,9 @@ const factoryResponse = arccore.filter.create({
                         harnessResponse: testResponse
                     };
 
-                    const harnessEvalFilename = helpers.getHarnessEvalFilename(request_.logsRootDir, testRequest.id);
-                    const harnessEvalDiffFilename = helpers.getHarnessEvalDiffFilename(request_.logsRootDir, testRequest.id);
-                    const harnessEvalDiffChangeLinesFilename = helpers.getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, testRequest.id);
+                    const harnessEvalFilename = helpers.getHarnessEvalFilename(request_.logsRootDir, request_.id, testRequest.id);
+                    const harnessEvalDiffFilename = helpers.getHarnessEvalDiffFilename(request_.logsRootDir, request_.id, testRequest.id);
+                    const harnessEvalDiffChangeLinesFilename = helpers.getHarnessEvalDiffChangeLinesFilename(request_.logsRootDir, request_.id, testRequest.id);
 
                     const harnessEvalJSON = `${JSON.stringify(testEvalDescriptor, undefined, 2)}\n`;
 
@@ -130,11 +130,11 @@ const factoryResponse = arccore.filter.create({
                     // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
 
                     const diffCommand = `git diff -p --unified=${gitDiffUnified} --numstat --dirstat=lines --word-diff=plain ${harnessEvalFilename}`;
-                    console.log("$ " + diffCommand);
+                    // console.log("$ " + diffCommand);
 
                     const gitDiffResponse = helpers.syncExec({
                         command: diffCommand,
-                        cwd: helpers.getLogEvalDir(request_.logsRootDir)
+                        cwd: helpers.getLogEvalDir(request_.logsRootDir, request_.id)
                     });
 
                     if (gitDiffResponse.length) {
@@ -154,14 +154,14 @@ const factoryResponse = arccore.filter.create({
                         } else {
                             helpers.syncExec({
                                 command: `rm -f ${harnessEvalDiffChangeLinesFilename}`,
-                                cwd: helpers.getLogEvalDir(request_.logsRootDir)
+                                cwd: helpers.getLogEvalDir(request_.logsRootDir, request_.id)
                             });
                         }
 
                     } else {
                         helpers.syncExec({
                             command: `rm -f ${harnessEvalDiffFilename}`,
-                            cwd: helpers.getLogEvalDir(request_.logsRootDir)
+                            cwd: helpers.getLogEvalDir(request_.logsRootDir, request_.id)
                         });
                         helpers.syncExec({
                             command: `rm -f ${harnessEvalDiffChangeLinesFilename}`
@@ -224,7 +224,7 @@ const runnerFascade = { // fake filter
 
         if (!runnerResponse.error) {
             const resultPayload = runnerResponse.result[idHolodeckRunner];
-            console.log("Runner summary:");
+            console.log(`Runner '${runnerRequest_.id}' summary:`);
 
             analysis.totalTestVectors = resultPayload.summary.requests;
             console.log(`> total test vectors ......... ${analysis.totalTestVectors}`);
@@ -250,8 +250,8 @@ const runnerFascade = { // fake filter
         console.log("..... runner returned a response result. Analyzing...");
 
         const gitDiffTreeResponse = helpers.syncExec({
-            command: `git diff --unified=0 ${helpers.getLogEvalDir(runnerRequest_.logsRootDir)}`,
-            cwd: helpers.getLogEvalDir(runnerRequest_.logsRootDir)
+            command: `git diff --unified=0 ${helpers.getLogEvalDir(runnerRequest_.logsRootDir, runnerRequest_.id)}`,
+            cwd: helpers.getLogEvalDir(runnerRequest_.logsRootDir, runnerRequest_.id)
         });
 
         const gitDiffTreeOutput = (gitDiffTreeResponse && gitDiffTreeResponse.length)?gitDiffTreeResponse.split("\n"):null;
