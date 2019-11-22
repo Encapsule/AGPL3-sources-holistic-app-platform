@@ -5,10 +5,10 @@
 # @encapsule/holodeck v0.0.26 "crazy-raven"
 
 ```
-Package: @encapsule/holodeck v0.0.26 "crazy-raven" build ID "Chi5uvzDT-6AG8-a1BjTHw"
-Sources: Encapsule/holistic#1d017b3df63a9acb1dcedac7dbd3916b83309c21
+Package: @encapsule/holodeck v0.0.26 "crazy-raven" build ID "Ha1gUOjqSmK05oFbpQFOVg"
+Sources: Encapsule/holistic#98cb98a8d7b7493ed42fa44d8114fd562670a353
 Purpose: library (Node.js)
-Created: 2019-11-22T06:52:35.000Z
+Created: 2019-11-22T23:27:35.000Z
 License: MIT
 ```
 
