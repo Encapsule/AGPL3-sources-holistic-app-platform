@@ -1,14 +1,126 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "000000000000000000": {
+    "bvj2u51Uw5_SD1TRZNpwXA": {
       "Pe4ks7bQQ9KQee1T8qTRHw": {
         "harnessRequest": {
           "id": "Pe4ks7bQQ9KQee1T8qTRHw",
           "name": "Invalid OPC Template sepc binding #4",
-          "description": "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive."
+          "description": "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessController": {
+                  "constructorRequest": {
+                    "id": "Pe4ks7bQQ9KQee1T8qTRHw",
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject",
+                      "badNamespace": {
+                        "____types": [
+                          "jsObject"
+                        ],
+                        "____appdsl": {
+                          "opm": "Pe4ks7bQQ9KQee1T8qTRHw"
+                        },
+                        "____defaultValue": {}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "harnessResponse": {
-          "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "54MiSgQdSiukMX4fIZJimg": {
+                "Pe4ks7bQQ9KQee1T8qTRHw": {
+                  "opcToJSON": {
+                    "id": "Pe4ks7bQQ9KQee1T8qTRHw",
+                    "name": "Unnamed OPC",
+                    "description": "Undescribed OPC",
+                    "opmMap": {},
+                    "opmiSpecPaths": [],
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject",
+                      "badNamespace": {
+                        "____types": [
+                          "jsObject"
+                        ],
+                        "____appdsl": {
+                          "opm": "Pe4ks7bQQ9KQee1T8qTRHw"
+                        },
+                        "____defaultValue": {}
+                      }
+                    },
+                    "ocdRuntimeSpec": {
+                      "____label": "OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] Observable Controller Data Store",
+                      "____description": "OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "badNamespace": {
+                        "____types": [
+                          "jsObject"
+                        ],
+                        "____appdsl": {
+                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'Pe4ks7bQQ9KQee1T8qTRHw'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                        },
+                        "____defaultValue": {}
+                      }
+                    },
+                    "ocdi": {
+                      "badNamespace": {}
+                    },
+                    "transitionDispatcher": {},
+                    "actionDispatcher": {},
+                    "opcActorStack": [],
+                    "evalCount": 1,
+                    "lastEvalResponse": {
+                      "error": null,
+                      "result": {
+                        "evalNumber": 0,
+                        "summary": {
+                          "counts": {
+                            "frames": 1,
+                            "errors": 0,
+                            "transitions": 0
+                          }
+                        },
+                        "evalFrames": [
+                          {
+                            "summary": {
+                              "counts": {
+                                "bindings": 0,
+                                "transitions": 0,
+                                "errors": 0
+                              },
+                              "reports": {
+                                "transitions": [],
+                                "errors": []
+                              }
+                            },
+                            "bindings": {}
+                          }
+                        ]
+                      }
+                    },
+                    "constructionWarnings": [
+                      "WARNING: No ObservableProcessModel class instances registered!",
+                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'Pe4ks7bQQ9KQee1T8qTRHw'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                      "WARNING: No TransitionOperator class instances have been registered!",
+                      "WARNING: No ControllerAction class instances have been registered!"
+                    ]
+                  },
+                  "actionEvaluations": []
+                }
+              }
+            }
+          }
         }
       }
     }

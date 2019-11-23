@@ -6,37 +6,37 @@
         "requests": 30,
         "runnerStats": {
           "dispatched": [
-            "IRyR4YazRuWiZp9Rzj6-WA",
-            "LC56jkxeQJ2mgWfwGklLEQ",
-            "QvEwWTkbT8G_SQsmWmg2zQ",
-            "UHqiKKLkTMmLBGXI4lRxEA",
-            "ak8rhTiORTWXueau74RlHA",
-            "cQ3Z1fhsTICqkY3uKQXaFQ",
-            "gwtkQR51TYm93K32K6QHNA",
-            "iQ5RngZ0QNyH67mVrlwo4w",
-            "sBB6rshGQu2f7S5rA2x9eg"
-          ],
-          "rejected": [
             "197ZsgbfRRGGMWqhwmaBDg",
-            "4nw2B9oVQYm1ZspZqotrRA",
             "ChcuyPLCSQCsICTprPzfog",
             "DipB21oZR5ihBCYESC5HWw",
             "ElMglky8TBGkzkd6W4690A",
             "FxMOqQPARcGcMZ24x2tq7A",
             "H2zMrBw4TBie5A2mwH4BRg",
+            "IRyR4YazRuWiZp9Rzj6-WA",
+            "LC56jkxeQJ2mgWfwGklLEQ",
             "Pe4ks7bQQ9KQee1T8qTRHw",
+            "QvEwWTkbT8G_SQsmWmg2zQ",
             "T-apDENPTAO6iQShA-2qBQ",
+            "UHqiKKLkTMmLBGXI4lRxEA",
             "VxYuiGoHRfuKRHp7PBik7Q",
             "X5zbSBkaQeG6Wft5cGVRwg",
             "ZbwxkWJgTEKjxXpYX0_h7Q",
+            "ak8rhTiORTWXueau74RlHA",
+            "cQ3Z1fhsTICqkY3uKQXaFQ",
             "dirl1VuNQCmBrzbJXWMTtA",
             "fzc39RvNTLmHF5UNn_-Fng",
+            "gwtkQR51TYm93K32K6QHNA",
+            "iQ5RngZ0QNyH67mVrlwo4w",
             "juolo4dqSgKdLEYLoHJJ1Q",
             "l_P652EhQU6_z7afrV-PMQ",
             "nCoUIS0RTlmuKUSpimee7A",
             "np4M1LDWSyeNXOmFYJulhA",
             "rxFiX7H-TDG0GsxqtRekoA",
-            "waM_L9rTT6ySTY4ja__K3g",
+            "sBB6rshGQu2f7S5rA2x9eg",
+            "waM_L9rTT6ySTY4ja__K3g"
+          ],
+          "rejected": [
+            "4nw2B9oVQYm1ZspZqotrRA",
             "zxKqk_YOTme-e0AExJUhmg"
           ],
           "errors": [
@@ -368,15 +368,94 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "l_P652EhQU6_z7afrV-PMQ": {
                 "harnessRequest": {
                   "id": "l_P652EhQU6_z7afrV-PMQ",
                   "name": "Minimal constructor valid ID all default inputs",
-                  "description": "Confirm default construction variant #1"
+                  "description": "Confirm default construction variant #1",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "l_P652EhQU6_z7afrV-PMQ"
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "l_P652EhQU6_z7afrV-PMQ": {
+                          "opcToJSON": {
+                            "id": "l_P652EhQU6_z7afrV-PMQ",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [l_P652EhQU6_z7afrV-PMQ::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -384,15 +463,98 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "juolo4dqSgKdLEYLoHJJ1Q": {
                 "harnessRequest": {
                   "id": "juolo4dqSgKdLEYLoHJJ1Q",
                   "name": "Miniaml constructor w/minimal valid ocdTemplateSpec",
-                  "description": "Confirm minimal ocdTemplateSpec same as default construction."
+                  "description": "Confirm minimal ocdTemplateSpec same as default construction.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "juolo4dqSgKdLEYLoHJJ1Q",
+                            "name": "Valid ID w/minimal but valid custom opaque ocd template spec.",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "juolo4dqSgKdLEYLoHJJ1Q": {
+                          "opcToJSON": {
+                            "id": "juolo4dqSgKdLEYLoHJJ1Q",
+                            "name": "Valid ID w/minimal but valid custom opaque ocd template spec.",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] Observable Controller Data Store",
+                              "____description": "OPC [juolo4dqSgKdLEYLoHJJ1Q::Valid ID w/minimal but valid custom opaque ocd template spec.] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -400,15 +562,44 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "dirl1VuNQCmBrzbJXWMTtA": {
                 "harnessRequest": {
                   "id": "dirl1VuNQCmBrzbJXWMTtA",
                   "name": "Invalid OCD template spec #1",
-                  "description": "OCD template spec must be a valid filter spec."
+                  "description": "OCD template spec must be a valid filter spec.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "dirl1VuNQCmBrzbJXWMTtA",
+                            "ocdTemplateSpec": {}
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "dirl1VuNQCmBrzbJXWMTtA": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Missing required '____accept', '____types', or '_____opaque' type constraint directive.",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -416,15 +607,46 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "ChcuyPLCSQCsICTprPzfog": {
                 "harnessRequest": {
                   "id": "ChcuyPLCSQCsICTprPzfog",
                   "name": "Invalid OCD template spec #2",
-                  "description": "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types."
+                  "description": "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "ChcuyPLCSQCsICTprPzfog",
+                            "ocdTemplateSpec": {
+                              "____notAQunderscoreDirective": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "ChcuyPLCSQCsICTprPzfog": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____notAQunderscoreDirective' not allowed in declaration.",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -432,15 +654,46 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "ZbwxkWJgTEKjxXpYX0_h7Q": {
                 "harnessRequest": {
                   "id": "ZbwxkWJgTEKjxXpYX0_h7Q",
                   "name": "Invliad OCD template spec #3",
-                  "description": "OCD template spec ~ namespace is not allowed to use the ____opaque directive."
+                  "description": "OCD template spec ~ namespace is not allowed to use the ____opaque directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "ZbwxkWJgTEKjxXpYX0_h7Q",
+                            "ocdTemplateSpec": {
+                              "____opaque": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "ZbwxkWJgTEKjxXpYX0_h7Q": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -448,15 +701,46 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "ElMglky8TBGkzkd6W4690A": {
                 "harnessRequest": {
                   "id": "ElMglky8TBGkzkd6W4690A",
                   "name": "Invalid OCD template spec #4",
-                  "description": "OCD template spec ~ namespace is not allowed to use the ____accept directive."
+                  "description": "OCD template spec ~ namespace is not allowed to use the ____accept directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "ElMglky8TBGkzkd6W4690A",
+                            "ocdTemplateSpec": {
+                              "____accept": "jsObject"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "ElMglky8TBGkzkd6W4690A": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -464,15 +748,48 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "waM_L9rTT6ySTY4ja__K3g": {
                 "harnessRequest": {
                   "id": "waM_L9rTT6ySTY4ja__K3g",
                   "name": "Invalid OCD template spec #5",
-                  "description": "OCD template namespace ~ is not allowed to use an array value for the ____types directive."
+                  "description": "OCD template namespace ~ is not allowed to use an array value for the ____types directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "waM_L9rTT6ySTY4ja__K3g",
+                            "ocdTemplateSpec": {
+                              "____types": [
+                                "jsObject"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "waM_L9rTT6ySTY4ja__K3g": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -480,15 +797,46 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "X5zbSBkaQeG6Wft5cGVRwg": {
                 "harnessRequest": {
                   "id": "X5zbSBkaQeG6Wft5cGVRwg",
                   "name": "Invalid OCD template spec #6",
-                  "description": "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive."
+                  "description": "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "X5zbSBkaQeG6Wft5cGVRwg",
+                            "ocdTemplateSpec": {
+                              "____types": "jsString"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "X5zbSBkaQeG6Wft5cGVRwg": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -496,15 +844,47 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "nCoUIS0RTlmuKUSpimee7A": {
                 "harnessRequest": {
                   "id": "nCoUIS0RTlmuKUSpimee7A",
                   "name": "Invalid OCD template spec #7",
-                  "description": "OCD template namespace ~ is only allowed to use one quanderscore directive, ____types."
+                  "description": "OCD template namespace ~ is only allowed to use one quanderscore directive, ____types.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "nCoUIS0RTlmuKUSpimee7A",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "nCoUIS0RTlmuKUSpimee7A": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -512,15 +892,114 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "FxMOqQPARcGcMZ24x2tq7A": {
                 "harnessRequest": {
                   "id": "FxMOqQPARcGcMZ24x2tq7A",
                   "name": "Invalid OCD template spec #7",
-                  "description": "Test our ability to extend the OPC-managed root namespace, ~."
+                  "description": "Test our ability to extend the OPC-managed root namespace, ~.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "FxMOqQPARcGcMZ24x2tq7A",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "testString": {
+                                "____label": "Test Namespace 1",
+                                "____accept": "jsString",
+                                "____defaultValue": "Please specify a value for ~.testString."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "FxMOqQPARcGcMZ24x2tq7A": {
+                          "opcToJSON": {
+                            "id": "FxMOqQPARcGcMZ24x2tq7A",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "testString": {
+                                "____label": "Test Namespace 1",
+                                "____accept": "jsString",
+                                "____defaultValue": "Please specify a value for ~.testString."
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [FxMOqQPARcGcMZ24x2tq7A::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "testString": {
+                                "____label": "Test Namespace 1",
+                                "____accept": "jsString",
+                                "____defaultValue": "Please specify a value for ~.testString."
+                              }
+                            },
+                            "ocdi": {
+                              "testString": "Please specify a value for ~.testString."
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -528,15 +1007,54 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "fzc39RvNTLmHF5UNn_-Fng": {
                 "harnessRequest": {
                   "id": "fzc39RvNTLmHF5UNn_-Fng",
                   "name": "Valid ID, ocdTemplateSpec, data",
-                  "description": "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data"
+                  "description": "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "fzc39RvNTLmHF5UNn_-Fng",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "testString": {
+                                "____label": "Test Namespace 1",
+                                "____accept": "jsString",
+                                "____defaultValue": "Please specify a value for ~.testString."
+                              }
+                            },
+                            "ocdInitData": {
+                              "testString": 3.1415926536
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "fzc39RvNTLmHF5UNn_-Fng": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Unable to initialize the OPC instance's shared OCD store due to constructor failure: Filter [3aDV_cacQByO0tTzVrBxnA::OCD Constructor Request Processor] failed while normalizing request input. Error at path '~.testString': Value of type 'jsNumber' not in allowed type set [jsString].",
+                            "result": false
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -544,15 +1062,117 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "DipB21oZR5ihBCYESC5HWw": {
                 "harnessRequest": {
                   "id": "DipB21oZR5ihBCYESC5HWw",
                   "name": "Valid ID, ocdTemplateSpec, data",
-                  "description": "Valid OPC instance + dev ocdTemplateSpec + valid init data"
+                  "description": "Valid OPC instance + dev ocdTemplateSpec + valid init data",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "DipB21oZR5ihBCYESC5HWw",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "testString": {
+                                "____label": "Test Namespace 1",
+                                "____accept": "jsString",
+                                "____defaultValue": "Please specify a value for ~.testString."
+                              }
+                            },
+                            "ocdInitData": {
+                              "testString": "Hello, World!"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "DipB21oZR5ihBCYESC5HWw": {
+                          "opcToJSON": {
+                            "id": "DipB21oZR5ihBCYESC5HWw",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "testString": {
+                                "____label": "Test Namespace 1",
+                                "____accept": "jsString",
+                                "____defaultValue": "Please specify a value for ~.testString."
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [DipB21oZR5ihBCYESC5HWw::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "testString": {
+                                "____label": "Test Namespace 1",
+                                "____accept": "jsString",
+                                "____defaultValue": "Please specify a value for ~.testString."
+                              }
+                            },
+                            "ocdi": {
+                              "testString": "Hello, World!"
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -560,15 +1180,121 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "np4M1LDWSyeNXOmFYJulhA": {
                 "harnessRequest": {
                   "id": "np4M1LDWSyeNXOmFYJulhA",
                   "name": "Invalid OPC template spec binding #1",
-                  "description": "Pass an OCD template spec w/invalid OPM binding IRUT"
+                  "description": "Pass an OCD template spec w/invalid OPM binding IRUT",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "np4M1LDWSyeNXOmFYJulhA",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "app": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opm": "not and IRUT"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "np4M1LDWSyeNXOmFYJulhA": {
+                          "opcToJSON": {
+                            "id": "np4M1LDWSyeNXOmFYJulhA",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "app": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opm": "not and IRUT"
+                                }
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [np4M1LDWSyeNXOmFYJulhA::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "app": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opcWarning": "WARNING: OCD runtime spec path '~.app' will not be bound to OPM ID 'not and IRUT'. Invalid ID IRUT specified."
+                                }
+                              }
+                            },
+                            "ocdi": {
+                              "app": {}
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: OCD runtime spec path '~.app' will not be bound to OPM ID 'not and IRUT'. Invalid ID IRUT specified.",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -576,15 +1302,116 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "197ZsgbfRRGGMWqhwmaBDg": {
                 "harnessRequest": {
                   "id": "197ZsgbfRRGGMWqhwmaBDg",
                   "name": "Invalid OPC template spec binding #2",
-                  "description": "OCD spec namespace bound to OPM not allowed to use ____opaque directive."
+                  "description": "OCD spec namespace bound to OPM not allowed to use ____opaque directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "197ZsgbfRRGGMWqhwmaBDg",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____opaque": true,
+                                "____appdsl": {
+                                  "opm": "197ZsgbfRRGGMWqhwmaBDg"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "197ZsgbfRRGGMWqhwmaBDg": {
+                          "opcToJSON": {
+                            "id": "197ZsgbfRRGGMWqhwmaBDg",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____opaque": true,
+                                "____appdsl": {
+                                  "opm": "197ZsgbfRRGGMWqhwmaBDg"
+                                }
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [197ZsgbfRRGGMWqhwmaBDg::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "badNamespace": {
+                                "____opaque": true,
+                                "____appdsl": {
+                                  "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID '197ZsgbfRRGGMWqhwmaBDg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                                }
+                              }
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID '197ZsgbfRRGGMWqhwmaBDg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -592,15 +1419,121 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "rxFiX7H-TDG0GsxqtRekoA": {
                 "harnessRequest": {
                   "id": "rxFiX7H-TDG0GsxqtRekoA",
                   "name": "Invalid OPC template spec binding #3",
-                  "description": "OCD spec namespace bound to OPM not allowed to use ____accept directive."
+                  "description": "OCD spec namespace bound to OPM not allowed to use ____accept directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "rxFiX7H-TDG0GsxqtRekoA",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____accept": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opm": "rxFiX7H-TDG0GsxqtRekoA"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "rxFiX7H-TDG0GsxqtRekoA": {
+                          "opcToJSON": {
+                            "id": "rxFiX7H-TDG0GsxqtRekoA",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____accept": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opm": "rxFiX7H-TDG0GsxqtRekoA"
+                                }
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [rxFiX7H-TDG0GsxqtRekoA::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "badNamespace": {
+                                "____accept": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'rxFiX7H-TDG0GsxqtRekoA'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                                }
+                              }
+                            },
+                            "ocdi": {
+                              "badNamespace": {}
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'rxFiX7H-TDG0GsxqtRekoA'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -608,15 +1541,127 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "Pe4ks7bQQ9KQee1T8qTRHw": {
                 "harnessRequest": {
                   "id": "Pe4ks7bQQ9KQee1T8qTRHw",
                   "name": "Invalid OPC Template sepc binding #4",
-                  "description": "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive."
+                  "description": "OCD spec namespace bound to OPM not allowed to specify an array of values to ____types directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "Pe4ks7bQQ9KQee1T8qTRHw",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": [
+                                  "jsObject"
+                                ],
+                                "____appdsl": {
+                                  "opm": "Pe4ks7bQQ9KQee1T8qTRHw"
+                                },
+                                "____defaultValue": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "Pe4ks7bQQ9KQee1T8qTRHw": {
+                          "opcToJSON": {
+                            "id": "Pe4ks7bQQ9KQee1T8qTRHw",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": [
+                                  "jsObject"
+                                ],
+                                "____appdsl": {
+                                  "opm": "Pe4ks7bQQ9KQee1T8qTRHw"
+                                },
+                                "____defaultValue": {}
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [Pe4ks7bQQ9KQee1T8qTRHw::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "badNamespace": {
+                                "____types": [
+                                  "jsObject"
+                                ],
+                                "____appdsl": {
+                                  "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'Pe4ks7bQQ9KQee1T8qTRHw'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                                },
+                                "____defaultValue": {}
+                              }
+                            },
+                            "ocdi": {
+                              "badNamespace": {}
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'Pe4ks7bQQ9KQee1T8qTRHw'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -624,15 +1669,121 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "H2zMrBw4TBie5A2mwH4BRg": {
                 "harnessRequest": {
                   "id": "H2zMrBw4TBie5A2mwH4BRg",
                   "name": "Invalid OCD template spec binding #5",
-                  "description": "OCD template spec namespace bound to OPM must declare ____types: \"jsObject\"."
+                  "description": "OCD template spec namespace bound to OPM must declare ____types: \"jsObject\".",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "H2zMrBw4TBie5A2mwH4BRg",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": "jsArray",
+                                "____defaultValue": [],
+                                "____appdsl": {
+                                  "opm": "H2zMrBw4TBie5A2mwH4BRg"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "H2zMrBw4TBie5A2mwH4BRg": {
+                          "opcToJSON": {
+                            "id": "H2zMrBw4TBie5A2mwH4BRg",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": "jsArray",
+                                "____defaultValue": [],
+                                "____appdsl": {
+                                  "opm": "H2zMrBw4TBie5A2mwH4BRg"
+                                }
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [H2zMrBw4TBie5A2mwH4BRg::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [H2zMrBw4TBie5A2mwH4BRg::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "badNamespace": {
+                                "____types": "jsArray",
+                                "____defaultValue": [],
+                                "____appdsl": {
+                                  "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'H2zMrBw4TBie5A2mwH4BRg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                                }
+                              }
+                            },
+                            "ocdi": {
+                              "badNamespace": []
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'H2zMrBw4TBie5A2mwH4BRg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -640,15 +1791,133 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "VxYuiGoHRfuKRHp7PBik7Q": {
                 "harnessRequest": {
                   "id": "VxYuiGoHRfuKRHp7PBik7Q",
                   "name": "Invalid OCD template spec binding #6",
-                  "description": "OCD template spec namespace bound to OPM must not use the ____asMap directive."
+                  "description": "OCD template spec namespace bound to OPM must not use the ____asMap directive.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "VxYuiGoHRfuKRHp7PBik7Q",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____asMap": true,
+                                "____appdsl": {
+                                  "opm": "VxYuiGoHRfuKRHp7PBik7Q"
+                                },
+                                "mapKey": {
+                                  "____accept": "jsString"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "VxYuiGoHRfuKRHp7PBik7Q": {
+                          "opcToJSON": {
+                            "id": "VxYuiGoHRfuKRHp7PBik7Q",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____asMap": true,
+                                "____appdsl": {
+                                  "opm": "VxYuiGoHRfuKRHp7PBik7Q"
+                                },
+                                "mapKey": {
+                                  "____accept": "jsString"
+                                }
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [VxYuiGoHRfuKRHp7PBik7Q::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [VxYuiGoHRfuKRHp7PBik7Q::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "badNamespace": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____asMap": true,
+                                "____appdsl": {
+                                  "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'VxYuiGoHRfuKRHp7PBik7Q'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                                },
+                                "mapKey": {
+                                  "____accept": "jsString"
+                                }
+                              }
+                            },
+                            "ocdi": {
+                              "badNamespace": {}
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'VxYuiGoHRfuKRHp7PBik7Q'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -656,15 +1925,121 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "T-apDENPTAO6iQShA-2qBQ": {
                 "harnessRequest": {
                   "id": "T-apDENPTAO6iQShA-2qBQ",
                   "name": "Invalid OCD template spec binding #7",
-                  "description": "OCD template spec namespace bound to OPM must specify the ID of a registered OPM instance to bind."
+                  "description": "OCD template spec namespace bound to OPM must specify the ID of a registered OPM instance to bind.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "T-apDENPTAO6iQShA-2qBQ",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opm": "T-apDENPTAO6iQShA-2qBQ"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "T-apDENPTAO6iQShA-2qBQ": {
+                          "opcToJSON": {
+                            "id": "T-apDENPTAO6iQShA-2qBQ",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "badNamespace": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opm": "T-apDENPTAO6iQShA-2qBQ"
+                                }
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [T-apDENPTAO6iQShA-2qBQ::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [T-apDENPTAO6iQShA-2qBQ::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "badNamespace": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'T-apDENPTAO6iQShA-2qBQ'. Unknown/unregistered OPM specified."
+                                }
+                              }
+                            },
+                            "ocdi": {
+                              "badNamespace": {}
+                            },
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'T-apDENPTAO6iQShA-2qBQ'. Unknown/unregistered OPM specified.",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
