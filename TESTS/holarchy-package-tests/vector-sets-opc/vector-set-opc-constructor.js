@@ -5,7 +5,15 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "gwtkQR51TYm93K32K6QHNA",
         name: "Undefined constructor request",
         description: "Send nothing (undefined) to OPC constructor.",
-        opcRequest: undefined
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructor: undefined
+                    }
+                }
+            }
+        }
     },
 
     {

@@ -8,7 +8,7 @@
           "description": "OCD template namespace ~ is not allowed to use an array value for the ____types directive."
         },
         "harnessResponse": {
-          "error": "Runner cannot locate a harness filter to process this request type: Filter [wmibAjcLUctH7GYtokcMMQ::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+          "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
         }
       }
     }
