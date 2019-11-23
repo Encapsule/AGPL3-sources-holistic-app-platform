@@ -67,17 +67,33 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "l_P652EhQU6_z7afrV-PMQ",
         name: "Minimal constructor valid ID all default inputs",
         description: "Confirm default construction variant #1",
-        opcRequest: { id: "l_P652EhQU6_z7afrV-PMQ" }
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: { id: "l_P652EhQU6_z7afrV-PMQ" }
+                    }
+                }
+            }
+        }
     },
 
     {
         id: "juolo4dqSgKdLEYLoHJJ1Q",
         name: "Miniaml constructor w/minimal valid ocdTemplateSpec",
         description: "Confirm minimal ocdTemplateSpec same as default construction.",
-        opcRequest: {
-            id: "juolo4dqSgKdLEYLoHJJ1Q",
-            name: "Valid ID w/minimal but valid custom opaque ocd template spec.",
-            ocdTemplateSpec: { ____types: "jsObject" }
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "juolo4dqSgKdLEYLoHJJ1Q",
+                            name: "Valid ID w/minimal but valid custom opaque ocd template spec.",
+                            ocdTemplateSpec: { ____types: "jsObject" }
+                        }
+                    }
+                }
+            }
         }
     },
 
@@ -85,9 +101,17 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "dirl1VuNQCmBrzbJXWMTtA",
         name: "Invalid OCD template spec #1",
         description: "OCD template spec must be a valid filter spec.",
-        opcRequest: {
-            id: "dirl1VuNQCmBrzbJXWMTtA",
-            ocdTemplateSpec: {}
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "dirl1VuNQCmBrzbJXWMTtA",
+                            ocdTemplateSpec: {}
+                        }
+                    }
+                }
+            }
         }
     },
 
@@ -95,9 +119,17 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "ChcuyPLCSQCsICTprPzfog",
         name: "Invalid OCD template spec #2",
         description: "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types.",
-        opcRequest: {
-            id: "ChcuyPLCSQCsICTprPzfog",
-            ocdTemplateSpec: { ____notAQunderscoreDirective: true }
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "ChcuyPLCSQCsICTprPzfog",
+                            ocdTemplateSpec: { ____notAQunderscoreDirective: true }
+                        }
+                    }
+                }
+            }
         }
     },
 
@@ -105,9 +137,17 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "ZbwxkWJgTEKjxXpYX0_h7Q",
         name: "Invliad OCD template spec #3",
         description: "OCD template spec ~ namespace is not allowed to use the ____opaque directive.",
-        opcRequest: {
-            id: "ZbwxkWJgTEKjxXpYX0_h7Q",
-            ocdTemplateSpec: { ____opaque: true } // valid filter spec, invalid OCD template spec
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "ZbwxkWJgTEKjxXpYX0_h7Q",
+                            ocdTemplateSpec: { ____opaque: true } // valid filter spec, invalid OCD template spec
+                        }
+                    }
+                }
+            }
         }
     },
 
@@ -115,9 +155,17 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "ElMglky8TBGkzkd6W4690A",
         name: "Invalid OCD template spec #4",
         description: "OCD template spec ~ namespace is not allowed to use the ____accept directive.",
-        opcRequest: {
-            id: "ElMglky8TBGkzkd6W4690A",
-            ocdTemplateSpec: { ____accept: "jsObject" } // valid filter spec, invalid OCD template spec
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "ElMglky8TBGkzkd6W4690A",
+                            ocdTemplateSpec: { ____accept: "jsObject" } // valid filter spec, invalid OCD template spec
+                        }
+                    }
+                }
+            }
         }
     },
 
