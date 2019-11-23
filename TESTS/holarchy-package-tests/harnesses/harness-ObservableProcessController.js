@@ -75,7 +75,7 @@ const factoryResponse = holodeck.harnessFactory.request({
             }
         };
 
-        const opcInstance = new holarchy.ObservableProcessController(messageBody.contructorRequest);
+        const opcInstance = new holarchy.ObservableProcessController(messageBody.constructorRequest);
 
         const serialized = arccore.util.deepCopy(opcInstance.toJSON());
 

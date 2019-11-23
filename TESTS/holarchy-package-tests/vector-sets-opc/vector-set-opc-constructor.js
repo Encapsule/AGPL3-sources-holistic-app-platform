@@ -9,7 +9,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
             holistic: {
                 holarchy: {
                     ObservableProcessController: {
-                        constructor: undefined
+                        constructorRequest: undefined
                     }
                 }
             }
@@ -19,15 +19,31 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
     {
         id: "iQ5RngZ0QNyH67mVrlwo4w",
         name: "Barely defined constructor request",
-        description: "Send nothing an empty object to OPC constructor.",
-        opcRequest: {}
+        description: "Send nothing but an empty object to OPC constructor.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {}
+                    }
+                }
+            }
+        }
     },
 
     {
         id:"QvEwWTkbT8G_SQsmWmg2zQ",
         name: "Minimal constructor request #1: Invalid ID",
         description: "Test basic constructor request variant #1 by passing a bad IRUT as the ID.",
-        opcRequest: { id: "fail" }
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: { id: "fail" }
+                    }
+                }
+            }
+        }
     },
 
     {
