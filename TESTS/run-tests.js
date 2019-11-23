@@ -5,6 +5,13 @@ const path = require("path");
 const holodeck = require("../PLATFORM/holodeck");
 const holodeckRunner = holodeck.runnerFilter;
 
+// Test assets.
+const holodeckPackageHarnesses = require("./holodeck-package-tests/harnesses");
+const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets");
+
+const holarchyPackageHarnesses = require("./holarchy-package-tests/harnesses");
+const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
+
 const runnerResponse = holodeckRunner.request({
     id: "TxK2RjDjS2mQLkm_N8b6_Q",
     name: "Holistic Platform Test Vectors",
@@ -13,13 +20,13 @@ const runnerResponse = holodeckRunner.request({
     logsRootDir: path.resolve(path.join(__dirname, "logs")),
 
     testHarnessFilters: [
-        ...require("./package-tests-holodeck/harnesses"),
-        ...require("./package-tests-holarchy/harnesses")
+        ...holodeckPackageHarnesses,
+        ...holarchyPackageHarnesses
     ],
 
     testRequestSets: [
-        ...require("./package-tests-holodeck/vector-sets"),
-        ...require("./package-tests-holarchy/vector-sets")
+        ...holodeckPackageVectorSets,
+        ...holarchyPackageVectorSets
     ]
 
 });
