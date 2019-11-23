@@ -77,7 +77,24 @@ const factoryResponse = holodeck.harnessFactory.request({
 
         const opcInstance = new holarchy.ObservableProcessController(messageBody.constructorRequest);
 
-        const serialized = arccore.util.deepCopy(opcInstance.toJSON());
+        const toJSON = opcInstance.toJSON();
+
+        // TODO: Again - arccore.util.deepCopy/clone is proving to
+        // be problematic. The intended contract of this export function
+        // is very permissive - it should make a deep copy of whatever
+        // you pass to it. Instead, here is a case that causes an exception.
+        // This is concerning as the input request is a serialization object
+        // derived from an OPC instance. We know that OPC.toJSON is currently
+        // not really legitimate --- it's purpose is to allow a developer
+        // to suspend a system of observable processes which implies a variant
+        // contructor function (not supported currently). It's probably a reasonable
+        // idea to immediately add ObservableProcessController._getTestData in
+        // order to avoid taking a dependency on toJSON. This way we can later
+        // fix toJSON to work as intended w/out breaking existing tests.
+
+        // THIS IS CRAP >>>> const serialized = arccore.util.deepCopy(toJSON);
+
+        const serialized = JSON.parse(JSON.stringify(toJSON));
 
         // Let's just delete the known non-idempotent (i.e. volatile) timing information
         // and iid information in order to treat this as an idempotent test case.

@@ -46,12 +46,22 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         }
     },
 
+    /* DISABLE THIS VECTOR BECAUSE IT PRODUCES UNSTABLE OUTPUT DUE TO RELIANCE ON arccore.identifier.irut.fromEther()
     {
         id: "pcAvtzoITt-q-ut90VhcVA",
         name: "Minimal constructor with 'demo' ID",
         description: "Use the magic 'demo' id to get a randomly generated IRUT assigned to the ID.",
-        opcRequest: { id: "demo" },
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: { id: "demo" }
+                    }
+                }
+            }
+        }
     },
+    */
 
     {
         id: "l_P652EhQU6_z7afrV-PMQ",
