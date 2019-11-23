@@ -173,9 +173,17 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "waM_L9rTT6ySTY4ja__K3g",
         name: "Invalid OCD template spec #5",
         description: "OCD template namespace ~ is not allowed to use an array value for the ____types directive.",
-        opcRequest: {
-            id: "waM_L9rTT6ySTY4ja__K3g",
-            ocdTemplateSpec: { ____types: [ "jsObject" ] } // valid filter spec, invalid OCD template spec
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "waM_L9rTT6ySTY4ja__K3g",
+                            ocdTemplateSpec: { ____types: [ "jsObject" ] } // valid filter spec, invalid OCD template spec
+                        }
+                    }
+                }
+            }
         }
     },
 
@@ -183,9 +191,17 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "X5zbSBkaQeG6Wft5cGVRwg",
         name: "Invalid OCD template spec #6",
         description: "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive.",
-        opcRequest: {
-            id: "X5zbSBkaQeG6Wft5cGVRwg",
-            ocdTemplateSpec: { ____types: "jsString" } // valid filter spec, invalid OCD template spec
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "X5zbSBkaQeG6Wft5cGVRwg",
+                            ocdTemplateSpec: { ____types: "jsString" } // valid filter spec, invalid OCD template spec
+                        }
+                    }
+                }
+            }
         }
     },
 
@@ -193,9 +209,17 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "nCoUIS0RTlmuKUSpimee7A",
         name: "Invalid OCD template spec #7",
         description: "OCD template namespace ~ is only allowed to use one quanderscore directive, ____types.",
-        opcRequest: {
-            id: "nCoUIS0RTlmuKUSpimee7A",
-            ocdTemplateSpec: { ____types: "jsObject", ____defaultValue: {} }
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "nCoUIS0RTlmuKUSpimee7A",
+                            ocdTemplateSpec: { ____types: "jsObject", ____defaultValue: {} }
+                        }
+                    }
+                }
+            }
         }
     },
 
@@ -203,14 +227,22 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "FxMOqQPARcGcMZ24x2tq7A",
         name: "Invalid OCD template spec #7",
         description: "Test our ability to extend the OPC-managed root namespace, ~.",
-        opcRequest: {
-            id: "FxMOqQPARcGcMZ24x2tq7A",
-            ocdTemplateSpec: {
-                ____types: "jsObject",
-                testString: {
-                    ____label: "Test Namespace 1",
-                    ____accept: "jsString",
-                    ____defaultValue: "Please specify a value for ~.testString."
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "FxMOqQPARcGcMZ24x2tq7A",
+                            ocdTemplateSpec: {
+                                ____types: "jsObject",
+                                testString: {
+                                    ____label: "Test Namespace 1",
+                                    ____accept: "jsString",
+                                    ____defaultValue: "Please specify a value for ~.testString."
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -220,17 +252,25 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "fzc39RvNTLmHF5UNn_-Fng",
         name: "Valid ID, ocdTemplateSpec, data",
         description: "Valid OPC instance + dev ocdTemplateSpec + invalid valid init data",
-        opcRequest: {
-            id: "fzc39RvNTLmHF5UNn_-Fng",
-            ocdTemplateSpec: {
-                ____types: "jsObject",
-                testString: {
-                    ____label: "Test Namespace 1",
-                    ____accept: "jsString",
-                    ____defaultValue: "Please specify a value for ~.testString."
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "fzc39RvNTLmHF5UNn_-Fng",
+                            ocdTemplateSpec: {
+                                ____types: "jsObject",
+                                testString: {
+                                    ____label: "Test Namespace 1",
+                                    ____accept: "jsString",
+                                    ____defaultValue: "Please specify a value for ~.testString."
+                                }
+                            },
+                            ocdInitData: { testString: 3.1415926536 }
+                        }
+                    }
                 }
-            },
-            ocdInitData: { testString: 3.1415926536 }
+            }
         }
     },
 
@@ -238,17 +278,25 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "DipB21oZR5ihBCYESC5HWw",
         name: "Valid ID, ocdTemplateSpec, data",
         description: "Valid OPC instance + dev ocdTemplateSpec + valid init data",
-        opcRequest: {
-            id: "DipB21oZR5ihBCYESC5HWw",
-            ocdTemplateSpec: {
-                ____types: "jsObject",
-                testString: {
-                    ____label: "Test Namespace 1",
-                    ____accept: "jsString",
-                    ____defaultValue: "Please specify a value for ~.testString."
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "DipB21oZR5ihBCYESC5HWw",
+                            ocdTemplateSpec: {
+                                ____types: "jsObject",
+                                testString: {
+                                    ____label: "Test Namespace 1",
+                                    ____accept: "jsString",
+                                    ____defaultValue: "Please specify a value for ~.testString."
+                                }
+                            },
+                            ocdInitData: { testString: "Hello, World!" }
+                        }
+                    }
                 }
-            },
-            ocdInitData: { testString: "Hello, World!" }
+            }
         }
     },
 
@@ -256,14 +304,22 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
         id: "np4M1LDWSyeNXOmFYJulhA",
         name: "Invalid OPC template spec binding #1",
         description: "Pass an OCD template spec w/invalid OPM binding IRUT",
-        opcRequest: {
-            id: "np4M1LDWSyeNXOmFYJulhA",
-            ocdTemplateSpec: {
-                ____types: "jsObject",
-                app: {
-                    ____types: "jsObject",
-                    ____defaultValue: {},
-                    ____appdsl: { opm: "not and IRUT" }
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "np4M1LDWSyeNXOmFYJulhA",
+                            ocdTemplateSpec: {
+                                ____types: "jsObject",
+                                app: {
+                                    ____types: "jsObject",
+                                    ____defaultValue: {},
+                                    ____appdsl: { opm: "not and IRUT" }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -114,7 +114,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
             // Save the normalized copy of the dev-specified ocdTemplateSpec. This is useful to developers.
-            result.ocdTemplateSpec = arccore.util.clone(factoryResponse.result.filterDescriptor.inputFilterSpec);
+            result.ocdTemplateSpec = JSON.parse(JSON.stringify(factoryResponse.result.filterDescriptor.inputFilterSpec));
 
             // ================================================================
             // Find all the OPM-bound namespaces in the developer-defined OCD template spec
@@ -126,10 +126,10 @@ const factoryResponse = arccore.filter.create({
             const errorRootNamespace = `Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: "jsObject" quanderscore directive; no other directives are allowed in ~ namespace.`
 
             // Analyze the type constraint on the root namespace, ~, of the ocdTemplateSpec.
-            if (request_.ocdTemplateSpec.____opaque ||
-                request_.ocdTemplateSpec.____accept ||
-                Array.isArray(request_.ocdTemplateSpec.____types) ||
-                (request_.ocdTemplateSpec.____types !== "jsObject")
+            if (result.ocdTemplateSpec.____opaque ||
+                result.ocdTemplateSpec.____accept ||
+                Array.isArray(result.ocdTemplateSpec.____types) ||
+                (result.ocdTemplateSpec.____types !== "jsObject")
                ) {
                 errors.push(errorRootNamespace);
                 break;
@@ -141,7 +141,7 @@ const factoryResponse = arccore.filter.create({
                 ...ocdRuntimeSpecAspects.aspects.opcProcessStateRootOverlaySpec
             };
 
-            const keys = Object.keys(request_.ocdTemplateSpec);
+            const keys = Object.keys(result.ocdTemplateSpec);
             let quanderscoreCount = 0;
             while (keys.length) {
                 const key = keys.shift();
@@ -149,7 +149,7 @@ const factoryResponse = arccore.filter.create({
                     quanderscoreCount++;
                     continue;
                 }
-                ocdRuntimeBaseSpec[key] = request_.ocdTemplateSpec[key];
+                ocdRuntimeBaseSpec[key] = JSON.parse(JSON.stringify(request_.ocdTemplateSpec[key]));
             } // while keys
 
             if (quanderscoreCount > 1) {
@@ -157,7 +157,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             } // if quanderscoreCount > 1
 
-            let namespaceQueue = [ { lastSpecPath: null , specPath: "~", specRef: /*request_.ocdTemplateSpec*/ocdRuntimeBaseSpec, newSpecRef: result.ocdRuntimeSpec } ];
+            let namespaceQueue = [ { lastSpecPath: null , specPath: "~", specRef: ocdRuntimeBaseSpec, newSpecRef: result.ocdRuntimeSpec } ];
             while (namespaceQueue.length) {
                 // Retrieve the next record from the queue.
                 let record = namespaceQueue.shift();
