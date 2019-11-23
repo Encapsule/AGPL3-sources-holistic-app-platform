@@ -5,10 +5,10 @@
 # @encapsule/d2r2-components v0.0.26 "crazy-raven"
 
 ```
-Package: @encapsule/d2r2-components v0.0.26 "crazy-raven" build ID "7x1_o9KNTV6TQTgSOGmlUA"
-Sources: Encapsule/holistic#30197f8700c7f0c9fb84589f1a8a9a7116467c5a
+Package: @encapsule/d2r2-components v0.0.26 "crazy-raven" build ID "VNbBbrMqREWmtgyVbvZSwQ"
+Sources: Encapsule/holistic#9fd73175f40156fbee2e3b53a7c9ea9892657e2d
 Purpose: library (Node.js)
-Created: 2019-11-22T23:39:31.000Z
+Created: 2019-11-23T21:52:00.000Z
 License: MIT
 ```
 

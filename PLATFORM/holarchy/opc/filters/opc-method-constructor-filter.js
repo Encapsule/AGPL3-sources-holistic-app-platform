@@ -131,7 +131,7 @@ var factoryResponse = arccore.filter.create({
       } // Save the normalized copy of the dev-specified ocdTemplateSpec. This is useful to developers.
 
 
-      result.ocdTemplateSpec = arccore.util.clone(factoryResponse.result.filterDescriptor.inputFilterSpec); // ================================================================
+      result.ocdTemplateSpec = JSON.parse(JSON.stringify(factoryResponse.result.filterDescriptor.inputFilterSpec)); // ================================================================
       // Find all the OPM-bound namespaces in the developer-defined OCD template spec
       // and synthesize the OCD's runtime filter spec from template + OPM-provided template + OPC overlay aspects.
       // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
@@ -139,7 +139,7 @@ var factoryResponse = arccore.filter.create({
       console.log("> Analyzing OCD template spec and model registrations...");
       var errorRootNamespace = "Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."; // Analyze the type constraint on the root namespace, ~, of the ocdTemplateSpec.
 
-      if (request_.ocdTemplateSpec.____opaque || request_.ocdTemplateSpec.____accept || Array.isArray(request_.ocdTemplateSpec.____types) || request_.ocdTemplateSpec.____types !== "jsObject") {
+      if (result.ocdTemplateSpec.____opaque || result.ocdTemplateSpec.____accept || Array.isArray(result.ocdTemplateSpec.____types) || result.ocdTemplateSpec.____types !== "jsObject") {
         errors.push(errorRootNamespace);
         return "break";
       }
@@ -149,7 +149,7 @@ var factoryResponse = arccore.filter.create({
         ____description: "OPC [".concat(result.id, "::").concat(result.name, "] system process runtime state data managed by OPC instance.")
       }, ocdRuntimeSpecAspects.aspects.opcProcessStateRootOverlaySpec);
 
-      var keys = Object.keys(request_.ocdTemplateSpec);
+      var keys = Object.keys(result.ocdTemplateSpec);
       var quanderscoreCount = 0;
 
       while (keys.length) {
@@ -160,7 +160,7 @@ var factoryResponse = arccore.filter.create({
           continue;
         }
 
-        ocdRuntimeBaseSpec[key] = request_.ocdTemplateSpec[key];
+        ocdRuntimeBaseSpec[key] = JSON.parse(JSON.stringify(request_.ocdTemplateSpec[key]));
       } // while keys
 
 
@@ -173,9 +173,7 @@ var factoryResponse = arccore.filter.create({
       var namespaceQueue = [{
         lastSpecPath: null,
         specPath: "~",
-        specRef:
-        /*request_.ocdTemplateSpec*/
-        ocdRuntimeBaseSpec,
+        specRef: ocdRuntimeBaseSpec,
         newSpecRef: result.ocdRuntimeSpec
       }];
 

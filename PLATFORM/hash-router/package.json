@@ -2,9 +2,9 @@
     "name": "@encapsule/hash-router",
     "version": "0.0.26",
     "codename": "crazy-raven",
-    "buildID": "7x1_o9KNTV6TQTgSOGmlUA",
-    "buildTime": 1574465971,
-    "buildSource": "30197f8700c7f0c9fb84589f1a8a9a7116467c5a",
+    "buildID": "VNbBbrMqREWmtgyVbvZSwQ",
+    "buildTime": 1574545920,
+    "buildSource": "9fd73175f40156fbee2e3b53a7c9ea9892657e2d",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hash-router.git"
