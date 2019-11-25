@@ -12,10 +12,8 @@ mockery.enable();
 mockery.registerMock("@encapsule/holodeck", local_holodeck);
 mockery.registerMock("@encapsule/holarchy", local_holarchy);
 
-const local_holodeckAssets = require("../PLATFORM/holodeck-assets");
-mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
-
 mockery.registerAllowables([
+
     "@encapsule/arccore",
     "./holodeck-package-tests/harnesses",
     "./holodeck-package-tests/vector-sets",
@@ -30,8 +28,23 @@ mockery.registerAllowables([
     "./harnesses/harness-ObservableProcessController",
     "./vector-sets-opc/vector-set-opc-constructor",
     "./vector-sets-opc/vector-set-opc-constructor-bindings",
-    "./fixture-opm-examples"
+    "./fixture-opm-examples",
+
+    "../PLATFORM/holodeck-assets",
+    "./holodeck",
+    "./harnesses",
+    "./harness-test-1",
+    "./harness-test-2",
+    "./harness-test-3",
+    "./harness-test-4",
+    "./harness-test-5"
+
 ]);
+
+const local_holodeckAssets = require("../PLATFORM/holodeck-assets");
+mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
+
+
 // MOCKERY TRICKS
 
 const holodeck = require("@encapsule/holodeck");
