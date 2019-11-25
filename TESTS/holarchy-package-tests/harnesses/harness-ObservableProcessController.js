@@ -1,8 +1,7 @@
-// @viewpath/viewpath5/TESTS/holodeck/harnesses/harness-test-client-app-controller.js
 
 const arccore = require("@encapsule/arccore");
-const holodeck = require("../../../PLATFORM/holodeck");
-const holarchy = require("../../../PLATFORM/holarchy");
+const holodeck = require("@encapsule/holodeck");
+const holarchy = require("@encapsule/holarchy");
 
 
 const factoryResponse = holodeck.harnessFactory.request({

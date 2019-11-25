@@ -1,6 +1,6 @@
 // fixture-opm-examples.js
 
-const holarchy = require("../../../PLATFORM/holarchy");
+const holarchy = require("@encapsule/holarchy");
 
 module.exports = [
 

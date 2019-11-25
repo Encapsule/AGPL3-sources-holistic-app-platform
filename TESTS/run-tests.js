@@ -1,17 +1,43 @@
 #!/usr/bin/env node
 "use strict";
 
+const local_holodeck = require("../PLATFORM/holodeck");
+const local_holarchy = require("../PLATFORM/holarchy");
+
 const path = require("path");
-const holodeck = require("../PLATFORM/holodeck");
+
+const mockery = require("mockery");
+mockery.enable();
+mockery.registerMock("@encapsule/holodeck", local_holodeck);
+mockery.registerMock("@encapsule/holarchy", local_holarchy);
+mockery.registerAllowables([
+    "@encapsule/arccore",
+    "./holodeck-package-tests/harnesses",
+    "./holodeck-package-tests/vector-sets",
+    "./harnesses/harness-test-1",
+    "./harnesses/harness-test-2",
+    "./harnesses/harness-test-3",
+    "./harnesses/harness-test-4",
+    "./harnesses/harness-test-5",
+
+    "./holarchy-package-tests/harnesses",
+    "./holarchy-package-tests/vector-sets",
+    "./harnesses/harness-ObservableProcessController",
+    "./vector-sets-opc/vector-set-opc-constructor",
+    "./vector-sets-opc/vector-set-opc-constructor-bindings",
+    "./fixture-opm-examples"
+]);
+
+const holodeck = require("@encapsule/holodeck");
 const holodeckRunner = holodeck.runnerFilter;
 
-// Test assets.
+// HOLODECK TEST ASSETS
 const holodeckPackageHarnesses = require("./holodeck-package-tests/harnesses");
 const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets");
-
 const holarchyPackageHarnesses = require("./holarchy-package-tests/harnesses");
 const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
 
+// HOLODECK TEST RUNNER DEFINITION
 const runnerResponse = holodeckRunner.request({
     id: "TxK2RjDjS2mQLkm_N8b6_Q",
     name: "Holistic Platform Test Vectors",

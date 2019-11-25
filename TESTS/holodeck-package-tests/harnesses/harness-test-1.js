@@ -1,6 +1,7 @@
 // harness-filter-1.js
 
-const holodeck = require("../../../PLATFORM/holodeck");
+const holodeck = require("@encapsule/holodeck");
+
 
 const factoryResponse = holodeck.harnessFactory.request({
     id: "F1zguurrS9-fcdvLk7TCrg",
