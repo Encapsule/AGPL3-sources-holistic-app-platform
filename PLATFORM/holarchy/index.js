@@ -1,5 +1,6 @@
 "use strict";
 
+// @encapsule/holarchy package exports:
 var packageMeta = require("./package.json");
 
 var ObservableControllerData = require("./opc/ObservableControllerData");
@@ -23,28 +24,22 @@ module.exports = {
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   },
-  // ObservableProcessController ES6 class.
+  // ================================================================
+  // @encapsule/holarchy ES6 class exports:
+  // ObservableProcessController (OPC) ES6 class.
   ObservableProcessController: ObservableProcessController,
-  // Observable Process Model ES6 class.
+  // Observable Process Model (OPM) ES6 class.
   ObservableProcessModel: ObservableProcessModel,
-  // TransitionOperator filter wrapper ES6 class.
+  // TransitionOperator (TOP) filter wrapper ES6 class.
   TransitionOperator: TransitionOperator,
-  // ControllerAction filter wrapper ES6 class.
+  // ControllerAction (ACT) filter wrapper ES6 class.
   ControllerAction: ControllerAction,
-  // ObservableControllerData ES6 class.
-  // Ocassionally it's useful to apply OCD standalone.
-  // Mostly, we just use the OCD instance managed
-  // inside of an OPC however.
+  // ObservableControllerData (OCD) ES6 class.
   ObservableControllerData: ObservableControllerData,
+  // DEPRECATED: ApplicationStateController is deprecated. Use OCD.
+  ApplicationDataStore: ObservableControllerData,
   core: {
     // TODO: lib/core/ or split out to separate holistic-generated package.
     TransitionOperators: TransitionOperators
-  },
-  // ================================================================
-  // DEPRECATED: ApplicationStateController is deprecated.
-  // ObservableControllerData class is aliased below. It is backwards
-  // compatible with ApplicationDataStore. Once we integrate OPC
-  // this export will be removed. If you actually want an uncontrolled
-  // OCD then the class is exported above.
-  ApplicationDataStore: ObservableControllerData
+  }
 };
