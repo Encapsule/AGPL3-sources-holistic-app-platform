@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy-sml",
     "version": "0.0.26",
     "codename": "crazy-raven",
-    "buildID": "J_11PoiPRc27-PPvSf7wqg",
-    "buildTime": 1574704291,
-    "buildSource": "258fb9a3fa96a96fe71bcb4852257f8233e19c06",
+    "buildID": "7_vKqI8JRsCLkRxTEYeZMQ",
+    "buildTime": 1574705782,
+    "buildSource": "b36012be9398e33fe9793e456ef34c1db0abd42c",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy-sml.git"

@@ -5,10 +5,10 @@
 # @encapsule/holarchy-sml v0.0.26 "crazy-raven"
 
 ```
-Package: @encapsule/holarchy-sml v0.0.26 "crazy-raven" build ID "J_11PoiPRc27-PPvSf7wqg"
-Sources: Encapsule/holistic#258fb9a3fa96a96fe71bcb4852257f8233e19c06
+Package: @encapsule/holarchy-sml v0.0.26 "crazy-raven" build ID "7_vKqI8JRsCLkRxTEYeZMQ"
+Sources: Encapsule/holistic#b36012be9398e33fe9793e456ef34c1db0abd42c
 Purpose: library (Node.js)
-Created: 2019-11-25T17:51:31.000Z
+Created: 2019-11-25T18:16:22.000Z
 License: MIT
 ```
 
