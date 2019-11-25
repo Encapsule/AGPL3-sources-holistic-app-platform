@@ -1,15 +1,20 @@
 #!/usr/bin/env node
 "use strict";
 
+const path = require("path");
+
+// MOCKERY TRICKS
 const local_holodeck = require("../PLATFORM/holodeck");
 const local_holarchy = require("../PLATFORM/holarchy");
-
-const path = require("path");
 
 const mockery = require("mockery");
 mockery.enable();
 mockery.registerMock("@encapsule/holodeck", local_holodeck);
 mockery.registerMock("@encapsule/holarchy", local_holarchy);
+
+const local_holodeckAssets = require("../PLATFORM/holodeck-assets");
+mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
+
 mockery.registerAllowables([
     "@encapsule/arccore",
     "./holodeck-package-tests/harnesses",
@@ -27,12 +32,15 @@ mockery.registerAllowables([
     "./vector-sets-opc/vector-set-opc-constructor-bindings",
     "./fixture-opm-examples"
 ]);
+// MOCKERY TRICKS
 
 const holodeck = require("@encapsule/holodeck");
 const holodeckRunner = holodeck.runnerFilter;
 
+const holodeckAssets = require("@encapsule/holodeck-assets");
+
 // HOLODECK TEST ASSETS
-const holodeckPackageHarnesses = require("./holodeck-package-tests/harnesses");
+const holodeckPackageHarnesses = holodeckAssets.holodeck.harnesses;
 const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets");
 const holarchyPackageHarnesses = require("./holarchy-package-tests/harnesses");
 const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");

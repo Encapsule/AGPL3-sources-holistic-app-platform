@@ -70,6 +70,6 @@ module.exports = {
     // testing all async code that makes sense.
     //
 
-    harnessFactory: require("./lib/holodeck-harness-factory")
+    harnessFactory: require("./lib/holodeck-harness-factory"),
 
 };

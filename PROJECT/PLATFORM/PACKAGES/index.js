@@ -9,6 +9,7 @@ const packages = {
     "@encapsule/holism-metadata": require("./holism-metadata"),
     "@encapsule/holism-services": require("./holism-services"),
     "@encapsule/holodeck": require("./holodeck"),
+    "@encapsule/holodeck-assets": require("./holodeck-assets"),
     "@encapsule/hrequest": require("./hrequest"),
     "@encapsule/d2r2" : require("./d2r2"),
     "@encapsule/d2r2-components": require("./d2r2-components")

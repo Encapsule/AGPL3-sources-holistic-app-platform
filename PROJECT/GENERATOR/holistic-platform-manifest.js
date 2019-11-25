@@ -47,6 +47,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@encapsule/holism-metadata": "./HOLISTIC/holism-metadata",
         "@encapsule/holism-services": "./HOLISTIC/holism-services",
         "@encapsule/holodeck": "./HOLISTIC/holodeck",
+        "@encapsule/holodeck-assets": "./HOLISTIC/holodeck-assets",
         "@encapsule/hrequest": "./HOLISTIC/hrequest",
 
         // Third-party runtime library dependencies.

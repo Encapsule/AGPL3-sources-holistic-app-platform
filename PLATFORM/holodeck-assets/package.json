@@ -1,0 +1,35 @@
+{
+    "name": "@encapsule/holodeck-assets",
+    "version": "0.0.26",
+    "codename": "crazy-raven",
+    "buildID": "Fk9eVntuTW6qwj6DaIyO5g",
+    "buildTime": 1574666641,
+    "buildSource": "94831f9dd49650460d54fe76dfd86c1590271fdf",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holodeck-assets.git"
+    },
+    "author": "Encapsule",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holodeck-assets/issues"
+    },
+    "homepage": "https://github.com/Encapsule/holodeck-assets#readme",
+    "description": "Holdeck assets bundles reusable test harnesses, and test vectors useful for testing apps and services derviced from @encapsule/holistic platform RTL's.",
+    "keywords": [
+        "Encapsule"
+    ],
+    "main": "index.js",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.7",
+        "@encapsule/holodeck": "0.0.26",
+        "@encapsule/holarchy": "0.0.26"
+    }
+}
