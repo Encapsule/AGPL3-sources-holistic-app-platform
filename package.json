@@ -28,6 +28,7 @@
         "handlebars-loader": "^1.7.1",
         "mkdirp": "^0.5.1",
         "mocha": "^5.2.0",
+        "mockery": "^2.1.0",
         "query-string": "^6.2.0",
         "react": "^16.7.0",
         "react-dom": "^16.7.0",
