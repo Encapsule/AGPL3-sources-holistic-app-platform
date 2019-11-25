@@ -28,6 +28,7 @@ TOOL_WEBPACK_FLAGS=--display-modules --verbose --debug --progress --colors --dev
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_HOLARCHY=$(DIR_SOURCES_LIB)/holarchy
+DIR_SOURCES_LIB_HOLARCHY_SML=$(DIR_SOURCES_LIB)/holarchy-sml
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
 DIR_SOURCES_LIB_HOLISM_METADATA=$(DIR_SOURCES_LIB)/holism-metadata
 DIR_SOURCES_LIB_HOLISM_SERVICES=$(DIR_SOURCES_LIB)/holism-services
@@ -41,6 +42,7 @@ DIR_SOURCES_LIB_HOLODECK_ASSETS=$(DIR_SOURCES_LIB)/holodeck-assets
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
 DIR_BUILD_LIB_HOLARCHY=$(DIR_BUILD_LIB)/holarchy
+DIR_BUILD_LIB_HOLARCHY_SML=$(DIR_BUILD_LIB)/holarchy-sml
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
 DIR_BUILD_LIB_HOLISM_METADATA=$(DIR_BUILD_LIB)/holism-metadata
 DIR_BUILD_LIB_HOLISM_SERVICES=$(DIR_BUILD_LIB)/holism-services
@@ -54,6 +56,7 @@ DIR_BUILD_LIB_HOLODECK_ASSETS=$(DIR_BUILD_LIB)/holodeck-assets
 DIR_DISTS=$(DIR_ROOT)/DISTS
 DIR_DISTS_LIB=$(DIR_DISTS)/LIB
 DIR_DIST_LIB_HOLARCHY=$(DIR_DISTS_LIB)/holarchy
+DIR_DIST_LIB_HOLARCHY_SML=$(DIR_DISTS_LIB)/holarchy-sml
 DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
 DIR_DIST_LIB_HOLISM_METADATA=$(DIR_DISTS_LIB)/holism-metadata
 DIR_DIST_LIB_HOLISM_SERVICES=$(DIR_DISTS_LIB)/holism-services
@@ -108,7 +111,7 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo source_packages_clean target complete.
 
-source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_d2r2 source_package_build_d2r2_components source_package_build_holodeck source_package_build_holodeck_assets
+source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_holarchy_sml source_package_build_d2r2 source_package_build_d2r2_components source_package_build_holodeck source_package_build_holodeck_assets
 	@echo source_packages_build complete.
 
 source_package_build_hash_router:
@@ -200,6 +203,20 @@ source_package_build_holarchy:
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)/docs
 	@echo source_package_build_holarchy complete.
 
+source_package_build_holarchy_sml:
+	@echo source_package_build_holarchy_sml...
+	mkdir -p $(DIR_BUILD_LIB_HOLARCHY_SML)
+
+	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY_SML)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY_SML)/* $(DIR_BUILD_LIB_HOLARCHY_SML)/
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLARCHY_SML) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLARCHY_SML)
+
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holarchy-sml" > $(DIR_BUILD_LIB_HOLARCHY_SML)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLARCHY_SML)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLARCHY_SML)
+	mkdir -p $(DIR_BUILD_LIB_HOLARCHY_SML)/docs
+	@echo source_package_build_holarchy_sml complete.
+
 source_package_build_holodeck:
 	@echo source_package_build_holodeck...
 	mkdir -p $(DIR_BUILD_LIB_HOLODECK)
@@ -268,6 +285,7 @@ source_package_build_d2r2_components:
 dist_packages_initialize: dist_packages_clean
 	@echo BEGIN TARGET: dist_packages_initialize
 	git clone git@github.com:Encapsule/holarchy.git $(DIR_DIST_LIB_HOLARCHY)
+	git clone git@github.com:Encapsule/holarchy-sml.git $(DIR_DIST_LIB_HOLARCHY)
 	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
 	git clone git@github.com:Encapsule/holism-services.git $(DIR_DIST_LIB_HOLISM_SERVICES)
 	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
@@ -285,6 +303,9 @@ dist_packages_status:
 
 	@echo ================================================================
 	cd $(DIR_DIST_LIB_HOLARCHY) && git remote -v && git status
+
+	@echo ================================================================
+	cd $(DIR_DIST_LIB_HOLARCHY_SML) && git remote -v && git status
 
 	@echo ================================================================
 	cd $(DIR_DIST_LIB_HOLISM) && git remote -v && git status
@@ -324,7 +345,7 @@ dist_packages_reset:
 	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets
 	@echo COMPLETE TARGET: dist_packages_update
 
 dist_package_update_hash_router:
@@ -338,6 +359,12 @@ dist_package_update_holarchy:
 	mkdir -p $(DIR_DIST_LIB_HOLARCHY)
 	cp -Rp $(DIR_BUILD_LIB_HOLARCHY) $(DIR_DISTS_LIB)
 	@echo END TARGET: dist_package_update_holarchy
+
+dist_package_update_holarchy_sml:
+	@echo BEGIN TARGET: dist_package_update_holarchy_sml
+	mkdir -p $(DIR_DIST_LIB_HOLARCHY_SML)
+	cp -Rp $(DIR_BUILD_LIB_HOLARCHY_SML) $(DIR_DISTS_LIB)
+	@echo END TARGET: dist_package_update_holarchy_sml
 
 dist_package_update_holism:
 	@echo BEGIN TARGET: dist_package_update_holism

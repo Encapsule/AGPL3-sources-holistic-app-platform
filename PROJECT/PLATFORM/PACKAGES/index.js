@@ -5,6 +5,7 @@
 const packages = {
     "@encapsule/hash-router": require("./hash-router"),
     "@encapsule/holarchy": require("./holarchy"),
+    "@encapsule/holarchy-sml": require("./holarchy-sml"),
     "@encapsule/holism": require("./holism"),
     "@encapsule/holism-metadata": require("./holism-metadata"),
     "@encapsule/holism-services": require("./holism-services"),

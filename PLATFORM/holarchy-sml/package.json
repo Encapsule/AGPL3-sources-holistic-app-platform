@@ -1,0 +1,34 @@
+{
+    "name": "@encapsule/holarchy-sml",
+    "version": "0.0.26",
+    "codename": "crazy-raven",
+    "buildID": "J_11PoiPRc27-PPvSf7wqg",
+    "buildTime": 1574704291,
+    "buildSource": "258fb9a3fa96a96fe71bcb4852257f8233e19c06",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holarchy-sml.git"
+    },
+    "author": "Encapsule",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holarchy-sml/issues"
+    },
+    "homepage": "https://github.com/Encapsule/holarchy-sml#readme",
+    "description": "@encapsule/holarchy standard model library contains reusable ObservableProcessModels, TransitionOperators, ControllerActions, and shared OCD template specs.",
+    "keywords": [
+        "Encapsule"
+    ],
+    "main": "index.js",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.7",
+        "@encapsule/holarchy": "0.0.26"
+    }
+}
