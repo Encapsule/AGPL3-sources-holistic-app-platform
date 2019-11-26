@@ -155,7 +155,7 @@ class ObservableProcessController {
             // actions delegate to sub-actions by calling OPC.act method this step
             // is explicitly skipped. We only re-evaluate the system when the
             // action(s) have completed their work.
-            if (!this._private.opcActorStack.length === 1) {
+            if (this._private.opcActorStack.length === 1) {
                 response = this._evaluate();
             }
 

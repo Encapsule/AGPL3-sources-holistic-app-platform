@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.26 "crazy-raven"
 
 ```
-Package: @encapsule/hash-router v0.0.26 "crazy-raven" build ID "-xhLsEhmTr6FkA_fNX5e7A"
-Sources: Encapsule/holistic#d61e421b215e769f0aae28b8f97811618101d86b
+Package: @encapsule/hash-router v0.0.26 "crazy-raven" build ID "cXNnjdx0RECOOLGvk__ADA"
+Sources: Encapsule/holistic#f09242ba08af4bafeb3e1cdbe15cc0b5d6af617b
 Purpose: library (Node.js)
-Created: 2019-11-26T16:15:21.000Z
+Created: 2019-11-26T19:14:19.000Z
 License: MIT
 ```
 

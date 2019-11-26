@@ -172,7 +172,7 @@ function () {
         // action(s) have completed their work.
 
 
-        if (!this._private.opcActorStack.length === 1) {
+        if (this._private.opcActorStack.length === 1) {
           response = this._evaluate();
         }
 
