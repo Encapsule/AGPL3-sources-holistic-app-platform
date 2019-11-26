@@ -7,6 +7,7 @@
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
+            "4nw2B9oVQYm1ZspZqotrRA",
             "ChcuyPLCSQCsICTprPzfog",
             "DipB21oZR5ihBCYESC5HWw",
             "ElMglky8TBGkzkd6W4690A",
@@ -36,7 +37,6 @@
             "waM_L9rTT6ySTY4ja__K3g"
           ],
           "rejected": [
-            "4nw2B9oVQYm1ZspZqotrRA",
             "zxKqk_YOTme-e0AExJUhmg"
           ],
           "errors": [
@@ -73,7 +73,7 @@
                   }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [wGfi5sebXeaD6ARrJfyWYA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaNnppVtDK0vT-ucAqvf8Q::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TranisitionOperator Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsVRVdrxTNvzPj7OQrDwAg::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::ObservableProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
                 }
               }
             }
@@ -234,7 +234,7 @@
                   }
                 },
                 "harnessResponse": {
-                  "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: Oh, snap! (Error: Oh, snap!\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holodeck/harnesses/harness-test-4.js:20:11)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:100:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:98:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:225:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:62:39)\n    at Module._compile (internal/modules/cjs/loader.js:688:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10))."
+                  "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4]: Unexpected harness filter exception: Oh, snap! (Error: Oh, snap!\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holodeck/harnesses/harness-test-4.js:20:11)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:100:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:98:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:225:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:64:39)\n    at Module._compile (internal/modules/cjs/loader.js:688:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10))."
                 }
               }
             }
@@ -2047,15 +2047,234 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
               "4nw2B9oVQYm1ZspZqotrRA": {
                 "harnessRequest": {
                   "id": "4nw2B9oVQYm1ZspZqotrRA",
                   "name": "OCD template spec OPM binding #1",
-                  "description": "OPM binding test #1: Baseline - registered OPM's but no declared bindigs."
+                  "description": "OPM binding test #1: Baseline - registered OPM's but no declared bindigs.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "4nw2B9oVQYm1ZspZqotrRA",
+                            "observableProcessModelSets": [
+                              [
+                                {
+                                  "declaration": {
+                                    "id": "_vC2O7DGTZ22R5hvxpy0WQ",
+                                    "name": "OPM Test A",
+                                    "description": "A simple test OPM",
+                                    "opmDataSpec": {
+                                      "____types": "jsObject"
+                                    },
+                                    "steps": {}
+                                  },
+                                  "digraph": {
+                                    "name": "OPM Test A",
+                                    "description": "A simple test OPM",
+                                    "vlist": [],
+                                    "elist": []
+                                  }
+                                },
+                                {
+                                  "declaration": {
+                                    "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                                    "name": "OPM Test B",
+                                    "description": "A simple test OPM",
+                                    "opmDataSpec": {
+                                      "____types": "jsObject"
+                                    },
+                                    "steps": {}
+                                  },
+                                  "digraph": {
+                                    "name": "OPM Test B",
+                                    "description": "A simple test OPM",
+                                    "vlist": [],
+                                    "elist": []
+                                  }
+                                },
+                                {
+                                  "declaration": {
+                                    "id": "Pkr1EErLSiiHQRt8gCaO0Q",
+                                    "name": "OPM Test C",
+                                    "description": "A simple test OPM",
+                                    "opmDataSpec": {
+                                      "____types": "jsObject"
+                                    },
+                                    "steps": {}
+                                  },
+                                  "digraph": {
+                                    "name": "OPM Test C",
+                                    "description": "A simple test OPM",
+                                    "vlist": [],
+                                    "elist": []
+                                  }
+                                },
+                                {
+                                  "declaration": {
+                                    "id": "ZFpRfMRETDqavS3EqEuv1Q",
+                                    "name": "OPC Test D",
+                                    "description": "A simple test OPM",
+                                    "opmDataSpec": {
+                                      "____types": "jsObject"
+                                    },
+                                    "steps": {}
+                                  },
+                                  "digraph": {
+                                    "name": "OPC Test D",
+                                    "description": "A simple test OPM",
+                                    "vlist": [],
+                                    "elist": []
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [dzp-jUs_SWSCycMqsdFm6g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "4nw2B9oVQYm1ZspZqotrRA": {
+                          "opcToJSON": {
+                            "id": "4nw2B9oVQYm1ZspZqotrRA",
+                            "name": "Unnamed OPC",
+                            "description": "Undescribed OPC",
+                            "opmMap": {
+                              "_vC2O7DGTZ22R5hvxpy0WQ": {
+                                "declaration": {
+                                  "id": "_vC2O7DGTZ22R5hvxpy0WQ",
+                                  "name": "OPM Test A",
+                                  "description": "A simple test OPM",
+                                  "opmDataSpec": {
+                                    "____types": "jsObject"
+                                  },
+                                  "steps": {}
+                                },
+                                "digraph": {
+                                  "name": "OPM Test A",
+                                  "description": "A simple test OPM",
+                                  "vlist": [],
+                                  "elist": []
+                                }
+                              },
+                              "SyCUD3kpQ8mtYbV5A_4BPA": {
+                                "declaration": {
+                                  "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                                  "name": "OPM Test B",
+                                  "description": "A simple test OPM",
+                                  "opmDataSpec": {
+                                    "____types": "jsObject"
+                                  },
+                                  "steps": {}
+                                },
+                                "digraph": {
+                                  "name": "OPM Test B",
+                                  "description": "A simple test OPM",
+                                  "vlist": [],
+                                  "elist": []
+                                }
+                              },
+                              "Pkr1EErLSiiHQRt8gCaO0Q": {
+                                "declaration": {
+                                  "id": "Pkr1EErLSiiHQRt8gCaO0Q",
+                                  "name": "OPM Test C",
+                                  "description": "A simple test OPM",
+                                  "opmDataSpec": {
+                                    "____types": "jsObject"
+                                  },
+                                  "steps": {}
+                                },
+                                "digraph": {
+                                  "name": "OPM Test C",
+                                  "description": "A simple test OPM",
+                                  "vlist": [],
+                                  "elist": []
+                                }
+                              },
+                              "ZFpRfMRETDqavS3EqEuv1Q": {
+                                "declaration": {
+                                  "id": "ZFpRfMRETDqavS3EqEuv1Q",
+                                  "name": "OPC Test D",
+                                  "description": "A simple test OPM",
+                                  "opmDataSpec": {
+                                    "____types": "jsObject"
+                                  },
+                                  "steps": {}
+                                },
+                                "digraph": {
+                                  "name": "OPC Test D",
+                                  "description": "A simple test OPM",
+                                  "vlist": [],
+                                  "elist": []
+                                }
+                              }
+                            },
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [4nw2B9oVQYm1ZspZqotrRA::Unnamed OPC] Observable Controller Data Store",
+                              "____description": "OPC [4nw2B9oVQYm1ZspZqotrRA::Unnamed OPC] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

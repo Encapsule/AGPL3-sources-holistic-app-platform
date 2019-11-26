@@ -11,25 +11,63 @@ var constructorFilter = require("./filters/cac-method-constructor-filter");
 module.exports =
 /*#__PURE__*/
 function () {
-  function ControllerAction(constructionData_) {
+  function ControllerAction(request_) {
     _classCallCheck(this, ControllerAction);
 
-    var filterResponse = constructorFilter.request(constructionData_);
-
-    if (filterResponse.error) {
-      throw new Error(filterResponse.error);
-    }
+    // #### sourceTag: ufoEHFc9RKOiy4gPXLT1lA
+    console.log("================================================================");
+    console.log("ControllerAction::constructor starting...");
+    var errors = [];
+    var inBreakScope = false; // Allocate private per-class-instance state.
 
     this._private = {
-      controllerActionFilter: filterResponse.result
+      constructorError: null
     };
+    this.isValid = this.isValid.bind(this);
+    this.toJSON = this.toJSON.bind(this);
     this.getFilter = this.getFilter.bind(this);
+
+    while (!inBreakScope) {
+      inBreakScope = true;
+      var filterResponse = constructorFilter.request(request_);
+
+      if (filterResponse.error) {
+        errors.push(filterResponse.error);
+        break;
+      }
+
+      this._private = filterResponse.result;
+      break;
+    }
+
+    if (errors.length) {
+      errors.unshift("ControllerAction::constructor failed yielding a zombie instance.");
+      this._private.constructorError = errors.join(" ");
+    }
   }
 
   _createClass(ControllerAction, [{
+    key: "isValid",
+    value: function isValid() {
+      return !this._private.constructorError;
+    }
+  }, {
+    key: "toJSON",
+    value: function toJSON() {
+      if (!this.isValid()) {
+        return this._private.constructorError;
+      }
+
+      return this._private.filterDescriptor;
+    }
+  }, {
     key: "getFilter",
     value: function getFilter() {
-      return this._private.controllerActionFilter;
+      if (!this.isValid()) {
+        return this._private.constructorError;
+      }
+
+      return this._private;
     }
   }]);
 

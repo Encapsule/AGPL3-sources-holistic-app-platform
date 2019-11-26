@@ -22,7 +22,9 @@ function () {
     console.log("================================================================");
     console.log("ObservableProcessController::constructor starting...");
     var errors = [];
-    var inBreakScope = false;
+    var inBreakScope = false; // Allocate private per-class-instance state.
+
+    this._private = {};
 
     while (!inBreakScope) {
       inBreakScope = true; // ----------------------------------------------------------------
@@ -33,9 +35,7 @@ function () {
       this.toJSON = this.toJSON.bind(this);
       this.act = this.act.bind(this); // private
 
-      this._evaluate = this._evaluate.bind(this); // Allocate private, per-class-instance state.
-
-      this._private = {}; // ----------------------------------------------------------------
+      this._evaluate = this._evaluate.bind(this); // ----------------------------------------------------------------
       // Normalize the incoming request descriptor object.
 
       var filterResponse = constructorRequestFilter.request(request_);
