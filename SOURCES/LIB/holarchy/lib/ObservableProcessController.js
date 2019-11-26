@@ -112,10 +112,6 @@ class ObservableProcessController {
 
     act(request_) {
 
-        if (!this.isValid()) {
-            return this.isValid({ getError: true });
-        }
-
         let response = { error: null };
         let errors = [];
         let inBreakScope = false;
@@ -123,17 +119,42 @@ class ObservableProcessController {
         while (!inBreakScope) {
             inBreakScope = true;
 
-            // Push the stack.
-            this._private.opcActorStack.push(request_);
-
-            console.log("WE ARE ABOUT TO ACT.");
-            let actionResponse = this._private.actionDispatcher.request(request_);
-
-            if (actionResponse.error) {
-                errors.push(actionResponse.error);
+            if (!this.isValid()) {
+                errors.push(this.toJSON()); // this digs out the construction error
                 break;
             }
 
+            // Push the actor stack.
+            // If called by an external subroutine, the stack will initially be empty.
+            this._private.opcActorStack.push(request_);
+
+            // If a controller action returns an error it's considered a fatal
+            // OPC transport error (i.e. operator, action, model evaluation errors).
+            // Typically, actions encounter _applicaiton-level_ error conditions
+            // that are stored in the OPC's contained OCD via some app-defined
+            // protocol (e.g. a list of errors in a namespace in the OCD would suffice).
+
+            let actionResponse = this._private.actionDispatcher.request(request_);
+
+            if (actionResponse.error) {
+                // If a transport error occurred dispatching the controller action,
+                // skip any futher processing (including a possible evaluation)
+                // and return. Transport errors represent serious flaws in a derived
+                // app/service that must be corrected. We skip possible evaluation
+                // below on error to make it simpler for developers to diagnose
+                // the transport error.
+                errors.push(actionResponse.error);
+                this._private.opcActorStack.pop();
+                break;
+            }
+
+            // If no transport error occured dispatching the controller action,
+            // then re-evaluate the system of observable process models iff
+            // the entire chain of controller action delegations initiated by
+            // the external subroutine caller has completed. Note that as controller
+            // actions delegate to sub-actions by calling OPC.act method this step
+            // is explicitly skipped. We only re-evaluate the system when the
+            // action(s) have completed their work.
             if (!this._private.opcActorStack.length === 1) {
                 response = this._evaluate();
             }
@@ -145,6 +166,7 @@ class ObservableProcessController {
 
         if (errors.length) {
             response.error = errors.join(" ");
+            console.error(`OPC.act transport error: ${response.error}`);
         }
 
         return response;

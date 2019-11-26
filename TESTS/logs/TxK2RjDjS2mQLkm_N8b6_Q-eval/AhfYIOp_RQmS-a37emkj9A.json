@@ -1,0 +1,34 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "bvj2u51Uw5_SD1TRZNpwXA": {
+      "AhfYIOp_RQmS-a37emkj9A": {
+        "harnessRequest": {
+          "id": "AhfYIOp_RQmS-a37emkj9A",
+          "name": "OPC.act dispatch #1",
+          "description": "Dispatch an OPC.act method with no actions registered.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessController": {
+                  "constructorRequest": {
+                    "id": "AhfYIOp_RQmS-a37emkj9A",
+                    "name": "OPC.act dispatch #1",
+                    "description": "Not expected to do much..."
+                  },
+                  "actRequests": [
+                    {
+                      "bogus": "Our OPCi has no registered actions. So, by definition this request will result in an error."
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness]: Unexpected harness filter exception: act_ is not defined (ReferenceError: act_ is not defined\n    at /home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holarchy/harnesses/harness-ObservableProcessController.js:115:21\n    at Array.forEach (<anonymous>)\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holarchy/harnesses/harness-ObservableProcessController.js:101:29)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:100:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:98:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:225:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:64:39))."
+        }
+      }
+    }
+  }
+}
