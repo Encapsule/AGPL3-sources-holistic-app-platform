@@ -5,10 +5,10 @@
 # @encapsule/holism-services v0.0.26 "crazy-raven"
 
 ```
-Package: @encapsule/holism-services v0.0.26 "crazy-raven" build ID "EYykZ0wnQKOY97DrltYytQ"
-Sources: Encapsule/holistic#1fb5a429f3e34a425b0d17eff194b90f939cc2a6
+Package: @encapsule/holism-services v0.0.26 "crazy-raven" build ID "PSGLSkaiRpmvnCoRB6uU_g"
+Sources: Encapsule/holistic#f03c70150117e3200bb96c0c514800e0eacc62b8
 Purpose: library (Node.js)
-Created: 2019-11-26T05:53:27.000Z
+Created: 2019-11-26T07:06:32.000Z
 License: MIT
 ```
 

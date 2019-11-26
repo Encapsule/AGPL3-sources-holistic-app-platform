@@ -1,7 +1,7 @@
 
-const TransitionOperator = require("../../opc/TransitionOperator");
+const holarchy = require("@encapsule/holarchy");
 
-module.exports = new TransitionOperator({
+module.exports = new holarchy.TransitionOperator({
     id:  "TLSHkl73SO-utuzM7dyN2g",
     name: "NOT Transition Expression Operator",
     description: "Input negation operator.",

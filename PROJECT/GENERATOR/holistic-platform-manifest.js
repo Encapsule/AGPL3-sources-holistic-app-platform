@@ -43,6 +43,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@encapsule/d2r2-components": "./HOLISTIC/d2r2-components",
         "@encapsule/hash-router": "./HOLISTIC/hash-router",
         "@encapsule/holarchy": "./HOLISTIC/holarchy",
+        "@encapsule/holarchy-sml": "./HOLISTIC/holarchy-sml",
         "@encapsule/holism": "./HOLISTIC/holism",
         "@encapsule/holism-metadata": "./HOLISTIC/holism-metadata",
         "@encapsule/holism-services": "./HOLISTIC/holism-services",

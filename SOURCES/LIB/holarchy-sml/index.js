@@ -2,6 +2,7 @@
 // @encapsule/holarchy-sml package exports:
 
 const packageMeta = require("./package.json");
+const standardModelLibrary = require("./lib");
 
 module.exports = {
 
@@ -12,6 +13,6 @@ module.exports = {
         codename: packageMeta.codename,
         build: packageMeta.buildID,
         source: packageMeta.buildSource
-    }
-
+    },
+    ...standardModelLibrary
 };

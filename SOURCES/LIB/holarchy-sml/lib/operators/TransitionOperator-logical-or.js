@@ -1,13 +1,13 @@
 
-const TransitionOperator = require("../../opc/TransitionOperator");
+const holarchy = require("@encapsule/holarchy");
 
-module.exports = new TransitionOperator({
-    id: "YgABX95wR86GCYrYaDLISA",
-    name: "AND Transition Expression Operator",
+module.exports = new holarchy.TransitionOperator({
+    id:  "0JIva4IFSm6Xm7i38g8uUA",
+    name: "OR Transition Expression Operator",
     description: "missing description",
     operatorRequestSpec: {
         ____types: "jsObject",
-        and: {
+        or: {
             ____types: "jsArray",
             operandOperatorVariant: {
                 ____accept: "jsObject"
@@ -15,16 +15,16 @@ module.exports = new TransitionOperator({
         }
     },
     bodyFunction: function(request_) {
-        var response = { error: null, result: true };
+        var response = { error: null, result: false };
         var errors = [];
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            if (!request_.operator.and.length) {
-                errors.push("Cannot evaluate AND operation with zero operands.");
+            if (!request_.operator.or.length) {
+                errors.push("Cannot evaluate OR operation with zero operands.");
                 break;
             }
-            for (var operatorRequest of request_.operator.and) {
+            for (var operatorRequest of request_.operator.or) {
                 var operatorResponse = request_.context.transitionDispatcher.request({
                     context: request_.context,
                     operator: operatorRequest
@@ -34,8 +34,8 @@ module.exports = new TransitionOperator({
                     errors.push(operatorResponse.error);
                     break;
                 }
-                if (!operatorResponse.result) {
-                    response.result = false;
+                if (operatorResponse.result) {
+                    response.result = true;
                     break;
                 }
             }

@@ -3,13 +3,11 @@
 
 const packageMeta = require("./package.json");
 
-const ObservableControllerData = require("./opc/ObservableControllerData");
-const ObservableProcessController = require("./opc/ObservableProcessController");
-const ObservableProcessModel = require("./opc/ObservableProcessModel");
-const TransitionOperator = require("./opc/TransitionOperator");
-const ControllerAction = require("./opc/ControllerAction");
-
-const TransitionOperators = require("./lib/toperators");
+const ObservableControllerData = require("./lib/ObservableControllerData");
+const ObservableProcessController = require("./lib/ObservableProcessController");
+const ObservableProcessModel = require("./lib/ObservableProcessModel");
+const TransitionOperator = require("./lib/TransitionOperator");
+const ControllerAction = require("./lib/ControllerAction");
 
 module.exports = {
 
@@ -42,9 +40,5 @@ module.exports = {
 
     // DEPRECATED: ApplicationStateController is deprecated. Use OCD.
     ApplicationDataStore: ObservableControllerData,
-
-    core: { // TODO: lib/core/ or split out to separate holistic-generated package.
-        TransitionOperators: TransitionOperators
-    }
 
 };

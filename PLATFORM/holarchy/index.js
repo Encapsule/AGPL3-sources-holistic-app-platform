@@ -3,17 +3,15 @@
 // @encapsule/holarchy package exports:
 var packageMeta = require("./package.json");
 
-var ObservableControllerData = require("./opc/ObservableControllerData");
+var ObservableControllerData = require("./lib/ObservableControllerData");
 
-var ObservableProcessController = require("./opc/ObservableProcessController");
+var ObservableProcessController = require("./lib/ObservableProcessController");
 
-var ObservableProcessModel = require("./opc/ObservableProcessModel");
+var ObservableProcessModel = require("./lib/ObservableProcessModel");
 
-var TransitionOperator = require("./opc/TransitionOperator");
+var TransitionOperator = require("./lib/TransitionOperator");
 
-var ControllerAction = require("./opc/ControllerAction");
-
-var TransitionOperators = require("./lib/toperators");
+var ControllerAction = require("./lib/ControllerAction");
 
 module.exports = {
   __meta: {
@@ -37,9 +35,5 @@ module.exports = {
   // ObservableControllerData (OCD) ES6 class.
   ObservableControllerData: ObservableControllerData,
   // DEPRECATED: ApplicationStateController is deprecated. Use OCD.
-  ApplicationDataStore: ObservableControllerData,
-  core: {
-    // TODO: lib/core/ or split out to separate holistic-generated package.
-    TransitionOperators: TransitionOperators
-  }
+  ApplicationDataStore: ObservableControllerData
 };
