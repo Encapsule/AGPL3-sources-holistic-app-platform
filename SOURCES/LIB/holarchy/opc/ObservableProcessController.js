@@ -15,6 +15,9 @@ class ObservableProcessController {
         let errors = [];
         let inBreakScope = false;
 
+        // Allocate private per-class-instance state.
+        this._private = {};
+
         while (!inBreakScope) {
             inBreakScope = true;
 
@@ -26,9 +29,6 @@ class ObservableProcessController {
             this.act = this.act.bind(this);
             // private
             this._evaluate = this._evaluate.bind(this);
-
-            // Allocate private, per-class-instance state.
-            this._private = {};
 
             // ----------------------------------------------------------------
             // Normalize the incoming request descriptor object.

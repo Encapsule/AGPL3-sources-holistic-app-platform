@@ -3,7 +3,8 @@
 
 const path = require("path");
 
-// MOCKERY TRICKS
+////
+// v--- MOCKERY TRICKS
 const local_holodeck = require("../PLATFORM/holodeck");
 const local_holarchy = require("../PLATFORM/holarchy");
 
@@ -44,8 +45,8 @@ mockery.registerAllowables([
 const local_holodeckAssets = require("../PLATFORM/holodeck-assets");
 mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
 
-
-// MOCKERY TRICKS
+// ^--- MOCKERY TRICKS
+////
 
 const holodeck = require("@encapsule/holodeck");
 const holodeckRunner = holodeck.runnerFilter;
@@ -55,7 +56,8 @@ const holodeckAssets = require("@encapsule/holodeck-assets");
 // HOLODECK TEST ASSETS
 const holodeckPackageHarnesses = holodeckAssets.holodeck.harnesses;
 const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets");
-const holarchyPackageHarnesses = require("./holarchy-package-tests/harnesses");
+
+const holarchyPackageHarnesses = holodeckAssets.holarchy.harnesses;
 const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
 
 // HOLODECK TEST RUNNER DEFINITION

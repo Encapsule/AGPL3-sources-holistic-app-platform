@@ -2,5 +2,6 @@
 // shared test assets
 
 module.exports = {
-    holodeck: require("./holodeck")
+    holodeck: require("./holodeck"),
+    holarchy: require("./holarchy")
 };
