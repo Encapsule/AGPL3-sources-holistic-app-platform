@@ -1,0 +1,37 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "V4rhwuR97Sdl5q9h1CIHTg": {
+      "8UqseWhbQLSnDnKqu6eVpA": {
+        "harnessRequest": {
+          "id": "8UqseWhbQLSnDnKqu6eVpA",
+          "name": "ControllerAction contructor #1",
+          "description": "Test ControllerAction class constructor #1 (undefined constructor request)",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ControllerAction": {}
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "0xHlX_WKQ3y-3CFQ0DDx1w": {
+                "8UqseWhbQLSnDnKqu6eVpA": {
+                  "isValid": false,
+                  "toJSON": "ControllerAction::constructor failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,11 +3,12 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 31,
+        "requests": 33,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
             "4nw2B9oVQYm1ZspZqotrRA",
+            "8UqseWhbQLSnDnKqu6eVpA",
             "AhfYIOp_RQmS-a37emkj9A",
             "ChcuyPLCSQCsICTprPzfog",
             "DipB21oZR5ihBCYESC5HWw",
@@ -35,6 +36,7 @@
             "np4M1LDWSyeNXOmFYJulhA",
             "rxFiX7H-TDG0GsxqtRekoA",
             "sBB6rshGQu2f7S5rA2x9eg",
+            "stn1B2JRSkOkFxuyejzGjQ",
             "waM_L9rTT6ySTY4ja__K3g"
           ],
           "rejected": [
@@ -2311,6 +2313,140 @@
                 },
                 "harnessResponse": {
                   "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness]: Unexpected harness filter exception: act_ is not defined (ReferenceError: act_ is not defined\n    at /home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holarchy/harnesses/harness-ObservableProcessController.js:115:21\n    at Array.forEach (<anonymous>)\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holarchy/harnesses/harness-ObservableProcessController.js:101:29)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:100:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:98:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:225:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:64:39))."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "V4rhwuR97Sdl5q9h1CIHTg": {
+              "8UqseWhbQLSnDnKqu6eVpA": {
+                "harnessRequest": {
+                  "id": "8UqseWhbQLSnDnKqu6eVpA",
+                  "name": "ControllerAction contructor #1",
+                  "description": "Test ControllerAction class constructor #1 (undefined constructor request)",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ControllerAction": {}
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "0xHlX_WKQ3y-3CFQ0DDx1w": {
+                        "8UqseWhbQLSnDnKqu6eVpA": {
+                          "isValid": false,
+                          "toJSON": "ControllerAction::constructor failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "V4rhwuR97Sdl5q9h1CIHTg": {
+              "stn1B2JRSkOkFxuyejzGjQ": {
+                "harnessRequest": {
+                  "id": "stn1B2JRSkOkFxuyejzGjQ",
+                  "name": "ControllerAction constructor #2",
+                  "description": "Test ControllerAction class constructor #2 (minimal constructor request)",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ControllerAction": {
+                          "constructorRequest": {
+                            "id": "stn1B2JRSkOkFxuyejzGjQ",
+                            "name": "ControllAction Test #2",
+                            "description": "A test ControllerAction plug-in filter.",
+                            "actionRequestSpec": {
+                              "____types": "jsObject",
+                              "test": {
+                                "____types": "jsObject",
+                                "action1": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "0xHlX_WKQ3y-3CFQ0DDx1w": {
+                        "stn1B2JRSkOkFxuyejzGjQ": {
+                          "isValid": true,
+                          "toJSON": {
+                            "operationID": "stn1B2JRSkOkFxuyejzGjQ",
+                            "operationName": "ControllAction Test #2",
+                            "operationDescription": "A test ControllerAction plug-in filter.",
+                            "inputFilterSpec": {
+                              "____label": "ControllAction Test #2 Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "dataPath": {
+                                  "____label": "OPM Binding Namespace",
+                                  "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC Action Request Dispatcher",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "test": {
+                                  "____types": "jsObject",
+                                  "action1": {
+                                    "____accept": "jsObject"
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "Atx8FjZfYUxmrFTQQW7XvQ",
+                            "inputTypeVDID": "PtG8ZApondPlh001CPDIdg",
+                            "outputTypeVIID": "2Ct2ZVLNFcvpNEjSjPhVcA",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "yQ2VRNtjZpPFxxOc7_h1cg"
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

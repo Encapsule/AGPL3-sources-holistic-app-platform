@@ -31,7 +31,7 @@ const factoryResponse = holodeck.harnessFactory.request({
 
     harnessBodyFunction: function(request_) {
 
-        const messageBody = request_.holistic.holarchy.ControllerAction;
+        const messageBody = request_.vectorRequest.holistic.holarchy.ControllerAction;
         const controllerAction = new holarchy.ControllerAction(messageBody.constructorRequest);
 
         const response = {
