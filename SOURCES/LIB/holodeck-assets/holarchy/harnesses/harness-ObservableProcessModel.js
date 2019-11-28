@@ -31,7 +31,7 @@ const factoryResponse = holodeck.harnessFactory.request({
 
     harnessBodyFunction: function(request_) {
 
-        const messageBody = request_.holistic.holarchy.ObservableProcessModel;
+        const messageBody = request_.vectorRequest.holistic.holarchy.ObservableProcessModel;
         const observableProcessModel = new holarchy.ObservableProcessModel(messageBody.constructorRequest);
 
         const response = {
