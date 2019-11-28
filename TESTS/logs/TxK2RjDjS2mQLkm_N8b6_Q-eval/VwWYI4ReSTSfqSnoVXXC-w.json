@@ -1,0 +1,59 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XsVRVdrxTNvzPj7OQrDwAg": {
+      "VwWYI4ReSTSfqSnoVXXC-w": {
+        "harnessRequest": {
+          "id": "VwWYI4ReSTSfqSnoVXXC-w",
+          "name": "ObservableProcessModel constructor #2",
+          "description": "ObservableProcessModel constructor test #2 (minimal constructor request)",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessModel": {
+                  "constructorRequest": {
+                    "id": "VwWYI4ReSTSfqSnoVXXC-w",
+                    "name": "OPM #2",
+                    "description": "OPM instance test #2 (minimal constructor request)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "mC3pPO5wS3SxvhgZgMjsJQ": {
+                "VwWYI4ReSTSfqSnoVXXC-w": {
+                  "isValid": true,
+                  "toJSON": {
+                    "declaration": {
+                      "id": "VwWYI4ReSTSfqSnoVXXC-w",
+                      "name": "OPM #2",
+                      "description": "OPM instance test #2 (minimal constructor request)",
+                      "opmDataSpec": {
+                        "____types": "jsObject"
+                      },
+                      "steps": {}
+                    },
+                    "digraph": {
+                      "name": "OPM #2",
+                      "description": "OPM instance test #2 (minimal constructor request)",
+                      "vlist": [],
+                      "elist": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

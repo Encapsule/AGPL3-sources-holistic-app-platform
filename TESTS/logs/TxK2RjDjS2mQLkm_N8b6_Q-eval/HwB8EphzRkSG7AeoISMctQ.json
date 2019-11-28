@@ -1,0 +1,46 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XsVRVdrxTNvzPj7OQrDwAg": {
+      "HwB8EphzRkSG7AeoISMctQ": {
+        "harnessRequest": {
+          "id": "HwB8EphzRkSG7AeoISMctQ",
+          "name": "ObsevableProcessModel constructor #3",
+          "description": "ObservableProcessModel constructor test #3 (OCD test #1)",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessModel": {
+                  "constructorRequest": {
+                    "id": "HwB8EphzRkSG7AeoISMctQ",
+                    "name": "ObsevableProcessModel constructor #3",
+                    "description": "ObservableProcessModel constructor test #3 (OCD test #1)",
+                    "opmDataSpec": {
+                      "____bullshit": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "mC3pPO5wS3SxvhgZgMjsJQ": {
+                "HwB8EphzRkSG7AeoISMctQ": {
+                  "isValid": false,
+                  "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::App State Subcontroller Factory] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

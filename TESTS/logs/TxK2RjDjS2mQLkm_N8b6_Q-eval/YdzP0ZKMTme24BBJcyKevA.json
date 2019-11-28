@@ -1,0 +1,43 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XsVRVdrxTNvzPj7OQrDwAg": {
+      "YdzP0ZKMTme24BBJcyKevA": {
+        "harnessRequest": {
+          "id": "YdzP0ZKMTme24BBJcyKevA",
+          "name": "ObservableProcessModel constructor #4",
+          "description": "ObservableProcessModel constructor test #4 (invalid id)",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessModel": {
+                  "constructorRequest": {
+                    "id": "invalid",
+                    "name": "ObservableProcessModel constructor #4",
+                    "description": "ObservableProcessModel constructor test #4 (invalid id)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "mC3pPO5wS3SxvhgZgMjsJQ": {
+                "YdzP0ZKMTme24BBJcyKevA": {
+                  "isValid": false,
+                  "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::App State Subcontroller Factory] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
