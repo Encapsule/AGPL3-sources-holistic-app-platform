@@ -2,9 +2,9 @@
     "name": "@encapsule/holism",
     "version": "0.0.27",
     "codename": "cypress",
-    "buildID": "vDybg6lsTkK8ZUQjKO5XCA",
-    "buildTime": 1574919319,
-    "buildSource": "06086a9a8bb79b584a85ee360648453712ab51fd",
+    "buildID": "bHkWDvLfQv-3IXm8EbZquQ",
+    "buildTime": 1574957683,
+    "buildSource": "115a1e1ceeba88159ac28ded2d524944a95eacde",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism.git"

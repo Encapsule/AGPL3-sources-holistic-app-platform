@@ -24,6 +24,34 @@ var factoryResponse = arccore.filter.create({
 
     while (!inBreakScope) {
       inBreakScope = true;
+      var irutCheckResponse = arccore.identifier.irut.isIRUT(request_.id);
+
+      if (irutCheckResponse.error || !irutCheckResponse.result) {
+        errors.push("Error validating developer-specified id. Not an IRUT:");
+
+        if (irutCheckResponse.error) {
+          errors.push(irutCheckResponse.error);
+        } else {
+          errors.push(irutCheckResponse.guidance);
+        }
+
+        break;
+      }
+
+      var filterFactoryResponse = arccore.filter.create({
+        operationID: request_.id,
+        operationName: "OPM Filter Spec Validator",
+        operationDescription: "Validates the developer-defined opmDataSpec.",
+        inputFilterSpec: request_.opmDataSpec
+      });
+
+      if (filterFactoryResponse.error) {
+        errors.push("Error validating developer-specified OPM filter spec.");
+        errors.push(filterFactoryResponse.error);
+        break;
+      }
+
+      var opmDataFilter = filterFactoryResponse.result;
       var graphFactoryResponse = arccore.graph.directed.create({
         name: request_.name,
         description: request_.description
@@ -110,7 +138,8 @@ var factoryResponse = arccore.filter.create({
 
       response.result = {
         declaration: request_,
-        digraph: opmDigraph
+        digraph: opmDigraph,
+        opmDataFilter: opmDataFilter
       };
       break;
     }
