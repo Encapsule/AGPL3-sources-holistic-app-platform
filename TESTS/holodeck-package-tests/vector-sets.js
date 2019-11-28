@@ -5,9 +5,9 @@ module.exports = [
         {
             id: "zxKqk_YOTme-e0AExJUhmg",
             name: "Bad message test #1",
-            description: "Attempt to call the harness-filter-1 test harness plug-in.",
+            description: "Send a message that we know there's no harness registered to handle.",
             vectorRequest: {
-                testMessage: { message: "Hello, is anyone there?" }
+                bogusMessage: { message: "Hello, is anyone there?" }
             }
         },
 

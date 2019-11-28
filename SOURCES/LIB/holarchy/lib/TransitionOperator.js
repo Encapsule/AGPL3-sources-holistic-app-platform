@@ -3,18 +3,44 @@ const constructorFilter = require("./filters/top-method-constructor-filter");
 
 module.exports = class TransitionOperator {
     constructor(constructionData_) {
-        let filterResponse = constructorFilter.request(constructionData_);
-        if (filterResponse.error) {
-            throw new Error(filterResponse.error);
+        // #### sourceTag: FuMaLlqkSwW7przxe2XSdw
+        console.log("================================================================");
+        console.log("TransitionOperator::constructor starting...");
+        let errors = [];
+        let inBreakScope = false;
+        while (!inBreakScope) {
+            inBreakScope = true;
+            this._private = { constructorError: null };
+            this.isValid = this.isValid.bind(this);
+            this.toJSON = this.toJSON.bind(this);
+            this.getFilter = this.getFilter.bind(this);
+
+            let filterResponse = constructorFilter.request(constructionData_);
+            if (filterResponse.error) {
+                errors.push(filterResponse.error);
+                break;
+            }
+            this._private = filterResponse.result;
+            break;
         }
-        this._private = {
-            transitionOperatorFilter: filterResponse.result
-        };
-        this.getFilter = this.getFilter.bind(this);
+        if (errors.length) {
+            errors.unshift("TransitionOperator::constructor failed yielding a zombie instance.");
+            this._private.constructorError = errors.join(" ");
+        }
     }
+
+    isValid() {
+        return (!this._private.constructorError);
+    }
+
+    toJSON() {
+        return (this.isValid()?this._private.filterDescriptor:this._private.constructorError);
+    }
+
     getFilter() {
-        return this._private.transitionOperatorFilter;
+        return (this.isValid()?this._private.transitionOperatorFilter:this._private.constructorError);
     }
+
 };
 
 

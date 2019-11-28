@@ -4,7 +4,7 @@ const holarchy = require("@encapsule/holarchy");
 
 const factoryResponse = holodeck.harnessFactory.request({
     id:"X2q-YtvCTrWx7csHq8R8Tw",
-    name: "TranisitionOperator Harness",
+    name: "TransitionOperator Harness",
     description: "Constructs an instance of ES6 class TransitionOperator that is serialized and passed back as response.result.",
 
     // idempotent
@@ -15,7 +15,7 @@ const factoryResponse = holodeck.harnessFactory.request({
             ____types: "jsObject",
             holarchy: {
                 ____types: "jsObject",
-                TranistionOperator: {
+                TransitionOperator: {
                     ____types: "jsObject",
                     constructorRequest: {
                         ____opaque: true
@@ -31,7 +31,7 @@ const factoryResponse = holodeck.harnessFactory.request({
 
     harnessBodyFunction: function(request_) {
 
-        const messageBody = request_.holistic.holarchy.TransitionOperator;
+        const messageBody = request_.vectorRequest.holistic.holarchy.TransitionOperator;
         const transitionOperator = new holarchy.TransitionOperator(messageBody.constructorRequest);
 
         const response = {
