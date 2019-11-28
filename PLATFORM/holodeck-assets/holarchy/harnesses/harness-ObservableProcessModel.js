@@ -31,7 +31,7 @@ var factoryResponse = holodeck.harnessFactory.request({
   },
   // testVectorResultOutputSpec
   harnessBodyFunction: function harnessBodyFunction(request_) {
-    var messageBody = request_.holistic.holarchy.ObservableProcessModel;
+    var messageBody = request_.vectorRequest.holistic.holarchy.ObservableProcessModel;
     var observableProcessModel = new holarchy.ObservableProcessModel(messageBody.constructorRequest);
     var response = {
       error: null,

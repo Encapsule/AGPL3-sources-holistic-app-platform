@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 35,
+        "requests": 36,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -15,6 +15,7 @@
             "ChcuyPLCSQCsICTprPzfog",
             "DipB21oZR5ihBCYESC5HWw",
             "ElMglky8TBGkzkd6W4690A",
+            "ErHlg9R3SSaonNJr4mBi-g",
             "FxMOqQPARcGcMZ24x2tq7A",
             "H2zMrBw4TBie5A2mwH4BRg",
             "IRyR4YazRuWiZp9Rzj6-WA",
@@ -2579,6 +2580,43 @@
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                             "operationVDID": "fJLtRM_jNpNlT3Sc7k2rcg"
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "XsVRVdrxTNvzPj7OQrDwAg": {
+              "ErHlg9R3SSaonNJr4mBi-g": {
+                "harnessRequest": {
+                  "id": "ErHlg9R3SSaonNJr4mBi-g",
+                  "name": "ObservableProcessModel constructor #1",
+                  "description": "ObservableProcessModel constructor test #1 (undefined constructor request)",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessModel": {}
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "mC3pPO5wS3SxvhgZgMjsJQ": {
+                        "ErHlg9R3SSaonNJr4mBi-g": {
+                          "isValid": false,
+                          "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::App State Subcontroller Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                         }
                       }
                     }

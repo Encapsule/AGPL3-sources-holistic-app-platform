@@ -2,7 +2,7 @@
 const constructorFilter = require("./filters/top-method-constructor-filter");
 
 module.exports = class TransitionOperator {
-    constructor(constructionData_) {
+    constructor(request_) {
         // #### sourceTag: FuMaLlqkSwW7przxe2XSdw
         console.log("================================================================");
         console.log("TransitionOperator::constructor starting...");
@@ -15,7 +15,7 @@ module.exports = class TransitionOperator {
             this.toJSON = this.toJSON.bind(this);
             this.getFilter = this.getFilter.bind(this);
 
-            let filterResponse = constructorFilter.request(constructionData_);
+            let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
                 break;

@@ -15,52 +15,75 @@ function () {
   function ObservableProcessModel(request_) {
     _classCallCheck(this, ObservableProcessModel);
 
-    // TODO: OPM should not throw.
-    var filterResponse = constructorRequestFilter.request(request_);
+    // #### sourceTag: If9EVP5OSPqQZz07Dg_05Q
+    console.log("================================================================");
+    console.log("ObservableProcessModel::constructor starting...");
+    var errors = [];
+    var inBreakScope = false;
 
-    if (filterResponse.error) {
-      throw new Error(filterResponse.error);
+    while (!inBreakScope) {
+      inBreakScope = true;
+      this._private = {
+        constructionError: null
+      };
+      this.isValid = this.isValid.bind(this);
+      this.toJSON = this.toJSON.bind(this);
+      this.getID = this.getID.bind(this);
+      this.getName = this.getName.bind(this);
+      this.getDescription = this.getDescription.bind(this);
+      this.getStepDescriptor = this.getStepDescriptor.bind(this);
+      this.getDataSpec = this.getDataSpec.bind(this);
+      var filterResponse = constructorRequestFilter.request(request_);
+
+      if (filterResponse.error) {
+        errors.push(filterResponse.error);
+        break;
+      }
+
+      this._private = filterResponse.result;
+      break;
     }
 
-    this._private = {};
-    this._private = filterResponse.result;
-    this.toJSON = this.toJSON.bind(this);
-    this.getID = this.getID.bind(this);
-    this.getName = this.getName.bind(this);
-    this.getDescription = this.getDescription.bind(this);
-    this.getStepDescriptor = this.getStepDescriptor.bind(this);
-    this.getDataSpec = this.getDataSpec.bind(this);
+    if (errors.length) {
+      errors.unshift("ObservableProcessModel::constructor failed yielding a zombie instance.");
+      this._private.constructorError = errors.join(" ");
+    }
   }
 
   _createClass(ObservableProcessModel, [{
+    key: "isValid",
+    value: function isValid() {
+      return !this._private.constructorError;
+    }
+  }, {
     key: "toJSON",
     value: function toJSON() {
-      return this._private;
+      return this.isValid() ? this._private : this._private.constructorError;
     }
   }, {
     key: "getID",
     value: function getID() {
-      return this._private.declaration.id;
+      return this.isValid() ? this._private.declaration.id : this._private.constructorError;
     }
   }, {
     key: "getName",
     value: function getName() {
-      return this._private.declaration.name;
+      return this.isValid() ? this._private.declaration.name : this._private.constructorError;
     }
   }, {
     key: "getDescription",
     value: function getDescription() {
-      return this._private.declaration.description;
+      return this.isValid() ? this._private.declaration.description : this._private.constructorError;
     }
   }, {
     key: "getStepDescriptor",
     value: function getStepDescriptor(stepLabel_) {
-      return this._private.declaration.steps[stepLabel_];
+      return this.isValid() ? this._private.declaration.steps[stepLabel_] : this._private.constructorError;
     }
   }, {
     key: "getDataSpec",
     value: function getDataSpec() {
-      return this._private.declaration.opmDataSpec;
+      return this.isValid() ? this._private.declaration.opmDataSpec : this._private.constructorError;
     }
   }]);
 

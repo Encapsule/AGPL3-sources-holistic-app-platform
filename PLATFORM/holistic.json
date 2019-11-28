@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.26",
-    "codename": "crazy-raven",
+    "version": "0.0.27",
+    "codename": "cypress",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "cXNnjdx0RECOOLGvk__ADA",
-    "buildSource": "f09242ba08af4bafeb3e1cdbe15cc0b5d6af617b",
-    "buildTime": 1574795659,
-    "buildDateISO": "2019-11-26T19:14:19.000Z"
+    "buildID": "vDybg6lsTkK8ZUQjKO5XCA",
+    "buildSource": "06086a9a8bb79b584a85ee360648453712ab51fd",
+    "buildTime": 1574919319,
+    "buildDateISO": "2019-11-28T05:35:19.000Z"
 }

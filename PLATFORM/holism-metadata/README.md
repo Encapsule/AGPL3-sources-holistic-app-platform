@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holism-metadata v0.0.26 "crazy-raven"
+# @encapsule/holism-metadata v0.0.27 "cypress"
 
 ```
-Package: @encapsule/holism-metadata v0.0.26 "crazy-raven" build ID "cXNnjdx0RECOOLGvk__ADA"
-Sources: Encapsule/holistic#f09242ba08af4bafeb3e1cdbe15cc0b5d6af617b
+Package: @encapsule/holism-metadata v0.0.27 "cypress" build ID "vDybg6lsTkK8ZUQjKO5XCA"
+Sources: Encapsule/holistic#06086a9a8bb79b584a85ee360648453712ab51fd
 Purpose: library (Node.js)
-Created: 2019-11-26T19:14:19.000Z
+Created: 2019-11-28T05:35:19.000Z
 License: MIT
 ```
 
@@ -50,7 +50,7 @@ blah blah this is some text in the documentation markdown array.
 
 The `@encapsule/holism-metadata` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holism-metadata Package Distribution](https://npmjs.com/package/@encapsule/holism-metadata/v/0.0.26) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holism-metadata Package Distribution](https://npmjs.com/package/@encapsule/holism-metadata/v/0.0.27) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holism-metadata git Repository](https://github.com/Encapsule/holism-metadata) ([GitHub](https://github.com/Encapsule))
 
 ## Body section 1

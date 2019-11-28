@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holodeck v0.0.26 "crazy-raven"
+# @encapsule/holodeck v0.0.27 "cypress"
 
 ```
-Package: @encapsule/holodeck v0.0.26 "crazy-raven" build ID "cXNnjdx0RECOOLGvk__ADA"
-Sources: Encapsule/holistic#f09242ba08af4bafeb3e1cdbe15cc0b5d6af617b
+Package: @encapsule/holodeck v0.0.27 "cypress" build ID "vDybg6lsTkK8ZUQjKO5XCA"
+Sources: Encapsule/holistic#06086a9a8bb79b584a85ee360648453712ab51fd
 Purpose: library (Node.js)
-Created: 2019-11-26T19:14:19.000Z
+Created: 2019-11-28T05:35:19.000Z
 License: MIT
 ```
 
@@ -44,7 +44,7 @@ console.log(JSON.stringify(holodeck.__meta));
 
 The `@encapsule/holodeck` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holodeck Package Distribution](https://npmjs.com/package/@encapsule/holodeck/v/0.0.26) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holodeck Package Distribution](https://npmjs.com/package/@encapsule/holodeck/v/0.0.27) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holodeck git Repository](https://github.com/Encapsule/holodeck) ([GitHub](https://github.com/Encapsule))
 
 <hr>

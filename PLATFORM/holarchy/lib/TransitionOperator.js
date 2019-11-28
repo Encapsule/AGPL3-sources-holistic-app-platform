@@ -11,25 +11,54 @@ var constructorFilter = require("./filters/top-method-constructor-filter");
 module.exports =
 /*#__PURE__*/
 function () {
-  function TransitionOperator(constructionData_) {
+  function TransitionOperator(request_) {
     _classCallCheck(this, TransitionOperator);
 
-    var filterResponse = constructorFilter.request(constructionData_);
+    // #### sourceTag: FuMaLlqkSwW7przxe2XSdw
+    console.log("================================================================");
+    console.log("TransitionOperator::constructor starting...");
+    var errors = [];
+    var inBreakScope = false;
 
-    if (filterResponse.error) {
-      throw new Error(filterResponse.error);
+    while (!inBreakScope) {
+      inBreakScope = true;
+      this._private = {
+        constructorError: null
+      };
+      this.isValid = this.isValid.bind(this);
+      this.toJSON = this.toJSON.bind(this);
+      this.getFilter = this.getFilter.bind(this);
+      var filterResponse = constructorFilter.request(request_);
+
+      if (filterResponse.error) {
+        errors.push(filterResponse.error);
+        break;
+      }
+
+      this._private = filterResponse.result;
+      break;
     }
 
-    this._private = {
-      transitionOperatorFilter: filterResponse.result
-    };
-    this.getFilter = this.getFilter.bind(this);
+    if (errors.length) {
+      errors.unshift("TransitionOperator::constructor failed yielding a zombie instance.");
+      this._private.constructorError = errors.join(" ");
+    }
   }
 
   _createClass(TransitionOperator, [{
+    key: "isValid",
+    value: function isValid() {
+      return !this._private.constructorError;
+    }
+  }, {
+    key: "toJSON",
+    value: function toJSON() {
+      return this.isValid() ? this._private.filterDescriptor : this._private.constructorError;
+    }
+  }, {
     key: "getFilter",
     value: function getFilter() {
-      return this._private.transitionOperatorFilter;
+      return this.isValid() ? this._private.transitionOperatorFilter : this._private.constructorError;
     }
   }]);
 
