@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 36,
+        "requests": 39,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -18,14 +18,17 @@
             "ErHlg9R3SSaonNJr4mBi-g",
             "FxMOqQPARcGcMZ24x2tq7A",
             "H2zMrBw4TBie5A2mwH4BRg",
+            "HwB8EphzRkSG7AeoISMctQ",
             "IRyR4YazRuWiZp9Rzj6-WA",
             "LC56jkxeQJ2mgWfwGklLEQ",
             "Pe4ks7bQQ9KQee1T8qTRHw",
             "QvEwWTkbT8G_SQsmWmg2zQ",
             "T-apDENPTAO6iQShA-2qBQ",
             "UHqiKKLkTMmLBGXI4lRxEA",
+            "VwWYI4ReSTSfqSnoVXXC-w",
             "VxYuiGoHRfuKRHp7PBik7Q",
             "X5zbSBkaQeG6Wft5cGVRwg",
+            "YdzP0ZKMTme24BBJcyKevA",
             "ZbwxkWJgTEKjxXpYX0_h7Q",
             "ak8rhTiORTWXueau74RlHA",
             "cQ3Z1fhsTICqkY3uKQXaFQ",
@@ -2617,6 +2620,154 @@
                         "ErHlg9R3SSaonNJr4mBi-g": {
                           "isValid": false,
                           "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::App State Subcontroller Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "XsVRVdrxTNvzPj7OQrDwAg": {
+              "VwWYI4ReSTSfqSnoVXXC-w": {
+                "harnessRequest": {
+                  "id": "VwWYI4ReSTSfqSnoVXXC-w",
+                  "name": "ObservableProcessModel constructor #2",
+                  "description": "ObservableProcessModel constructor test #2 (minimal constructor request)",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessModel": {
+                          "constructorRequest": {
+                            "id": "VwWYI4ReSTSfqSnoVXXC-w",
+                            "name": "OPM #2",
+                            "description": "OPM instance test #2 (minimal constructor request)"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "mC3pPO5wS3SxvhgZgMjsJQ": {
+                        "VwWYI4ReSTSfqSnoVXXC-w": {
+                          "isValid": true,
+                          "toJSON": {
+                            "declaration": {
+                              "id": "VwWYI4ReSTSfqSnoVXXC-w",
+                              "name": "OPM #2",
+                              "description": "OPM instance test #2 (minimal constructor request)",
+                              "opmDataSpec": {
+                                "____types": "jsObject"
+                              },
+                              "steps": {}
+                            },
+                            "digraph": {
+                              "name": "OPM #2",
+                              "description": "OPM instance test #2 (minimal constructor request)",
+                              "vlist": [],
+                              "elist": []
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "XsVRVdrxTNvzPj7OQrDwAg": {
+              "HwB8EphzRkSG7AeoISMctQ": {
+                "harnessRequest": {
+                  "id": "HwB8EphzRkSG7AeoISMctQ",
+                  "name": "ObsevableProcessModel constructor #3",
+                  "description": "ObservableProcessModel constructor test #3 (OCD test #1)",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessModel": {
+                          "constructorRequest": {
+                            "id": "HwB8EphzRkSG7AeoISMctQ",
+                            "name": "ObsevableProcessModel constructor #3",
+                            "description": "ObservableProcessModel constructor test #3 (OCD test #1)",
+                            "opmDataSpec": {
+                              "____bullshit": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "mC3pPO5wS3SxvhgZgMjsJQ": {
+                        "HwB8EphzRkSG7AeoISMctQ": {
+                          "isValid": false,
+                          "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::App State Subcontroller Factory] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "XsVRVdrxTNvzPj7OQrDwAg": {
+              "YdzP0ZKMTme24BBJcyKevA": {
+                "harnessRequest": {
+                  "id": "YdzP0ZKMTme24BBJcyKevA",
+                  "name": "ObservableProcessModel constructor #4",
+                  "description": "ObservableProcessModel constructor test #4 (invalid id)",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessModel": {
+                          "constructorRequest": {
+                            "id": "invalid",
+                            "name": "ObservableProcessModel constructor #4",
+                            "description": "ObservableProcessModel constructor test #4 (invalid id)"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "mC3pPO5wS3SxvhgZgMjsJQ": {
+                        "YdzP0ZKMTme24BBJcyKevA": {
+                          "isValid": false,
+                          "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::App State Subcontroller Factory] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead."
                         }
                       }
                     }
