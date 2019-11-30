@@ -10,8 +10,8 @@ var outputFilterSpec = require("./iospecs/opm-method-constructor-output-spec"); 
 
 var factoryResponse = arccore.filter.create({
   operationID: "XoPnz1p9REe-XO3mKGII3w",
-  operationName: "App State Subcontroller Factory",
-  operationDescription: "Accepts a declaration of an application state controller and produces a DirectedGraph-based model for inclusion in the application state system model.",
+  operationName: "OPM Constructor Request Processor",
+  operationDescription: "Filter used to normalize the request descriptor object passed to ObservableProcessModel constructor function.",
   inputFilterSpec: inputFilterSpec,
   outputFilterSpec: outputFilterSpec,
   bodyFunction: function bodyFunction(request_) {
@@ -53,7 +53,7 @@ var factoryResponse = arccore.filter.create({
 
       var opmDataFilter = filterFactoryResponse.result;
       var graphFactoryResponse = arccore.graph.directed.create({
-        name: request_.name,
+        name: "[".concat(request_.id, "::").concat(request_.name, "] OPM Digraph"),
         description: request_.description
       });
 
@@ -77,6 +77,7 @@ var factoryResponse = arccore.filter.create({
         opmDigraph.addVertex({
           u: stepName_,
           p: {
+            description: stepDescriptor.description,
             actions: stepDescriptor.actions
           }
         });

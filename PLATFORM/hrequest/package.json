@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.27",
     "codename": "cypress",
-    "buildID": "bHkWDvLfQv-3IXm8EbZquQ",
-    "buildTime": 1574957683,
-    "buildSource": "115a1e1ceeba88159ac28ded2d524944a95eacde",
+    "buildID": "eTPE682_T9212CEx34JYpw",
+    "buildTime": 1575154932,
+    "buildSource": "0cb5bd0042f8f6c2b964c75c61a7c38c5eb57f1e",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"

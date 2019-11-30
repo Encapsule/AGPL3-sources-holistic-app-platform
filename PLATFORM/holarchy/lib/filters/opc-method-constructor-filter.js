@@ -79,7 +79,7 @@ var factoryResponse = arccore.filter.create({
       result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
 
       result.name = request_.name ? request_.name : "Unnamed OPC";
-      result.description = request_.descriptor ? request_.descriptor : "Undescribed OPC"; // ================================================================
+      result.description = request_.description ? request_.description : "Undescribed OPC"; // ================================================================
       // Build a map of ObservableControllerModel instances.
       // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
       // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
@@ -225,7 +225,7 @@ var factoryResponse = arccore.filter.create({
                     opmiRef: _opm
                   }); // TODO: This should probably just be the OPM ID
 
-                  var opcSpecOverlay = ocdRuntimeSpecAspects.opcProcessModelBindingRootOverlay;
+                  var opcSpecOverlay = ocdRuntimeSpecAspects.aspects.opcProcessModelBindingRootOverlaySpec;
 
                   var opmSpecOverlay = _opm.getDataSpec(); // TODO: Ensure OPM constructor filter correctly verified an OPM's template spec.
 
