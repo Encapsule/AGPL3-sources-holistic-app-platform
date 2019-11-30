@@ -46,7 +46,7 @@ const factoryResponse = arccore.filter.create({
             let opmDataFilter = filterFactoryResponse.result;
 
             let graphFactoryResponse = arccore.graph.directed.create({
-                name: request_.name,
+                name: `[${request_.id}::${request_.name}] OPM Digraph`,
                 description: request_.description
             });
             if (graphFactoryResponse.error) {
@@ -67,6 +67,7 @@ const factoryResponse = arccore.filter.create({
                 opmDigraph.addVertex({
                     u: stepName_,
                     p: {
+                        description: stepDescriptor.description,
                         actions: stepDescriptor.actions
                     }
                 });

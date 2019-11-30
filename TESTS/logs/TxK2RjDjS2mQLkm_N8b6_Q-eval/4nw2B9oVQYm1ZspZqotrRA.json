@@ -25,7 +25,7 @@
                             "steps": {}
                           },
                           "digraph": {
-                            "name": "OPM Test A",
+                            "name": "[_vC2O7DGTZ22R5hvxpy0WQ::OPM Test A] OPM Digraph",
                             "description": "A simple test OPM",
                             "vlist": [],
                             "elist": []
@@ -42,7 +42,7 @@
                             "steps": {}
                           },
                           "digraph": {
-                            "name": "OPM Test B",
+                            "name": "[SyCUD3kpQ8mtYbV5A_4BPA::OPM Test B] OPM Digraph",
                             "description": "A simple test OPM",
                             "vlist": [],
                             "elist": []
@@ -59,7 +59,7 @@
                             "steps": {}
                           },
                           "digraph": {
-                            "name": "OPM Test C",
+                            "name": "[Pkr1EErLSiiHQRt8gCaO0Q::OPM Test C] OPM Digraph",
                             "description": "A simple test OPM",
                             "vlist": [],
                             "elist": []
@@ -76,7 +76,7 @@
                             "steps": {}
                           },
                           "digraph": {
-                            "name": "OPC Test D",
+                            "name": "[ZFpRfMRETDqavS3EqEuv1Q::OPC Test D] OPM Digraph",
                             "description": "A simple test OPM",
                             "vlist": [],
                             "elist": []
@@ -116,7 +116,7 @@
                           "steps": {}
                         },
                         "digraph": {
-                          "name": "OPM Test A",
+                          "name": "[_vC2O7DGTZ22R5hvxpy0WQ::OPM Test A] OPM Digraph",
                           "description": "A simple test OPM",
                           "vlist": [],
                           "elist": []
@@ -133,7 +133,7 @@
                           "steps": {}
                         },
                         "digraph": {
-                          "name": "OPM Test B",
+                          "name": "[SyCUD3kpQ8mtYbV5A_4BPA::OPM Test B] OPM Digraph",
                           "description": "A simple test OPM",
                           "vlist": [],
                           "elist": []
@@ -150,7 +150,7 @@
                           "steps": {}
                         },
                         "digraph": {
-                          "name": "OPM Test C",
+                          "name": "[Pkr1EErLSiiHQRt8gCaO0Q::OPM Test C] OPM Digraph",
                           "description": "A simple test OPM",
                           "vlist": [],
                           "elist": []
@@ -167,7 +167,7 @@
                           "steps": {}
                         },
                         "digraph": {
-                          "name": "OPC Test D",
+                          "name": "[ZFpRfMRETDqavS3EqEuv1Q::OPC Test D] OPM Digraph",
                           "description": "A simple test OPM",
                           "vlist": [],
                           "elist": []
