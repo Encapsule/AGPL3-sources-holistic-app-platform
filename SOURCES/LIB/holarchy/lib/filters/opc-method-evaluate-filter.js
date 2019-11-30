@@ -153,7 +153,7 @@ const factoryResponse = arccore.filter.create({
                             const opmInstanceFrame = {
                                 evalRequest: {
                                     dataBinding: record,
-                                    initialStep: record.dataRef.opmStep,
+                                    initialStep: record.dataRef.__opmiStep,
                                     opmRef: opcRef._private.opmMap[opmID]
                                 },
                                 evalResponse: {
@@ -478,10 +478,10 @@ const factoryResponse = arccore.filter.create({
                     // ================================================================
                     // ================================================================
 
-                    // Update the OPM instance's opmStep flag in the controller data store.
+                    // Update the OPM instance's __opmiStep flag in the controller data store.
                     opmInstanceFrame.evalResponse.status = "transitioning-finalize";
 
-                    let transitionResponse = opcRef._private.ocdi.writeNamespace(`${cdsPath}.opmStep`, nextStep);
+                    let transitionResponse = opcRef._private.ocdi.writeNamespace(`${cdsPath}.__opmiStep`, nextStep);
                     opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 
                     if (transitionResponse.error) {

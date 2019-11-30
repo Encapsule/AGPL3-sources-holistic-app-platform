@@ -9,8 +9,8 @@ const outputFilterSpec = require("./iospecs/opm-method-constructor-output-spec")
 
 const factoryResponse = arccore.filter.create({
     operationID: "XoPnz1p9REe-XO3mKGII3w",
-    operationName: "App State Subcontroller Factory",
-    operationDescription: "Accepts a declaration of an application state controller and produces a DirectedGraph-based model for inclusion in the application state system model.",
+    operationName: "OPM Constructor Request Processor",
+    operationDescription: "Filter used to normalize the request descriptor object passed to ObservableProcessModel constructor function.",
     inputFilterSpec,
     outputFilterSpec,
 

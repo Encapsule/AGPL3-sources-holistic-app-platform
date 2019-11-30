@@ -1,0 +1,1046 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "bvj2u51Uw5_SD1TRZNpwXA": {
+      "uZN6-qpIQO6CkwmLDWtMCw": {
+        "harnessRequest": {
+          "id": "uZN6-qpIQO6CkwmLDWtMCw",
+          "name": "OPC Frame Latch Test #1",
+          "description": "Try to apply the Frame Latch OPM in an OPC system.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessController": {
+                  "constructorRequest": {
+                    "id": "uZN6-qpIQO6CkwmLDWtMCw",
+                    "name": "OPC Frame Latch Test #1",
+                    "description": "Try to apply the Frame Latch OPM in an OPC system.",
+                    "observableProcessModelSets": [
+                      [
+                        {
+                          "declaration": {
+                            "id": "z_mTe02hSWmaM1iRO1pBeA",
+                            "name": "Observable Frame Latch",
+                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                            "opmDataSpec": {
+                              "____label": "Observable Frame Latch",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "value": {
+                                "____opaque": true
+                              },
+                              "clock": {
+                                "____accept": "jsBoolean",
+                                "____defaultValue": false
+                              }
+                            },
+                            "steps": {
+                              "uninitialized": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "action": {
+                                            "ocd": {
+                                              "setBooleanFlag": {
+                                                "path": "#.clock"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "updated"
+                                  }
+                                ]
+                              },
+                              "updated": {
+                                "description": "The value managed by the frame latch has been written.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "action": {
+                                            "ocd": {
+                                              "clearBooleanFlag": {
+                                                "path": "#.clock"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "waiting"
+                                  }
+                                ]
+                              },
+                              "waiting": {
+                                "description": "The frame latch is waiting for value to be written.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "holarchy": {
+                                        "sml": {
+                                          "operator": {
+                                            "isBooleanFlagSet": {
+                                              "path": "#.clock"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "nextStep": "updated"
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          "digraph": {
+                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Observable Frame Latch] OPM Digraph",
+                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "action": {
+                                              "ocd": {
+                                                "setBooleanFlag": {
+                                                  "path": "#.clock"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "u": "updated",
+                                "p": {
+                                  "description": "The value managed by the frame latch has been written.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "action": {
+                                              "ocd": {
+                                                "clearBooleanFlag": {
+                                                  "path": "#.clock"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "u": "waiting",
+                                "p": {
+                                  "description": "The frame latch is waiting for value to be written.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "updated"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "updated",
+                                  "v": "waiting"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "waiting",
+                                  "v": "updated"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "holarchy": {
+                                      "sml": {
+                                        "operator": {
+                                          "isBooleanFlagSet": {
+                                            "path": "#.clock"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    ],
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject",
+                      "frameLatch": {
+                        "____types": "jsObject",
+                        "____appdsl": {
+                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                        },
+                        "value": {
+                          "____accept": "jsString"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "54MiSgQdSiukMX4fIZJimg": {
+                "uZN6-qpIQO6CkwmLDWtMCw": {
+                  "opcToJSON": {
+                    "id": "uZN6-qpIQO6CkwmLDWtMCw",
+                    "name": "OPC Frame Latch Test #1",
+                    "description": "Try to apply the Frame Latch OPM in an OPC system.",
+                    "opmMap": {
+                      "z_mTe02hSWmaM1iRO1pBeA": {
+                        "declaration": {
+                          "id": "z_mTe02hSWmaM1iRO1pBeA",
+                          "name": "Observable Frame Latch",
+                          "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                          "opmDataSpec": {
+                            "____label": "Observable Frame Latch",
+                            "____types": "jsObject",
+                            "____defaultValue": {},
+                            "value": {
+                              "____opaque": true
+                            },
+                            "clock": {
+                              "____accept": "jsBoolean",
+                              "____defaultValue": false
+                            }
+                          },
+                          "steps": {
+                            "uninitialized": {
+                              "description": "Default starting process step.",
+                              "actions": {
+                                "enter": [],
+                                "exit": [
+                                  {
+                                    "holarchy": {
+                                      "sml": {
+                                        "action": {
+                                          "ocd": {
+                                            "setBooleanFlag": {
+                                              "path": "#.clock"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                ]
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "always": true
+                                  },
+                                  "nextStep": "updated"
+                                }
+                              ]
+                            },
+                            "updated": {
+                              "description": "The value managed by the frame latch has been written.",
+                              "actions": {
+                                "enter": [],
+                                "exit": [
+                                  {
+                                    "holarchy": {
+                                      "sml": {
+                                        "action": {
+                                          "ocd": {
+                                            "clearBooleanFlag": {
+                                              "path": "#.clock"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                ]
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "always": true
+                                  },
+                                  "nextStep": "waiting"
+                                }
+                              ]
+                            },
+                            "waiting": {
+                              "description": "The frame latch is waiting for value to be written.",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "holarchy": {
+                                      "sml": {
+                                        "operator": {
+                                          "isBooleanFlagSet": {
+                                            "path": "#.clock"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "nextStep": "updated"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "digraph": {
+                          "name": "[z_mTe02hSWmaM1iRO1pBeA::Observable Frame Latch] OPM Digraph",
+                          "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                          "vlist": [
+                            {
+                              "u": "uninitialized",
+                              "p": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "action": {
+                                            "ocd": {
+                                              "setBooleanFlag": {
+                                                "path": "#.clock"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "u": "updated",
+                              "p": {
+                                "description": "The value managed by the frame latch has been written.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "action": {
+                                            "ocd": {
+                                              "clearBooleanFlag": {
+                                                "path": "#.clock"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "u": "waiting",
+                              "p": {
+                                "description": "The frame latch is waiting for value to be written.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            }
+                          ],
+                          "elist": [
+                            {
+                              "e": {
+                                "u": "uninitialized",
+                                "v": "updated"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "always": true
+                                }
+                              }
+                            },
+                            {
+                              "e": {
+                                "u": "updated",
+                                "v": "waiting"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "always": true
+                                }
+                              }
+                            },
+                            {
+                              "e": {
+                                "u": "waiting",
+                                "v": "updated"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operator": {
+                                        "isBooleanFlagSet": {
+                                          "path": "#.clock"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "opmiSpecPaths": [
+                      {
+                        "specPath": "~.frameLatch",
+                        "opmiRef": {
+                          "declaration": {
+                            "id": "z_mTe02hSWmaM1iRO1pBeA",
+                            "name": "Observable Frame Latch",
+                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                            "opmDataSpec": {
+                              "____label": "Observable Frame Latch",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "value": {
+                                "____opaque": true
+                              },
+                              "clock": {
+                                "____accept": "jsBoolean",
+                                "____defaultValue": false
+                              }
+                            },
+                            "steps": {
+                              "uninitialized": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "action": {
+                                            "ocd": {
+                                              "setBooleanFlag": {
+                                                "path": "#.clock"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "updated"
+                                  }
+                                ]
+                              },
+                              "updated": {
+                                "description": "The value managed by the frame latch has been written.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "action": {
+                                            "ocd": {
+                                              "clearBooleanFlag": {
+                                                "path": "#.clock"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "waiting"
+                                  }
+                                ]
+                              },
+                              "waiting": {
+                                "description": "The frame latch is waiting for value to be written.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "holarchy": {
+                                        "sml": {
+                                          "operator": {
+                                            "isBooleanFlagSet": {
+                                              "path": "#.clock"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "nextStep": "updated"
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          "digraph": {
+                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Observable Frame Latch] OPM Digraph",
+                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "action": {
+                                              "ocd": {
+                                                "setBooleanFlag": {
+                                                  "path": "#.clock"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "u": "updated",
+                                "p": {
+                                  "description": "The value managed by the frame latch has been written.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "action": {
+                                              "ocd": {
+                                                "clearBooleanFlag": {
+                                                  "path": "#.clock"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              {
+                                "u": "waiting",
+                                "p": {
+                                  "description": "The frame latch is waiting for value to be written.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "updated"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "updated",
+                                  "v": "waiting"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "waiting",
+                                  "v": "updated"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "holarchy": {
+                                      "sml": {
+                                        "operator": {
+                                          "isBooleanFlagSet": {
+                                            "path": "#.clock"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject",
+                      "frameLatch": {
+                        "____types": "jsObject",
+                        "____appdsl": {
+                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                        },
+                        "value": {
+                          "____accept": "jsString"
+                        }
+                      }
+                    },
+                    "ocdRuntimeSpec": {
+                      "____label": "OPC [uZN6-qpIQO6CkwmLDWtMCw::OPC Frame Latch Test #1] Observable Controller Data Store",
+                      "____description": "OPC [uZN6-qpIQO6CkwmLDWtMCw::OPC Frame Latch Test #1] system process runtime state data managed by OPC instance.",
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "frameLatch": {
+                        "____types": "jsObject",
+                        "____appdsl": {
+                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                        },
+                        "value": {
+                          "____opaque": true
+                        },
+                        "____label": "Observable Frame Latch",
+                        "____defaultValue": {},
+                        "clock": {
+                          "____accept": "jsBoolean",
+                          "____defaultValue": false
+                        },
+                        "__opmiStep": {
+                          "____accept": "jsString",
+                          "____defaultValue": "uninitialized"
+                        }
+                      }
+                    },
+                    "ocdi": {
+                      "frameLatch": {
+                        "clock": false,
+                        "__opmiStep": "uninitialized"
+                      }
+                    },
+                    "transitionDispatcher": {},
+                    "actionDispatcher": {},
+                    "opcActorStack": [],
+                    "evalCount": 1,
+                    "lastEvalResponse": {
+                      "error": null,
+                      "result": {
+                        "evalNumber": 0,
+                        "summary": {
+                          "counts": {
+                            "frames": 1,
+                            "errors": 0,
+                            "transitions": 0
+                          }
+                        },
+                        "evalFrames": [
+                          {
+                            "summary": {
+                              "counts": {
+                                "bindings": 1,
+                                "transitions": 0,
+                                "errors": 0
+                              },
+                              "reports": {
+                                "transitions": [],
+                                "errors": []
+                              }
+                            },
+                            "bindings": {
+                              "rWatZg2xDbHwiPCI5s_mzw": {
+                                "evalRequest": {
+                                  "dataBinding": {
+                                    "dataPath": "~.frameLatch",
+                                    "specPath": "~.frameLatch"
+                                  },
+                                  "initialStep": "uninitialized",
+                                  "opmRef": {
+                                    "declaration": {
+                                      "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                      "name": "Observable Frame Latch",
+                                      "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                      "opmDataSpec": {
+                                        "____label": "Observable Frame Latch",
+                                        "____types": "jsObject",
+                                        "____defaultValue": {},
+                                        "value": {
+                                          "____opaque": true
+                                        },
+                                        "clock": {
+                                          "____accept": "jsBoolean",
+                                          "____defaultValue": false
+                                        }
+                                      },
+                                      "steps": {
+                                        "uninitialized": {
+                                          "description": "Default starting process step.",
+                                          "actions": {
+                                            "enter": [],
+                                            "exit": [
+                                              {
+                                                "holarchy": {
+                                                  "sml": {
+                                                    "action": {
+                                                      "ocd": {
+                                                        "setBooleanFlag": {
+                                                          "path": "#.clock"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          },
+                                          "transitions": [
+                                            {
+                                              "transitionIf": {
+                                                "always": true
+                                              },
+                                              "nextStep": "updated"
+                                            }
+                                          ]
+                                        },
+                                        "updated": {
+                                          "description": "The value managed by the frame latch has been written.",
+                                          "actions": {
+                                            "enter": [],
+                                            "exit": [
+                                              {
+                                                "holarchy": {
+                                                  "sml": {
+                                                    "action": {
+                                                      "ocd": {
+                                                        "clearBooleanFlag": {
+                                                          "path": "#.clock"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          },
+                                          "transitions": [
+                                            {
+                                              "transitionIf": {
+                                                "always": true
+                                              },
+                                              "nextStep": "waiting"
+                                            }
+                                          ]
+                                        },
+                                        "waiting": {
+                                          "description": "The frame latch is waiting for value to be written.",
+                                          "actions": {
+                                            "enter": [],
+                                            "exit": []
+                                          },
+                                          "transitions": [
+                                            {
+                                              "transitionIf": {
+                                                "holarchy": {
+                                                  "sml": {
+                                                    "operator": {
+                                                      "isBooleanFlagSet": {
+                                                        "path": "#.clock"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "nextStep": "updated"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "digraph": {
+                                      "name": "[z_mTe02hSWmaM1iRO1pBeA::Observable Frame Latch] OPM Digraph",
+                                      "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                      "vlist": [
+                                        {
+                                          "u": "uninitialized",
+                                          "p": {
+                                            "description": "Default starting process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "action": {
+                                                        "ocd": {
+                                                          "setBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "u": "updated",
+                                          "p": {
+                                            "description": "The value managed by the frame latch has been written.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "action": {
+                                                        "ocd": {
+                                                          "clearBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "u": "waiting",
+                                          "p": {
+                                            "description": "The frame latch is waiting for value to be written.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "elist": [
+                                        {
+                                          "e": {
+                                            "u": "uninitialized",
+                                            "v": "updated"
+                                          },
+                                          "p": {
+                                            "priority": 0,
+                                            "operator": {
+                                              "always": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "e": {
+                                            "u": "updated",
+                                            "v": "waiting"
+                                          },
+                                          "p": {
+                                            "priority": 0,
+                                            "operator": {
+                                              "always": true
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "e": {
+                                            "u": "waiting",
+                                            "v": "updated"
+                                          },
+                                          "p": {
+                                            "priority": 0,
+                                            "operator": {
+                                              "holarchy": {
+                                                "sml": {
+                                                  "operator": {
+                                                    "isBooleanFlagSet": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "evalResponse": {
+                                  "status": "error",
+                                  "finishStep": "uninitialized",
+                                  "phases": {
+                                    "p1_toperator": [
+                                      {
+                                        "request": {
+                                          "context": {
+                                            "namespace": "~.frameLatch",
+                                            "ocdi": {
+                                              "frameLatch": {
+                                                "clock": false,
+                                                "__opmiStep": "uninitialized"
+                                              }
+                                            },
+                                            "transitionDispatcher": {}
+                                          },
+                                          "operator": {
+                                            "always": true
+                                          }
+                                        },
+                                        "response": {
+                                          "error": "No TransitionOperator class instances registered!"
+                                        }
+                                      }
+                                    ],
+                                    "p2_exit": [],
+                                    "p3_enter": [],
+                                    "p4_finalize": null
+                                  },
+                                  "errors": {
+                                    "p1_toperator": 1,
+                                    "p2_exit": 0,
+                                    "p3_enter": 0,
+                                    "p4_finalize": 0,
+                                    "total": 1
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "constructionWarnings": [
+                      "WARNING: No TransitionOperator class instances have been registered!",
+                      "WARNING: No ControllerAction class instances have been registered!"
+                    ]
+                  },
+                  "actionEvaluations": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

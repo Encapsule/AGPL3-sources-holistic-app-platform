@@ -17,6 +17,7 @@
                     "opmDataSpec": {
                       "____label": "Observable Frame Latch",
                       "____types": "jsObject",
+                      "____defaultValue": {},
                       "value": {
                         "____opaque": true
                       },
@@ -127,6 +128,7 @@
                       "opmDataSpec": {
                         "____label": "Observable Frame Latch",
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "value": {
                           "____opaque": true
                         },

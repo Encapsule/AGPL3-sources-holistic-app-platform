@@ -18,7 +18,7 @@ module.exports = {
                 // ____label: <generated dynamically>
                 // ____description: <generated dynamically>
                 ____accept: "jsString",
-                ____defaultValue: "start"
+                ____defaultValue: "uninitialized"
                 // ____inValueSet: [ <dynamically generated from OPM> ]
             }
         }

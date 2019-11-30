@@ -8,6 +8,7 @@ const opmFrameLatchDeclaration = {
     opmDataSpec: {
         ____label: "Observable Frame Latch",
         ____types: "jsObject",
+        ____defaultValue: {},
         value: {
             ____opaque: true
         },
@@ -73,6 +74,41 @@ module.exports = [
                 holarchy: {
                     ObservableProcessModel: {
                         constructorRequest: opmFrameLatchDeclaration
+                    }
+                }
+            }
+        }
+    },
+
+
+    {
+        id: "uZN6-qpIQO6CkwmLDWtMCw",
+        name: "OPC Frame Latch Test #1",
+        description: "Try to apply the Frame Latch OPM in an OPC system.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "uZN6-qpIQO6CkwmLDWtMCw",
+                            name: "OPC Frame Latch Test #1",
+                            description: "Try to apply the Frame Latch OPM in an OPC system.",
+                            observableProcessModelSets: [
+                                [
+                                    new holarchy.ObservableProcessModel(opmFrameLatchDeclaration)
+                                ]
+                            ],
+                            ocdTemplateSpec: {
+                                ____types: "jsObject",
+                                frameLatch: {
+                                    ____types: "jsObject",
+                                    ____appdsl: { opm: "z_mTe02hSWmaM1iRO1pBeA" },
+                                    value: {
+                                        ____accept: "jsString"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

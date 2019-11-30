@@ -72,7 +72,7 @@ const factoryResponse = arccore.filter.create({
             // Keep copies of normalized and validated metadata entries.
             result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
             result.name = request_.name?request_.name:"Unnamed OPC";
-            result.description = request_.descriptor?request_.descriptor:"Undescribed OPC";
+            result.description = request_.description?request_.description:"Undescribed OPC";
 
             // ================================================================
             // Build a map of ObservableControllerModel instances.
@@ -210,7 +210,7 @@ const factoryResponse = arccore.filter.create({
                                 // Save the spec path and opmRef in an array. This allows us to see all the live bindings in the OCD runtime spec.
                                 result.opmiSpecPaths.push({ specPath: record.specPath, opmiRef: opm }); // TODO: This should probably just be the OPM ID
 
-                                const opcSpecOverlay = ocdRuntimeSpecAspects.opcProcessModelBindingRootOverlay;
+                                const opcSpecOverlay = ocdRuntimeSpecAspects.aspects.opcProcessModelBindingRootOverlaySpec;
 
                                 const opmSpecOverlay = opm.getDataSpec(); // TODO: Ensure OPM constructor filter correctly verified an OPM's template spec.
 
