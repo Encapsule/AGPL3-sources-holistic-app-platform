@@ -1,5 +1,6 @@
 
 const holarchy = require("@encapsule/holarchy");
+const sml = require("@encapsule/holarchy-sml");
 
 const opmFrameLatchDeclaration = {
     id: "z_mTe02hSWmaM1iRO1pBeA",

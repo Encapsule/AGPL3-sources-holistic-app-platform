@@ -45,6 +45,9 @@ mockery.registerAllowables([
 const local_holodeckAssets = require("../PLATFORM/holodeck-assets");
 mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
 
+const local_holarchySml = require("../PLATFORM/holarchy-sml");
+mockery.registerMock("@encapsule/holarchy-sml", local_holarchySml);
+
 // ^--- MOCKERY TRICKS
 ////
 

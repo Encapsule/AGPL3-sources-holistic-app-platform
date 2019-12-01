@@ -26,7 +26,84 @@
           }
         },
         "harnessResponse": {
-          "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness]: Unexpected harness filter exception: act_ is not defined (ReferenceError: act_ is not defined\n    at /home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holarchy/harnesses/harness-ObservableProcessController.js:115:21\n    at Array.forEach (<anonymous>)\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holarchy/harnesses/harness-ObservableProcessController.js:101:29)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-harness-factory.js:100:52)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:98:42)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.request (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck/lib/holodeck-runner.js:225:45)\n    at Object.<anonymous> (/home/cdr/code/encapsule/holistic/TESTS/run-tests.js:64:39))."
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "54MiSgQdSiukMX4fIZJimg": {
+                "AhfYIOp_RQmS-a37emkj9A": {
+                  "opcToJSON": {
+                    "id": "AhfYIOp_RQmS-a37emkj9A",
+                    "name": "OPC.act dispatch #1",
+                    "description": "Not expected to do much...",
+                    "opmMap": {},
+                    "opmiSpecPaths": [],
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject"
+                    },
+                    "ocdRuntimeSpec": {
+                      "____label": "OPC [AhfYIOp_RQmS-a37emkj9A::OPC.act dispatch #1] Observable Controller Data Store",
+                      "____description": "OPC [AhfYIOp_RQmS-a37emkj9A::OPC.act dispatch #1] system process runtime state data managed by OPC instance.",
+                      "____types": "jsObject",
+                      "____defaultValue": {}
+                    },
+                    "ocdi": {},
+                    "transitionDispatcher": {},
+                    "actionDispatcher": {},
+                    "opcActorStack": [],
+                    "evalCount": 1,
+                    "lastEvalResponse": {
+                      "error": null,
+                      "result": {
+                        "evalNumber": 0,
+                        "summary": {
+                          "counts": {
+                            "frames": 1,
+                            "errors": 0,
+                            "transitions": 0
+                          }
+                        },
+                        "evalFrames": [
+                          {
+                            "summary": {
+                              "counts": {
+                                "bindings": 0,
+                                "transitions": 0,
+                                "errors": 0
+                              },
+                              "reports": {
+                                "transitions": [],
+                                "errors": []
+                              }
+                            },
+                            "bindings": {}
+                          }
+                        ]
+                      }
+                    },
+                    "constructionWarnings": [
+                      "WARNING: No ObservableProcessModel class instances registered!",
+                      "WARNING: No TransitionOperator class instances have been registered!",
+                      "WARNING: No ControllerAction class instances have been registered!"
+                    ]
+                  },
+                  "actionEvaluations": [
+                    {
+                      "actRequest": {
+                        "bogus": "Our OPCi has no registered actions. So, by definition this request will result in an error."
+                      },
+                      "actResponse": {
+                        "error": "No ControllerAction class instances registered!"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
       }
     }
