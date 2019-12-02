@@ -303,7 +303,7 @@ const factoryResponse = arccore.filter.create({
                     filters: transitionOperatorFilters
                 });
                 if (filterResponse.error) {
-                    errors.push(filterRepsonse.error);
+                    errors.push(filterResponse.error);
                     break;
                 }
                 result.transitionDispatcher = filterResponse.result;
