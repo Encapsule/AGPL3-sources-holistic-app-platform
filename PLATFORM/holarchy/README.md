@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.27 "cypress"
 
 ```
-Package: @encapsule/holarchy v0.0.27 "cypress" build ID "eTPE682_T9212CEx34JYpw"
-Sources: Encapsule/holistic#0cb5bd0042f8f6c2b964c75c61a7c38c5eb57f1e
+Package: @encapsule/holarchy v0.0.27 "cypress" build ID "DMQX-fzWTPWGdLgUh-8xVg"
+Sources: Encapsule/holistic#a685882875139381dda10c5bbd46a93c7e5220bc
 Purpose: library (Node.js)
-Created: 2019-11-30T23:02:12.000Z
+Created: 2019-12-02T02:05:50.000Z
 License: MIT
 ```
 

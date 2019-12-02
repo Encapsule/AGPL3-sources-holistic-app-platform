@@ -58,7 +58,7 @@ function () {
   }, {
     key: "getFilter",
     value: function getFilter() {
-      return this.isValid() ? this._private.transitionOperatorFilter : this._private.constructorError;
+      return this.isValid() ? this._private : this._private.constructorError;
     }
   }]);
 

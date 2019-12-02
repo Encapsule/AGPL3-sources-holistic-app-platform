@@ -332,7 +332,7 @@ var factoryResponse = arccore.filter.create({
         });
 
         if (filterResponse.error) {
-          errors.push(filterRepsonse.error);
+          errors.push(filterResponse.error);
           return "break";
         }
 

@@ -24,7 +24,7 @@ function () {
     while (!inBreakScope) {
       inBreakScope = true;
       this._private = {
-        constructionError: null
+        constructorError: null
       };
       this.isValid = this.isValid.bind(this);
       this.toJSON = this.toJSON.bind(this);
@@ -33,6 +33,7 @@ function () {
       this.getDescription = this.getDescription.bind(this);
       this.getStepDescriptor = this.getStepDescriptor.bind(this);
       this.getDataSpec = this.getDataSpec.bind(this);
+      this.getDigraph = this.getDigraph.bind(this);
       var filterResponse = constructorRequestFilter.request(request_);
 
       if (filterResponse.error) {
@@ -58,7 +59,7 @@ function () {
   }, {
     key: "toJSON",
     value: function toJSON() {
-      return this.isValid() ? this._private : this._private.constructorError;
+      return this.isValid() ? this._private.declaration : this._private.constructorError;
     }
   }, {
     key: "getID",
@@ -84,6 +85,11 @@ function () {
     key: "getDataSpec",
     value: function getDataSpec() {
       return this.isValid() ? this._private.declaration.opmDataSpec : this._private.constructorError;
+    }
+  }, {
+    key: "getDigraph",
+    value: function getDigraph() {
+      return this.isValid() ? this._private.digraph : this._private.constructorError;
     }
   }]);
 

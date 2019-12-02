@@ -37,7 +37,12 @@ var factoryResponse = holodeck.harnessFactory.request({
       error: null,
       result: {
         isValid: observableProcessModel.isValid(),
-        toJSON: observableProcessModel.toJSON()
+        toJSON: observableProcessModel.toJSON(),
+        getID: observableProcessModel.getID(),
+        getName: observableProcessModel.getName(),
+        getDescription: observableProcessModel.getDescription(),
+        getDataSpec: observableProcessModel.getDataSpec(),
+        getDigraph: observableProcessModel.getDigraph()
       }
     };
     return response;

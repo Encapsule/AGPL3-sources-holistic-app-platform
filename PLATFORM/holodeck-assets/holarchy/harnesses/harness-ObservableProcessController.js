@@ -112,7 +112,7 @@ var factoryResponse = holodeck.harnessFactory.request({
       }
 
       response.result.actionEvaluations.push({
-        actRequest: act_,
+        actRequest: actRequest_,
         actResponse: actResponse
       });
     });
