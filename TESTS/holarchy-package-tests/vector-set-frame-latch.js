@@ -94,11 +94,6 @@ module.exports = [
                             id: "uZN6-qpIQO6CkwmLDWtMCw",
                             name: "OPC Frame Latch Test #1",
                             description: "Try to apply the Frame Latch OPM in an OPC system.",
-                            observableProcessModelSets: [
-                                [
-                                    new holarchy.ObservableProcessModel(opmFrameLatchDeclaration)
-                                ]
-                            ],
                             ocdTemplateSpec: {
                                 ____types: "jsObject",
                                 frameLatch: {
@@ -108,7 +103,21 @@ module.exports = [
                                         ____accept: "jsString"
                                     }
                                 }
-                            }
+                            },
+
+                            observableProcessModelSets: [
+                                [
+                                    new holarchy.ObservableProcessModel(opmFrameLatchDeclaration)
+                                ]
+                            ],
+
+                            transitionOperatorSets: [
+                                sml.operators.logical
+                            ],
+
+                            controllerActionSets: [
+                            ]
+
                         }
                     }
                 }

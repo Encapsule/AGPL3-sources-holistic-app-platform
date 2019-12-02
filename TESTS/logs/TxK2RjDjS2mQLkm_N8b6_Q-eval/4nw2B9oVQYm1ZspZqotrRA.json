@@ -15,72 +15,40 @@
                     "observableProcessModelSets": [
                       [
                         {
-                          "declaration": {
-                            "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                            "name": "OPM Test A",
-                            "description": "A simple test OPM",
-                            "opmDataSpec": {
-                              "____types": "jsObject"
-                            },
-                            "steps": {}
+                          "id": "_vC2O7DGTZ22R5hvxpy0WQ",
+                          "name": "OPM Test A",
+                          "description": "A simple test OPM",
+                          "opmDataSpec": {
+                            "____types": "jsObject"
                           },
-                          "digraph": {
-                            "name": "[_vC2O7DGTZ22R5hvxpy0WQ::OPM Test A] OPM Digraph",
-                            "description": "A simple test OPM",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "steps": {}
                         },
                         {
-                          "declaration": {
-                            "id": "SyCUD3kpQ8mtYbV5A_4BPA",
-                            "name": "OPM Test B",
-                            "description": "A simple test OPM",
-                            "opmDataSpec": {
-                              "____types": "jsObject"
-                            },
-                            "steps": {}
+                          "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                          "name": "OPM Test B",
+                          "description": "A simple test OPM",
+                          "opmDataSpec": {
+                            "____types": "jsObject"
                           },
-                          "digraph": {
-                            "name": "[SyCUD3kpQ8mtYbV5A_4BPA::OPM Test B] OPM Digraph",
-                            "description": "A simple test OPM",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "steps": {}
                         },
                         {
-                          "declaration": {
-                            "id": "Pkr1EErLSiiHQRt8gCaO0Q",
-                            "name": "OPM Test C",
-                            "description": "A simple test OPM",
-                            "opmDataSpec": {
-                              "____types": "jsObject"
-                            },
-                            "steps": {}
+                          "id": "Pkr1EErLSiiHQRt8gCaO0Q",
+                          "name": "OPM Test C",
+                          "description": "A simple test OPM",
+                          "opmDataSpec": {
+                            "____types": "jsObject"
                           },
-                          "digraph": {
-                            "name": "[Pkr1EErLSiiHQRt8gCaO0Q::OPM Test C] OPM Digraph",
-                            "description": "A simple test OPM",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "steps": {}
                         },
                         {
-                          "declaration": {
-                            "id": "ZFpRfMRETDqavS3EqEuv1Q",
-                            "name": "OPC Test D",
-                            "description": "A simple test OPM",
-                            "opmDataSpec": {
-                              "____types": "jsObject"
-                            },
-                            "steps": {}
+                          "id": "ZFpRfMRETDqavS3EqEuv1Q",
+                          "name": "OPC Test D",
+                          "description": "A simple test OPM",
+                          "opmDataSpec": {
+                            "____types": "jsObject"
                           },
-                          "digraph": {
-                            "name": "[ZFpRfMRETDqavS3EqEuv1Q::OPC Test D] OPM Digraph",
-                            "description": "A simple test OPM",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "steps": {}
                         }
                       ]
                     ]
@@ -106,72 +74,40 @@
                     "description": "Undescribed OPC",
                     "opmMap": {
                       "_vC2O7DGTZ22R5hvxpy0WQ": {
-                        "declaration": {
-                          "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                          "name": "OPM Test A",
-                          "description": "A simple test OPM",
-                          "opmDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {}
+                        "id": "_vC2O7DGTZ22R5hvxpy0WQ",
+                        "name": "OPM Test A",
+                        "description": "A simple test OPM",
+                        "opmDataSpec": {
+                          "____types": "jsObject"
                         },
-                        "digraph": {
-                          "name": "[_vC2O7DGTZ22R5hvxpy0WQ::OPM Test A] OPM Digraph",
-                          "description": "A simple test OPM",
-                          "vlist": [],
-                          "elist": []
-                        }
+                        "steps": {}
                       },
                       "SyCUD3kpQ8mtYbV5A_4BPA": {
-                        "declaration": {
-                          "id": "SyCUD3kpQ8mtYbV5A_4BPA",
-                          "name": "OPM Test B",
-                          "description": "A simple test OPM",
-                          "opmDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {}
+                        "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                        "name": "OPM Test B",
+                        "description": "A simple test OPM",
+                        "opmDataSpec": {
+                          "____types": "jsObject"
                         },
-                        "digraph": {
-                          "name": "[SyCUD3kpQ8mtYbV5A_4BPA::OPM Test B] OPM Digraph",
-                          "description": "A simple test OPM",
-                          "vlist": [],
-                          "elist": []
-                        }
+                        "steps": {}
                       },
                       "Pkr1EErLSiiHQRt8gCaO0Q": {
-                        "declaration": {
-                          "id": "Pkr1EErLSiiHQRt8gCaO0Q",
-                          "name": "OPM Test C",
-                          "description": "A simple test OPM",
-                          "opmDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {}
+                        "id": "Pkr1EErLSiiHQRt8gCaO0Q",
+                        "name": "OPM Test C",
+                        "description": "A simple test OPM",
+                        "opmDataSpec": {
+                          "____types": "jsObject"
                         },
-                        "digraph": {
-                          "name": "[Pkr1EErLSiiHQRt8gCaO0Q::OPM Test C] OPM Digraph",
-                          "description": "A simple test OPM",
-                          "vlist": [],
-                          "elist": []
-                        }
+                        "steps": {}
                       },
                       "ZFpRfMRETDqavS3EqEuv1Q": {
-                        "declaration": {
-                          "id": "ZFpRfMRETDqavS3EqEuv1Q",
-                          "name": "OPC Test D",
-                          "description": "A simple test OPM",
-                          "opmDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {}
+                        "id": "ZFpRfMRETDqavS3EqEuv1Q",
+                        "name": "OPC Test D",
+                        "description": "A simple test OPM",
+                        "opmDataSpec": {
+                          "____types": "jsObject"
                         },
-                        "digraph": {
-                          "name": "[ZFpRfMRETDqavS3EqEuv1Q::OPC Test D] OPM Digraph",
-                          "description": "A simple test OPM",
-                          "vlist": [],
-                          "elist": []
-                        }
+                        "steps": {}
                       }
                     },
                     "opmiSpecPaths": [],

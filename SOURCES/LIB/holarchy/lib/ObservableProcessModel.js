@@ -14,7 +14,7 @@ class ObservableProcessModel {
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            this._private = { constructionError: null };
+            this._private = { constructorError: null };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.getID = this.getID.bind(this);
@@ -22,6 +22,7 @@ class ObservableProcessModel {
             this.getDescription = this.getDescription.bind(this);
             this.getStepDescriptor = this.getStepDescriptor.bind(this);
             this.getDataSpec = this.getDataSpec.bind(this);
+            this.getDigraph = this.getDigraph.bind(this);
 
             let filterResponse = constructorRequestFilter.request(request_);
             if (filterResponse.error) {
@@ -42,7 +43,7 @@ class ObservableProcessModel {
     }
 
     toJSON() {
-        return (this.isValid()?this._private:this._private.constructorError);
+        return (this.isValid()?this._private.declaration:this._private.constructorError);
     }
 
     getID() {
@@ -63,6 +64,10 @@ class ObservableProcessModel {
 
     getDataSpec() {
         return (this.isValid()?this._private.declaration.opmDataSpec:this._private.constructorError);
+    }
+
+    getDigraph() {
+        return (this.isValid()?this._private.digraph:this._private.constructorError);
     }
 
 }

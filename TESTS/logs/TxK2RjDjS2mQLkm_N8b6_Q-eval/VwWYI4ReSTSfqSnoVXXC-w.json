@@ -32,21 +32,25 @@
                 "VwWYI4ReSTSfqSnoVXXC-w": {
                   "isValid": true,
                   "toJSON": {
-                    "declaration": {
-                      "id": "VwWYI4ReSTSfqSnoVXXC-w",
-                      "name": "OPM #2",
-                      "description": "OPM instance test #2 (minimal constructor request)",
-                      "opmDataSpec": {
-                        "____types": "jsObject"
-                      },
-                      "steps": {}
+                    "id": "VwWYI4ReSTSfqSnoVXXC-w",
+                    "name": "OPM #2",
+                    "description": "OPM instance test #2 (minimal constructor request)",
+                    "opmDataSpec": {
+                      "____types": "jsObject"
                     },
-                    "digraph": {
-                      "name": "[VwWYI4ReSTSfqSnoVXXC-w::OPM #2] OPM Digraph",
-                      "description": "OPM instance test #2 (minimal constructor request)",
-                      "vlist": [],
-                      "elist": []
-                    }
+                    "steps": {}
+                  },
+                  "getID": "VwWYI4ReSTSfqSnoVXXC-w",
+                  "getName": "OPM #2",
+                  "getDescription": "OPM instance test #2 (minimal constructor request)",
+                  "getDataSpec": {
+                    "____types": "jsObject"
+                  },
+                  "getDigraph": {
+                    "name": "[VwWYI4ReSTSfqSnoVXXC-w::OPM #2] OPM Digraph",
+                    "description": "OPM instance test #2 (minimal constructor request)",
+                    "vlist": [],
+                    "elist": []
                   }
                 }
               }
