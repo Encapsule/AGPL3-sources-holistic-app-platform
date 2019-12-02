@@ -5,7 +5,7 @@ var holarchy = require("@encapsule/holarchy");
 module.exports = new holarchy.TransitionOperator({
   id: "YgABX95wR86GCYrYaDLISA",
   name: "AND Transition Expression Operator",
-  description: "missing description",
+  description: "Returns Boolean true iff all suboperations return true.",
   operatorRequestSpec: {
     ____types: "jsObject",
     and: {

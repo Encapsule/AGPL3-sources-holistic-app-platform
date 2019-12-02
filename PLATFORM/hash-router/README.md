@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.27 "cypress"
 
 ```
-Package: @encapsule/hash-router v0.0.27 "cypress" build ID "DMQX-fzWTPWGdLgUh-8xVg"
-Sources: Encapsule/holistic#a685882875139381dda10c5bbd46a93c7e5220bc
+Package: @encapsule/hash-router v0.0.27 "cypress" build ID "4mppbwWTRo6FAisTwymgQA"
+Sources: Encapsule/holistic#cbaae7beb8a7b4d0864f314e6ef15bad25c3cb99
 Purpose: library (Node.js)
-Created: 2019-12-02T02:05:50.000Z
+Created: 2019-12-02T22:56:03.000Z
 License: MIT
 ```
 

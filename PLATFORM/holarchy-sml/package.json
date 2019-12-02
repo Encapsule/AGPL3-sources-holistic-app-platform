@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy-sml",
     "version": "0.0.27",
     "codename": "cypress",
-    "buildID": "DMQX-fzWTPWGdLgUh-8xVg",
-    "buildTime": 1575252350,
-    "buildSource": "a685882875139381dda10c5bbd46a93c7e5220bc",
+    "buildID": "4mppbwWTRo6FAisTwymgQA",
+    "buildTime": 1575327363,
+    "buildSource": "cbaae7beb8a7b4d0864f314e6ef15bad25c3cb99",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy-sml.git"

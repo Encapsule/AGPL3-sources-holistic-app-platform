@@ -4,7 +4,7 @@ const holarchy = require("@encapsule/holarchy");
 module.exports = new holarchy.TransitionOperator({
     id:  "TLSHkl73SO-utuzM7dyN2g",
     name: "NOT Transition Expression Operator",
-    description: "Input negation operator.",
+    description: "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
     operatorRequestSpec: {
         ____types: "jsObject",
         not: {
