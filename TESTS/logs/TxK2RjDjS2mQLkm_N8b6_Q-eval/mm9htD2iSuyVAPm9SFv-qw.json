@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "mm9htD2iSuyVAPm9SFv-qw",
           "name": "OPC.act dispatch #2",
-          "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+          "description": "Dispatch an OPC.act method with a valid request and no registered controller actions.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
