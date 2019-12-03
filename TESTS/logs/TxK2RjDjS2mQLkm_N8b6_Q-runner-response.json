@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 41,
+        "requests": 42,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -38,6 +38,7 @@
             "iQ5RngZ0QNyH67mVrlwo4w",
             "juolo4dqSgKdLEYLoHJJ1Q",
             "l_P652EhQU6_z7afrV-PMQ",
+            "mm9htD2iSuyVAPm9SFv-qw",
             "nCoUIS0RTlmuKUSpimee7A",
             "np4M1LDWSyeNXOmFYJulhA",
             "rxFiX7H-TDG0GsxqtRekoA",
@@ -2233,16 +2234,16 @@
               "AhfYIOp_RQmS-a37emkj9A": {
                 "harnessRequest": {
                   "id": "AhfYIOp_RQmS-a37emkj9A",
-                  "name": "OPC.act dispatch #1",
-                  "description": "Dispatch an OPC.act method with no actions registered.",
+                  "name": "OPC.act dispatch #1 (bad request)",
+                  "description": "Dispatch an OPC.act method with a bad request and no registered controller actions.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
                         "ObservableProcessController": {
                           "constructorRequest": {
                             "id": "AhfYIOp_RQmS-a37emkj9A",
-                            "name": "OPC.act dispatch #1",
-                            "description": "Not expected to do much..."
+                            "name": "OPC.act dispatch #1 (bad request)",
+                            "description": "Dispatch an OPC.act method with a bad request and no registered controller actions."
                           },
                           "actRequests": [
                             {
@@ -2266,16 +2267,16 @@
                         "AhfYIOp_RQmS-a37emkj9A": {
                           "opcToJSON": {
                             "id": "AhfYIOp_RQmS-a37emkj9A",
-                            "name": "OPC.act dispatch #1",
-                            "description": "Not expected to do much...",
+                            "name": "OPC.act dispatch #1 (bad request)",
+                            "description": "Dispatch an OPC.act method with a bad request and no registered controller actions.",
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
                               "____types": "jsObject"
                             },
                             "ocdRuntimeSpec": {
-                              "____label": "OPC [AhfYIOp_RQmS-a37emkj9A::OPC.act dispatch #1] Observable Controller Data Store",
-                              "____description": "OPC [AhfYIOp_RQmS-a37emkj9A::OPC.act dispatch #1] system process runtime state data managed by OPC instance.",
+                              "____label": "OPC [AhfYIOp_RQmS-a37emkj9A::OPC.act dispatch #1 (bad request)] Observable Controller Data Store",
+                              "____description": "OPC [AhfYIOp_RQmS-a37emkj9A::OPC.act dispatch #1 (bad request)] system process runtime state data managed by OPC instance.",
                               "____types": "jsObject",
                               "____defaultValue": {}
                             },
@@ -2323,6 +2324,125 @@
                             {
                               "actRequest": {
                                 "bogus": "Our OPCi has no registered actions. So, by definition this request will result in an error."
+                              },
+                              "actResponse": {
+                                "error": "Bad request: Filter [HcpOJr6nRYWCu4_J1v7wIw::OPC.act Input Stage Filter] failed while normalizing request input. Error at path '~.actorName': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
+              "mm9htD2iSuyVAPm9SFv-qw": {
+                "harnessRequest": {
+                  "id": "mm9htD2iSuyVAPm9SFv-qw",
+                  "name": "OPC.act dispatch #2",
+                  "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "mm9htD2iSuyVAPm9SFv-qw",
+                            "name": "OPC.act dispatch #2",
+                            "description": "Dispathc an OPC.act method with a valid request and no registered controller actions."
+                          },
+                          "actRequests": [
+                            {
+                              "actorName": "Test Vector mm9htD2iSuyVAPm9SFv-qw",
+                              "actionDescription": "See what happens when I call OPC.act method with a valid request signature and no controller action plug-ins registered.",
+                              "actionRequest": {
+                                "bogus": "Still a bogus message. But, that doesn't matter because this isn't going to get dispatched in this example."
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "mm9htD2iSuyVAPm9SFv-qw": {
+                          "opcToJSON": {
+                            "id": "mm9htD2iSuyVAPm9SFv-qw",
+                            "name": "OPC.act dispatch #2",
+                            "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [mm9htD2iSuyVAPm9SFv-qw::OPC.act dispatch #2] Observable Controller Data Store",
+                              "____description": "OPC [mm9htD2iSuyVAPm9SFv-qw::OPC.act dispatch #2] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": [
+                            {
+                              "actRequest": {
+                                "actorName": "Test Vector mm9htD2iSuyVAPm9SFv-qw",
+                                "actionDescription": "See what happens when I call OPC.act method with a valid request signature and no controller action plug-ins registered.",
+                                "actionRequest": {
+                                  "bogus": "Still a bogus message. But, that doesn't matter because this isn't going to get dispatched in this example."
+                                }
                               },
                               "actResponse": {
                                 "error": "No ControllerAction class instances registered!"

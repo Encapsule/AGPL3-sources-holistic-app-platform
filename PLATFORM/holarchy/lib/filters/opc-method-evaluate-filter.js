@@ -3,7 +3,7 @@
 // Copyright (C) 2019 Christopher D. Russell
 var arccore = require("@encapsule/arccore");
 
-var SimpleStopwatch = require("../lib/SimpleStopwatch");
+var SimpleStopwatch = require("../util/SimpleStopwatch");
 
 var opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-spec");
 

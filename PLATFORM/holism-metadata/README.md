@@ -5,10 +5,10 @@
 # @encapsule/holism-metadata v0.0.27 "cypress"
 
 ```
-Package: @encapsule/holism-metadata v0.0.27 "cypress" build ID "DMQX-fzWTPWGdLgUh-8xVg"
-Sources: Encapsule/holistic#a685882875139381dda10c5bbd46a93c7e5220bc
+Package: @encapsule/holism-metadata v0.0.27 "cypress" build ID "bh1_AYfCRzKAhQKnlsVA4w"
+Sources: Encapsule/holistic#05935903f83120eb5c4c186e27f0a861bfa804a2
 Purpose: library (Node.js)
-Created: 2019-12-02T02:05:50.000Z
+Created: 2019-12-03T19:52:42.000Z
 License: MIT
 ```
 
