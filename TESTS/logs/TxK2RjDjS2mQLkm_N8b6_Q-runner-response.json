@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 42,
+        "requests": 43,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -41,6 +41,7 @@
             "mm9htD2iSuyVAPm9SFv-qw",
             "nCoUIS0RTlmuKUSpimee7A",
             "np4M1LDWSyeNXOmFYJulhA",
+            "pUxcxo9STsG3OMWWrREHoQ",
             "rxFiX7H-TDG0GsxqtRekoA",
             "sBB6rshGQu2f7S5rA2x9eg",
             "sO15Cox_SVqcCgyrOllAwQ",
@@ -279,7 +280,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "gwtkQR51TYm93K32K6QHNA": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                            "error": "ObservableProcessController::constructor for [unspecified::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -321,7 +322,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "iQ5RngZ0QNyH67mVrlwo4w": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~.id': Value of type 'jsUndefined' not in allowed type set [jsString].",
+                            "error": "ObservableProcessController::constructor for [unspecified::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~.id': Value of type 'jsUndefined' not in allowed type set [jsString].",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -365,7 +366,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "QvEwWTkbT8G_SQsmWmg2zQ": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned. Expected 22-character string. Found 4-character string instead.",
+                            "error": "ObservableProcessController::constructor for [fail::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned. Expected 22-character string. Found 4-character string instead.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -604,7 +605,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "dirl1VuNQCmBrzbJXWMTtA": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Missing required '____accept', '____types', or '_____opaque' type constraint directive.",
+                            "error": "ObservableProcessController::constructor for [dirl1VuNQCmBrzbJXWMTtA::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Missing required '____accept', '____types', or '_____opaque' type constraint directive.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -651,7 +652,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "ChcuyPLCSQCsICTprPzfog": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____notAQunderscoreDirective' not allowed in declaration.",
+                            "error": "ObservableProcessController::constructor for [ChcuyPLCSQCsICTprPzfog::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____notAQunderscoreDirective' not allowed in declaration.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -698,7 +699,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "ZbwxkWJgTEKjxXpYX0_h7Q": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "error": "ObservableProcessController::constructor for [ZbwxkWJgTEKjxXpYX0_h7Q::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -745,7 +746,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "ElMglky8TBGkzkd6W4690A": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "error": "ObservableProcessController::constructor for [ElMglky8TBGkzkd6W4690A::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -794,7 +795,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "waM_L9rTT6ySTY4ja__K3g": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "error": "ObservableProcessController::constructor for [waM_L9rTT6ySTY4ja__K3g::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -841,7 +842,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "X5zbSBkaQeG6Wft5cGVRwg": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "error": "ObservableProcessController::constructor for [X5zbSBkaQeG6Wft5cGVRwg::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -889,7 +890,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "nCoUIS0RTlmuKUSpimee7A": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                            "error": "ObservableProcessController::constructor for [nCoUIS0RTlmuKUSpimee7A::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -1059,7 +1060,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "fzc39RvNTLmHF5UNn_-Fng": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Unable to initialize the OPC instance's shared OCD store due to constructor failure: Filter [3aDV_cacQByO0tTzVrBxnA::OCD Constructor Request Processor] failed while normalizing request input. Error at path '~.testString': Value of type 'jsNumber' not in allowed type set [jsString].",
+                            "error": "ObservableProcessController::constructor for [fzc39RvNTLmHF5UNn_-Fng::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Unable to initialize the OPC instance's shared OCD store due to constructor failure: Filter [3aDV_cacQByO0tTzVrBxnA::OCD Constructor Request Processor] failed while normalizing request input. Error at path '~.testString': Value of type 'jsNumber' not in allowed type set [jsString].",
                             "result": false
                           },
                           "actionEvaluations": []
@@ -2346,7 +2347,7 @@
                 "harnessRequest": {
                   "id": "mm9htD2iSuyVAPm9SFv-qw",
                   "name": "OPC.act dispatch #2",
-                  "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+                  "description": "Dispatch an OPC.act method with a valid request and no registered controller actions.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
@@ -2460,6 +2461,219 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
+              "pUxcxo9STsG3OMWWrREHoQ": {
+                "harnessRequest": {
+                  "id": "pUxcxo9STsG3OMWWrREHoQ",
+                  "name": "OPC.arc dispatch #3",
+                  "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "pUxcxo9STsG3OMWWrREHoQ",
+                            "name": "OPC.arc dispatch #3",
+                            "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
+                            "controllerActionSets": [
+                              [
+                                "ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction].",
+                                {
+                                  "operationID": "93_stDeORb-9W_0d69fswg",
+                                  "operationName": "NOOP Controller Test Action #2",
+                                  "operationDescription": "Do nothing test controller action plug-in filter #2.",
+                                  "inputFilterSpec": {
+                                    "____label": "NOOP Controller Test Action #2 Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "dataPath": {
+                                        "____label": "OPM Binding Namespace",
+                                        "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC Action Request Dispatcher",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "noop1": {
+                                        "____accept": "jsBoolean",
+                                        "____inValueSet": [
+                                          true
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "QbBHNSXVFcllpVVIKPdIHA",
+                                  "inputTypeVDID": "8WNskhtbEOfnLY0diIad0Q",
+                                  "outputTypeVIID": "gUIA-Cjc2TyIr5-2zpWFzw",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "Y0MwRJV58ZOqEIKcOTv1cg"
+                                },
+                                {
+                                  "operationID": "BO184bcvSzmr9oF4KJynSA",
+                                  "operationName": "NOOP Controller Test Action #3",
+                                  "operationDescription": "Do nothing nothing test controller action plug-in filter #3.",
+                                  "inputFilterSpec": {
+                                    "____label": "NOOP Controller Test Action #3 Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "dataPath": {
+                                        "____label": "OPM Binding Namespace",
+                                        "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC Action Request Dispatcher",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "noop2": {
+                                        "____accept": "jsBoolean",
+                                        "____inValueSet": [
+                                          true
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "DhS9wGiVKn64Be-BByEVwg",
+                                  "inputTypeVDID": "PWNsYYtbEGVoLY3VHYadBQ",
+                                  "outputTypeVIID": "lzZ25Vwzg8KsNwEwfqOZmA",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "Oxn8RNXk1ZNRXcGc6uomcg"
+                                }
+                              ]
+                            ]
+                          }
+                        },
+                        "actRequests": []
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "pUxcxo9STsG3OMWWrREHoQ": {
+                          "opcToJSON": {
+                            "id": "pUxcxo9STsG3OMWWrREHoQ",
+                            "name": "OPC.arc dispatch #3",
+                            "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [pUxcxo9STsG3OMWWrREHoQ::OPC.arc dispatch #3] Observable Controller Data Store",
+                              "____description": "OPC [pUxcxo9STsG3OMWWrREHoQ::OPC.arc dispatch #3] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {
+                              "filterDescriptor": {
+                                "operationID": "JMMqUQ69mX8OlWIeTkDJdg",
+                                "operationName": "Discriminator Filter",
+                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "inputTypeVIID": "4oWxnuHKn4v9Tg3IRkDmJQ",
+                                "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "outputTypeVIID": "YwdAuAjCULYMXHfs5FNQdQ",
+                                "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "operationVDID": "axb0E2a4NVe6KY7tGp4UtA"
+                              },
+                              "supportedFilters": [
+                                "[93_stDeORb-9W_0d69fswg::NOOP Controller Test Action #2]",
+                                "[BO184bcvSzmr9oF4KJynSA::NOOP Controller Test Action #3]"
+                              ],
+                              "options": {
+                                "action": "routeRequest"
+                              }
+                            },
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "frames": 1,
+                                    "errors": 0,
+                                    "transitions": 0
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 0,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {}
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: Ignoring invalid ControllerAction class instance: ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction]."
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
             "V4rhwuR97Sdl5q9h1CIHTg": {
               "8UqseWhbQLSnDnKqu6eVpA": {
                 "harnessRequest": {
@@ -2485,7 +2699,7 @@
                       "0xHlX_WKQ3y-3CFQ0DDx1w": {
                         "8UqseWhbQLSnDnKqu6eVpA": {
                           "isValid": false,
-                          "toJSON": "ControllerAction::constructor failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                          "toJSON": "ControllerAction::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                         }
                       }
                     }
@@ -2619,7 +2833,7 @@
                       "X2q-YtvCTrWx7csHq8R8Tw": {
                         "6TPB7tz4TQaGJYaRAhl_gQ": {
                           "isValid": false,
-                          "toJSON": "TransitionOperator::constructor failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                          "toJSON": "TransitionOperator::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                         }
                       }
                     }
@@ -2753,12 +2967,12 @@
                       "mC3pPO5wS3SxvhgZgMjsJQ": {
                         "ErHlg9R3SSaonNJr4mBi-g": {
                           "isValid": false,
-                          "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                          "getID": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                          "getName": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                          "getDescription": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                          "getDataSpec": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                          "getDigraph": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                          "toJSON": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                          "getID": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                          "getName": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                          "getDescription": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                          "getDataSpec": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                          "getDigraph": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                         }
                       }
                     }
@@ -2867,12 +3081,12 @@
                       "mC3pPO5wS3SxvhgZgMjsJQ": {
                         "HwB8EphzRkSG7AeoISMctQ": {
                           "isValid": false,
-                          "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
-                          "getID": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
-                          "getName": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
-                          "getDescription": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
-                          "getDataSpec": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
-                          "getDigraph": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration."
+                          "toJSON": "ObservableProcessModel::constructor for [HwB8EphzRkSG7AeoISMctQ::ObsevableProcessModel constructor #3] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
+                          "getID": "ObservableProcessModel::constructor for [HwB8EphzRkSG7AeoISMctQ::ObsevableProcessModel constructor #3] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
+                          "getName": "ObservableProcessModel::constructor for [HwB8EphzRkSG7AeoISMctQ::ObsevableProcessModel constructor #3] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
+                          "getDescription": "ObservableProcessModel::constructor for [HwB8EphzRkSG7AeoISMctQ::ObsevableProcessModel constructor #3] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
+                          "getDataSpec": "ObservableProcessModel::constructor for [HwB8EphzRkSG7AeoISMctQ::ObsevableProcessModel constructor #3] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration.",
+                          "getDigraph": "ObservableProcessModel::constructor for [HwB8EphzRkSG7AeoISMctQ::ObsevableProcessModel constructor #3] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObsevableProcessModel constructor #3' declaration. Error validating developer-specified OPM filter spec. Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____bullshit' not allowed in declaration."
                         }
                       }
                     }
@@ -2915,12 +3129,12 @@
                       "mC3pPO5wS3SxvhgZgMjsJQ": {
                         "YdzP0ZKMTme24BBJcyKevA": {
                           "isValid": false,
-                          "toJSON": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
-                          "getID": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
-                          "getName": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
-                          "getDescription": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
-                          "getDataSpec": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
-                          "getDigraph": "ObservableProcessModel::constructor failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead."
+                          "toJSON": "ObservableProcessModel::constructor for [invalid::ObservableProcessModel constructor #4] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
+                          "getID": "ObservableProcessModel::constructor for [invalid::ObservableProcessModel constructor #4] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
+                          "getName": "ObservableProcessModel::constructor for [invalid::ObservableProcessModel constructor #4] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
+                          "getDescription": "ObservableProcessModel::constructor for [invalid::ObservableProcessModel constructor #4] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
+                          "getDataSpec": "ObservableProcessModel::constructor for [invalid::ObservableProcessModel constructor #4] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead.",
+                          "getDigraph": "ObservableProcessModel::constructor for [invalid::ObservableProcessModel constructor #4] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while performing main operation. Error while evaluating subcontroller 'ObservableProcessModel constructor #4' declaration. Error validating developer-specified id. Not an IRUT: Expected 22-character string. Found 7-character string instead."
                         }
                       }
                     }
