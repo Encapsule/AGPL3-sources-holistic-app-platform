@@ -1,7 +1,10 @@
 
 const arccore = require("@encapsule/arccore");
-const constructorRequestFilter = require("./filters/opc-method-constructor-filter");
+const constructorFilter = require("./filters/opc-method-constructor-filter");
+const actInputFilter = require("./filters/opc-method-act-input-filter");
+const actOutputFilter = require("./filters/opc-method-act-output-filter");
 const evaluateFilter = require("./filters/opc-method-evaluate-filter");
+
 
 class ObservableProcessController {
 
@@ -32,7 +35,7 @@ class ObservableProcessController {
 
             // ----------------------------------------------------------------
             // Normalize the incoming request descriptor object.
-            let filterResponse = constructorRequestFilter.request(request_);
+            let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push("Failed while processing constructor request.");
                 errors.push(filterResponse.error);
@@ -105,12 +108,14 @@ class ObservableProcessController {
         if (!this.isValid()) {
             return this.isValid({ getError: true });
         }
-
         return this._private;
     } // toJSON method
 
 
     act(request_) {
+
+        console.log("================================================================");
+        console.log("ObservableProcessController::act starting...");
 
         let response = { error: null };
         let errors = [];
@@ -120,46 +125,64 @@ class ObservableProcessController {
             inBreakScope = true;
 
             if (!this.isValid()) {
-                errors.push(this.toJSON()); // this digs out the construction error
+                // Retrieve just the error string, not the entire response.
+                errors.push("Zombie instance:");
+                errors.push(this.toJSON());
                 break;
             }
+
+            let filterResponse = actInputFilter.request(request_);
+            if (filterResponse.error) {
+                errors.push("Bad request:");
+                errors.push(filterResponse.error);
+                break;
+            }
+
+            const request = filterResponse.result;
 
             // Push the actor stack.
-            // If called by an external subroutine, the stack will initially be empty.
-            this._private.opcActorStack.push(request_);
+            this._private.opcActorStack.push({
+                actorName: request.actorName,
+                actionDescription: request.actionDescription
+            });
 
-            // If a controller action returns an error it's considered a fatal
-            // OPC transport error (i.e. operator, action, model evaluation errors).
-            // Typically, actions encounter _applicaiton-level_ error conditions
-            // that are stored in the OPC's contained OCD via some app-defined
-            // protocol (e.g. a list of errors in a namespace in the OCD would suffice).
+            // Prepare the controller action plug-in filter request descriptor object.
+            const controllerActionRequest = {
+                context: {
+                    dataPath: request.dataPath,
+                    ocdi: this._private.ocdi,
+                    act: this.act
+                },
+                actionRequest: request.actionRequest
+            };
 
-            let actionResponse = this._private.actionDispatcher.request(request_);
+            // Dispatch the actor's requested action.
+            let actionResponse = this._private.actionDispatcher.request(controllerActionRequest);
 
+            // If a transport error occurred dispatching the controller action,
+            // skip any futher processing (including a possible evaluation)
+            // and return. Transport errors represent serious flaws in a derived
+            // app/service that must be corrected. We skip possible evaluation
+            // below on error to make it simpler for developers to diagnose
+            // the transport error.
             if (actionResponse.error) {
-                // If a transport error occurred dispatching the controller action,
-                // skip any futher processing (including a possible evaluation)
-                // and return. Transport errors represent serious flaws in a derived
-                // app/service that must be corrected. We skip possible evaluation
-                // below on error to make it simpler for developers to diagnose
-                // the transport error.
                 errors.push(actionResponse.error);
-                this._private.opcActorStack.pop();
                 break;
             }
 
-            // If no transport error occured dispatching the controller action,
-            // then re-evaluate the system of observable process models iff
-            // the entire chain of controller action delegations initiated by
-            // the external subroutine caller has completed. Note that as controller
-            // actions delegate to sub-actions by calling OPC.act method this step
-            // is explicitly skipped. We only re-evaluate the system when the
-            // action(s) have completed their work.
+            // If no errors have occurred then there's by definition at least
+            // one pending action on the actor stack. This is so because
+            // controller actions may delegate to other controller actions via
+            // re-entrant calls to ObservableProcessController.act method.
+            // Such delegations are non-observable, i.e. they are atomic
+            // with respect to OPC evaluation. So, we only re-evaluate when
+            // we have finished the last of >= 1 controller action plug-in
+            // filter delegations. And, this propogates the net effects of
+            // the controller action as observed in the contained ocdi according
+
             if (this._private.opcActorStack.length === 1) {
                 response = this._evaluate();
             }
-
-            this._private.opcActorStack.pop();
 
             break;
         }
@@ -169,6 +192,8 @@ class ObservableProcessController {
             console.error(`OPC.act transport error: ${response.error}`);
         }
 
+        // Pop the actor stack.
+        this._private.opcActorStack.pop();
         return response;
 
     } // act method
