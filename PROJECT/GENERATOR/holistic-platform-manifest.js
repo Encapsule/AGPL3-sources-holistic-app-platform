@@ -24,17 +24,18 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
     platformDependencies: {
 
         // Holistic platform build and test library dependencies.
-        "eslint": "^5.10.0",
         "@babel/cli": "^7.2.3",
         "@babel/core": "^7.2.2",
         "@babel/plugin-transform-react-jsx": "^7.2.0",
         "@babel/preset-env": "^7.2.3",
+        "chai": "^4.2.0",
+        "eslint": "^5.10.0",
+        "mockery": "^2.1.0",
         "webpack": "4.29.5",
         "webpack-cli": "3.2.3",
         "css-loader": "3.0.0",
         "style-loader": "0.23.1",
         "handlebars": "^4.0.12",
-        "chai": "^4.2.0",
 
         // Holistic platform runtime library dependencies.
         "@encapsule/arccore": arccore.__meta.version,
