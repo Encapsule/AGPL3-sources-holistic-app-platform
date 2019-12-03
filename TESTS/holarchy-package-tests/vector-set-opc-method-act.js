@@ -69,10 +69,17 @@ module.exports = [
                             name: "OPC.arc dispatch #3",
                             description: "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
                             controllerActionSets: [ fixture_ACTExamples ]
-                        }
-                    },
-                    actRequests: [
-                    ]
+                        },
+                        actRequests: [
+                            {
+                                actorName: "Test Vector pUxcxo9STsG3OMWWrREHoQ",
+                                actionDescription: "Attempt to call into a registered ControllerAction plug-in.",
+                                actionRequest: {
+                                    noop1: true
+                                }
+                            }
+                        ]
+                    }
                 }
             }
         }
