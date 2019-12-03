@@ -5,8 +5,32 @@ module.exports = [
 
     new holarchy.ControllerAction({
         id: "93_stDeORb-9W_0d69fswg",
-        name: "Noop Controller Action",
-        description: "Do nothing much of anything at all (noop) test controller action."
+        name: "NOOP Controller Test Action #1",
+        description: "Do nothing test controller action plug-in filter #1.",
+        actionRequestSpec: {
+            ____types: "jsObject",
+            noop1: {
+                ____accept: "jsBoolean",
+                ____inValueSet: [ true ]
+            }
+        },
+        bodyFunction: function(request_) {
+            return { error: null, result: false };
+        }
+
+    }),
+
+    new holarchy.ControllerAction({
+        id: "BO184bcvSzmr9oF4KJynSA",
+        name: "NOOP Controller Test Action #2",
+        description: "Do nothing nothing test controller action plug-in filter #2.",
+        actionRequestSpec: {
+            ____types: "jsObject",
+            noop2: {
+                ____accept: "jsBoolean",
+                ____inValueSet: [ true ]
+            }
+        }
     })
 
 ];

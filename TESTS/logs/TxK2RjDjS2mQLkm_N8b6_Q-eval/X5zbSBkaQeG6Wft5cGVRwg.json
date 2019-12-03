@@ -32,7 +32,7 @@
               "54MiSgQdSiukMX4fIZJimg": {
                 "X5zbSBkaQeG6Wft5cGVRwg": {
                   "opcToJSON": {
-                    "error": "ObservableProcessController::constructor failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
+                    "error": "ObservableProcessController::constructor for [X5zbSBkaQeG6Wft5cGVRwg::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
                     "result": false
                   },
                   "actionEvaluations": []

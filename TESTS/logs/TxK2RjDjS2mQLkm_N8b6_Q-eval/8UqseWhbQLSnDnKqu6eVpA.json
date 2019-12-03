@@ -25,7 +25,7 @@
               "0xHlX_WKQ3y-3CFQ0DDx1w": {
                 "8UqseWhbQLSnDnKqu6eVpA": {
                   "isValid": false,
-                  "toJSON": "ControllerAction::constructor failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                  "toJSON": "ControllerAction::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                 }
               }
             }

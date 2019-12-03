@@ -33,7 +33,7 @@ class ObservableProcessModel {
             break;
         }
         if (errors.length) {
-            errors.unshift("ObservableProcessModel::constructor failed yielding a zombie instance.");
+            errors.unshift(`ObservableProcessModel::constructor for [${(request_ && request_.id)?request_.id:"unspecified"}::${(request_ && request_.name)?request_.name:"unspecified"}] failed yielding a zombie instance.`);
             this._private.constructorError = errors.join(" ");
         }
     }

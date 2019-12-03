@@ -31,7 +31,7 @@ module.exports = [
     {
         id: "mm9htD2iSuyVAPm9SFv-qw",
         name: "OPC.act dispatch #2",
-        description: "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+        description: "Dispatch an OPC.act method with a valid request and no registered controller actions.",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -54,5 +54,28 @@ module.exports = [
                 }
             }
         }
+    },
+
+    {
+        id: "pUxcxo9STsG3OMWWrREHoQ",
+        name: "OPC.arc dispatch #3",
+        description: "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "pUxcxo9STsG3OMWWrREHoQ",
+                            name: "OPC.arc dispatch #3",
+                            description: "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
+                            controllerActionSets: [ fixture_ACTExamples ]
+                        }
+                    },
+                    actRequests: [
+                    ]
+                }
+            }
+        }
     }
+
 ];

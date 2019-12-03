@@ -24,7 +24,7 @@ module.exports = class TransitionOperator {
             break;
         }
         if (errors.length) {
-            errors.unshift("TransitionOperator::constructor failed yielding a zombie instance.");
+            errors.unshift(`TransitionOperator::constructor for [${(request_ && request_.id)?request_.id:"unspecified"}::${(request_ && request_.name)?request_.name:"unspecified"}] failed yielding a zombie instance.`);
             this._private.constructorError = errors.join(" ");
         }
     }
