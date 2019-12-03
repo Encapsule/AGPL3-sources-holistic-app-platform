@@ -270,6 +270,8 @@ const factoryResponse = arccore.filter.create({
             // instance that will only give you a copy of its death certificate.
             try {
                 console.log("> Initialzing OPC instance process state using OCD runtime spec and developer-defined OCD init data.");
+                // TODO: ObservableControllerData to no throw implementation consistent w/everything else.
+                // Holding off until we 100% deprecate the use of ApplicationDataStore class in derived apps.
                 result.ocdi = new ObservableControllerData({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
             } catch (exception_) {
                 errors.push("Unable to initialize the OPC instance's shared OCD store due to constructor failure:");
@@ -290,7 +292,12 @@ const factoryResponse = arccore.filter.create({
 
             request_.transitionOperatorSets.forEach(transitionOperatorSet_ => {
                 transitionOperatorSet_.forEach(transitionOperatorInstance_ => {
-                    transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
+                    if (!transitionOperatorInstance_.isValid()) {
+                        const warningMessage = `WARNING: Ignoring invalid TransitionOperator class instance: ${transitionOperatorInstance_.toJSON()}`;
+                        result.constructionWarnings.push(warningMessage);
+                    } else {
+                        transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
+                    }
                 });
             });
             if (transitionOperatorFilters.length >= 2) {
@@ -327,7 +334,12 @@ const factoryResponse = arccore.filter.create({
 
             request_.controllerActionSets.forEach(controllerActionSet_ => {
                 controllerActionSet_.forEach(controllerActionInstance_ => {
-                    controllerActionFilters.push(controllerActionInstance_.getFilter());
+                    if (!controllerActionInstance_.isValid()) {
+                        const warningMessage = `WARNING: Ignoring invalid ControllerAction class instance: ${controllerActionInstance_.toJSON()}`;
+                        result.constructionWarnings.push(warningMessage);
+                    } else {
+                        controllerActionFilters.push(controllerActionInstance_.getFilter());
+                    }
                 });
             });
             if (controllerActionFilters.length >= 2) {
