@@ -5,10 +5,10 @@
 # @encapsule/hrequest v0.0.27 "cypress"
 
 ```
-Package: @encapsule/hrequest v0.0.27 "cypress" build ID "bh1_AYfCRzKAhQKnlsVA4w"
-Sources: Encapsule/holistic#05935903f83120eb5c4c186e27f0a861bfa804a2
+Package: @encapsule/hrequest v0.0.27 "cypress" build ID "-ylsBSkBQ3-stZobtDwmrg"
+Sources: Encapsule/holistic#439faebcb646ef6d3487a0942658f5e1e53ace6b
 Purpose: library (Node.js)
-Created: 2019-12-03T19:52:42.000Z
+Created: 2019-12-03T22:23:33.000Z
 License: MIT
 ```
 

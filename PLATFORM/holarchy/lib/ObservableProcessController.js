@@ -76,7 +76,7 @@ function () {
 
 
     if (errors.length) {
-      errors.unshift("ObservableProcessController::constructor failed yielding a zombie instance.");
+      errors.unshift("ObservableProcessController::constructor for [".concat(request_ && request_.id ? request_.id : "unspecified", "::").concat(request_ && request_.name ? request_.name : "unspecified", "] failed yielding a zombie instance."));
       this._private.constructionError = {
         error: errors.join(" ")
       };

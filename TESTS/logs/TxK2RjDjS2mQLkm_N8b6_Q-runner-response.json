@@ -2572,9 +2572,17 @@
                                 }
                               ]
                             ]
-                          }
-                        },
-                        "actRequests": []
+                          },
+                          "actRequests": [
+                            {
+                              "actorName": "Test Vector pUxcxo9STsG3OMWWrREHoQ",
+                              "actionDescription": "Attempt to call into a registered ControllerAction plug-in.",
+                              "actionRequest": {
+                                "noop1": true
+                              }
+                            }
+                          ]
+                        }
                       }
                     }
                   }
@@ -2662,7 +2670,46 @@
                               "WARNING: Ignoring invalid ControllerAction class instance: ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction]."
                             ]
                           },
-                          "actionEvaluations": []
+                          "actionEvaluations": [
+                            {
+                              "actRequest": {
+                                "actorName": "Test Vector pUxcxo9STsG3OMWWrREHoQ",
+                                "actionDescription": "Attempt to call into a registered ControllerAction plug-in.",
+                                "actionRequest": {
+                                  "noop1": true
+                                }
+                              },
+                              "actResponse": {
+                                "error": null,
+                                "result": {
+                                  "evalNumber": 1,
+                                  "summary": {
+                                    "counts": {
+                                      "frames": 1,
+                                      "errors": 0,
+                                      "transitions": 0
+                                    }
+                                  },
+                                  "evalFrames": [
+                                    {
+                                      "summary": {
+                                        "counts": {
+                                          "bindings": 0,
+                                          "transitions": 0,
+                                          "errors": 0
+                                        },
+                                        "reports": {
+                                          "transitions": [],
+                                          "errors": []
+                                        }
+                                      },
+                                      "bindings": {}
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
                         }
                       }
                     }

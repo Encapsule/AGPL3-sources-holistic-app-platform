@@ -294,7 +294,9 @@ var factoryResponse = arccore.filter.create({
       // instance that will only give you a copy of its death certificate.
 
       try {
-        console.log("> Initialzing OPC instance process state using OCD runtime spec and developer-defined OCD init data.");
+        console.log("> Initialzing OPC instance process state using OCD runtime spec and developer-defined OCD init data."); // TODO: ObservableControllerData to no throw implementation consistent w/everything else.
+        // Holding off until we 100% deprecate the use of ApplicationDataStore class in derived apps.
+
         result.ocdi = new ObservableControllerData({
           spec: result.ocdRuntimeSpec,
           data: request_.ocdInitData
@@ -315,7 +317,13 @@ var factoryResponse = arccore.filter.create({
       console.log("> Analyzing registered TransitionOperator class instances...");
       request_.transitionOperatorSets.forEach(function (transitionOperatorSet_) {
         transitionOperatorSet_.forEach(function (transitionOperatorInstance_) {
-          transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
+          if (!transitionOperatorInstance_.isValid()) {
+            var _warningMessage3 = "WARNING: Ignoring invalid TransitionOperator class instance: ".concat(transitionOperatorInstance_.toJSON());
+
+            result.constructionWarnings.push(_warningMessage3);
+          } else {
+            transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
+          }
         });
       });
 
@@ -339,9 +347,9 @@ var factoryResponse = arccore.filter.create({
         result.transitionDispatcher = filterResponse.result;
         console.log("> OPC instance transition operator request dispatched initialized.");
       } else {
-        var _warningMessage3 = "WARNING: No TransitionOperator class instances have been registered!";
-        result.constructionWarnings.push(_warningMessage3);
-        console.warn(_warningMessage3); // Register a dummy discriminator.
+        var _warningMessage4 = "WARNING: No TransitionOperator class instances have been registered!";
+        result.constructionWarnings.push(_warningMessage4);
+        console.warn(_warningMessage4); // Register a dummy discriminator.
 
         result.transitionDispatcher = {
           request: function request() {
@@ -361,7 +369,13 @@ var factoryResponse = arccore.filter.create({
       console.log("> Analyzing registered ControllerAction class instances...");
       request_.controllerActionSets.forEach(function (controllerActionSet_) {
         controllerActionSet_.forEach(function (controllerActionInstance_) {
-          controllerActionFilters.push(controllerActionInstance_.getFilter());
+          if (!controllerActionInstance_.isValid()) {
+            var _warningMessage5 = "WARNING: Ignoring invalid ControllerAction class instance: ".concat(controllerActionInstance_.toJSON());
+
+            result.constructionWarnings.push(_warningMessage5);
+          } else {
+            controllerActionFilters.push(controllerActionInstance_.getFilter());
+          }
         });
       });
 
@@ -385,9 +399,9 @@ var factoryResponse = arccore.filter.create({
         result.actionDispatcher = filterResponse.result;
         console.log("> OPC instance controller action request dispatched initialized.");
       } else {
-        var _warningMessage4 = "WARNING: No ControllerAction class instances have been registered!";
-        result.constructionWarnings.push(_warningMessage4);
-        console.warn(_warningMessage4);
+        var _warningMessage6 = "WARNING: No ControllerAction class instances have been registered!";
+        result.constructionWarnings.push(_warningMessage6);
+        console.warn(_warningMessage6);
         result.actionDispatcher = {
           request: function request() {
             return {
