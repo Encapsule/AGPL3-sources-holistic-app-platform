@@ -374,7 +374,64 @@
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "wuHfRFbQk5O6LmCctPVfcg"
                         },
-                        "TransitionOperator::constructor for [kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~.operatorRequestSpec': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                        {
+                          "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
+                          "operationName": "OCD Namespace Is Truthy",
+                          "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                          "inputFilterSpec": {
+                            "____label": "OCD Namespace Is Truthy Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "namespace": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operator": {
+                              "____types": "jsObject",
+                              "encapsule": {
+                                "____types": "jsObject",
+                                "holarchySML": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "ocdi": {
+                                      "____types": "jsObject",
+                                      "isTruthy": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
+                          "inputTypeVDID": "YB7ONfnX5VY4uFHlMvJmJA",
+                          "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "vuhHROKrX5P3XLqc3Khkcg"
+                        }
                       ]
                     ],
                     "controllerActionSets": []
@@ -650,21 +707,22 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "OsNfE0GgowtWZdHzG2LC5g",
+                        "operationID": "AOa3UdklXIbPzA9taYLSYQ",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                        "inputTypeVIID": "nEoBuLmdZQN_-EzbkQxQVA",
+                        "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "IA45krS86FpiB8B8zzEB7A",
+                        "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "pdj0Eyw2NVfmbI7tL4wUtA"
+                        "operationVDID": "ouv0E3RGNVecb47tSagUtA"
                       },
                       "supportedFilters": [
                         "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                         "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                         "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                         "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                        "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]"
+                        "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                        "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
                       ],
                       "options": {
                         "action": "routeRequest"
@@ -825,21 +883,22 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "OsNfE0GgowtWZdHzG2LC5g",
+                                                "operationID": "AOa3UdklXIbPzA9taYLSYQ",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "nEoBuLmdZQN_-EzbkQxQVA",
+                                                "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "IA45krS86FpiB8B8zzEB7A",
+                                                "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "pdj0Eyw2NVfmbI7tL4wUtA"
+                                                "operationVDID": "ouv0E3RGNVecb47tSagUtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                                                 "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]"
+                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
                                               ],
                                               "options": {
                                                 "action": "routeRequest"
@@ -1033,21 +1092,22 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "OsNfE0GgowtWZdHzG2LC5g",
+                                                "operationID": "AOa3UdklXIbPzA9taYLSYQ",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "nEoBuLmdZQN_-EzbkQxQVA",
+                                                "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "IA45krS86FpiB8B8zzEB7A",
+                                                "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "pdj0Eyw2NVfmbI7tL4wUtA"
+                                                "operationVDID": "ouv0E3RGNVecb47tSagUtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                                                 "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]"
+                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
                                               ],
                                               "options": {
                                                 "action": "routeRequest"
@@ -1239,21 +1299,22 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "OsNfE0GgowtWZdHzG2LC5g",
+                                                "operationID": "AOa3UdklXIbPzA9taYLSYQ",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "nEoBuLmdZQN_-EzbkQxQVA",
+                                                "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "IA45krS86FpiB8B8zzEB7A",
+                                                "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "pdj0Eyw2NVfmbI7tL4wUtA"
+                                                "operationVDID": "ouv0E3RGNVecb47tSagUtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                                                 "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]"
+                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
                                               ],
                                               "options": {
                                                 "action": "routeRequest"
@@ -1273,7 +1334,7 @@
                                           }
                                         },
                                         "response": {
-                                          "error": "Filter [OsNfE0GgowtWZdHzG2LC5g::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator], [9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator], [TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator], [YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator], [e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]}."
+                                          "error": "Filter [AOa3UdklXIbPzA9taYLSYQ::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator], [9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator], [TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator], [YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator], [e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.], [kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]}."
                                         }
                                       }
                                     ],
@@ -1296,7 +1357,6 @@
                       }
                     },
                     "constructionWarnings": [
-                      "WARNING: Ignoring invalid TransitionOperator class instance: TransitionOperator::constructor for [kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~.operatorRequestSpec': Value of type 'jsUndefined' not in allowed type set [jsObject].",
                       "WARNING: No ControllerAction class instances have been registered!"
                     ]
                   },

@@ -5,7 +5,8 @@ module.exports = new holarchy.TransitionOperator({
     id: "kD1PcgqYQlm7fJatNG2ZsA",
     name: "OCD Namespace Is Truthy",
     description: "Returns Boolean true iff the indicated OCD namespace is truthy.",
-    operatorFilterSpec: {
+
+    operatorRequestSpec: {
         ____types: "jsObject",
         encapsule: {
             ____types: "jsObject",
@@ -26,6 +27,7 @@ module.exports = new holarchy.TransitionOperator({
             }
         }
     },
+
     bodyFunction: function(request_) {
         var response = { error: null, result: false };
         var errors = [];
