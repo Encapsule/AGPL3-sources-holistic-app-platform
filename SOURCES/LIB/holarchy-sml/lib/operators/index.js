@@ -8,6 +8,8 @@ module.exports = {
         require("./TransitionOperator-logical-not"),
         require("./TransitionOperator-logical-or"),
         require("./TransitionOperator-logical-true"),
+        require("./TransitionOperator-opm-at-step"),
+        require("./TransitionOperator-ocd-is-truthy")
     ]
 
 };

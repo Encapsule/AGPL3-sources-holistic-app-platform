@@ -5,10 +5,10 @@
 # @encapsule/d2r2-components v0.0.27 "cypress"
 
 ```
-Package: @encapsule/d2r2-components v0.0.27 "cypress" build ID "-ylsBSkBQ3-stZobtDwmrg"
-Sources: Encapsule/holistic#439faebcb646ef6d3487a0942658f5e1e53ace6b
+Package: @encapsule/d2r2-components v0.0.27 "cypress" build ID "hlZqOjHHR6mGa4Q8aysJHg"
+Sources: Encapsule/holistic#fda7fea846ef6060df7b22e128c3677931184b21
 Purpose: library (Node.js)
-Created: 2019-12-03T22:23:33.000Z
+Created: 2019-12-04T00:07:17.000Z
 License: MIT
 ```
 

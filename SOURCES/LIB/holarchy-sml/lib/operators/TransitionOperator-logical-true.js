@@ -4,7 +4,7 @@ const holarchy = require("@encapsule/holarchy");
 
 module.exports = new holarchy.TransitionOperator({
     id: "e89cwnP4Qd6MocAhzdOJgw",
-    name: "Always (TRUE) Transition Operator",
+    name: "Always returns Boolean true unconditionally.",
     description: "Always returns true.",
     operatorRequestSpec: {
         ____types: "jsObject",
