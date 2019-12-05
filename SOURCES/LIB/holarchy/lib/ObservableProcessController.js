@@ -101,7 +101,7 @@ class ObservableProcessController {
         }
         return {
             error: this._private.constructionError?this._private.constructionError.error:null,
-            result: this._private.constructionError?false:true
+            result: this._private
         };
     }
 

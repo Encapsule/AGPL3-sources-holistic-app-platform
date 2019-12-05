@@ -38,7 +38,75 @@
                 "d7uW2Me4RjqeX3a2NjOodQ": {
                   "opcToJSON": {
                     "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
-                    "result": false
+                    "result": {
+                      "id": "d7uW2Me4RjqeX3a2NjOodQ",
+                      "iid": "N3huuPFUQS6D6zKKYapkXA",
+                      "name": "Test OPC options #2",
+                      "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2 (fail evaluate in constructor).",
+                      "options": {
+                        "evaluate": {
+                          "maxFrames": 0,
+                          "firstEvaluation": "constructor"
+                        }
+                      },
+                      "opmMap": {},
+                      "opmiSpecPaths": [],
+                      "ocdTemplateSpec": {
+                        "____types": "jsObject"
+                      },
+                      "ocdRuntimeSpec": {
+                        "____label": "OPC [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] Observable Controller Data Store",
+                        "____description": "OPC [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] system process runtime state data managed by OPC instance.",
+                        "____types": "jsObject",
+                        "____defaultValue": {}
+                      },
+                      "ocdi": {},
+                      "transitionDispatcher": {},
+                      "actionDispatcher": {},
+                      "opcActorStack": [],
+                      "evalCount": 1,
+                      "lastEvalResponse": {
+                        "error": "Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
+                        "result": {
+                          "evalNumber": 0,
+                          "summary": {
+                            "evalStopwatch": {
+                              "marks": [
+                                {
+                                  "label": "START: OPC evaluation #0 stopwatch",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 0
+                                },
+                                {
+                                  "label": "STOP: OPC evaluation #0 stopwatch",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 0
+                                }
+                              ],
+                              "name": "OPC evaluation #0 stopwatch",
+                              "timeStart": 1575571013459,
+                              "timeStop": 1575571013459,
+                              "totalMicroseconds": 0
+                            },
+                            "counts": {
+                              "frames": 0,
+                              "errors": 0,
+                              "transitions": 0
+                            },
+                            "framesCount": 0
+                          },
+                          "evalFrames": []
+                        }
+                      },
+                      "constructionWarnings": [
+                        "WARNING: No ObservableProcessModel class instances registered!",
+                        "WARNING: No TransitionOperator class instances have been registered!",
+                        "WARNING: No ControllerAction class instances have been registered!"
+                      ],
+                      "constructionError": {
+                        "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
+                      }
+                    }
                   },
                   "actionEvaluations": []
                 }
