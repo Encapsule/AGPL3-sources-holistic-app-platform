@@ -44,6 +44,12 @@
                     "id": "Pe4ks7bQQ9KQee1T8qTRHw",
                     "name": "Unnamed OPC",
                     "description": "Undescribed OPC",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 32,
+                        "firstEvaluation": "automatic"
+                      }
+                    },
                     "opmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {

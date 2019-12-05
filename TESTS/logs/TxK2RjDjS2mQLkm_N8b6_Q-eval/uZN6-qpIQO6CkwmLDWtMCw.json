@@ -455,6 +455,12 @@
                     "id": "uZN6-qpIQO6CkwmLDWtMCw",
                     "name": "OPC Frame Latch Test #1",
                     "description": "Try to apply the Frame Latch OPM in an OPC system.",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 32,
+                        "firstEvaluation": "automatic"
+                      }
+                    },
                     "opmMap": {
                       "z_mTe02hSWmaM1iRO1pBeA": {
                         "id": "z_mTe02hSWmaM1iRO1pBeA",

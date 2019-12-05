@@ -72,6 +72,12 @@
                     "id": "4nw2B9oVQYm1ZspZqotrRA",
                     "name": "Unnamed OPC",
                     "description": "Undescribed OPC",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 32,
+                        "firstEvaluation": "automatic"
+                      }
+                    },
                     "opmMap": {
                       "_vC2O7DGTZ22R5hvxpy0WQ": {
                         "id": "_vC2O7DGTZ22R5hvxpy0WQ",

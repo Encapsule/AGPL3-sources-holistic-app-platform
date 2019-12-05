@@ -36,6 +36,12 @@
                     "id": "juolo4dqSgKdLEYLoHJJ1Q",
                     "name": "Valid ID w/minimal but valid custom opaque ocd template spec.",
                     "description": "Undescribed OPC",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 32,
+                        "firstEvaluation": "automatic"
+                      }
+                    },
                     "opmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {

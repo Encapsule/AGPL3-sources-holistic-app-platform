@@ -43,6 +43,12 @@
                     "id": "mm9htD2iSuyVAPm9SFv-qw",
                     "name": "OPC.act dispatch #2",
                     "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 32,
+                        "firstEvaluation": "automatic"
+                      }
+                    },
                     "opmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {

@@ -43,6 +43,12 @@
                     "id": "DipB21oZR5ihBCYESC5HWw",
                     "name": "Unnamed OPC",
                     "description": "Undescribed OPC",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 32,
+                        "firstEvaluation": "automatic"
+                      }
+                    },
                     "opmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {

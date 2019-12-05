@@ -140,6 +140,12 @@
                     "id": "pUxcxo9STsG3OMWWrREHoQ",
                     "name": "OPC.arc dispatch #3",
                     "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 32,
+                        "firstEvaluation": "automatic"
+                      }
+                    },
                     "opmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {
