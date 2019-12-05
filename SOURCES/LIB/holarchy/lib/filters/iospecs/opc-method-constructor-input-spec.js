@@ -45,7 +45,8 @@ module.exports = {
                 ____label: "OPC Evaluation Frame Limit",
                 ____description: "The maximum number of frames allowed per system evaluation.",
                 ____accept: "jsNumber",
-                ____defaultValue: 32
+                ____defaultValue: 32,
+                ____inRangeInclusive: { begin: 0, end: 32 }
             },
 
             firstEvaluation: {

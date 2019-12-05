@@ -5,7 +5,6 @@ const actInputFilter = require("./filters/opc-method-act-input-filter");
 const actOutputFilter = require("./filters/opc-method-act-output-filter");
 const evaluateFilter = require("./filters/opc-method-evaluate-filter");
 
-
 class ObservableProcessController {
 
     constructor(request_) {
@@ -55,13 +54,16 @@ class ObservableProcessController {
 
             this._private = filterResponse.result;
 
-            // ----------------------------------------------------------------
-            // Wake the beast up... Perform the initial post-construction evaluation.
-            filterResponse = this._evaluate();
-            if (filterResponse.error) {
-                errors.push("Failed while executing the first post-construction system evaluation.");
-                errors.push(filterResponse.error);
-                break;
+            // Perform the first post-construction evaluation of the OPC system model
+            // if the instance was constructed in "automatic" evaluate mode.
+            if (this._private.options.evaluate.firstEvaluation === "automatic") {
+                // Wake the beast up... Perform the initial post-construction evaluation.
+                filterResponse = this._evaluate();
+                if (filterResponse.error) {
+                    errors.push("Failed while executing the first post-construction system evaluation.");
+                    errors.push(filterResponse.error);
+                    break;
+                }
             }
             break;
 

@@ -98,8 +98,8 @@ const factoryResponse = holodeck.harnessFactory.request({
         // Let's just delete the known non-idempotent (i.e. volatile) timing information
         // and iid information in order to treat this as an idempotent test case.
 
+        delete serialized.iid;
         if (serialized.lastEvalResponse && !serialized.lastEvalResponse.error) {
-            delete serialized.iid;
             delete serialized.lastEvalResponse.result.summary.evalStopwatch;
         }
 

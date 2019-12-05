@@ -78,7 +78,7 @@ const factoryResponse = arccore.filter.create({
             // between process steps. Or, until the maximum allowed frames / evaluation
             // limit is surpassed.
 
-            while (result.evalFrames.length < maxEvalFrames) {
+            while (result.evalFrames.length < opcRef._private.options.evaluate.maxFrames) {
 
                 evalStopwatch.mark(`frame ${result.evalFrames.length} start OPM instance binding`);
 

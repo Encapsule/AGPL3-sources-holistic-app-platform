@@ -61,36 +61,8 @@
                     "transitionDispatcher": {},
                     "actionDispatcher": {},
                     "opcActorStack": [],
-                    "evalCount": 1,
-                    "lastEvalResponse": {
-                      "error": null,
-                      "result": {
-                        "evalNumber": 0,
-                        "summary": {
-                          "counts": {
-                            "frames": 1,
-                            "errors": 0,
-                            "transitions": 0
-                          }
-                        },
-                        "evalFrames": [
-                          {
-                            "summary": {
-                              "counts": {
-                                "bindings": 0,
-                                "transitions": 0,
-                                "errors": 0
-                              },
-                              "reports": {
-                                "transitions": [],
-                                "errors": []
-                              }
-                            },
-                            "bindings": {}
-                          }
-                        ]
-                      }
-                    },
+                    "evalCount": 0,
+                    "lastEvalResponse": null,
                     "constructionWarnings": [
                       "WARNING: No ObservableProcessModel class instances registered!",
                       "WARNING: No TransitionOperator class instances have been registered!",
