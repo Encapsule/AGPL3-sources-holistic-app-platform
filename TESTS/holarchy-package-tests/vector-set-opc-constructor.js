@@ -504,7 +504,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
     {
         id: "d7uW2Me4RjqeX3a2NjOodQ",
         name: "Test OPC options #2",
-        description: "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2.",
+        description: "Construct an OPC instance specifying a zero max frame limit AND constructor evaluate #2 (fail evaluate in constructor).",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -512,7 +512,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
                         constructorRequest: {
                             id: "d7uW2Me4RjqeX3a2NjOodQ",
                             name: "Test OPC options #2",
-                            description: "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2 (fail evaluate in constructor).",
+                            description: "Construct an OPC instance specifying a zero max frame limit AND constructor evaluate #2 (fail evaluate in constructor).",
                             options: {
                                 evaluate: {
                                     firstEvaluation: "constructor",
@@ -524,8 +524,65 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
                 }
             }
         }
-    }
+    },
 
+    {
+        id: "l2lMJRfpR7SwIMxriD-pRQ",
+        name: "Test OPC options #3",
+        description: "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (fail on first call to act).",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "l2lMJRfpR7SwIMxriD-pRQ",
+                            name: "Test OPC options #3",
+                            description: "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (no fail because no act - naked constructed OPC).",
+                            options: {
+                                evaluate: {
+                                    firstEvaluation: "action",
+                                    maxFrames: 0
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    {
+        id: "fNpBNE0uQ2GJWunuKe3_lA",
+        name: "Test OPC options #4",
+        description: "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "fNpBNE0uQ2GJWunuKe3_lA",
+                            name: "Test OPC options #4",
+                            description: "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+                            options: {
+                                evaluate: {
+                                    maxFrames: 0,
+                                    firstEvaluation: "action"
+                                }
+                            }
+                        },
+                        actRequests: [
+                            {
+                                actorName: "fNpBNE0uQ2GJWunuKe3_lA",
+                                actionRequest: {
+                                    noop: true
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
 
 
 ];

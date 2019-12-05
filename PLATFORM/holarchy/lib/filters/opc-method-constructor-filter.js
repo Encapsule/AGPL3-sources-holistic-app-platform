@@ -38,6 +38,7 @@ var factoryResponse = arccore.filter.create({
         iid: null,
         name: null,
         description: null,
+        options: null,
         opmMap: {},
         ocdTemplateSpec: null,
         ocdRuntimeSpec: {},
@@ -79,7 +80,8 @@ var factoryResponse = arccore.filter.create({
       result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
 
       result.name = request_.name ? request_.name : "Unnamed OPC";
-      result.description = request_.description ? request_.description : "Undescribed OPC"; // ================================================================
+      result.description = request_.description ? request_.description : "Undescribed OPC";
+      result.options = request_.options; // ================================================================
       // Build a map of ObservableControllerModel instances.
       // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
       // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.

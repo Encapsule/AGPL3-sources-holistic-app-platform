@@ -73,7 +73,7 @@ var factoryResponse = arccore.filter.create({
       // between process steps. Or, until the maximum allowed frames / evaluation
       // limit is surpassed.
 
-      while (result.evalFrames.length < maxEvalFrames) {
+      while (result.evalFrames.length < opcRef._private.options.evaluate.maxFrames) {
         evalStopwatch.mark("frame ".concat(result.evalFrames.length, " start OPM instance binding"));
         var evalFrame = {
           bindings: {},
@@ -508,8 +508,13 @@ var factoryResponse = arccore.filter.create({
           // Exit the frame loop when the evaluation of the last frame resulted in no OPMI step transitions.
           break;
         }
-      } // while outer frame evaluation loop;
+      } // while outer frame evaluation loop (counted and limited to catch non-halting model constructs)
 
+
+      if (result.evalFrames.length === opcRef._private.options.evaluate.maxFrames) {
+        errors.push("Max evaluation frame limit of ".concat(opcRef._private.options.evaluate.maxFrames, " was reached before evaluation completed."));
+        break;
+      }
 
       break;
     } // while (!inBreakScope)

@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holarchy",
-    "version": "0.0.27",
-    "codename": "cypress",
-    "buildID": "jzM41a0xSO-AM-Pa5eB_vw",
-    "buildTime": 1575472118,
-    "buildSource": "17600f6114145e1f20fe7a617d23dba16eecca2e",
+    "version": "0.0.28",
+    "codename": "pemberton",
+    "buildID": "mnxvJnjtRwWqdWAw4rvBfQ",
+    "buildTime": 1575576621,
+    "buildSource": "dba5e4b76f3ed53cb259036fff4f523a430b9d92",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy.git"

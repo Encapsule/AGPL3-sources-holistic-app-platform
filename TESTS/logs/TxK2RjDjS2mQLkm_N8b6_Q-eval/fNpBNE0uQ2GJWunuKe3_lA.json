@@ -1,0 +1,101 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "bvj2u51Uw5_SD1TRZNpwXA": {
+      "fNpBNE0uQ2GJWunuKe3_lA": {
+        "harnessRequest": {
+          "id": "fNpBNE0uQ2GJWunuKe3_lA",
+          "name": "Test OPC options #4",
+          "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessController": {
+                  "constructorRequest": {
+                    "id": "fNpBNE0uQ2GJWunuKe3_lA",
+                    "name": "Test OPC options #4",
+                    "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 0,
+                        "firstEvaluation": "action"
+                      }
+                    }
+                  },
+                  "actRequests": [
+                    {
+                      "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
+                      "actionRequest": {
+                        "noop": true
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "54MiSgQdSiukMX4fIZJimg": {
+                "fNpBNE0uQ2GJWunuKe3_lA": {
+                  "opcToJSON": {
+                    "id": "fNpBNE0uQ2GJWunuKe3_lA",
+                    "name": "Test OPC options #4",
+                    "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 0,
+                        "firstEvaluation": "action"
+                      }
+                    },
+                    "opmMap": {},
+                    "opmiSpecPaths": [],
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject"
+                    },
+                    "ocdRuntimeSpec": {
+                      "____label": "OPC [fNpBNE0uQ2GJWunuKe3_lA::Test OPC options #4] Observable Controller Data Store",
+                      "____description": "OPC [fNpBNE0uQ2GJWunuKe3_lA::Test OPC options #4] system process runtime state data managed by OPC instance.",
+                      "____types": "jsObject",
+                      "____defaultValue": {}
+                    },
+                    "ocdi": {},
+                    "transitionDispatcher": {},
+                    "actionDispatcher": {},
+                    "opcActorStack": [],
+                    "evalCount": 0,
+                    "lastEvalResponse": null,
+                    "constructionWarnings": [
+                      "WARNING: No ObservableProcessModel class instances registered!",
+                      "WARNING: No TransitionOperator class instances have been registered!",
+                      "WARNING: No ControllerAction class instances have been registered!"
+                    ]
+                  },
+                  "actionEvaluations": [
+                    {
+                      "actRequest": {
+                        "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
+                        "actionRequest": {
+                          "noop": true
+                        }
+                      },
+                      "actResponse": {
+                        "error": "No ControllerAction class instances registered!"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

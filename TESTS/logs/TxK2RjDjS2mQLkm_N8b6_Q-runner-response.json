@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 45,
+        "requests": 47,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -35,10 +35,12 @@
             "cQ3Z1fhsTICqkY3uKQXaFQ",
             "d7uW2Me4RjqeX3a2NjOodQ",
             "dirl1VuNQCmBrzbJXWMTtA",
+            "fNpBNE0uQ2GJWunuKe3_lA",
             "fzc39RvNTLmHF5UNn_-Fng",
             "gwtkQR51TYm93K32K6QHNA",
             "iQ5RngZ0QNyH67mVrlwo4w",
             "juolo4dqSgKdLEYLoHJJ1Q",
+            "l2lMJRfpR7SwIMxriD-pRQ",
             "l_P652EhQU6_z7afrV-PMQ",
             "mm9htD2iSuyVAPm9SFv-qw",
             "nCoUIS0RTlmuKUSpimee7A",
@@ -283,7 +285,11 @@
                         "gwtkQR51TYm93K32K6QHNA": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [unspecified::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [unspecified::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -325,7 +331,11 @@
                         "iQ5RngZ0QNyH67mVrlwo4w": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [unspecified::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~.id': Value of type 'jsUndefined' not in allowed type set [jsString].",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [unspecified::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while normalizing request input. Error at path '~.id': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -369,7 +379,11 @@
                         "QvEwWTkbT8G_SQsmWmg2zQ": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [fail::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned. Expected 22-character string. Found 4-character string instead.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [fail::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned. Expected 22-character string. Found 4-character string instead."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -620,7 +634,11 @@
                         "dirl1VuNQCmBrzbJXWMTtA": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [dirl1VuNQCmBrzbJXWMTtA::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Missing required '____accept', '____types', or '_____opaque' type constraint directive.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [dirl1VuNQCmBrzbJXWMTtA::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Missing required '____accept', '____types', or '_____opaque' type constraint directive."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -667,7 +685,11 @@
                         "ChcuyPLCSQCsICTprPzfog": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [ChcuyPLCSQCsICTprPzfog::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____notAQunderscoreDirective' not allowed in declaration.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [ChcuyPLCSQCsICTprPzfog::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. While attempting to verify and normalize developer-defined request.ocdTemplateSpec: Filter factory failure: While examining data namespace '~.inputFilterSpec': Unrecognized typemap directive '____notAQunderscoreDirective' not allowed in declaration."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -714,7 +736,11 @@
                         "ZbwxkWJgTEKjxXpYX0_h7Q": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [ZbwxkWJgTEKjxXpYX0_h7Q::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [ZbwxkWJgTEKjxXpYX0_h7Q::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -761,7 +787,11 @@
                         "ElMglky8TBGkzkd6W4690A": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [ElMglky8TBGkzkd6W4690A::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [ElMglky8TBGkzkd6W4690A::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -810,7 +840,11 @@
                         "waM_L9rTT6ySTY4ja__K3g": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [waM_L9rTT6ySTY4ja__K3g::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [waM_L9rTT6ySTY4ja__K3g::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -857,7 +891,11 @@
                         "X5zbSBkaQeG6Wft5cGVRwg": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [X5zbSBkaQeG6Wft5cGVRwg::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [X5zbSBkaQeG6Wft5cGVRwg::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -905,7 +943,11 @@
                         "nCoUIS0RTlmuKUSpimee7A": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [nCoUIS0RTlmuKUSpimee7A::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace.",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [nCoUIS0RTlmuKUSpimee7A::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -1081,7 +1123,11 @@
                         "fzc39RvNTLmHF5UNn_-Fng": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [fzc39RvNTLmHF5UNn_-Fng::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Unable to initialize the OPC instance's shared OCD store due to constructor failure: Filter [3aDV_cacQByO0tTzVrBxnA::OCD Constructor Request Processor] failed while normalizing request input. Error at path '~.testString': Value of type 'jsNumber' not in allowed type set [jsString].",
-                            "result": false
+                            "result": {
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [fzc39RvNTLmHF5UNn_-Fng::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Unable to initialize the OPC instance's shared OCD store due to constructor failure: Filter [3aDV_cacQByO0tTzVrBxnA::OCD Constructor Request Processor] failed while normalizing request input. Error at path '~.testString': Value of type 'jsNumber' not in allowed type set [jsString]."
+                              }
+                            }
                           },
                           "actionEvaluations": []
                         }
@@ -2214,7 +2260,7 @@
                 "harnessRequest": {
                   "id": "d7uW2Me4RjqeX3a2NjOodQ",
                   "name": "Test OPC options #2",
-                  "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2.",
+                  "description": "Construct an OPC instance specifying a zero max frame limit AND constructor evaluate #2 (fail evaluate in constructor).",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
@@ -2222,7 +2268,7 @@
                           "constructorRequest": {
                             "id": "d7uW2Me4RjqeX3a2NjOodQ",
                             "name": "Test OPC options #2",
-                            "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2 (fail evaluate in constructor).",
+                            "description": "Construct an OPC instance specifying a zero max frame limit AND constructor evaluate #2 (fail evaluate in constructor).",
                             "options": {
                               "evaluate": {
                                 "firstEvaluation": "constructor",
@@ -2247,9 +2293,240 @@
                         "d7uW2Me4RjqeX3a2NjOodQ": {
                           "opcToJSON": {
                             "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
-                            "result": false
+                            "result": {
+                              "id": "d7uW2Me4RjqeX3a2NjOodQ",
+                              "name": "Test OPC options #2",
+                              "description": "Construct an OPC instance specifying a zero max frame limit AND constructor evaluate #2 (fail evaluate in constructor).",
+                              "options": {
+                                "evaluate": {
+                                  "maxFrames": 0,
+                                  "firstEvaluation": "constructor"
+                                }
+                              },
+                              "opmMap": {},
+                              "opmiSpecPaths": [],
+                              "ocdTemplateSpec": {
+                                "____types": "jsObject"
+                              },
+                              "ocdRuntimeSpec": {
+                                "____label": "OPC [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] Observable Controller Data Store",
+                                "____description": "OPC [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] system process runtime state data managed by OPC instance.",
+                                "____types": "jsObject",
+                                "____defaultValue": {}
+                              },
+                              "ocdi": {},
+                              "transitionDispatcher": {},
+                              "actionDispatcher": {},
+                              "opcActorStack": [],
+                              "evalCount": 1,
+                              "lastEvalResponse": {
+                                "error": "Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
+                                "result": {
+                                  "evalNumber": 0,
+                                  "summary": {
+                                    "counts": {
+                                      "frames": 0,
+                                      "errors": 0,
+                                      "transitions": 0
+                                    },
+                                    "framesCount": 0
+                                  },
+                                  "evalFrames": []
+                                }
+                              },
+                              "constructionWarnings": [
+                                "WARNING: No ObservableProcessModel class instances registered!",
+                                "WARNING: No TransitionOperator class instances have been registered!",
+                                "WARNING: No ControllerAction class instances have been registered!"
+                              ],
+                              "constructionError": {
+                                "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
+                              }
+                            }
                           },
                           "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
+              "l2lMJRfpR7SwIMxriD-pRQ": {
+                "harnessRequest": {
+                  "id": "l2lMJRfpR7SwIMxriD-pRQ",
+                  "name": "Test OPC options #3",
+                  "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (fail on first call to act).",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "l2lMJRfpR7SwIMxriD-pRQ",
+                            "name": "Test OPC options #3",
+                            "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (no fail because no act - naked constructed OPC).",
+                            "options": {
+                              "evaluate": {
+                                "firstEvaluation": "action",
+                                "maxFrames": 0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "l2lMJRfpR7SwIMxriD-pRQ": {
+                          "opcToJSON": {
+                            "id": "l2lMJRfpR7SwIMxriD-pRQ",
+                            "name": "Test OPC options #3",
+                            "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (no fail because no act - naked constructed OPC).",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 0,
+                                "firstEvaluation": "action"
+                              }
+                            },
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [l2lMJRfpR7SwIMxriD-pRQ::Test OPC options #3] Observable Controller Data Store",
+                              "____description": "OPC [l2lMJRfpR7SwIMxriD-pRQ::Test OPC options #3] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 0,
+                            "lastEvalResponse": null,
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
+              "fNpBNE0uQ2GJWunuKe3_lA": {
+                "harnessRequest": {
+                  "id": "fNpBNE0uQ2GJWunuKe3_lA",
+                  "name": "Test OPC options #4",
+                  "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "fNpBNE0uQ2GJWunuKe3_lA",
+                            "name": "Test OPC options #4",
+                            "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 0,
+                                "firstEvaluation": "action"
+                              }
+                            }
+                          },
+                          "actRequests": [
+                            {
+                              "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
+                              "actionRequest": {
+                                "noop": true
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "fNpBNE0uQ2GJWunuKe3_lA": {
+                          "opcToJSON": {
+                            "id": "fNpBNE0uQ2GJWunuKe3_lA",
+                            "name": "Test OPC options #4",
+                            "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 0,
+                                "firstEvaluation": "action"
+                              }
+                            },
+                            "opmMap": {},
+                            "opmiSpecPaths": [],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject"
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [fNpBNE0uQ2GJWunuKe3_lA::Test OPC options #4] Observable Controller Data Store",
+                              "____description": "OPC [fNpBNE0uQ2GJWunuKe3_lA::Test OPC options #4] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {}
+                            },
+                            "ocdi": {},
+                            "transitionDispatcher": {},
+                            "actionDispatcher": {},
+                            "opcActorStack": [],
+                            "evalCount": 0,
+                            "lastEvalResponse": null,
+                            "constructionWarnings": [
+                              "WARNING: No ObservableProcessModel class instances registered!",
+                              "WARNING: No TransitionOperator class instances have been registered!",
+                              "WARNING: No ControllerAction class instances have been registered!"
+                            ]
+                          },
+                          "actionEvaluations": [
+                            {
+                              "actRequest": {
+                                "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
+                                "actionRequest": {
+                                  "noop": true
+                                }
+                              },
+                              "actResponse": {
+                                "error": "No ControllerAction class instances registered!"
+                              }
+                            }
+                          ]
                         }
                       }
                     }

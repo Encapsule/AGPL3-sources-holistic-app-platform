@@ -60,15 +60,18 @@ function () {
       //
 
 
-      this._private = filterResponse.result; // ----------------------------------------------------------------
-      // Wake the beast up... Perform the initial post-construction evaluation.
+      this._private = filterResponse.result; // Perform the first post-construction evaluation of the OPC system model
+      // if the instance was constructed in "automatic" evaluate mode.
 
-      filterResponse = this._evaluate();
+      if (this._private.options.evaluate.firstEvaluation === "constructor") {
+        // Wake the beast up... Perform the initial post-construction evaluation.
+        filterResponse = this._evaluate();
 
-      if (filterResponse.error) {
-        errors.push("Failed while executing the first post-construction system evaluation.");
-        errors.push(filterResponse.error);
-        break;
+        if (filterResponse.error) {
+          errors.push("Failed while executing the first post-construction system evaluation:");
+          errors.push(filterResponse.error);
+          break;
+        }
       }
 
       break;
@@ -110,7 +113,7 @@ function () {
 
       return {
         error: this._private.constructionError ? this._private.constructionError.error : null,
-        result: this._private.constructionError ? false : true
+        result: this._private
       };
     } // Produces a serializable object representing the internal state of this OPCI.
 
