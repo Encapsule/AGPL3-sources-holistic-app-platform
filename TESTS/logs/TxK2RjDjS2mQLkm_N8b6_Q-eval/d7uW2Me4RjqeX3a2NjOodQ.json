@@ -40,7 +40,6 @@
                     "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
                     "result": {
                       "id": "d7uW2Me4RjqeX3a2NjOodQ",
-                      "iid": "N3huuPFUQS6D6zKKYapkXA",
                       "name": "Test OPC options #2",
                       "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2 (fail evaluate in constructor).",
                       "options": {
@@ -70,24 +69,6 @@
                         "result": {
                           "evalNumber": 0,
                           "summary": {
-                            "evalStopwatch": {
-                              "marks": [
-                                {
-                                  "label": "START: OPC evaluation #0 stopwatch",
-                                  "ellapsedDelta": 0,
-                                  "ellapsedTotal": 0
-                                },
-                                {
-                                  "label": "STOP: OPC evaluation #0 stopwatch",
-                                  "ellapsedDelta": 0,
-                                  "ellapsedTotal": 0
-                                }
-                              ],
-                              "name": "OPC evaluation #0 stopwatch",
-                              "timeStart": 1575571013459,
-                              "timeStop": 1575571013459,
-                              "totalMicroseconds": 0
-                            },
                             "counts": {
                               "frames": 0,
                               "errors": 0,

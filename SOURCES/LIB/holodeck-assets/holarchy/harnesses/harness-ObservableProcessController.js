@@ -99,14 +99,26 @@ const factoryResponse = holodeck.harnessFactory.request({
         // and iid information in order to treat this as an idempotent test case.
 
         delete serialized.iid;
-        if (serialized.lastEvalResponse && !serialized.lastEvalResponse.error) {
+        if (serialized.lastEvalResponse && serialized.lastEvalResponse.result) {
             delete serialized.lastEvalResponse.result.summary.evalStopwatch;
+        }
+
+        // If we hit a construction failure then toJSON is going to return us a constructor error response descriptor
+        if (serialized.result) {
+            delete serialized.result.iid;
+            if (serialized.result.lastEvalResponse && serialized.result.lastEvalResponse.result) {
+                delete serialized.result.lastEvalResponse.result.summary.evalStopwatch;
+            }
         }
 
         response.result.opcToJSON = serialized;
 
         // Dispatch act requests. Note we don't care about the object status. If the opci is invalid, then the logs will be full of errors.
         messageBody.actRequests.forEach((actRequest_) => {
+
+            // ================================================================
+            // CLEAN THIS UP! HOME STRETCH BABY
+            // ================================================================
 
             // TODO: FIX THIS: This is a bug in OPC.act
             delete opcInstance._private.lastEvalautionRepsonse;
