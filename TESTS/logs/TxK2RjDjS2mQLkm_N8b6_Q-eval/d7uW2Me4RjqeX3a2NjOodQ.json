@@ -1,0 +1,52 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "bvj2u51Uw5_SD1TRZNpwXA": {
+      "d7uW2Me4RjqeX3a2NjOodQ": {
+        "harnessRequest": {
+          "id": "d7uW2Me4RjqeX3a2NjOodQ",
+          "name": "Test OPC options #2",
+          "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessController": {
+                  "constructorRequest": {
+                    "id": "d7uW2Me4RjqeX3a2NjOodQ",
+                    "name": "Test OPC options #2",
+                    "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2 (fail evaluate in constructor).",
+                    "options": {
+                      "evaluate": {
+                        "firstEvaluation": "constructor",
+                        "maxFrames": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "54MiSgQdSiukMX4fIZJimg": {
+                "d7uW2Me4RjqeX3a2NjOodQ": {
+                  "opcToJSON": {
+                    "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
+                    "result": false
+                  },
+                  "actionEvaluations": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

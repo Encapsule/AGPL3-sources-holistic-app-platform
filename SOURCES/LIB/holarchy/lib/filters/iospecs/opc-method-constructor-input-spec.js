@@ -45,18 +45,18 @@ module.exports = {
                 ____label: "OPC Evaluation Frame Limit",
                 ____description: "The maximum number of frames allowed per system evaluation.",
                 ____accept: "jsNumber",
-                ____defaultValue: 32,
-                ____inRangeInclusive: { begin: 0, end: 32 }
+                ____defaultValue: 16,
+                ____inRangeInclusive: { begin: 0, end: 64 }
             },
 
             firstEvaluation: {
                 ____label: "OPC First Evaluation Flag",
                 ____description: "Determines if an OPC instance auto-evaluates post construction. Or, is deferred until after the first external OPC.act call is processed.",
                 ____accept: "jsString",
-                ____defaultValue: "automatic",
+                ____defaultValue: "constructor",
                 ____inValueSet: [
-                    "automatic", // first evaluation occurs in the epilogue of ObservableProcessController::constructor
-                    "deferred"   // first evaluation occurs in the epilogue of ObservableProcessController::act
+                    "constructor", // first evaluation occurs in the epilogue of ObservableProcessController::constructor
+                    "action"      // first evaluation occurs in the epilogue of ObservableProcessController::act
                 ],
             }
         }

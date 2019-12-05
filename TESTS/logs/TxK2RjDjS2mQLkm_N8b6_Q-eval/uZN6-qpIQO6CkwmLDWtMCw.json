@@ -457,8 +457,8 @@
                     "description": "Try to apply the Frame Latch OPM in an OPC system.",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 32,
-                        "firstEvaluation": "automatic"
+                        "maxFrames": 16,
+                        "firstEvaluation": "constructor"
                       }
                     },
                     "opmMap": {

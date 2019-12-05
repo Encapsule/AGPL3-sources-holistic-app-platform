@@ -520,7 +520,12 @@ const factoryResponse = arccore.filter.create({
                     break;
                 }
 
-            } // while outer frame evaluation loop;
+            } // while outer frame evaluation loop (counted and limited to catch non-halting model constructs)
+
+            if (result.evalFrames.length === opcRef._private.options.evaluate.maxFrames) {
+                errors.push(`Max evaluation frame limit of ${opcRef._private.options.evaluate.maxFrames} was reached before evaluation completed.`);
+                break;
+            }
 
             break;
 

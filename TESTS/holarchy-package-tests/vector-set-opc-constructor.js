@@ -487,11 +487,36 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
                         constructorRequest: {
                             id: "bx_3DRETSe6zr-Dz_W-COQ",
                             name: "Test OPC options #1",
-                            description: "Construct an OPC instance specifying override values for constructor options #1.",
+                            description: "Construct an OPC instance specifying override values for constructor options #1 (just test the options passing).",
                             options: {
                                 evaluate: {
                                     maxFrames: 8,
-                                    firstEvaluation: "deferred"
+                                    firstEvaluation: "action"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    {
+        id: "d7uW2Me4RjqeX3a2NjOodQ",
+        name: "Test OPC options #2",
+        description: "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "d7uW2Me4RjqeX3a2NjOodQ",
+                            name: "Test OPC options #2",
+                            description: "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2 (fail evaluate in constructor).",
+                            options: {
+                                evaluate: {
+                                    firstEvaluation: "constructor",
+                                    maxFrames: 0
                                 }
                             }
                         }
@@ -500,6 +525,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
             }
         }
     }
+
 
 
 ];

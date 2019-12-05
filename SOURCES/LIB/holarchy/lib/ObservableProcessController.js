@@ -56,11 +56,11 @@ class ObservableProcessController {
 
             // Perform the first post-construction evaluation of the OPC system model
             // if the instance was constructed in "automatic" evaluate mode.
-            if (this._private.options.evaluate.firstEvaluation === "automatic") {
+            if (this._private.options.evaluate.firstEvaluation === "constructor") {
                 // Wake the beast up... Perform the initial post-construction evaluation.
                 filterResponse = this._evaluate();
                 if (filterResponse.error) {
-                    errors.push("Failed while executing the first post-construction system evaluation.");
+                    errors.push("Failed while executing the first post-construction system evaluation:");
                     errors.push(filterResponse.error);
                     break;
                 }

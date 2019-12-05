@@ -142,8 +142,8 @@
                     "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 32,
-                        "firstEvaluation": "automatic"
+                        "maxFrames": 16,
+                        "firstEvaluation": "constructor"
                       }
                     },
                     "opmMap": {},
