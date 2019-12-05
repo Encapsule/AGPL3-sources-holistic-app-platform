@@ -29,6 +29,7 @@ const factoryResponse = arccore.filter.create({
                 iid: null,
                 name: null,
                 description: null,
+                options: null,
 
                 opmMap: {},
 
@@ -73,6 +74,7 @@ const factoryResponse = arccore.filter.create({
             result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
             result.name = request_.name?request_.name:"Unnamed OPC";
             result.description = request_.description?request_.description:"Undescribed OPC";
+            result.options = request_.options;
 
             // ================================================================
             // Build a map of ObservableControllerModel instances.

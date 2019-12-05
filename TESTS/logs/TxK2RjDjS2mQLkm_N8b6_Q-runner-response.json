@@ -413,6 +413,12 @@
                             "id": "l_P652EhQU6_z7afrV-PMQ",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -512,6 +518,12 @@
                             "id": "juolo4dqSgKdLEYLoHJJ1Q",
                             "name": "Valid ID w/minimal but valid custom opaque ocd template spec.",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -945,6 +957,12 @@
                             "id": "FxMOqQPARcGcMZ24x2tq7A",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1118,6 +1136,12 @@
                             "id": "DipB21oZR5ihBCYESC5HWw",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1235,6 +1259,12 @@
                             "id": "np4M1LDWSyeNXOmFYJulhA",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1356,6 +1386,12 @@
                             "id": "197ZsgbfRRGGMWqhwmaBDg",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1474,6 +1510,12 @@
                             "id": "rxFiX7H-TDG0GsxqtRekoA",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1598,6 +1640,12 @@
                             "id": "Pe4ks7bQQ9KQee1T8qTRHw",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1724,6 +1772,12 @@
                             "id": "H2zMrBw4TBie5A2mwH4BRg",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1850,6 +1904,12 @@
                             "id": "VxYuiGoHRfuKRHp7PBik7Q",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -1980,6 +2040,12 @@
                             "id": "T-apDENPTAO6iQShA-2qBQ",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -2132,6 +2198,12 @@
                             "id": "4nw2B9oVQYm1ZspZqotrRA",
                             "name": "Unnamed OPC",
                             "description": "Undescribed OPC",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {
                               "_vC2O7DGTZ22R5hvxpy0WQ": {
                                 "id": "_vC2O7DGTZ22R5hvxpy0WQ",
@@ -2270,6 +2342,12 @@
                             "id": "AhfYIOp_RQmS-a37emkj9A",
                             "name": "OPC.act dispatch #1 (bad request)",
                             "description": "Dispatch an OPC.act method with a bad request and no registered controller actions.",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -2385,6 +2463,12 @@
                             "id": "mm9htD2iSuyVAPm9SFv-qw",
                             "name": "OPC.act dispatch #2",
                             "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -2601,6 +2685,12 @@
                             "id": "pUxcxo9STsG3OMWWrREHoQ",
                             "name": "OPC.arc dispatch #3",
                             "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {},
                             "opmiSpecPaths": [],
                             "ocdTemplateSpec": {
@@ -4004,6 +4094,12 @@
                             "id": "uZN6-qpIQO6CkwmLDWtMCw",
                             "name": "OPC Frame Latch Test #1",
                             "description": "Try to apply the Frame Latch OPM in an OPC system.",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 32,
+                                "firstEvaluation": "automatic"
+                              }
+                            },
                             "opmMap": {
                               "z_mTe02hSWmaM1iRO1pBeA": {
                                 "id": "z_mTe02hSWmaM1iRO1pBeA",
