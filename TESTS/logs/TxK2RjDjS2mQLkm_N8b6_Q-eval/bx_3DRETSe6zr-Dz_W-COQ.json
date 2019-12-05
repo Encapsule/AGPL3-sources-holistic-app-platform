@@ -1,0 +1,109 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "bvj2u51Uw5_SD1TRZNpwXA": {
+      "bx_3DRETSe6zr-Dz_W-COQ": {
+        "harnessRequest": {
+          "id": "bx_3DRETSe6zr-Dz_W-COQ",
+          "name": "Test OPC options #1",
+          "description": "Construct an OPC instance specifying override values for constructor options #1.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessController": {
+                  "constructorRequest": {
+                    "id": "bx_3DRETSe6zr-Dz_W-COQ",
+                    "name": "Test OPC options #1",
+                    "description": "Construct an OPC instance specifying override values for constructor options #1.",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 8,
+                        "firstEvaluation": "deferred"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "54MiSgQdSiukMX4fIZJimg": {
+                "bx_3DRETSe6zr-Dz_W-COQ": {
+                  "opcToJSON": {
+                    "id": "bx_3DRETSe6zr-Dz_W-COQ",
+                    "name": "Test OPC options #1",
+                    "description": "Construct an OPC instance specifying override values for constructor options #1.",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 8,
+                        "firstEvaluation": "deferred"
+                      }
+                    },
+                    "opmMap": {},
+                    "opmiSpecPaths": [],
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject"
+                    },
+                    "ocdRuntimeSpec": {
+                      "____label": "OPC [bx_3DRETSe6zr-Dz_W-COQ::Test OPC options #1] Observable Controller Data Store",
+                      "____description": "OPC [bx_3DRETSe6zr-Dz_W-COQ::Test OPC options #1] system process runtime state data managed by OPC instance.",
+                      "____types": "jsObject",
+                      "____defaultValue": {}
+                    },
+                    "ocdi": {},
+                    "transitionDispatcher": {},
+                    "actionDispatcher": {},
+                    "opcActorStack": [],
+                    "evalCount": 1,
+                    "lastEvalResponse": {
+                      "error": null,
+                      "result": {
+                        "evalNumber": 0,
+                        "summary": {
+                          "counts": {
+                            "frames": 1,
+                            "errors": 0,
+                            "transitions": 0
+                          }
+                        },
+                        "evalFrames": [
+                          {
+                            "summary": {
+                              "counts": {
+                                "bindings": 0,
+                                "transitions": 0,
+                                "errors": 0
+                              },
+                              "reports": {
+                                "transitions": [],
+                                "errors": []
+                              }
+                            },
+                            "bindings": {}
+                          }
+                        ]
+                      }
+                    },
+                    "constructionWarnings": [
+                      "WARNING: No ObservableProcessModel class instances registered!",
+                      "WARNING: No TransitionOperator class instances have been registered!",
+                      "WARNING: No ControllerAction class instances have been registered!"
+                    ]
+                  },
+                  "actionEvaluations": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

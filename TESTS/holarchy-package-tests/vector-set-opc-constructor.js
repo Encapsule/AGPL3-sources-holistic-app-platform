@@ -474,7 +474,33 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
                 }
             }
         }
+    },
+
+    {
+        id: "bx_3DRETSe6zr-Dz_W-COQ",
+        name: "Test OPC options #1",
+        description: "Construct an OPC instance specifying override values for constructor options #1.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "bx_3DRETSe6zr-Dz_W-COQ",
+                            name: "Test OPC options #1",
+                            description: "Construct an OPC instance specifying override values for constructor options #1.",
+                            options: {
+                                evaluate: {
+                                    maxFrames: 8,
+                                    firstEvaluation: "deferred"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+
 
 ];
 
