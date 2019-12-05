@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 44,
+        "requests": 45,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -33,6 +33,7 @@
             "ak8rhTiORTWXueau74RlHA",
             "bx_3DRETSe6zr-Dz_W-COQ",
             "cQ3Z1fhsTICqkY3uKQXaFQ",
+            "d7uW2Me4RjqeX3a2NjOodQ",
             "dirl1VuNQCmBrzbJXWMTtA",
             "fzc39RvNTLmHF5UNn_-Fng",
             "gwtkQR51TYm93K32K6QHNA",
@@ -416,8 +417,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -521,8 +522,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -960,8 +961,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -1139,8 +1140,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -1262,8 +1263,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -1389,8 +1390,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -1513,8 +1514,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -1643,8 +1644,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -1775,8 +1776,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -1907,8 +1908,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -2043,8 +2044,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -2140,11 +2141,11 @@
                           "constructorRequest": {
                             "id": "bx_3DRETSe6zr-Dz_W-COQ",
                             "name": "Test OPC options #1",
-                            "description": "Construct an OPC instance specifying override values for constructor options #1.",
+                            "description": "Construct an OPC instance specifying override values for constructor options #1 (just test the options passing).",
                             "options": {
                               "evaluate": {
                                 "maxFrames": 8,
-                                "firstEvaluation": "deferred"
+                                "firstEvaluation": "action"
                               }
                             }
                           }
@@ -2166,11 +2167,11 @@
                           "opcToJSON": {
                             "id": "bx_3DRETSe6zr-Dz_W-COQ",
                             "name": "Test OPC options #1",
-                            "description": "Construct an OPC instance specifying override values for constructor options #1.",
+                            "description": "Construct an OPC instance specifying override values for constructor options #1 (just test the options passing).",
                             "options": {
                               "evaluate": {
                                 "maxFrames": 8,
-                                "firstEvaluation": "deferred"
+                                "firstEvaluation": "action"
                               }
                             },
                             "opmMap": {},
@@ -2195,6 +2196,58 @@
                               "WARNING: No TransitionOperator class instances have been registered!",
                               "WARNING: No ControllerAction class instances have been registered!"
                             ]
+                          },
+                          "actionEvaluations": []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
+              "d7uW2Me4RjqeX3a2NjOodQ": {
+                "harnessRequest": {
+                  "id": "d7uW2Me4RjqeX3a2NjOodQ",
+                  "name": "Test OPC options #2",
+                  "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "d7uW2Me4RjqeX3a2NjOodQ",
+                            "name": "Test OPC options #2",
+                            "description": "Construct an OPC instance specifying a zero max frame limit AND automatic evaluate #2 (fail evaluate in constructor).",
+                            "options": {
+                              "evaluate": {
+                                "firstEvaluation": "constructor",
+                                "maxFrames": 0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "d7uW2Me4RjqeX3a2NjOodQ": {
+                          "opcToJSON": {
+                            "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
+                            "result": false
                           },
                           "actionEvaluations": []
                         }
@@ -2282,8 +2335,8 @@
                             "description": "Undescribed OPC",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {
@@ -2426,8 +2479,8 @@
                             "description": "Dispatch an OPC.act method with a bad request and no registered controller actions.",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -2547,8 +2600,8 @@
                             "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -2769,8 +2822,8 @@
                             "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {},
@@ -4178,8 +4231,8 @@
                             "description": "Try to apply the Frame Latch OPM in an OPC system.",
                             "options": {
                               "evaluate": {
-                                "maxFrames": 32,
-                                "firstEvaluation": "automatic"
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
                               }
                             },
                             "opmMap": {
