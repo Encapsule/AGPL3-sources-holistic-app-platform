@@ -2456,13 +2456,110 @@
                                 "maxFrames": 0,
                                 "firstEvaluation": "action"
                               }
-                            }
+                            },
+                            "controllerActionSets": [
+                              [
+                                "ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction].",
+                                {
+                                  "operationID": "93_stDeORb-9W_0d69fswg",
+                                  "operationName": "NOOP Controller Test Action #2",
+                                  "operationDescription": "Do nothing test controller action plug-in filter #2.",
+                                  "inputFilterSpec": {
+                                    "____label": "NOOP Controller Test Action #2 Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "dataPath": {
+                                        "____label": "OPM Binding Namespace",
+                                        "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC Action Request Dispatcher",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "noop1": {
+                                        "____accept": "jsBoolean",
+                                        "____inValueSet": [
+                                          true
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "QbBHNSXVFcllpVVIKPdIHA",
+                                  "inputTypeVDID": "8WNskhtbEOfnLY0diIad0Q",
+                                  "outputTypeVIID": "gUIA-Cjc2TyIr5-2zpWFzw",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "Y0MwRJV58ZOqEIKcOTv1cg"
+                                },
+                                {
+                                  "operationID": "BO184bcvSzmr9oF4KJynSA",
+                                  "operationName": "NOOP Controller Test Action #3",
+                                  "operationDescription": "Do nothing nothing test controller action plug-in filter #3.",
+                                  "inputFilterSpec": {
+                                    "____label": "NOOP Controller Test Action #3 Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "dataPath": {
+                                        "____label": "OPM Binding Namespace",
+                                        "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC Action Request Dispatcher",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "noop2": {
+                                        "____accept": "jsBoolean",
+                                        "____inValueSet": [
+                                          true
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "DhS9wGiVKn64Be-BByEVwg",
+                                  "inputTypeVDID": "PWNsYYtbEGVoLY3VHYadBQ",
+                                  "outputTypeVIID": "lzZ25Vwzg8KsNwEwfqOZmA",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "Oxn8RNXk1ZNRXcGc6uomcg"
+                                }
+                              ]
+                            ]
                           },
                           "actRequests": [
                             {
                               "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
                               "actionRequest": {
-                                "noop": true
+                                "noop1": true
                               }
                             }
                           ]
@@ -2504,14 +2601,32 @@
                             },
                             "ocdi": {},
                             "transitionDispatcher": {},
-                            "actionDispatcher": {},
+                            "actionDispatcher": {
+                              "filterDescriptor": {
+                                "operationID": "JMMqUQ69mX8OlWIeTkDJdg",
+                                "operationName": "Discriminator Filter",
+                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "inputTypeVIID": "4oWxnuHKn4v9Tg3IRkDmJQ",
+                                "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "outputTypeVIID": "YwdAuAjCULYMXHfs5FNQdQ",
+                                "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "operationVDID": "axb0E2a4NVe6KY7tGp4UtA"
+                              },
+                              "supportedFilters": [
+                                "[93_stDeORb-9W_0d69fswg::NOOP Controller Test Action #2]",
+                                "[BO184bcvSzmr9oF4KJynSA::NOOP Controller Test Action #3]"
+                              ],
+                              "options": {
+                                "action": "routeRequest"
+                              }
+                            },
                             "opcActorStack": [],
                             "evalCount": 0,
                             "lastEvalResponse": null,
                             "constructionWarnings": [
                               "WARNING: No ObservableProcessModel class instances registered!",
                               "WARNING: No TransitionOperator class instances have been registered!",
-                              "WARNING: No ControllerAction class instances have been registered!"
+                              "WARNING: Ignoring invalid ControllerAction class instance: ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction]."
                             ]
                           },
                           "actionEvaluations": [
@@ -2519,11 +2634,11 @@
                               "actRequest": {
                                 "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
                                 "actionRequest": {
-                                  "noop": true
+                                  "noop1": true
                                 }
                               },
                               "actResponse": {
-                                "error": "No ControllerAction class instances registered!"
+                                "error": "Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
                               }
                             }
                           ]

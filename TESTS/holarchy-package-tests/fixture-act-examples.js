@@ -47,8 +47,7 @@ module.exports = [
         bodyFunction: function(request_) {
             return { error: null, result: false };
         }
-    }),
-
+    })
 
 
 ];

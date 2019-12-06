@@ -17,11 +17,35 @@
                         {
                           "id": "_vC2O7DGTZ22R5hvxpy0WQ",
                           "name": "OPM Test A",
-                          "description": "A simple test OPM",
+                          "description": "A simple test OPM (force transition operator error).",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
-                          "steps": {}
+                          "steps": {
+                            "uninitialized": {
+                              "description": "Default starting process step.",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "noneSuchOperator": true
+                                  },
+                                  "nextStep": "goal"
+                                }
+                              ]
+                            },
+                            "goal": {
+                              "description": "Test goal state (never reached).",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": []
+                            }
+                          }
                         },
                         {
                           "id": "SyCUD3kpQ8mtYbV5A_4BPA",
@@ -82,11 +106,35 @@
                       "_vC2O7DGTZ22R5hvxpy0WQ": {
                         "id": "_vC2O7DGTZ22R5hvxpy0WQ",
                         "name": "OPM Test A",
-                        "description": "A simple test OPM",
+                        "description": "A simple test OPM (force transition operator error).",
                         "opmDataSpec": {
                           "____types": "jsObject"
                         },
-                        "steps": {}
+                        "steps": {
+                          "uninitialized": {
+                            "description": "Default starting process step.",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": [
+                              {
+                                "transitionIf": {
+                                  "noneSuchOperator": true
+                                },
+                                "nextStep": "goal"
+                              }
+                            ]
+                          },
+                          "goal": {
+                            "description": "Test goal state (never reached).",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": []
+                          }
+                        }
                       },
                       "SyCUD3kpQ8mtYbV5A_4BPA": {
                         "id": "SyCUD3kpQ8mtYbV5A_4BPA",

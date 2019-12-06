@@ -1,4 +1,6 @@
 
+const fixtureACTExamples = require("./fixture-act-examples");
+
 module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
 
     {
@@ -568,13 +570,16 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
                                     maxFrames: 0,
                                     firstEvaluation: "action"
                                 }
-                            }
+                            },
+                            controllerActionSets: [
+                                fixtureACTExamples
+                            ]
                         },
                         actRequests: [
                             {
                                 actorName: "fNpBNE0uQ2GJWunuKe3_lA",
                                 actionRequest: {
-                                    noop: true
+                                    noop1: true
                                 }
                             }
                         ]

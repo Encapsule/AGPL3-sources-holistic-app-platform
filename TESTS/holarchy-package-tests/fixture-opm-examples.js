@@ -7,8 +7,23 @@ module.exports = [
     new holarchy.ObservableProcessModel({
         id: "_vC2O7DGTZ22R5hvxpy0WQ",
         name: "OPM Test A",
-        description: "A simple test OPM",
+        description: "A simple test OPM (force transition operator error).",
         steps: {
+            uninitialized: {
+                description: "Default starting process step.",
+                transitions: [
+                    {
+                        transitionIf: {
+                            noneSuchOperator: true
+                        },
+                        nextStep: "goal"
+                    }
+                ]
+            },
+
+            goal: {
+                description: "Test goal state (never reached)."
+            }
         }
     }),
 
