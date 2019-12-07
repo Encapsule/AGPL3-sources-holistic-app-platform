@@ -3,7 +3,7 @@ module.exports = [
     require("./vector-set-opc-constructor"),
     require("./vector-set-opc-constructor-bindings"),
     require("./vector-set-opc-method-act"),
-    require("./vector-set-opc-operators"),
+    require("./vector-set-opc-evaluate-p1-operators"),
 
     // Individual OPC declaration components ES6 class tests.
     require("./vector-set-act-constructor"),

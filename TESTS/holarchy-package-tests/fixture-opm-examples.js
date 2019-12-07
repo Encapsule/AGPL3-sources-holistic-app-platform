@@ -7,7 +7,7 @@ module.exports = [
     new holarchy.ObservableProcessModel({
         id: "_vC2O7DGTZ22R5hvxpy0WQ",
         name: "OPM Test A",
-        description: "A simple test OPM (force transition operator error).",
+        description: "A simple test OPM (force transition operator error - no registered actions).",
         steps: {
             uninitialized: {
                 description: "Default starting process step.",

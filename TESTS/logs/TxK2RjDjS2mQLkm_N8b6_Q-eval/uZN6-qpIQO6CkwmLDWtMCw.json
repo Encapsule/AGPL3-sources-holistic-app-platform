@@ -745,7 +745,7 @@
                           "counts": {
                             "bindings": 3,
                             "frames": 3,
-                            "errors": 0,
+                            "errors": 1,
                             "transitions": 2
                           }
                         },
@@ -1173,11 +1173,13 @@
                               "counts": {
                                 "bindings": 1,
                                 "transitions": 0,
-                                "errors": 0
+                                "errors": 1
                               },
                               "reports": {
                                 "transitions": [],
-                                "errors": []
+                                "errors": [
+                                  "rWatZg2xDbHwiPCI5s_mzw"
+                                ]
                               }
                             },
                             "bindings": {
