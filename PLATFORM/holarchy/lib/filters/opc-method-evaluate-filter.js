@@ -9,8 +9,6 @@ var opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-sp
 
 var opcMethodEvaluateOutputSpec = require("./iospecs/opc-method-evaluate-output-spec");
 
-var maxEvalFrames = 10; // TODO: Migrate to constructor input w/default value.
-
 var factoryResponse = arccore.filter.create({
   operationID: "T7PiatEGTo2dbdy8jOMHQg",
   operationName: "OPC Evaluation Filter",
@@ -38,6 +36,7 @@ var factoryResponse = arccore.filter.create({
       summary: {
         evalStopwatch: null,
         counts: {
+          bindings: 0,
           frames: 0,
           errors: 0,
           transitions: 0
@@ -61,6 +60,7 @@ var factoryResponse = arccore.filter.create({
       var filterResponse = opcRef._private.ocdi.getNamespaceSpec("~");
 
       if (filterResponse.error) {
+        errors.push("Fatal internal error:");
         errors.push(filterResponse.error);
         break;
       }
@@ -94,6 +94,7 @@ var factoryResponse = arccore.filter.create({
         filterResponse = opcRef._private.ocdi.readNamespace("~");
 
         if (filterResponse.error) {
+          errors.push("Fatal internal error:");
           errors.push(filterResponse.error);
           break;
         }
@@ -134,56 +135,49 @@ var factoryResponse = arccore.filter.create({
 
 
           if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
-            var opmID = record.specRef.____appdsl.opm;
+            // We can here safely presume that the following
+            // construction-time invariants have been met:
+            // - ID is a valid IRUT
+            // - ID IRUT identifies a specific OPM registered with this OPC instance.
+            var opmID = record.specRef.____appdsl.opm; // ****************************************************************
+            // ****************************************************************
+            // We found an OPM-bound namespace in the controller data.
 
-            if (arccore.identifier.irut.isIRUT(opmID).result) {
-              if (!opcRef._private.opmMap[opmID]) {
-                errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
-                break;
-              } // ****************************************************************
-              // ****************************************************************
-              // We found an OPM-bound namespace in the controller data.
-
-
-              var opmInstanceFrame = {
-                evalRequest: {
-                  dataBinding: record,
-                  initialStep: record.dataRef.__opmiStep,
-                  opmRef: opcRef._private.opmMap[opmID]
+            var opmInstanceFrame = {
+              evalRequest: {
+                dataBinding: record,
+                initialStep: record.dataRef.__opmiStep,
+                opmRef: opcRef._private.opmMap[opmID]
+              },
+              evalResponse: {
+                status: "pending",
+                finishStep: null,
+                phases: {
+                  p1_toperator: [],
+                  p2_exit: [],
+                  p3_enter: [],
+                  p4_finalize: null
                 },
-                evalResponse: {
-                  status: "pending",
-                  finishStep: null,
-                  phases: {
-                    p1_toperator: [],
-                    p2_exit: [],
-                    p3_enter: [],
-                    p4_finalize: null
-                  },
-                  errors: {
-                    p0: 0,
-                    p1_toperator: 0,
-                    p2_exit: 0,
-                    p3_enter: 0,
-                    p4_finalize: 0,
-                    total: 0
-                  }
+                errors: {
+                  p0: 0,
+                  p1_toperator: 0,
+                  p2_exit: 0,
+                  p3_enter: 0,
+                  p4_finalize: 0,
+                  total: 0
                 }
-              }; // Generate an IRUT based on the CDS path to use as key in the binding map.
+              }
+            }; // Generate an IRUT based on the CDS path to use as key in the binding map.
 
-              var key = arccore.identifier.irut.fromReference(record.dataPath).result; // Register the new binding the the evalFrame.
+            var key = arccore.identifier.irut.fromReference(record.dataPath).result; // Register the new binding the the evalFrame.
 
-              evalFrame.bindings[key] = opmInstanceFrame;
-              evalFrame.summary.counts.bindings++;
-              console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
-              console.log("opmInstanceFrame=");
-              console.log(opmInstanceFrame); // ****************************************************************
-              // ****************************************************************
-            } else {
-              errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
-              evalFrame.summary.counts.errors++;
-              break;
-            }
+            evalFrame.bindings[key] = opmInstanceFrame;
+            result.summary.counts.bindings++;
+            evalFrame.summary.counts.bindings++;
+            console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
+            console.log("opmInstanceFrame=");
+            console.log(opmInstanceFrame); // ****************************************************************
+            // ****************************************************************
           } // end if opm binding on current namespace?
           // Is the current namespace an array or object used as a map?
 
@@ -346,7 +340,15 @@ var factoryResponse = arccore.filter.create({
               operator: transitionRule.transitionIf
             };
 
-            var _transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+            var _transitionResponse = void 0;
+
+            try {
+              _transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+            } catch (topException_) {
+              _transitionResponse = {
+                error: "TransitionOperator threw an illegal exception that was handled by OPC: ".concat(topException_.stack)
+              };
+            }
 
             _opmInstanceFrame.evalResponse.phases.p1_toperator.push({
               request: operatorRequest,
@@ -359,6 +361,9 @@ var factoryResponse = arccore.filter.create({
               _opmInstanceFrame.evalResponse.errors.p1_toperator++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
+              evalFrame.summary.counts.errors++;
+              evalFrame.summary.reports.errors.push(cdsPathIRUT_);
+              result.summary.counts.errors++;
               break; // abort evaluation of transition rules for this OPM instance...
             }
 
