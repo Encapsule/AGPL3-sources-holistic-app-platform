@@ -1,26 +1,26 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "bvj2u51Uw5_SD1TRZNpwXA": {
-      "TenISiGcTG-06LhZuBzJNQ": {
+      "KGh0Va-oTXKPUZmnDG4QPQ": {
         "harnessRequest": {
-          "id": "TenISiGcTG-06LhZuBzJNQ",
-          "name": "OPC Evaluate Operator Test #2",
-          "description": "Test transition operator failure (bad operator request message).",
+          "id": "KGh0Va-oTXKPUZmnDG4QPQ",
+          "name": "OPC Evaluate Operator Test #3",
+          "description": "Test transition operator failure (bad operator returns transport error).",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "ObservableProcessController": {
                   "constructorRequest": {
-                    "id": "TenISiGcTG-06LhZuBzJNQ",
-                    "name": "OPC Operator Test #2",
-                    "description": "Test transition operator failure (bad operator request message).",
+                    "id": "KGh0Va-oTXKPUZmnDG4QPQ",
+                    "name": "OPC Evaluate Operator Test #3",
+                    "description": "Test transition operator failure (bad operator returns transport error).",
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
                       "test": {
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "_vC2O7DGTZ22R5hvxpy0WQ"
+                          "opm": "SyCUD3kpQ8mtYbV5A_4BPA"
                         }
                       }
                     },
@@ -438,6 +438,100 @@
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "vuhHROKrX5P3XLqc3Khkcg"
                         }
+                      ],
+                      [
+                        {
+                          "operationID": "AODn0L3GQLK_21Msl1W8-g",
+                          "operationName": "Bad Transition Operator #1",
+                          "operationDescription": "A TransitionOperator instance that is hard-wired to return a transport error (i.e. sets response.error).",
+                          "inputFilterSpec": {
+                            "____label": "Bad Transition Operator #1 Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "namespace": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operator": {
+                              "____types": "jsObject",
+                              "badTransitionOperatorResponseError": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "fcGtxyvuqlkqDpUA1XVQaw",
+                          "inputTypeVDID": "Ei-Ov12VpDg2k8BKExNf_Q",
+                          "outputTypeVIID": "x1HY9UsShOVVJgsxt0rzRg",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "Zr0nRD6XjZM3ykucwiBRcg"
+                        },
+                        {
+                          "operationID": "ZdpLuggZRVaMI6aPW1mmUw",
+                          "operationName": "Bad Transition Operator #2",
+                          "operationDescription": "A TransitionOperator instance that is hard-wired to throw and exception.",
+                          "inputFilterSpec": {
+                            "____label": "Bad Transition Operator #2 Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "namespace": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operator": {
+                              "____types": "jsObject",
+                              "badTransitionOperatorThrowError": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "LHEwWfMqQsfOeqyFrPJi0w",
+                          "inputTypeVDID": "dSpUrq5UWvhUVQlG-GhM6A",
+                          "outputTypeVIID": "CNg4lV4XH5Z6CrL5wgOs_g",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "a_FsRKEn8ZOwr9ucfPpJcg"
+                        }
                       ]
                     ]
                   }
@@ -455,11 +549,11 @@
             },
             "harnessDispatch": {
               "54MiSgQdSiukMX4fIZJimg": {
-                "TenISiGcTG-06LhZuBzJNQ": {
+                "KGh0Va-oTXKPUZmnDG4QPQ": {
                   "opcToJSON": {
-                    "id": "TenISiGcTG-06LhZuBzJNQ",
-                    "name": "OPC Operator Test #2",
-                    "description": "Test transition operator failure (bad operator request message).",
+                    "id": "KGh0Va-oTXKPUZmnDG4QPQ",
+                    "name": "OPC Evaluate Operator Test #3",
+                    "description": "Test transition operator failure (bad operator returns transport error).",
                     "options": {
                       "evaluate": {
                         "maxFrames": 16,
@@ -580,9 +674,9 @@
                       {
                         "specPath": "~.test",
                         "opmiRef": {
-                          "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                          "name": "OPM Test A",
-                          "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
+                          "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                          "name": "OPM Test B",
+                          "description": "A simple test OPM (force transition operator error - operator returns transport error)",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
@@ -596,7 +690,7 @@
                               "transitions": [
                                 {
                                   "transitionIf": {
-                                    "noneSuchOperator": true
+                                    "badTransitionOperatorResponseError": true
                                   },
                                   "nextStep": "goal"
                                 }
@@ -620,20 +714,20 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "_vC2O7DGTZ22R5hvxpy0WQ"
+                          "opm": "SyCUD3kpQ8mtYbV5A_4BPA"
                         }
                       }
                     },
                     "ocdRuntimeSpec": {
-                      "____label": "OPC [TenISiGcTG-06LhZuBzJNQ::OPC Operator Test #2] Observable Controller Data Store",
-                      "____description": "OPC [TenISiGcTG-06LhZuBzJNQ::OPC Operator Test #2] system process runtime state data managed by OPC instance.",
+                      "____label": "OPC [KGh0Va-oTXKPUZmnDG4QPQ::OPC Evaluate Operator Test #3] Observable Controller Data Store",
+                      "____description": "OPC [KGh0Va-oTXKPUZmnDG4QPQ::OPC Evaluate Operator Test #3] system process runtime state data managed by OPC instance.",
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "test": {
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "_vC2O7DGTZ22R5hvxpy0WQ"
+                          "opm": "SyCUD3kpQ8mtYbV5A_4BPA"
                         },
                         "__opmiStep": {
                           "____accept": "jsString",
@@ -648,20 +742,22 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "AOa3UdklXIbPzA9taYLSYQ",
+                        "operationID": "hrrsmdvOtyIZlfPnC9GK3Q",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                        "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
+                        "inputTypeVIID": "eQz5YA1wjQOwsaaAUJLRAA",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
+                        "outputTypeVIID": "JFIPZh3oi4WEMRSdo9TXaA",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "ouv0E3RGNVecb47tSagUtA"
+                        "operationVDID": "3GX0E7mfNVdwCI7t190UtA"
                       },
                       "supportedFilters": [
                         "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                         "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                        "[AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]",
                         "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                         "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                        "[ZdpLuggZRVaMI6aPW1mmUw::Bad Transition Operator #2]",
                         "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
                         "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
                       ],
@@ -708,9 +804,9 @@
                                   },
                                   "initialStep": "uninitialized",
                                   "opmRef": {
-                                    "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                                    "name": "OPM Test A",
-                                    "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
+                                    "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                                    "name": "OPM Test B",
+                                    "description": "A simple test OPM (force transition operator error - operator returns transport error)",
                                     "opmDataSpec": {
                                       "____types": "jsObject"
                                     },
@@ -724,7 +820,7 @@
                                         "transitions": [
                                           {
                                             "transitionIf": {
-                                              "noneSuchOperator": true
+                                              "badTransitionOperatorResponseError": true
                                             },
                                             "nextStep": "goal"
                                           }
@@ -757,20 +853,22 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "AOa3UdklXIbPzA9taYLSYQ",
+                                                "operationID": "hrrsmdvOtyIZlfPnC9GK3Q",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
+                                                "inputTypeVIID": "eQz5YA1wjQOwsaaAUJLRAA",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
+                                                "outputTypeVIID": "JFIPZh3oi4WEMRSdo9TXaA",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "ouv0E3RGNVecb47tSagUtA"
+                                                "operationVDID": "3GX0E7mfNVdwCI7t190UtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                "[AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                                                 "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                "[ZdpLuggZRVaMI6aPW1mmUw::Bad Transition Operator #2]",
                                                 "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
                                                 "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
                                               ],
@@ -780,11 +878,11 @@
                                             }
                                           },
                                           "operator": {
-                                            "noneSuchOperator": true
+                                            "badTransitionOperatorResponseError": true
                                           }
                                         },
                                         "response": {
-                                          "error": "Filter [AOa3UdklXIbPzA9taYLSYQ::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator], [9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator], [TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator], [YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator], [e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.], [kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]}."
+                                          "error": "Filter [hrrsmdvOtyIZlfPnC9GK3Q::Discriminator Filter] failed while performing main operation. Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
                                         }
                                       }
                                     ],

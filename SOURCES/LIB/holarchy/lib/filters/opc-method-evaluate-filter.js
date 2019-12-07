@@ -348,7 +348,15 @@ const factoryResponse = arccore.filter.create({
                             operator: transitionRule.transitionIf
                         };
 
-                        let transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+                        let transitionResponse;
+
+                        try {
+                            transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+                        } catch (topException_) {
+                            transitionResponse = {
+                                error: `TransitionOperator threw an illegal exception that was handled by OPC: ${topException_.stack}`
+                            };
+                        }
 
                         opmInstanceFrame.evalResponse.phases.p1_toperator.push({
                             request: operatorRequest,
