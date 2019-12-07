@@ -743,6 +743,7 @@
                         "evalNumber": 0,
                         "summary": {
                           "counts": {
+                            "bindings": 3,
                             "frames": 3,
                             "errors": 0,
                             "transitions": 2

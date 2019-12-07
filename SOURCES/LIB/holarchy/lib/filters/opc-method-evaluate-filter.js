@@ -7,8 +7,6 @@ const SimpleStopwatch = require("../util/SimpleStopwatch");
 const opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-spec");
 const opcMethodEvaluateOutputSpec = require("./iospecs/opc-method-evaluate-output-spec");
 
-const maxEvalFrames = 10; // TODO: Migrate to constructor input w/default value.
-
 const factoryResponse = arccore.filter.create({
 
     operationID: "T7PiatEGTo2dbdy8jOMHQg",
@@ -38,6 +36,7 @@ const factoryResponse = arccore.filter.create({
             summary: {
                 evalStopwatch: null,
                 counts: {
+                    bindings: 0,
                     frames: 0,
                     errors: 0,
                     transitions: 0
@@ -64,11 +63,11 @@ const factoryResponse = arccore.filter.create({
             // Get a reference to the entire filter spec for the controller data store.
             let filterResponse = opcRef._private.ocdi.getNamespaceSpec("~");
             if (filterResponse.error) {
+                errors.push("Fatal internal error:");
                 errors.push(filterResponse.error);
                 break;
             }
             const controllerDataSpec = filterResponse.result;
-
 
             // ================================================================
             // OUTER "EVALUATION FRAME" LOOP.
@@ -100,6 +99,7 @@ const factoryResponse = arccore.filter.create({
                 // Get a reference to the controller data.
                 filterResponse = opcRef._private.ocdi.readNamespace("~");
                 if (filterResponse.error) {
+                    errors.push("Fatal internal error:");
                     errors.push(filterResponse.error);
                     break;
                 }
@@ -140,61 +140,56 @@ const factoryResponse = arccore.filter.create({
                     // Determine if the current spec namespace has an OPM binding annotation.
                     // TODO: We should validate the controller data spec wrt OPM bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
                     if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
+
+                        // We can here safely presume that the following
+                        // construction-time invariants have been met:
+                        // - ID is a valid IRUT
+                        // - ID IRUT identifies a specific OPM registered with this OPC instance.
                         const opmID = record.specRef.____appdsl.opm;
-                        if (arccore.identifier.irut.isIRUT(opmID).result) {
-                            if (!opcRef._private.opmMap[opmID]) {
-                                errors.push(`Controller data namespace '${record.specPath}' is declared with an unregistered ObservableProcessModel binding ID '${opmID}'.`);
-                                break;
-                            }
 
-                            // ****************************************************************
-                            // ****************************************************************
-                            // We found an OPM-bound namespace in the controller data.
-                            const opmInstanceFrame = {
-                                evalRequest: {
-                                    dataBinding: record,
-                                    initialStep: record.dataRef.__opmiStep,
-                                    opmRef: opcRef._private.opmMap[opmID]
+                        // ****************************************************************
+                        // ****************************************************************
+                        // We found an OPM-bound namespace in the controller data.
+                        const opmInstanceFrame = {
+                            evalRequest: {
+                                dataBinding: record,
+                                initialStep: record.dataRef.__opmiStep,
+                                opmRef: opcRef._private.opmMap[opmID]
+                            },
+                            evalResponse: {
+                                status: "pending",
+                                finishStep: null,
+                                phases: {
+                                    p1_toperator: [],
+                                    p2_exit: [],
+                                    p3_enter: [],
+                                    p4_finalize: null
                                 },
-                                evalResponse: {
-                                    status: "pending",
-                                    finishStep: null,
-                                    phases: {
-                                        p1_toperator: [],
-                                        p2_exit: [],
-                                        p3_enter: [],
-                                        p4_finalize: null
-                                    },
-                                    errors: {
-                                        p0: 0,
-                                        p1_toperator: 0,
-                                        p2_exit: 0,
-                                        p3_enter: 0,
-                                        p4_finalize: 0,
-                                        total: 0
-                                    }
+                                errors: {
+                                    p0: 0,
+                                    p1_toperator: 0,
+                                    p2_exit: 0,
+                                    p3_enter: 0,
+                                    p4_finalize: 0,
+                                    total: 0
                                 }
-                            };
+                            }
+                        };
 
-                            // Generate an IRUT based on the CDS path to use as key in the binding map.
-                            const key = arccore.identifier.irut.fromReference(record.dataPath).result;
+                        // Generate an IRUT based on the CDS path to use as key in the binding map.
+                        const key = arccore.identifier.irut.fromReference(record.dataPath).result;
 
-                            // Register the new binding the the evalFrame.
-                            evalFrame.bindings[key] = opmInstanceFrame;
+                        // Register the new binding the the evalFrame.
+                        evalFrame.bindings[key] = opmInstanceFrame;
+                        result.summary.counts.bindings++;
+                        evalFrame.summary.counts.bindings++;
 
-                            evalFrame.summary.counts.bindings++;
+                        console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
+                        console.log("opmInstanceFrame=")
+                        console.log(opmInstanceFrame);
+                        // ****************************************************************
+                        // ****************************************************************
 
-                            console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
-                            console.log("opmInstanceFrame=")
-                            console.log(opmInstanceFrame);
-                            // ****************************************************************
-                            // ****************************************************************
-
-                        } else {
-                            errors.push(`Controller data namespace '${record.specPath}' is declared with an illegal syntax ObservableProcessModel binding ID '${opmID}'.`);
-                            evalFrame.summary.counts.errors++;
-                            break;
-                        }
                     } // end if opm binding on current namespace?
 
                     // Is the current namespace an array or object used as a map?

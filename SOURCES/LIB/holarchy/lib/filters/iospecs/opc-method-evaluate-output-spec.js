@@ -24,6 +24,11 @@ const opcEvalResultSpec = {
         },
         counts: {
             ____types: "jsObject",
+            bindings: {
+                ____label: "Total Bindings",
+                ____description: "Total number of bindings processed for all frames evaluated.",
+                ____accept: "jsNumber"
+            },
             frames: {
                 ____label: "Total Frames",
                 ____description: "Total number of frames evaluated.",

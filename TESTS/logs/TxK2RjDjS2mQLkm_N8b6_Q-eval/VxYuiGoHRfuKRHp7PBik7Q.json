@@ -98,6 +98,7 @@
                         "evalNumber": 0,
                         "summary": {
                           "counts": {
+                            "bindings": 0,
                             "frames": 1,
                             "errors": 0,
                             "transitions": 0
