@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2-components",
     "version": "0.0.28",
     "codename": "pemberton",
-    "buildID": "I7HIPe0BRSKHmIPRMgeT4Q",
-    "buildTime": 1575773945,
-    "buildSource": "d3a438a3a33dd6ab534bea89d138232e862703bb",
+    "buildID": "79SGgy-BSmupPqMDel2SiA",
+    "buildTime": 1575822308,
+    "buildSource": "4b8f522ead39081c2a510795ac186f00c497740b",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2-components.git"

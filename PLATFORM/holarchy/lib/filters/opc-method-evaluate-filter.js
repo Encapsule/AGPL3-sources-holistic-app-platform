@@ -305,9 +305,9 @@ var factoryResponse = arccore.filter.create({
         // step we're exiting and/or the step we're entering.
 
 
-        for (var cdsPathIRUT_ in evalFrame.bindings) {
+        for (var ocdPathIRUT_ in evalFrame.bindings) {
           // Derefermce the opmInstanceFrame created during phase #0 binding.
-          var _opmInstanceFrame = evalFrame.bindings[cdsPathIRUT_];
+          var _opmInstanceFrame = evalFrame.bindings[ocdPathIRUT_];
           _opmInstanceFrame.evalResponse.status = "analyzing";
           var cdsPath = _opmInstanceFrame.evalRequest.dataBinding.dataPath;
           var opmRef = _opmInstanceFrame.evalRequest.opmRef;
@@ -316,7 +316,14 @@ var factoryResponse = arccore.filter.create({
           console.log("..... Evaluting '".concat(cdsPath, "' instance of ").concat(opmRef.getID(), "::").concat(opmRef.getName(), " ..."));
           console.log("..... ..... model instance is currently at process step '".concat(initialStep, "' stepDescriptor="));
           console.log("stepDescriptor=");
-          console.log(stepDescriptor); // ================================================================
+          console.log(stepDescriptor);
+
+          if (!stepDescriptor) {
+            console.warn("No step descriptor in model for [".concat(opmRef.getID(), "::").concat(opmRef.getName(), "] for step '").concat(initialStep, "'. Ignoring."));
+            _opmInstanceFrame.evalResponse.status = "noop";
+            _opmInstanceFrame.evalResponse.finishStep = initialStep;
+            continue;
+          } // ================================================================
           // ================================================================
           // ================================================================
           // PHASE 1 - BOUND OPM INSTANCE STEP TRANSITION EVALUATION
@@ -324,6 +331,7 @@ var factoryResponse = arccore.filter.create({
           // ================================================================
           // ================================================================
           // Evaluate the OPM instance's step transition ruleset.
+
 
           var nextStep = null; // null (default) indicates that the OPM instance should remain in its current process step (i.e. no transition).
 
@@ -362,7 +370,7 @@ var factoryResponse = arccore.filter.create({
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
               evalFrame.summary.counts.errors++;
-              evalFrame.summary.reports.errors.push(cdsPathIRUT_);
+              evalFrame.summary.reports.errors.push(ocdPathIRUT_);
               result.summary.counts.errors++;
               break; // abort evaluation of transition rules for this OPM instance...
             }
@@ -375,7 +383,8 @@ var factoryResponse = arccore.filter.create({
               break; // skip evaluation of subsequent transition rules for this OPM instance.
             }
           } // for transitionRuleIndex
-          // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+          // If we encountered any error during the evaluation of the model step's transition operators
+          // skip the remainder of the model evaluation and proceed to the next model in the frame.
 
 
           if (_opmInstanceFrame.evalResponse.status === "error") {
@@ -435,11 +444,12 @@ var factoryResponse = arccore.filter.create({
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
               evalFrame.summary.counts.errors++;
-              evalFrame.summary.reports.errors.push(cdsPathIRUT_);
+              evalFrame.summary.reports.errors.push(ocdPathIRUT_);
               result.summary.counts.errors++;
               break;
             }
-          } // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+          } // If we encountered any error during the evaluation of the model step's exit actions skip
+          // the remainder of the model evaluation and proceed to the next model in the frame.
 
 
           if (_opmInstanceFrame.evalResponse.status === "error") {
@@ -447,7 +457,7 @@ var factoryResponse = arccore.filter.create({
           } // ================================================================
           // ================================================================
           // ================================================================
-          // PHASE 3 - BOUND OPM INSTANCE STEP EXIT DISPATCH
+          // PHASE 3 - BOUND OPM INSTANCE STEP ENTER DISPATCH
           // ================================================================
           // ================================================================
           // ================================================================
@@ -467,7 +477,15 @@ var factoryResponse = arccore.filter.create({
               }
             };
 
-            var _actionResponse = opcRef._private.actionDispatcher.request(_dispatcherRequest);
+            var _actionResponse = void 0;
+
+            try {
+              _actionResponse = opcRef._private.actionDispatcher.request(_dispatcherRequest);
+            } catch (actionException_) {
+              _actionResponse = {
+                error: "ControllerAction threw an illegal exception that was handled by the OPC: ".concat(actionException_.stack)
+              };
+            }
 
             _opmInstanceFrame.evalResponse.phases.p3_enter.push({
               request: _actionRequest,
@@ -476,12 +494,21 @@ var factoryResponse = arccore.filter.create({
 
             if (_actionResponse.error) {
               console.error(_actionResponse.error);
+              _opmInstanceFrame.evalResponse.status = "error";
               _opmInstanceFrame.evalResponse.errors.p3_enter++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
+              evalFrame.summary.counts.errors++;
+              evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+              result.summary.counts.errors++;
             }
-          } // TODO: Consider control flow gates based on accumulated errors.
-          // ================================================================
+          } // If we encountered any error during the evaluation of the model step's enter actions skip
+          // the remainder of the model evaluation and proceed to the next model in the frame.
+
+
+          if (_opmInstanceFrame.evalResponse.status === "error") {
+            continue;
+          } // ================================================================
           // ================================================================
           // ================================================================
           // PHASE 4 - BOUND OPM INSTANCE STEP TRANSITION FINALIZE
@@ -499,13 +526,17 @@ var factoryResponse = arccore.filter.create({
 
           if (transitionResponse.error) {
             console.error(transitionResponse.error);
+            _opmInstanceFrame.evalResponse.status = "error";
             _opmInstanceFrame.evalResponse.errors.p4_finalize++;
             _opmInstanceFrame.evalResponse.errors.total++;
             _opmInstanceFrame.evalResponse.finishStep = initialStep;
+            evalFrame.summary.counts.errors++;
+            evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+            result.summary.counts.errors++;
           } else {
             _opmInstanceFrame.evalResponse.status = "transitioned";
             evalFrame.summary.counts.transitions++;
-            evalFrame.summary.reports.transitions.push(cdsPathIRUT_);
+            evalFrame.summary.reports.transitions.push(ocdPathIRUT_);
             result.summary.counts.transitions++;
             _opmInstanceFrame.evalResponse.finishStep = nextStep;
           }

@@ -501,5 +501,5 @@ Filter classification:  **normalized operation**
 ## About
 Filters are created with the [Encapsule/arccore](https://github.com/Encapsule/arccore/) library.<br>
 This document was generated with [Encapsule/arctools](https://github.com/Encapsule/arctools/) v0.1.7 toolset.<br>
-Document updated Sat Dec 07 2019 18:59:07 GMT-0800 (Pacific Standard Time)
+Document updated Sun Dec 08 2019 08:25:09 GMT-0800 (Pacific Standard Time)
 
