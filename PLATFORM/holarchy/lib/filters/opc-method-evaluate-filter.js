@@ -413,8 +413,15 @@ var factoryResponse = arccore.filter.create({
                 act: opcRef.act
               }
             };
+            var actionResponse = void 0;
 
-            var actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+            try {
+              actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+            } catch (actException_) {
+              actionResponse = {
+                error: "ControllerAction threw an illegal exception that was handled by OPC: ".concat(actException_)
+              };
+            }
 
             _opmInstanceFrame.evalResponse.phases.p2_exit.push({
               request: actionRequest,
@@ -423,12 +430,21 @@ var factoryResponse = arccore.filter.create({
 
             if (actionResponse.error) {
               console.error(actionResponse.error);
+              _opmInstanceFrame.evalResponse.status = "error";
               _opmInstanceFrame.evalResponse.errors.p2_exit++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
+              evalFrame.summary.counts.errors++;
+              evalFrame.summary.reports.errors.push(cdsPathIRUT_);
+              result.summary.counts.errors++;
+              break;
             }
-          } // TODO: Consider control flow gates based on accumulated errors.
-          // ================================================================
+          } // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+
+
+          if (_opmInstanceFrame.evalResponse.status === "error") {
+            continue;
+          } // ================================================================
           // ================================================================
           // ================================================================
           // PHASE 3 - BOUND OPM INSTANCE STEP EXIT DISPATCH
