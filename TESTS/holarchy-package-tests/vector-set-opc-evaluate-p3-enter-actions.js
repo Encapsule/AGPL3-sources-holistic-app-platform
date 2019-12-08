@@ -1,28 +1,29 @@
+// vector-set-opc-evaluate-p3-enter-actions.js
 
 const holarchySML = require("@encapsule/holarchy-sml");
-const fixtureOpmExamples = require("./fixture-opm-evaluate-p2-exit-actions");
-const fixtureActExamples = require("./fixture-act-evaluate-p2-exit-actions");
+const fixtureOpmExamples = require("./fixture-opm-evaluate-p3-enter-actions");
+const fixtureActExamples = require("./fixture-act-evaluate-p2-exit-actions"); // reuse
 
 module.exports = [
 
     {
-        id: "Gli8ff6FR22PPXjn9epRAQ",
-        name: "OPC Evaluate Exit Action Test #1",
-        description: "Test controller exit action failure (no controller actions registered).",
+        id: "Zu13opLlRwSmU2LHvEAHnA",
+        name: "OPC Evaluate Enter Action Test #1",
+        description: "Test controller action failure (no controller actions registered).",
         vectorRequest: {
             holistic: {
                 holarchy: {
                     ObservableProcessController: {
                         constructorRequest: {
-                            id: "Gli8ff6FR22PPXjn9epRAQ",
-                            name: "OPC Evaluate Exit Action Test #1",
-                            description: "Test controller exit action failure (no controller actions registered).",
+                            id: "Zu13opLlRwSmU2LHvEAHnA",
+                            name: "OPC Evaluate Enter Action Test #1",
+                            description: "Test controller action failure (no controller actions registered).",
                             ocdTemplateSpec: {
                                 ____types: "jsObject",
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm: "Rgt3dz-6Ra-zqpbnpBrJDg" }
+                                    ____appdsl: { opm: "I3ja3B00Rj-PIXnDrzQzNg" }
                                 }
                             },
                             observableProcessModelSets: [
@@ -41,23 +42,23 @@ module.exports = [
     },
 
     {
-        id: "5fzWl6WhTEaG7EzC1AgITw",
-        name: "OPC Evaluate Exit Action Test #2",
+        id: "HxrzwXDSTlWXQJ5XAMhgtA",
+        name: "OPC Evaluate Enter Action Test #2",
         description: "Test controller action failure (bad request message).",
         vectorRequest: {
             holistic: {
                 holarchy: {
                     ObservableProcessController: {
                         constructorRequest: {
-                            id: "5fzWl6WhTEaG7EzC1AgITw",
-                            name: "OPC Evaluate Exit Action Test #2",
+                            id: "HxrzwXDSTlWXQJ5XAMhgtA",
+                            name: "OPC Evaluate Enter Action Test #2",
                             description: "Test controller action failure (bad request message).",
                             ocdTemplateSpec: {
                                 ____types: "jsObject",
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm: "Rgt3dz-6Ra-zqpbnpBrJDg" }
+                                    ____appdsl: { opm: "I3ja3B00Rj-PIXnDrzQzNg" }
                                 }
                             },
                             observableProcessModelSets: [
@@ -78,23 +79,23 @@ module.exports = [
     },
 
     {
-        id: "boPENwtqTDiqX_c6CYfaPw",
-        name: "OPC Evaluate Exit Action Test #3",
-        description: "Test controller action failure #3 (bad action returns transport error).",
+        id: "dcSJk7BZQ3qnlrgivMayUQ",
+        name: "OPC Evaluate Enter Action Test #3",
+        description: "Test controller action failure (bad action returns transport error).",
         vectorRequest: {
             holistic: {
                 holarchy: {
                     ObservableProcessController: {
                         constructorRequest: {
-                            id: "boPENwtqTDiqX_c6CYfaPw",
-                            name: "OPC Evaluate Exit Action Test #2",
-                            description: "Test controller action failure (bad request message).",
+                            id: "dcSJk7BZQ3qnlrgivMayUQ",
+                            name: "OPC Evaluate Enter Action Test #3",
+                            description: "Test controller action failure (bad action returns transport error).",
                             ocdTemplateSpec: {
                                 ____types: "jsObject",
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm: "P-uhpNlrTseMNDG3D9ahRA" }
+                                    ____appdsl: { opm: "71VGW5zbRLiDf7E_2tFJ3g" }
                                 }
                             },
                             observableProcessModelSets: [
@@ -106,7 +107,6 @@ module.exports = [
                             controllerActionSets: [
                                 fixtureActExamples
                             ]
-
                         }
                     }
                 }
@@ -115,23 +115,23 @@ module.exports = [
     },
 
     {
-        id: "pTaZUV0vTOGhaNOVD0sXLQ",
-        name: "OPC Evaluate Exit Action Test #4",
-        description: "Test controller action failure #4 (bad action throws exception).",
+        id:  "SHneUm5GTDO--xVSUpL92Q",
+        name: "OPC Evaluate Enter Action Test #4",
+        description: "Test controller action failure (bad action throws exception).",
         vectorRequest: {
             holistic: {
                 holarchy: {
                     ObservableProcessController: {
                         constructorRequest: {
-                            id: "pTaZUV0vTOGhaNOVD0sXLQ",
-                            name: "OPC Evaluate Exit Action Test #4",
-                            description: "Test controller action failure #4 (bad action throws exception).",
+                            id:  "SHneUm5GTDO--xVSUpL92Q",
+                            name: "OPC Evaluate Enter Action Test #4",
+                            description: "Test controller action failure (bad action throws exception).",
                             ocdTemplateSpec: {
                                 ____types: "jsObject",
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm:  "alBMdhnYSbijGj64jxm92g" }
+                                    ____appdsl: { opm: "maPNVFgWTduQ5vMiDU2sEw" }
                                 }
                             },
                             observableProcessModelSets: [
@@ -143,13 +143,12 @@ module.exports = [
                             controllerActionSets: [
                                 fixtureActExamples
                             ]
-
-
                         }
                     }
                 }
             }
         }
     }
+
 
 ];

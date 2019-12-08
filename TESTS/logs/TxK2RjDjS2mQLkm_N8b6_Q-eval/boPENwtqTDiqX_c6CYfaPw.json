@@ -4,7 +4,7 @@
       "boPENwtqTDiqX_c6CYfaPw": {
         "harnessRequest": {
           "id": "boPENwtqTDiqX_c6CYfaPw",
-          "name": "OPC Evaluate Enter Action Test #3",
+          "name": "OPC Evaluate Exit Action Test #3",
           "description": "Test controller action failure #3 (bad action returns transport error).",
           "vectorRequest": {
             "holistic": {
@@ -12,7 +12,7 @@
                 "ObservableProcessController": {
                   "constructorRequest": {
                     "id": "boPENwtqTDiqX_c6CYfaPw",
-                    "name": "OPC Evaluate Enter Action Test #2",
+                    "name": "OPC Evaluate Exit Action Test #2",
                     "description": "Test controller action failure (bad request message).",
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
@@ -557,7 +557,7 @@
                 "boPENwtqTDiqX_c6CYfaPw": {
                   "opcToJSON": {
                     "id": "boPENwtqTDiqX_c6CYfaPw",
-                    "name": "OPC Evaluate Enter Action Test #2",
+                    "name": "OPC Evaluate Exit Action Test #2",
                     "description": "Test controller action failure (bad request message).",
                     "options": {
                       "evaluate": {
@@ -731,8 +731,8 @@
                       }
                     },
                     "ocdRuntimeSpec": {
-                      "____label": "OPC [boPENwtqTDiqX_c6CYfaPw::OPC Evaluate Enter Action Test #2] Observable Controller Data Store",
-                      "____description": "OPC [boPENwtqTDiqX_c6CYfaPw::OPC Evaluate Enter Action Test #2] system process runtime state data managed by OPC instance.",
+                      "____label": "OPC [boPENwtqTDiqX_c6CYfaPw::OPC Evaluate Exit Action Test #2] Observable Controller Data Store",
+                      "____description": "OPC [boPENwtqTDiqX_c6CYfaPw::OPC Evaluate Exit Action Test #2] system process runtime state data managed by OPC instance.",
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "test": {

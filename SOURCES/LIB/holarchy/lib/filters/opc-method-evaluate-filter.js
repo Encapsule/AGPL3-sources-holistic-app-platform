@@ -305,10 +305,10 @@ const factoryResponse = arccore.filter.create({
                 // steps dispatching exit and enter actions declared optionally on the
                 // step we're exiting and/or the step we're entering.
 
-                for (let cdsPathIRUT_ in evalFrame.bindings) {
+                for (let ocdPathIRUT_ in evalFrame.bindings) {
 
                     // Derefermce the opmInstanceFrame created during phase #0 binding.
-                    const opmInstanceFrame = evalFrame.bindings[cdsPathIRUT_];
+                    const opmInstanceFrame = evalFrame.bindings[ocdPathIRUT_];
 
                     opmInstanceFrame.evalResponse.status = "analyzing";
 
@@ -321,6 +321,13 @@ const factoryResponse = arccore.filter.create({
                     console.log(`..... ..... model instance is currently at process step '${initialStep}' stepDescriptor=`);
                     console.log("stepDescriptor=");
                     console.log(stepDescriptor);
+
+                    if (!stepDescriptor) {
+                        console.warn(`No step descriptor in model for [${opmRef.getID()}::${opmRef.getName()}] for step '${initialStep}'. Ignoring.`);
+                        opmInstanceFrame.evalResponse.status = "noop";
+                        opmInstanceFrame.evalResponse.finishStep = initialStep;
+                        continue;
+                    }
 
                     // ================================================================
                     // ================================================================
@@ -370,7 +377,7 @@ const factoryResponse = arccore.filter.create({
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
                             evalFrame.summary.counts.errors++;
-                            evalFrame.summary.reports.errors.push(cdsPathIRUT_);
+                            evalFrame.summary.reports.errors.push(ocdPathIRUT_);
                             result.summary.counts.errors++;
                             break; // abort evaluation of transition rules for this OPM instance...
                         }
@@ -383,7 +390,9 @@ const factoryResponse = arccore.filter.create({
 
                     } // for transitionRuleIndex
 
-                    // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+                    // If we encountered any error during the evaluation of the model step's transition operators
+                    // skip the remainder of the model evaluation and proceed to the next model in the frame.
+
                     if (opmInstanceFrame.evalResponse.status === "error") {
                         continue;
                     }
@@ -445,13 +454,15 @@ const factoryResponse = arccore.filter.create({
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
                             evalFrame.summary.counts.errors++;
-                            evalFrame.summary.reports.errors.push(cdsPathIRUT_);
+                            evalFrame.summary.reports.errors.push(ocdPathIRUT_);
                             result.summary.counts.errors++;
                             break;
                         }
                     }
 
-                    // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+                    // If we encountered any error during the evaluation of the model step's exit actions skip
+                    // the remainder of the model evaluation and proceed to the next model in the frame.
+
                     if (opmInstanceFrame.evalResponse.status === "error") {
                         continue;
                     }
@@ -459,13 +470,14 @@ const factoryResponse = arccore.filter.create({
                     // ================================================================
                     // ================================================================
                     // ================================================================
-                    // PHASE 3 - BOUND OPM INSTANCE STEP EXIT DISPATCH
+                    // PHASE 3 - BOUND OPM INSTANCE STEP ENTER DISPATCH
                     // ================================================================
                     // ================================================================
                     // ================================================================
 
                     // Dispatch the OPM instance's step enter action(s).
                     opmInstanceFrame.evalResponse.status = "transitioning-dispatch-enter-actions";
+
                     for (let enterActionIndex = 0 ; enterActionIndex < nextStepDescriptor.actions.enter.length ; enterActionIndex++) {
                         const actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
                         const dispatcherRequest = {
@@ -476,7 +488,16 @@ const factoryResponse = arccore.filter.create({
                                 act: opcRef.act
                             }
                         };
-                        const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+
+                        let actionResponse;
+
+                        try {
+                            actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+                        } catch (actionException_) {
+                            actionResponse = {
+                                error: `ControllerAction threw an illegal exception that was handled by the OPC: ${actionException_.stack}`
+                            }
+                        }
 
                         opmInstanceFrame.evalResponse.phases.p3_enter.push({
                             request: actionRequest,
@@ -485,13 +506,23 @@ const factoryResponse = arccore.filter.create({
 
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
+                            opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p3_enter++;
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
+                            evalFrame.summary.counts.errors++;
+                            evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+                            result.summary.counts.errors++;
                         }
+
+                    }
+                    // If we encountered any error during the evaluation of the model step's enter actions skip
+                    // the remainder of the model evaluation and proceed to the next model in the frame.
+
+                    if (opmInstanceFrame.evalResponse.status === "error") {
+                        continue;
                     }
 
-                    // TODO: Consider control flow gates based on accumulated errors.
                     // ================================================================
                     // ================================================================
                     // ================================================================
@@ -508,13 +539,17 @@ const factoryResponse = arccore.filter.create({
 
                     if (transitionResponse.error) {
                         console.error(transitionResponse.error);
+                        opmInstanceFrame.evalResponse.status = "error";
                         opmInstanceFrame.evalResponse.errors.p4_finalize++;
                         opmInstanceFrame.evalResponse.errors.total++;
                         opmInstanceFrame.evalResponse.finishStep = initialStep;
+                        evalFrame.summary.counts.errors++;
+                        evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+                        result.summary.counts.errors++;
                     } else {
                         opmInstanceFrame.evalResponse.status = "transitioned";
                         evalFrame.summary.counts.transitions++;
-                        evalFrame.summary.reports.transitions.push(cdsPathIRUT_);
+                        evalFrame.summary.reports.transitions.push(ocdPathIRUT_);
                         result.summary.counts.transitions++;
                         opmInstanceFrame.evalResponse.finishStep = nextStep;
                     }

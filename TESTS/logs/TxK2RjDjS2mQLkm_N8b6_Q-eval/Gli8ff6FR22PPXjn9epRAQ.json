@@ -4,7 +4,7 @@
       "Gli8ff6FR22PPXjn9epRAQ": {
         "harnessRequest": {
           "id": "Gli8ff6FR22PPXjn9epRAQ",
-          "name": "OPC Evaluate Enter Action Test #1",
+          "name": "OPC Evaluate Exit Action Test #1",
           "description": "Test controller exit action failure (no controller actions registered).",
           "vectorRequest": {
             "holistic": {
@@ -12,7 +12,7 @@
                 "ObservableProcessController": {
                   "constructorRequest": {
                     "id": "Gli8ff6FR22PPXjn9epRAQ",
-                    "name": "OPC Evaluate Enter Action Test #1",
+                    "name": "OPC Evaluate Exit Action Test #1",
                     "description": "Test controller exit action failure (no controller actions registered).",
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
@@ -462,7 +462,7 @@
                 "Gli8ff6FR22PPXjn9epRAQ": {
                   "opcToJSON": {
                     "id": "Gli8ff6FR22PPXjn9epRAQ",
-                    "name": "OPC Evaluate Enter Action Test #1",
+                    "name": "OPC Evaluate Exit Action Test #1",
                     "description": "Test controller exit action failure (no controller actions registered).",
                     "options": {
                       "evaluate": {
@@ -636,8 +636,8 @@
                       }
                     },
                     "ocdRuntimeSpec": {
-                      "____label": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Enter Action Test #1] Observable Controller Data Store",
-                      "____description": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Enter Action Test #1] system process runtime state data managed by OPC instance.",
+                      "____label": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Exit Action Test #1] Observable Controller Data Store",
+                      "____description": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Exit Action Test #1] system process runtime state data managed by OPC instance.",
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "test": {

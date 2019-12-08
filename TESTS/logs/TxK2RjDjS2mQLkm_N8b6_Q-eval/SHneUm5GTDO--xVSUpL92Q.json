@@ -1,35 +1,35 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "bvj2u51Uw5_SD1TRZNpwXA": {
-      "pTaZUV0vTOGhaNOVD0sXLQ": {
+      "SHneUm5GTDO--xVSUpL92Q": {
         "harnessRequest": {
-          "id": "pTaZUV0vTOGhaNOVD0sXLQ",
-          "name": "OPC Evaluate Exit Action Test #4",
-          "description": "Test controller action failure #4 (bad action throws exception).",
+          "id": "SHneUm5GTDO--xVSUpL92Q",
+          "name": "OPC Evaluate Enter Action Test #4",
+          "description": "Test controller action failure (bad action throws exception).",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "ObservableProcessController": {
                   "constructorRequest": {
-                    "id": "pTaZUV0vTOGhaNOVD0sXLQ",
-                    "name": "OPC Evaluate Exit Action Test #4",
-                    "description": "Test controller action failure #4 (bad action throws exception).",
+                    "id": "SHneUm5GTDO--xVSUpL92Q",
+                    "name": "OPC Evaluate Enter Action Test #4",
+                    "description": "Test controller action failure (bad action throws exception).",
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
                       "test": {
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "alBMdhnYSbijGj64jxm92g"
+                          "opm": "maPNVFgWTduQ5vMiDU2sEw"
                         }
                       }
                     },
                     "observableProcessModelSets": [
                       [
                         {
-                          "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
-                          "name": "OPM Eval P2 Test #1",
-                          "description": "A simple test OPM (force controller action exit error - bad message)",
+                          "id": "I3ja3B00Rj-PIXnDrzQzNg",
+                          "name": "OPM Eval P3 Test #1",
+                          "description": "A simple OPM (force controller action enter error - bad message)",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
@@ -38,11 +38,44 @@
                               "description": "Default starting process step.",
                               "actions": {
                                 "enter": [],
-                                "exit": [
+                                "exit": []
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "always": true
+                                  },
+                                  "nextStep": "goal"
+                                }
+                              ]
+                            },
+                            "goal": {
+                              "description": "Test goal step.",
+                              "actions": {
+                                "enter": [
                                   {
                                     "noneSuchControllerAction": true
                                   }
-                                ]
+                                ],
+                                "exit": []
+                              },
+                              "transitions": []
+                            }
+                          }
+                        },
+                        {
+                          "id": "71VGW5zbRLiDf7E_2tFJ3g",
+                          "name": "OPM Eval P3 Test #2",
+                          "description": "A simple OPM (force controller action enter error - action transport error)",
+                          "opmDataSpec": {
+                            "____types": "jsObject"
+                          },
+                          "steps": {
+                            "uninitialized": {
+                              "description": "Default starting process step.",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
                               },
                               "transitions": [
                                 {
@@ -54,46 +87,13 @@
                               ]
                             },
                             "goal": {
-                              "description": "Test goal step (never reached).",
+                              "description": "Test goal step.",
                               "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            }
-                          }
-                        },
-                        {
-                          "id": "P-uhpNlrTseMNDG3D9ahRA",
-                          "name": "OPM Eval P2 Test #2",
-                          "description": "A simple test OPM (force controller action exit error - action transport error)",
-                          "opmDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
+                                "enter": [
                                   {
                                     "badControllerActionResponseError": true
                                   }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "goal"
-                                }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
+                                ],
                                 "exit": []
                               },
                               "transitions": []
@@ -101,9 +101,9 @@
                           }
                         },
                         {
-                          "id": "alBMdhnYSbijGj64jxm92g",
-                          "name": "OPM Eval P2 Test #3",
-                          "description": "A simple test OPM (force controller action exit - action exception)",
+                          "id": "maPNVFgWTduQ5vMiDU2sEw",
+                          "name": "OPM Eval P3 Test #3",
+                          "description": "A simple OPM (force controller action enter error - action exception)",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
@@ -112,11 +112,7 @@
                               "description": "Default starting process step.",
                               "actions": {
                                 "enter": [],
-                                "exit": [
-                                  {
-                                    "badControllerActionThrowError": true
-                                  }
-                                ]
+                                "exit": []
                               },
                               "transitions": [
                                 {
@@ -128,9 +124,13 @@
                               ]
                             },
                             "goal": {
-                              "description": "Test goal step (never reached).",
+                              "description": "Test goal step.",
                               "actions": {
-                                "enter": [],
+                                "enter": [
+                                  {
+                                    "badControllerActionThrowError": true
+                                  }
+                                ],
                                 "exit": []
                               },
                               "transitions": []
@@ -554,11 +554,11 @@
             },
             "harnessDispatch": {
               "54MiSgQdSiukMX4fIZJimg": {
-                "pTaZUV0vTOGhaNOVD0sXLQ": {
+                "SHneUm5GTDO--xVSUpL92Q": {
                   "opcToJSON": {
-                    "id": "pTaZUV0vTOGhaNOVD0sXLQ",
-                    "name": "OPC Evaluate Exit Action Test #4",
-                    "description": "Test controller action failure #4 (bad action throws exception).",
+                    "id": "SHneUm5GTDO--xVSUpL92Q",
+                    "name": "OPC Evaluate Enter Action Test #4",
+                    "description": "Test controller action failure (bad action throws exception).",
                     "options": {
                       "evaluate": {
                         "maxFrames": 16,
@@ -566,10 +566,10 @@
                       }
                     },
                     "opmMap": {
-                      "Rgt3dz-6Ra-zqpbnpBrJDg": {
-                        "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
-                        "name": "OPM Eval P2 Test #1",
-                        "description": "A simple test OPM (force controller action exit error - bad message)",
+                      "I3ja3B00Rj-PIXnDrzQzNg": {
+                        "id": "I3ja3B00Rj-PIXnDrzQzNg",
+                        "name": "OPM Eval P3 Test #1",
+                        "description": "A simple OPM (force controller action enter error - bad message)",
                         "opmDataSpec": {
                           "____types": "jsObject"
                         },
@@ -578,11 +578,44 @@
                             "description": "Default starting process step.",
                             "actions": {
                               "enter": [],
-                              "exit": [
+                              "exit": []
+                            },
+                            "transitions": [
+                              {
+                                "transitionIf": {
+                                  "always": true
+                                },
+                                "nextStep": "goal"
+                              }
+                            ]
+                          },
+                          "goal": {
+                            "description": "Test goal step.",
+                            "actions": {
+                              "enter": [
                                 {
                                   "noneSuchControllerAction": true
                                 }
-                              ]
+                              ],
+                              "exit": []
+                            },
+                            "transitions": []
+                          }
+                        }
+                      },
+                      "71VGW5zbRLiDf7E_2tFJ3g": {
+                        "id": "71VGW5zbRLiDf7E_2tFJ3g",
+                        "name": "OPM Eval P3 Test #2",
+                        "description": "A simple OPM (force controller action enter error - action transport error)",
+                        "opmDataSpec": {
+                          "____types": "jsObject"
+                        },
+                        "steps": {
+                          "uninitialized": {
+                            "description": "Default starting process step.",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
                             },
                             "transitions": [
                               {
@@ -594,56 +627,23 @@
                             ]
                           },
                           "goal": {
-                            "description": "Test goal step (never reached).",
+                            "description": "Test goal step.",
                             "actions": {
-                              "enter": [],
-                              "exit": []
-                            },
-                            "transitions": []
-                          }
-                        }
-                      },
-                      "P-uhpNlrTseMNDG3D9ahRA": {
-                        "id": "P-uhpNlrTseMNDG3D9ahRA",
-                        "name": "OPM Eval P2 Test #2",
-                        "description": "A simple test OPM (force controller action exit error - action transport error)",
-                        "opmDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {
-                          "uninitialized": {
-                            "description": "Default starting process step.",
-                            "actions": {
-                              "enter": [],
-                              "exit": [
+                              "enter": [
                                 {
                                   "badControllerActionResponseError": true
                                 }
-                              ]
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "always": true
-                                },
-                                "nextStep": "goal"
-                              }
-                            ]
-                          },
-                          "goal": {
-                            "description": "Test goal step (never reached).",
-                            "actions": {
-                              "enter": [],
+                              ],
                               "exit": []
                             },
                             "transitions": []
                           }
                         }
                       },
-                      "alBMdhnYSbijGj64jxm92g": {
-                        "id": "alBMdhnYSbijGj64jxm92g",
-                        "name": "OPM Eval P2 Test #3",
-                        "description": "A simple test OPM (force controller action exit - action exception)",
+                      "maPNVFgWTduQ5vMiDU2sEw": {
+                        "id": "maPNVFgWTduQ5vMiDU2sEw",
+                        "name": "OPM Eval P3 Test #3",
+                        "description": "A simple OPM (force controller action enter error - action exception)",
                         "opmDataSpec": {
                           "____types": "jsObject"
                         },
@@ -652,11 +652,7 @@
                             "description": "Default starting process step.",
                             "actions": {
                               "enter": [],
-                              "exit": [
-                                {
-                                  "badControllerActionThrowError": true
-                                }
-                              ]
+                              "exit": []
                             },
                             "transitions": [
                               {
@@ -668,9 +664,13 @@
                             ]
                           },
                           "goal": {
-                            "description": "Test goal step (never reached).",
+                            "description": "Test goal step.",
                             "actions": {
-                              "enter": [],
+                              "enter": [
+                                {
+                                  "badControllerActionThrowError": true
+                                }
+                              ],
                               "exit": []
                             },
                             "transitions": []
@@ -682,9 +682,9 @@
                       {
                         "specPath": "~.test",
                         "opmiRef": {
-                          "id": "alBMdhnYSbijGj64jxm92g",
-                          "name": "OPM Eval P2 Test #3",
-                          "description": "A simple test OPM (force controller action exit - action exception)",
+                          "id": "maPNVFgWTduQ5vMiDU2sEw",
+                          "name": "OPM Eval P3 Test #3",
+                          "description": "A simple OPM (force controller action enter error - action exception)",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
@@ -693,11 +693,7 @@
                               "description": "Default starting process step.",
                               "actions": {
                                 "enter": [],
-                                "exit": [
-                                  {
-                                    "badControllerActionThrowError": true
-                                  }
-                                ]
+                                "exit": []
                               },
                               "transitions": [
                                 {
@@ -709,9 +705,13 @@
                               ]
                             },
                             "goal": {
-                              "description": "Test goal step (never reached).",
+                              "description": "Test goal step.",
                               "actions": {
-                                "enter": [],
+                                "enter": [
+                                  {
+                                    "badControllerActionThrowError": true
+                                  }
+                                ],
                                 "exit": []
                               },
                               "transitions": []
@@ -726,20 +726,20 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "alBMdhnYSbijGj64jxm92g"
+                          "opm": "maPNVFgWTduQ5vMiDU2sEw"
                         }
                       }
                     },
                     "ocdRuntimeSpec": {
-                      "____label": "OPC [pTaZUV0vTOGhaNOVD0sXLQ::OPC Evaluate Exit Action Test #4] Observable Controller Data Store",
-                      "____description": "OPC [pTaZUV0vTOGhaNOVD0sXLQ::OPC Evaluate Exit Action Test #4] system process runtime state data managed by OPC instance.",
+                      "____label": "OPC [SHneUm5GTDO--xVSUpL92Q::OPC Evaluate Enter Action Test #4] Observable Controller Data Store",
+                      "____description": "OPC [SHneUm5GTDO--xVSUpL92Q::OPC Evaluate Enter Action Test #4] system process runtime state data managed by OPC instance.",
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "test": {
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "alBMdhnYSbijGj64jxm92g"
+                          "opm": "maPNVFgWTduQ5vMiDU2sEw"
                         },
                         "__opmiStep": {
                           "____accept": "jsString",
@@ -832,9 +832,9 @@
                                   },
                                   "initialStep": "uninitialized",
                                   "opmRef": {
-                                    "id": "alBMdhnYSbijGj64jxm92g",
-                                    "name": "OPM Eval P2 Test #3",
-                                    "description": "A simple test OPM (force controller action exit - action exception)",
+                                    "id": "maPNVFgWTduQ5vMiDU2sEw",
+                                    "name": "OPM Eval P3 Test #3",
+                                    "description": "A simple OPM (force controller action enter error - action exception)",
                                     "opmDataSpec": {
                                       "____types": "jsObject"
                                     },
@@ -843,11 +843,7 @@
                                         "description": "Default starting process step.",
                                         "actions": {
                                           "enter": [],
-                                          "exit": [
-                                            {
-                                              "badControllerActionThrowError": true
-                                            }
-                                          ]
+                                          "exit": []
                                         },
                                         "transitions": [
                                           {
@@ -859,9 +855,13 @@
                                         ]
                                       },
                                       "goal": {
-                                        "description": "Test goal step (never reached).",
+                                        "description": "Test goal step.",
                                         "actions": {
-                                          "enter": [],
+                                          "enter": [
+                                            {
+                                              "badControllerActionThrowError": true
+                                            }
+                                          ],
                                           "exit": []
                                         },
                                         "transitions": []
@@ -917,23 +917,23 @@
                                         }
                                       }
                                     ],
-                                    "p2_exit": [
+                                    "p2_exit": [],
+                                    "p3_enter": [
                                       {
                                         "request": {
                                           "badControllerActionThrowError": true
                                         },
                                         "response": {
-                                          "error": "ControllerAction threw an illegal exception that was handled by OPC: Error: This is a forced exception thrown from a controller action body function."
+                                          "error": "ControllerAction threw an illegal exception that was handled by the OPC: Error: This is a forced exception thrown from a controller action body function.\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/TESTS/holarchy-package-tests/fixture-act-evaluate-p2-exit-actions.js:35:19)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:65300)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at Object.bodyFunction (/home/cdr/code/encapsule/holistic/PLATFORM/holarchy/lib/filters/opc-method-evaluate-filter.js:483:66)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)\n    at ObservableProcessController._evaluate (/home/cdr/code/encapsule/holistic/PLATFORM/holarchy/lib/ObservableProcessController.js:231:47)\n    at new ObservableProcessController (/home/cdr/code/encapsule/holistic/PLATFORM/holarchy/lib/ObservableProcessController.js:68:31)\n    at Object.harnessBodyFunction [as bodyFunction] (/home/cdr/code/encapsule/holistic/PLATFORM/holodeck-assets/holarchy/harnesses/harness-ObservableProcessController.js:76:23)\n    at r.value (/home/cdr/code/encapsule/holistic/node_modules/@encapsule/arccore/arc_core_lib.js:1:38558)"
                                         }
                                       }
                                     ],
-                                    "p3_enter": [],
                                     "p4_finalize": null
                                   },
                                   "errors": {
                                     "p1_toperator": 0,
-                                    "p2_exit": 1,
-                                    "p3_enter": 0,
+                                    "p2_exit": 0,
+                                    "p3_enter": 1,
                                     "p4_finalize": 0,
                                     "total": 1
                                   }

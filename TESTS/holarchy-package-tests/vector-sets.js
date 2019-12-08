@@ -6,6 +6,7 @@ module.exports = [
     require("./vector-set-opc-method-act"),
     require("./vector-set-opc-evaluate-p1-operators"),
     require("./vector-set-opc-evaluate-p2-exit-actions"),
+    require("./vector-set-opc-evaluate-p3-enter-actions"),
 
     // Low-level ObservableProcessModel ES6 class tests.
     require("./vector-set-opm-constructor"),
