@@ -1,7 +1,7 @@
 
 const holarchySML = require("@encapsule/holarchy-sml");
 const fixtureOpmExamples = require("./fixture-opm-evaluate-p2-exit-actions");
-const fixtureTopExamples = require("./fixture-top-examples");
+const fixtureActExamples = require("./fixture-act-evaluate-p2-exit-actions");
 
 module.exports = [
 
@@ -17,13 +17,22 @@ module.exports = [
                             id: "Gli8ff6FR22PPXjn9epRAQ",
                             name: "OPC Evaluate Enter Action Test #1",
                             description: "Test controller exit action failure (no controller actions registered).",
-                            ocdTemplate: {
+                            ocdTemplateSpec: {
+                                ____types: "jsObject",
+                                test: {
+                                    ____types: "jsObject",
+                                    ____defaultValue: {},
+                                    ____appdsl: { opm: "Rgt3dz-6Ra-zqpbnpBrJDg" }
+                                }
                             },
                             observableProcessModelSets: [
+                                fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
+                                holarchySML.operators.logical
                             ],
                             controllerActionSets: [
+                                fixtureActExamples
                             ]
                         }
                     }

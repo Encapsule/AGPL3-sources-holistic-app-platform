@@ -1,3 +1,4 @@
+// fixture-opm-evaluate-p2-exit-actions.js
 
 const holarchy = require("@encapsule/holarchy");
 
@@ -20,6 +21,9 @@ module.exports = [
                 ],
                 actions: {
                     exit: [
+                        {
+                            noneSuchControllerAction: true
+                        }
                     ]
                 }
             },

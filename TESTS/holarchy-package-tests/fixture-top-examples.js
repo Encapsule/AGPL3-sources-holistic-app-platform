@@ -22,7 +22,7 @@ module.exports = [
     new holarchy.TransitionOperator({
         id: "ZdpLuggZRVaMI6aPW1mmUw",
         name: "Bad Transition Operator #2",
-        description: "A TransitionOperator instance that is hard-wired to throw and exception.",
+        description: "A TransitionOperator instance that is hard-wired to throw an exception.",
         operatorRequestSpec: {
             ____types: "jsObject",
             badTransitionOperatorThrowError: {

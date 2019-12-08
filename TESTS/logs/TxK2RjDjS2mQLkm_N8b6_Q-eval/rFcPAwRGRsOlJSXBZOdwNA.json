@@ -489,7 +489,7 @@
                         {
                           "operationID": "ZdpLuggZRVaMI6aPW1mmUw",
                           "operationName": "Bad Transition Operator #2",
-                          "operationDescription": "A TransitionOperator instance that is hard-wired to throw and exception.",
+                          "operationDescription": "A TransitionOperator instance that is hard-wired to throw an exception.",
                           "inputFilterSpec": {
                             "____label": "Bad Transition Operator #2 Request",
                             "____types": "jsObject",

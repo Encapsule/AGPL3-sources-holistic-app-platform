@@ -433,13 +433,22 @@ const factoryResponse = arccore.filter.create({
 
                         if (actionResponse.error) {
                             console.error(actionResponse.error);
+                            opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p2_exit++;
                             opmInstanceFrame.evalResponse.errors.total++;
                             opmInstanceFrame.evalResponse.finishStep = initialStep;
+                            evalFrame.summary.counts.errors++;
+                            evalFrame.summary.reports.errors.push(cdsPathIRUT_);
+                            result.summary.counts.errors++;
+                            break;
                         }
                     }
 
-                    // TODO: Consider control flow gates based on accumulated errors.
+                    // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+                    if (opmInstanceFrame.evalResponse.status === "error") {
+                        continue;
+                    }
+
                     // ================================================================
                     // ================================================================
                     // ================================================================

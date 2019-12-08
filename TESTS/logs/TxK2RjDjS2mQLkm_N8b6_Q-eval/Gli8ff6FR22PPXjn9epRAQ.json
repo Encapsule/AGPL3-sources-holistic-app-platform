@@ -1,48 +1,37 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "bvj2u51Uw5_SD1TRZNpwXA": {
-      "uZN6-qpIQO6CkwmLDWtMCw": {
+      "Gli8ff6FR22PPXjn9epRAQ": {
         "harnessRequest": {
-          "id": "uZN6-qpIQO6CkwmLDWtMCw",
-          "name": "OPC Frame Latch Test #1",
-          "description": "Try to apply the Frame Latch OPM in an OPC system.",
+          "id": "Gli8ff6FR22PPXjn9epRAQ",
+          "name": "OPC Evaluate Enter Action Test #1",
+          "description": "Test controller exit action failure (no controller actions registered).",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "ObservableProcessController": {
                   "constructorRequest": {
-                    "id": "uZN6-qpIQO6CkwmLDWtMCw",
-                    "name": "OPC Frame Latch Test #1",
-                    "description": "Try to apply the Frame Latch OPM in an OPC system.",
+                    "id": "Gli8ff6FR22PPXjn9epRAQ",
+                    "name": "OPC Evaluate Enter Action Test #1",
+                    "description": "Test controller exit action failure (no controller actions registered).",
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
-                      "frameLatch": {
+                      "test": {
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
-                        },
-                        "value": {
-                          "____accept": "jsString"
+                          "opm": "Rgt3dz-6Ra-zqpbnpBrJDg"
                         }
                       }
                     },
                     "observableProcessModelSets": [
                       [
                         {
-                          "id": "z_mTe02hSWmaM1iRO1pBeA",
-                          "name": "Observable Frame Latch",
-                          "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                          "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                          "name": "OPM Eval P2 Test #1",
+                          "description": "A simple test OPM (force controller action enter error)",
                           "opmDataSpec": {
-                            "____label": "Observable Frame Latch",
-                            "____types": "jsObject",
-                            "____defaultValue": {},
-                            "value": {
-                              "____opaque": true
-                            },
-                            "clock": {
-                              "____accept": "jsBoolean",
-                              "____defaultValue": false
-                            }
+                            "____types": "jsObject"
                           },
                           "steps": {
                             "uninitialized": {
@@ -51,17 +40,7 @@
                                 "enter": [],
                                 "exit": [
                                   {
-                                    "holarchy": {
-                                      "sml": {
-                                        "action": {
-                                          "ocd": {
-                                            "setBooleanFlag": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
+                                    "noneSuchControllerAction": true
                                   }
                                 ]
                               },
@@ -70,61 +49,17 @@
                                   "transitionIf": {
                                     "always": true
                                   },
-                                  "nextStep": "updated"
+                                  "nextStep": "goal"
                                 }
                               ]
                             },
-                            "updated": {
-                              "description": "The value managed by the frame latch has been written.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "holarchy": {
-                                      "sml": {
-                                        "action": {
-                                          "ocd": {
-                                            "clearBooleanFlag": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "waiting"
-                                }
-                              ]
-                            },
-                            "waiting": {
-                              "description": "The frame latch is waiting for value to be written.",
+                            "goal": {
+                              "description": "Test goal step (never reached).",
                               "actions": {
                                 "enter": [],
                                 "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "holarchy": {
-                                      "sml": {
-                                        "operator": {
-                                          "isBooleanFlagSet": {
-                                            "path": "#.clock"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "nextStep": "updated"
-                                }
-                              ]
+                              "transitions": []
                             }
                           }
                         }
@@ -434,7 +369,102 @@
                         }
                       ]
                     ],
-                    "controllerActionSets": []
+                    "controllerActionSets": [
+                      [
+                        {
+                          "operationID": "NpfrgiF1QTS6qp9vAMv4Dw",
+                          "operationName": "Bad Controller Action #1",
+                          "operationDescription": "A ControllerAction instance that is hard-wired to return a transport error (i.e. sets response.error).",
+                          "inputFilterSpec": {
+                            "____label": "Bad Controller Action #1 Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "dataPath": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC Action Request Dispatcher",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "badControllerActionResponseError": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "EI5vvlWkTXSGjgygskFKaw",
+                          "inputTypeVDID": "WpUih5pa8VzVRggMigZnOQ",
+                          "outputTypeVIID": "F8v250y1jGSHieMeGfxfNw",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "4siRROTpq5Nr35ScnIoScg"
+                        },
+                        {
+                          "operationID": "V4-doRzDTVyYFtHMM8Z2jQ",
+                          "operationName": "Bad Controller Action #2",
+                          "operationDescription": "A ControllerAction instance that is hard-wired to throw an exception.",
+                          "inputFilterSpec": {
+                            "____label": "Bad Controller Action #2 Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "dataPath": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC Action Request Dispatcher",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "badControllerActionThrowError": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "td--0wlcuGQhN-aytMLocw",
+                          "inputTypeVDID": "ScpJ5FCpsjB3sm3q6wiuhQ",
+                          "outputTypeVIID": "d8j-q7q-GASjFRCTp99eSw",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "RO8tRE-WnJM81TqcLeM3cg"
+                        }
+                      ]
+                    ]
                   }
                 }
               }
@@ -450,11 +480,11 @@
             },
             "harnessDispatch": {
               "54MiSgQdSiukMX4fIZJimg": {
-                "uZN6-qpIQO6CkwmLDWtMCw": {
+                "Gli8ff6FR22PPXjn9epRAQ": {
                   "opcToJSON": {
-                    "id": "uZN6-qpIQO6CkwmLDWtMCw",
-                    "name": "OPC Frame Latch Test #1",
-                    "description": "Try to apply the Frame Latch OPM in an OPC system.",
+                    "id": "Gli8ff6FR22PPXjn9epRAQ",
+                    "name": "OPC Evaluate Enter Action Test #1",
+                    "description": "Test controller exit action failure (no controller actions registered).",
                     "options": {
                       "evaluate": {
                         "maxFrames": 16,
@@ -462,21 +492,12 @@
                       }
                     },
                     "opmMap": {
-                      "z_mTe02hSWmaM1iRO1pBeA": {
-                        "id": "z_mTe02hSWmaM1iRO1pBeA",
-                        "name": "Observable Frame Latch",
-                        "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                      "Rgt3dz-6Ra-zqpbnpBrJDg": {
+                        "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                        "name": "OPM Eval P2 Test #1",
+                        "description": "A simple test OPM (force controller action enter error)",
                         "opmDataSpec": {
-                          "____label": "Observable Frame Latch",
-                          "____types": "jsObject",
-                          "____defaultValue": {},
-                          "value": {
-                            "____opaque": true
-                          },
-                          "clock": {
-                            "____accept": "jsBoolean",
-                            "____defaultValue": false
-                          }
+                          "____types": "jsObject"
                         },
                         "steps": {
                           "uninitialized": {
@@ -485,17 +506,7 @@
                               "enter": [],
                               "exit": [
                                 {
-                                  "holarchy": {
-                                    "sml": {
-                                      "action": {
-                                        "ocd": {
-                                          "setBooleanFlag": {
-                                            "path": "#.clock"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "noneSuchControllerAction": true
                                 }
                               ]
                             },
@@ -504,83 +515,30 @@
                                 "transitionIf": {
                                   "always": true
                                 },
-                                "nextStep": "updated"
+                                "nextStep": "goal"
                               }
                             ]
                           },
-                          "updated": {
-                            "description": "The value managed by the frame latch has been written.",
-                            "actions": {
-                              "enter": [],
-                              "exit": [
-                                {
-                                  "holarchy": {
-                                    "sml": {
-                                      "action": {
-                                        "ocd": {
-                                          "clearBooleanFlag": {
-                                            "path": "#.clock"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "always": true
-                                },
-                                "nextStep": "waiting"
-                              }
-                            ]
-                          },
-                          "waiting": {
-                            "description": "The frame latch is waiting for value to be written.",
+                          "goal": {
+                            "description": "Test goal step (never reached).",
                             "actions": {
                               "enter": [],
                               "exit": []
                             },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "holarchy": {
-                                    "sml": {
-                                      "operator": {
-                                        "isBooleanFlagSet": {
-                                          "path": "#.clock"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "nextStep": "updated"
-                              }
-                            ]
+                            "transitions": []
                           }
                         }
                       }
                     },
                     "opmiSpecPaths": [
                       {
-                        "specPath": "~.frameLatch",
+                        "specPath": "~.test",
                         "opmiRef": {
-                          "id": "z_mTe02hSWmaM1iRO1pBeA",
-                          "name": "Observable Frame Latch",
-                          "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                          "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                          "name": "OPM Eval P2 Test #1",
+                          "description": "A simple test OPM (force controller action enter error)",
                           "opmDataSpec": {
-                            "____label": "Observable Frame Latch",
-                            "____types": "jsObject",
-                            "____defaultValue": {},
-                            "value": {
-                              "____opaque": true
-                            },
-                            "clock": {
-                              "____accept": "jsBoolean",
-                              "____defaultValue": false
-                            }
+                            "____types": "jsObject"
                           },
                           "steps": {
                             "uninitialized": {
@@ -589,17 +547,7 @@
                                 "enter": [],
                                 "exit": [
                                   {
-                                    "holarchy": {
-                                      "sml": {
-                                        "action": {
-                                          "ocd": {
-                                            "setBooleanFlag": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
+                                    "noneSuchControllerAction": true
                                   }
                                 ]
                               },
@@ -608,61 +556,17 @@
                                   "transitionIf": {
                                     "always": true
                                   },
-                                  "nextStep": "updated"
+                                  "nextStep": "goal"
                                 }
                               ]
                             },
-                            "updated": {
-                              "description": "The value managed by the frame latch has been written.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "holarchy": {
-                                      "sml": {
-                                        "action": {
-                                          "ocd": {
-                                            "clearBooleanFlag": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "waiting"
-                                }
-                              ]
-                            },
-                            "waiting": {
-                              "description": "The frame latch is waiting for value to be written.",
+                            "goal": {
+                              "description": "Test goal step (never reached).",
                               "actions": {
                                 "enter": [],
                                 "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "holarchy": {
-                                      "sml": {
-                                        "operator": {
-                                          "isBooleanFlagSet": {
-                                            "path": "#.clock"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "nextStep": "updated"
-                                }
-                              ]
+                              "transitions": []
                             }
                           }
                         }
@@ -670,34 +574,24 @@
                     ],
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
-                      "frameLatch": {
+                      "test": {
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
-                        },
-                        "value": {
-                          "____accept": "jsString"
+                          "opm": "Rgt3dz-6Ra-zqpbnpBrJDg"
                         }
                       }
                     },
                     "ocdRuntimeSpec": {
-                      "____label": "OPC [uZN6-qpIQO6CkwmLDWtMCw::OPC Frame Latch Test #1] Observable Controller Data Store",
-                      "____description": "OPC [uZN6-qpIQO6CkwmLDWtMCw::OPC Frame Latch Test #1] system process runtime state data managed by OPC instance.",
+                      "____label": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Enter Action Test #1] Observable Controller Data Store",
+                      "____description": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Enter Action Test #1] system process runtime state data managed by OPC instance.",
                       "____types": "jsObject",
                       "____defaultValue": {},
-                      "frameLatch": {
+                      "test": {
                         "____types": "jsObject",
-                        "____appdsl": {
-                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
-                        },
-                        "value": {
-                          "____opaque": true
-                        },
-                        "____label": "Observable Frame Latch",
                         "____defaultValue": {},
-                        "clock": {
-                          "____accept": "jsBoolean",
-                          "____defaultValue": false
+                        "____appdsl": {
+                          "opm": "Rgt3dz-6Ra-zqpbnpBrJDg"
                         },
                         "__opmiStep": {
                           "____accept": "jsString",
@@ -706,8 +600,7 @@
                       }
                     },
                     "ocdi": {
-                      "frameLatch": {
-                        "clock": false,
+                      "test": {
                         "__opmiStep": "uninitialized"
                       }
                     },
@@ -734,7 +627,25 @@
                         "action": "routeRequest"
                       }
                     },
-                    "actionDispatcher": {},
+                    "actionDispatcher": {
+                      "filterDescriptor": {
+                        "operationID": "gxLe07fE2uTWugzXWfoGDw",
+                        "operationName": "Discriminator Filter",
+                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "inputTypeVIID": "TdBQpyuXslewXfxD_S82FA",
+                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "outputTypeVIID": "3NO3K9sLBtRXWRABzuqYiA",
+                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "operationVDID": "Etj0EzO8NVdSRY7tNYYUtA"
+                      },
+                      "supportedFilters": [
+                        "[NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1]",
+                        "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
+                      ],
+                      "options": {
+                        "action": "routeRequest"
+                      }
+                    },
                     "opcActorStack": [],
                     "evalCount": 1,
                     "lastEvalResponse": {
@@ -760,33 +671,24 @@
                               "reports": {
                                 "transitions": [],
                                 "errors": [
-                                  "rWatZg2xDbHwiPCI5s_mzw"
+                                  "yHP1RrAjDF9FH_9LhtLPEw"
                                 ]
                               }
                             },
                             "bindings": {
-                              "rWatZg2xDbHwiPCI5s_mzw": {
+                              "yHP1RrAjDF9FH_9LhtLPEw": {
                                 "evalRequest": {
                                   "dataBinding": {
-                                    "dataPath": "~.frameLatch",
-                                    "specPath": "~.frameLatch"
+                                    "dataPath": "~.test",
+                                    "specPath": "~.test"
                                   },
                                   "initialStep": "uninitialized",
                                   "opmRef": {
-                                    "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                    "name": "Observable Frame Latch",
-                                    "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                    "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                                    "name": "OPM Eval P2 Test #1",
+                                    "description": "A simple test OPM (force controller action enter error)",
                                     "opmDataSpec": {
-                                      "____label": "Observable Frame Latch",
-                                      "____types": "jsObject",
-                                      "____defaultValue": {},
-                                      "value": {
-                                        "____opaque": true
-                                      },
-                                      "clock": {
-                                        "____accept": "jsBoolean",
-                                        "____defaultValue": false
-                                      }
+                                      "____types": "jsObject"
                                     },
                                     "steps": {
                                       "uninitialized": {
@@ -795,17 +697,7 @@
                                           "enter": [],
                                           "exit": [
                                             {
-                                              "holarchy": {
-                                                "sml": {
-                                                  "action": {
-                                                    "ocd": {
-                                                      "setBooleanFlag": {
-                                                        "path": "#.clock"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
+                                              "noneSuchControllerAction": true
                                             }
                                           ]
                                         },
@@ -814,61 +706,17 @@
                                             "transitionIf": {
                                               "always": true
                                             },
-                                            "nextStep": "updated"
+                                            "nextStep": "goal"
                                           }
                                         ]
                                       },
-                                      "updated": {
-                                        "description": "The value managed by the frame latch has been written.",
-                                        "actions": {
-                                          "enter": [],
-                                          "exit": [
-                                            {
-                                              "holarchy": {
-                                                "sml": {
-                                                  "action": {
-                                                    "ocd": {
-                                                      "clearBooleanFlag": {
-                                                        "path": "#.clock"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          ]
-                                        },
-                                        "transitions": [
-                                          {
-                                            "transitionIf": {
-                                              "always": true
-                                            },
-                                            "nextStep": "waiting"
-                                          }
-                                        ]
-                                      },
-                                      "waiting": {
-                                        "description": "The frame latch is waiting for value to be written.",
+                                      "goal": {
+                                        "description": "Test goal step (never reached).",
                                         "actions": {
                                           "enter": [],
                                           "exit": []
                                         },
-                                        "transitions": [
-                                          {
-                                            "transitionIf": {
-                                              "holarchy": {
-                                                "sml": {
-                                                  "operator": {
-                                                    "isBooleanFlagSet": {
-                                                      "path": "#.clock"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "nextStep": "updated"
-                                          }
-                                        ]
+                                        "transitions": []
                                       }
                                     }
                                   }
@@ -881,10 +729,9 @@
                                       {
                                         "request": {
                                           "context": {
-                                            "namespace": "~.frameLatch",
+                                            "namespace": "~.test",
                                             "ocdi": {
-                                              "frameLatch": {
-                                                "clock": false,
+                                              "test": {
                                                 "__opmiStep": "uninitialized"
                                               }
                                             },
@@ -925,20 +772,10 @@
                                     "p2_exit": [
                                       {
                                         "request": {
-                                          "holarchy": {
-                                            "sml": {
-                                              "action": {
-                                                "ocd": {
-                                                  "setBooleanFlag": {
-                                                    "path": "#.clock"
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
+                                          "noneSuchControllerAction": true
                                         },
                                         "response": {
-                                          "error": "No ControllerAction class instances registered!"
+                                          "error": "Filter [gxLe07fE2uTWugzXWfoGDw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1], [V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]}."
                                         }
                                       }
                                     ],
@@ -959,9 +796,7 @@
                         ]
                       }
                     },
-                    "constructionWarnings": [
-                      "WARNING: No ControllerAction class instances have been registered!"
-                    ]
+                    "constructionWarnings": []
                   },
                   "actionEvaluations": []
                 }

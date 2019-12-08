@@ -1,4 +1,4 @@
-// fixture-opm-examples.js
+// fixture-opm-evaluate-p1-transition-operators.js
 
 const holarchy = require("@encapsule/holarchy");
 
