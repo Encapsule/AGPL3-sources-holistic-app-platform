@@ -424,7 +424,14 @@ const factoryResponse = arccore.filter.create({
                             }
                         };
 
-                        const actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+                        let actionResponse;
+                        try {
+                            actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+                        } catch (actException_) {
+                            actionResponse = {
+                                error: `ControllerAction threw an illegal exception that was handled by OPC: ${actException_}`
+                            };
+                        }
 
                         opmInstanceFrame.evalResponse.phases.p2_exit.push({
                             request: actionRequest,

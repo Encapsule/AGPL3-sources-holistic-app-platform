@@ -1,26 +1,26 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "bvj2u51Uw5_SD1TRZNpwXA": {
-      "Gli8ff6FR22PPXjn9epRAQ": {
+      "boPENwtqTDiqX_c6CYfaPw": {
         "harnessRequest": {
-          "id": "Gli8ff6FR22PPXjn9epRAQ",
-          "name": "OPC Evaluate Enter Action Test #1",
-          "description": "Test controller exit action failure (no controller actions registered).",
+          "id": "boPENwtqTDiqX_c6CYfaPw",
+          "name": "OPC Evaluate Enter Action Test #3",
+          "description": "Test controller action failure #3 (bad action returns transport error).",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "ObservableProcessController": {
                   "constructorRequest": {
-                    "id": "Gli8ff6FR22PPXjn9epRAQ",
-                    "name": "OPC Evaluate Enter Action Test #1",
-                    "description": "Test controller exit action failure (no controller actions registered).",
+                    "id": "boPENwtqTDiqX_c6CYfaPw",
+                    "name": "OPC Evaluate Enter Action Test #2",
+                    "description": "Test controller action failure (bad request message).",
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
                       "test": {
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "Rgt3dz-6Ra-zqpbnpBrJDg"
+                          "opm": "P-uhpNlrTseMNDG3D9ahRA"
                         }
                       }
                     },
@@ -443,7 +443,102 @@
                         }
                       ]
                     ],
-                    "controllerActionSets": []
+                    "controllerActionSets": [
+                      [
+                        {
+                          "operationID": "NpfrgiF1QTS6qp9vAMv4Dw",
+                          "operationName": "Bad Controller Action #1",
+                          "operationDescription": "A ControllerAction instance that is hard-wired to return a transport error (i.e. sets response.error).",
+                          "inputFilterSpec": {
+                            "____label": "Bad Controller Action #1 Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "dataPath": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC Action Request Dispatcher",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "badControllerActionResponseError": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "EI5vvlWkTXSGjgygskFKaw",
+                          "inputTypeVDID": "WpUih5pa8VzVRggMigZnOQ",
+                          "outputTypeVIID": "F8v250y1jGSHieMeGfxfNw",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "4siRROTpq5Nr35ScnIoScg"
+                        },
+                        {
+                          "operationID": "V4-doRzDTVyYFtHMM8Z2jQ",
+                          "operationName": "Bad Controller Action #2",
+                          "operationDescription": "A ControllerAction instance that is hard-wired to throw an exception.",
+                          "inputFilterSpec": {
+                            "____label": "Bad Controller Action #2 Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "dataPath": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC Action Request Dispatcher",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "badControllerActionThrowError": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "td--0wlcuGQhN-aytMLocw",
+                          "inputTypeVDID": "ScpJ5FCpsjB3sm3q6wiuhQ",
+                          "outputTypeVIID": "d8j-q7q-GASjFRCTp99eSw",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "RO8tRE-WnJM81TqcLeM3cg"
+                        }
+                      ]
+                    ]
                   }
                 }
               }
@@ -459,11 +554,11 @@
             },
             "harnessDispatch": {
               "54MiSgQdSiukMX4fIZJimg": {
-                "Gli8ff6FR22PPXjn9epRAQ": {
+                "boPENwtqTDiqX_c6CYfaPw": {
                   "opcToJSON": {
-                    "id": "Gli8ff6FR22PPXjn9epRAQ",
-                    "name": "OPC Evaluate Enter Action Test #1",
-                    "description": "Test controller exit action failure (no controller actions registered).",
+                    "id": "boPENwtqTDiqX_c6CYfaPw",
+                    "name": "OPC Evaluate Enter Action Test #2",
+                    "description": "Test controller action failure (bad request message).",
                     "options": {
                       "evaluate": {
                         "maxFrames": 16,
@@ -587,9 +682,9 @@
                       {
                         "specPath": "~.test",
                         "opmiRef": {
-                          "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
-                          "name": "OPM Eval P2 Test #1",
-                          "description": "A simple test OPM (force controller action exit error - bad message)",
+                          "id": "P-uhpNlrTseMNDG3D9ahRA",
+                          "name": "OPM Eval P2 Test #2",
+                          "description": "A simple test OPM (force controller action exit error - action transport error)",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
@@ -600,7 +695,7 @@
                                 "enter": [],
                                 "exit": [
                                   {
-                                    "noneSuchControllerAction": true
+                                    "badControllerActionResponseError": true
                                   }
                                 ]
                               },
@@ -631,20 +726,20 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "Rgt3dz-6Ra-zqpbnpBrJDg"
+                          "opm": "P-uhpNlrTseMNDG3D9ahRA"
                         }
                       }
                     },
                     "ocdRuntimeSpec": {
-                      "____label": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Enter Action Test #1] Observable Controller Data Store",
-                      "____description": "OPC [Gli8ff6FR22PPXjn9epRAQ::OPC Evaluate Enter Action Test #1] system process runtime state data managed by OPC instance.",
+                      "____label": "OPC [boPENwtqTDiqX_c6CYfaPw::OPC Evaluate Enter Action Test #2] Observable Controller Data Store",
+                      "____description": "OPC [boPENwtqTDiqX_c6CYfaPw::OPC Evaluate Enter Action Test #2] system process runtime state data managed by OPC instance.",
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "test": {
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "Rgt3dz-6Ra-zqpbnpBrJDg"
+                          "opm": "P-uhpNlrTseMNDG3D9ahRA"
                         },
                         "__opmiStep": {
                           "____accept": "jsString",
@@ -680,7 +775,25 @@
                         "action": "routeRequest"
                       }
                     },
-                    "actionDispatcher": {},
+                    "actionDispatcher": {
+                      "filterDescriptor": {
+                        "operationID": "gxLe07fE2uTWugzXWfoGDw",
+                        "operationName": "Discriminator Filter",
+                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "inputTypeVIID": "TdBQpyuXslewXfxD_S82FA",
+                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "outputTypeVIID": "3NO3K9sLBtRXWRABzuqYiA",
+                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "operationVDID": "Etj0EzO8NVdSRY7tNYYUtA"
+                      },
+                      "supportedFilters": [
+                        "[NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1]",
+                        "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
+                      ],
+                      "options": {
+                        "action": "routeRequest"
+                      }
+                    },
                     "opcActorStack": [],
                     "evalCount": 1,
                     "lastEvalResponse": {
@@ -719,9 +832,9 @@
                                   },
                                   "initialStep": "uninitialized",
                                   "opmRef": {
-                                    "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
-                                    "name": "OPM Eval P2 Test #1",
-                                    "description": "A simple test OPM (force controller action exit error - bad message)",
+                                    "id": "P-uhpNlrTseMNDG3D9ahRA",
+                                    "name": "OPM Eval P2 Test #2",
+                                    "description": "A simple test OPM (force controller action exit error - action transport error)",
                                     "opmDataSpec": {
                                       "____types": "jsObject"
                                     },
@@ -732,7 +845,7 @@
                                           "enter": [],
                                           "exit": [
                                             {
-                                              "noneSuchControllerAction": true
+                                              "badControllerActionResponseError": true
                                             }
                                           ]
                                         },
@@ -807,10 +920,10 @@
                                     "p2_exit": [
                                       {
                                         "request": {
-                                          "noneSuchControllerAction": true
+                                          "badControllerActionResponseError": true
                                         },
                                         "response": {
-                                          "error": "No ControllerAction class instances registered!"
+                                          "error": "Filter [gxLe07fE2uTWugzXWfoGDw::Discriminator Filter] failed while performing main operation. Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
                                         }
                                       }
                                     ],
@@ -831,9 +944,7 @@
                         ]
                       }
                     },
-                    "constructionWarnings": [
-                      "WARNING: No ControllerAction class instances have been registered!"
-                    ]
+                    "constructionWarnings": []
                   },
                   "actionEvaluations": []
                 }
