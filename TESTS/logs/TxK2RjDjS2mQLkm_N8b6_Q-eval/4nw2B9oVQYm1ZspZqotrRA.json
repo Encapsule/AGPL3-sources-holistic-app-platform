@@ -38,7 +38,7 @@
                               ]
                             },
                             "goal": {
-                              "description": "Test goal state (never reached).",
+                              "description": "Test goal step (never reached).",
                               "actions": {
                                 "enter": [],
                                 "exit": []
@@ -71,7 +71,7 @@
                               ]
                             },
                             "goal": {
-                              "description": "Test goal state (never reached).",
+                              "description": "Test goal step (never reached).",
                               "actions": {
                                 "enter": [],
                                 "exit": []
@@ -104,7 +104,7 @@
                               ]
                             },
                             "goal": {
-                              "description": "Test goal state (never reached).",
+                              "description": "Test goal step (never reached).",
                               "actions": {
                                 "enter": [],
                                 "exit": []
@@ -175,7 +175,7 @@
                             ]
                           },
                           "goal": {
-                            "description": "Test goal state (never reached).",
+                            "description": "Test goal step (never reached).",
                             "actions": {
                               "enter": [],
                               "exit": []
@@ -208,7 +208,7 @@
                             ]
                           },
                           "goal": {
-                            "description": "Test goal state (never reached).",
+                            "description": "Test goal step (never reached).",
                             "actions": {
                               "enter": [],
                               "exit": []
@@ -241,7 +241,7 @@
                             ]
                           },
                           "goal": {
-                            "description": "Test goal state (never reached).",
+                            "description": "Test goal step (never reached).",
                             "actions": {
                               "enter": [],
                               "exit": []

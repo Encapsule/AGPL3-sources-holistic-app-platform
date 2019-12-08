@@ -1,5 +1,5 @@
 
-const opmSetExamples = require("./fixture-opm-examples");
+const opmSetExamples = require("./fixture-opm-evaluate-p1-transition-operators");
 
 module.exports = [
 

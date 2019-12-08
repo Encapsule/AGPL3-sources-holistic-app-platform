@@ -22,7 +22,7 @@ module.exports = [
             },
 
             goal: {
-                description: "Test goal state (never reached)."
+                description: "Test goal step (never reached)."
             }
         }
     }),
@@ -46,7 +46,7 @@ module.exports = [
             },
 
             goal: {
-                description: "Test goal state (never reached)."
+                description: "Test goal step (never reached)."
             }
         }
     }),
@@ -69,7 +69,7 @@ module.exports = [
             },
 
             goal: {
-                description: "Test goal state (never reached)."
+                description: "Test goal step (never reached)."
             }
         }
     }),

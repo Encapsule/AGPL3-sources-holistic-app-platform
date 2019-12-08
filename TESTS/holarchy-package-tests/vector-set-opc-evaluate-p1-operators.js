@@ -1,6 +1,6 @@
 
 const holarchySML = require("@encapsule/holarchy-sml");
-const fixtureOpmExamples = require("./fixture-opm-examples");
+const fixtureOpmExamples = require("./fixture-opm-evaluate-p1-transition-operators");
 const fixtureTopExamples = require("./fixture-top-examples");
 
 module.exports = [
@@ -17,7 +17,6 @@ module.exports = [
                             id: "l0vKq8yVRsm73LoMev8ItA",
                             name: "OPC Operator Test #1",
                             description: "Test transition operator failure (no transition operators registered).",
-
                             ocdTemplateSpec: {
                                 ____types: "jsObject",
                                 test: {
@@ -26,11 +25,9 @@ module.exports = [
                                     ____appdsl: { opm:  "_vC2O7DGTZ22R5hvxpy0WQ" }
                                 }
                             },
-
                             observableProcessModelSets: [
                                 fixtureOpmExamples
                             ]
-
                         }
                     }
                 }
@@ -138,7 +135,5 @@ module.exports = [
             }
         }
     }
-
-
 
 ];
