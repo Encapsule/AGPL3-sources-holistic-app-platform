@@ -53,7 +53,7 @@
                         "____types": "jsObject",
                         "dataPath": {
                           "____label": "OPM Binding Namespace",
-                          "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                          "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
                           "____accept": "jsString"
                         },
                         "ocdi": {
@@ -62,7 +62,7 @@
                           "____accept": "jsObject"
                         },
                         "act": {
-                          "____label": "OPC Action Request Dispatcher",
+                          "____label": "OPC.act Method",
                           "____description": "A reference to ObservableProcessController.act method.",
                           "____accept": "jsFunction"
                         }
@@ -78,13 +78,15 @@
                       }
                     },
                     "outputFilterSpec": {
-                      "____accept": "jsBoolean"
+                      "____label": "No Result (Default)",
+                      "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                      "____accept": "jsUndefined"
                     },
                     "inputTypeVIID": "Atx8FjZfYUxmrFTQQW7XvQ",
-                    "inputTypeVDID": "PtG8ZApondPlh001CPDIdg",
+                    "inputTypeVDID": "0h-8ZEkfndNMtlQ1grAsdg",
                     "outputTypeVIID": "2Ct2ZVLNFcvpNEjSjPhVcA",
-                    "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                    "operationVDID": "yQ2VRNtjZpPFxxOc7_h1cg"
+                    "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                    "operationVDID": "ycj6edsEc9bFKsOk737WBw"
                   }
                 }
               }

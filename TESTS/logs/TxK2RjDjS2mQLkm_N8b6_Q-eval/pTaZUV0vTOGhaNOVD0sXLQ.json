@@ -458,7 +458,7 @@
                               "____types": "jsObject",
                               "dataPath": {
                                 "____label": "OPM Binding Namespace",
-                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
                                 "____accept": "jsString"
                               },
                               "ocdi": {
@@ -467,7 +467,7 @@
                                 "____accept": "jsObject"
                               },
                               "act": {
-                                "____label": "OPC Action Request Dispatcher",
+                                "____label": "OPC.act Method",
                                 "____description": "A reference to ObservableProcessController.act method.",
                                 "____accept": "jsFunction"
                               }
@@ -483,13 +483,15 @@
                             }
                           },
                           "outputFilterSpec": {
-                            "____accept": "jsBoolean"
+                            "____label": "No Result (Default)",
+                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                            "____accept": "jsUndefined"
                           },
                           "inputTypeVIID": "EI5vvlWkTXSGjgygskFKaw",
-                          "inputTypeVDID": "WpUih5pa8VzVRggMigZnOQ",
+                          "inputTypeVDID": "AS8ch6bkC1zCZWYMw_A3OQ",
                           "outputTypeVIID": "F8v250y1jGSHieMeGfxfNw",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "4siRROTpq5Nr35ScnIoScg"
+                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                          "operationVDID": "4vPMeeRzDtZrPa6knK1mBw"
                         },
                         {
                           "operationID": "V4-doRzDTVyYFtHMM8Z2jQ",
@@ -504,7 +506,7 @@
                               "____types": "jsObject",
                               "dataPath": {
                                 "____label": "OPM Binding Namespace",
-                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
                                 "____accept": "jsString"
                               },
                               "ocdi": {
@@ -513,7 +515,7 @@
                                 "____accept": "jsObject"
                               },
                               "act": {
-                                "____label": "OPC Action Request Dispatcher",
+                                "____label": "OPC.act Method",
                                 "____description": "A reference to ObservableProcessController.act method.",
                                 "____accept": "jsFunction"
                               }
@@ -529,13 +531,15 @@
                             }
                           },
                           "outputFilterSpec": {
-                            "____accept": "jsBoolean"
+                            "____label": "No Result (Default)",
+                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                            "____accept": "jsUndefined"
                           },
                           "inputTypeVIID": "td--0wlcuGQhN-aytMLocw",
-                          "inputTypeVDID": "ScpJ5FCpsjB3sm3q6wiuhQ",
+                          "inputTypeVDID": "qCX35NAvPjAawmzqWVIfhQ",
                           "outputTypeVIID": "d8j-q7q-GASjFRCTp99eSw",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "RO8tRE-WnJM81TqcLeM3cg"
+                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                          "operationVDID": "RHZZeU-B29Y8weGkLVnBBw"
                         }
                       ]
                     ]
