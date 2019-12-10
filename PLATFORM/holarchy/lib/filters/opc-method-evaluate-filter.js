@@ -353,8 +353,9 @@ var factoryResponse = arccore.filter.create({
             try {
               _transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
             } catch (topException_) {
+              console.error(topException_);
               _transitionResponse = {
-                error: "TransitionOperator threw an illegal exception that was handled by OPC: ".concat(topException_.stack)
+                error: "TransitionOperator threw an illegal exception that was handled by OPC: ".concat(topException_.message)
               };
             }
 
@@ -427,6 +428,7 @@ var factoryResponse = arccore.filter.create({
             try {
               actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
             } catch (actException_) {
+              console.error(actException_);
               actionResponse = {
                 error: "ControllerAction threw an illegal exception that was handled by OPC: ".concat(actException_)
               };
@@ -481,9 +483,10 @@ var factoryResponse = arccore.filter.create({
 
             try {
               _actionResponse = opcRef._private.actionDispatcher.request(_dispatcherRequest);
-            } catch (actionException_) {
+            } catch (actException_) {
+              console.error(actException_);
               _actionResponse = {
-                error: "ControllerAction threw an illegal exception that was handled by the OPC: ".concat(actionException_.stack)
+                error: "ControllerAction threw an illegal exception that was handled by the OPC: ".concat(actException_.message)
               };
             }
 

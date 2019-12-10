@@ -104,7 +104,7 @@ var factoryResponse = arccore.filter.create({
                 break;
               }
             } catch (harnessException_) {
-              errors.push("Unexpected harness filter exception: ".concat(harnessException_.message, " (").concat(harnessException_.stack, ")."));
+              errors.push("Unexpected harness filter exception: '".concat(harnessException_.message, "'."));
               break;
             }
 

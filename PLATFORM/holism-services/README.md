@@ -5,10 +5,10 @@
 # @encapsule/holism-services v0.0.28 "pemberton"
 
 ```
-Package: @encapsule/holism-services v0.0.28 "pemberton" build ID "NsnkNaBoT0KQvQ1K1mWQ6w"
-Sources: Encapsule/holistic#d82a279bf10f0001066f34a51036076d9cb5bcc6
+Package: @encapsule/holism-services v0.0.28 "pemberton" build ID "3ffbeMD2R_uX9Wu9sSq_tQ"
+Sources: Encapsule/holistic#11ffdf6655fa2b959c6763129c1778ba0c6d8ff9
 Purpose: library (Node.js)
-Created: 2019-12-09T14:54:11.000Z
+Created: 2019-12-10T15:26:38.000Z
 License: MIT
 ```
 
