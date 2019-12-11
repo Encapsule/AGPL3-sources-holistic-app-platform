@@ -53,11 +53,15 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@encapsule/hrequest": "./HOLISTIC/hrequest",
 
         // Third-party runtime library dependencies.
-        "request": "^2.88.0",
+        "color": "^3.1.0",
+        "commander": "^2.19.0",
+        "query-string": "^6.2.0",
+        "mkdirp": "^0.5.1",
         "query-string": "^6.2.0",
         "react": "^16.7.0",
         "react-dom": "^16.7.0",
-        "react-markdown": "^2.5.0"
+        "react-markdown": "^2.5.0",
+        "request": "^2.88.0",
 
     } // devDependencies
 

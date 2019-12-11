@@ -5,10 +5,10 @@
 # @encapsule/hash-router v0.0.28 "pemberton"
 
 ```
-Package: @encapsule/hash-router v0.0.28 "pemberton" build ID "3ffbeMD2R_uX9Wu9sSq_tQ"
-Sources: Encapsule/holistic#11ffdf6655fa2b959c6763129c1778ba0c6d8ff9
+Package: @encapsule/hash-router v0.0.28 "pemberton" build ID "y0Q9AaRCSzu6SET1eIME2g"
+Sources: Encapsule/holistic#c36b7dde8f0f69ce325c6dcbbc4ee78f98c56766
 Purpose: library (Node.js)
-Created: 2019-12-10T15:26:38.000Z
+Created: 2019-12-10T23:48:06.000Z
 License: MIT
 ```
 
