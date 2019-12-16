@@ -14680,7 +14680,7 @@
                                 }
                               },
                               "waiting": {
-                                "description": "The frame latch is waiting for value to be written.",
+                                "description": "Frame latch value has not changed since last signalled update.",
                                 "transitions": [
                                   {
                                     "nextStep": "updated",
@@ -14792,7 +14792,7 @@
                                 ]
                               },
                               "waiting": {
-                                "description": "The frame latch is waiting for value to be written.",
+                                "description": "Frame latch value has not changed since last signalled update.",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
@@ -14886,7 +14886,7 @@
                               {
                                 "u": "waiting",
                                 "p": {
-                                  "description": "The frame latch is waiting for value to be written.",
+                                  "description": "Frame latch value has not changed since last signalled update.",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -15056,7 +15056,7 @@
                                       ]
                                     },
                                     "waiting": {
-                                      "description": "The frame latch is waiting for value to be written.",
+                                      "description": "Frame latch value has not changed since last signalled update.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -15490,7 +15490,7 @@
                                     ]
                                   },
                                   "waiting": {
-                                    "description": "The frame latch is waiting for value to be written.",
+                                    "description": "Frame latch value has not changed since last signalled update.",
                                     "actions": {
                                       "enter": [],
                                       "exit": []
@@ -15594,7 +15594,7 @@
                                       ]
                                     },
                                     "waiting": {
-                                      "description": "The frame latch is waiting for value to be written.",
+                                      "description": "Frame latch value has not changed since last signalled update.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -15800,7 +15800,7 @@
                                                 ]
                                               },
                                               "waiting": {
-                                                "description": "The frame latch is waiting for value to be written.",
+                                                "description": "Frame latch value has not changed since last signalled update.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
