@@ -51,7 +51,7 @@ const opmFrameLatchDeclaration = module.exports = {
             transitions: [
                 {
                     nextStep: "updated",
-                    transitionIf: { holarchy: { sml: { operator: { isBooleanFlagSet: { path: "#.clock" } } } } }
+                    transitionIf: { holarchy: { sml: { operators: { ocd: { isBooleanFlagSet: { path: "#.clock" } } } } } }
                 }
             ]
 

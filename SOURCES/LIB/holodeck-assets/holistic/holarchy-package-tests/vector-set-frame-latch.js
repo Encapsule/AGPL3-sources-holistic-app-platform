@@ -57,6 +57,7 @@ module.exports = [
                             ],
 
                             controllerActionSets: [
+                                sml.actions.ocd
                             ]
 
                         }

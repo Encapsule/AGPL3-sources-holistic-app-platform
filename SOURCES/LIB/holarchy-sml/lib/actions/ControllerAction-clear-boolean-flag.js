@@ -17,7 +17,7 @@ module.exports = new holarchy.ControllerAction({
                     ____types: "jsObject",
                     ocd: {
                         ____types: "jsObject",
-                        setBooleanFlag: {
+                        clearBooleanFlag: {
                             ____types: "jsObject",
                             path: {
                                 ____accept: "jsString"
@@ -36,15 +36,15 @@ module.exports = new holarchy.ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = requrest_.holarchy.sml.action.ocd.setBooleanFlag;
+            const message = request_.actionRequest.holarchy.sml.action.ocd.clearBooleanFlag;
             let fqpath = null;
             // TODO: Move this to a library function and do a better job.
             if (message.path.startsWith("#")) {
-                fqpath = `${request_.context.namespace}${message.path.slice(1)}`;
+                fqpath = `${request_.context.dataPath}${message.path.slice(1)}`;
             } else {
                 fqpath = message.path;
             }
-            const ocdResponse = request_.ocdi.writeNamespace(fqpath, false);
+            const ocdResponse = request_.context.ocdi.writeNamespace(fqpath, false);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
             }

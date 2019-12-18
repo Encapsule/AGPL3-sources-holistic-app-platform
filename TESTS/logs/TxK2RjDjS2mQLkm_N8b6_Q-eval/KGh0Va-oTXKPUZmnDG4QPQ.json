@@ -409,15 +409,15 @@
                             },
                             "operator": {
                               "____types": "jsObject",
-                              "encapsule": {
+                              "holarchy": {
                                 "____types": "jsObject",
-                                "holarchySML": {
+                                "sml": {
                                   "____types": "jsObject",
                                   "operators": {
                                     "____types": "jsObject",
-                                    "ocdi": {
+                                    "ocd": {
                                       "____types": "jsObject",
-                                      "isTruthy": {
+                                      "isNamespaceTruthy": {
                                         "____types": "jsObject",
                                         "path": {
                                           "____accept": "jsString"
@@ -433,10 +433,68 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
-                          "inputTypeVDID": "YB7ONfnX5VY4uFHlMvJmJA",
+                          "inputTypeVDID": "YB7O1PnX5co4uFFNMvJmGQ",
                           "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "vuhHROKrX5P3XLqc3Khkcg"
+                          "operationVDID": "vtskROJI1ZP31cyc3D-Kcg"
+                        },
+                        {
+                          "operationID": "UeLs9PcASwuC7KR190eYhA",
+                          "operationName": "OCD Boolean Flag Is Set",
+                          "operationDescription": "Returns Boolean true iff the indicated Boolean flag namespace is true.",
+                          "inputFilterSpec": {
+                            "____label": "OCD Boolean Flag Is Set Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "namespace": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operator": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "isBooleanFlagSet": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "l0QuhcthqVCst39xt0A_SA",
+                          "inputTypeVDID": "dIKAw2KjJ0Y7_pvOxPvsuA",
+                          "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "6SL-RIQ_spPpaSeccRBccg"
                         }
                       ],
                       [
@@ -742,20 +800,21 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "hrrsmdvOtyIZlfPnC9GK3Q",
+                        "operationID": "l3XCRgSDLOLTJUdypRJ_rw",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                        "inputTypeVIID": "eQz5YA1wjQOwsaaAUJLRAA",
+                        "inputTypeVIID": "Jp9y9U7GFOa6iCjp26ZVQg",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "JFIPZh3oi4WEMRSdo9TXaA",
+                        "outputTypeVIID": "pz8TLb3zvdofchx1abefQQ",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "3GX0E7mfNVdwCI7t190UtA"
+                        "operationVDID": "4-r0EwY_NVcBwo7t1MYUtA"
                       },
                       "supportedFilters": [
                         "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                         "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                         "[AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]",
                         "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                        "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                         "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
                         "[ZdpLuggZRVaMI6aPW1mmUw::Bad Transition Operator #2]",
                         "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
@@ -853,20 +912,21 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "hrrsmdvOtyIZlfPnC9GK3Q",
+                                                "operationID": "l3XCRgSDLOLTJUdypRJ_rw",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "eQz5YA1wjQOwsaaAUJLRAA",
+                                                "inputTypeVIID": "Jp9y9U7GFOa6iCjp26ZVQg",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "JFIPZh3oi4WEMRSdo9TXaA",
+                                                "outputTypeVIID": "pz8TLb3zvdofchx1abefQQ",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "3GX0E7mfNVdwCI7t190UtA"
+                                                "operationVDID": "4-r0EwY_NVcBwo7t1MYUtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                                                 "[AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                 "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
                                                 "[ZdpLuggZRVaMI6aPW1mmUw::Bad Transition Operator #2]",
                                                 "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
@@ -882,7 +942,7 @@
                                           }
                                         },
                                         "response": {
-                                          "error": "Filter [hrrsmdvOtyIZlfPnC9GK3Q::Discriminator Filter] failed while performing main operation. Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
+                                          "error": "Filter [l3XCRgSDLOLTJUdypRJ_rw::Discriminator Filter] failed while performing main operation. Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
                                         }
                                       }
                                     ],

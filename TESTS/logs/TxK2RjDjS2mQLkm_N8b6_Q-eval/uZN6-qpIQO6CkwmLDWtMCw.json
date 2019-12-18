@@ -114,9 +114,11 @@
                                   "transitionIf": {
                                     "holarchy": {
                                       "sml": {
-                                        "operator": {
-                                          "isBooleanFlagSet": {
-                                            "path": "#.clock"
+                                        "operators": {
+                                          "ocd": {
+                                            "isBooleanFlagSet": {
+                                              "path": "#.clock"
+                                            }
                                           }
                                         }
                                       }
@@ -403,15 +405,15 @@
                             },
                             "operator": {
                               "____types": "jsObject",
-                              "encapsule": {
+                              "holarchy": {
                                 "____types": "jsObject",
-                                "holarchySML": {
+                                "sml": {
                                   "____types": "jsObject",
                                   "operators": {
                                     "____types": "jsObject",
-                                    "ocdi": {
+                                    "ocd": {
                                       "____types": "jsObject",
-                                      "isTruthy": {
+                                      "isNamespaceTruthy": {
                                         "____types": "jsObject",
                                         "path": {
                                           "____accept": "jsString"
@@ -427,14 +429,191 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
-                          "inputTypeVDID": "YB7ONfnX5VY4uFHlMvJmJA",
+                          "inputTypeVDID": "YB7O1PnX5co4uFFNMvJmGQ",
                           "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "vuhHROKrX5P3XLqc3Khkcg"
+                          "operationVDID": "vtskROJI1ZP31cyc3D-Kcg"
+                        },
+                        {
+                          "operationID": "UeLs9PcASwuC7KR190eYhA",
+                          "operationName": "OCD Boolean Flag Is Set",
+                          "operationDescription": "Returns Boolean true iff the indicated Boolean flag namespace is true.",
+                          "inputFilterSpec": {
+                            "____label": "OCD Boolean Flag Is Set Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "namespace": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operator": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "isBooleanFlagSet": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "l0QuhcthqVCst39xt0A_SA",
+                          "inputTypeVDID": "dIKAw2KjJ0Y7_pvOxPvsuA",
+                          "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "6SL-RIQ_spPpaSeccRBccg"
                         }
                       ]
                     ],
-                    "controllerActionSets": []
+                    "controllerActionSets": [
+                      [
+                        {
+                          "operationID": "5rFEDGLYRSiZCeChMnkCHQ",
+                          "operationName": "Set Boolean Flag",
+                          "operationDescription": "Sets a Boolean flag in the OCD.",
+                          "inputFilterSpec": {
+                            "____label": "Set Boolean Flag Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "dataPath": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "action": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "setBooleanFlag": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsUndefined"
+                          },
+                          "inputTypeVIID": "YJSR1JZOriuhfXfKbnMV4Q",
+                          "inputTypeVDID": "yotraxMB_W2j6yLNwsUYeQ",
+                          "outputTypeVIID": "kyxCxyo_W507HuHlFVvwIQ",
+                          "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                          "operationVDID": "bLPkksPB5TF7GB8weYC7SA"
+                        },
+                        {
+                          "operationID": "_yxWfFLnTqqN-UxRdd7W5w",
+                          "operationName": "Clear Boolean Flag",
+                          "operationDescription": "Clears a Boolean flag in the OCD.",
+                          "inputFilterSpec": {
+                            "____label": "Clear Boolean Flag Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "dataPath": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "action": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "clearBooleanFlag": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsUndefined"
+                          },
+                          "inputTypeVIID": "Q26xScNwSEHmeE4xjO_vtg",
+                          "inputTypeVDID": "HpKuJKxWZWr5Lb8d6iIqgQ",
+                          "outputTypeVIID": "_Jrf_S2nEWwsSx89q6ealg",
+                          "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                          "operationVDID": "20AHkmTCSDHNo1cwaCDeSA"
+                        }
+                      ]
+                    ]
                   }
                 }
               }
@@ -548,9 +727,11 @@
                                 "transitionIf": {
                                   "holarchy": {
                                     "sml": {
-                                      "operator": {
-                                        "isBooleanFlagSet": {
-                                          "path": "#.clock"
+                                      "operators": {
+                                        "ocd": {
+                                          "isBooleanFlagSet": {
+                                            "path": "#.clock"
+                                          }
                                         }
                                       }
                                     }
@@ -652,9 +833,11 @@
                                   "transitionIf": {
                                     "holarchy": {
                                       "sml": {
-                                        "operator": {
-                                          "isBooleanFlagSet": {
-                                            "path": "#.clock"
+                                        "operators": {
+                                          "ocd": {
+                                            "isBooleanFlagSet": {
+                                              "path": "#.clock"
+                                            }
                                           }
                                         }
                                       }
@@ -708,24 +891,25 @@
                     "ocdi": {
                       "frameLatch": {
                         "clock": false,
-                        "__opmiStep": "uninitialized"
+                        "__opmiStep": "waiting"
                       }
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "AOa3UdklXIbPzA9taYLSYQ",
+                        "operationID": "zBn6TTKHzZedlXcUODLYJw",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                        "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
+                        "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
+                        "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "ouv0E3RGNVecb47tSagUtA"
+                        "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
                       },
                       "supportedFilters": [
                         "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                         "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                         "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                        "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                         "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
                         "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
                         "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
@@ -734,7 +918,25 @@
                         "action": "routeRequest"
                       }
                     },
-                    "actionDispatcher": {},
+                    "actionDispatcher": {
+                      "filterDescriptor": {
+                        "operationID": "3Ir8XiTGLa_yIyzNpxargg",
+                        "operationName": "Discriminator Filter",
+                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "inputTypeVIID": "8NWdO54kJWYHey4vMgKtZg",
+                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "outputTypeVIID": "axNTVVf-bPZapvpWJvbuvg",
+                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "operationVDID": "-uD0E-iCNVduYY7t3R0UtA"
+                      },
+                      "supportedFilters": [
+                        "[5rFEDGLYRSiZCeChMnkCHQ::Set Boolean Flag]",
+                        "[_yxWfFLnTqqN-UxRdd7W5w::Clear Boolean Flag]"
+                      ],
+                      "options": {
+                        "action": "routeRequest"
+                      }
+                    },
                     "opcActorStack": [],
                     "evalCount": 1,
                     "lastEvalResponse": {
@@ -743,10 +945,10 @@
                         "evalNumber": 0,
                         "summary": {
                           "counts": {
-                            "bindings": 1,
-                            "frames": 1,
-                            "errors": 1,
-                            "transitions": 0
+                            "bindings": 3,
+                            "frames": 3,
+                            "errors": 0,
+                            "transitions": 2
                           }
                         },
                         "evalFrames": [
@@ -754,14 +956,14 @@
                             "summary": {
                               "counts": {
                                 "bindings": 1,
-                                "transitions": 0,
-                                "errors": 1
+                                "transitions": 1,
+                                "errors": 0
                               },
                               "reports": {
-                                "transitions": [],
-                                "errors": [
+                                "transitions": [
                                   "rWatZg2xDbHwiPCI5s_mzw"
-                                ]
+                                ],
+                                "errors": []
                               }
                             },
                             "bindings": {
@@ -858,9 +1060,11 @@
                                             "transitionIf": {
                                               "holarchy": {
                                                 "sml": {
-                                                  "operator": {
-                                                    "isBooleanFlagSet": {
-                                                      "path": "#.clock"
+                                                  "operators": {
+                                                    "ocd": {
+                                                      "isBooleanFlagSet": {
+                                                        "path": "#.clock"
+                                                      }
                                                     }
                                                   }
                                                 }
@@ -874,8 +1078,8 @@
                                   }
                                 },
                                 "evalResponse": {
-                                  "status": "error",
-                                  "finishStep": "uninitialized",
+                                  "status": "transitioned",
+                                  "finishStep": "updated",
                                   "phases": {
                                     "p1_toperator": [
                                       {
@@ -885,24 +1089,25 @@
                                             "ocdi": {
                                               "frameLatch": {
                                                 "clock": false,
-                                                "__opmiStep": "uninitialized"
+                                                "__opmiStep": "waiting"
                                               }
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "AOa3UdklXIbPzA9taYLSYQ",
+                                                "operationID": "zBn6TTKHzZedlXcUODLYJw",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "qO8gN1cSRDsmkwNhu66Pmw",
+                                                "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "DpfGUzqs5aJRaLfwxbz0JA",
+                                                "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "ouv0E3RGNVecb47tSagUtA"
+                                                "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                 "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
                                                 "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
                                                 "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
@@ -938,19 +1143,432 @@
                                           }
                                         },
                                         "response": {
-                                          "error": "No ControllerAction class instances registered!"
+                                          "error": null
                                         }
                                       }
                                     ],
+                                    "p3_enter": [],
+                                    "p4_finalize": {
+                                      "error": null,
+                                      "result": "updated"
+                                    }
+                                  },
+                                  "errors": {
+                                    "p1_toperator": 0,
+                                    "p2_exit": 0,
+                                    "p3_enter": 0,
+                                    "p4_finalize": 0,
+                                    "total": 0
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "summary": {
+                              "counts": {
+                                "bindings": 1,
+                                "transitions": 1,
+                                "errors": 0
+                              },
+                              "reports": {
+                                "transitions": [
+                                  "rWatZg2xDbHwiPCI5s_mzw"
+                                ],
+                                "errors": []
+                              }
+                            },
+                            "bindings": {
+                              "rWatZg2xDbHwiPCI5s_mzw": {
+                                "evalRequest": {
+                                  "dataBinding": {
+                                    "dataPath": "~.frameLatch",
+                                    "specPath": "~.frameLatch"
+                                  },
+                                  "initialStep": "updated",
+                                  "opmRef": {
+                                    "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                    "name": "Observable Frame Latch",
+                                    "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                    "opmDataSpec": {
+                                      "____label": "Observable Frame Latch",
+                                      "____types": "jsObject",
+                                      "____defaultValue": {},
+                                      "value": {
+                                        "____opaque": true
+                                      },
+                                      "clock": {
+                                        "____accept": "jsBoolean",
+                                        "____defaultValue": false
+                                      }
+                                    },
+                                    "steps": {
+                                      "uninitialized": {
+                                        "description": "Default starting process step.",
+                                        "actions": {
+                                          "enter": [],
+                                          "exit": [
+                                            {
+                                              "holarchy": {
+                                                "sml": {
+                                                  "action": {
+                                                    "ocd": {
+                                                      "setBooleanFlag": {
+                                                        "path": "#.clock"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        "transitions": [
+                                          {
+                                            "transitionIf": {
+                                              "always": true
+                                            },
+                                            "nextStep": "updated"
+                                          }
+                                        ]
+                                      },
+                                      "updated": {
+                                        "description": "The value managed by the frame latch has been written.",
+                                        "actions": {
+                                          "enter": [],
+                                          "exit": [
+                                            {
+                                              "holarchy": {
+                                                "sml": {
+                                                  "action": {
+                                                    "ocd": {
+                                                      "clearBooleanFlag": {
+                                                        "path": "#.clock"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        "transitions": [
+                                          {
+                                            "transitionIf": {
+                                              "always": true
+                                            },
+                                            "nextStep": "waiting"
+                                          }
+                                        ]
+                                      },
+                                      "waiting": {
+                                        "description": "Frame latch value has not changed since last signalled update.",
+                                        "actions": {
+                                          "enter": [],
+                                          "exit": []
+                                        },
+                                        "transitions": [
+                                          {
+                                            "transitionIf": {
+                                              "holarchy": {
+                                                "sml": {
+                                                  "operators": {
+                                                    "ocd": {
+                                                      "isBooleanFlagSet": {
+                                                        "path": "#.clock"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "nextStep": "updated"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "evalResponse": {
+                                  "status": "transitioned",
+                                  "finishStep": "waiting",
+                                  "phases": {
+                                    "p1_toperator": [
+                                      {
+                                        "request": {
+                                          "context": {
+                                            "namespace": "~.frameLatch",
+                                            "ocdi": {
+                                              "frameLatch": {
+                                                "clock": false,
+                                                "__opmiStep": "waiting"
+                                              }
+                                            },
+                                            "transitionDispatcher": {
+                                              "filterDescriptor": {
+                                                "operationID": "zBn6TTKHzZedlXcUODLYJw",
+                                                "operationName": "Discriminator Filter",
+                                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
+                                                "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
+                                                "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
+                                              },
+                                              "supportedFilters": [
+                                                "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                              ],
+                                              "options": {
+                                                "action": "routeRequest"
+                                              }
+                                            }
+                                          },
+                                          "operator": {
+                                            "always": true
+                                          }
+                                        },
+                                        "response": {
+                                          "error": null,
+                                          "result": true
+                                        }
+                                      }
+                                    ],
+                                    "p2_exit": [
+                                      {
+                                        "request": {
+                                          "holarchy": {
+                                            "sml": {
+                                              "action": {
+                                                "ocd": {
+                                                  "clearBooleanFlag": {
+                                                    "path": "#.clock"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "response": {
+                                          "error": null
+                                        }
+                                      }
+                                    ],
+                                    "p3_enter": [],
+                                    "p4_finalize": {
+                                      "error": null,
+                                      "result": "waiting"
+                                    }
+                                  },
+                                  "errors": {
+                                    "p1_toperator": 0,
+                                    "p2_exit": 0,
+                                    "p3_enter": 0,
+                                    "p4_finalize": 0,
+                                    "total": 0
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "summary": {
+                              "counts": {
+                                "bindings": 1,
+                                "transitions": 0,
+                                "errors": 0
+                              },
+                              "reports": {
+                                "transitions": [],
+                                "errors": []
+                              }
+                            },
+                            "bindings": {
+                              "rWatZg2xDbHwiPCI5s_mzw": {
+                                "evalRequest": {
+                                  "dataBinding": {
+                                    "dataPath": "~.frameLatch",
+                                    "specPath": "~.frameLatch"
+                                  },
+                                  "initialStep": "waiting",
+                                  "opmRef": {
+                                    "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                    "name": "Observable Frame Latch",
+                                    "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                    "opmDataSpec": {
+                                      "____label": "Observable Frame Latch",
+                                      "____types": "jsObject",
+                                      "____defaultValue": {},
+                                      "value": {
+                                        "____opaque": true
+                                      },
+                                      "clock": {
+                                        "____accept": "jsBoolean",
+                                        "____defaultValue": false
+                                      }
+                                    },
+                                    "steps": {
+                                      "uninitialized": {
+                                        "description": "Default starting process step.",
+                                        "actions": {
+                                          "enter": [],
+                                          "exit": [
+                                            {
+                                              "holarchy": {
+                                                "sml": {
+                                                  "action": {
+                                                    "ocd": {
+                                                      "setBooleanFlag": {
+                                                        "path": "#.clock"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        "transitions": [
+                                          {
+                                            "transitionIf": {
+                                              "always": true
+                                            },
+                                            "nextStep": "updated"
+                                          }
+                                        ]
+                                      },
+                                      "updated": {
+                                        "description": "The value managed by the frame latch has been written.",
+                                        "actions": {
+                                          "enter": [],
+                                          "exit": [
+                                            {
+                                              "holarchy": {
+                                                "sml": {
+                                                  "action": {
+                                                    "ocd": {
+                                                      "clearBooleanFlag": {
+                                                        "path": "#.clock"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        "transitions": [
+                                          {
+                                            "transitionIf": {
+                                              "always": true
+                                            },
+                                            "nextStep": "waiting"
+                                          }
+                                        ]
+                                      },
+                                      "waiting": {
+                                        "description": "Frame latch value has not changed since last signalled update.",
+                                        "actions": {
+                                          "enter": [],
+                                          "exit": []
+                                        },
+                                        "transitions": [
+                                          {
+                                            "transitionIf": {
+                                              "holarchy": {
+                                                "sml": {
+                                                  "operators": {
+                                                    "ocd": {
+                                                      "isBooleanFlagSet": {
+                                                        "path": "#.clock"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "nextStep": "updated"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  }
+                                },
+                                "evalResponse": {
+                                  "status": "noop",
+                                  "finishStep": "waiting",
+                                  "phases": {
+                                    "p1_toperator": [
+                                      {
+                                        "request": {
+                                          "context": {
+                                            "namespace": "~.frameLatch",
+                                            "ocdi": {
+                                              "frameLatch": {
+                                                "clock": false,
+                                                "__opmiStep": "waiting"
+                                              }
+                                            },
+                                            "transitionDispatcher": {
+                                              "filterDescriptor": {
+                                                "operationID": "zBn6TTKHzZedlXcUODLYJw",
+                                                "operationName": "Discriminator Filter",
+                                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
+                                                "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
+                                                "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
+                                              },
+                                              "supportedFilters": [
+                                                "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                              ],
+                                              "options": {
+                                                "action": "routeRequest"
+                                              }
+                                            }
+                                          },
+                                          "operator": {
+                                            "holarchy": {
+                                              "sml": {
+                                                "operators": {
+                                                  "ocd": {
+                                                    "isBooleanFlagSet": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "response": {
+                                          "error": null,
+                                          "result": false
+                                        }
+                                      }
+                                    ],
+                                    "p2_exit": [],
                                     "p3_enter": [],
                                     "p4_finalize": null
                                   },
                                   "errors": {
                                     "p1_toperator": 0,
-                                    "p2_exit": 1,
+                                    "p2_exit": 0,
                                     "p3_enter": 0,
                                     "p4_finalize": 0,
-                                    "total": 1
+                                    "total": 0
                                   }
                                 }
                               }
@@ -959,9 +1577,7 @@
                         ]
                       }
                     },
-                    "constructionWarnings": [
-                      "WARNING: No ControllerAction class instances have been registered!"
-                    ]
+                    "constructionWarnings": []
                   },
                   "actionEvaluations": []
                 }
