@@ -8,15 +8,15 @@ module.exports = new holarchy.TransitionOperator({
   description: "Returns Boolean true iff the indicated OCD namespace is truthy.",
   operatorRequestSpec: {
     ____types: "jsObject",
-    encapsule: {
+    holarchy: {
       ____types: "jsObject",
-      holarchySML: {
+      sml: {
         ____types: "jsObject",
         operators: {
           ____types: "jsObject",
-          ocdi: {
+          ocd: {
             ____types: "jsObject",
-            isTruthy: {
+            isNamespaceTruthy: {
               ____types: "jsObject",
               path: {
                 ____accept: "jsString"
@@ -37,11 +37,11 @@ module.exports = new holarchy.TransitionOperator({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.encapsule.holarchySML.operators.ocdi.isTruthy;
+      var message = request_.actionRequest.holarchy.sml.operators.ocd.isNamespaceTruthy;
       var fqpath = null;
 
       if (message.path.startsWith("#")) {
-        fqpath = "".concat(request_.context.namespace).concat(message.path.slice(1));
+        fqpath = "".concat(request_.context.dataPath).concat(message.path.slice(1));
       } else {
         fqpath = message.path;
       }

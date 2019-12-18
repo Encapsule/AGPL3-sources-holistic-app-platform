@@ -5,10 +5,10 @@
 # @encapsule/holodeck-assets v0.0.28 "pemberton"
 
 ```
-Package: @encapsule/holodeck-assets v0.0.28 "pemberton" build ID "y0Q9AaRCSzu6SET1eIME2g"
-Sources: Encapsule/holistic#c36b7dde8f0f69ce325c6dcbbc4ee78f98c56766
+Package: @encapsule/holodeck-assets v0.0.28 "pemberton" build ID "CTUUdl2NQ2Wl3_JIIkBAhQ"
+Sources: Encapsule/holistic#6ee7585bf360794b7aa842ced245c6602b8f32c5
 Purpose: library (Node.js)
-Created: 2019-12-10T23:48:06.000Z
+Created: 2019-12-18T20:45:34.000Z
 License: MIT
 ```
 
