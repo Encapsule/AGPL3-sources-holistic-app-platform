@@ -34,9 +34,9 @@
                               "____label": "OPC Context Descriptor",
                               "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
                               "____types": "jsObject",
-                              "dataPath": {
-                                "____label": "OPM Binding Namespace",
-                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                              "opmBindingPath": {
+                                "____label": "OPM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
                                 "____accept": "jsString"
                               },
                               "ocdi": {
@@ -66,10 +66,10 @@
                             "____accept": "jsUndefined"
                           },
                           "inputTypeVIID": "QbBHNSXVFcllpVVIKPdIHA",
-                          "inputTypeVDID": "dH0TnoaHhKNe58e5CHEUFQ",
+                          "inputTypeVDID": "QIsrGeoNAOFgnxKz89x8xg",
                           "outputTypeVIID": "gUIA-Cjc2TyIr5-2zpWFzw",
                           "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                          "operationVDID": "Y7IseZUJz9aqRAGkOYLqBw"
+                          "operationVDID": "Y81beZWMiNaqNzCkOcKRBw"
                         },
                         {
                           "operationID": "BO184bcvSzmr9oF4KJynSA",
@@ -82,9 +82,9 @@
                               "____label": "OPC Context Descriptor",
                               "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
                               "____types": "jsObject",
-                              "dataPath": {
-                                "____label": "OPM Binding Namespace",
-                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                              "opmBindingPath": {
+                                "____label": "OPM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
                                 "____accept": "jsString"
                               },
                               "ocdi": {
@@ -114,10 +114,10 @@
                             "____accept": "jsUndefined"
                           },
                           "inputTypeVIID": "DhS9wGiVKn64Be-BByEVwg",
-                          "inputTypeVDID": "kH0TWiyHhKL558dUiXEUAg",
+                          "inputTypeVDID": "BYsrOIENALlxnxK_KNx8lw",
                           "outputTypeVIID": "lzZ25Vwzg8KsNwEwfqOZmA",
                           "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                          "operationVDID": "O4CHedVRfdZRiuKk6gmsBw"
+                          "operationVDID": "O1roedUe-dZRHM2k6gKnBw"
                         }
                       ]
                     ]

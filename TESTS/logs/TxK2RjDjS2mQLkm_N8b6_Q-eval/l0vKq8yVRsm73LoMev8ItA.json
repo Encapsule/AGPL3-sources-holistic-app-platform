@@ -423,7 +423,7 @@
                                       {
                                         "request": {
                                           "context": {
-                                            "namespace": "~.test",
+                                            "opmBindingPath": "~.test",
                                             "ocdi": {
                                               "test": {
                                                 "__opmiStep": "uninitialized"

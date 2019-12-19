@@ -312,12 +312,12 @@ const factoryResponse = arccore.filter.create({
 
                     opmInstanceFrame.evalResponse.status = "analyzing";
 
-                    const cdsPath = opmInstanceFrame.evalRequest.dataBinding.dataPath;
+                    const opmBindingPath = opmInstanceFrame.evalRequest.dataBinding.dataPath;
                     const opmRef = opmInstanceFrame.evalRequest.opmRef;
                     const initialStep = opmInstanceFrame.evalRequest.initialStep;
                     const stepDescriptor = opmRef.getStepDescriptor(initialStep);
 
-                    console.log(`..... Evaluting '${cdsPath}' instance of ${opmRef.getID()}::${opmRef.getName()} ...`);
+                    console.log(`..... Evaluting '${opmBindingPath}' instance of ${opmRef.getID()}::${opmRef.getName()} ...`);
                     console.log(`..... ..... model instance is currently at process step '${initialStep}' stepDescriptor=`);
                     console.log("stepDescriptor=");
                     console.log(stepDescriptor);
@@ -348,7 +348,7 @@ const factoryResponse = arccore.filter.create({
 
                         const operatorRequest = {
                             context: {
-                                namespace: cdsPath,
+                                opmBindingPath: opmBindingPath,
                                 ocdi: opcRef._private.ocdi,
                                 transitionDispatcher: opcRef._private.transitionDispatcher
                             },
@@ -428,7 +428,7 @@ const factoryResponse = arccore.filter.create({
                         const dispatcherRequest = {
                             actionRequest: actionRequest,
                             context: {
-                                dataPath: cdsPath,
+                                opmBindingPath: opmBindingPath,
                                 ocdi: opcRef._private.ocdi,
                                 act: opcRef.act
                             }
@@ -485,7 +485,7 @@ const factoryResponse = arccore.filter.create({
                         const dispatcherRequest = {
                             actionRequest: actionRequest,
                             context: {
-                                dataPath: cdsPath,
+                                opmBindingPath: opmBindingPath,
                                 ocdi: opcRef._private.ocdi,
                                 act: opcRef.act
                             }
@@ -537,7 +537,7 @@ const factoryResponse = arccore.filter.create({
                     // Update the OPM instance's __opmiStep flag in the controller data store.
                     opmInstanceFrame.evalResponse.status = "transitioning-finalize";
 
-                    let transitionResponse = opcRef._private.ocdi.writeNamespace(`${cdsPath}.__opmiStep`, nextStep);
+                    let transitionResponse = opcRef._private.ocdi.writeNamespace(`${opmBindingPath}.__opmiStep`, nextStep);
                     opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 
                     if (transitionResponse.error) {
@@ -557,7 +557,7 @@ const factoryResponse = arccore.filter.create({
                         opmInstanceFrame.evalResponse.finishStep = nextStep;
                     }
 
-                } // cdsPath in evalFrame
+                } // opmBindingPath in evalFrame
 
                 evalStopwatch.mark(`frame ${result.evalFrames.length} end OPM instance evaluation`);
                 console.log(`> ... Finish evaluation frame ${opcRef._private.evalCount}:${result.evalFrames.length} ...`);

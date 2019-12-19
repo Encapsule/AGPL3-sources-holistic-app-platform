@@ -38,7 +38,7 @@ module.exports = new holarchy.TransitionOperator({
             inBreakScope = true;
             const message = request_.encapsule.holarchySML.operators.opmi.inStep;
             const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.namespace, // TODO should be 'dataPath'
+                opmBindingPath: request_.context.opmBindingPath,
                 dataPath: message.path
             });
             if (rpResponse.error) {

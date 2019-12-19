@@ -151,7 +151,7 @@ class ObservableProcessController {
             // Prepare the controller action plug-in filter request descriptor object.
             const controllerActionRequest = {
                 context: {
-                    dataPath: request.dataPath,
+                    opmBindingPath: request.opmBindingPath,
                     ocdi: this._private.ocdi,
                     act: this.act
                 },

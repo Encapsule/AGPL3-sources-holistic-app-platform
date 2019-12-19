@@ -51,9 +51,9 @@
                         "____label": "OPC Context Descriptor",
                         "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
                         "____types": "jsObject",
-                        "namespace": {
-                          "____label": "OPM Binding Namespace",
-                          "____description": "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+                        "opmBindingPath": {
+                          "____label": "OPM Binding Path",
+                          "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
                           "____accept": "jsString"
                         },
                         "ocdi": {
@@ -81,10 +81,10 @@
                       "____accept": "jsBoolean"
                     },
                     "inputTypeVIID": "KANd4sK71iHrmf2JDGWXqQ",
-                    "inputTypeVDID": "DAcraGvt4nuSxxbe7IuRBw",
+                    "inputTypeVDID": "_FVaRC7AiP5tsbkp1yEREA",
                     "outputTypeVIID": "YsakJ46SDRmRfChsq5EIIg",
                     "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                    "operationVDID": "fJLtRM_jNpNlT3Sc7k2rcg"
+                    "operationVDID": "fL2LRM-Xg5NlGo6c7rgWcg"
                   }
                 }
               }
