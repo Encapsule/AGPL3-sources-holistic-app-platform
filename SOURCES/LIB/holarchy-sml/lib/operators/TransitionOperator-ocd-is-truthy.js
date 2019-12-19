@@ -34,21 +34,20 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-
             const message = request_.actionRequest.holarchy.sml.operators.ocd.isNamespaceTruthy;
-            let fqpath = null;
-            if (message.path.startsWith("#")) {
-                fqpath = `${request_.context.dataPath}${message.path.slice(1)}`;
-            } else {
-                fqpath = message.path;
+            const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+                opmBindingPath: request_.context.namespace, // TODO should be 'dataPath'
+                dataPath: message.path
+            });
+            if (rpResponse.error) {
+                errors.push(rpResponse.error);
+                break;
             }
-
-            const filterResponse = request_.context.ocdi.readNamespace(fqpath);
+            const filterResponse = request_.context.ocdi.readNamespace(rpResponse.result);
             if (filterResponse.error) {
                 errors.push(filterRepsonse.error);
                 break;
             }
-
             response.result = (filterResponse.result)?true:false;
             break;
         }

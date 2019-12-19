@@ -30,7 +30,7 @@ var opmFrameLatchDeclaration = module.exports = {
         exit: [{
           holarchy: {
             sml: {
-              action: {
+              actions: {
                 ocd: {
                   setBooleanFlag: {
                     path: "#.clock"
@@ -54,7 +54,7 @@ var opmFrameLatchDeclaration = module.exports = {
         exit: [{
           holarchy: {
             sml: {
-              action: {
+              actions: {
                 ocd: {
                   clearBooleanFlag: {
                     path: "#.clock"

@@ -41,15 +41,18 @@ module.exports = new holarchy.TransitionOperator({
     while (!inBreakScope) {
       inBreakScope = true;
       var message = request_.encapsule.holarchySML.operators.opmi.inStep;
-      var fqpath = null;
+      var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+        opmBindingPath: request_.context.namespace,
+        // TODO should be 'dataPath'
+        dataPath: message.path
+      });
 
-      if (message.path.startsWith("#")) {
-        fqpath = "".concat(request_.context.namespace).concat(message.path.slice(1));
-      } else {
-        fqpath = message.path;
+      if (rpResponse.error) {
+        errors.push(rpResponse.error);
+        break;
       }
 
-      var processStepNamespace = "".concat(fqpath, ".__opmStep");
+      var processStepNamespace = "".concat(rpResponse.result, ".__opmStep");
       var filterResponse = request_.ocdi.readNamespace(processStepNamespace);
 
       if (filterResponse.error) {
@@ -61,7 +64,10 @@ module.exports = new holarchy.TransitionOperator({
       break;
     }
 
-    if (errors.length) response.error = errors.join(" ");
+    if (errors.length) {
+      response.error = errors.join(" ");
+    }
+
     return response;
   }
 });

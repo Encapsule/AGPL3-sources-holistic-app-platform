@@ -38,14 +38,15 @@ module.exports = new holarchy.ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
             const message = request_.actionRequest.holarchy.sml.actions.ocd.setBooleanFlag;
-            let fqpath = null;
-            // TODO: Move this to a library function and do a better job.
-            if (message.path.startsWith("#")) {
-                fqpath = `${request_.context.dataPath}${message.path.slice(1)}`;
-            } else {
-                fqpath = message.path;
+            const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+                opmBindingPath: request_.context.dataPath,
+                dataPath: message.path
+            });
+            if (rpResponse.error) {
+                errors.push(rpResponse.error);
+                break;
             }
-            const ocdResponse = request_.context.ocdi.writeNamespace(fqpath, true);
+            const ocdResponse = request_.context.ocdi.writeNamespace(rpResponse.result, true);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
             }

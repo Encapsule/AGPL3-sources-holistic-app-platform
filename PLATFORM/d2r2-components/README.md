@@ -5,10 +5,10 @@
 # @encapsule/d2r2-components v0.0.28 "pemberton"
 
 ```
-Package: @encapsule/d2r2-components v0.0.28 "pemberton" build ID "CTUUdl2NQ2Wl3_JIIkBAhQ"
-Sources: Encapsule/holistic#6ee7585bf360794b7aa842ced245c6602b8f32c5
+Package: @encapsule/d2r2-components v0.0.28 "pemberton" build ID "zbPlX2XCQNalycpF6v_RIA"
+Sources: Encapsule/holistic#fabb90b9a67efdcb242b99a44ec1e1b683e106ac
 Purpose: library (Node.js)
-Created: 2019-12-18T20:45:34.000Z
+Created: 2019-12-19T17:55:43.000Z
 License: MIT
 ```
 

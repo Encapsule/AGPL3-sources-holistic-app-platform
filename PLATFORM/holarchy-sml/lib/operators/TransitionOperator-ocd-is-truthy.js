@@ -38,15 +38,18 @@ module.exports = new holarchy.TransitionOperator({
     while (!inBreakScope) {
       inBreakScope = true;
       var message = request_.actionRequest.holarchy.sml.operators.ocd.isNamespaceTruthy;
-      var fqpath = null;
+      var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+        opmBindingPath: request_.context.namespace,
+        // TODO should be 'dataPath'
+        dataPath: message.path
+      });
 
-      if (message.path.startsWith("#")) {
-        fqpath = "".concat(request_.context.dataPath).concat(message.path.slice(1));
-      } else {
-        fqpath = message.path;
+      if (rpResponse.error) {
+        errors.push(rpResponse.error);
+        break;
       }
 
-      var filterResponse = request_.context.ocdi.readNamespace(fqpath);
+      var filterResponse = request_.context.ocdi.readNamespace(rpResponse.result);
 
       if (filterResponse.error) {
         errors.push(filterRepsonse.error);
