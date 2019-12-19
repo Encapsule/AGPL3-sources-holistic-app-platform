@@ -48,7 +48,7 @@ var factoryResponse = arccore.filter.create({
                             ____accept: "jsObject"
                         }
                     },
-                    operator: request_.operatorRequestSpec
+                    operatorRequest: request_.operatorRequestSpec
                 },
                 bodyFunction: request_.bodyFunction,
                 outputFilterSpec: { ____accept: "jsBoolean" }

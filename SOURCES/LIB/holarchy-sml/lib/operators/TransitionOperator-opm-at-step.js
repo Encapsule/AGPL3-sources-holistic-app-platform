@@ -8,9 +8,9 @@ module.exports = new holarchy.TransitionOperator({
     description: "Returns Boolean true iff the indicated OPM instance is in the indicated process step.",
     operatorRequestSpec: {
         ____types: "jsObject",
-        encapsule: {
+        holarchy: {
             ____types: "jsObject",
-            holarchySML: {
+            sml: {
                 ____types: "jsObject",
                 operators: {
                     ____types: "jsObject",
@@ -36,7 +36,7 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.encapsule.holarchySML.operators.opmi.inStep;
+            const message = request_.operatorRequest.holarchy.sml.operators.opmi.inStep;
             const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
                 dataPath: message.path

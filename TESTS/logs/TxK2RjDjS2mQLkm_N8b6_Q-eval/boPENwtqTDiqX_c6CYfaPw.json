@@ -168,7 +168,7 @@
                                 "____accept": "jsObject"
                               }
                             },
-                            "operator": {
+                            "operatorRequest": {
                               "____types": "jsObject",
                               "and": {
                                 "____types": "jsArray",
@@ -182,10 +182,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
-                          "inputTypeVDID": "kiVCi8uZxjiKk5IqOV-ShQ",
+                          "inputTypeVDID": "MeJe-Q8yBS3yvjg_XMejfQ",
                           "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "9pFERLYAFZMBj4ScqGyscg"
+                          "operationVDID": "9oSpRLZTtZMBRc-cqI1Bcg"
                         },
                         {
                           "operationID": "TLSHkl73SO-utuzM7dyN2g",
@@ -214,7 +214,7 @@
                                 "____accept": "jsObject"
                               }
                             },
-                            "operator": {
+                            "operatorRequest": {
                               "____types": "jsObject",
                               "not": {
                                 "____accept": "jsObject"
@@ -225,10 +225,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "VqL0404urku_v3ZjcOkZTg",
-                          "inputTypeVDID": "4LZ1wixJQSDi9gOICeloJw",
+                          "inputTypeVDID": "KuRBS4GhA46J_J246YJDXQ",
                           "outputTypeVIID": "V-JP28o44DYdLwju7U90ag",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "MVCgRHT43pPIz6WcBHz8cg"
+                          "operationVDID": "MeDbRHTCeJPIz1ScBEN8cg"
                         },
                         {
                           "operationID": "0JIva4IFSm6Xm7i38g8uUA",
@@ -257,7 +257,7 @@
                                 "____accept": "jsObject"
                               }
                             },
-                            "operator": {
+                            "operatorRequest": {
                               "____types": "jsObject",
                               "or": {
                                 "____types": "jsArray",
@@ -271,10 +271,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
-                          "inputTypeVDID": "FubUbpQCC-mjNKo_TCsujw",
+                          "inputTypeVDID": "0di392MNsGr0Re6YF1w80A",
                           "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "4BV7RIUwPpNmjB2cOF8mcg"
+                          "operationVDID": "4GPYRIWdE5Nmy3OcOLsucg"
                         },
                         {
                           "operationID": "e89cwnP4Qd6MocAhzdOJgw",
@@ -303,7 +303,7 @@
                                 "____accept": "jsObject"
                               }
                             },
-                            "operator": {
+                            "operatorRequest": {
                               "____types": "jsObject",
                               "always": {
                                 "____accept": "jsBoolean",
@@ -317,10 +317,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
-                          "inputTypeVDID": "nCPt6QReo8ENxySkzukJnA",
+                          "inputTypeVDID": "0F57_Y1l7dHCn6STVVj8bQ",
                           "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "7iNvROYEF5P8VXqc1H2Kcg"
+                          "operationVDID": "7gxZROb4cZP8fnSc1KDncg"
                         },
                         {
                           "operationID": "9tNY7o5GTUGH_xda2GhP-w",
@@ -349,11 +349,11 @@
                                 "____accept": "jsObject"
                               }
                             },
-                            "operator": {
+                            "operatorRequest": {
                               "____types": "jsObject",
-                              "encapsule": {
+                              "holarchy": {
                                 "____types": "jsObject",
-                                "holarchySML": {
+                                "sml": {
                                   "____types": "jsObject",
                                   "operators": {
                                     "____types": "jsObject",
@@ -378,10 +378,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                          "inputTypeVDID": "Wyv8CT0DNVw7CrxTx3TOqg",
+                          "inputTypeVDID": "JI94Ix-sn-tgo2-20gNnZw",
                           "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "wtQARFbnq5O68_mctPv4cg"
+                          "operationVDID": "wnUhRFZzvpO6TDOctCBccg"
                         },
                         {
                           "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
@@ -410,7 +410,7 @@
                                 "____accept": "jsObject"
                               }
                             },
-                            "operator": {
+                            "operatorRequest": {
                               "____types": "jsObject",
                               "holarchy": {
                                 "____types": "jsObject",
@@ -436,10 +436,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
-                          "inputTypeVDID": "wpRBXap5_s9amMT7YjNk2g",
+                          "inputTypeVDID": "IiI0bML4bTrZdYSc77E39Q",
                           "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "vjxMROLKeJP3hf2c3MUJcg"
+                          "operationVDID": "vtYKROJmXJP3EVmc3IKncg"
                         },
                         {
                           "operationID": "UeLs9PcASwuC7KR190eYhA",
@@ -468,7 +468,7 @@
                                 "____accept": "jsObject"
                               }
                             },
-                            "operator": {
+                            "operatorRequest": {
                               "____types": "jsObject",
                               "holarchy": {
                                 "____types": "jsObject",
@@ -494,10 +494,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "l0QuhcthqVCst39xt0A_SA",
-                          "inputTypeVDID": "VrhC2P05b0PDDD4N2Rn8_Q",
+                          "inputTypeVDID": "XSI0NmT4bc-9dYTNU7E3Qg",
                           "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "6UykRIRCLJPpX4ycce3Scg"
+                          "operationVDID": "6RmnRISJAJPp2Z6ccblscg"
                         }
                       ]
                     ],
@@ -971,7 +971,7 @@
                                               }
                                             }
                                           },
-                                          "operator": {
+                                          "operatorRequest": {
                                             "always": true
                                           }
                                         },

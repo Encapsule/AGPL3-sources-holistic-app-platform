@@ -67,7 +67,7 @@
                           "____accept": "jsObject"
                         }
                       },
-                      "operator": {
+                      "operatorRequest": {
                         "____types": "jsObject",
                         "test": {
                           "____types": "jsObject",
@@ -81,10 +81,10 @@
                       "____accept": "jsBoolean"
                     },
                     "inputTypeVIID": "KANd4sK71iHrmf2JDGWXqQ",
-                    "inputTypeVDID": "_FVaRC7AiP5tsbkp1yEREA",
+                    "inputTypeVDID": "BySkn4WRkpHCIAVkbSQxug",
                     "outputTypeVIID": "YsakJ46SDRmRfChsq5EIIg",
                     "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                    "operationVDID": "fL2LRM-Xg5NlGo6c7rgWcg"
+                    "operationVDID": "fIaNRM-1tZNl0nuc7s7lcg"
                   }
                 }
               }

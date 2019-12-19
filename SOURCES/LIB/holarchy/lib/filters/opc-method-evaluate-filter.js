@@ -352,7 +352,7 @@ const factoryResponse = arccore.filter.create({
                                 ocdi: opcRef._private.ocdi,
                                 transitionDispatcher: opcRef._private.transitionDispatcher
                             },
-                            operator: transitionRule.transitionIf
+                            operatorRequest: transitionRule.transitionIf
                         };
 
                         let transitionResponse;

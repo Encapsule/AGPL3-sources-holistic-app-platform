@@ -34,7 +34,7 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.operator.holarchy.sml.operators.ocd.isBooleanFlagSet;
+            const message = request_.operatorRequest.holarchy.sml.operators.ocd.isBooleanFlagSet;
             const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
                 dataPath: message.path
