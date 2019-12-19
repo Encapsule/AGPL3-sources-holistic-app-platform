@@ -3,8 +3,8 @@ module.exports = {
 
     ocd: [
 
-        require("./ControllerAction-set-boolean-flag"),
-        require("./ControllerAction-clear-boolean-flag")
+        require("./ControllerAction-ocd-clear-boolean-flag"),
+        require("./ControllerAction-ocd-set-boolean-flag")
 
     ]
 

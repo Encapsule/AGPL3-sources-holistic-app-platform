@@ -28,7 +28,7 @@ const opmFrameLatchDeclaration = module.exports = {
             ],
             actions: {
                 exit: [
-                    { holarchy: { sml: { action: { ocd: { setBooleanFlag: { path: "#.clock" } } } } } }
+                    { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.clock" } } } } } }
                 ]
             }
         },
@@ -42,7 +42,7 @@ const opmFrameLatchDeclaration = module.exports = {
             ],
             actions: {
                 exit: [
-                    { holarchy: { sml: { action: { ocd: { clearBooleanFlag: { path: "#.clock" } } } } } }
+                    { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#.clock" } } } } } }
                 ]
             }
         },

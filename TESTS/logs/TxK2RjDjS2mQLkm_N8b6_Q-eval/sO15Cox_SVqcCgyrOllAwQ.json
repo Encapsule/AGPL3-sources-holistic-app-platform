@@ -42,7 +42,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "setBooleanFlag": {
                                         "path": "#.clock"
@@ -70,7 +70,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "clearBooleanFlag": {
                                         "path": "#.clock"
@@ -147,7 +147,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "setBooleanFlag": {
                                         "path": "#.clock"
@@ -176,7 +176,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "clearBooleanFlag": {
                                         "path": "#.clock"
@@ -253,7 +253,7 @@
                               {
                                 "holarchy": {
                                   "sml": {
-                                    "action": {
+                                    "actions": {
                                       "ocd": {
                                         "setBooleanFlag": {
                                           "path": "#.clock"
@@ -277,7 +277,7 @@
                               {
                                 "holarchy": {
                                   "sml": {
-                                    "action": {
+                                    "actions": {
                                       "ocd": {
                                         "clearBooleanFlag": {
                                           "path": "#.clock"

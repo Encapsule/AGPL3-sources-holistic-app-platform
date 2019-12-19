@@ -53,7 +53,7 @@
                                   {
                                     "holarchy": {
                                       "sml": {
-                                        "action": {
+                                        "actions": {
                                           "ocd": {
                                             "setBooleanFlag": {
                                               "path": "#.clock"
@@ -82,7 +82,7 @@
                                   {
                                     "holarchy": {
                                       "sml": {
-                                        "action": {
+                                        "actions": {
                                           "ocd": {
                                             "clearBooleanFlag": {
                                               "path": "#.clock"
@@ -497,64 +497,6 @@
                     "controllerActionSets": [
                       [
                         {
-                          "operationID": "5rFEDGLYRSiZCeChMnkCHQ",
-                          "operationName": "Set Boolean Flag",
-                          "operationDescription": "Sets a Boolean flag in the OCD.",
-                          "inputFilterSpec": {
-                            "____label": "Set Boolean Flag Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "dataPath": {
-                                "____label": "OPM Binding Namespace",
-                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "act": {
-                                "____label": "OPC.act Method",
-                                "____description": "A reference to ObservableProcessController.act method.",
-                                "____accept": "jsFunction"
-                              }
-                            },
-                            "actionRequest": {
-                              "____types": "jsObject",
-                              "holarchy": {
-                                "____types": "jsObject",
-                                "sml": {
-                                  "____types": "jsObject",
-                                  "action": {
-                                    "____types": "jsObject",
-                                    "ocd": {
-                                      "____types": "jsObject",
-                                      "setBooleanFlag": {
-                                        "____types": "jsObject",
-                                        "path": {
-                                          "____accept": "jsString"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsUndefined"
-                          },
-                          "inputTypeVIID": "YJSR1JZOriuhfXfKbnMV4Q",
-                          "inputTypeVDID": "yotraxMB_W2j6yLNwsUYeQ",
-                          "outputTypeVIID": "kyxCxyo_W507HuHlFVvwIQ",
-                          "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                          "operationVDID": "bLPkksPB5TF7GB8weYC7SA"
-                        },
-                        {
                           "operationID": "_yxWfFLnTqqN-UxRdd7W5w",
                           "operationName": "Clear Boolean Flag",
                           "operationDescription": "Clears a Boolean flag in the OCD.",
@@ -587,7 +529,7 @@
                                 "____types": "jsObject",
                                 "sml": {
                                   "____types": "jsObject",
-                                  "action": {
+                                  "actions": {
                                     "____types": "jsObject",
                                     "ocd": {
                                       "____types": "jsObject",
@@ -607,10 +549,68 @@
                             "____accept": "jsUndefined"
                           },
                           "inputTypeVIID": "Q26xScNwSEHmeE4xjO_vtg",
-                          "inputTypeVDID": "HpKuJKxWZWr5Lb8d6iIqgQ",
+                          "inputTypeVDID": "brKm-idEYL0licPfEJF1rw",
                           "outputTypeVIID": "_Jrf_S2nEWwsSx89q6ealg",
                           "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                          "operationVDID": "20AHkmTCSDHNo1cwaCDeSA"
+                          "operationVDID": "20fLkmTePDHNnU8waEHwSA"
+                        },
+                        {
+                          "operationID": "5rFEDGLYRSiZCeChMnkCHQ",
+                          "operationName": "Set Boolean Flag",
+                          "operationDescription": "Sets a Boolean flag in the OCD.",
+                          "inputFilterSpec": {
+                            "____label": "Set Boolean Flag Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "dataPath": {
+                                "____label": "OPM Binding Namespace",
+                                "____description": "Dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "actions": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "setBooleanFlag": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsUndefined"
+                          },
+                          "inputTypeVIID": "YJSR1JZOriuhfXfKbnMV4Q",
+                          "inputTypeVDID": "bOJ14nv3ps833MY2BMhsQg",
+                          "outputTypeVIID": "kyxCxyo_W507HuHlFVvwIQ",
+                          "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                          "operationVDID": "bEh7ksMURjF7tV0weRxsSA"
                         }
                       ]
                     ]
@@ -666,7 +666,7 @@
                                 {
                                   "holarchy": {
                                     "sml": {
-                                      "action": {
+                                      "actions": {
                                         "ocd": {
                                           "setBooleanFlag": {
                                             "path": "#.clock"
@@ -695,7 +695,7 @@
                                 {
                                   "holarchy": {
                                     "sml": {
-                                      "action": {
+                                      "actions": {
                                         "ocd": {
                                           "clearBooleanFlag": {
                                             "path": "#.clock"
@@ -772,7 +772,7 @@
                                   {
                                     "holarchy": {
                                       "sml": {
-                                        "action": {
+                                        "actions": {
                                           "ocd": {
                                             "setBooleanFlag": {
                                               "path": "#.clock"
@@ -801,7 +801,7 @@
                                   {
                                     "holarchy": {
                                       "sml": {
-                                        "action": {
+                                        "actions": {
                                           "ocd": {
                                             "clearBooleanFlag": {
                                               "path": "#.clock"
@@ -999,7 +999,7 @@
                                             {
                                               "holarchy": {
                                                 "sml": {
-                                                  "action": {
+                                                  "actions": {
                                                     "ocd": {
                                                       "setBooleanFlag": {
                                                         "path": "#.clock"
@@ -1028,7 +1028,7 @@
                                             {
                                               "holarchy": {
                                                 "sml": {
-                                                  "action": {
+                                                  "actions": {
                                                     "ocd": {
                                                       "clearBooleanFlag": {
                                                         "path": "#.clock"
@@ -1132,7 +1132,7 @@
                                         "request": {
                                           "holarchy": {
                                             "sml": {
-                                              "action": {
+                                              "actions": {
                                                 "ocd": {
                                                   "setBooleanFlag": {
                                                     "path": "#.clock"
@@ -1211,7 +1211,7 @@
                                             {
                                               "holarchy": {
                                                 "sml": {
-                                                  "action": {
+                                                  "actions": {
                                                     "ocd": {
                                                       "setBooleanFlag": {
                                                         "path": "#.clock"
@@ -1240,7 +1240,7 @@
                                             {
                                               "holarchy": {
                                                 "sml": {
-                                                  "action": {
+                                                  "actions": {
                                                     "ocd": {
                                                       "clearBooleanFlag": {
                                                         "path": "#.clock"
@@ -1344,7 +1344,7 @@
                                         "request": {
                                           "holarchy": {
                                             "sml": {
-                                              "action": {
+                                              "actions": {
                                                 "ocd": {
                                                   "clearBooleanFlag": {
                                                     "path": "#.clock"
@@ -1421,7 +1421,7 @@
                                             {
                                               "holarchy": {
                                                 "sml": {
-                                                  "action": {
+                                                  "actions": {
                                                     "ocd": {
                                                       "setBooleanFlag": {
                                                         "path": "#.clock"
@@ -1450,7 +1450,7 @@
                                             {
                                               "holarchy": {
                                                 "sml": {
-                                                  "action": {
+                                                  "actions": {
                                                     "ocd": {
                                                       "clearBooleanFlag": {
                                                         "path": "#.clock"
