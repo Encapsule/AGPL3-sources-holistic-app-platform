@@ -60,7 +60,30 @@ module.exports = [
                                 sml.actions.ocd
                             ]
 
-                        }
+                        },
+
+                        actRequests: [
+
+                            {
+                                actorName: "uZN6-qpIQO6CkwmLDWtMCw test action call",
+                                actorDescription: "A simple attempt to set a frame latch value.",
+                                actionRequest: {
+                                    holarchy: {
+                                        sml: {
+                                            actions: {
+                                                frameLatch: {
+                                                    write: {
+                                                        path: "~.frameLatch",
+                                                        value: "whatever"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        ]
                     }
                 }
             }

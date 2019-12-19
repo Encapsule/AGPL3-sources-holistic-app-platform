@@ -14,7 +14,7 @@ module.exports = {
         ____accept: "jsString"
     },
 
-    actionDescriptor: {
+    actionDescription: {
         ____label: "Action Description",
         ____description: "Actors may provide an optional explanation of why they're calling the ObservbaleProcessController.act method. Used in diagnostics, tests, and logs.",
         ____accept: "jsString",
