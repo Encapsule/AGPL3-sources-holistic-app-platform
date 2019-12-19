@@ -45,7 +45,25 @@ module.exports = [{
             observableProcessModelSets: [[sml.models.core.observableFrameLatch]],
             transitionOperatorSets: [sml.operators.logical],
             controllerActionSets: [sml.actions.ocd]
-          }
+          },
+          actRequests: [{
+            actorName: "uZN6-qpIQO6CkwmLDWtMCw test action call",
+            actorDescription: "A simple attempt to set a frame latch value.",
+            actionRequest: {
+              holarchy: {
+                sml: {
+                  actions: {
+                    frameLatch: {
+                      write: {
+                        path: "~.frameLatch",
+                        value: "whatever"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }]
         }
       }
     }

@@ -46,9 +46,9 @@ var factoryResponse = arccore.filter.create({
             ____label: "OPC Context Descriptor",
             ____description: "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
             ____types: "jsObject",
-            namespace: {
-              ____label: "OPM Binding Namespace",
-              ____description: "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+            opmBindingPath: {
+              ____label: "OPM Binding Path",
+              ____description: "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
               ____accept: "jsString"
             },
             ocdi: {
@@ -62,7 +62,7 @@ var factoryResponse = arccore.filter.create({
               ____accept: "jsObject"
             }
           },
-          operator: request_.operatorRequestSpec
+          operatorRequest: request_.operatorRequestSpec
         },
         bodyFunction: request_.bodyFunction,
         outputFilterSpec: {

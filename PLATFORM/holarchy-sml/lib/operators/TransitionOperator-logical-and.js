@@ -26,7 +26,7 @@ module.exports = new holarchy.TransitionOperator({
     while (!inBreakScope) {
       inBreakScope = true;
 
-      if (!request_.operator.and.length) {
+      if (!request_.operatorRequest.and.length) {
         errors.push("Cannot evaluate AND operation with zero operands.");
         break;
       }
@@ -36,7 +36,7 @@ module.exports = new holarchy.TransitionOperator({
       var _iteratorError = undefined;
 
       try {
-        for (var _iterator = request_.operator.and[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator = request_.operatorRequest.and[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var operatorRequest = _step.value;
           var operatorResponse = request_.context.transitionDispatcher.request({
             context: request_.context,

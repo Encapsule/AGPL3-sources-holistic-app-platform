@@ -43,7 +43,7 @@ module.exports = new holarchy.ControllerAction({
       inBreakScope = true;
       var message = request_.actionRequest.holarchy.sml.actions.ocd.setBooleanFlag;
       var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-        opmBindingPath: request_.context.dataPath,
+        opmBindingPath: request_.context.opmBindingPath,
         dataPath: message.path
       });
 

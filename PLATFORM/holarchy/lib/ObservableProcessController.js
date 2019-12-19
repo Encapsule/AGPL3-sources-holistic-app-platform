@@ -168,7 +168,7 @@ function () {
 
         var controllerActionRequest = {
           context: {
-            dataPath: request.dataPath,
+            opmBindingPath: request.opmBindingPath,
             ocdi: this._private.ocdi,
             act: this.act
           },
