@@ -5,10 +5,10 @@
 # @encapsule/holarchy-sml v0.0.28 "pemberton"
 
 ```
-Package: @encapsule/holarchy-sml v0.0.28 "pemberton" build ID "zbPlX2XCQNalycpF6v_RIA"
-Sources: Encapsule/holistic#fabb90b9a67efdcb242b99a44ec1e1b683e106ac
+Package: @encapsule/holarchy-sml v0.0.28 "pemberton" build ID "FdX45aqPQvS5Eh_n9Yb8Lw"
+Sources: Encapsule/holistic#177ce7fa20fcc34739cce1e561761fa551643d3d
 Purpose: library (Node.js)
-Created: 2019-12-19T17:55:43.000Z
+Created: 2019-12-19T17:59:35.000Z
 License: MIT
 ```
 
