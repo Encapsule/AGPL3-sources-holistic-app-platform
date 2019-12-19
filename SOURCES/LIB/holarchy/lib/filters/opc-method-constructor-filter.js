@@ -29,6 +29,7 @@ const factoryResponse = arccore.filter.create({
                 iid: null,
                 name: null,
                 description: null,
+                options: null,
 
                 opmMap: {},
 
@@ -73,11 +74,13 @@ const factoryResponse = arccore.filter.create({
             result.iid = arccore.identifier.irut.fromEther(); // Considered unlikey to fail so just returns the IRUT string.
             result.name = request_.name?request_.name:"Unnamed OPC";
             result.description = request_.description?request_.description:"Undescribed OPC";
+            result.options = request_.options;
 
             // ================================================================
             // Build a map of ObservableControllerModel instances.
             // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
-            // TODO: Confirm that arccore.discriminator correctly rejects duplicates and simplify this logic.
+            // This is because a single OPM declaration may be bound to an arbitrary number of OCD namespaces
+            // and so it's 1:N.
 
             for (let index0 = 0 ; index0 < request_.observableProcessModelSets.length ; index0++) {
                 const modelSet = request_.observableProcessModelSets[index0];
@@ -301,6 +304,7 @@ const factoryResponse = arccore.filter.create({
                 });
             });
             if (transitionOperatorFilters.length >= 2) {
+
                 filterResponse = arccore.discriminator.create({
                     // TODO: At some point we will probably switch this is force resolution of the target filter ID
                     // add another layer of detail to the evaluation algorithm. (we would like to know the ID of the
@@ -343,6 +347,7 @@ const factoryResponse = arccore.filter.create({
                 });
             });
             if (controllerActionFilters.length >= 2) {
+
                 filterResponse = arccore.discriminator.create({
                     // TODO: At some point we will probably switch this is force resolution of the target filter ID
                     // add another layer of detail to the evaluation algorithm. (we would like to know the ID of the

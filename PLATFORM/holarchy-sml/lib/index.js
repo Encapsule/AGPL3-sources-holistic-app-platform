@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  actors: require("./actors"),
+  actions: require("./actions"),
   operators: require("./operators"),
   models: require("./models")
 };

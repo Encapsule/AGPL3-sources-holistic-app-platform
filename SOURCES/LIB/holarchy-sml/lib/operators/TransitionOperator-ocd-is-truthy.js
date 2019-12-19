@@ -8,15 +8,15 @@ module.exports = new holarchy.TransitionOperator({
 
     operatorRequestSpec: {
         ____types: "jsObject",
-        encapsule: {
+        holarchy: {
             ____types: "jsObject",
-            holarchySML: {
+            sml: {
                 ____types: "jsObject",
                 operators: {
                     ____types: "jsObject",
-                    ocdi: {
+                    ocd: {
                         ____types: "jsObject",
-                        isTruthy: {
+                        isNamespaceTruthy: {
                             ____types: "jsObject",
                             path: {
                                 ____accept: "jsString"
@@ -34,21 +34,20 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-
-            const message = request_.encapsule.holarchySML.operators.ocdi.isTruthy;
-            let fqpath = null;
-            if (message.path.startsWith("#")) {
-                fqpath = `${request_.context.namespace}${message.path.slice(1)}`;
-            } else {
-                fqpath = message.path;
+            const message = request_.operatorRequest.holarchy.sml.operators.ocd.isNamespaceTruthy;
+            const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+                opmBindingPath: request_.context.opmBindingPath,
+                dataPath: message.path
+            });
+            if (rpResponse.error) {
+                errors.push(rpResponse.error);
+                break;
             }
-
-            const filterResponse = request_.context.ocdi.readNamespace(fqpath);
+            const filterResponse = request_.context.ocdi.readNamespace(rpResponse.result);
             if (filterResponse.error) {
                 errors.push(filterRepsonse.error);
                 break;
             }
-
             response.result = (filterResponse.result)?true:false;
             break;
         }

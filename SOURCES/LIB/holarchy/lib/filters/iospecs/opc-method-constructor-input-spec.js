@@ -1,4 +1,6 @@
 // @nncapsule/holistic/SOURCES/LIB/holarchy/opc/filters/iospects/opc-method-constructor-input-spec.js
+//
+// This filter spec defines the request descriptor object format accepted by ObserverableProcessController::constructor function.
 
 module.exports = {
 
@@ -10,21 +12,55 @@ module.exports = {
         // holistic-derived apps inherit a platform dependency on @encapsule/arctools package that is installed in
         // the derived app's node_modules directory w/tools registered in node_modules/.bin/arc*. From the root
         // of your package, $ ./node_modules/.bin/arc_generateIRUT
-        ____label: "OCP System VIID IRUT",
-        ____description: "Developer-assigned unique 22-character IRUT identifier used as the Version-Independent Indentifier (VIID) of this specific OCP system model. (preferred but optional) ",
+        ____label: "OPC System VIID IRUT",
+        ____description: "Developer-assigned unique 22-character IRUT identifier used as the Version-Independent Indentifier (VIID) of this specific OPC system model.",
         ____accept: "jsString" // IRUT (preferred) or "demo" to receive one-time random IRUT (enforced in bodyFunction)
     },
 
     name: {
-        ____label: "OCP System Name",
+        ____label: "OPC System Name",
         ____description: "Developer-defined short name assigned to this OPC system model.",
         ____accept: [ "jsString", "jsUndefined" ] // default assigned conditionally in bodyFunction
     },
 
     description: {
-        ____label: "OCP System Description",
+        ____label: "OPC System Description",
         ____description: "Developer-defined short descripion of the function and/or role of this OPC configuration.",
         ____accept: [ "jsString", "jsUndefined" ] // default assigned conditionally in bodyFunction
+    },
+
+    options: {
+        ____label: "OPC Config Options",
+        ____description: "Developer-defined OPC instance options.",
+        ____types: "jsObject",
+        ____defaultValue: {},
+
+        evaluate: {
+            ____label: "OPC Instance Evaluation Options",
+            ____description: "Options to facilitate OPC testing and other advanced runtime configuration scenarios.",
+            ____types: "jsObject",
+            ____defaultValue: {},
+
+            maxFrames: {
+                ____label: "OPC Evaluation Frame Limit",
+                ____description: "The maximum number of frames allowed per system evaluation.",
+                ____accept: "jsNumber",
+                ____defaultValue: 16,
+                ____inRangeInclusive: { begin: 0, end: 64 }
+            },
+
+            firstEvaluation: {
+                ____label: "OPC First Evaluation Flag",
+                ____description: "Determines if an OPC instance auto-evaluates post construction. Or, is deferred until after the first external OPC.act call is processed.",
+                ____accept: "jsString",
+                ____defaultValue: "constructor",
+                ____inValueSet: [
+                    "constructor", // first evaluation occurs in the epilogue of ObservableProcessController::constructor
+                    "action"      // first evaluation occurs in the epilogue of ObservableProcessController::act
+                ],
+            }
+        }
+
     },
 
     ocdTemplateSpec: {

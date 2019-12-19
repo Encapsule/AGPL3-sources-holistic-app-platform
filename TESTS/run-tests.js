@@ -13,6 +13,9 @@ mockery.enable();
 mockery.registerMock("@encapsule/holodeck", local_holodeck);
 mockery.registerMock("@encapsule/holarchy", local_holarchy);
 
+/*
+// DISABLE - THESE WARNINGS ARE HARMLESS I THINK.
+
 mockery.registerAllowables([
 
     "@encapsule/arccore",
@@ -41,51 +44,18 @@ mockery.registerAllowables([
     "./harness-test-5"
 
 ]);
-
-const local_holodeckAssets = require("../PLATFORM/holodeck-assets");
-mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
+*/
 
 const local_holarchySml = require("../PLATFORM/holarchy-sml");
 mockery.registerMock("@encapsule/holarchy-sml", local_holarchySml);
 
+const local_holodeckAssets = require("../PLATFORM/holodeck-assets");
+mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
+
 // ^--- MOCKERY TRICKS
 ////
 
-const holodeck = require("@encapsule/holodeck");
-const holodeckRunner = holodeck.runnerFilter;
 
 const holodeckAssets = require("@encapsule/holodeck-assets");
 
-// HOLODECK TEST ASSETS
-const holodeckPackageHarnesses = holodeckAssets.holodeck.harnesses;
-const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets");
-
-const holarchyPackageHarnesses = holodeckAssets.holarchy.harnesses;
-const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
-
-// HOLODECK TEST RUNNER DEFINITION
-const runnerResponse = holodeckRunner.request({
-    id: "TxK2RjDjS2mQLkm_N8b6_Q",
-    name: "Holistic Platform Test Vectors",
-    description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
-
-    logsRootDir: path.resolve(path.join(__dirname, "logs")),
-
-    testHarnessFilters: [
-        ...holodeckPackageHarnesses,
-        ...holarchyPackageHarnesses
-    ],
-
-    testRequestSets: [
-        ...holodeckPackageVectorSets,
-        ...holarchyPackageVectorSets
-    ]
-
-});
-
-if (runnerResponse.error) {
-    console.error(`! Test runner returned an error: '${runnerResponse.error}'`);
-} else {
-    console.log("Complete.");
-}
-
+holodeckAssets.holistic.request({ logsDirectory: path.resolve(path.join(__dirname, "logs")) });

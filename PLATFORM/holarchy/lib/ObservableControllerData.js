@@ -10,6 +10,8 @@ var arccore = require("@encapsule/arccore");
 
 var getNamespaceInReferenceFromPathFilter = require("./filters/get-namespace-in-reference-from-path");
 
+var dataPathResolveFilter = require("./filters/ocd-method-data-path-resolve-filter");
+
 var ObservableControllerData =
 /*#__PURE__*/
 function () {
@@ -38,7 +40,7 @@ function () {
 
     this._private = {
       storeData: filterResponse.result,
-      storeDataSpec: request_.spec,
+      storeDataSpec: dataFilter.filterDescriptor.inputFilterSpec,
       accessFilters: {
         read: {},
         write: {}
@@ -61,7 +63,7 @@ function () {
 
   }, {
     key: "readNamespace",
-    value: function readNamespace(path_) {
+    value: function readNamespace(dataPath_) {
       var _this = this;
 
       var methodResponse = {
@@ -74,17 +76,17 @@ function () {
       while (!inBreakScope) {
         inBreakScope = true; // Determine if we have already instantiated a read filter for this namespace.
 
-        if (!this._private.accessFilters.read[path_]) {
+        if (!this._private.accessFilters.read[dataPath_]) {
           // Cache miss. Create a new read filter for the requested namespace.
-          var operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
+          var operationId = arccore.identifier.irut.fromReference("read-filter" + dataPath_).result;
           var filterResponse = getNamespaceInReferenceFromPathFilter.request({
-            namespacePath: path_,
+            namespacePath: dataPath_,
             sourceRef: this._private.storeDataSpec,
             parseFilterSpec: true
           });
 
           if (filterResponse.error || !filterResponse.result) {
-            errors.push("Cannot read controller data store namespace path '".concat(path_, "' because it is not possible to construct a read filter for this namespace."));
+            errors.push("Cannot read controller data store namespace path '".concat(dataPath_, "' because it is not possible to construct a read filter for this namespace."));
             errors.push(filterResponse.error);
             break;
           } // if error
@@ -94,10 +96,10 @@ function () {
           filterResponse = arccore.filter.create({
             operationID: operationId,
             operationName: "Controller Data Read Filter ".concat(operationId),
-            operationDescription: "Validated/normalized read operations from ADS namespace '".concat(path_, "'."),
+            operationDescription: "Validated/normalized read operations from OCD namespace '".concat(dataPath_, "'."),
             bodyFunction: function bodyFunction() {
               return getNamespaceInReferenceFromPathFilter.request({
-                namespacePath: path_,
+                namespacePath: dataPath_,
                 sourceRef: _this._private.storeData
               });
             },
@@ -105,18 +107,18 @@ function () {
           });
 
           if (filterResponse.error) {
-            errors.push("Cannot read controller data store namespace path '".concat(path_, "' because it is not possible to construct a read filter for this namespace."));
+            errors.push("Cannot read controller data store namespace path '".concat(dataPath_, "' because it is not possible to construct a read filter for this namespace."));
             errors.push(filterResponse.error);
             break;
           } // if error
           // Cache the newly-created read filter.
 
 
-          this._private.accessFilters.read[path_] = filterResponse.result;
+          this._private.accessFilters.read[dataPath_] = filterResponse.result;
         } // if read filter doesn't exist
 
 
-        var readFilter = this._private.accessFilters.read[path_];
+        var readFilter = this._private.accessFilters.read[dataPath_];
         methodResponse = readFilter.request();
         break;
       } // end while
@@ -132,7 +134,7 @@ function () {
 
   }, {
     key: "writeNamespace",
-    value: function writeNamespace(path_, value_) {
+    value: function writeNamespace(dataPath_, value_) {
       var _this2 = this;
 
       var methodResponse = {
@@ -145,14 +147,14 @@ function () {
       while (!inBreakScope) {
         inBreakScope = true; // Determine if we have already instantiated a read filter for this namespace.
 
-        if (!this._private.accessFilters.write[path_]) {
+        if (!this._private.accessFilters.write[dataPath_]) {
           var _ret = function () {
             // Cache miss. Create a new write filter for the requested namespace.
-            var operationId = arccore.identifier.irut.fromReference("write-filter" + path_).result;
-            var pathTokens = path_.split(".");
+            var operationId = arccore.identifier.irut.fromReference("write-filter" + dataPath_).result;
+            var pathTokens = dataPath_.split(".");
 
             if (pathTokens.length < 2) {
-              errors.push("Cannot write to controller data store namespace '".concat(path_, "'; invalid attempt to overwrite the entire store."));
+              errors.push("Cannot write to controller data store namespace '".concat(dataPath_, "'; invalid attempt to overwrite the entire store."));
               return "break";
             } // if invalid write attempt
 
@@ -160,13 +162,13 @@ function () {
             var parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
             var targetNamespace = pathTokens[pathTokens.length - 1];
             var filterResponse = getNamespaceInReferenceFromPathFilter.request({
-              namespacePath: path_,
+              namespacePath: dataPath_,
               sourceRef: _this2._private.storeDataSpec,
               parseFilterSpec: true
             });
 
             if (filterResponse.error || !filterResponse.result) {
-              errors.push("Cannot write controller data store namespace path '".concat(path_, "' because it is not possible to construct a write filter for this namespace."));
+              errors.push("Cannot write controller data store namespace path '".concat(dataPath_, "' because it is not possible to construct a write filter for this namespace."));
               errors.push(filterResponse.error);
               return "break";
             } // if error
@@ -176,7 +178,7 @@ function () {
             filterResponse = arccore.filter.create({
               operationID: operationId,
               operationName: "Controller Data Write Filter ".concat(operationId),
-              operationDescription: "Validated/normalized write to ADS namespace '".concat(path_, "'."),
+              operationDescription: "Validated/normalized write to OCD namespace '".concat(dataPath_, "'."),
               inputFilterSpec: targetNamespaceSpec,
               bodyFunction: function bodyFunction(request_) {
                 var response = {
@@ -194,7 +196,7 @@ function () {
                   });
 
                   if (innerResponse.error) {
-                    errors.push("Unable to write to ADS namespace '".concat(path_, "' due to an error reading parent namespace '").concat(parentPath, "'."));
+                    errors.push("Unable to write to OCD namespace '".concat(dataPath_, "' due to an error reading parent namespace '").concat(parentPath, "'."));
                     errors.push(innerResponse.error);
                     break;
                   }
@@ -202,7 +204,7 @@ function () {
                   var parentNamespace = innerResponse.result;
                   parentNamespace[targetNamespace] = request_; // the actual write
 
-                  response.result = request_; // return the validated/normalized data written to the ADS
+                  response.result = request_; // return the validated/normalized data written to the OCD
 
                   break;
                 }
@@ -216,21 +218,21 @@ function () {
             });
 
             if (filterResponse.error) {
-              errors.push("Cannot write controller data store namespace path '".concat(path_, "' because it is not possible to construct a write filter for this namespace."));
+              errors.push("Cannot write controller data store namespace path '".concat(dataPath_, "' because it is not possible to construct a write filter for this namespace."));
               errors.push(filterResponse.error);
               return "break";
             } // if error
             // Cache the newly-created write filter.
 
 
-            _this2._private.accessFilters.write[path_] = filterResponse.result;
+            _this2._private.accessFilters.write[dataPath_] = filterResponse.result;
           }();
 
           if (_ret === "break") break;
         } // if write filter doesn't exist
 
 
-        var writeFilter = this._private.accessFilters.write[path_];
+        var writeFilter = this._private.accessFilters.write[dataPath_];
         methodResponse = writeFilter.request(value_);
         break;
       } // end while
@@ -245,7 +247,7 @@ function () {
 
   }, {
     key: "getNamespaceSpec",
-    value: function getNamespaceSpec(path_) {
+    value: function getNamespaceSpec(dataPath_) {
       var methodResponse = {
         error: null,
         result: undefined
@@ -256,13 +258,13 @@ function () {
       while (!inBreakScope) {
         inBreakScope = true;
         var filterResponse = getNamespaceInReferenceFromPathFilter.request({
-          namespacePath: path_,
+          namespacePath: dataPath_,
           sourceRef: this._private.storeDataSpec,
           parseFilterSpec: true
         });
 
         if (filterResponse.error) {
-          errors.push("Cannot resolve a namespace descriptor in filter specification for path '".concat(path_, "'."));
+          errors.push("Cannot resolve a namespace descriptor in filter specification for path '".concat(dataPath_, "'."));
           errors.push(filterResponse.error);
           break;
         } // if error
@@ -279,6 +281,11 @@ function () {
       return methodResponse;
     } // getNamespaceSpec
 
+  }], [{
+    key: "dataPathResolve",
+    value: function dataPathResolve(request_) {
+      return dataPathResolveFilter.request(request_);
+    }
   }]);
 
   return ObservableControllerData;

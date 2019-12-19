@@ -39,6 +39,12 @@
                     "id": "AhfYIOp_RQmS-a37emkj9A",
                     "name": "OPC.act dispatch #1 (bad request)",
                     "description": "Dispatch an OPC.act method with a bad request and no registered controller actions.",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 16,
+                        "firstEvaluation": "constructor"
+                      }
+                    },
                     "opmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {
@@ -61,6 +67,7 @@
                         "evalNumber": 0,
                         "summary": {
                           "counts": {
+                            "bindings": 0,
                             "frames": 1,
                             "errors": 0,
                             "transitions": 0

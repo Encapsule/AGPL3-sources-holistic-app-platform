@@ -10,18 +10,39 @@ var factoryResponse = arccore.filter.create({
     ____label: "Filter Factory Request",
     ____types: "jsObject",
     id: {
+      ____label: "Controller Action ID",
+      ____description: "A unique version-independent IRUT used to identify this specific ControllerAction definition.",
       ____accept: "jsString"
     },
     name: {
+      ____label: "Controller Action Name",
+      ____description: "A short but descriptive moniker for this ControllerAction definition.",
       ____accept: "jsString"
     },
     description: {
+      ____label: "Controller Action Decrtipion",
+      ____description: "A terse description of the functionality implemented by this ControllerAction.",
       ____accept: "jsString"
     },
     actionRequestSpec: {
+      ____label: "Controller Action Request Spec",
+      ____description: "A developer-defined filter spec that defines the request message signature of the action.",
       ____accept: "jsObject"
     },
+    actionResultSpec: {
+      ____label: "Controller Action Result Spec",
+      ____description: "A developer-defined filter spec that defines the response.result signature of the generated controller action plug-in filter.",
+      ____accept: "jsObject",
+      ____defaultValue: {
+        ____label: "No Result (Default)",
+        ____description: "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+        ____accept: "jsUndefined" // i.e. no response.result value is allowed whatsoever by default
+
+      }
+    },
     bodyFunction: {
+      ____label: "Action Plug-in Body Function",
+      ____description: "A developer-defined filter bodyFunction implementation that implements the developer-defined controller action's runtime semantics.",
       ____accept: "jsFunction"
     }
   },
@@ -46,9 +67,9 @@ var factoryResponse = arccore.filter.create({
             ____label: "OPC Context Descriptor",
             ____description: "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
             ____types: "jsObject",
-            dataPath: {
-              ____label: "OPM Binding Namespace",
-              ____description: "Dot-delimited path to the current OPM instance's associated data in the OPD.",
+            opmBindingPath: {
+              ____label: "OPM Binding Path",
+              ____description: "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
               ____accept: "jsString"
             },
             ocdi: {
@@ -57,16 +78,14 @@ var factoryResponse = arccore.filter.create({
               ____accept: "jsObject"
             },
             act: {
-              ____label: "OPC Action Request Dispatcher",
+              ____label: "OPC.act Method",
               ____description: "A reference to ObservableProcessController.act method.",
               ____accept: "jsFunction"
             }
           },
           actionRequest: request_.actionRequestSpec
         },
-        outputFilterSpec: {
-          ____accept: "jsBoolean"
-        },
+        outputFilterSpec: request_.actionResultSpec,
         bodyFunction: request_.bodyFunction
       });
 

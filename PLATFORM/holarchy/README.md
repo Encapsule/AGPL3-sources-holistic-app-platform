@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holarchy v0.0.27 "cypress"
+# @encapsule/holarchy v0.0.28 "pemberton"
 
 ```
-Package: @encapsule/holarchy v0.0.27 "cypress" build ID "jzM41a0xSO-AM-Pa5eB_vw"
-Sources: Encapsule/holistic#17600f6114145e1f20fe7a617d23dba16eecca2e
+Package: @encapsule/holarchy v0.0.28 "pemberton" build ID "RVmJ0232SLKmyNkwIK7OaA"
+Sources: Encapsule/holistic#fe24a69817b19554a3b08772db4683e5df2e0a33
 Purpose: library (Node.js)
-Created: 2019-12-04T15:08:38.000Z
+Created: 2019-12-19T23:38:31.000Z
 License: MIT
 ```
 
@@ -44,7 +44,7 @@ console.log(JSON.stringify(holarchy.__meta));
 
 The `@encapsule/holarchy` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holarchy Package Distribution](https://npmjs.com/package/@encapsule/holarchy/v/0.0.27) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holarchy Package Distribution](https://npmjs.com/package/@encapsule/holarchy/v/0.0.28) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holarchy git Repository](https://github.com/Encapsule/holarchy) ([GitHub](https://github.com/Encapsule))
 
 <hr>

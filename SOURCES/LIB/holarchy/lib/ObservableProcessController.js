@@ -5,7 +5,6 @@ const actInputFilter = require("./filters/opc-method-act-input-filter");
 const actOutputFilter = require("./filters/opc-method-act-output-filter");
 const evaluateFilter = require("./filters/opc-method-evaluate-filter");
 
-
 class ObservableProcessController {
 
     constructor(request_) {
@@ -55,13 +54,16 @@ class ObservableProcessController {
 
             this._private = filterResponse.result;
 
-            // ----------------------------------------------------------------
-            // Wake the beast up... Perform the initial post-construction evaluation.
-            filterResponse = this._evaluate();
-            if (filterResponse.error) {
-                errors.push("Failed while executing the first post-construction system evaluation.");
-                errors.push(filterResponse.error);
-                break;
+            // Perform the first post-construction evaluation of the OPC system model
+            // if the instance was constructed in "automatic" evaluate mode.
+            if (this._private.options.evaluate.firstEvaluation === "constructor") {
+                // Wake the beast up... Perform the initial post-construction evaluation.
+                filterResponse = this._evaluate();
+                if (filterResponse.error) {
+                    errors.push("Failed while executing the first post-construction system evaluation:");
+                    errors.push(filterResponse.error);
+                    break;
+                }
             }
             break;
 
@@ -99,7 +101,7 @@ class ObservableProcessController {
         }
         return {
             error: this._private.constructionError?this._private.constructionError.error:null,
-            result: this._private.constructionError?false:true
+            result: this._private
         };
     }
 
@@ -149,7 +151,7 @@ class ObservableProcessController {
             // Prepare the controller action plug-in filter request descriptor object.
             const controllerActionRequest = {
                 context: {
-                    dataPath: request.dataPath,
+                    opmBindingPath: request.opmBindingPath,
                     ocdi: this._private.ocdi,
                     act: this.act
                 },

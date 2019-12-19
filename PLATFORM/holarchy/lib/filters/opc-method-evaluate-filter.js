@@ -9,8 +9,6 @@ var opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-sp
 
 var opcMethodEvaluateOutputSpec = require("./iospecs/opc-method-evaluate-output-spec");
 
-var maxEvalFrames = 10; // TODO: Migrate to constructor input w/default value.
-
 var factoryResponse = arccore.filter.create({
   operationID: "T7PiatEGTo2dbdy8jOMHQg",
   operationName: "OPC Evaluation Filter",
@@ -38,6 +36,7 @@ var factoryResponse = arccore.filter.create({
       summary: {
         evalStopwatch: null,
         counts: {
+          bindings: 0,
           frames: 0,
           errors: 0,
           transitions: 0
@@ -61,6 +60,7 @@ var factoryResponse = arccore.filter.create({
       var filterResponse = opcRef._private.ocdi.getNamespaceSpec("~");
 
       if (filterResponse.error) {
+        errors.push("Fatal internal error:");
         errors.push(filterResponse.error);
         break;
       }
@@ -73,7 +73,7 @@ var factoryResponse = arccore.filter.create({
       // between process steps. Or, until the maximum allowed frames / evaluation
       // limit is surpassed.
 
-      while (result.evalFrames.length < maxEvalFrames) {
+      while (result.evalFrames.length < opcRef._private.options.evaluate.maxFrames) {
         evalStopwatch.mark("frame ".concat(result.evalFrames.length, " start OPM instance binding"));
         var evalFrame = {
           bindings: {},
@@ -94,6 +94,7 @@ var factoryResponse = arccore.filter.create({
         filterResponse = opcRef._private.ocdi.readNamespace("~");
 
         if (filterResponse.error) {
+          errors.push("Fatal internal error:");
           errors.push(filterResponse.error);
           break;
         }
@@ -134,56 +135,49 @@ var factoryResponse = arccore.filter.create({
 
 
           if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
-            var opmID = record.specRef.____appdsl.opm;
+            // We can here safely presume that the following
+            // construction-time invariants have been met:
+            // - ID is a valid IRUT
+            // - ID IRUT identifies a specific OPM registered with this OPC instance.
+            var opmID = record.specRef.____appdsl.opm; // ****************************************************************
+            // ****************************************************************
+            // We found an OPM-bound namespace in the controller data.
 
-            if (arccore.identifier.irut.isIRUT(opmID).result) {
-              if (!opcRef._private.opmMap[opmID]) {
-                errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an unregistered ObservableProcessModel binding ID '").concat(opmID, "'."));
-                break;
-              } // ****************************************************************
-              // ****************************************************************
-              // We found an OPM-bound namespace in the controller data.
-
-
-              var opmInstanceFrame = {
-                evalRequest: {
-                  dataBinding: record,
-                  initialStep: record.dataRef.__opmiStep,
-                  opmRef: opcRef._private.opmMap[opmID]
+            var opmInstanceFrame = {
+              evalRequest: {
+                dataBinding: record,
+                initialStep: record.dataRef.__opmiStep,
+                opmRef: opcRef._private.opmMap[opmID]
+              },
+              evalResponse: {
+                status: "pending",
+                finishStep: null,
+                phases: {
+                  p1_toperator: [],
+                  p2_exit: [],
+                  p3_enter: [],
+                  p4_finalize: null
                 },
-                evalResponse: {
-                  status: "pending",
-                  finishStep: null,
-                  phases: {
-                    p1_toperator: [],
-                    p2_exit: [],
-                    p3_enter: [],
-                    p4_finalize: null
-                  },
-                  errors: {
-                    p0: 0,
-                    p1_toperator: 0,
-                    p2_exit: 0,
-                    p3_enter: 0,
-                    p4_finalize: 0,
-                    total: 0
-                  }
+                errors: {
+                  p0: 0,
+                  p1_toperator: 0,
+                  p2_exit: 0,
+                  p3_enter: 0,
+                  p4_finalize: 0,
+                  total: 0
                 }
-              }; // Generate an IRUT based on the CDS path to use as key in the binding map.
+              }
+            }; // Generate an IRUT based on the CDS path to use as key in the binding map.
 
-              var key = arccore.identifier.irut.fromReference(record.dataPath).result; // Register the new binding the the evalFrame.
+            var key = arccore.identifier.irut.fromReference(record.dataPath).result; // Register the new binding the the evalFrame.
 
-              evalFrame.bindings[key] = opmInstanceFrame;
-              evalFrame.summary.counts.bindings++;
-              console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
-              console.log("opmInstanceFrame=");
-              console.log(opmInstanceFrame); // ****************************************************************
-              // ****************************************************************
-            } else {
-              errors.push("Controller data namespace '".concat(record.specPath, "' is declared with an illegal syntax ObservableProcessModel binding ID '").concat(opmID, "'."));
-              evalFrame.summary.counts.errors++;
-              break;
-            }
+            evalFrame.bindings[key] = opmInstanceFrame;
+            result.summary.counts.bindings++;
+            evalFrame.summary.counts.bindings++;
+            console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
+            console.log("opmInstanceFrame=");
+            console.log(opmInstanceFrame); // ****************************************************************
+            // ****************************************************************
           } // end if opm binding on current namespace?
           // Is the current namespace an array or object used as a map?
 
@@ -311,18 +305,25 @@ var factoryResponse = arccore.filter.create({
         // step we're exiting and/or the step we're entering.
 
 
-        for (var cdsPathIRUT_ in evalFrame.bindings) {
+        for (var ocdPathIRUT_ in evalFrame.bindings) {
           // Derefermce the opmInstanceFrame created during phase #0 binding.
-          var _opmInstanceFrame = evalFrame.bindings[cdsPathIRUT_];
+          var _opmInstanceFrame = evalFrame.bindings[ocdPathIRUT_];
           _opmInstanceFrame.evalResponse.status = "analyzing";
-          var cdsPath = _opmInstanceFrame.evalRequest.dataBinding.dataPath;
+          var opmBindingPath = _opmInstanceFrame.evalRequest.dataBinding.dataPath;
           var opmRef = _opmInstanceFrame.evalRequest.opmRef;
           var initialStep = _opmInstanceFrame.evalRequest.initialStep;
           var stepDescriptor = opmRef.getStepDescriptor(initialStep);
-          console.log("..... Evaluting '".concat(cdsPath, "' instance of ").concat(opmRef.getID(), "::").concat(opmRef.getName(), " ..."));
+          console.log("..... Evaluting '".concat(opmBindingPath, "' instance of ").concat(opmRef.getID(), "::").concat(opmRef.getName(), " ..."));
           console.log("..... ..... model instance is currently at process step '".concat(initialStep, "' stepDescriptor="));
           console.log("stepDescriptor=");
-          console.log(stepDescriptor); // ================================================================
+          console.log(stepDescriptor);
+
+          if (!stepDescriptor) {
+            console.warn("No step descriptor in model for [".concat(opmRef.getID(), "::").concat(opmRef.getName(), "] for step '").concat(initialStep, "'. Ignoring."));
+            _opmInstanceFrame.evalResponse.status = "noop";
+            _opmInstanceFrame.evalResponse.finishStep = initialStep;
+            continue;
+          } // ================================================================
           // ================================================================
           // ================================================================
           // PHASE 1 - BOUND OPM INSTANCE STEP TRANSITION EVALUATION
@@ -330,6 +331,7 @@ var factoryResponse = arccore.filter.create({
           // ================================================================
           // ================================================================
           // Evaluate the OPM instance's step transition ruleset.
+
 
           var nextStep = null; // null (default) indicates that the OPM instance should remain in its current process step (i.e. no transition).
 
@@ -339,14 +341,23 @@ var factoryResponse = arccore.filter.create({
             var transitionRule = stepDescriptor.transitions[transitionRuleIndex];
             var operatorRequest = {
               context: {
-                namespace: cdsPath,
+                opmBindingPath: opmBindingPath,
                 ocdi: opcRef._private.ocdi,
                 transitionDispatcher: opcRef._private.transitionDispatcher
               },
-              operator: transitionRule.transitionIf
+              operatorRequest: transitionRule.transitionIf
             };
 
-            var _transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+            var _transitionResponse = void 0;
+
+            try {
+              _transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+            } catch (topException_) {
+              console.error(topException_);
+              _transitionResponse = {
+                error: "TransitionOperator threw an illegal exception that was handled by OPC: ".concat(topException_.message)
+              };
+            }
 
             _opmInstanceFrame.evalResponse.phases.p1_toperator.push({
               request: operatorRequest,
@@ -359,6 +370,9 @@ var factoryResponse = arccore.filter.create({
               _opmInstanceFrame.evalResponse.errors.p1_toperator++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
+              evalFrame.summary.counts.errors++;
+              evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+              result.summary.counts.errors++;
               break; // abort evaluation of transition rules for this OPM instance...
             }
 
@@ -370,7 +384,8 @@ var factoryResponse = arccore.filter.create({
               break; // skip evaluation of subsequent transition rules for this OPM instance.
             }
           } // for transitionRuleIndex
-          // If we encountered any error during the evaluation of the model step's transition operators skip the remainder of the model evaluation and proceed to the next model in the frame.
+          // If we encountered any error during the evaluation of the model step's transition operators
+          // skip the remainder of the model evaluation and proceed to the next model in the frame.
 
 
           if (_opmInstanceFrame.evalResponse.status === "error") {
@@ -403,13 +418,21 @@ var factoryResponse = arccore.filter.create({
             var dispatcherRequest = {
               actionRequest: actionRequest,
               context: {
-                dataPath: cdsPath,
+                opmBindingPath: opmBindingPath,
                 ocdi: opcRef._private.ocdi,
                 act: opcRef.act
               }
             };
+            var actionResponse = void 0;
 
-            var actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+            try {
+              actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
+            } catch (actException_) {
+              console.error(actException_);
+              actionResponse = {
+                error: "ControllerAction threw an illegal exception that was handled by OPC: ".concat(actException_)
+              };
+            }
 
             _opmInstanceFrame.evalResponse.phases.p2_exit.push({
               request: actionRequest,
@@ -418,15 +441,25 @@ var factoryResponse = arccore.filter.create({
 
             if (actionResponse.error) {
               console.error(actionResponse.error);
+              _opmInstanceFrame.evalResponse.status = "error";
               _opmInstanceFrame.evalResponse.errors.p2_exit++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
+              evalFrame.summary.counts.errors++;
+              evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+              result.summary.counts.errors++;
+              break;
             }
-          } // TODO: Consider control flow gates based on accumulated errors.
+          } // If we encountered any error during the evaluation of the model step's exit actions skip
+          // the remainder of the model evaluation and proceed to the next model in the frame.
+
+
+          if (_opmInstanceFrame.evalResponse.status === "error") {
+            continue;
+          } // ================================================================
           // ================================================================
           // ================================================================
-          // ================================================================
-          // PHASE 3 - BOUND OPM INSTANCE STEP EXIT DISPATCH
+          // PHASE 3 - BOUND OPM INSTANCE STEP ENTER DISPATCH
           // ================================================================
           // ================================================================
           // ================================================================
@@ -440,13 +473,22 @@ var factoryResponse = arccore.filter.create({
             var _dispatcherRequest = {
               actionRequest: _actionRequest,
               context: {
-                dataPath: cdsPath,
+                opmBindingPath: opmBindingPath,
                 ocdi: opcRef._private.ocdi,
                 act: opcRef.act
               }
             };
 
-            var _actionResponse = opcRef._private.actionDispatcher.request(_dispatcherRequest);
+            var _actionResponse = void 0;
+
+            try {
+              _actionResponse = opcRef._private.actionDispatcher.request(_dispatcherRequest);
+            } catch (actException_) {
+              console.error(actException_);
+              _actionResponse = {
+                error: "ControllerAction threw an illegal exception that was handled by the OPC: ".concat(actException_.message)
+              };
+            }
 
             _opmInstanceFrame.evalResponse.phases.p3_enter.push({
               request: _actionRequest,
@@ -455,12 +497,21 @@ var factoryResponse = arccore.filter.create({
 
             if (_actionResponse.error) {
               console.error(_actionResponse.error);
+              _opmInstanceFrame.evalResponse.status = "error";
               _opmInstanceFrame.evalResponse.errors.p3_enter++;
               _opmInstanceFrame.evalResponse.errors.total++;
               _opmInstanceFrame.evalResponse.finishStep = initialStep;
+              evalFrame.summary.counts.errors++;
+              evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+              result.summary.counts.errors++;
             }
-          } // TODO: Consider control flow gates based on accumulated errors.
-          // ================================================================
+          } // If we encountered any error during the evaluation of the model step's enter actions skip
+          // the remainder of the model evaluation and proceed to the next model in the frame.
+
+
+          if (_opmInstanceFrame.evalResponse.status === "error") {
+            continue;
+          } // ================================================================
           // ================================================================
           // ================================================================
           // PHASE 4 - BOUND OPM INSTANCE STEP TRANSITION FINALIZE
@@ -472,23 +523,27 @@ var factoryResponse = arccore.filter.create({
 
           _opmInstanceFrame.evalResponse.status = "transitioning-finalize";
 
-          var transitionResponse = opcRef._private.ocdi.writeNamespace("".concat(cdsPath, ".__opmiStep"), nextStep);
+          var transitionResponse = opcRef._private.ocdi.writeNamespace("".concat(opmBindingPath, ".__opmiStep"), nextStep);
 
           _opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 
           if (transitionResponse.error) {
             console.error(transitionResponse.error);
+            _opmInstanceFrame.evalResponse.status = "error";
             _opmInstanceFrame.evalResponse.errors.p4_finalize++;
             _opmInstanceFrame.evalResponse.errors.total++;
             _opmInstanceFrame.evalResponse.finishStep = initialStep;
+            evalFrame.summary.counts.errors++;
+            evalFrame.summary.reports.errors.push(ocdPathIRUT_);
+            result.summary.counts.errors++;
           } else {
             _opmInstanceFrame.evalResponse.status = "transitioned";
             evalFrame.summary.counts.transitions++;
-            evalFrame.summary.reports.transitions.push(cdsPathIRUT_);
+            evalFrame.summary.reports.transitions.push(ocdPathIRUT_);
             result.summary.counts.transitions++;
             _opmInstanceFrame.evalResponse.finishStep = nextStep;
           }
-        } // cdsPath in evalFrame
+        } // opmBindingPath in evalFrame
 
 
         evalStopwatch.mark("frame ".concat(result.evalFrames.length, " end OPM instance evaluation"));
@@ -508,8 +563,13 @@ var factoryResponse = arccore.filter.create({
           // Exit the frame loop when the evaluation of the last frame resulted in no OPMI step transitions.
           break;
         }
-      } // while outer frame evaluation loop;
+      } // while outer frame evaluation loop (counted and limited to catch non-halting model constructs)
 
+
+      if (result.evalFrames.length === opcRef._private.options.evaluate.maxFrames) {
+        errors.push("Max evaluation frame limit of ".concat(opcRef._private.options.evaluate.maxFrames, " was reached before evaluation completed."));
+        break;
+      }
 
       break;
     } // while (!inBreakScope)

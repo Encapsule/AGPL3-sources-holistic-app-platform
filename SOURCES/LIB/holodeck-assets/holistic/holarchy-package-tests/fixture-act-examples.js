@@ -28,7 +28,7 @@ module.exports = [
             }
         },
         bodyFunction: function(request_) {
-            return { error: null, result: false };
+            return { error: null };
         }
 
     }),
@@ -45,10 +45,9 @@ module.exports = [
             }
         },
         bodyFunction: function(request_) {
-            return { error: null, result: false };
+            return { error: null }
         }
-    }),
-
+    })
 
 
 ];

@@ -1,0 +1,81 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "bvj2u51Uw5_SD1TRZNpwXA": {
+      "l2lMJRfpR7SwIMxriD-pRQ": {
+        "harnessRequest": {
+          "id": "l2lMJRfpR7SwIMxriD-pRQ",
+          "name": "Test OPC options #3",
+          "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (fail on first call to act).",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessController": {
+                  "constructorRequest": {
+                    "id": "l2lMJRfpR7SwIMxriD-pRQ",
+                    "name": "Test OPC options #3",
+                    "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (no fail because no act - naked constructed OPC).",
+                    "options": {
+                      "evaluate": {
+                        "firstEvaluation": "action",
+                        "maxFrames": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "54MiSgQdSiukMX4fIZJimg": {
+                "l2lMJRfpR7SwIMxriD-pRQ": {
+                  "opcToJSON": {
+                    "id": "l2lMJRfpR7SwIMxriD-pRQ",
+                    "name": "Test OPC options #3",
+                    "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #3 (no fail because no act - naked constructed OPC).",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 0,
+                        "firstEvaluation": "action"
+                      }
+                    },
+                    "opmMap": {},
+                    "opmiSpecPaths": [],
+                    "ocdTemplateSpec": {
+                      "____types": "jsObject"
+                    },
+                    "ocdRuntimeSpec": {
+                      "____label": "OPC [l2lMJRfpR7SwIMxriD-pRQ::Test OPC options #3] Observable Controller Data Store",
+                      "____description": "OPC [l2lMJRfpR7SwIMxriD-pRQ::Test OPC options #3] system process runtime state data managed by OPC instance.",
+                      "____types": "jsObject",
+                      "____defaultValue": {}
+                    },
+                    "ocdi": {},
+                    "transitionDispatcher": {},
+                    "actionDispatcher": {},
+                    "opcActorStack": [],
+                    "evalCount": 0,
+                    "lastEvalResponse": null,
+                    "constructionWarnings": [
+                      "WARNING: No ObservableProcessModel class instances registered!",
+                      "WARNING: No TransitionOperator class instances have been registered!",
+                      "WARNING: No ControllerAction class instances have been registered!"
+                    ]
+                  },
+                  "actionEvaluations": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

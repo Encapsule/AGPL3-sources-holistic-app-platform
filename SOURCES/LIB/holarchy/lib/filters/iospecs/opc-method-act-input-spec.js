@@ -14,7 +14,7 @@ module.exports = {
         ____accept: "jsString"
     },
 
-    actionDescriptor: {
+    actionDescription: {
         ____label: "Action Description",
         ____description: "Actors may provide an optional explanation of why they're calling the ObservbaleProcessController.act method. Used in diagnostics, tests, and logs.",
         ____accept: "jsString",
@@ -27,9 +27,9 @@ module.exports = {
         ____accept: "jsObject"
     },
 
-    dataPath: {
-        ____label: "OPM Binding Namespace",
-        ____description: "Optional dot-delimited path to an OPM instance binding namespace in the OCD. Defaults to '~' (default for external controller action plug-ins.",
+    opmBindingPath: {
+        ____label: "OPM Binding Path",
+        ____description: "Optional fully-qualified dot-delimited path to an OPM instance binding namespace in the OCD. Defaults to '~' (default for external controller action plug-ins.",
         ____accept: "jsString",
         ____defaultValue: "~"
     }

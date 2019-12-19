@@ -8,9 +8,9 @@ module.exports = new holarchy.TransitionOperator({
     description: "Returns Boolean true iff the indicated OPM instance is in the indicated process step.",
     operatorRequestSpec: {
         ____types: "jsObject",
-        encapsule: {
+        holarchy: {
             ____types: "jsObject",
-            holarchySML: {
+            sml: {
                 ____types: "jsObject",
                 operators: {
                     ____types: "jsObject",
@@ -36,14 +36,16 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.encapsule.holarchySML.operators.opmi.inStep;
-            let fqpath = null;
-            if (message.path.startsWith("#")) {
-                fqpath = `${request_.context.namespace}${message.path.slice(1)}`;
-            } else {
-                fqpath = message.path;
+            const message = request_.operatorRequest.holarchy.sml.operators.opmi.inStep;
+            const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+                opmBindingPath: request_.context.opmBindingPath,
+                dataPath: message.path
+            });
+            if (rpResponse.error) {
+                errors.push(rpResponse.error);
+                break;
             }
-            const processStepNamespace = `${fqpath}.__opmStep`;
+            const processStepNamespace = `${rpResponse.result}.__opmStep`;
             const filterResponse = request_.ocdi.readNamespace(processStepNamespace);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -52,8 +54,9 @@ module.exports = new holarchy.TransitionOperator({
             response.result = (filterResponse.result === message.step);
             break;
         }
-        if (errors.length)
+        if (errors.length) {
             response.error = errors.join(" ");
+        }
         return response;
     }
 });

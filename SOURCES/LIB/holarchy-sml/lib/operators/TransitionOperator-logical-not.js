@@ -19,10 +19,10 @@ module.exports = new holarchy.TransitionOperator({
             inBreakScope = true;
             var operatorResponse = request_.context.transitionDispatcher.request({
                 context: request_.context,
-                operator: request_.operator.not
+                operator: request_.operatorRequest.not
             });
             if (operatorResponse.error) {
-                errors.push("In transition operator NOT process operatorRequest='" + JSON.stringify(request_.operator.not) + "':");
+                errors.push("In transition operator NOT process operatorRequest='" + JSON.stringify(request_.operatorRequest.not) + "':");
                 errors.push(operatorResponse.error);
                 break;
             }

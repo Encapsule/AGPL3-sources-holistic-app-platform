@@ -20,11 +20,11 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            if (!request_.operator.or.length) {
+            if (!request_.operatorRequest.or.length) {
                 errors.push("Cannot evaluate OR operation with zero operands.");
                 break;
             }
-            for (var operatorRequest of request_.operator.or) {
+            for (var operatorRequest of request_.operatorRequest.or) {
                 var operatorResponse = request_.context.transitionDispatcher.request({
                     context: request_.context,
                     operator: operatorRequest

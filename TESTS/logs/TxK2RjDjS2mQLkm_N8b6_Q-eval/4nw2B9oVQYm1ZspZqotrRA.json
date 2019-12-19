@@ -17,29 +17,101 @@
                         {
                           "id": "_vC2O7DGTZ22R5hvxpy0WQ",
                           "name": "OPM Test A",
-                          "description": "A simple test OPM",
+                          "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
-                          "steps": {}
+                          "steps": {
+                            "uninitialized": {
+                              "description": "Default starting process step.",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "noneSuchOperator": true
+                                  },
+                                  "nextStep": "goal"
+                                }
+                              ]
+                            },
+                            "goal": {
+                              "description": "Test goal step (never reached).",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": []
+                            }
+                          }
                         },
                         {
                           "id": "SyCUD3kpQ8mtYbV5A_4BPA",
                           "name": "OPM Test B",
-                          "description": "A simple test OPM",
+                          "description": "A simple test OPM (force transition operator error - operator returns transport error)",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
-                          "steps": {}
+                          "steps": {
+                            "uninitialized": {
+                              "description": "Default starting process step.",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "badTransitionOperatorResponseError": true
+                                  },
+                                  "nextStep": "goal"
+                                }
+                              ]
+                            },
+                            "goal": {
+                              "description": "Test goal step (never reached).",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": []
+                            }
+                          }
                         },
                         {
                           "id": "Pkr1EErLSiiHQRt8gCaO0Q",
                           "name": "OPM Test C",
-                          "description": "A simple test OPM",
+                          "description": "A simple test OPM (force transition operator error - operator throws an Error)",
                           "opmDataSpec": {
                             "____types": "jsObject"
                           },
-                          "steps": {}
+                          "steps": {
+                            "uninitialized": {
+                              "description": "Default starting process step.",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": [
+                                {
+                                  "transitionIf": {
+                                    "badTransitionOperatorThrowError": true
+                                  },
+                                  "nextStep": "goal"
+                                }
+                              ]
+                            },
+                            "goal": {
+                              "description": "Test goal step (never reached).",
+                              "actions": {
+                                "enter": [],
+                                "exit": []
+                              },
+                              "transitions": []
+                            }
+                          }
                         },
                         {
                           "id": "ZFpRfMRETDqavS3EqEuv1Q",
@@ -72,33 +144,111 @@
                     "id": "4nw2B9oVQYm1ZspZqotrRA",
                     "name": "Unnamed OPC",
                     "description": "Undescribed OPC",
+                    "options": {
+                      "evaluate": {
+                        "maxFrames": 16,
+                        "firstEvaluation": "constructor"
+                      }
+                    },
                     "opmMap": {
                       "_vC2O7DGTZ22R5hvxpy0WQ": {
                         "id": "_vC2O7DGTZ22R5hvxpy0WQ",
                         "name": "OPM Test A",
-                        "description": "A simple test OPM",
+                        "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
                         "opmDataSpec": {
                           "____types": "jsObject"
                         },
-                        "steps": {}
+                        "steps": {
+                          "uninitialized": {
+                            "description": "Default starting process step.",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": [
+                              {
+                                "transitionIf": {
+                                  "noneSuchOperator": true
+                                },
+                                "nextStep": "goal"
+                              }
+                            ]
+                          },
+                          "goal": {
+                            "description": "Test goal step (never reached).",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": []
+                          }
+                        }
                       },
                       "SyCUD3kpQ8mtYbV5A_4BPA": {
                         "id": "SyCUD3kpQ8mtYbV5A_4BPA",
                         "name": "OPM Test B",
-                        "description": "A simple test OPM",
+                        "description": "A simple test OPM (force transition operator error - operator returns transport error)",
                         "opmDataSpec": {
                           "____types": "jsObject"
                         },
-                        "steps": {}
+                        "steps": {
+                          "uninitialized": {
+                            "description": "Default starting process step.",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": [
+                              {
+                                "transitionIf": {
+                                  "badTransitionOperatorResponseError": true
+                                },
+                                "nextStep": "goal"
+                              }
+                            ]
+                          },
+                          "goal": {
+                            "description": "Test goal step (never reached).",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": []
+                          }
+                        }
                       },
                       "Pkr1EErLSiiHQRt8gCaO0Q": {
                         "id": "Pkr1EErLSiiHQRt8gCaO0Q",
                         "name": "OPM Test C",
-                        "description": "A simple test OPM",
+                        "description": "A simple test OPM (force transition operator error - operator throws an Error)",
                         "opmDataSpec": {
                           "____types": "jsObject"
                         },
-                        "steps": {}
+                        "steps": {
+                          "uninitialized": {
+                            "description": "Default starting process step.",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": [
+                              {
+                                "transitionIf": {
+                                  "badTransitionOperatorThrowError": true
+                                },
+                                "nextStep": "goal"
+                              }
+                            ]
+                          },
+                          "goal": {
+                            "description": "Test goal step (never reached).",
+                            "actions": {
+                              "enter": [],
+                              "exit": []
+                            },
+                            "transitions": []
+                          }
+                        }
                       },
                       "ZFpRfMRETDqavS3EqEuv1Q": {
                         "id": "ZFpRfMRETDqavS3EqEuv1Q",
@@ -131,6 +281,7 @@
                         "evalNumber": 0,
                         "summary": {
                           "counts": {
+                            "bindings": 0,
                             "frames": 1,
                             "errors": 0,
                             "transitions": 0

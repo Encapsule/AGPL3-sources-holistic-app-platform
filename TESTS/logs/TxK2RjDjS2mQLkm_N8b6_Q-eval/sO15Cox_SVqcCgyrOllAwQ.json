@@ -42,7 +42,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "setBooleanFlag": {
                                         "path": "#.clock"
@@ -70,7 +70,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "clearBooleanFlag": {
                                         "path": "#.clock"
@@ -84,16 +84,18 @@
                         }
                       },
                       "waiting": {
-                        "description": "The frame latch is waiting for value to be written.",
+                        "description": "Frame latch value has not changed since last signalled update.",
                         "transitions": [
                           {
                             "nextStep": "updated",
                             "transitionIf": {
                               "holarchy": {
                                 "sml": {
-                                  "operator": {
-                                    "isBooleanFlagSet": {
-                                      "path": "#.clock"
+                                  "operators": {
+                                    "ocd": {
+                                      "isBooleanFlagSet": {
+                                        "path": "#.clock"
+                                      }
                                     }
                                   }
                                 }
@@ -145,7 +147,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "setBooleanFlag": {
                                         "path": "#.clock"
@@ -174,7 +176,7 @@
                             {
                               "holarchy": {
                                 "sml": {
-                                  "action": {
+                                  "actions": {
                                     "ocd": {
                                       "clearBooleanFlag": {
                                         "path": "#.clock"
@@ -196,7 +198,7 @@
                         ]
                       },
                       "waiting": {
-                        "description": "The frame latch is waiting for value to be written.",
+                        "description": "Frame latch value has not changed since last signalled update.",
                         "actions": {
                           "enter": [],
                           "exit": []
@@ -206,9 +208,11 @@
                             "transitionIf": {
                               "holarchy": {
                                 "sml": {
-                                  "operator": {
-                                    "isBooleanFlagSet": {
-                                      "path": "#.clock"
+                                  "operators": {
+                                    "ocd": {
+                                      "isBooleanFlagSet": {
+                                        "path": "#.clock"
+                                      }
                                     }
                                   }
                                 }
@@ -249,7 +253,7 @@
                               {
                                 "holarchy": {
                                   "sml": {
-                                    "action": {
+                                    "actions": {
                                       "ocd": {
                                         "setBooleanFlag": {
                                           "path": "#.clock"
@@ -273,7 +277,7 @@
                               {
                                 "holarchy": {
                                   "sml": {
-                                    "action": {
+                                    "actions": {
                                       "ocd": {
                                         "clearBooleanFlag": {
                                           "path": "#.clock"
@@ -290,7 +294,7 @@
                       {
                         "u": "waiting",
                         "p": {
-                          "description": "The frame latch is waiting for value to be written.",
+                          "description": "Frame latch value has not changed since last signalled update.",
                           "actions": {
                             "enter": [],
                             "exit": []
@@ -333,9 +337,11 @@
                           "operator": {
                             "holarchy": {
                               "sml": {
-                                "operator": {
-                                  "isBooleanFlagSet": {
-                                    "path": "#.clock"
+                                "operators": {
+                                  "ocd": {
+                                    "isBooleanFlagSet": {
+                                      "path": "#.clock"
+                                    }
                                   }
                                 }
                               }

@@ -7,7 +7,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // @encapsule/holarchy-sml package exports:
 var packageMeta = require("./package.json");
 
-var standardModelLibrary = require("./lib");
+var softwareModelLibrary = require("./lib");
 
 module.exports = _objectSpread({
   __meta: {
@@ -18,4 +18,4 @@ module.exports = _objectSpread({
     build: packageMeta.buildID,
     source: packageMeta.buildSource
   }
-}, standardModelLibrary);
+}, softwareModelLibrary);

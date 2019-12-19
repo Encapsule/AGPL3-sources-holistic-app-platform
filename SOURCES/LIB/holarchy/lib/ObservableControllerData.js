@@ -1,6 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
 const getNamespaceInReferenceFromPathFilter = require("./filters/get-namespace-in-reference-from-path");
+const dataPathResolveFilter = require("./filters/ocd-method-data-path-resolve-filter");
 
 class ObservableControllerData {
 
@@ -26,7 +27,7 @@ class ObservableControllerData {
         // Private implementation state. Consumers of this class should not access the _private namespace; use class methods to interact with class instances instead.
         this._private = {
             storeData: filterResponse.result,
-            storeDataSpec: request_.spec,
+            storeDataSpec: dataFilter.filterDescriptor.inputFilterSpec,
             accessFilters: {
                 read: {},
                 write: {}
@@ -41,6 +42,9 @@ class ObservableControllerData {
 
     } // end constructor
 
+    static dataPathResolve(request_) {
+        return dataPathResolveFilter.request(request_);
+    }
 
     toJSON() {
         // Only return the data; no other runtime state maintained by this class instance should ever be serialized.
@@ -48,19 +52,19 @@ class ObservableControllerData {
     }
 
     // Returns an arccore.filter-style response descriptor object.
-    readNamespace(path_) {
+    readNamespace(dataPath_) {
         let methodResponse = { error: null, result: undefined };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
             // Determine if we have already instantiated a read filter for this namespace.
-            if (!this._private.accessFilters.read[path_]) {
+            if (!this._private.accessFilters.read[dataPath_]) {
                 // Cache miss. Create a new read filter for the requested namespace.
-                const operationId = arccore.identifier.irut.fromReference("read-filter" + path_).result;
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
+                const operationId = arccore.identifier.irut.fromReference("read-filter" + dataPath_).result;
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: dataPath_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error || !filterResponse.result) {
-                    errors.push(`Cannot read controller data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
+                    errors.push(`Cannot read controller data store namespace path '${dataPath_}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
@@ -68,19 +72,19 @@ class ObservableControllerData {
                 filterResponse = arccore.filter.create({
                     operationID: operationId,
                     operationName: `Controller Data Read Filter ${operationId}`,
-                    operationDescription: `Validated/normalized read operations from ADS namespace '${path_}'.`,
-                    bodyFunction: () => { return getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeData }); },
+                    operationDescription: `Validated/normalized read operations from OCD namespace '${dataPath_}'.`,
+                    bodyFunction: () => { return getNamespaceInReferenceFromPathFilter.request({ namespacePath: dataPath_, sourceRef: this._private.storeData }); },
                     outputFilterSpec: targetNamespaceSpec,
                 });
                 if (filterResponse.error) {
-                    errors.push(`Cannot read controller data store namespace path '${path_}' because it is not possible to construct a read filter for this namespace.`);
+                    errors.push(`Cannot read controller data store namespace path '${dataPath_}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
                 // Cache the newly-created read filter.
-                this._private.accessFilters.read[path_] = filterResponse.result;
+                this._private.accessFilters.read[dataPath_] = filterResponse.result;
             } // if read filter doesn't exist
-            const readFilter = this._private.accessFilters.read[path_];
+            const readFilter = this._private.accessFilters.read[dataPath_];
             methodResponse = readFilter.request();
             break;
         } // end while
@@ -91,26 +95,26 @@ class ObservableControllerData {
     } // readNamespace
 
     // Returns an arccore.filter-style response descriptor object.
-    writeNamespace(path_, value_) {
+    writeNamespace(dataPath_, value_) {
         let methodResponse = { error: null, result: undefined };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
             // Determine if we have already instantiated a read filter for this namespace.
-            if (!this._private.accessFilters.write[path_]) {
+            if (!this._private.accessFilters.write[dataPath_]) {
                 // Cache miss. Create a new write filter for the requested namespace.
-                const operationId = arccore.identifier.irut.fromReference("write-filter" + path_).result;
-                const pathTokens = path_.split(".");
+                const operationId = arccore.identifier.irut.fromReference("write-filter" + dataPath_).result;
+                const pathTokens = dataPath_.split(".");
                 if (pathTokens.length < 2) {
-                    errors.push(`Cannot write to controller data store namespace '${path_}'; invalid attempt to overwrite the entire store.`);
+                    errors.push(`Cannot write to controller data store namespace '${dataPath_}'; invalid attempt to overwrite the entire store.`);
                     break;
                 } // if invalid write attempt
                 const parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
                 const targetNamespace = pathTokens[pathTokens.length - 1];
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: dataPath_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error || !filterResponse.result) {
-                    errors.push(`Cannot write controller data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
+                    errors.push(`Cannot write controller data store namespace path '${dataPath_}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
@@ -118,7 +122,7 @@ class ObservableControllerData {
                 filterResponse = arccore.filter.create({
                     operationID: operationId,
                     operationName: `Controller Data Write Filter ${operationId}`,
-                    operationDescription: `Validated/normalized write to ADS namespace '${path_}'.`,
+                    operationDescription: `Validated/normalized write to OCD namespace '${dataPath_}'.`,
                     inputFilterSpec: targetNamespaceSpec,
                     bodyFunction: (request_) => {
                         let response = { error: null, result: undefined };
@@ -128,13 +132,13 @@ class ObservableControllerData {
                             inBreakScope = true;
                             let innerResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: parentPath, sourceRef: this._private.storeData });
                             if (innerResponse.error) {
-                                errors.push(`Unable to write to ADS namespace '${path_}' due to an error reading parent namespace '${parentPath}'.`);
+                                errors.push(`Unable to write to OCD namespace '${dataPath_}' due to an error reading parent namespace '${parentPath}'.`);
                                 errors.push(innerResponse.error);
                                 break;
                             }
                             let parentNamespace = innerResponse.result;
                             parentNamespace[targetNamespace] = request_; // the actual write
-                            response.result = request_; // return the validated/normalized data written to the ADS
+                            response.result = request_; // return the validated/normalized data written to the OCD
                             break;
                         }
                         if (errors.length) {
@@ -144,14 +148,14 @@ class ObservableControllerData {
                     },
                 });
                 if (filterResponse.error) {
-                    errors.push(`Cannot write controller data store namespace path '${path_}' because it is not possible to construct a write filter for this namespace.`);
+                    errors.push(`Cannot write controller data store namespace path '${dataPath_}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
                     break;
                 } // if error
                 // Cache the newly-created write filter.
-                this._private.accessFilters.write[path_] = filterResponse.result;
+                this._private.accessFilters.write[dataPath_] = filterResponse.result;
             } // if write filter doesn't exist
-            const writeFilter = this._private.accessFilters.write[path_];
+            const writeFilter = this._private.accessFilters.write[dataPath_];
             methodResponse = writeFilter.request(value_);
             break;
         } // end while
@@ -161,15 +165,15 @@ class ObservableControllerData {
         return methodResponse;
     } // writeNamespace
 
-    getNamespaceSpec(path_) {
+    getNamespaceSpec(dataPath_) {
         let methodResponse = { error: null, result: undefined };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: path_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
+            const filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: dataPath_, sourceRef: this._private.storeDataSpec, parseFilterSpec: true });
             if (filterResponse.error) {
-                errors.push(`Cannot resolve a namespace descriptor in filter specification for path '${path_}'.`);
+                errors.push(`Cannot resolve a namespace descriptor in filter specification for path '${dataPath_}'.`);
                 errors.push(filterResponse.error);
                 break;
             } // if error
