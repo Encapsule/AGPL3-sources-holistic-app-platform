@@ -39,22 +39,40 @@ var factoryResponse = arccore.filter.create({
     ____accept: "jsObject"
   },
   bodyFunction: function bodyFunction(request_) {
-    // HOLODECK TEST RUNNER DEFINITION
-    var runnerResponse = holodeck.runnerFilter.request({
-      id: "TxK2RjDjS2mQLkm_N8b6_Q",
-      name: "Holistic Platform Test Vectors",
-      description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
-      logsRootDir: request_.logsDirectory,
-      testHarnessFilters: [].concat(_toConsumableArray(holodeckPackageHarnesses), _toConsumableArray(holarchyPackageHarnesses)),
-      testRequestSets: [].concat(_toConsumableArray(holodeckPackageVectorSets), _toConsumableArray(holarchyPackageVectorSets))
-    });
+    var response = {
+      error: null
+    };
+    var errors = [];
+    var inBreakScope = false;
 
-    if (runnerResponse.error) {
-      console.error("! Test runner returned an error: '".concat(runnerResponse.error, "'"));
-    } else {
-      console.log("Complete.");
+    while (!inBreakScope) {
+      inBreakScope = true; // HOLODECK TEST RUNNER DEFINITION
+
+      var runnerResponse = holodeck.runnerFilter.request({
+        id: "TxK2RjDjS2mQLkm_N8b6_Q",
+        name: "Holistic Platform Test Vectors",
+        description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
+        logsRootDir: request_.logsDirectory,
+        testHarnessFilters: [].concat(_toConsumableArray(holodeckPackageHarnesses), _toConsumableArray(holarchyPackageHarnesses)),
+        testRequestSets: [].concat(_toConsumableArray(holodeckPackageVectorSets), _toConsumableArray(holarchyPackageVectorSets))
+      });
+
+      if (runnerResponse.error) {
+        errors.push(runnerResponse.error);
+        break;
+      }
+
+      response.result = runnerResponse.result;
+      break;
     }
-  }
+
+    if (errors.length) {
+      response.error = errors.join(" ");
+    }
+
+    return response;
+  } // bodyFunction
+
 });
 
 if (factoryResponse.error) {
