@@ -27,27 +27,43 @@ const factoryResponse = arccore.filter.create({
         ____accept: "jsObject"
     },
     bodyFunction: function(request_) {
-        // HOLODECK TEST RUNNER DEFINITION
-        const runnerResponse = holodeck.runnerFilter.request({
-            id: "TxK2RjDjS2mQLkm_N8b6_Q",
-            name: "Holistic Platform Test Vectors",
-            description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
-            logsRootDir: request_.logsDirectory,
-            testHarnessFilters: [
-                ...holodeckPackageHarnesses,
-                ...holarchyPackageHarnesses
-            ],
-            testRequestSets: [
-                ...holodeckPackageVectorSets,
-                ...holarchyPackageVectorSets
-            ]
-        });
-        if (runnerResponse.error) {
-            console.error(`! Test runner returned an error: '${runnerResponse.error}'`);
-        } else {
-            console.log("Complete.");
+
+        let response = { error: null };
+        let errors = [];
+        let inBreakScope = false;
+
+        while (!inBreakScope) {
+            inBreakScope = true;
+
+            // HOLODECK TEST RUNNER DEFINITION
+            const runnerResponse = holodeck.runnerFilter.request({
+                id: "TxK2RjDjS2mQLkm_N8b6_Q",
+                name: "Holistic Platform Test Vectors",
+                description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
+                logsRootDir: request_.logsDirectory,
+                testHarnessFilters: [
+                    ...holodeckPackageHarnesses,
+                    ...holarchyPackageHarnesses
+                ],
+                testRequestSets: [
+                    ...holodeckPackageVectorSets,
+                    ...holarchyPackageVectorSets
+                ]
+            });
+            if (runnerResponse.error) {
+                errors.push(runnerResponse.error);
+                break;
+            }
+            response.result = runnerResponse.result;
+            break;
         }
-    }
+        if (errors.length) {
+            response.error = errors.join(" ");
+        }
+        return response;
+
+    } // bodyFunction
+
 });
 
 if (factoryResponse.error) {
