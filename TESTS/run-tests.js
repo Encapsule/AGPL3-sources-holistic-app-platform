@@ -2,6 +2,7 @@
 "use strict";
 
 const path = require("path");
+const process = require("process");
 
 ////
 // v--- MOCKERY TRICKS
@@ -58,4 +59,13 @@ mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
 
 const holodeckAssets = require("@encapsule/holodeck-assets");
 
-holodeckAssets.holistic.request({ logsDirectory: path.resolve(path.join(__dirname, "logs")) });
+const runnerResponse = holodeckAssets.holistic.request({ logsDirectory: path.resolve(path.join(__dirname, "logs")) });
+
+if (runnerResponse.error) {
+    console.error(runnerResponse.error);
+    process.exit(1);
+}
+
+console.log("Complete.");
+process.exit(0);
+
