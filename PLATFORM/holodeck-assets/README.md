@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holodeck-assets v0.0.28 "pemberton"
+# @encapsule/holodeck-assets v0.0.29 "northstar"
 
 ```
-Package: @encapsule/holodeck-assets v0.0.28 "pemberton" build ID "RVmJ0232SLKmyNkwIK7OaA"
-Sources: Encapsule/holistic#fe24a69817b19554a3b08772db4683e5df2e0a33
+Package: @encapsule/holodeck-assets v0.0.29 "northstar" build ID "5KBcM8f-SIOM1sFPJIa5bg"
+Sources: Encapsule/holistic#fe37f33b9774040b7fa26c408f070962d134a70f
 Purpose: library (Node.js)
-Created: 2019-12-19T23:38:31.000Z
+Created: 2019-12-20T15:19:21.000Z
 License: MIT
 ```
 
@@ -44,7 +44,7 @@ console.log(JSON.stringify(holodeck-assets.__meta));
 
 The `@encapsule/holodeck-assets` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holodeck-assets Package Distribution](https://npmjs.com/package/@encapsule/holodeck-assets/v/0.0.28) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holodeck-assets Package Distribution](https://npmjs.com/package/@encapsule/holodeck-assets/v/0.0.29) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holodeck-assets git Repository](https://github.com/Encapsule/holodeck-assets) ([GitHub](https://github.com/Encapsule))
 
 <hr>

@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holodeck-assets",
-    "version": "0.0.28",
-    "codename": "pemberton",
-    "buildID": "RVmJ0232SLKmyNkwIK7OaA",
-    "buildTime": 1576798711,
-    "buildSource": "fe24a69817b19554a3b08772db4683e5df2e0a33",
+    "version": "0.0.29",
+    "codename": "northstar",
+    "buildID": "5KBcM8f-SIOM1sFPJIa5bg",
+    "buildTime": 1576855161,
+    "buildSource": "fe37f33b9774040b7fa26c408f070962d134a70f",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holodeck-assets.git"
@@ -29,7 +29,7 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.7",
-        "@encapsule/holodeck": "0.0.28",
-        "@encapsule/holarchy": "0.0.28"
+        "@encapsule/holodeck": "0.0.29",
+        "@encapsule/holarchy": "0.0.29"
     }
 }
