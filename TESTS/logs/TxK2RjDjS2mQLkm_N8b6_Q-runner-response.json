@@ -16294,6 +16294,145 @@
                                   "outputTypeVIID": "LPeeiMV42LNeAhthe2myDQ",
                                   "outputTypeVDID": "8-d-OpyoAkX4G5bt5_5T_Q",
                                   "operationVDID": "E6VN-IT57adhKU13b50bSw"
+                                },
+                                {
+                                  "operationID": "Ve_kEFkGSMSgOqUWu9Yo_w",
+                                  "operationName": "OCD Read Namespace Indirect",
+                                  "operationDescription": "Reads and returns the value of OCD namespace via path indirection.",
+                                  "inputFilterSpec": {
+                                    "____label": "OCD Read Namespace Indirect Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ocd": {
+                                              "____types": "jsObject",
+                                              "readNamespaceIndirect": {
+                                                "____types": "jsObject",
+                                                "path2": {
+                                                  "____label": "Target Path Namespace Path",
+                                                  "____description": "The OCD path of the string namespace containing the OCD path of the target namespace to read.",
+                                                  "____accept": "jsString"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____opaque": true
+                                  },
+                                  "inputTypeVIID": "r0nWow8E0BIohA7UDujmMw",
+                                  "inputTypeVDID": "nsUj_P5arQ5jRvvexu8DsA",
+                                  "outputTypeVIID": "QKKFgPFZL00DATFNfFLfiQ",
+                                  "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                  "operationVDID": "0NacE_oXqVe5Glvt_yxvtA"
+                                },
+                                {
+                                  "operationID": "d2vRmtn2QA6Ox8W4PwDWNA",
+                                  "operationName": "React Client View Rehydrate",
+                                  "operationDescription": "Rehydrate server-rendered React view and connect UI event handlers.",
+                                  "inputFilterSpec": {
+                                    "____label": "React Client View Rehydrate Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "react": {
+                                              "____types": "jsObject",
+                                              "rehydrate": {
+                                                "____types": "jsObject",
+                                                "pathComponentRouter": {
+                                                  "____label": "<ComponentRouter/> Path",
+                                                  "____description": "OCD path of the object namespace containing the <ComponentRouter/> instance to use to rehydrate the client view.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.ComponentRouter"
+                                                },
+                                                "pathDOMElement": {
+                                                  "____label": "DOM Element Path",
+                                                  "____description": "OCD path of the object namespace containing the DOM element to use to rehydrate the client view.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.DOMElement"
+                                                },
+                                                "pathDataContextPath": {
+                                                  "____label": "Data Context Path^2",
+                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed through React via this.props.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.pathDataContext"
+                                                },
+                                                "pathRenderDataPath": {
+                                                  "____label": "<ComponentRouter/> Render Data Path^2",
+                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed to <ComponentRouter/> as renderData.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.pathRenderData"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "dJjTV9BAp4Z9pSavLeZ-wQ",
+                                  "inputTypeVDID": "KXVI5xjspkP3ffQqyQ77ZQ",
+                                  "outputTypeVIID": "8JLm4g169JeAd37FiSdhHA",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "6ns6kiHQwzGWkzUw69s3SA"
                                 }
                               ]
                             ]
@@ -16623,18 +16762,20 @@
                             },
                             "actionDispatcher": {
                               "filterDescriptor": {
-                                "operationID": "YRp3vFv0SXeID25Zhwfcnw",
+                                "operationID": "IKoGNsvxAZLjwaSho4PTlg",
                                 "operationName": "Discriminator Filter",
                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                "inputTypeVIID": "-tXTWbyH9fZu5jtx8f0R7A",
+                                "inputTypeVIID": "SdJrC3D28XyjpTSr948vKQ",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                "outputTypeVIID": "HuJ5q0haU5Co8o7JI0iJ2w",
+                                "outputTypeVIID": "sTJyFaoOy07ns2qwOvpuoQ",
                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                "operationVDID": "pSb0E6HdNVfZd47t5IAUtA"
+                                "operationVDID": "KbL0EzU0NVel1Y7t7XgUtA"
                               },
                               "supportedFilters": [
                                 "[5rFEDGLYRSiZCeChMnkCHQ::Set Boolean Flag]",
+                                "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
                                 "[_yxWfFLnTqqN-UxRdd7W5w::Clear Boolean Flag]",
+                                "[d2vRmtn2QA6Ox8W4PwDWNA::React Client View Rehydrate]",
                                 "[iyvk_9vhRn2qvrjOes5v7Q::Write Frame Latch]"
                               ],
                               "options": {

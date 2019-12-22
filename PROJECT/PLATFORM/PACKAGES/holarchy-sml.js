@@ -2,6 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const holistic = require("../../../BUILD/holistic");
+const react = require("react");
 
 module.exports = {
     packageType: "library",
@@ -13,7 +14,9 @@ module.exports = {
         main: "index.js",
         peerDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
-            "@encapsule/holarchy": holistic.version
+            "@encapsule/holarchy": holistic.version,
+            "react": react.version,
+            "react-dom": react.version
         }
     },
     packageReadme: {
