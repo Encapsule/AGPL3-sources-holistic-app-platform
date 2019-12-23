@@ -8,6 +8,8 @@ const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets"
 const holarchyPackageHarnesses = require("../holarchy/harnesses");
 const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
 
+const holarchySMLPackageVectorSets = require("./holarchy-sml-package-tests/vector-sets");
+
 const factoryResponse = arccore.filter.create({
     operationID: "Ga_AZ-2HSHuB0uJ9l6n3Uw",
     operationName: "Holistic Test Runner Generator",
@@ -47,7 +49,8 @@ const factoryResponse = arccore.filter.create({
                 ],
                 testRequestSets: [
                     ...holodeckPackageVectorSets,
-                    ...holarchyPackageVectorSets
+                    ...holarchyPackageVectorSets,
+                    ...holarchySMLPackageVectorSets
                 ]
             });
             if (runnerResponse.error) {

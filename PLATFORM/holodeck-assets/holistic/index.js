@@ -20,6 +20,8 @@ var holarchyPackageHarnesses = require("../holarchy/harnesses");
 
 var holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
 
+var holarchySMLPackageVectorSets = require("./holarchy-sml-package-tests/vector-sets");
+
 var factoryResponse = arccore.filter.create({
   operationID: "Ga_AZ-2HSHuB0uJ9l6n3Uw",
   operationName: "Holistic Test Runner Generator",
@@ -54,7 +56,7 @@ var factoryResponse = arccore.filter.create({
         description: "A suite of test vectors for exploring and confirming the behaviors of Encapsule Project holistic app platform libraries.",
         logsRootDir: request_.logsDirectory,
         testHarnessFilters: [].concat(_toConsumableArray(holodeckPackageHarnesses), _toConsumableArray(holarchyPackageHarnesses)),
-        testRequestSets: [].concat(_toConsumableArray(holodeckPackageVectorSets), _toConsumableArray(holarchyPackageVectorSets))
+        testRequestSets: [].concat(_toConsumableArray(holodeckPackageVectorSets), _toConsumableArray(holarchyPackageVectorSets), _toConsumableArray(holarchySMLPackageVectorSets))
       });
 
       if (runnerResponse.error) {

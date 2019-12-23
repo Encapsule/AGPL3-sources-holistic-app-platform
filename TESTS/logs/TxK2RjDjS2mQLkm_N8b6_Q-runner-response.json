@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 59,
+        "requests": 60,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -63,7 +63,8 @@
             "sO15Cox_SVqcCgyrOllAwQ",
             "stn1B2JRSkOkFxuyejzGjQ",
             "uZN6-qpIQO6CkwmLDWtMCw",
-            "waM_L9rTT6ySTY4ja__K3g"
+            "waM_L9rTT6ySTY4ja__K3g",
+            "zUoUas3CTj2HLDfpNf4NTw"
           ],
           "rejected": [
             "zxKqk_YOTme-e0AExJUhmg"
@@ -18078,6 +18079,186 @@
                               }
                             }
                           ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "XsVRVdrxTNvzPj7OQrDwAg": {
+              "zUoUas3CTj2HLDfpNf4NTw": {
+                "harnessRequest": {
+                  "id": "zUoUas3CTj2HLDfpNf4NTw",
+                  "name": "d2r2/React Client Output Processor OPM #1",
+                  "description": "A set of the d2r2/React Client Output Processor OPM.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessModel": {
+                          "constructorRequest": {
+                            "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                            "name": "d2r2/React Output Processor",
+                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                            "opmDataSpec": {
+                              "____label": "d2r2/React Output Processor",
+                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                              "____types": "jsObject",
+                              "inputs": {
+                                "____label": "Processor Inputs",
+                                "____types": "jsObject",
+                                "ComponentRouter": {
+                                  "____accept": "jsObject"
+                                },
+                                "DOMElement": {
+                                  "____accept": "jsObject"
+                                },
+                                "pathDataContext": {
+                                  "____label": "Data Context OCD Path",
+                                  "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                  "____accept": "jsString"
+                                },
+                                "pathRenderData": {
+                                  "____label": "Render Data OCD Path",
+                                  "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                  "____accept": "jsString"
+                                },
+                                "clock": {
+                                  "____label": "React Output Processor Clock",
+                                  "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                  "____types": "jsObject",
+                                  "____appdsl": {
+                                    "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                  },
+                                  "value": {
+                                    "____label": "Render Info",
+                                    "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                    "____types": "jsObject",
+                                    "renderCount": {
+                                      "____accept": "jsNumber"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "mC3pPO5wS3SxvhgZgMjsJQ": {
+                        "zUoUas3CTj2HLDfpNf4NTw": {
+                          "isValid": true,
+                          "toJSON": {
+                            "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                            "name": "d2r2/React Output Processor",
+                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                            "opmDataSpec": {
+                              "____label": "d2r2/React Output Processor",
+                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                              "____types": "jsObject",
+                              "inputs": {
+                                "____label": "Processor Inputs",
+                                "____types": "jsObject",
+                                "ComponentRouter": {
+                                  "____accept": "jsObject"
+                                },
+                                "DOMElement": {
+                                  "____accept": "jsObject"
+                                },
+                                "pathDataContext": {
+                                  "____label": "Data Context OCD Path",
+                                  "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                  "____accept": "jsString"
+                                },
+                                "pathRenderData": {
+                                  "____label": "Render Data OCD Path",
+                                  "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                  "____accept": "jsString"
+                                },
+                                "clock": {
+                                  "____label": "React Output Processor Clock",
+                                  "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                  "____types": "jsObject",
+                                  "____appdsl": {
+                                    "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                  },
+                                  "value": {
+                                    "____label": "Render Info",
+                                    "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                    "____types": "jsObject",
+                                    "renderCount": {
+                                      "____accept": "jsNumber"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "steps": {}
+                          },
+                          "getID": "IxoJ83u0TXmG7PLUYBvsyg",
+                          "getName": "d2r2/React Output Processor",
+                          "getDescription": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                          "getDataSpec": {
+                            "____label": "d2r2/React Output Processor",
+                            "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                            "____types": "jsObject",
+                            "inputs": {
+                              "____label": "Processor Inputs",
+                              "____types": "jsObject",
+                              "ComponentRouter": {
+                                "____accept": "jsObject"
+                              },
+                              "DOMElement": {
+                                "____accept": "jsObject"
+                              },
+                              "pathDataContext": {
+                                "____label": "Data Context OCD Path",
+                                "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                "____accept": "jsString"
+                              },
+                              "pathRenderData": {
+                                "____label": "Render Data OCD Path",
+                                "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                "____accept": "jsString"
+                              },
+                              "clock": {
+                                "____label": "React Output Processor Clock",
+                                "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                "____types": "jsObject",
+                                "____appdsl": {
+                                  "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                },
+                                "value": {
+                                  "____label": "Render Info",
+                                  "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                  "____types": "jsObject",
+                                  "renderCount": {
+                                    "____accept": "jsNumber"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "getDigraph": {
+                            "name": "[IxoJ83u0TXmG7PLUYBvsyg::d2r2/React Output Processor] OPM Digraph",
+                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                            "vlist": [],
+                            "elist": []
+                          }
                         }
                       }
                     }

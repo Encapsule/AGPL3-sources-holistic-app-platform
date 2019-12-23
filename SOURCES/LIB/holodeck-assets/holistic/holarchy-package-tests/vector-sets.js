@@ -1,3 +1,6 @@
+// Exports a "vector set" that is defined as
+// an array of arrays of holodeck test vectors.
+
 module.exports = [
 
     // Low-level ObservableProcessModel ES6 class tests.
@@ -15,10 +18,6 @@ module.exports = [
     require("./vector-set-act-constructor"),
 
     // Low-level TransitionOperator ES6 class tests.
-    require("./vector-set-top-constructor"),
-
-    // Derived OPC system tests.
-    require("./vector-set-frame-latch"),
-
+    require("./vector-set-top-constructor")
 
 ];
