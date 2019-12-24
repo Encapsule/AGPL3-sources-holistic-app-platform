@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "zUoUas3CTj2HLDfpNf4NTw",
           "name": "d2r2/React Client Output Processor OPM #1",
-          "description": "A set of the d2r2/React Client Output Processor OPM.",
+          "description": "Attempt to instantiate the current d2r2/React Client Output Processor OPM declaration via our test harness.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
@@ -18,24 +18,42 @@
                       "____label": "d2r2/React Output Processor",
                       "____description": "Shared memory definition for the d2r2/React Output Processor.",
                       "____types": "jsObject",
+                      "____defaultValue": {},
                       "inputs": {
                         "____label": "Processor Inputs",
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "ComponentRouter": {
-                          "____accept": "jsObject"
+                          "____accept": [
+                            "jsNull",
+                            "jsObject"
+                          ],
+                          "____defaultValue": null
                         },
                         "DOMElement": {
-                          "____accept": "jsObject"
+                          "____accept": [
+                            "jsNull",
+                            "jsObject"
+                          ],
+                          "____defaultValue": null
                         },
                         "pathDataContext": {
                           "____label": "Data Context OCD Path",
                           "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
-                          "____accept": "jsString"
+                          "____accept": [
+                            "jsNull",
+                            "jsString"
+                          ],
+                          "____defaultValue": null
                         },
                         "pathRenderData": {
                           "____label": "Render Data OCD Path",
                           "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                          "____accept": "jsString"
+                          "____accept": [
+                            "jsNull",
+                            "jsString"
+                          ],
+                          "____defaultValue": null
                         },
                         "clock": {
                           "____label": "React Output Processor Clock",
@@ -80,24 +98,42 @@
                       "____label": "d2r2/React Output Processor",
                       "____description": "Shared memory definition for the d2r2/React Output Processor.",
                       "____types": "jsObject",
+                      "____defaultValue": {},
                       "inputs": {
                         "____label": "Processor Inputs",
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "ComponentRouter": {
-                          "____accept": "jsObject"
+                          "____accept": [
+                            "jsNull",
+                            "jsObject"
+                          ],
+                          "____defaultValue": null
                         },
                         "DOMElement": {
-                          "____accept": "jsObject"
+                          "____accept": [
+                            "jsNull",
+                            "jsObject"
+                          ],
+                          "____defaultValue": null
                         },
                         "pathDataContext": {
                           "____label": "Data Context OCD Path",
                           "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
-                          "____accept": "jsString"
+                          "____accept": [
+                            "jsNull",
+                            "jsString"
+                          ],
+                          "____defaultValue": null
                         },
                         "pathRenderData": {
                           "____label": "Render Data OCD Path",
                           "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                          "____accept": "jsString"
+                          "____accept": [
+                            "jsNull",
+                            "jsString"
+                          ],
+                          "____defaultValue": null
                         },
                         "clock": {
                           "____label": "React Output Processor Clock",
@@ -126,24 +162,42 @@
                     "____label": "d2r2/React Output Processor",
                     "____description": "Shared memory definition for the d2r2/React Output Processor.",
                     "____types": "jsObject",
+                    "____defaultValue": {},
                     "inputs": {
                       "____label": "Processor Inputs",
                       "____types": "jsObject",
+                      "____defaultValue": {},
                       "ComponentRouter": {
-                        "____accept": "jsObject"
+                        "____accept": [
+                          "jsNull",
+                          "jsObject"
+                        ],
+                        "____defaultValue": null
                       },
                       "DOMElement": {
-                        "____accept": "jsObject"
+                        "____accept": [
+                          "jsNull",
+                          "jsObject"
+                        ],
+                        "____defaultValue": null
                       },
                       "pathDataContext": {
                         "____label": "Data Context OCD Path",
                         "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
-                        "____accept": "jsString"
+                        "____accept": [
+                          "jsNull",
+                          "jsString"
+                        ],
+                        "____defaultValue": null
                       },
                       "pathRenderData": {
                         "____label": "Render Data OCD Path",
                         "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                        "____accept": "jsString"
+                        "____accept": [
+                          "jsNull",
+                          "jsString"
+                        ],
+                        "____defaultValue": null
                       },
                       "clock": {
                         "____label": "React Output Processor Clock",

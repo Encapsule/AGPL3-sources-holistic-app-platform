@@ -14,30 +14,36 @@ module.exports = {
         ____label: "d2r2/React Output Processor",
         ____description: "Shared memory definition for the d2r2/React Output Processor.",
         ____types: "jsObject",
+        ____defaultValue: {},
 
         inputs: {
 
             ____label: "Processor Inputs",
             ____types: "jsObject",
+            ____defaultValue: {},
 
             ComponentRouter: {
-                ____accept: "jsObject"
+                ____accept: [ "jsNull", "jsObject" ],
+                ____defaultValue: null
             },
 
             DOMElement: {
-                ____accept: "jsObject"
+                ____accept: [ "jsNull", "jsObject" ],
+                ____defaultValue: null
             },
 
             pathDataContext: {
                 ____label: "Data Context OCD Path",
                 ____description: "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
-                ____accept: "jsString"
+                ____accept: [ "jsNull", "jsString" ],
+                ____defaultValue: null
             },
 
             pathRenderData: {
                 ____label: "Render Data OCD Path",
                 ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                ____accept: "jsString"
+                ____accept: [ "jsNull", "jsString" ],
+                ____defaultValue: null
             },
 
             clock: {
@@ -55,10 +61,8 @@ module.exports = {
                 }
             }
 
-
-        }, // inputs
+        } // inputs
 
     }
-
 
 };

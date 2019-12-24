@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 60,
+        "requests": 61,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -46,6 +46,7 @@
             "dirl1VuNQCmBrzbJXWMTtA",
             "fNpBNE0uQ2GJWunuKe3_lA",
             "fzc39RvNTLmHF5UNn_-Fng",
+            "fzuITg9BQbyV7jNv39Gv6w",
             "gwtkQR51TYm93K32K6QHNA",
             "iQ5RngZ0QNyH67mVrlwo4w",
             "juolo4dqSgKdLEYLoHJJ1Q",
@@ -18095,7 +18096,7 @@
                 "harnessRequest": {
                   "id": "zUoUas3CTj2HLDfpNf4NTw",
                   "name": "d2r2/React Client Output Processor OPM #1",
-                  "description": "A set of the d2r2/React Client Output Processor OPM.",
+                  "description": "Attempt to instantiate the current d2r2/React Client Output Processor OPM declaration via our test harness.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
@@ -18108,24 +18109,42 @@
                               "____label": "d2r2/React Output Processor",
                               "____description": "Shared memory definition for the d2r2/React Output Processor.",
                               "____types": "jsObject",
+                              "____defaultValue": {},
                               "inputs": {
                                 "____label": "Processor Inputs",
                                 "____types": "jsObject",
+                                "____defaultValue": {},
                                 "ComponentRouter": {
-                                  "____accept": "jsObject"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsObject"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "DOMElement": {
-                                  "____accept": "jsObject"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsObject"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "pathDataContext": {
                                   "____label": "Data Context OCD Path",
                                   "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
-                                  "____accept": "jsString"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsString"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "pathRenderData": {
                                   "____label": "Render Data OCD Path",
                                   "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                                  "____accept": "jsString"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsString"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "clock": {
                                   "____label": "React Output Processor Clock",
@@ -18170,24 +18189,42 @@
                               "____label": "d2r2/React Output Processor",
                               "____description": "Shared memory definition for the d2r2/React Output Processor.",
                               "____types": "jsObject",
+                              "____defaultValue": {},
                               "inputs": {
                                 "____label": "Processor Inputs",
                                 "____types": "jsObject",
+                                "____defaultValue": {},
                                 "ComponentRouter": {
-                                  "____accept": "jsObject"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsObject"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "DOMElement": {
-                                  "____accept": "jsObject"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsObject"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "pathDataContext": {
                                   "____label": "Data Context OCD Path",
                                   "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
-                                  "____accept": "jsString"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsString"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "pathRenderData": {
                                   "____label": "Render Data OCD Path",
                                   "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                                  "____accept": "jsString"
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsString"
+                                  ],
+                                  "____defaultValue": null
                                 },
                                 "clock": {
                                   "____label": "React Output Processor Clock",
@@ -18216,24 +18253,42 @@
                             "____label": "d2r2/React Output Processor",
                             "____description": "Shared memory definition for the d2r2/React Output Processor.",
                             "____types": "jsObject",
+                            "____defaultValue": {},
                             "inputs": {
                               "____label": "Processor Inputs",
                               "____types": "jsObject",
+                              "____defaultValue": {},
                               "ComponentRouter": {
-                                "____accept": "jsObject"
+                                "____accept": [
+                                  "jsNull",
+                                  "jsObject"
+                                ],
+                                "____defaultValue": null
                               },
                               "DOMElement": {
-                                "____accept": "jsObject"
+                                "____accept": [
+                                  "jsNull",
+                                  "jsObject"
+                                ],
+                                "____defaultValue": null
                               },
                               "pathDataContext": {
                                 "____label": "Data Context OCD Path",
                                 "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
-                                "____accept": "jsString"
+                                "____accept": [
+                                  "jsNull",
+                                  "jsString"
+                                ],
+                                "____defaultValue": null
                               },
                               "pathRenderData": {
                                 "____label": "Render Data OCD Path",
                                 "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                                "____accept": "jsString"
+                                "____accept": [
+                                  "jsNull",
+                                  "jsString"
+                                ],
+                                "____defaultValue": null
                               },
                               "clock": {
                                 "____label": "React Output Processor Clock",
@@ -18259,6 +18314,2356 @@
                             "vlist": [],
                             "elist": []
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "bvj2u51Uw5_SD1TRZNpwXA": {
+              "fzuITg9BQbyV7jNv39Gv6w": {
+                "harnessRequest": {
+                  "id": "fzuITg9BQbyV7jNv39Gv6w",
+                  "name": "d2r2/React Client Output Processor OPC #1",
+                  "description": "Attempt to apply the d2r2/React Client Output Processor OPM inside of an OPC instance.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ObservableProcessController": {
+                          "constructorRequest": {
+                            "id": "fzuITg9BQbyV7jNv39Gv6w",
+                            "name": "d2r2/React Client Output Processor OPC #1",
+                            "description": "Attempt to apply the d2r2/React Client Output Processor OPM inside of an OPC instance.",
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "d2r2ReactClientOutputProcessor": {
+                                "____types": "jsObject",
+                                "____appdsl": {
+                                  "opm": "IxoJ83u0TXmG7PLUYBvsyg"
+                                }
+                              }
+                            },
+                            "observableProcessModelSets": [
+                              [
+                                {
+                                  "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                  "name": "Observable Frame Latch",
+                                  "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                  "opmDataSpec": {
+                                    "____label": "Observable Frame Latch",
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "value": {
+                                      "____opaque": true
+                                    },
+                                    "clock": {
+                                      "____accept": "jsBoolean",
+                                      "____defaultValue": false
+                                    }
+                                  },
+                                  "steps": {
+                                    "uninitialized": {
+                                      "description": "Default starting process step.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "ocd": {
+                                                    "setBooleanFlag": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "updated"
+                                        }
+                                      ]
+                                    },
+                                    "updated": {
+                                      "description": "The value managed by the frame latch has been written.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "ocd": {
+                                                    "clearBooleanFlag": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "waiting"
+                                        }
+                                      ]
+                                    },
+                                    "waiting": {
+                                      "description": "Frame latch value has not changed since last signalled update.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "holarchy": {
+                                              "sml": {
+                                                "operators": {
+                                                  "ocd": {
+                                                    "isBooleanFlagSet": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "nextStep": "updated"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                                  "name": "d2r2/React Output Processor",
+                                  "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                  "opmDataSpec": {
+                                    "____label": "d2r2/React Output Processor",
+                                    "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "inputs": {
+                                      "____label": "Processor Inputs",
+                                      "____types": "jsObject",
+                                      "____defaultValue": {},
+                                      "ComponentRouter": {
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "DOMElement": {
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "pathDataContext": {
+                                        "____label": "Data Context OCD Path",
+                                        "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsString"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "pathRenderData": {
+                                        "____label": "Render Data OCD Path",
+                                        "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsString"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "clock": {
+                                        "____label": "React Output Processor Clock",
+                                        "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                        "____types": "jsObject",
+                                        "____appdsl": {
+                                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                        },
+                                        "value": {
+                                          "____label": "Render Info",
+                                          "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                          "____types": "jsObject",
+                                          "renderCount": {
+                                            "____accept": "jsNumber"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "steps": {}
+                                }
+                              ]
+                            ],
+                            "transitionOperatorSets": [
+                              [
+                                {
+                                  "operationID": "YgABX95wR86GCYrYaDLISA",
+                                  "operationName": "AND Transition Expression Operator",
+                                  "operationDescription": "Returns Boolean true iff all suboperations return true.",
+                                  "inputFilterSpec": {
+                                    "____label": "AND Transition Expression Operator Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "transitionDispatcher": {
+                                        "____label": "OPC Transition Dispatcher",
+                                        "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                        "____accept": "jsObject"
+                                      }
+                                    },
+                                    "operatorRequest": {
+                                      "____types": "jsObject",
+                                      "and": {
+                                        "____types": "jsArray",
+                                        "operandOperatorVariant": {
+                                          "____accept": "jsObject"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
+                                  "inputTypeVDID": "MeJe-Q8yBS3yvjg_XMejfQ",
+                                  "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "9oSpRLZTtZMBRc-cqI1Bcg"
+                                },
+                                {
+                                  "operationID": "TLSHkl73SO-utuzM7dyN2g",
+                                  "operationName": "NOT Transition Expression Operator",
+                                  "operationDescription": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
+                                  "inputFilterSpec": {
+                                    "____label": "NOT Transition Expression Operator Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "transitionDispatcher": {
+                                        "____label": "OPC Transition Dispatcher",
+                                        "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                        "____accept": "jsObject"
+                                      }
+                                    },
+                                    "operatorRequest": {
+                                      "____types": "jsObject",
+                                      "not": {
+                                        "____accept": "jsObject"
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "VqL0404urku_v3ZjcOkZTg",
+                                  "inputTypeVDID": "KuRBS4GhA46J_J246YJDXQ",
+                                  "outputTypeVIID": "V-JP28o44DYdLwju7U90ag",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "MeDbRHTCeJPIz1ScBEN8cg"
+                                },
+                                {
+                                  "operationID": "0JIva4IFSm6Xm7i38g8uUA",
+                                  "operationName": "OR Transition Expression Operator",
+                                  "operationDescription": "Returns Boolean true iff any suboperations return true.",
+                                  "inputFilterSpec": {
+                                    "____label": "OR Transition Expression Operator Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "transitionDispatcher": {
+                                        "____label": "OPC Transition Dispatcher",
+                                        "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                        "____accept": "jsObject"
+                                      }
+                                    },
+                                    "operatorRequest": {
+                                      "____types": "jsObject",
+                                      "or": {
+                                        "____types": "jsArray",
+                                        "operandOperatorVariant": {
+                                          "____accept": "jsObject"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
+                                  "inputTypeVDID": "0di392MNsGr0Re6YF1w80A",
+                                  "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "4GPYRIWdE5Nmy3OcOLsucg"
+                                },
+                                {
+                                  "operationID": "e89cwnP4Qd6MocAhzdOJgw",
+                                  "operationName": "Always returns Boolean true unconditionally.",
+                                  "operationDescription": "Always returns true.",
+                                  "inputFilterSpec": {
+                                    "____label": "Always returns Boolean true unconditionally. Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "transitionDispatcher": {
+                                        "____label": "OPC Transition Dispatcher",
+                                        "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                        "____accept": "jsObject"
+                                      }
+                                    },
+                                    "operatorRequest": {
+                                      "____types": "jsObject",
+                                      "always": {
+                                        "____accept": "jsBoolean",
+                                        "____inValueSet": [
+                                          true
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
+                                  "inputTypeVDID": "0F57_Y1l7dHCn6STVVj8bQ",
+                                  "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "7gxZROb4cZP8fnSc1KDncg"
+                                },
+                                {
+                                  "operationID": "9tNY7o5GTUGH_xda2GhP-w",
+                                  "operationName": "OPM In Step Expression Operator",
+                                  "operationDescription": "Returns Boolean true iff the indicated OPM instance is in the indicated process step.",
+                                  "inputFilterSpec": {
+                                    "____label": "OPM In Step Expression Operator Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "transitionDispatcher": {
+                                        "____label": "OPC Transition Dispatcher",
+                                        "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                        "____accept": "jsObject"
+                                      }
+                                    },
+                                    "operatorRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "operators": {
+                                            "____types": "jsObject",
+                                            "opmi": {
+                                              "____types": "jsObject",
+                                              "inStep": {
+                                                "____types": "jsObject",
+                                                "path": {
+                                                  "____accept": "jsString"
+                                                },
+                                                "step": {
+                                                  "____accept": "jsString"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
+                                  "inputTypeVDID": "JI94Ix-sn-tgo2-20gNnZw",
+                                  "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "wnUhRFZzvpO6TDOctCBccg"
+                                },
+                                {
+                                  "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
+                                  "operationName": "OCD Namespace Is Truthy",
+                                  "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                                  "inputFilterSpec": {
+                                    "____label": "OCD Namespace Is Truthy Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "transitionDispatcher": {
+                                        "____label": "OPC Transition Dispatcher",
+                                        "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                        "____accept": "jsObject"
+                                      }
+                                    },
+                                    "operatorRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "operators": {
+                                            "____types": "jsObject",
+                                            "ocd": {
+                                              "____types": "jsObject",
+                                              "isNamespaceTruthy": {
+                                                "____types": "jsObject",
+                                                "path": {
+                                                  "____accept": "jsString"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
+                                  "inputTypeVDID": "IiI0bML4bTrZdYSc77E39Q",
+                                  "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "vtYKROJmXJP3EVmc3IKncg"
+                                },
+                                {
+                                  "operationID": "UeLs9PcASwuC7KR190eYhA",
+                                  "operationName": "OCD Boolean Flag Is Set",
+                                  "operationDescription": "Returns Boolean true iff the indicated Boolean flag namespace is true.",
+                                  "inputFilterSpec": {
+                                    "____label": "OCD Boolean Flag Is Set Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "transitionDispatcher": {
+                                        "____label": "OPC Transition Dispatcher",
+                                        "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                        "____accept": "jsObject"
+                                      }
+                                    },
+                                    "operatorRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "operators": {
+                                            "____types": "jsObject",
+                                            "ocd": {
+                                              "____types": "jsObject",
+                                              "isBooleanFlagSet": {
+                                                "____types": "jsObject",
+                                                "path": {
+                                                  "____accept": "jsString"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "inputTypeVIID": "l0QuhcthqVCst39xt0A_SA",
+                                  "inputTypeVDID": "XSI0NmT4bc-9dYTNU7E3Qg",
+                                  "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
+                                  "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                  "operationVDID": "6RmnRISJAJPp2Z6ccblscg"
+                                }
+                              ]
+                            ],
+                            "controllerActionSets": [
+                              [
+                                {
+                                  "operationID": "_yxWfFLnTqqN-UxRdd7W5w",
+                                  "operationName": "Clear Boolean Flag",
+                                  "operationDescription": "Clears a Boolean flag in the OCD.",
+                                  "inputFilterSpec": {
+                                    "____label": "Clear Boolean Flag Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ocd": {
+                                              "____types": "jsObject",
+                                              "clearBooleanFlag": {
+                                                "____types": "jsObject",
+                                                "path": {
+                                                  "____accept": "jsString"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "Q26xScNwSEHmeE4xjO_vtg",
+                                  "inputTypeVDID": "ouIsY-huis0tFd2_lHI_qA",
+                                  "outputTypeVIID": "_Jrf_S2nEWwsSx89q6ealg",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "21zxkmR-mjHNlBIwaJ2tSA"
+                                },
+                                {
+                                  "operationID": "5rFEDGLYRSiZCeChMnkCHQ",
+                                  "operationName": "Set Boolean Flag",
+                                  "operationDescription": "Sets a Boolean flag in the OCD.",
+                                  "inputFilterSpec": {
+                                    "____label": "Set Boolean Flag Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ocd": {
+                                              "____types": "jsObject",
+                                              "setBooleanFlag": {
+                                                "____types": "jsObject",
+                                                "path": {
+                                                  "____accept": "jsString"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "YJSR1JZOriuhfXfKbnMV4Q",
+                                  "inputTypeVDID": "cERI940VZR5U7QOd6FeiGQ",
+                                  "outputTypeVIID": "kyxCxyo_W507HuHlFVvwIQ",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "bE_OksOp1jF7C44weUB_SA"
+                                },
+                                {
+                                  "operationID": "iyvk_9vhRn2qvrjOes5v7Q",
+                                  "operationName": "Write Frame Latch",
+                                  "operationDescription": "Writes the value made observable by frame latch OPM instance.",
+                                  "inputFilterSpec": {
+                                    "____label": "Write Frame Latch Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "frameLatch": {
+                                              "____types": "jsObject",
+                                              "write": {
+                                                "____types": "jsObject",
+                                                "path": {
+                                                  "____label": "Frame Latch Bound Namespace Path",
+                                                  "____accept": "jsString"
+                                                },
+                                                "value": {
+                                                  "____label": "Write Value",
+                                                  "____opaque": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____label": "Write Frame Latch Result",
+                                    "____description": "This is generically a reference to the value written to the frame latch indicated by 'path'.",
+                                    "____opaque": true
+                                  },
+                                  "inputTypeVIID": "dOV6tM17rLvrsqbIM4LzCg",
+                                  "inputTypeVDID": "_sHq6rzS5dLZDEfwpEy_Yw",
+                                  "outputTypeVIID": "LPeeiMV42LNeAhthe2myDQ",
+                                  "outputTypeVDID": "8-d-OpyoAkX4G5bt5_5T_Q",
+                                  "operationVDID": "E6VN-IT57adhKU13b50bSw"
+                                },
+                                {
+                                  "operationID": "Ve_kEFkGSMSgOqUWu9Yo_w",
+                                  "operationName": "OCD Read Namespace Indirect",
+                                  "operationDescription": "Reads and returns the value of OCD namespace via path indirection.",
+                                  "inputFilterSpec": {
+                                    "____label": "OCD Read Namespace Indirect Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ocd": {
+                                              "____types": "jsObject",
+                                              "readNamespaceIndirect": {
+                                                "____types": "jsObject",
+                                                "path2": {
+                                                  "____label": "Target Path Namespace Path",
+                                                  "____description": "The OCD path of the string namespace containing the OCD path of the target namespace to read.",
+                                                  "____accept": "jsString"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____opaque": true
+                                  },
+                                  "inputTypeVIID": "r0nWow8E0BIohA7UDujmMw",
+                                  "inputTypeVDID": "nsUj_P5arQ5jRvvexu8DsA",
+                                  "outputTypeVIID": "QKKFgPFZL00DATFNfFLfiQ",
+                                  "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                  "operationVDID": "0NacE_oXqVe5Glvt_yxvtA"
+                                },
+                                {
+                                  "operationID": "d2vRmtn2QA6Ox8W4PwDWNA",
+                                  "operationName": "React Client View Rehydrate",
+                                  "operationDescription": "Rehydrate server-rendered React view and connect UI event handlers.",
+                                  "inputFilterSpec": {
+                                    "____label": "React Client View Rehydrate Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "react": {
+                                              "____types": "jsObject",
+                                              "rehydrate": {
+                                                "____types": "jsObject",
+                                                "pathComponentRouter": {
+                                                  "____label": "<ComponentRouter/> Path",
+                                                  "____description": "OCD path of the object namespace containing the <ComponentRouter/> instance to use to rehydrate the client view.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.ComponentRouter"
+                                                },
+                                                "pathDOMElement": {
+                                                  "____label": "DOM Element Path",
+                                                  "____description": "OCD path of the object namespace containing the DOM element to use to rehydrate the client view.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.DOMElement"
+                                                },
+                                                "pathDataContextPath": {
+                                                  "____label": "Data Context Path^2",
+                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed through React via this.props.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.pathDataContext"
+                                                },
+                                                "pathRenderDataPath": {
+                                                  "____label": "<ComponentRouter/> Render Data Path^2",
+                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed to <ComponentRouter/> as renderData.",
+                                                  "____accept": "jsString",
+                                                  "____defaultValue": "#.pathRenderData"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "dJjTV9BAp4Z9pSavLeZ-wQ",
+                                  "inputTypeVDID": "KXVI5xjspkP3ffQqyQ77ZQ",
+                                  "outputTypeVIID": "8JLm4g169JeAd37FiSdhHA",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "6ns6kiHQwzGWkzUw69s3SA"
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "54MiSgQdSiukMX4fIZJimg": {
+                        "fzuITg9BQbyV7jNv39Gv6w": {
+                          "opcToJSON": {
+                            "id": "fzuITg9BQbyV7jNv39Gv6w",
+                            "name": "d2r2/React Client Output Processor OPC #1",
+                            "description": "Attempt to apply the d2r2/React Client Output Processor OPM inside of an OPC instance.",
+                            "options": {
+                              "evaluate": {
+                                "maxFrames": 16,
+                                "firstEvaluation": "constructor"
+                              }
+                            },
+                            "opmMap": {
+                              "z_mTe02hSWmaM1iRO1pBeA": {
+                                "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                "name": "Observable Frame Latch",
+                                "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                "opmDataSpec": {
+                                  "____label": "Observable Frame Latch",
+                                  "____types": "jsObject",
+                                  "____defaultValue": {},
+                                  "value": {
+                                    "____opaque": true
+                                  },
+                                  "clock": {
+                                    "____accept": "jsBoolean",
+                                    "____defaultValue": false
+                                  }
+                                },
+                                "steps": {
+                                  "uninitialized": {
+                                    "description": "Default starting process step.",
+                                    "actions": {
+                                      "enter": [],
+                                      "exit": [
+                                        {
+                                          "holarchy": {
+                                            "sml": {
+                                              "actions": {
+                                                "ocd": {
+                                                  "setBooleanFlag": {
+                                                    "path": "#.clock"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "transitions": [
+                                      {
+                                        "transitionIf": {
+                                          "always": true
+                                        },
+                                        "nextStep": "updated"
+                                      }
+                                    ]
+                                  },
+                                  "updated": {
+                                    "description": "The value managed by the frame latch has been written.",
+                                    "actions": {
+                                      "enter": [],
+                                      "exit": [
+                                        {
+                                          "holarchy": {
+                                            "sml": {
+                                              "actions": {
+                                                "ocd": {
+                                                  "clearBooleanFlag": {
+                                                    "path": "#.clock"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "transitions": [
+                                      {
+                                        "transitionIf": {
+                                          "always": true
+                                        },
+                                        "nextStep": "waiting"
+                                      }
+                                    ]
+                                  },
+                                  "waiting": {
+                                    "description": "Frame latch value has not changed since last signalled update.",
+                                    "actions": {
+                                      "enter": [],
+                                      "exit": []
+                                    },
+                                    "transitions": [
+                                      {
+                                        "transitionIf": {
+                                          "holarchy": {
+                                            "sml": {
+                                              "operators": {
+                                                "ocd": {
+                                                  "isBooleanFlagSet": {
+                                                    "path": "#.clock"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "nextStep": "updated"
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              "IxoJ83u0TXmG7PLUYBvsyg": {
+                                "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                                "name": "d2r2/React Output Processor",
+                                "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                "opmDataSpec": {
+                                  "____label": "d2r2/React Output Processor",
+                                  "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                  "____types": "jsObject",
+                                  "____defaultValue": {},
+                                  "inputs": {
+                                    "____label": "Processor Inputs",
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "ComponentRouter": {
+                                      "____accept": [
+                                        "jsNull",
+                                        "jsObject"
+                                      ],
+                                      "____defaultValue": null
+                                    },
+                                    "DOMElement": {
+                                      "____accept": [
+                                        "jsNull",
+                                        "jsObject"
+                                      ],
+                                      "____defaultValue": null
+                                    },
+                                    "pathDataContext": {
+                                      "____label": "Data Context OCD Path",
+                                      "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                      "____accept": [
+                                        "jsNull",
+                                        "jsString"
+                                      ],
+                                      "____defaultValue": null
+                                    },
+                                    "pathRenderData": {
+                                      "____label": "Render Data OCD Path",
+                                      "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                      "____accept": [
+                                        "jsNull",
+                                        "jsString"
+                                      ],
+                                      "____defaultValue": null
+                                    },
+                                    "clock": {
+                                      "____label": "React Output Processor Clock",
+                                      "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                      "____types": "jsObject",
+                                      "____appdsl": {
+                                        "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                      },
+                                      "value": {
+                                        "____label": "Render Info",
+                                        "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                        "____types": "jsObject",
+                                        "renderCount": {
+                                          "____accept": "jsNumber"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "steps": {}
+                              }
+                            },
+                            "opmiSpecPaths": [
+                              {
+                                "specPath": "~.d2r2ReactClientOutputProcessor",
+                                "opmiRef": {
+                                  "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                                  "name": "d2r2/React Output Processor",
+                                  "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                  "opmDataSpec": {
+                                    "____label": "d2r2/React Output Processor",
+                                    "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "inputs": {
+                                      "____label": "Processor Inputs",
+                                      "____types": "jsObject",
+                                      "____defaultValue": {},
+                                      "ComponentRouter": {
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "DOMElement": {
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "pathDataContext": {
+                                        "____label": "Data Context OCD Path",
+                                        "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsString"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "pathRenderData": {
+                                        "____label": "Render Data OCD Path",
+                                        "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                        "____accept": [
+                                          "jsNull",
+                                          "jsString"
+                                        ],
+                                        "____defaultValue": null
+                                      },
+                                      "clock": {
+                                        "____label": "React Output Processor Clock",
+                                        "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                        "____types": "jsObject",
+                                        "____appdsl": {
+                                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                        },
+                                        "value": {
+                                          "____label": "Render Info",
+                                          "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                          "____types": "jsObject",
+                                          "renderCount": {
+                                            "____accept": "jsNumber"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "steps": {}
+                                }
+                              },
+                              {
+                                "specPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
+                                "opmiRef": {
+                                  "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                  "name": "Observable Frame Latch",
+                                  "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                  "opmDataSpec": {
+                                    "____label": "Observable Frame Latch",
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "value": {
+                                      "____opaque": true
+                                    },
+                                    "clock": {
+                                      "____accept": "jsBoolean",
+                                      "____defaultValue": false
+                                    }
+                                  },
+                                  "steps": {
+                                    "uninitialized": {
+                                      "description": "Default starting process step.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "ocd": {
+                                                    "setBooleanFlag": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "updated"
+                                        }
+                                      ]
+                                    },
+                                    "updated": {
+                                      "description": "The value managed by the frame latch has been written.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "ocd": {
+                                                    "clearBooleanFlag": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "waiting"
+                                        }
+                                      ]
+                                    },
+                                    "waiting": {
+                                      "description": "Frame latch value has not changed since last signalled update.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "holarchy": {
+                                              "sml": {
+                                                "operators": {
+                                                  "ocd": {
+                                                    "isBooleanFlagSet": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "nextStep": "updated"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "ocdTemplateSpec": {
+                              "____types": "jsObject",
+                              "d2r2ReactClientOutputProcessor": {
+                                "____types": "jsObject",
+                                "____appdsl": {
+                                  "opm": "IxoJ83u0TXmG7PLUYBvsyg"
+                                }
+                              }
+                            },
+                            "ocdRuntimeSpec": {
+                              "____label": "OPC [fzuITg9BQbyV7jNv39Gv6w::d2r2/React Client Output Processor OPC #1] Observable Controller Data Store",
+                              "____description": "OPC [fzuITg9BQbyV7jNv39Gv6w::d2r2/React Client Output Processor OPC #1] system process runtime state data managed by OPC instance.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "d2r2ReactClientOutputProcessor": {
+                                "____types": "jsObject",
+                                "____appdsl": {
+                                  "opm": "IxoJ83u0TXmG7PLUYBvsyg"
+                                },
+                                "____label": "d2r2/React Output Processor",
+                                "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                "____defaultValue": {},
+                                "inputs": {
+                                  "____label": "Processor Inputs",
+                                  "____types": "jsObject",
+                                  "____defaultValue": {},
+                                  "ComponentRouter": {
+                                    "____accept": [
+                                      "jsNull",
+                                      "jsObject"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "DOMElement": {
+                                    "____accept": [
+                                      "jsNull",
+                                      "jsObject"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "pathDataContext": {
+                                    "____label": "Data Context OCD Path",
+                                    "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                    "____accept": [
+                                      "jsNull",
+                                      "jsString"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "pathRenderData": {
+                                    "____label": "Render Data OCD Path",
+                                    "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                    "____accept": [
+                                      "jsNull",
+                                      "jsString"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "clock": {
+                                    "____label": "Observable Frame Latch",
+                                    "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                    "____types": "jsObject",
+                                    "____appdsl": {
+                                      "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                    },
+                                    "value": {
+                                      "____opaque": true
+                                    },
+                                    "____defaultValue": {},
+                                    "clock": {
+                                      "____accept": "jsBoolean",
+                                      "____defaultValue": false
+                                    },
+                                    "__opmiStep": {
+                                      "____accept": "jsString",
+                                      "____defaultValue": "uninitialized"
+                                    }
+                                  }
+                                },
+                                "__opmiStep": {
+                                  "____accept": "jsString",
+                                  "____defaultValue": "uninitialized"
+                                }
+                              }
+                            },
+                            "ocdi": {
+                              "d2r2ReactClientOutputProcessor": {
+                                "inputs": {
+                                  "ComponentRouter": null,
+                                  "DOMElement": null,
+                                  "pathDataContext": null,
+                                  "pathRenderData": null,
+                                  "clock": {
+                                    "clock": false,
+                                    "__opmiStep": "waiting"
+                                  }
+                                },
+                                "__opmiStep": "uninitialized"
+                              }
+                            },
+                            "transitionDispatcher": {
+                              "filterDescriptor": {
+                                "operationID": "zBn6TTKHzZedlXcUODLYJw",
+                                "operationName": "Discriminator Filter",
+                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
+                                "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
+                                "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
+                              },
+                              "supportedFilters": [
+                                "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                              ],
+                              "options": {
+                                "action": "routeRequest"
+                              }
+                            },
+                            "actionDispatcher": {
+                              "filterDescriptor": {
+                                "operationID": "IKoGNsvxAZLjwaSho4PTlg",
+                                "operationName": "Discriminator Filter",
+                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "inputTypeVIID": "SdJrC3D28XyjpTSr948vKQ",
+                                "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "outputTypeVIID": "sTJyFaoOy07ns2qwOvpuoQ",
+                                "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                "operationVDID": "KbL0EzU0NVel1Y7t7XgUtA"
+                              },
+                              "supportedFilters": [
+                                "[5rFEDGLYRSiZCeChMnkCHQ::Set Boolean Flag]",
+                                "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
+                                "[_yxWfFLnTqqN-UxRdd7W5w::Clear Boolean Flag]",
+                                "[d2vRmtn2QA6Ox8W4PwDWNA::React Client View Rehydrate]",
+                                "[iyvk_9vhRn2qvrjOes5v7Q::Write Frame Latch]"
+                              ],
+                              "options": {
+                                "action": "routeRequest"
+                              }
+                            },
+                            "opcActorStack": [],
+                            "evalCount": 1,
+                            "lastEvalResponse": {
+                              "error": null,
+                              "result": {
+                                "evalNumber": 0,
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 6,
+                                    "frames": 3,
+                                    "errors": 0,
+                                    "transitions": 2
+                                  }
+                                },
+                                "evalFrames": [
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 2,
+                                        "transitions": 1,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [
+                                          "6KIVQm2l_Kkuh0qvYBQ-nw"
+                                        ],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {
+                                      "Qf5B_mFgYWCyRbJFtNW01Q": {
+                                        "evalRequest": {
+                                          "dataBinding": {
+                                            "dataPath": "~.d2r2ReactClientOutputProcessor",
+                                            "specPath": "~.d2r2ReactClientOutputProcessor"
+                                          },
+                                          "initialStep": "uninitialized",
+                                          "opmRef": {
+                                            "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                                            "name": "d2r2/React Output Processor",
+                                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                            "opmDataSpec": {
+                                              "____label": "d2r2/React Output Processor",
+                                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                              "____types": "jsObject",
+                                              "____defaultValue": {},
+                                              "inputs": {
+                                                "____label": "Processor Inputs",
+                                                "____types": "jsObject",
+                                                "____defaultValue": {},
+                                                "ComponentRouter": {
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsObject"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "DOMElement": {
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsObject"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "pathDataContext": {
+                                                  "____label": "Data Context OCD Path",
+                                                  "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsString"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "pathRenderData": {
+                                                  "____label": "Render Data OCD Path",
+                                                  "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsString"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "clock": {
+                                                  "____label": "React Output Processor Clock",
+                                                  "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                                  "____types": "jsObject",
+                                                  "____appdsl": {
+                                                    "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                                  },
+                                                  "value": {
+                                                    "____label": "Render Info",
+                                                    "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                                    "____types": "jsObject",
+                                                    "renderCount": {
+                                                      "____accept": "jsNumber"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "steps": {}
+                                          }
+                                        },
+                                        "evalResponse": {
+                                          "status": "noop",
+                                          "finishStep": "uninitialized",
+                                          "phases": {
+                                            "p1_toperator": [],
+                                            "p2_exit": [],
+                                            "p3_enter": [],
+                                            "p4_finalize": null
+                                          },
+                                          "errors": {
+                                            "p1_toperator": 0,
+                                            "p2_exit": 0,
+                                            "p3_enter": 0,
+                                            "p4_finalize": 0,
+                                            "total": 0
+                                          }
+                                        }
+                                      },
+                                      "6KIVQm2l_Kkuh0qvYBQ-nw": {
+                                        "evalRequest": {
+                                          "dataBinding": {
+                                            "dataPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
+                                            "specPath": "~.d2r2ReactClientOutputProcessor.inputs.clock"
+                                          },
+                                          "initialStep": "uninitialized",
+                                          "opmRef": {
+                                            "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                            "name": "Observable Frame Latch",
+                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "opmDataSpec": {
+                                              "____label": "Observable Frame Latch",
+                                              "____types": "jsObject",
+                                              "____defaultValue": {},
+                                              "value": {
+                                                "____opaque": true
+                                              },
+                                              "clock": {
+                                                "____accept": "jsBoolean",
+                                                "____defaultValue": false
+                                              }
+                                            },
+                                            "steps": {
+                                              "uninitialized": {
+                                                "description": "Default starting process step.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "setBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "updated"
+                                                  }
+                                                ]
+                                              },
+                                              "updated": {
+                                                "description": "The value managed by the frame latch has been written.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "clearBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "waiting"
+                                                  }
+                                                ]
+                                              },
+                                              "waiting": {
+                                                "description": "Frame latch value has not changed since last signalled update.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": []
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "operators": {
+                                                            "ocd": {
+                                                              "isBooleanFlagSet": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "nextStep": "updated"
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "evalResponse": {
+                                          "status": "transitioned",
+                                          "finishStep": "updated",
+                                          "phases": {
+                                            "p1_toperator": [
+                                              {
+                                                "request": {
+                                                  "context": {
+                                                    "opmBindingPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
+                                                    "ocdi": {
+                                                      "d2r2ReactClientOutputProcessor": {
+                                                        "inputs": {
+                                                          "ComponentRouter": null,
+                                                          "DOMElement": null,
+                                                          "pathDataContext": null,
+                                                          "pathRenderData": null,
+                                                          "clock": {
+                                                            "clock": false,
+                                                            "__opmiStep": "waiting"
+                                                          }
+                                                        },
+                                                        "__opmiStep": "uninitialized"
+                                                      }
+                                                    },
+                                                    "transitionDispatcher": {
+                                                      "filterDescriptor": {
+                                                        "operationID": "zBn6TTKHzZedlXcUODLYJw",
+                                                        "operationName": "Discriminator Filter",
+                                                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                        "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
+                                                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                        "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
+                                                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                        "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
+                                                      },
+                                                      "supportedFilters": [
+                                                        "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                        "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                        "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                        "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                        "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                        "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                        "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                                      ],
+                                                      "options": {
+                                                        "action": "routeRequest"
+                                                      }
+                                                    }
+                                                  },
+                                                  "operatorRequest": {
+                                                    "always": true
+                                                  }
+                                                },
+                                                "response": {
+                                                  "error": null,
+                                                  "result": true
+                                                }
+                                              }
+                                            ],
+                                            "p2_exit": [
+                                              {
+                                                "request": {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "setBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "response": {
+                                                  "error": null
+                                                }
+                                              }
+                                            ],
+                                            "p3_enter": [],
+                                            "p4_finalize": {
+                                              "error": null,
+                                              "result": "updated"
+                                            }
+                                          },
+                                          "errors": {
+                                            "p1_toperator": 0,
+                                            "p2_exit": 0,
+                                            "p3_enter": 0,
+                                            "p4_finalize": 0,
+                                            "total": 0
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 2,
+                                        "transitions": 1,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [
+                                          "6KIVQm2l_Kkuh0qvYBQ-nw"
+                                        ],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {
+                                      "Qf5B_mFgYWCyRbJFtNW01Q": {
+                                        "evalRequest": {
+                                          "dataBinding": {
+                                            "dataPath": "~.d2r2ReactClientOutputProcessor",
+                                            "specPath": "~.d2r2ReactClientOutputProcessor"
+                                          },
+                                          "initialStep": "uninitialized",
+                                          "opmRef": {
+                                            "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                                            "name": "d2r2/React Output Processor",
+                                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                            "opmDataSpec": {
+                                              "____label": "d2r2/React Output Processor",
+                                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                              "____types": "jsObject",
+                                              "____defaultValue": {},
+                                              "inputs": {
+                                                "____label": "Processor Inputs",
+                                                "____types": "jsObject",
+                                                "____defaultValue": {},
+                                                "ComponentRouter": {
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsObject"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "DOMElement": {
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsObject"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "pathDataContext": {
+                                                  "____label": "Data Context OCD Path",
+                                                  "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsString"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "pathRenderData": {
+                                                  "____label": "Render Data OCD Path",
+                                                  "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsString"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "clock": {
+                                                  "____label": "React Output Processor Clock",
+                                                  "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                                  "____types": "jsObject",
+                                                  "____appdsl": {
+                                                    "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                                  },
+                                                  "value": {
+                                                    "____label": "Render Info",
+                                                    "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                                    "____types": "jsObject",
+                                                    "renderCount": {
+                                                      "____accept": "jsNumber"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "steps": {}
+                                          }
+                                        },
+                                        "evalResponse": {
+                                          "status": "noop",
+                                          "finishStep": "uninitialized",
+                                          "phases": {
+                                            "p1_toperator": [],
+                                            "p2_exit": [],
+                                            "p3_enter": [],
+                                            "p4_finalize": null
+                                          },
+                                          "errors": {
+                                            "p1_toperator": 0,
+                                            "p2_exit": 0,
+                                            "p3_enter": 0,
+                                            "p4_finalize": 0,
+                                            "total": 0
+                                          }
+                                        }
+                                      },
+                                      "6KIVQm2l_Kkuh0qvYBQ-nw": {
+                                        "evalRequest": {
+                                          "dataBinding": {
+                                            "dataPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
+                                            "specPath": "~.d2r2ReactClientOutputProcessor.inputs.clock"
+                                          },
+                                          "initialStep": "updated",
+                                          "opmRef": {
+                                            "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                            "name": "Observable Frame Latch",
+                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "opmDataSpec": {
+                                              "____label": "Observable Frame Latch",
+                                              "____types": "jsObject",
+                                              "____defaultValue": {},
+                                              "value": {
+                                                "____opaque": true
+                                              },
+                                              "clock": {
+                                                "____accept": "jsBoolean",
+                                                "____defaultValue": false
+                                              }
+                                            },
+                                            "steps": {
+                                              "uninitialized": {
+                                                "description": "Default starting process step.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "setBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "updated"
+                                                  }
+                                                ]
+                                              },
+                                              "updated": {
+                                                "description": "The value managed by the frame latch has been written.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "clearBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "waiting"
+                                                  }
+                                                ]
+                                              },
+                                              "waiting": {
+                                                "description": "Frame latch value has not changed since last signalled update.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": []
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "operators": {
+                                                            "ocd": {
+                                                              "isBooleanFlagSet": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "nextStep": "updated"
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "evalResponse": {
+                                          "status": "transitioned",
+                                          "finishStep": "waiting",
+                                          "phases": {
+                                            "p1_toperator": [
+                                              {
+                                                "request": {
+                                                  "context": {
+                                                    "opmBindingPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
+                                                    "ocdi": {
+                                                      "d2r2ReactClientOutputProcessor": {
+                                                        "inputs": {
+                                                          "ComponentRouter": null,
+                                                          "DOMElement": null,
+                                                          "pathDataContext": null,
+                                                          "pathRenderData": null,
+                                                          "clock": {
+                                                            "clock": false,
+                                                            "__opmiStep": "waiting"
+                                                          }
+                                                        },
+                                                        "__opmiStep": "uninitialized"
+                                                      }
+                                                    },
+                                                    "transitionDispatcher": {
+                                                      "filterDescriptor": {
+                                                        "operationID": "zBn6TTKHzZedlXcUODLYJw",
+                                                        "operationName": "Discriminator Filter",
+                                                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                        "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
+                                                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                        "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
+                                                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                        "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
+                                                      },
+                                                      "supportedFilters": [
+                                                        "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                        "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                        "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                        "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                        "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                        "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                        "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                                      ],
+                                                      "options": {
+                                                        "action": "routeRequest"
+                                                      }
+                                                    }
+                                                  },
+                                                  "operatorRequest": {
+                                                    "always": true
+                                                  }
+                                                },
+                                                "response": {
+                                                  "error": null,
+                                                  "result": true
+                                                }
+                                              }
+                                            ],
+                                            "p2_exit": [
+                                              {
+                                                "request": {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "clearBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "response": {
+                                                  "error": null
+                                                }
+                                              }
+                                            ],
+                                            "p3_enter": [],
+                                            "p4_finalize": {
+                                              "error": null,
+                                              "result": "waiting"
+                                            }
+                                          },
+                                          "errors": {
+                                            "p1_toperator": 0,
+                                            "p2_exit": 0,
+                                            "p3_enter": 0,
+                                            "p4_finalize": 0,
+                                            "total": 0
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "summary": {
+                                      "counts": {
+                                        "bindings": 2,
+                                        "transitions": 0,
+                                        "errors": 0
+                                      },
+                                      "reports": {
+                                        "transitions": [],
+                                        "errors": []
+                                      }
+                                    },
+                                    "bindings": {
+                                      "Qf5B_mFgYWCyRbJFtNW01Q": {
+                                        "evalRequest": {
+                                          "dataBinding": {
+                                            "dataPath": "~.d2r2ReactClientOutputProcessor",
+                                            "specPath": "~.d2r2ReactClientOutputProcessor"
+                                          },
+                                          "initialStep": "uninitialized",
+                                          "opmRef": {
+                                            "id": "IxoJ83u0TXmG7PLUYBvsyg",
+                                            "name": "d2r2/React Output Processor",
+                                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                            "opmDataSpec": {
+                                              "____label": "d2r2/React Output Processor",
+                                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                              "____types": "jsObject",
+                                              "____defaultValue": {},
+                                              "inputs": {
+                                                "____label": "Processor Inputs",
+                                                "____types": "jsObject",
+                                                "____defaultValue": {},
+                                                "ComponentRouter": {
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsObject"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "DOMElement": {
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsObject"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "pathDataContext": {
+                                                  "____label": "Data Context OCD Path",
+                                                  "____description": "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsString"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "pathRenderData": {
+                                                  "____label": "Render Data OCD Path",
+                                                  "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                                                  "____accept": [
+                                                    "jsNull",
+                                                    "jsString"
+                                                  ],
+                                                  "____defaultValue": null
+                                                },
+                                                "clock": {
+                                                  "____label": "React Output Processor Clock",
+                                                  "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                                  "____types": "jsObject",
+                                                  "____appdsl": {
+                                                    "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                                                  },
+                                                  "value": {
+                                                    "____label": "Render Info",
+                                                    "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                                                    "____types": "jsObject",
+                                                    "renderCount": {
+                                                      "____accept": "jsNumber"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "steps": {}
+                                          }
+                                        },
+                                        "evalResponse": {
+                                          "status": "noop",
+                                          "finishStep": "uninitialized",
+                                          "phases": {
+                                            "p1_toperator": [],
+                                            "p2_exit": [],
+                                            "p3_enter": [],
+                                            "p4_finalize": null
+                                          },
+                                          "errors": {
+                                            "p1_toperator": 0,
+                                            "p2_exit": 0,
+                                            "p3_enter": 0,
+                                            "p4_finalize": 0,
+                                            "total": 0
+                                          }
+                                        }
+                                      },
+                                      "6KIVQm2l_Kkuh0qvYBQ-nw": {
+                                        "evalRequest": {
+                                          "dataBinding": {
+                                            "dataPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
+                                            "specPath": "~.d2r2ReactClientOutputProcessor.inputs.clock"
+                                          },
+                                          "initialStep": "waiting",
+                                          "opmRef": {
+                                            "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                            "name": "Observable Frame Latch",
+                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "opmDataSpec": {
+                                              "____label": "Observable Frame Latch",
+                                              "____types": "jsObject",
+                                              "____defaultValue": {},
+                                              "value": {
+                                                "____opaque": true
+                                              },
+                                              "clock": {
+                                                "____accept": "jsBoolean",
+                                                "____defaultValue": false
+                                              }
+                                            },
+                                            "steps": {
+                                              "uninitialized": {
+                                                "description": "Default starting process step.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "setBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "updated"
+                                                  }
+                                                ]
+                                              },
+                                              "updated": {
+                                                "description": "The value managed by the frame latch has been written.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "clearBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "waiting"
+                                                  }
+                                                ]
+                                              },
+                                              "waiting": {
+                                                "description": "Frame latch value has not changed since last signalled update.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": []
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "operators": {
+                                                            "ocd": {
+                                                              "isBooleanFlagSet": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "nextStep": "updated"
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "evalResponse": {
+                                          "status": "noop",
+                                          "finishStep": "waiting",
+                                          "phases": {
+                                            "p1_toperator": [
+                                              {
+                                                "request": {
+                                                  "context": {
+                                                    "opmBindingPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
+                                                    "ocdi": {
+                                                      "d2r2ReactClientOutputProcessor": {
+                                                        "inputs": {
+                                                          "ComponentRouter": null,
+                                                          "DOMElement": null,
+                                                          "pathDataContext": null,
+                                                          "pathRenderData": null,
+                                                          "clock": {
+                                                            "clock": false,
+                                                            "__opmiStep": "waiting"
+                                                          }
+                                                        },
+                                                        "__opmiStep": "uninitialized"
+                                                      }
+                                                    },
+                                                    "transitionDispatcher": {
+                                                      "filterDescriptor": {
+                                                        "operationID": "zBn6TTKHzZedlXcUODLYJw",
+                                                        "operationName": "Discriminator Filter",
+                                                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                        "inputTypeVIID": "mqEOsGO28qQ1KW1noGOseA",
+                                                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                        "outputTypeVIID": "tz-SfIiHlJfuFS3x6tS1cg",
+                                                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                        "operationVDID": "VIT0E5CwNVeIpo7tBtgUtA"
+                                                      },
+                                                      "supportedFilters": [
+                                                        "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                        "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                        "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                        "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                        "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                        "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                        "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                                      ],
+                                                      "options": {
+                                                        "action": "routeRequest"
+                                                      }
+                                                    }
+                                                  },
+                                                  "operatorRequest": {
+                                                    "holarchy": {
+                                                      "sml": {
+                                                        "operators": {
+                                                          "ocd": {
+                                                            "isBooleanFlagSet": {
+                                                              "path": "#.clock"
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "response": {
+                                                  "error": null,
+                                                  "result": false
+                                                }
+                                              }
+                                            ],
+                                            "p2_exit": [],
+                                            "p3_enter": [],
+                                            "p4_finalize": null
+                                          },
+                                          "errors": {
+                                            "p1_toperator": 0,
+                                            "p2_exit": 0,
+                                            "p3_enter": 0,
+                                            "p4_finalize": 0,
+                                            "total": 0
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "constructionWarnings": []
+                          },
+                          "actionEvaluations": []
                         }
                       }
                     }
