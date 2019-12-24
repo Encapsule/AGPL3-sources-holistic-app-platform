@@ -72,6 +72,145 @@
                           }
                         }
                       }
+                    },
+                    "steps": {
+                      "uninitialized": {
+                        "description": "Default OPM process step.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "waiting"
+                          }
+                        ]
+                      },
+                      "waiting": {
+                        "description": "Waiting for input values to be specified.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "and": [
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.ComponentRouter"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.DOMElement"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.pathDataContext"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.pathRenderData"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "nextStep": "initialized"
+                          }
+                        ]
+                      },
+                      "initialized": {
+                        "description": "All inputs have been specified. Waiting for clock signal.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "opmInStep": {
+                                      "path": "#.clock",
+                                      "step": "updated"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "rehydrating"
+                          }
+                        ]
+                      },
+                      "rehydrating": {
+                        "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "ready"
+                          }
+                        ]
+                      },
+                      "ready": {
+                        "description": "Ready to update client application view on next clock signal.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "opmInStep": {
+                                      "path": "#.clock",
+                                      "step": "updated"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "rendering"
+                          }
+                        ]
+                      },
+                      "rendering": {
+                        "description": "Rendering client application view updates.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "ready"
+                          }
+                        ]
+                      }
                     }
                   }
                 }
@@ -153,7 +292,169 @@
                         }
                       }
                     },
-                    "steps": {}
+                    "steps": {
+                      "uninitialized": {
+                        "description": "Default OPM process step.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "waiting"
+                          }
+                        ]
+                      },
+                      "waiting": {
+                        "description": "Waiting for input values to be specified.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "and": [
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.ComponentRouter"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.DOMElement"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.pathDataContext"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "holarchy": {
+                                    "sml": {
+                                      "operators": {
+                                        "ocd": {
+                                          "isNamespaceTruthy": {
+                                            "path": "#.inputs.pathRenderData"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            "nextStep": "initialized"
+                          }
+                        ]
+                      },
+                      "initialized": {
+                        "description": "All inputs have been specified. Waiting for clock signal.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "opmInStep": {
+                                      "path": "#.clock",
+                                      "step": "updated"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "rehydrating"
+                          }
+                        ]
+                      },
+                      "rehydrating": {
+                        "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "ready"
+                          }
+                        ]
+                      },
+                      "ready": {
+                        "description": "Ready to update client application view on next clock signal.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "opmInStep": {
+                                      "path": "#.clock",
+                                      "step": "updated"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "rendering"
+                          }
+                        ]
+                      },
+                      "rendering": {
+                        "description": "Rendering client application view updates.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "ready"
+                          }
+                        ]
+                      }
+                    }
                   },
                   "getID": "IxoJ83u0TXmG7PLUYBvsyg",
                   "getName": "d2r2/React Output Processor",
@@ -220,8 +521,213 @@
                   "getDigraph": {
                     "name": "[IxoJ83u0TXmG7PLUYBvsyg::d2r2/React Output Processor] OPM Digraph",
                     "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
-                    "vlist": [],
-                    "elist": []
+                    "vlist": [
+                      {
+                        "u": "uninitialized",
+                        "p": {
+                          "description": "Default OPM process step.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "waiting",
+                        "p": {
+                          "description": "Waiting for input values to be specified.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "initialized",
+                        "p": {
+                          "description": "All inputs have been specified. Waiting for clock signal.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "rehydrating",
+                        "p": {
+                          "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "ready",
+                        "p": {
+                          "description": "Ready to update client application view on next clock signal.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "rendering",
+                        "p": {
+                          "description": "Rendering client application view updates.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      }
+                    ],
+                    "elist": [
+                      {
+                        "e": {
+                          "u": "uninitialized",
+                          "v": "waiting"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "always": true
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "waiting",
+                          "v": "initialized"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "and": [
+                              {
+                                "holarchy": {
+                                  "sml": {
+                                    "operators": {
+                                      "ocd": {
+                                        "isNamespaceTruthy": {
+                                          "path": "#.inputs.ComponentRouter"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "holarchy": {
+                                  "sml": {
+                                    "operators": {
+                                      "ocd": {
+                                        "isNamespaceTruthy": {
+                                          "path": "#.inputs.DOMElement"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "holarchy": {
+                                  "sml": {
+                                    "operators": {
+                                      "ocd": {
+                                        "isNamespaceTruthy": {
+                                          "path": "#.inputs.pathDataContext"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "holarchy": {
+                                  "sml": {
+                                    "operators": {
+                                      "ocd": {
+                                        "isNamespaceTruthy": {
+                                          "path": "#.inputs.pathRenderData"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "initialized",
+                          "v": "rehydrating"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "holarchy": {
+                              "sml": {
+                                "operators": {
+                                  "opmInStep": {
+                                    "path": "#.clock",
+                                    "step": "updated"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "rehydrating",
+                          "v": "ready"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "always": true
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "ready",
+                          "v": "rendering"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "holarchy": {
+                              "sml": {
+                                "operators": {
+                                  "opmInStep": {
+                                    "path": "#.clock",
+                                    "step": "updated"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "rendering",
+                          "v": "ready"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "always": true
+                          }
+                        }
+                      }
+                    ]
                   }
                 }
               }
