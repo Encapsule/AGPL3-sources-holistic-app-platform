@@ -5,10 +5,10 @@
 # @encapsule/d2r2-components v0.0.29 "northstar"
 
 ```
-Package: @encapsule/d2r2-components v0.0.29 "northstar" build ID "RmcGnannTqyXLWzFvZWAjQ"
-Sources: Encapsule/holistic#56e4b9deed03a23c12a6c35a03afc4931d8c6bcd
+Package: @encapsule/d2r2-components v0.0.29 "northstar" build ID "hQAG7NppS6qxOUEye2b-zw"
+Sources: Encapsule/holistic#6ef5f1598d32be5414bfec32502b86fd3e91c252
 Purpose: library (Node.js)
-Created: 2019-12-21T04:06:14.000Z
+Created: 2019-12-24T19:14:34.000Z
 License: MIT
 ```
 

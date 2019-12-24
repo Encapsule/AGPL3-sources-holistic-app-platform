@@ -40,7 +40,7 @@ module.exports = new holarchy.TransitionOperator({
           var operatorRequest = _step.value;
           var operatorResponse = request_.context.transitionDispatcher.request({
             context: request_.context,
-            operator: operatorRequest
+            operatorRequest: operatorRequest
           });
 
           if (operatorResponse.error) {

@@ -24,7 +24,7 @@ module.exports = new holarchy.TransitionOperator({
       inBreakScope = true;
       var operatorResponse = request_.context.transitionDispatcher.request({
         context: request_.context,
-        operator: request_.operatorRequest.not
+        operatorRequest: request_.operatorRequest.not
       });
 
       if (operatorResponse.error) {
