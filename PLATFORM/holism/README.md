@@ -5,10 +5,10 @@
 # @encapsule/holism v0.0.29 "northstar"
 
 ```
-Package: @encapsule/holism v0.0.29 "northstar" build ID "hQAG7NppS6qxOUEye2b-zw"
-Sources: Encapsule/holistic#6ef5f1598d32be5414bfec32502b86fd3e91c252
+Package: @encapsule/holism v0.0.29 "northstar" build ID "LvyDP_hPRSeicOXzZsZeow"
+Sources: Encapsule/holistic#ac89b3c786e7aaa99de82ae73b04d20e9e0eabe9
 Purpose: library (Node.js)
-Created: 2019-12-24T19:14:34.000Z
+Created: 2019-12-30T00:32:30.000Z
 License: MIT
 ```
 

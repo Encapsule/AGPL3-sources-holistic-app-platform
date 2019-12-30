@@ -775,31 +775,10 @@
                                     "react": {
                                       "____types": "jsObject",
                                       "rehydrate": {
-                                        "____types": "jsObject",
-                                        "pathComponentRouter": {
-                                          "____label": "<ComponentRouter/> Path",
-                                          "____description": "OCD path of the object namespace containing the <ComponentRouter/> instance to use to rehydrate the client view.",
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#.ComponentRouter"
-                                        },
-                                        "pathDOMElement": {
-                                          "____label": "DOM Element Path",
-                                          "____description": "OCD path of the object namespace containing the DOM element to use to rehydrate the client view.",
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#.DOMElement"
-                                        },
-                                        "pathDataContextPath": {
-                                          "____label": "Data Context Path^2",
-                                          "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed through React via this.props.",
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#.pathDataContext"
-                                        },
-                                        "pathRenderDataPath": {
-                                          "____label": "<ComponentRouter/> Render Data Path^2",
-                                          "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed to <ComponentRouter/> as renderData.",
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#.pathRenderData"
-                                        }
+                                        "____types": "jsBoolean",
+                                        "____inValueSet": [
+                                          true
+                                        ]
                                       }
                                     }
                                   }
@@ -811,10 +790,10 @@
                             "____accept": "jsUndefined"
                           },
                           "inputTypeVIID": "dJjTV9BAp4Z9pSavLeZ-wQ",
-                          "inputTypeVDID": "KXVI5xjspkP3ffQqyQ77ZQ",
+                          "inputTypeVDID": "dWayec_SLLNxaNT03o8KAQ",
                           "outputTypeVIID": "8JLm4g169JeAd37FiSdhHA",
                           "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                          "operationVDID": "6ns6kiHQwzGWkzUw69s3SA"
+                          "operationVDID": "6hSNkiHYVjGWTpEw603mSA"
                         }
                       ]
                     ]

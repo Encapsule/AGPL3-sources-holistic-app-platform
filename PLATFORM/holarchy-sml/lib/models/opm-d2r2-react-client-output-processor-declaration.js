@@ -63,15 +63,16 @@ module.exports = {
     uninitialized: {
       description: "Default OPM process step.",
       transitions: [{
+        nextStep: "wait_invariants",
         transitionIf: {
           always: true
-        },
-        nextStep: "waiting"
+        }
       }]
     },
-    waiting: {
-      description: "Waiting for input values to be specified.",
+    wait_invariants: {
+      description: "Waiting for input invariants to be satisfied.",
       transitions: [{
+        nextStep: "initialized",
         transitionIf: {
           and: [{
             holarchy: {
@@ -122,40 +123,81 @@ module.exports = {
               }
             }
           }]
-        },
-        nextStep: "initialized"
+        }
       }]
     },
     initialized: {
-      description: "All inputs have been specified. Waiting for clock signal.",
+      description: "Input invariants have been satisfied.",
       transitions: [{
+        nextStep: "render",
         transitionIf: {
           holarchy: {
             sml: {
               operators: {
-                opmInStep: {
-                  path: "#.clock",
-                  step: "updated"
+                ocd: {
+                  isNamespaceTruthy: {
+                    path: "#.clock.value"
+                  }
                 }
               }
             }
           }
-        },
-        nextStep: "rehydrating"
+        }
+      }, {
+        nextStep: "rehydrate",
+        transitionIf: {
+          always: true
+        }
       }]
     },
-    rehydrating: {
+    rehydrate: {
       description: "Rehydrating the client application view and registering user input and DOM event handlers.",
+      actions: {
+        enter: [{
+          holarchy: {
+            sml: {
+              actions: {
+                react: {
+                  rehydrate: true
+                }
+              }
+            }
+          }
+        }]
+      },
       transitions: [{
+        nextStep: "wait_clock",
         transitionIf: {
           always: true
-        },
-        nextStep: "ready"
+        }
       }]
     },
-    ready: {
-      description: "Ready to update client application view on next clock signal.",
+    render: {
+      description: "Rendering client application view updates.",
+      actions: {
+        enter: [{
+          holarchy: {
+            sml: {
+              actions: {
+                react: {
+                  render: true
+                }
+              }
+            }
+          }
+        }]
+      },
       transitions: [{
+        nextStep: "wait_clock",
+        transitionIf: {
+          always: true
+        }
+      }]
+    },
+    wait_clock: {
+      description: "Waiting for next clock signal to re-render client application view.",
+      transitions: [{
+        nextStep: "render",
         transitionIf: {
           holarchy: {
             sml: {
@@ -167,17 +209,7 @@ module.exports = {
               }
             }
           }
-        },
-        nextStep: "rendering"
-      }]
-    },
-    rendering: {
-      description: "Rendering client application view updates.",
-      transitions: [{
-        transitionIf: {
-          always: true
-        },
-        nextStep: "ready"
+        }
       }]
     }
   }

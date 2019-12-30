@@ -16395,31 +16395,10 @@
                                             "react": {
                                               "____types": "jsObject",
                                               "rehydrate": {
-                                                "____types": "jsObject",
-                                                "pathComponentRouter": {
-                                                  "____label": "<ComponentRouter/> Path",
-                                                  "____description": "OCD path of the object namespace containing the <ComponentRouter/> instance to use to rehydrate the client view.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.ComponentRouter"
-                                                },
-                                                "pathDOMElement": {
-                                                  "____label": "DOM Element Path",
-                                                  "____description": "OCD path of the object namespace containing the DOM element to use to rehydrate the client view.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.DOMElement"
-                                                },
-                                                "pathDataContextPath": {
-                                                  "____label": "Data Context Path^2",
-                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed through React via this.props.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.pathDataContext"
-                                                },
-                                                "pathRenderDataPath": {
-                                                  "____label": "<ComponentRouter/> Render Data Path^2",
-                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed to <ComponentRouter/> as renderData.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.pathRenderData"
-                                                }
+                                                "____types": "jsBoolean",
+                                                "____inValueSet": [
+                                                  true
+                                                ]
                                               }
                                             }
                                           }
@@ -16431,10 +16410,10 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "dJjTV9BAp4Z9pSavLeZ-wQ",
-                                  "inputTypeVDID": "KXVI5xjspkP3ffQqyQ77ZQ",
+                                  "inputTypeVDID": "dWayec_SLLNxaNT03o8KAQ",
                                   "outputTypeVIID": "8JLm4g169JeAd37FiSdhHA",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "6ns6kiHQwzGWkzUw69s3SA"
+                                  "operationVDID": "6hSNkiHYVjGWTpEw603mSA"
                                 }
                               ]
                             ]
@@ -18169,17 +18148,18 @@
                                 "description": "Default OPM process step.",
                                 "transitions": [
                                   {
+                                    "nextStep": "wait_invariants",
                                     "transitionIf": {
                                       "always": true
-                                    },
-                                    "nextStep": "waiting"
+                                    }
                                   }
                                 ]
                               },
-                              "waiting": {
-                                "description": "Waiting for input values to be specified.",
+                              "wait_invariants": {
+                                "description": "Waiting for input invariants to be satisfied.",
                                 "transitions": [
                                   {
+                                    "nextStep": "initialized",
                                     "transitionIf": {
                                       "and": [
                                         {
@@ -18235,46 +18215,94 @@
                                           }
                                         }
                                       ]
-                                    },
-                                    "nextStep": "initialized"
+                                    }
                                   }
                                 ]
                               },
                               "initialized": {
-                                "description": "All inputs have been specified. Waiting for clock signal.",
+                                "description": "Input invariants have been satisfied.",
                                 "transitions": [
                                   {
+                                    "nextStep": "render",
                                     "transitionIf": {
                                       "holarchy": {
                                         "sml": {
                                           "operators": {
-                                            "opmInStep": {
-                                              "path": "#.clock",
-                                              "step": "updated"
+                                            "ocd": {
+                                              "isNamespaceTruthy": {
+                                                "path": "#.clock.value"
+                                              }
                                             }
                                           }
                                         }
                                       }
-                                    },
-                                    "nextStep": "rehydrating"
+                                    }
+                                  },
+                                  {
+                                    "nextStep": "rehydrate",
+                                    "transitionIf": {
+                                      "always": true
+                                    }
                                   }
                                 ]
                               },
-                              "rehydrating": {
+                              "rehydrate": {
                                 "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
+                                "actions": {
+                                  "enter": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "actions": {
+                                            "react": {
+                                              "rehydrate": true
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
                                 "transitions": [
                                   {
+                                    "nextStep": "wait_clock",
                                     "transitionIf": {
                                       "always": true
-                                    },
-                                    "nextStep": "ready"
+                                    }
                                   }
                                 ]
                               },
-                              "ready": {
-                                "description": "Ready to update client application view on next clock signal.",
+                              "render": {
+                                "description": "Rendering client application view updates.",
+                                "actions": {
+                                  "enter": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "actions": {
+                                            "react": {
+                                              "render": true
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
                                 "transitions": [
                                   {
+                                    "nextStep": "wait_clock",
+                                    "transitionIf": {
+                                      "always": true
+                                    }
+                                  }
+                                ]
+                              },
+                              "wait_clock": {
+                                "description": "Waiting for next clock signal to re-render client application view.",
+                                "transitions": [
+                                  {
+                                    "nextStep": "render",
                                     "transitionIf": {
                                       "holarchy": {
                                         "sml": {
@@ -18286,19 +18314,7 @@
                                           }
                                         }
                                       }
-                                    },
-                                    "nextStep": "rendering"
-                                  }
-                                ]
-                              },
-                              "rendering": {
-                                "description": "Rendering client application view updates.",
-                                "transitions": [
-                                  {
-                                    "transitionIf": {
-                                      "always": true
-                                    },
-                                    "nextStep": "ready"
+                                    }
                                   }
                                 ]
                               }
@@ -18395,12 +18411,12 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "waiting"
+                                    "nextStep": "wait_invariants"
                                   }
                                 ]
                               },
-                              "waiting": {
-                                "description": "Waiting for input values to be specified.",
+                              "wait_invariants": {
+                                "description": "Waiting for input invariants to be satisfied.",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
@@ -18468,7 +18484,7 @@
                                 ]
                               },
                               "initialized": {
-                                "description": "All inputs have been specified. Waiting for clock signal.",
+                                "description": "Input invariants have been satisfied.",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
@@ -18479,22 +18495,41 @@
                                       "holarchy": {
                                         "sml": {
                                           "operators": {
-                                            "opmInStep": {
-                                              "path": "#.clock",
-                                              "step": "updated"
+                                            "ocd": {
+                                              "isNamespaceTruthy": {
+                                                "path": "#.clock.value"
+                                              }
                                             }
                                           }
                                         }
                                       }
                                     },
-                                    "nextStep": "rehydrating"
+                                    "nextStep": "render"
+                                  },
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "rehydrate"
                                   }
                                 ]
                               },
-                              "rehydrating": {
+                              "rehydrate": {
                                 "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                 "actions": {
-                                  "enter": [],
+                                  "enter": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "actions": {
+                                            "react": {
+                                              "rehydrate": true
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
                                   "exit": []
                                 },
                                 "transitions": [
@@ -18502,12 +18537,39 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "ready"
+                                    "nextStep": "wait_clock"
                                   }
                                 ]
                               },
-                              "ready": {
-                                "description": "Ready to update client application view on next clock signal.",
+                              "render": {
+                                "description": "Rendering client application view updates.",
+                                "actions": {
+                                  "enter": [
+                                    {
+                                      "holarchy": {
+                                        "sml": {
+                                          "actions": {
+                                            "react": {
+                                              "render": true
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "exit": []
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "wait_clock"
+                                  }
+                                ]
+                              },
+                              "wait_clock": {
+                                "description": "Waiting for next clock signal to re-render client application view.",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
@@ -18526,22 +18588,7 @@
                                         }
                                       }
                                     },
-                                    "nextStep": "rendering"
-                                  }
-                                ]
-                              },
-                              "rendering": {
-                                "description": "Rendering client application view updates.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                },
-                                "transitions": [
-                                  {
-                                    "transitionIf": {
-                                      "always": true
-                                    },
-                                    "nextStep": "ready"
+                                    "nextStep": "render"
                                   }
                                 ]
                               }
@@ -18624,9 +18671,9 @@
                                 }
                               },
                               {
-                                "u": "waiting",
+                                "u": "wait_invariants",
                                 "p": {
-                                  "description": "Waiting for input values to be specified.",
+                                  "description": "Waiting for input invariants to be satisfied.",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -18636,7 +18683,7 @@
                               {
                                 "u": "initialized",
                                 "p": {
-                                  "description": "All inputs have been specified. Waiting for clock signal.",
+                                  "description": "Input invariants have been satisfied.",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -18644,29 +18691,53 @@
                                 }
                               },
                               {
-                                "u": "rehydrating",
+                                "u": "rehydrate",
                                 "p": {
                                   "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                   "actions": {
-                                    "enter": [],
+                                    "enter": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "actions": {
+                                              "react": {
+                                                "rehydrate": true
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
                                     "exit": []
                                   }
                                 }
                               },
                               {
-                                "u": "ready",
-                                "p": {
-                                  "description": "Ready to update client application view on next clock signal.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "rendering",
+                                "u": "render",
                                 "p": {
                                   "description": "Rendering client application view updates.",
+                                  "actions": {
+                                    "enter": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "actions": {
+                                              "react": {
+                                                "render": true
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "wait_clock",
+                                "p": {
+                                  "description": "Waiting for next clock signal to re-render client application view.",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -18678,7 +18749,7 @@
                               {
                                 "e": {
                                   "u": "uninitialized",
-                                  "v": "waiting"
+                                  "v": "wait_invariants"
                                 },
                                 "p": {
                                   "priority": 0,
@@ -18689,7 +18760,7 @@
                               },
                               {
                                 "e": {
-                                  "u": "waiting",
+                                  "u": "wait_invariants",
                                   "v": "initialized"
                                 },
                                 "p": {
@@ -18755,7 +18826,65 @@
                               {
                                 "e": {
                                   "u": "initialized",
-                                  "v": "rehydrating"
+                                  "v": "render"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "holarchy": {
+                                      "sml": {
+                                        "operators": {
+                                          "ocd": {
+                                            "isNamespaceTruthy": {
+                                              "path": "#.clock.value"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "initialized",
+                                  "v": "rehydrate"
+                                },
+                                "p": {
+                                  "priority": 1,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "rehydrate",
+                                  "v": "wait_clock"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "render",
+                                  "v": "wait_clock"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "wait_clock",
+                                  "v": "render"
                                 },
                                 "p": {
                                   "priority": 0,
@@ -18770,51 +18899,6 @@
                                         }
                                       }
                                     }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "rehydrating",
-                                  "v": "ready"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "ready",
-                                  "v": "rendering"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "sml": {
-                                        "operators": {
-                                          "opmInStep": {
-                                            "path": "#.clock",
-                                            "step": "updated"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "rendering",
-                                  "v": "ready"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
                                   }
                                 }
                               }
@@ -19033,12 +19117,12 @@
                                           "transitionIf": {
                                             "always": true
                                           },
-                                          "nextStep": "waiting"
+                                          "nextStep": "wait_invariants"
                                         }
                                       ]
                                     },
-                                    "waiting": {
-                                      "description": "Waiting for input values to be specified.",
+                                    "wait_invariants": {
+                                      "description": "Waiting for input invariants to be satisfied.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -19106,7 +19190,7 @@
                                       ]
                                     },
                                     "initialized": {
-                                      "description": "All inputs have been specified. Waiting for clock signal.",
+                                      "description": "Input invariants have been satisfied.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -19117,22 +19201,41 @@
                                             "holarchy": {
                                               "sml": {
                                                 "operators": {
-                                                  "opmInStep": {
-                                                    "path": "#.clock",
-                                                    "step": "updated"
+                                                  "ocd": {
+                                                    "isNamespaceTruthy": {
+                                                      "path": "#.clock.value"
+                                                    }
                                                   }
                                                 }
                                               }
                                             }
                                           },
-                                          "nextStep": "rehydrating"
+                                          "nextStep": "render"
+                                        },
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "rehydrate"
                                         }
                                       ]
                                     },
-                                    "rehydrating": {
+                                    "rehydrate": {
                                       "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                       "actions": {
-                                        "enter": [],
+                                        "enter": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "react": {
+                                                    "rehydrate": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
                                         "exit": []
                                       },
                                       "transitions": [
@@ -19140,12 +19243,39 @@
                                           "transitionIf": {
                                             "always": true
                                           },
-                                          "nextStep": "ready"
+                                          "nextStep": "wait_clock"
                                         }
                                       ]
                                     },
-                                    "ready": {
-                                      "description": "Ready to update client application view on next clock signal.",
+                                    "render": {
+                                      "description": "Rendering client application view updates.",
+                                      "actions": {
+                                        "enter": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "react": {
+                                                    "render": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "exit": []
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "wait_clock"
+                                        }
+                                      ]
+                                    },
+                                    "wait_clock": {
+                                      "description": "Waiting for next clock signal to re-render client application view.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -19164,22 +19294,7 @@
                                               }
                                             }
                                           },
-                                          "nextStep": "rendering"
-                                        }
-                                      ]
-                                    },
-                                    "rendering": {
-                                      "description": "Rendering client application view updates.",
-                                      "actions": {
-                                        "enter": [],
-                                        "exit": []
-                                      },
-                                      "transitions": [
-                                        {
-                                          "transitionIf": {
-                                            "always": true
-                                          },
-                                          "nextStep": "ready"
+                                          "nextStep": "render"
                                         }
                                       ]
                                     }
@@ -19830,31 +19945,10 @@
                                             "react": {
                                               "____types": "jsObject",
                                               "rehydrate": {
-                                                "____types": "jsObject",
-                                                "pathComponentRouter": {
-                                                  "____label": "<ComponentRouter/> Path",
-                                                  "____description": "OCD path of the object namespace containing the <ComponentRouter/> instance to use to rehydrate the client view.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.ComponentRouter"
-                                                },
-                                                "pathDOMElement": {
-                                                  "____label": "DOM Element Path",
-                                                  "____description": "OCD path of the object namespace containing the DOM element to use to rehydrate the client view.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.DOMElement"
-                                                },
-                                                "pathDataContextPath": {
-                                                  "____label": "Data Context Path^2",
-                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed through React via this.props.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.pathDataContext"
-                                                },
-                                                "pathRenderDataPath": {
-                                                  "____label": "<ComponentRouter/> Render Data Path^2",
-                                                  "____description": "OCD path of the string namespace containing the OCD path of the object namespace to be passed to <ComponentRouter/> as renderData.",
-                                                  "____accept": "jsString",
-                                                  "____defaultValue": "#.pathRenderData"
-                                                }
+                                                "____types": "jsBoolean",
+                                                "____inValueSet": [
+                                                  true
+                                                ]
                                               }
                                             }
                                           }
@@ -19866,10 +19960,10 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "dJjTV9BAp4Z9pSavLeZ-wQ",
-                                  "inputTypeVDID": "KXVI5xjspkP3ffQqyQ77ZQ",
+                                  "inputTypeVDID": "dWayec_SLLNxaNT03o8KAQ",
                                   "outputTypeVIID": "8JLm4g169JeAd37FiSdhHA",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "6ns6kiHQwzGWkzUw69s3SA"
+                                  "operationVDID": "6hSNkiHYVjGWTpEw603mSA"
                                 }
                               ]
                             ]
@@ -20077,12 +20171,12 @@
                                         "transitionIf": {
                                           "always": true
                                         },
-                                        "nextStep": "waiting"
+                                        "nextStep": "wait_invariants"
                                       }
                                     ]
                                   },
-                                  "waiting": {
-                                    "description": "Waiting for input values to be specified.",
+                                  "wait_invariants": {
+                                    "description": "Waiting for input invariants to be satisfied.",
                                     "actions": {
                                       "enter": [],
                                       "exit": []
@@ -20150,7 +20244,7 @@
                                     ]
                                   },
                                   "initialized": {
-                                    "description": "All inputs have been specified. Waiting for clock signal.",
+                                    "description": "Input invariants have been satisfied.",
                                     "actions": {
                                       "enter": [],
                                       "exit": []
@@ -20161,22 +20255,41 @@
                                           "holarchy": {
                                             "sml": {
                                               "operators": {
-                                                "opmInStep": {
-                                                  "path": "#.clock",
-                                                  "step": "updated"
+                                                "ocd": {
+                                                  "isNamespaceTruthy": {
+                                                    "path": "#.clock.value"
+                                                  }
                                                 }
                                               }
                                             }
                                           }
                                         },
-                                        "nextStep": "rehydrating"
+                                        "nextStep": "render"
+                                      },
+                                      {
+                                        "transitionIf": {
+                                          "always": true
+                                        },
+                                        "nextStep": "rehydrate"
                                       }
                                     ]
                                   },
-                                  "rehydrating": {
+                                  "rehydrate": {
                                     "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                     "actions": {
-                                      "enter": [],
+                                      "enter": [
+                                        {
+                                          "holarchy": {
+                                            "sml": {
+                                              "actions": {
+                                                "react": {
+                                                  "rehydrate": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ],
                                       "exit": []
                                     },
                                     "transitions": [
@@ -20184,12 +20297,39 @@
                                         "transitionIf": {
                                           "always": true
                                         },
-                                        "nextStep": "ready"
+                                        "nextStep": "wait_clock"
                                       }
                                     ]
                                   },
-                                  "ready": {
-                                    "description": "Ready to update client application view on next clock signal.",
+                                  "render": {
+                                    "description": "Rendering client application view updates.",
+                                    "actions": {
+                                      "enter": [
+                                        {
+                                          "holarchy": {
+                                            "sml": {
+                                              "actions": {
+                                                "react": {
+                                                  "render": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "exit": []
+                                    },
+                                    "transitions": [
+                                      {
+                                        "transitionIf": {
+                                          "always": true
+                                        },
+                                        "nextStep": "wait_clock"
+                                      }
+                                    ]
+                                  },
+                                  "wait_clock": {
+                                    "description": "Waiting for next clock signal to re-render client application view.",
                                     "actions": {
                                       "enter": [],
                                       "exit": []
@@ -20208,22 +20348,7 @@
                                             }
                                           }
                                         },
-                                        "nextStep": "rendering"
-                                      }
-                                    ]
-                                  },
-                                  "rendering": {
-                                    "description": "Rendering client application view updates.",
-                                    "actions": {
-                                      "enter": [],
-                                      "exit": []
-                                    },
-                                    "transitions": [
-                                      {
-                                        "transitionIf": {
-                                          "always": true
-                                        },
-                                        "nextStep": "ready"
+                                        "nextStep": "render"
                                       }
                                     ]
                                   }
@@ -20308,12 +20433,12 @@
                                           "transitionIf": {
                                             "always": true
                                           },
-                                          "nextStep": "waiting"
+                                          "nextStep": "wait_invariants"
                                         }
                                       ]
                                     },
-                                    "waiting": {
-                                      "description": "Waiting for input values to be specified.",
+                                    "wait_invariants": {
+                                      "description": "Waiting for input invariants to be satisfied.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -20381,7 +20506,7 @@
                                       ]
                                     },
                                     "initialized": {
-                                      "description": "All inputs have been specified. Waiting for clock signal.",
+                                      "description": "Input invariants have been satisfied.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -20392,22 +20517,41 @@
                                             "holarchy": {
                                               "sml": {
                                                 "operators": {
-                                                  "opmInStep": {
-                                                    "path": "#.clock",
-                                                    "step": "updated"
+                                                  "ocd": {
+                                                    "isNamespaceTruthy": {
+                                                      "path": "#.clock.value"
+                                                    }
                                                   }
                                                 }
                                               }
                                             }
                                           },
-                                          "nextStep": "rehydrating"
+                                          "nextStep": "render"
+                                        },
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "rehydrate"
                                         }
                                       ]
                                     },
-                                    "rehydrating": {
+                                    "rehydrate": {
                                       "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                       "actions": {
-                                        "enter": [],
+                                        "enter": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "react": {
+                                                    "rehydrate": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
                                         "exit": []
                                       },
                                       "transitions": [
@@ -20415,12 +20559,39 @@
                                           "transitionIf": {
                                             "always": true
                                           },
-                                          "nextStep": "ready"
+                                          "nextStep": "wait_clock"
                                         }
                                       ]
                                     },
-                                    "ready": {
-                                      "description": "Ready to update client application view on next clock signal.",
+                                    "render": {
+                                      "description": "Rendering client application view updates.",
+                                      "actions": {
+                                        "enter": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "react": {
+                                                    "render": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "exit": []
+                                      },
+                                      "transitions": [
+                                        {
+                                          "transitionIf": {
+                                            "always": true
+                                          },
+                                          "nextStep": "wait_clock"
+                                        }
+                                      ]
+                                    },
+                                    "wait_clock": {
+                                      "description": "Waiting for next clock signal to re-render client application view.",
                                       "actions": {
                                         "enter": [],
                                         "exit": []
@@ -20439,22 +20610,7 @@
                                               }
                                             }
                                           },
-                                          "nextStep": "rendering"
-                                        }
-                                      ]
-                                    },
-                                    "rendering": {
-                                      "description": "Rendering client application view updates.",
-                                      "actions": {
-                                        "enter": [],
-                                        "exit": []
-                                      },
-                                      "transitions": [
-                                        {
-                                          "transitionIf": {
-                                            "always": true
-                                          },
-                                          "nextStep": "ready"
+                                          "nextStep": "render"
                                         }
                                       ]
                                     }
@@ -20664,7 +20820,7 @@
                                     "__opmiStep": "waiting"
                                   }
                                 },
-                                "__opmiStep": "waiting"
+                                "__opmiStep": "wait_invariants"
                               }
                             },
                             "transitionDispatcher": {
@@ -20826,12 +20982,12 @@
                                                     "transitionIf": {
                                                       "always": true
                                                     },
-                                                    "nextStep": "waiting"
+                                                    "nextStep": "wait_invariants"
                                                   }
                                                 ]
                                               },
-                                              "waiting": {
-                                                "description": "Waiting for input values to be specified.",
+                                              "wait_invariants": {
+                                                "description": "Waiting for input invariants to be satisfied.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -20899,7 +21055,7 @@
                                                 ]
                                               },
                                               "initialized": {
-                                                "description": "All inputs have been specified. Waiting for clock signal.",
+                                                "description": "Input invariants have been satisfied.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -20910,22 +21066,41 @@
                                                       "holarchy": {
                                                         "sml": {
                                                           "operators": {
-                                                            "opmInStep": {
-                                                              "path": "#.clock",
-                                                              "step": "updated"
+                                                            "ocd": {
+                                                              "isNamespaceTruthy": {
+                                                                "path": "#.clock.value"
+                                                              }
                                                             }
                                                           }
                                                         }
                                                       }
                                                     },
-                                                    "nextStep": "rehydrating"
+                                                    "nextStep": "render"
+                                                  },
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "rehydrate"
                                                   }
                                                 ]
                                               },
-                                              "rehydrating": {
+                                              "rehydrate": {
                                                 "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                                 "actions": {
-                                                  "enter": [],
+                                                  "enter": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "react": {
+                                                              "rehydrate": true
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
                                                   "exit": []
                                                 },
                                                 "transitions": [
@@ -20933,12 +21108,39 @@
                                                     "transitionIf": {
                                                       "always": true
                                                     },
-                                                    "nextStep": "ready"
+                                                    "nextStep": "wait_clock"
                                                   }
                                                 ]
                                               },
-                                              "ready": {
-                                                "description": "Ready to update client application view on next clock signal.",
+                                              "render": {
+                                                "description": "Rendering client application view updates.",
+                                                "actions": {
+                                                  "enter": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "react": {
+                                                              "render": true
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  "exit": []
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "wait_clock"
+                                                  }
+                                                ]
+                                              },
+                                              "wait_clock": {
+                                                "description": "Waiting for next clock signal to re-render client application view.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -20957,22 +21159,7 @@
                                                         }
                                                       }
                                                     },
-                                                    "nextStep": "rendering"
-                                                  }
-                                                ]
-                                              },
-                                              "rendering": {
-                                                "description": "Rendering client application view updates.",
-                                                "actions": {
-                                                  "enter": [],
-                                                  "exit": []
-                                                },
-                                                "transitions": [
-                                                  {
-                                                    "transitionIf": {
-                                                      "always": true
-                                                    },
-                                                    "nextStep": "ready"
+                                                    "nextStep": "render"
                                                   }
                                                 ]
                                               }
@@ -20981,7 +21168,7 @@
                                         },
                                         "evalResponse": {
                                           "status": "transitioned",
-                                          "finishStep": "waiting",
+                                          "finishStep": "wait_invariants",
                                           "phases": {
                                             "p1_toperator": [
                                               {
@@ -21000,7 +21187,7 @@
                                                             "__opmiStep": "waiting"
                                                           }
                                                         },
-                                                        "__opmiStep": "waiting"
+                                                        "__opmiStep": "wait_invariants"
                                                       }
                                                     },
                                                     "transitionDispatcher": {
@@ -21042,7 +21229,7 @@
                                             "p3_enter": [],
                                             "p4_finalize": {
                                               "error": null,
-                                              "result": "waiting"
+                                              "result": "wait_invariants"
                                             }
                                           },
                                           "errors": {
@@ -21185,7 +21372,7 @@
                                                             "__opmiStep": "waiting"
                                                           }
                                                         },
-                                                        "__opmiStep": "waiting"
+                                                        "__opmiStep": "wait_invariants"
                                                       }
                                                     },
                                                     "transitionDispatcher": {
@@ -21281,7 +21468,7 @@
                                             "dataPath": "~.d2r2ReactClientOutputProcessor",
                                             "specPath": "~.d2r2ReactClientOutputProcessor"
                                           },
-                                          "initialStep": "waiting",
+                                          "initialStep": "wait_invariants",
                                           "opmRef": {
                                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
                                             "name": "d2r2/React Output Processor",
@@ -21357,12 +21544,12 @@
                                                     "transitionIf": {
                                                       "always": true
                                                     },
-                                                    "nextStep": "waiting"
+                                                    "nextStep": "wait_invariants"
                                                   }
                                                 ]
                                               },
-                                              "waiting": {
-                                                "description": "Waiting for input values to be specified.",
+                                              "wait_invariants": {
+                                                "description": "Waiting for input invariants to be satisfied.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -21430,7 +21617,7 @@
                                                 ]
                                               },
                                               "initialized": {
-                                                "description": "All inputs have been specified. Waiting for clock signal.",
+                                                "description": "Input invariants have been satisfied.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -21441,22 +21628,41 @@
                                                       "holarchy": {
                                                         "sml": {
                                                           "operators": {
-                                                            "opmInStep": {
-                                                              "path": "#.clock",
-                                                              "step": "updated"
+                                                            "ocd": {
+                                                              "isNamespaceTruthy": {
+                                                                "path": "#.clock.value"
+                                                              }
                                                             }
                                                           }
                                                         }
                                                       }
                                                     },
-                                                    "nextStep": "rehydrating"
+                                                    "nextStep": "render"
+                                                  },
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "rehydrate"
                                                   }
                                                 ]
                                               },
-                                              "rehydrating": {
+                                              "rehydrate": {
                                                 "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                                 "actions": {
-                                                  "enter": [],
+                                                  "enter": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "react": {
+                                                              "rehydrate": true
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
                                                   "exit": []
                                                 },
                                                 "transitions": [
@@ -21464,12 +21670,39 @@
                                                     "transitionIf": {
                                                       "always": true
                                                     },
-                                                    "nextStep": "ready"
+                                                    "nextStep": "wait_clock"
                                                   }
                                                 ]
                                               },
-                                              "ready": {
-                                                "description": "Ready to update client application view on next clock signal.",
+                                              "render": {
+                                                "description": "Rendering client application view updates.",
+                                                "actions": {
+                                                  "enter": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "react": {
+                                                              "render": true
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  "exit": []
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "wait_clock"
+                                                  }
+                                                ]
+                                              },
+                                              "wait_clock": {
+                                                "description": "Waiting for next clock signal to re-render client application view.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -21488,22 +21721,7 @@
                                                         }
                                                       }
                                                     },
-                                                    "nextStep": "rendering"
-                                                  }
-                                                ]
-                                              },
-                                              "rendering": {
-                                                "description": "Rendering client application view updates.",
-                                                "actions": {
-                                                  "enter": [],
-                                                  "exit": []
-                                                },
-                                                "transitions": [
-                                                  {
-                                                    "transitionIf": {
-                                                      "always": true
-                                                    },
-                                                    "nextStep": "ready"
+                                                    "nextStep": "render"
                                                   }
                                                 ]
                                               }
@@ -21512,7 +21730,7 @@
                                         },
                                         "evalResponse": {
                                           "status": "noop",
-                                          "finishStep": "waiting",
+                                          "finishStep": "wait_invariants",
                                           "phases": {
                                             "p1_toperator": [
                                               {
@@ -21531,7 +21749,7 @@
                                                             "__opmiStep": "waiting"
                                                           }
                                                         },
-                                                        "__opmiStep": "waiting"
+                                                        "__opmiStep": "wait_invariants"
                                                       }
                                                     },
                                                     "transitionDispatcher": {
@@ -21766,7 +21984,7 @@
                                                             "__opmiStep": "waiting"
                                                           }
                                                         },
-                                                        "__opmiStep": "waiting"
+                                                        "__opmiStep": "wait_invariants"
                                                       }
                                                     },
                                                     "transitionDispatcher": {
@@ -21860,7 +22078,7 @@
                                             "dataPath": "~.d2r2ReactClientOutputProcessor",
                                             "specPath": "~.d2r2ReactClientOutputProcessor"
                                           },
-                                          "initialStep": "waiting",
+                                          "initialStep": "wait_invariants",
                                           "opmRef": {
                                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
                                             "name": "d2r2/React Output Processor",
@@ -21936,12 +22154,12 @@
                                                     "transitionIf": {
                                                       "always": true
                                                     },
-                                                    "nextStep": "waiting"
+                                                    "nextStep": "wait_invariants"
                                                   }
                                                 ]
                                               },
-                                              "waiting": {
-                                                "description": "Waiting for input values to be specified.",
+                                              "wait_invariants": {
+                                                "description": "Waiting for input invariants to be satisfied.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -22009,7 +22227,7 @@
                                                 ]
                                               },
                                               "initialized": {
-                                                "description": "All inputs have been specified. Waiting for clock signal.",
+                                                "description": "Input invariants have been satisfied.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -22020,22 +22238,41 @@
                                                       "holarchy": {
                                                         "sml": {
                                                           "operators": {
-                                                            "opmInStep": {
-                                                              "path": "#.clock",
-                                                              "step": "updated"
+                                                            "ocd": {
+                                                              "isNamespaceTruthy": {
+                                                                "path": "#.clock.value"
+                                                              }
                                                             }
                                                           }
                                                         }
                                                       }
                                                     },
-                                                    "nextStep": "rehydrating"
+                                                    "nextStep": "render"
+                                                  },
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "rehydrate"
                                                   }
                                                 ]
                                               },
-                                              "rehydrating": {
+                                              "rehydrate": {
                                                 "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
                                                 "actions": {
-                                                  "enter": [],
+                                                  "enter": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "react": {
+                                                              "rehydrate": true
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
                                                   "exit": []
                                                 },
                                                 "transitions": [
@@ -22043,12 +22280,39 @@
                                                     "transitionIf": {
                                                       "always": true
                                                     },
-                                                    "nextStep": "ready"
+                                                    "nextStep": "wait_clock"
                                                   }
                                                 ]
                                               },
-                                              "ready": {
-                                                "description": "Ready to update client application view on next clock signal.",
+                                              "render": {
+                                                "description": "Rendering client application view updates.",
+                                                "actions": {
+                                                  "enter": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "react": {
+                                                              "render": true
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  ],
+                                                  "exit": []
+                                                },
+                                                "transitions": [
+                                                  {
+                                                    "transitionIf": {
+                                                      "always": true
+                                                    },
+                                                    "nextStep": "wait_clock"
+                                                  }
+                                                ]
+                                              },
+                                              "wait_clock": {
+                                                "description": "Waiting for next clock signal to re-render client application view.",
                                                 "actions": {
                                                   "enter": [],
                                                   "exit": []
@@ -22067,22 +22331,7 @@
                                                         }
                                                       }
                                                     },
-                                                    "nextStep": "rendering"
-                                                  }
-                                                ]
-                                              },
-                                              "rendering": {
-                                                "description": "Rendering client application view updates.",
-                                                "actions": {
-                                                  "enter": [],
-                                                  "exit": []
-                                                },
-                                                "transitions": [
-                                                  {
-                                                    "transitionIf": {
-                                                      "always": true
-                                                    },
-                                                    "nextStep": "ready"
+                                                    "nextStep": "render"
                                                   }
                                                 ]
                                               }
@@ -22091,7 +22340,7 @@
                                         },
                                         "evalResponse": {
                                           "status": "noop",
-                                          "finishStep": "waiting",
+                                          "finishStep": "wait_invariants",
                                           "phases": {
                                             "p1_toperator": [
                                               {
@@ -22110,7 +22359,7 @@
                                                             "__opmiStep": "waiting"
                                                           }
                                                         },
-                                                        "__opmiStep": "waiting"
+                                                        "__opmiStep": "wait_invariants"
                                                       }
                                                     },
                                                     "transitionDispatcher": {
@@ -22345,7 +22594,7 @@
                                                             "__opmiStep": "waiting"
                                                           }
                                                         },
-                                                        "__opmiStep": "waiting"
+                                                        "__opmiStep": "wait_invariants"
                                                       }
                                                     },
                                                     "transitionDispatcher": {

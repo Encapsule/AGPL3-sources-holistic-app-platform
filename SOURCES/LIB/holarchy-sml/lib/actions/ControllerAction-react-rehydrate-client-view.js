@@ -20,31 +20,8 @@ module.exports = new holarchy.ControllerAction({
                     react: {
                         ____types: "jsObject",
                         rehydrate: {
-                            ____types: "jsObject",
-                            pathComponentRouter: {
-                                ____label: "<ComponentRouter/> Path",
-                                ____description: "OCD path of the object namespace containing the <ComponentRouter/> instance to use to rehydrate the client view.",
-                                ____accept: "jsString",
-                                ____defaultValue: "#.ComponentRouter"
-                            },
-                            pathDOMElement: {
-                                ____label: "DOM Element Path",
-                                ____description: "OCD path of the object namespace containing the DOM element to use to rehydrate the client view.",
-                                ____accept: "jsString",
-                                ____defaultValue: "#.DOMElement"
-                            },
-                            pathDataContextPath: {
-                                ____label: "Data Context Path^2",
-                                ____description: "OCD path of the string namespace containing the OCD path of the object namespace to be passed through React via this.props.",
-                                ____accept: "jsString",
-                                ____defaultValue: "#.pathDataContext"
-                            },
-                            pathRenderDataPath: {
-                                ____label: "<ComponentRouter/> Render Data Path^2",
-                                ____description: "OCD path of the string namespace containing the OCD path of the object namespace to be passed to <ComponentRouter/> as renderData.",
-                                ____accept: "jsString",
-                                ____defaultValue: "#.pathRenderData"
-                            }
+                            ____types: "jsBoolean",
+                            ____inValueSet: [ true ]
                         }
                     }
                 }
@@ -65,41 +42,24 @@ module.exports = new holarchy.ControllerAction({
 
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
-                dataPath: message.pathComponentRouter
+                dataPath: "#.inputs"
             });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
                 break;
             }
-            const pathComponentRouter = rpResponse.result;
+            const pathInputs = rpResponse.result;
 
-            let ocdResponse = request_.context.ocdi.readNamespace(pathComponentRouter);
+            let ocdResponse = request_.context.ocdi.readNamespace(pathInputs);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
-            const ComponentRouter = ocdResponse.result;
+            const inputs = ocdResponse.result;
 
             rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
-                dataPath: message.pathDOMElement
-            });
-            if (rpResponse.error) {
-                errors.push(rpResponse.error);
-                break;
-            }
-            const pathDOMElement = rpResponse.result;
-
-            ocdResponse = request_.context.ocdi.readNamespace(pathDOMElement);
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
-                break;
-            }
-            const DOMElement = ocdResponse.result;
-
-            rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.opmBindingPath,
-                dataPath: message.pathDataContextPath
+                dataPath: inputs.pathDataContext
             });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
@@ -107,13 +67,29 @@ module.exports = new holarchy.ControllerAction({
             }
             const pathDataContext = rpResponse.result;
 
-            ocdResponse = request_.context.ocdi.readNamespace(pathDataContext);
+            ocdResponse = request_.ocdi.readNamespace(pathDataContext);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
-
             const dataContext = ocdResponse.result;
+
+            rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+                opmBindingPath: request_.context.opmBindingPath,
+                dataPath: inputs.pathRenderData
+            });
+            if (rpResponse.error) {
+                errors.push(rpResponse.error);
+                break;
+            }
+            const pathRenderData = rpResponse.result;
+
+            ocdResponse = request_.ocdi.readNamespace(pathRenderData);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+            const renderData = ocdResponse.result;
 
             // TODO: This seems to presume renderData is embedded already?
             const d2r2Component = React.createElement(ComponentRouter, dataContext);

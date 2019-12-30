@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-metadata",
     "version": "0.0.29",
     "codename": "northstar",
-    "buildID": "hQAG7NppS6qxOUEye2b-zw",
-    "buildTime": 1577214874,
-    "buildSource": "6ef5f1598d32be5414bfec32502b86fd3e91c252",
+    "buildID": "LvyDP_hPRSeicOXzZsZeow",
+    "buildTime": 1577665950,
+    "buildSource": "ac89b3c786e7aaa99de82ae73b04d20e9e0eabe9",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-metadata.git"
