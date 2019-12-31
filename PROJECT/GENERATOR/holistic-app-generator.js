@@ -13,7 +13,9 @@ const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with En
 const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
 
 const holisticMetadata = require("../../PLATFORM/holistic");
-const holisticPlatformRuntimePackageDependencies = require("../PLATFORM/PACKAGES");
+const holisticPlatformRuntimePackageNames = require("../../PLATFORM/holistic-rtl-packages");
+
+
 const holisticPlatformManifest = require("./holistic-platform-manifest");
 
 const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
@@ -402,14 +404,14 @@ console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'
 // that have appeared in the application's package.json are installed. And, that yarn.lock
 // is updated.
 
-for (key in holisticPlatformRuntimePackageDependencies) {
-    console.log("> Updating holistic platform runtime package dependency '" + key + "'...");
+holisticPlatformRuntimePackageNames.forEach(function(packageName_) {
+
+    console.log("> Updating holistic platform runtime package dependency '" + packageName_ + "'...");
     consoleOutput = syncExec({
         cwd: resourceFilePaths.application.packageModulesDir,
-        command: "rm -rf " + key
+        command: "rm -rf " + packageName_
     });
-    // console.log(consoleOutput);
-} // end for
+});
 
 makeDirectory(resourceFilePaths.application.projectDir);
 touchFile(path.join(resourceFilePaths.application.projectDir, ".gitkeep"));

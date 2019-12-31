@@ -16,6 +16,7 @@ DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
 
 TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate-package-build-manifest.js
+TOOL_GEN_PACKAGE_NAMES_MANIFEST=$(DIR_PROJECT)/export-platform-packages-json.js
 TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate-package-manifest.js
 TOOL_GEN_PACKAGE_LICENSE=$(DIR_PROJECT)/generate-package-license.js
 TOOL_GEN_PACKAGE_README=$(DIR_PROJECT)/generate-package-readme.js
@@ -101,6 +102,7 @@ env_clean_cache: env_clean
 env_generate_build_tag:
 	@echo generate_build_tag target starting...
 	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
+	$(TOOL_GEN_PACKAGE_NAMES_MANIFEST) > $(DIR_BUILD)/holistic-rtl-packages.json
 	@echo generate_build_tag target complete.
 
 # ================================================================
@@ -427,6 +429,7 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: platform_update
 	mkdir -p $(DIR_PLATFORM)
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM)/
+	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_PLATFORM)/
 	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM)
 	$(DIR_ROOT)/TESTS/run-tests.js
 	@echo FINISH TARGET: platform_update
