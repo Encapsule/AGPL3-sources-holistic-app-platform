@@ -43,7 +43,8 @@ module.exports = [{
             transitionOperatorSets: [sml.operators.logical],
             controllerActionSets: [sml.actions.ocd]
           }
-        }
+        },
+        actionRequest: []
       }
     }
   }
