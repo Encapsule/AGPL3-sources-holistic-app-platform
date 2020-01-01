@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.29 "northstar"
 
 ```
-Package: @encapsule/holarchy v0.0.29 "northstar" build ID "5m84fd1sStSKdscuxjoIiw"
-Sources: Encapsule/holistic#6a5bdcfdd432ffc53b0a1e5af7d6d110d70d0b7f
+Package: @encapsule/holarchy v0.0.29 "northstar" build ID "-Q4U8LIWS024gWjHogQyXQ"
+Sources: Encapsule/holistic#bb3f40a492a7cd6da91a7a87dbf50bea19d65afc
 Purpose: library (Node.js)
-Created: 2020-01-01T18:19:52.000Z
+Created: 2020-01-01T22:26:28.000Z
 License: MIT
 ```
 

@@ -58,8 +58,8 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "query-string": "^6.2.0",
         "mkdirp": "^0.5.1",
         "query-string": "^6.2.0",
-        "react": "^16.7.0",
-        "react-dom": "^16.7.0",
+        "react": "16.12.0",
+        "react-dom": "16.12.0",
         "react-markdown": "^2.5.0",
         "request": "^2.88.0",
 

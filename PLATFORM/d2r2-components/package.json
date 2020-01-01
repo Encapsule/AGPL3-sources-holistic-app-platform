@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2-components",
     "version": "0.0.29",
     "codename": "northstar",
-    "buildID": "5m84fd1sStSKdscuxjoIiw",
-    "buildTime": 1577902792,
-    "buildSource": "6a5bdcfdd432ffc53b0a1e5af7d6d110d70d0b7f",
+    "buildID": "-Q4U8LIWS024gWjHogQyXQ",
+    "buildTime": 1577917588,
+    "buildSource": "bb3f40a492a7cd6da91a7a87dbf50bea19d65afc",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2-components.git"
@@ -34,8 +34,8 @@
     "peerDependencies": {
         "@encapsule/arccore": "0.1.7",
         "@encapsule/d2r2": "0.0.29",
-        "react": "^16.7.0",
-        "react-dom": "^16.7.0"
+        "react": "16.12.0",
+        "react-dom": "16.12.0"
     },
     "bin": {
         "copy_resources": "./bin/copy_holarchy_resources.js"
