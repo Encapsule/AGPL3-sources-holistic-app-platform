@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.29",
     "codename": "northstar",
-    "buildID": "3dBxMALaQgiK5T9WiMMS7A",
-    "buildTime": 1577774028,
-    "buildSource": "4bde27d5e6e068df03506b16215ba4bc87ee0e61",
+    "buildID": "5m84fd1sStSKdscuxjoIiw",
+    "buildTime": 1577902792,
+    "buildSource": "6a5bdcfdd432ffc53b0a1e5af7d6d110d70d0b7f",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"

@@ -5,10 +5,10 @@
 # @encapsule/d2r2 v0.0.29 "northstar"
 
 ```
-Package: @encapsule/d2r2 v0.0.29 "northstar" build ID "3dBxMALaQgiK5T9WiMMS7A"
-Sources: Encapsule/holistic#4bde27d5e6e068df03506b16215ba4bc87ee0e61
+Package: @encapsule/d2r2 v0.0.29 "northstar" build ID "5m84fd1sStSKdscuxjoIiw"
+Sources: Encapsule/holistic#6a5bdcfdd432ffc53b0a1e5af7d6d110d70d0b7f
 Purpose: library (Node.js)
-Created: 2019-12-31T06:33:48.000Z
+Created: 2020-01-01T18:19:52.000Z
 License: MIT
 ```
 
@@ -57,4 +57,4 @@ The `@encapsule/d2r2` library package is published on [npmjs](https://npmjs.com)
 
 Published under [MIT](LICENSE) license by [Encapsule Project](https://encapsule.io) Seattle, Washington
 
-Copyright &copy; 2019 [Christopher D. Russell](https://github.com/ChrisRus)
+Copyright &copy; 2020 [Christopher D. Russell](https://github.com/ChrisRus)
