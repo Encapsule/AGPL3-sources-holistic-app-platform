@@ -18,16 +18,18 @@ var factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            // Wrap the output in an IRUT-tagged namespace object so that it can be easily discriminated 
-            // from other application and 3rd-party message signatures by derived applications.
+            // Wrap the output in an IRUT-tagged namespace object so that it can be
+            // easily discriminated from other application and 3rd-party message
+            // signatures by derived applications.
+
+            // Send the request information to console.error.
+            console.error(JSON.stringify(request_.request_descriptor));
 
             if (!request_.error_descriptor.http.message) {
                 request_.error_descriptor.http.message = http.STATUS_CODES[request_.error_descriptor.http.code];
             }
 
             request_.error_descriptor.data.http = request_.error_descriptor.http;
-            request_.error_descriptor.data.request = request_.request_descriptor;
-
             request_.error_descriptor.data = { "ESCW71rwTz24meWiZpJb4A": request_.error_descriptor.data };
 
             var innerResponse = serializeResponseFilter.request({

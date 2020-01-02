@@ -31,7 +31,7 @@
 module.exports = {
   HolisticPageView: {
     container: {
-      fontFamily: "Nunito, Arial, Helevita" // via Google Fonts
+      fontFamily: "Nunito, Arial, Helvetica" // via Google Fonts
 
     }
   },
@@ -69,7 +69,7 @@ module.exports = {
       container: {
         border: "10px solid #EEE",
         borderRadius: "0.5em",
-        fontFamily: "Nunito, Arial, Helevita",
+        fontFamily: "Nunito, Arial, Helvetica",
         // via Google Fonts
         fontSize: "16pt",
         margin: "1em",
@@ -83,7 +83,7 @@ module.exports = {
       container: {
         border: "10px solid #EEE",
         borderRadius: "0.5em",
-        fontFamily: "Nunito, Arial, Helevita",
+        fontFamily: "Nunito, Arial, Helvetica",
         // via Google Fonts
         margin: "1em",
         padding: "1em"
@@ -282,7 +282,7 @@ module.exports = {
       },
       descriptionBar: {
         fontSize: "8pt",
-        fontFamily: "Nunito, Arial, Helevita",
+        fontFamily: "Nunito, Arial, Helvetica",
         color: "#333",
         position: "relative",
         left: "51px"
@@ -308,7 +308,7 @@ module.exports = {
     */
     PageFooter: {
       container: {
-        fontFamily: "Montserrat, Arial, Helevetica",
+        fontFamily: "Montserrat, Arial, Helvetica",
         fontSize: "8pt",
         textAlign: "center",
         position: "fixed",
@@ -406,7 +406,7 @@ module.exports = {
           borderRadius: "0.5em"
         },
         hideDetails: {
-          fontFamily: "Play, Arial, Helevetica",
+          fontFamily: "Play, Arial, Helvetica",
           color: "#939",
           fontSize: "24pt",
           fontWeight: "bold",
@@ -481,7 +481,7 @@ module.exports = {
           fontSize: "8pt"
         },
         hideDetails: {
-          fontFamily: "Play, Arial, Helevetica",
+          fontFamily: "Play, Arial, Helvetica",
           color: "#F90",
           fontSize: "24pt",
           fontWeight: "bold",

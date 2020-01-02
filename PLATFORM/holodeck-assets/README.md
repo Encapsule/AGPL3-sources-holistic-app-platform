@@ -5,10 +5,10 @@
 # @encapsule/holodeck-assets v0.0.29 "northstar"
 
 ```
-Package: @encapsule/holodeck-assets v0.0.29 "northstar" build ID "-Q4U8LIWS024gWjHogQyXQ"
-Sources: Encapsule/holistic#bb3f40a492a7cd6da91a7a87dbf50bea19d65afc
+Package: @encapsule/holodeck-assets v0.0.29 "northstar" build ID "NBW2LQCuQV2h2AJUM2H6lQ"
+Sources: Encapsule/holistic#3806e2e7fcd48ddcd5bcb2af8283aac715f2ea1f
 Purpose: library (Node.js)
-Created: 2020-01-01T22:26:28.000Z
+Created: 2020-01-02T02:44:27.000Z
 License: MIT
 ```
 
