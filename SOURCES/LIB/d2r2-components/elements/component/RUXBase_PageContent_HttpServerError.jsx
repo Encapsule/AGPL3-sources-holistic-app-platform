@@ -11,19 +11,6 @@ const holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descript
 
 var holismHttpErrorMessageSpec = arccore.util.clone(holismHttpResponseErrorResultSpec.error_descriptor.data['ESCW71rwTz24meWiZpJb4A']); // snips off the routing namespace & deep copies
 
-// ----------------------------------------------------------------
-// EXERCISE EXTREME CAUTION.
-// For production purposes we never want to share the deserialized request headers.
-
-delete holismHttpErrorMessageSpec.request.headers; // i.e. filter this data out of the React view entirely so it's not rendered on the server or the client
-// ^--- good - we're working on a cloned copy at least
-//
-// TODO: Oct 2019 --- the above comment was once a valid concern. However, I've come around to
-// think that it is not the job of React component authors to care much about such details.
-// If React gets handed some data it's clean. Period. It's the responsibility of the app
-// developer to take care of the data before it's handed off to React.
-
-
 var factoryResponse = reactComponentBindingFilterFactory.create({
 
     id: "hO7kzwr3SmmnWFJQ6mUEiQ",
@@ -40,13 +27,6 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
         constructor(props_) {
             super(props_);
             this.state = { showRawResponse: false };
-            this.onClickToggleDetail = this.onClickToggleDetail.bind(this);
-        }
-
-        onClickToggleDetail() {
-            this.setState({
-                showRawResponse: !this.state.showRawResponse
-            });
         }
 
         render()  {
@@ -65,22 +45,9 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
                              <p style={theme.base.PageContent_HttpServerError.errorMessage}>{renderData.error_message}</p>
                              </div>);
 
-                if (!this.state.showRawResponse)
-                    content.push(<div key={makeKey()} title="Show response details..." onClick={this.onClickToggleDetail} style={theme.base.PageContent_HttpServerError.detailsSummary}>
-                                 <pre style={theme.classPRE}>
-                                 HTTP request ....... <strong>{renderData.request.route_method_name}</strong> failed.<br/>
-                                 Query/search URI ... <strong>{renderData.request.url_parse.href}</strong>
-                                 </pre>
-                                 </div>);
-                else {
-                    content.push(<div key={makeKey()} style={theme.base.PageContent_HttpServerError.hideDetails} onClick={this.onClickToggleDetail} title="Hide response details...">
-                                 <strong>Hide Details</strong>
-                                 </div>);
-
-                    content.push(<pre key={makeKey()} style={theme.classPRE}>
-                                 {JSON.stringify(renderData, undefined, 4)}
-                                 </pre>);
-                }
+                content.push(<pre key={makeKey()}>
+                             {JSON.stringify(renderData, undefined, 4)}
+                             </pre>);
 
                 content.push(<div key={makeKey()} style={{ marginTop: "1em", fontWeight: "bold", textAlign: "right" }} >
                              [ <a href="/" title="Go home...">Home</a> ]
