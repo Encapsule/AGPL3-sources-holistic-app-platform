@@ -5,10 +5,10 @@
 # @encapsule/holism-metadata v0.0.29 "northstar"
 
 ```
-Package: @encapsule/holism-metadata v0.0.29 "northstar" build ID "NBW2LQCuQV2h2AJUM2H6lQ"
-Sources: Encapsule/holistic#3806e2e7fcd48ddcd5bcb2af8283aac715f2ea1f
+Package: @encapsule/holism-metadata v0.0.29 "northstar" build ID "Ctei6ed9SxeEYSMkSiQe_Q"
+Sources: Encapsule/holistic#807b563a47639ec00b5d1b36f607e0fee9b8fcc9
 Purpose: library (Node.js)
-Created: 2020-01-02T02:44:27.000Z
+Created: 2020-01-02T17:40:09.000Z
 License: MIT
 ```
 

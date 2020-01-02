@@ -17,8 +17,6 @@ const httpResponseErrorRequestSpec = require("./http-response-error-request-spec
 
 const spec = arccore.util.clone(httpResponseErrorRequestSpec);
 spec.error_descriptor.data.http = spec.error_descriptor.http;
-spec.error_descriptor.data.request = spec.request_descriptor;
-
 
 var holismErrorMessageSpec = {
     ____label: "Holism Error Message",

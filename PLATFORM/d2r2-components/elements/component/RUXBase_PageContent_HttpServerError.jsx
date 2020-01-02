@@ -10,13 +10,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 // sources/common/view/elements/component/PageContent_HttpServerError.jsx.jsx
 //
@@ -30,17 +30,6 @@ var holismHttpResponseErrorResultSpec = require("@encapsule/holism/lib/iospecs/h
 
 var holismHttpErrorDataSpec = holismHttpResponseErrorResultSpec.error_descriptor.data;
 var holismHttpErrorMessageSpec = arccore.util.clone(holismHttpResponseErrorResultSpec.error_descriptor.data['ESCW71rwTz24meWiZpJb4A']); // snips off the routing namespace & deep copies
-// ----------------------------------------------------------------
-// EXERCISE EXTREME CAUTION.
-// For production purposes we never want to share the deserialized request headers.
-
-delete holismHttpErrorMessageSpec.request.headers; // i.e. filter this data out of the React view entirely so it's not rendered on the server or the client
-// ^--- good - we're working on a cloned copy at least
-//
-// TODO: Oct 2019 --- the above comment was once a valid concern. However, I've come around to
-// think that it is not the job of React component authors to care much about such details.
-// If React gets handed some data it's clean. Period. It's the responsibility of the app
-// developer to take care of the data before it's handed off to React.
 
 var factoryResponse = reactComponentBindingFilterFactory.create({
   id: "hO7kzwr3SmmnWFJQ6mUEiQ",
@@ -64,18 +53,10 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
       _this.state = {
         showRawResponse: false
       };
-      _this.onClickToggleDetail = _this.onClickToggleDetail.bind(_assertThisInitialized(_assertThisInitialized(_this)));
       return _this;
     }
 
     _createClass(HolismHttpServerErrorPageContent, [{
-      key: "onClickToggleDetail",
-      value: function onClickToggleDetail() {
-        this.setState({
-          showRawResponse: !this.state.showRawResponse
-        });
-      }
-    }, {
       key: "render",
       value: function render() {
         var ComponentRouter = this.props.appStateContext.ComponentRouter;
@@ -104,25 +85,9 @@ var factoryResponse = reactComponentBindingFilterFactory.create({
             }, "The ", metadata.site.name, " application server cannot process your request.")), React.createElement("p", {
               style: theme.base.PageContent_HttpServerError.errorMessage
             }, renderData.error_message)));
-            if (!this.state.showRawResponse) content.push(React.createElement("div", {
-              key: makeKey(),
-              title: "Show response details...",
-              onClick: this.onClickToggleDetail,
-              style: theme.base.PageContent_HttpServerError.detailsSummary
-            }, React.createElement("pre", {
-              style: theme.classPRE
-            }, "HTTP request ....... ", React.createElement("strong", null, renderData.request.route_method_name), " failed.", React.createElement("br", null), "Query/search URI ... ", React.createElement("strong", null, renderData.request.url_parse.href))));else {
-              content.push(React.createElement("div", {
-                key: makeKey(),
-                style: theme.base.PageContent_HttpServerError.hideDetails,
-                onClick: this.onClickToggleDetail,
-                title: "Hide response details..."
-              }, React.createElement("strong", null, "Hide Details")));
-              content.push(React.createElement("pre", {
-                key: makeKey(),
-                style: theme.classPRE
-              }, JSON.stringify(renderData, undefined, 4)));
-            }
+            content.push(React.createElement("pre", {
+              key: makeKey()
+            }, JSON.stringify(renderData, undefined, 4)));
             content.push(React.createElement("div", {
               key: makeKey(),
               style: {
