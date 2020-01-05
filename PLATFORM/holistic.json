@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
-    "version": "0.0.29",
-    "codename": "northstar",
+    "version": "0.0.30",
+    "codename": "winterharbour",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "Ctei6ed9SxeEYSMkSiQe_Q",
-    "buildSource": "807b563a47639ec00b5d1b36f607e0fee9b8fcc9",
-    "buildTime": 1577986809,
-    "buildDateISO": "2020-01-02T17:40:09.000Z"
+    "buildID": "744SAQsaRyiJT-_CmdZiMw",
+    "buildSource": "91f88fb615ada9e90589f39b6a822ce8f5f36717",
+    "buildTime": 1578238215,
+    "buildDateISO": "2020-01-05T15:30:15.000Z"
 }

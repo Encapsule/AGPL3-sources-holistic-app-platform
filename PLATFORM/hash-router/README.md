@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/hash-router v0.0.29 "northstar"
+# @encapsule/hash-router v0.0.30 "winterharbour"
 
 ```
-Package: @encapsule/hash-router v0.0.29 "northstar" build ID "Ctei6ed9SxeEYSMkSiQe_Q"
-Sources: Encapsule/holistic#807b563a47639ec00b5d1b36f607e0fee9b8fcc9
+Package: @encapsule/hash-router v0.0.30 "winterharbour" build ID "744SAQsaRyiJT-_CmdZiMw"
+Sources: Encapsule/holistic#91f88fb615ada9e90589f39b6a822ce8f5f36717
 Purpose: library (Node.js)
-Created: 2020-01-02T17:40:09.000Z
+Created: 2020-01-05T15:30:15.000Z
 License: MIT
 ```
 
@@ -67,7 +67,7 @@ blah blah blah Reusable React components for blah blah blah.
 
 The `@encapsule/hash-router` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/hash-router Package Distribution](https://npmjs.com/package/@encapsule/hash-router/v/0.0.29) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/hash-router Package Distribution](https://npmjs.com/package/@encapsule/hash-router/v/0.0.30) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/hash-router git Repository](https://github.com/Encapsule/hash-router) ([GitHub](https://github.com/Encapsule))
 
 <hr>

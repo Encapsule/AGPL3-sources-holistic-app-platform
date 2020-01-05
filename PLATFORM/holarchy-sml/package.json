@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holarchy-sml",
-    "version": "0.0.29",
-    "codename": "northstar",
-    "buildID": "Ctei6ed9SxeEYSMkSiQe_Q",
-    "buildTime": 1577986809,
-    "buildSource": "807b563a47639ec00b5d1b36f607e0fee9b8fcc9",
+    "version": "0.0.30",
+    "codename": "winterharbour",
+    "buildID": "744SAQsaRyiJT-_CmdZiMw",
+    "buildTime": 1578238215,
+    "buildSource": "91f88fb615ada9e90589f39b6a822ce8f5f36717",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holarchy-sml.git"
@@ -28,8 +28,8 @@
     ],
     "main": "index.js",
     "peerDependencies": {
-        "@encapsule/arccore": "0.1.7",
-        "@encapsule/holarchy": "0.0.29",
+        "@encapsule/arccore": "0.1.8",
+        "@encapsule/holarchy": "0.0.30",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     }

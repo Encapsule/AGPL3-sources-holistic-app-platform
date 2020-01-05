@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/holism-metadata v0.0.29 "northstar"
+# @encapsule/holism-metadata v0.0.30 "winterharbour"
 
 ```
-Package: @encapsule/holism-metadata v0.0.29 "northstar" build ID "Ctei6ed9SxeEYSMkSiQe_Q"
-Sources: Encapsule/holistic#807b563a47639ec00b5d1b36f607e0fee9b8fcc9
+Package: @encapsule/holism-metadata v0.0.30 "winterharbour" build ID "744SAQsaRyiJT-_CmdZiMw"
+Sources: Encapsule/holistic#91f88fb615ada9e90589f39b6a822ce8f5f36717
 Purpose: library (Node.js)
-Created: 2020-01-02T17:40:09.000Z
+Created: 2020-01-05T15:30:15.000Z
 License: MIT
 ```
 
@@ -50,7 +50,7 @@ blah blah this is some text in the documentation markdown array.
 
 The `@encapsule/holism-metadata` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/holism-metadata Package Distribution](https://npmjs.com/package/@encapsule/holism-metadata/v/0.0.29) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/holism-metadata Package Distribution](https://npmjs.com/package/@encapsule/holism-metadata/v/0.0.30) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/holism-metadata git Repository](https://github.com/Encapsule/holism-metadata) ([GitHub](https://github.com/Encapsule))
 
 ## Body section 1
