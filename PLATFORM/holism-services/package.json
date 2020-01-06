@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.30",
     "codename": "winterharbour",
-    "buildID": "744SAQsaRyiJT-_CmdZiMw",
-    "buildTime": 1578238215,
-    "buildSource": "91f88fb615ada9e90589f39b6a822ce8f5f36717",
+    "buildID": "RJ7B98dFSa2ZghY5o12JIQ",
+    "buildTime": 1578330177,
+    "buildSource": "8bf4957e15cfd86401f359ee4319294787f2de48",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"

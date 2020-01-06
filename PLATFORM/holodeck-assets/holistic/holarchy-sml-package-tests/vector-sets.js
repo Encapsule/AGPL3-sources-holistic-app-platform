@@ -19,4 +19,4 @@ require("./vector-set-frame-latch"), // d2r2/React Client Output Processor OPM e
 // of initial client-side rehydration (i.e. event handler binding
 // on top of server-pre-rendered HTML) and subsequent dynamic updates
 // to the client view via d2r2 and React RTL's.
-require("./vector-set-d2r2-react-processor")];
+require("./vector-set-d2r2-react-client-display-adaptor")];
