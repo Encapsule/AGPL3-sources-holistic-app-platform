@@ -24,6 +24,6 @@ module.exports = [
     // on top of server-pre-rendered HTML) and subsequent dynamic updates
     // to the client view via d2r2 and React RTL's.
 
-    require("./vector-set-d2r2-react-processor")
+    require("./vector-set-d2r2-react-client-display-adaptor")
 
 ];

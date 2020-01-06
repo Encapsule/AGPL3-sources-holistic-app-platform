@@ -1,24 +1,23 @@
-
-// opm-d2r2-react-client-output-processor-declaration.js
-// We do it this way so that we can test the OPM independent
-// of any OPC that may attempt to use the fully-constructed
-// OPMI exported from @encapsule/holarchy-sml package.
+// opm-d2r2-react-client-display-adaptor-declaration.js
+//
+// This is constructor data for @encapsule/holarchy.ObservableProcessModel constructor function.
+//
 
 module.exports = {
 
     id: "IxoJ83u0TXmG7PLUYBvsyg",
-    name: "d2r2/React Output Processor",
-    description: "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+    name: "d2r2/React Client Display Adaptor",
+    description: "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
 
     opmDataSpec: {
-        ____label: "d2r2/React Output Processor",
-        ____description: "Shared memory definition for the d2r2/React Output Processor.",
+        ____label: "d2r2/React Client Display Adaptor Memory",
+        ____description: "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
         ____types: "jsObject",
         ____defaultValue: {},
 
         inputs: {
 
-            ____label: "Processor Inputs",
+            ____label: "Adaptor Inputs",
             ____types: "jsObject",
             ____defaultValue: {},
 

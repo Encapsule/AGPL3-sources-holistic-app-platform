@@ -18075,22 +18075,22 @@
                 "harnessRequest": {
                   "id": "zUoUas3CTj2HLDfpNf4NTw",
                   "name": "d2r2/React Client Output Processor OPM #1",
-                  "description": "Attempt to instantiate the current d2r2/React Client Output Processor OPM declaration via our test harness.",
+                  "description": "Attempt to instantiate the current d2r2/React Client Display Adaptor OPM declaration via our test harness.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
                         "ObservableProcessModel": {
                           "constructorRequest": {
                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                            "name": "d2r2/React Output Processor",
-                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                            "name": "d2r2/React Client Display Adaptor",
+                            "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                             "opmDataSpec": {
-                              "____label": "d2r2/React Output Processor",
-                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                              "____label": "d2r2/React Client Display Adaptor Memory",
+                              "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                               "____types": "jsObject",
                               "____defaultValue": {},
                               "inputs": {
-                                "____label": "Processor Inputs",
+                                "____label": "Adaptor Inputs",
                                 "____types": "jsObject",
                                 "____defaultValue": {},
                                 "ComponentRouter": {
@@ -18338,15 +18338,15 @@
                           "isValid": true,
                           "toJSON": {
                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                            "name": "d2r2/React Output Processor",
-                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                            "name": "d2r2/React Client Display Adaptor",
+                            "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                             "opmDataSpec": {
-                              "____label": "d2r2/React Output Processor",
-                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                              "____label": "d2r2/React Client Display Adaptor Memory",
+                              "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                               "____types": "jsObject",
                               "____defaultValue": {},
                               "inputs": {
-                                "____label": "Processor Inputs",
+                                "____label": "Adaptor Inputs",
                                 "____types": "jsObject",
                                 "____defaultValue": {},
                                 "ComponentRouter": {
@@ -18595,15 +18595,15 @@
                             }
                           },
                           "getID": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "getName": "d2r2/React Output Processor",
-                          "getDescription": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                          "getName": "d2r2/React Client Display Adaptor",
+                          "getDescription": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                           "getDataSpec": {
-                            "____label": "d2r2/React Output Processor",
-                            "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                            "____label": "d2r2/React Client Display Adaptor Memory",
+                            "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "inputs": {
-                              "____label": "Processor Inputs",
+                              "____label": "Adaptor Inputs",
                               "____types": "jsObject",
                               "____defaultValue": {},
                               "ComponentRouter": {
@@ -18657,8 +18657,8 @@
                             }
                           },
                           "getDigraph": {
-                            "name": "[IxoJ83u0TXmG7PLUYBvsyg::d2r2/React Output Processor] OPM Digraph",
-                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                            "name": "[IxoJ83u0TXmG7PLUYBvsyg::d2r2/React Client Display Adaptor] OPM Digraph",
+                            "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                             "vlist": [
                               {
                                 "u": "uninitialized",
@@ -18920,15 +18920,15 @@
                 "harnessRequest": {
                   "id": "fzuITg9BQbyV7jNv39Gv6w",
                   "name": "d2r2/React Client Output Processor OPC #1",
-                  "description": "Attempt to apply the d2r2/React Client Output Processor OPM inside of an OPC instance.",
+                  "description": "Attempt to apply the d2r2/React Client Display Adaptor OPM inside of an OPC instance.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
                         "ObservableProcessController": {
                           "constructorRequest": {
                             "id": "fzuITg9BQbyV7jNv39Gv6w",
-                            "name": "d2r2/React Client Output Processor OPC #1",
-                            "description": "Attempt to apply the d2r2/React Client Output Processor OPM inside of an OPC instance.",
+                            "name": "d2r2/React Client Display Adaptor OPC #1",
+                            "description": "Attempt to apply the d2r2/React Client Display Adaptor OPM inside of an OPC instance.",
                             "ocdTemplateSpec": {
                               "____types": "jsObject",
                               "d2r2ReactClientOutputProcessor": {
@@ -19044,15 +19044,15 @@
                                 },
                                 {
                                   "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                  "name": "d2r2/React Output Processor",
-                                  "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                  "name": "d2r2/React Client Display Adaptor",
+                                  "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                   "opmDataSpec": {
-                                    "____label": "d2r2/React Output Processor",
-                                    "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                    "____label": "d2r2/React Client Display Adaptor Memory",
+                                    "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                     "____types": "jsObject",
                                     "____defaultValue": {},
                                     "inputs": {
-                                      "____label": "Processor Inputs",
+                                      "____label": "Adaptor Inputs",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "ComponentRouter": {
@@ -19986,8 +19986,8 @@
                         "fzuITg9BQbyV7jNv39Gv6w": {
                           "opcToJSON": {
                             "id": "fzuITg9BQbyV7jNv39Gv6w",
-                            "name": "d2r2/React Client Output Processor OPC #1",
-                            "description": "Attempt to apply the d2r2/React Client Output Processor OPM inside of an OPC instance.",
+                            "name": "d2r2/React Client Display Adaptor OPC #1",
+                            "description": "Attempt to apply the d2r2/React Client Display Adaptor OPM inside of an OPC instance.",
                             "options": {
                               "evaluate": {
                                 "maxFrames": 16,
@@ -20099,15 +20099,15 @@
                               },
                               "IxoJ83u0TXmG7PLUYBvsyg": {
                                 "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                "name": "d2r2/React Output Processor",
-                                "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                "name": "d2r2/React Client Display Adaptor",
+                                "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                 "opmDataSpec": {
-                                  "____label": "d2r2/React Output Processor",
-                                  "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                  "____label": "d2r2/React Client Display Adaptor Memory",
+                                  "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                   "____types": "jsObject",
                                   "____defaultValue": {},
                                   "inputs": {
-                                    "____label": "Processor Inputs",
+                                    "____label": "Adaptor Inputs",
                                     "____types": "jsObject",
                                     "____defaultValue": {},
                                     "ComponentRouter": {
@@ -20361,15 +20361,15 @@
                                 "specPath": "~.d2r2ReactClientOutputProcessor",
                                 "opmiRef": {
                                   "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                  "name": "d2r2/React Output Processor",
-                                  "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                  "name": "d2r2/React Client Display Adaptor",
+                                  "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                   "opmDataSpec": {
-                                    "____label": "d2r2/React Output Processor",
-                                    "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                    "____label": "d2r2/React Client Display Adaptor Memory",
+                                    "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                     "____types": "jsObject",
                                     "____defaultValue": {},
                                     "inputs": {
-                                      "____label": "Processor Inputs",
+                                      "____label": "Adaptor Inputs",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "ComponentRouter": {
@@ -20734,8 +20734,8 @@
                               }
                             },
                             "ocdRuntimeSpec": {
-                              "____label": "OPC [fzuITg9BQbyV7jNv39Gv6w::d2r2/React Client Output Processor OPC #1] Observable Controller Data Store",
-                              "____description": "OPC [fzuITg9BQbyV7jNv39Gv6w::d2r2/React Client Output Processor OPC #1] system process runtime state data managed by OPC instance.",
+                              "____label": "OPC [fzuITg9BQbyV7jNv39Gv6w::d2r2/React Client Display Adaptor OPC #1] Observable Controller Data Store",
+                              "____description": "OPC [fzuITg9BQbyV7jNv39Gv6w::d2r2/React Client Display Adaptor OPC #1] system process runtime state data managed by OPC instance.",
                               "____types": "jsObject",
                               "____defaultValue": {},
                               "d2r2ReactClientOutputProcessor": {
@@ -20743,11 +20743,11 @@
                                 "____appdsl": {
                                   "opm": "IxoJ83u0TXmG7PLUYBvsyg"
                                 },
-                                "____label": "d2r2/React Output Processor",
-                                "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                "____label": "d2r2/React Client Display Adaptor Memory",
+                                "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                 "____defaultValue": {},
                                 "inputs": {
-                                  "____label": "Processor Inputs",
+                                  "____label": "Adaptor Inputs",
                                   "____types": "jsObject",
                                   "____defaultValue": {},
                                   "ComponentRouter": {
@@ -20910,15 +20910,15 @@
                                           "initialStep": "uninitialized",
                                           "opmRef": {
                                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                            "name": "d2r2/React Output Processor",
-                                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                            "name": "d2r2/React Client Display Adaptor",
+                                            "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                             "opmDataSpec": {
-                                              "____label": "d2r2/React Output Processor",
-                                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                              "____label": "d2r2/React Client Display Adaptor Memory",
+                                              "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                               "____types": "jsObject",
                                               "____defaultValue": {},
                                               "inputs": {
-                                                "____label": "Processor Inputs",
+                                                "____label": "Adaptor Inputs",
                                                 "____types": "jsObject",
                                                 "____defaultValue": {},
                                                 "ComponentRouter": {
@@ -21472,15 +21472,15 @@
                                           "initialStep": "wait_invariants",
                                           "opmRef": {
                                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                            "name": "d2r2/React Output Processor",
-                                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                            "name": "d2r2/React Client Display Adaptor",
+                                            "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                             "opmDataSpec": {
-                                              "____label": "d2r2/React Output Processor",
-                                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                              "____label": "d2r2/React Client Display Adaptor Memory",
+                                              "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                               "____types": "jsObject",
                                               "____defaultValue": {},
                                               "inputs": {
-                                                "____label": "Processor Inputs",
+                                                "____label": "Adaptor Inputs",
                                                 "____types": "jsObject",
                                                 "____defaultValue": {},
                                                 "ComponentRouter": {
@@ -22082,15 +22082,15 @@
                                           "initialStep": "wait_invariants",
                                           "opmRef": {
                                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                            "name": "d2r2/React Output Processor",
-                                            "description": "Manages React client view rehydration. And, subsequent dynamic updates to the client view content d2r2 <ComponentRouter/> and Facebook React RTL's.",
+                                            "name": "d2r2/React Client Display Adaptor",
+                                            "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                             "opmDataSpec": {
-                                              "____label": "d2r2/React Output Processor",
-                                              "____description": "Shared memory definition for the d2r2/React Output Processor.",
+                                              "____label": "d2r2/React Client Display Adaptor Memory",
+                                              "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                               "____types": "jsObject",
                                               "____defaultValue": {},
                                               "inputs": {
-                                                "____label": "Processor Inputs",
+                                                "____label": "Adaptor Inputs",
                                                 "____types": "jsObject",
                                                 "____defaultValue": {},
                                                 "ComponentRouter": {
