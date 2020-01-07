@@ -18,16 +18,23 @@ module.exports = {
       ____types: "jsObject",
       ____defaultValue: {},
       ComponentRouter: {
-        ____accept: ["jsNull", "jsObject"],
+        // TODO: Not serializable
+        ____label: "d2r2 <ComponentRouter/>",
+        ____description: "A reference to previously-constructed <ComponentRouter/> instance (a React component that implements @encapsule/d2r2 dynamic layout protocol).",
+        ____accept: ["jsNull", "jsFunction"],
         ____defaultValue: null
       },
       DOMElement: {
-        ____accept: ["jsNull", "jsObject"],
+        // TODO: Not serializable
+        ____label: "d2r2 Target DOM Element",
+        ____description: "A reference to the DOM element to be be managed by the d2r2/React Client Display Adaptor (obtained with document.getElementById).",
+        ____opaque: true,
+        // this is typically a "[object HTMLDivElement]" type not natively supported by filter.
         ____defaultValue: null
       },
-      pathDataContext: {
-        ____label: "Data Context OCD Path",
-        ____description: "Fully-qualified OCD path of the descriptor object, target, to be deep copied and passed to <ComponentRouter/> via this.props = {...target}.",
+      pathRenderContext: {
+        ____label: "Render Context OCD Path",
+        ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
         ____accept: ["jsNull", "jsString"],
         ____defaultValue: null
       },
@@ -104,7 +111,7 @@ module.exports = {
                 operators: {
                   ocd: {
                     isNamespaceTruthy: {
-                      path: "#.inputs.pathDataContext"
+                      path: "#.inputs.pathRenderContext"
                     }
                   }
                 }

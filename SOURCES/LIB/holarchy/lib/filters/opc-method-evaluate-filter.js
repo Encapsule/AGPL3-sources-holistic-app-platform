@@ -236,7 +236,7 @@ const factoryResponse = arccore.filter.create({
                         }
 
                         if (!declaredAsArray && !declaredAsMap) {
-                            let newRecord = arccore.util.clone(record);
+                            let newRecord = { ...record }; // DO NOT USE: arccore.util.clone(record);
                             newRecord.specPath = `${newRecord.specPath}.${key_}`;
                             newRecord.dataPath = `${newRecord.dataPath}.${key_}`;
                             newRecord.specRef = record.specRef[key_];
@@ -246,7 +246,7 @@ const factoryResponse = arccore.filter.create({
                             if (declaredAsArray) {
                                 if (Object.prototype.toString.call(record.dataRef) === "[object Array]") {
                                     for (let index = 0 ; index < record.dataRef.length ; index++) {
-                                        let newRecord = arccore.util.clone(record);
+                                        let newRecord = { ...record }; // NO NOT USE: arccore.util.clone(record);
                                         newRecord.specPath = `${newRecord.specPath}.${key_}`;
                                         newRecord.dataPath = `${newRecord.dataPath}.${index}`;
                                         newRecord.specRef = record.specRef[key_];
@@ -259,7 +259,7 @@ const factoryResponse = arccore.filter.create({
                                     let dataKeys = Object.keys(record.dataRef);
                                     while (dataKeys.length) {
                                         const dataKey = dataKeys.shift();
-                                        let newRecord = arccore.util.clone(record);
+                                        let newRecord = { ...record }; // DO NOT USE: arccore.util.clone(record);
                                         newRecord.specPath = `${newRecord.specPath}.${key_}`;
                                         newRecord.dataPath = `${newRecord.dataPath}.${dataKey}`;
                                         newRecord.specRef = record.specRef[key_];

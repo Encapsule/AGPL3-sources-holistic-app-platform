@@ -5,10 +5,10 @@
 # @encapsule/holism-metadata v0.0.30 "winterharbour"
 
 ```
-Package: @encapsule/holism-metadata v0.0.30 "winterharbour" build ID "qFhFy9eRSNuB0rXqsASx3g"
-Sources: Encapsule/holistic#c0f826ac19dd667f13302b71444eecd1d9750b25
+Package: @encapsule/holism-metadata v0.0.30 "winterharbour" build ID "6Gn40URSSM2NgCn0JSLTeQ"
+Sources: Encapsule/holistic#5989c30ee7037f94b1cd6c648972267b3e52871a
 Purpose: library (Node.js)
-Created: 2020-01-07T00:38:49.000Z
+Created: 2020-01-07T18:58:45.000Z
 License: MIT
 ```
 

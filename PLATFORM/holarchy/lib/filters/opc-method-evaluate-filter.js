@@ -1,5 +1,9 @@
 "use strict";
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // Copyright (C) 2019 Christopher D. Russell
 var arccore = require("@encapsule/arccore");
 
@@ -233,7 +237,9 @@ var factoryResponse = arccore.filter.create({
             }
 
             if (!declaredAsArray && !declaredAsMap) {
-              var newRecord = arccore.util.clone(record);
+              var newRecord = _objectSpread({}, record); // DO NOT USE: arccore.util.clone(record);
+
+
               newRecord.specPath = "".concat(newRecord.specPath, ".").concat(key_);
               newRecord.dataPath = "".concat(newRecord.dataPath, ".").concat(key_);
               newRecord.specRef = record.specRef[key_];
@@ -243,7 +249,8 @@ var factoryResponse = arccore.filter.create({
               if (declaredAsArray) {
                 if (Object.prototype.toString.call(record.dataRef) === "[object Array]") {
                   for (var index = 0; index < record.dataRef.length; index++) {
-                    var _newRecord = arccore.util.clone(record);
+                    var _newRecord = _objectSpread({}, record); // NO NOT USE: arccore.util.clone(record);
+
 
                     _newRecord.specPath = "".concat(_newRecord.specPath, ".").concat(key_);
                     _newRecord.dataPath = "".concat(_newRecord.dataPath, ".").concat(index);
@@ -259,7 +266,8 @@ var factoryResponse = arccore.filter.create({
                   while (dataKeys.length) {
                     var dataKey = dataKeys.shift();
 
-                    var _newRecord2 = arccore.util.clone(record);
+                    var _newRecord2 = _objectSpread({}, record); // DO NOT USE: arccore.util.clone(record);
+
 
                     _newRecord2.specPath = "".concat(_newRecord2.specPath, ".").concat(key_);
                     _newRecord2.dataPath = "".concat(_newRecord2.dataPath, ".").concat(dataKey);

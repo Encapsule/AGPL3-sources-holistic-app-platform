@@ -2,9 +2,9 @@
     "name": "@encapsule/holodeck",
     "version": "0.0.30",
     "codename": "winterharbour",
-    "buildID": "qFhFy9eRSNuB0rXqsASx3g",
-    "buildTime": 1578357529,
-    "buildSource": "c0f826ac19dd667f13302b71444eecd1d9750b25",
+    "buildID": "6Gn40URSSM2NgCn0JSLTeQ",
+    "buildTime": 1578423525,
+    "buildSource": "5989c30ee7037f94b1cd6c648972267b3e52871a",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holodeck.git"
