@@ -1,12 +1,8 @@
 // index.js
 
 const packageMeta = require("./package");
-
-const reactComponentBindingFilterFactory = require("./react-component-binding-filter-factory");
-
-const reactComponentRouterFactory = require("./react-component-router-factory");
-
-
+const ComponentFactory = require("./lib/ComponentFactory");
+const ComponentRouterFactory = require("./lib/ComponentRouterFactory");
 
 module.exports = {
     __meta: {
@@ -17,8 +13,7 @@ module.exports = {
         build: packageMeta.buildID,
         source: packageMeta.buildSource
     },
-
-    ReactComponentBindingFactory: reactComponentBindingFilterFactory,
-    ComponentRouterFactory: reactComponentRouterFactory
-
+    ReactComponentBindingFactory: ComponentFactory,
+    ComponentFactory: ComponentFactory,
+    ComponentRouterFactory: ComponentRouterFactory
 };

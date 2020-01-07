@@ -16,26 +16,22 @@ var factoryResponse = arccore.filter.create({
         ____label: "Component Router Constructor Request",
         ____description: "A descriptor object that specifies input to the <ComponentRouter/> factory filter.",
         ____types: "jsObject",
-        dataViewBindingFilterSetOfSets: {
-            ____label: "React Component Data Binding Filter Sets",
-            ____description: "An array of sets that each contain React component data binding filters.",
+        d2r2ComponentSets: {
+            ____label: "d2r2 Component Sets",
+            ____description: "An array of of arrays of d2r2 Component filters.",
             ____types: "jsArray",
-            dataViewBindingFilterSet: {
-                ____label: "Data View Binding Filter Set",
-                ____description: "An array of previously constructed React component data binding filters defined by either the derived application. Or, the rainier-ux-base package.",
+            d2r2ComponentSet: {
+                ____label: "d2r2 Component Set",
+                ____description: "An array of d2r2 Component filters.",
                 ____types: "jsArray",
-                dataViewBindingFilter: {
-                    ____label: "Data View Binding Filter",
-                    ____description: "A data view binding filter.",
+                d2r2ComponentFilter: {
+                    ____label: "d2r2 Component Filter",
+                    ____description: "Reference to a d2r2 Component filter.",
                     ____types: "jsObject",
                     filterDescriptor: { ____accept: "jsObject" },
                     request: { ____accept: "jsFunction" },
                 }
             }
-        },
-        appStateContext: {
-            ____label: "Application State Context",
-            ____accept: "jsObject"
         }
     },
 
@@ -48,16 +44,16 @@ var factoryResponse = arccore.filter.create({
 
             console.log(this.operationID +  "::" + this.operationName);
 
-            var dataViewBindingFilters = [];
+            var d2r2ComponentFilters = [];
 
-            request_.dataViewBindingFilterSetOfSets.forEach(function(dataViewBindingFilterSet_) {
-                dataViewBindingFilterSet_.forEach(function(dataViewBindingFilter_) {
-                    dataViewBindingFilters.push(dataViewBindingFilter_);
-                    console.log("..... " + dataViewBindingFilter_.filterDescriptor.operationID + "::" + dataViewBindingFilter_.filterDescriptor.operationName);
+            request_.d2r2ComponentSets.forEach(function(d2r2ComponentSet_) {
+                d2r2ComponentSet_.forEach(function(d2r2ComponentFilter_) {
+                    d2r2ComponentFilters.push(d2r2ComponentFilter_);
+                    console.log("..... " + d2r2ComponentFilter_.filterDescriptor.operationID + "::" + d2r2ComponentFilter_.filterDescriptor.operationName);
                 });
             });
 
-            if (dataViewBindingFilters.length < 2) {
+            if (d2r2ComponentFilters.length < 2) {
                 errors.push("Internal error: Less than two input filters?");
                 break;
             }
@@ -65,7 +61,7 @@ var factoryResponse = arccore.filter.create({
             // Create an ARCcore.discriminator filter that routes its request to 1:N possible target filters.
             var innerFactoryResponse = arccore.discriminator.create({
                 options: { action: "getFilterID" },
-                filters: dataViewBindingFilters
+                filters: d2r2ComponentFilters
             });
 
             if (innerFactoryResponse.error) {
@@ -77,17 +73,17 @@ var factoryResponse = arccore.filter.create({
                 break;
             }
 
-            var dataViewBindingDiscriminator = innerFactoryResponse.result;
+            var d2r2ComponentFilterRouter = innerFactoryResponse.result;
 
             // Create the actual <ComponentRouter/> React component that encapsulates the ARCcore.discriminator instance
             // that performs the actual signature based routing inside of the component's render method. We're also going
             // to pass in a reference to original React component data binding filter array; discriminator will hold these
             // all by reference anyway and we're going to use these direct references to provide additional information in
             // <ComponentRouter/>'s error reporting mode.
-            var ComponentRouter = ComponentRouterSubfactory(dataViewBindingDiscriminator, dataViewBindingFilters);
+            var ComponentRouter = ComponentRouterSubfactory(d2r2ComponentFilterRouter, d2r2ComponentFilters);
 
             // Return the discriminator filter.
-            console.log(`----> ${dataViewBindingFilters.length} content-routed React components processed.`);
+            console.log(`----> ${d2r2ComponentFilters.length} content-routed React components processed.`);
             console.log("<ComponentRouter/> runtime instance initialized.");
             response.result = ComponentRouter;
             break;

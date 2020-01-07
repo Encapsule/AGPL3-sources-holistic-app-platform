@@ -5,10 +5,10 @@
 # @encapsule/holodeck v0.0.30 "winterharbour"
 
 ```
-Package: @encapsule/holodeck v0.0.30 "winterharbour" build ID "RJ7B98dFSa2ZghY5o12JIQ"
-Sources: Encapsule/holistic#8bf4957e15cfd86401f359ee4319294787f2de48
+Package: @encapsule/holodeck v0.0.30 "winterharbour" build ID "qFhFy9eRSNuB0rXqsASx3g"
+Sources: Encapsule/holistic#c0f826ac19dd667f13302b71444eecd1d9750b25
 Purpose: library (Node.js)
-Created: 2020-01-06T17:02:57.000Z
+Created: 2020-01-07T00:38:49.000Z
 License: MIT
 ```
 

@@ -6,11 +6,11 @@ const React = require("react");
 var factoryResponse = arccore.filter.create({
 
     operationID: "QSFGMUwaTtWW36j9SVV_dw",
-    operationName: "React Component Binding Filter Factory",
-    operationDescription: "Constructs a so-called binding filter that accepts values of a specific type signature, and returns the specified React component bound to the values.",
+    operationName: "d2r2 Component Factory",
+    operationDescription: "Constructs a d2r2 Component Filter that wraps a React.Component for use with d2r2 <ComponentRouter/>.",
 
     inputFilterSpec: {
-        ____label: "React Component Binding Descriptor",
+        ____label: "d2r2 Component Descriptor",
         ____description: "Defines the 1:1 relationship between an HTML render request and a React component responsible of transforming the request into HTML.",
         ____types: "jsObject",
         id: {
@@ -59,43 +59,31 @@ var factoryResponse = arccore.filter.create({
                 break;
             }
 
-            // There is intentionally inadequate information in the context of defining a data-bound React component and declaring its app data dependencies
-            // to deduce the specific type of data that will be returned by the app data read filters synthesized for the declarations above. Hence, we cannot
-            // actually synthesize these access filters here because we specifically do not have access the application data schema of the app in this context.
-            // When a React component data binding filter is introduced to <ComponentRouter/> for the first time (which occurs during <ComponentRouter/>
-            // construction) it late-binds the React component data binding filters to application-specific filters that provide read access to the application
-            // data store by namespace, and a means of writing user events back to the application controller that's responsible for the overall management
-            // of the state of the application.
-            //
-            // Note that by design it is not the responsibility of the application data controller read/write filters exposed to React components to provide
-            // data versioning capabilities to React components. Rather, it is the responsibility of data producers to version their data and for the React
-            // components that consume that data to observe the producer's versioning protocol.
-
             var operationID = factoryRequest_.id;
 
             var innerFactoryResponse = arccore.filter.create({
                 operationID: operationID,
                 operationName: factoryRequest.name,
-                operationDescription: factoryRequest.description + " (React Component Binding Filter)",
+                operationDescription: factoryRequest.description + " (d2r2 Component Filter)",
                 inputFilterSpec: {
-                    ____label: "HTML Render Request",
+                    ____label: "d2r2 Component Request",
                     ____types: "jsObject",
                     reactContext: {
                         ____label: "React Context Data",
-                        ____description: "A reference to the parent React component's full context data (this.props).",
-                        ____accept: "jsObject" // NOT SCHEMATIZED BY DESIGN
+                        ____description: "A reference to an object to be applied to this.props via spread operator that is not parsed by <ComponentRouter/>.",
+                        ____accept: "jsObject" // NOT SCHEMATIZED BY DESIGN BECAUSE WE HAVE NO IDEA... It's totally up to d2r2 component authors.
                     },
                     renderData: factoryRequest.renderDataBindingSpec
                 },
                 bodyFunction: function(renderRequest_) {
-                    var boundReactComponent = React.createElement(
+                    var reactElement = React.createElement(
                         factoryRequest.reactComponent,
                         {
-                            renderData: renderRequest_.renderData, // This is what is routed an what should be rendered primarily
-                            document: renderRequest_.reactContext.document, // The unmodified document context of the request (renderData may be subset, or completely unrelated)
-                            appStateContext: renderRequest_.reactContext.appStateContext // appStateContext process singleton defined by the application
-                        });
-                    return { error: null, result: boundReactComponent };
+                            ...renderRequest_.reactContext,
+                            renderData: renderRequest_.renderData,
+                        }
+                    );
+                    return { error: null, result: reactElement };
                 },
                 outputFilterSpec: {
                     ____label: "Bound React Component",
