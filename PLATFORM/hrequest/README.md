@@ -2,13 +2,13 @@
 
 ### Encapsule Project
 
-# @encapsule/hrequest v0.0.30 "winterharbour"
+# @encapsule/hrequest v0.0.31 "portalice"
 
 ```
-Package: @encapsule/hrequest v0.0.30 "winterharbour" build ID "RwVJG6yQR76iuUNusn8-Kw"
-Sources: Encapsule/holistic#7a5baf5f0c401edf543a210fe33bd92fb3033931
+Package: @encapsule/hrequest v0.0.31 "portalice" build ID "gcsTFbViRdeSxV8W91G_Cg"
+Sources: Encapsule/holistic#9edda98bfaa31e981984f778b86105d4a0ff56dc
 Purpose: library (Node.js)
-Created: 2020-01-08T16:29:52.000Z
+Created: 2020-01-08T22:34:04.000Z
 License: MIT
 ```
 
@@ -46,7 +46,7 @@ Developer API and examples: [Encapsule Project hrequest documentation](https://e
 
 The `@encapsule/hrequest` library package is published on [npmjs](https://npmjs.com).
 
-- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.30) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
+- [@encapsule/hrequest Package Distribution](https://npmjs.com/package/@encapsule/hrequest/v/0.0.31) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
 - [Encapsule/hrequest git Repository](https://github.com/Encapsule/hrequest) ([GitHub](https://github.com/Encapsule))
 
 <hr>

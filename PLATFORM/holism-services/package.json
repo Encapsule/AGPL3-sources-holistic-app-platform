@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holism-services",
-    "version": "0.0.30",
-    "codename": "winterharbour",
-    "buildID": "RwVJG6yQR76iuUNusn8-Kw",
-    "buildTime": 1578500992,
-    "buildSource": "7a5baf5f0c401edf543a210fe33bd92fb3033931",
+    "version": "0.0.31",
+    "codename": "portalice",
+    "buildID": "gcsTFbViRdeSxV8W91G_Cg",
+    "buildTime": 1578522844,
+    "buildSource": "9edda98bfaa31e981984f778b86105d4a0ff56dc",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"
@@ -36,6 +36,6 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.8",
-        "@encapsule/holism": "0.0.30"
+        "@encapsule/holism": "0.0.31"
     }
 }
