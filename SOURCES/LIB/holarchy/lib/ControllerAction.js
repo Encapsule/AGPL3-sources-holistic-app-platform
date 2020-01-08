@@ -5,8 +5,6 @@ module.exports = class ControllerAction {
 
     constructor(request_) {
         // #### sourceTag: ufoEHFc9RKOiy4gPXLT1lA
-        console.log("================================================================");
-        console.log("ControllerAction::constructor starting...");
         let errors = [];
         let inBreakScope = false;
         // Allocate private per-class-instance state.

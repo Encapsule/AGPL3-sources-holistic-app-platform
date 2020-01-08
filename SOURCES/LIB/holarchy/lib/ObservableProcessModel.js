@@ -8,8 +8,6 @@ class ObservableProcessModel {
     constructor(request_) {
 
         // #### sourceTag: If9EVP5OSPqQZz07Dg_05Q
-        console.log("================================================================");
-        console.log("ObservableProcessModel::constructor starting...");
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {

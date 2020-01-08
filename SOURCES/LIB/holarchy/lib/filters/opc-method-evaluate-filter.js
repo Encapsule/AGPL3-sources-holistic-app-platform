@@ -57,9 +57,6 @@ const factoryResponse = arccore.filter.create({
             // ================================================================
             // Prologue - executed before starting the outer evaluation loop.
 
-            console.log("================================================================");
-            console.log(`> ObservableProcessController::_evaluate starting system evaluation ${opcRef._private.evalCount} ...`);
-
             // Get a reference to the entire filter spec for the controller data store.
             let filterResponse = opcRef._private.ocdi.getNamespaceSpec("~");
             if (filterResponse.error) {
@@ -129,11 +126,8 @@ const factoryResponse = arccore.filter.create({
                     // Retrieve the next record from the queue.
                     let record = namespaceQueue.shift();
 
-                    console.log(`..... inspecting spec path='${record.specPath}' data path='${record.dataPath}'`);
-
                     // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
                     if (record.dataRef === undefined) {
-                        console.log(`..... ..... controller data path '${record.dataPath}' is undefined; spec tree branch processing complete.`);
                         continue;
                     }
 
@@ -184,9 +178,6 @@ const factoryResponse = arccore.filter.create({
                         result.summary.counts.bindings++;
                         evalFrame.summary.counts.bindings++;
 
-                        console.log(`..... ..... controller data path '${record.dataPath}' bound to OPM '${opmID}'`);
-                        console.log("opmInstanceFrame=")
-                        console.log(opmInstanceFrame);
                         // ****************************************************************
                         // ****************************************************************
 
@@ -316,11 +307,6 @@ const factoryResponse = arccore.filter.create({
                     const opmRef = opmInstanceFrame.evalRequest.opmRef;
                     const initialStep = opmInstanceFrame.evalRequest.initialStep;
                     const stepDescriptor = opmRef.getStepDescriptor(initialStep);
-
-                    console.log(`..... Evaluting '${opmBindingPath}' instance of ${opmRef.getID()}::${opmRef.getName()} ...`);
-                    console.log(`..... ..... model instance is currently at process step '${initialStep}' stepDescriptor=`);
-                    console.log("stepDescriptor=");
-                    console.log(stepDescriptor);
 
                     if (!stepDescriptor) {
                         console.warn(`No step descriptor in model for [${opmRef.getID()}::${opmRef.getName()}] for step '${initialStep}'. Ignoring.`);
@@ -560,7 +546,6 @@ const factoryResponse = arccore.filter.create({
                 } // opmBindingPath in evalFrame
 
                 evalStopwatch.mark(`frame ${result.evalFrames.length} end OPM instance evaluation`);
-                console.log(`> ... Finish evaluation frame ${opcRef._private.evalCount}:${result.evalFrames.length} ...`);
 
                 result.evalFrames.push(evalFrame);
                 result.summary.counts.frames++;
@@ -605,9 +590,6 @@ const factoryResponse = arccore.filter.create({
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
         response.result = result;
-
-        console.log(`> ObservableProcessController::_evaluate  #${result.evalNumber} ${response.error?"ABORTED WITH ERROR":"completed"}.`);
-        console.log(`..... OPC evalution #${result.evalNumber} sequenced ${result.summary.framesCount} frame(s) in ${result.summary.evalStopwatch.totalMicroseconds} microseconds.`);
 
         return response;
     },

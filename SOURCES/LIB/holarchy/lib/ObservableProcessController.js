@@ -11,9 +11,6 @@ class ObservableProcessController {
 
         // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
 
-        console.log("================================================================");
-        console.log("ObservableProcessController::constructor starting...");
-
         let errors = [];
         let inBreakScope = false;
 
@@ -116,9 +113,6 @@ class ObservableProcessController {
 
     act(request_) {
 
-        console.log("================================================================");
-        console.log("ObservableProcessController::act starting...");
-
         let response = { error: null };
         let errors = [];
         let inBreakScope = false;
@@ -208,9 +202,6 @@ class ObservableProcessController {
 
     _evaluate() {
         // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
-        console.log("================================================================");
-        console.log("ObservableProcessController::_evaluate starting...");
-        console.log("================================================================");
         // Deletegate to the evaluation filter.
         const evalFilterResponse = evaluateFilter.request({ opcRef: this });
         this._private.lastEvalResponse =  evalFilterResponse;

@@ -4,8 +4,6 @@ const constructorFilter = require("./filters/top-method-constructor-filter");
 module.exports = class TransitionOperator {
     constructor(request_) {
         // #### sourceTag: FuMaLlqkSwW7przxe2XSdw
-        console.log("================================================================");
-        console.log("TransitionOperator::constructor starting...");
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
