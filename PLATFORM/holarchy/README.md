@@ -5,10 +5,10 @@
 # @encapsule/holarchy v0.0.30 "winterharbour"
 
 ```
-Package: @encapsule/holarchy v0.0.30 "winterharbour" build ID "6Gn40URSSM2NgCn0JSLTeQ"
-Sources: Encapsule/holistic#5989c30ee7037f94b1cd6c648972267b3e52871a
+Package: @encapsule/holarchy v0.0.30 "winterharbour" build ID "RwVJG6yQR76iuUNusn8-Kw"
+Sources: Encapsule/holistic#7a5baf5f0c401edf543a210fe33bd92fb3033931
 Purpose: library (Node.js)
-Created: 2020-01-07T18:58:45.000Z
+Created: 2020-01-08T16:29:52.000Z
 License: MIT
 ```
 

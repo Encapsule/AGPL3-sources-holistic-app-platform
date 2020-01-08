@@ -139,7 +139,6 @@ var factoryResponse = arccore.filter.create({
       // and synthesize the OCD's runtime filter spec from template + OPM-provided template + OPC overlay aspects.
       // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
 
-      console.log("> Analyzing OCD template spec and model registrations...");
       var errorRootNamespace = "Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."; // Analyze the type constraint on the root namespace, ~, of the ocdTemplateSpec.
 
       if (result.ocdTemplateSpec.____opaque || result.ocdTemplateSpec.____accept || Array.isArray(result.ocdTemplateSpec.____types) || result.ocdTemplateSpec.____types !== "jsObject") {
@@ -182,8 +181,7 @@ var factoryResponse = arccore.filter.create({
 
       while (namespaceQueue.length) {
         // Retrieve the next record from the queue.
-        var record = namespaceQueue.shift();
-        console.log("..... inspecting spec path='".concat(record.specPath, "' ... ")); // Determine if the current spec namespace has an OPM binding annotation.
+        var record = namespaceQueue.shift(); // Determine if the current spec namespace has an OPM binding annotation.
 
         var provisionalSpecRef = null;
 
@@ -286,9 +284,7 @@ var factoryResponse = arccore.filter.create({
       if (errors.length) {
         errros.unshift("While synthesizing OCD runtime spec:");
         return "break";
-      }
-
-      console.log("> OCD runtime spec synthesized."); // ================================================================
+      } // ================================================================
       // Construct the contained Observable Controller Data that the OPC instance uses to manage the state associated with OPM instances.
       // TODO: OCD constructor function still throws. We're hiding that here. Convert it over to report construction errors on method access
       // just like OPC. In hindsight, I wanted to provide a nice ES6 class API for OPC w/out having to explain the reason why you don't
@@ -296,10 +292,10 @@ var factoryResponse = arccore.filter.create({
       // both world's. Construct OPC correctly, it just works like a standard ES6 class instance. Construct it incorrectly, you get a stillborn
       // instance that will only give you a copy of its death certificate.
 
-      try {
-        console.log("> Initialzing OPC instance process state using OCD runtime spec and developer-defined OCD init data."); // TODO: ObservableControllerData to no throw implementation consistent w/everything else.
-        // Holding off until we 100% deprecate the use of ApplicationDataStore class in derived apps.
 
+      try {
+        // TODO: ObservableControllerData to no throw implementation consistent w/everything else.
+        // Holding off until we 100% deprecate the use of ApplicationDataStore class in derived apps.
         result.ocdi = new ObservableControllerData({
           spec: result.ocdRuntimeSpec,
           data: request_.ocdInitData
@@ -308,16 +304,14 @@ var factoryResponse = arccore.filter.create({
         errors.push("Unable to initialize the OPC instance's shared OCD store due to constructor failure:");
         errors.push(exception_.message);
         return "break";
-      }
-
-      console.log("> OPC instance process state initialized."); // ================================================================
+      } // ================================================================
       // Build an arccore.discriminator filter instance to route transition
       // operatror request messages to a registered transition operator
       // filter for processing.
 
+
       var transitionOperatorFilters = []; // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
 
-      console.log("> Analyzing registered TransitionOperator class instances...");
       request_.transitionOperatorSets.forEach(function (transitionOperatorSet_) {
         transitionOperatorSet_.forEach(function (transitionOperatorInstance_) {
           if (!transitionOperatorInstance_.isValid()) {
@@ -348,7 +342,6 @@ var factoryResponse = arccore.filter.create({
         }
 
         result.transitionDispatcher = filterResponse.result;
-        console.log("> OPC instance transition operator request dispatched initialized.");
       } else {
         var _warningMessage4 = "WARNING: No TransitionOperator class instances have been registered!";
         result.constructionWarnings.push(_warningMessage4);
@@ -369,7 +362,6 @@ var factoryResponse = arccore.filter.create({
 
       var controllerActionFilters = []; // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
 
-      console.log("> Analyzing registered ControllerAction class instances...");
       request_.controllerActionSets.forEach(function (controllerActionSet_) {
         controllerActionSet_.forEach(function (controllerActionInstance_) {
           if (!controllerActionInstance_.isValid()) {
@@ -400,7 +392,6 @@ var factoryResponse = arccore.filter.create({
         }
 
         result.actionDispatcher = filterResponse.result;
-        console.log("> OPC instance controller action request dispatched initialized.");
       } else {
         var _warningMessage6 = "WARNING: No ControllerAction class instances have been registered!";
         result.constructionWarnings.push(_warningMessage6);

@@ -23,8 +23,6 @@ function () {
     _classCallCheck(this, ObservableProcessController);
 
     // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
-    console.log("================================================================");
-    console.log("ObservableProcessController::constructor starting...");
     var errors = [];
     var inBreakScope = false; // Allocate private per-class-instance state.
 
@@ -132,8 +130,6 @@ function () {
   }, {
     key: "act",
     value: function act(request_) {
-      console.log("================================================================");
-      console.log("ObservableProcessController::act starting...");
       var response = {
         error: null
       };
@@ -224,10 +220,7 @@ function () {
     key: "_evaluate",
     value: function _evaluate() {
       // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
-      console.log("================================================================");
-      console.log("ObservableProcessController::_evaluate starting...");
-      console.log("================================================================"); // Deletegate to the evaluation filter.
-
+      // Deletegate to the evaluation filter.
       var evalFilterResponse = evaluateFilter.request({
         opcRef: this
       });

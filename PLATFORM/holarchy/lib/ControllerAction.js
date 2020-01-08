@@ -15,8 +15,6 @@ function () {
     _classCallCheck(this, ControllerAction);
 
     // #### sourceTag: ufoEHFc9RKOiy4gPXLT1lA
-    console.log("================================================================");
-    console.log("ControllerAction::constructor starting...");
     var errors = [];
     var inBreakScope = false; // Allocate private per-class-instance state.
 

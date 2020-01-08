@@ -15,8 +15,6 @@ function () {
     _classCallCheck(this, TransitionOperator);
 
     // #### sourceTag: FuMaLlqkSwW7przxe2XSdw
-    console.log("================================================================");
-    console.log("TransitionOperator::constructor starting...");
     var errors = [];
     var inBreakScope = false;
 

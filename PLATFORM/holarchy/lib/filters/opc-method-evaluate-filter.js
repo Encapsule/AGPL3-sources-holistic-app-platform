@@ -57,9 +57,7 @@ var factoryResponse = arccore.filter.create({
     while (!inBreakScope) {
       inBreakScope = true; // ================================================================
       // Prologue - executed before starting the outer evaluation loop.
-
-      console.log("================================================================");
-      console.log("> ObservableProcessController::_evaluate starting system evaluation ".concat(opcRef._private.evalCount, " ...")); // Get a reference to the entire filter spec for the controller data store.
+      // Get a reference to the entire filter spec for the controller data store.
 
       var filterResponse = opcRef._private.ocdi.getNamespaceSpec("~");
 
@@ -128,11 +126,9 @@ var factoryResponse = arccore.filter.create({
 
         while (namespaceQueue.length) {
           // Retrieve the next record from the queue.
-          var record = namespaceQueue.shift();
-          console.log("..... inspecting spec path='".concat(record.specPath, "' data path='").concat(record.dataPath, "'")); // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
+          var record = namespaceQueue.shift(); // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
 
           if (record.dataRef === undefined) {
-            console.log("..... ..... controller data path '".concat(record.dataPath, "' is undefined; spec tree branch processing complete."));
             continue;
           } // Determine if the current spec namespace has an OPM binding annotation.
           // TODO: We should validate the controller data spec wrt OPM bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
@@ -177,10 +173,7 @@ var factoryResponse = arccore.filter.create({
 
             evalFrame.bindings[key] = opmInstanceFrame;
             result.summary.counts.bindings++;
-            evalFrame.summary.counts.bindings++;
-            console.log("..... ..... controller data path '".concat(record.dataPath, "' bound to OPM '").concat(opmID, "'"));
-            console.log("opmInstanceFrame=");
-            console.log(opmInstanceFrame); // ****************************************************************
+            evalFrame.summary.counts.bindings++; // ****************************************************************
             // ****************************************************************
           } // end if opm binding on current namespace?
           // Is the current namespace an array or object used as a map?
@@ -321,10 +314,6 @@ var factoryResponse = arccore.filter.create({
           var opmRef = _opmInstanceFrame.evalRequest.opmRef;
           var initialStep = _opmInstanceFrame.evalRequest.initialStep;
           var stepDescriptor = opmRef.getStepDescriptor(initialStep);
-          console.log("..... Evaluting '".concat(opmBindingPath, "' instance of ").concat(opmRef.getID(), "::").concat(opmRef.getName(), " ..."));
-          console.log("..... ..... model instance is currently at process step '".concat(initialStep, "' stepDescriptor="));
-          console.log("stepDescriptor=");
-          console.log(stepDescriptor);
 
           if (!stepDescriptor) {
             console.warn("No step descriptor in model for [".concat(opmRef.getID(), "::").concat(opmRef.getName(), "] for step '").concat(initialStep, "'. Ignoring."));
@@ -555,7 +544,6 @@ var factoryResponse = arccore.filter.create({
 
 
         evalStopwatch.mark("frame ".concat(result.evalFrames.length, " end OPM instance evaluation"));
-        console.log("> ... Finish evaluation frame ".concat(opcRef._private.evalCount, ":").concat(result.evalFrames.length, " ..."));
         result.evalFrames.push(evalFrame);
         result.summary.counts.frames++; // ================================================================
         // If any of the OPM instance's in the just-completed eval frame transitioned, add another eval frame.
@@ -596,8 +584,6 @@ var factoryResponse = arccore.filter.create({
     result.summary.evalStopwatch = evalStopwatch.stop();
     result.summary.framesCount = result.evalFrames.length;
     response.result = result;
-    console.log("> ObservableProcessController::_evaluate  #".concat(result.evalNumber, " ").concat(response.error ? "ABORTED WITH ERROR" : "completed", "."));
-    console.log("..... OPC evalution #".concat(result.evalNumber, " sequenced ").concat(result.summary.framesCount, " frame(s) in ").concat(result.summary.evalStopwatch.totalMicroseconds, " microseconds."));
     return response;
   }
 });

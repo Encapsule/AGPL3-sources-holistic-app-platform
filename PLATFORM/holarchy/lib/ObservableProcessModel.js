@@ -16,8 +16,6 @@ function () {
     _classCallCheck(this, ObservableProcessModel);
 
     // #### sourceTag: If9EVP5OSPqQZz07Dg_05Q
-    console.log("================================================================");
-    console.log("ObservableProcessModel::constructor starting...");
     var errors = [];
     var inBreakScope = false;
 
