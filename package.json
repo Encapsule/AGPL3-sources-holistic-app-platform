@@ -1,7 +1,7 @@
 {
     "name": "holistic-master",
-    "version": "0.0.31",
-    "codename": "portalice",
+    "version": "0.0.32",
+    "codename": "jeunelanding",
     "description": "A plug-in filter extensible, JSON configurable framework for building full-stack Node.js/HTML5 applications.",
     "author": "Encapsule",
     "contributors": [
