@@ -9,8 +9,8 @@ const ComponentRouterSubfactory = require("./ComponentRouter.jsx");
 
 var factoryResponse = arccore.filter.create({
     operationID: "Jo7GwCreQNaZp11l52Uciw",
-    operationName: "React Component Router Factory",
-    operationDescription: "Constructs a <ComponentRouter/> React component that routes the property data it receives on to an appropriate React component for rendering as HTML based on data signature.",
+    operationName: "d2r2 <ComponentRouter/> Factory",
+    operationDescription: "Constructs a <ComponentRouter/> React component that auto-selects a delegation target (React component) based on 'this.props.renderData'.",
 
     inputFilterSpec: {
         ____label: "Component Router Constructor Request",
@@ -49,7 +49,7 @@ var factoryResponse = arccore.filter.create({
             request_.d2r2ComponentSets.forEach(function(d2r2ComponentSet_) {
                 d2r2ComponentSet_.forEach(function(d2r2ComponentFilter_) {
                     d2r2ComponentFilters.push(d2r2ComponentFilter_);
-                    console.log("..... " + d2r2ComponentFilter_.filterDescriptor.operationID + "::" + d2r2ComponentFilter_.filterDescriptor.operationName);
+                    // console.log("..... " + d2r2ComponentFilter_.filterDescriptor.operationID + "::" + d2r2ComponentFilter_.filterDescriptor.operationName);
                 });
             });
 
@@ -83,8 +83,7 @@ var factoryResponse = arccore.filter.create({
             var ComponentRouter = ComponentRouterSubfactory(d2r2ComponentFilterRouter, d2r2ComponentFilters);
 
             // Return the discriminator filter.
-            console.log(`----> ${d2r2ComponentFilters.length} content-routed React components processed.`);
-            console.log("<ComponentRouter/> runtime instance initialized.");
+            console.log(`..... <ComponentRouter/> runtime instance constructed to auto-delegate 'this.props.renderData' to 1:${d2r2ComponentFilters.length} registered d2r2 components.`);
             response.result = ComponentRouter;
             break;
         }

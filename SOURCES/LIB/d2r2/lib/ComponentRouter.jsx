@@ -89,6 +89,7 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                     const targetFilterID = discriminatorResponse.result;
                     var targetViewBindingFilter = filterIDMap[targetFilterID];
 
+                    /*
                     console.log([
                         "..... <ComponentRouter/> dispatching to [",
                         targetViewBindingFilter.filterDescriptor.operationID,
@@ -96,6 +97,7 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                         targetViewBindingFilter.filterDescriptor.operationName,
                         "]"
                     ].join(''));
+                    */
 
                     //////////////////////////////////////////////////////////////////////////
                     // DISPATCH: Call the React component data binding filter to generate an instance of its encapsulated React component that is bound to this input data.
@@ -118,7 +120,7 @@ module.exports = function(dataViewBindingDiscriminator_, dataViewBindingFilters_
                 //////////////////////////////////////////////////////////////////////////
                 // ERROR: The input data does not have an acceptable namespace:type format.
 
-                console.log("!!!!! <ComponentRouter/> ERROR: " + error);
+                console.error("!!!!! <ComponentRouter/> ERROR: " + error);
 
                 const theme = this.props.document.metadata.site.theme;
 
