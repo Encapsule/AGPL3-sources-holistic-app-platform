@@ -12,6 +12,8 @@ DIR_TOOLBIN=$(DIR_MODULES)/.bin
 TOOL_ESLINT=$(DIR_TOOLBIN)/eslint
 TOOL_MOCHA=$(DIR_TOOLBIN)/mocha
 
+DIR_GEN=$(DIR_ROOT)/PROJECT/GENERATOR
+
 DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
 DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
 
@@ -68,7 +70,7 @@ DIR_DIST_LIB_HASH_ROUTER=$(DIR_DISTS_LIB)/hash-router
 DIR_DIST_LIB_HOLODECK=$(DIR_DISTS_LIB)/holodeck
 DIR_DIST_LIB_HOLODECK_ASSETS=$(DIR_DISTS_LIB)/holodeck-assets
 
-DIR_PLATFORM=$(DIR_ROOT)/PLATFORM
+DIR_PLATFORM=$(DIR_ROOT)/PACKAGES
 
 default:
 	@echo This Makefile is used to build, test, and publish new versions of
@@ -114,6 +116,7 @@ source_packages_clean:
 	@echo source_packages_clean target complete.
 
 source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_holarchy_sml source_package_build_d2r2 source_package_build_d2r2_components source_package_build_holodeck source_package_build_holodeck_assets
+	rm -v `find $(DIR_BUILD) | grep '~'`
 	@echo source_packages_build complete.
 
 source_package_build_hash_router:
@@ -284,19 +287,9 @@ source_package_build_d2r2_components:
 # OPTIONAL: remove generated packages and clone distribution package repositories.
 # Subsequently, evaluating the packages_update Makefile target will update the contents
 # of the distribution repo which is typically then commited and published.
-dist_packages_initialize: dist_packages_clean
+dist_packages_initialize: dist_packages_reset
 	@echo BEGIN TARGET: dist_packages_initialize
-	git clone git@github.com:Encapsule/holarchy.git $(DIR_DIST_LIB_HOLARCHY)
-	git clone git@github.com:Encapsule/holarchy-sml.git $(DIR_DIST_LIB_HOLARCHY)
-	git clone git@github.com:Encapsule/holism.git $(DIR_DIST_LIB_HOLISM)
-	git clone git@github.com:Encapsule/holism-services.git $(DIR_DIST_LIB_HOLISM_SERVICES)
-	git clone git@github.com:Encapsule/hrequest.git $(DIR_DIST_LIB_HREQUEST)
-	git clone git@github.com:Encapsule/d2r2.git $(DIR_DIST_LIB_D2R2)
-	git clone git@github.com:Encapsule/d2r2-components.git $(DIR_DIST_LIB_D2R2_COMPONENTS)
-	git clone git@github.com:Encapsule/holism-metadata.git $(DIR_DIST_LIB_HOLISM_METADATA)
-	git clone git@github.com:Encapsule/hash-router.git $(DIR_DIST_LIB_HASH_ROUTER)
-	git clone git@github.com:Encapsule/holodeck.git $(DIR_DIST_LIB_HOLODECK)
-	git clone git@github.com:Encapsule/holodeck-assets.git ${DIR_DIST_LIB_HOLODECK_ASSETS)
+	git clone git@github.com:Encapsule/holistic.git $(DIR_DISTS)
 	@echo FINISH TARGET: dist_packages_initialize
 
 # OPTIONAL: check the status of the package distribution repositories.
@@ -304,50 +297,22 @@ dist_packages_status:
 	@echo BEGIN TARGET: dist_packages_status
 
 	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLARCHY) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLARCHY_SML) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLISM) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLISM_SERVICES) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLODECK) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLODECK_ASSETS) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HREQUEST) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_D2R2) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_D2R2_COMPONENTS) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HOLISM_METADATA) && git remote -v && git status
-
-	@echo ================================================================
-	cd $(DIR_DIST_LIB_HASH_ROUTER) && git remote -v && git status
+	cd $(DIR_DISTS) && git remote -v && git status
 
 	@echo ================================================================
 	@echo FINISH TARGET: dist_packages_status
 
-dist_packages_clean: dist_packages_reset
+dist_packages_clean:
+	@echo BEGIN TARGET: dist_packages_clean
+	rm -rf $(DIR_DISTS)/*
 	@echo COMPLETE TARGET: dist_packages_clean
 
 dist_packages_reset:
 	@echo BEGIN TARGET: dist_packages_reset
-	rm -rf $(DIR_DISTS)/*
+	rm -rf $(DIR_DISTS)
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets dist_package_update_holistic
 	@echo COMPLETE TARGET: dist_packages_update
 
 dist_package_update_hash_router:
@@ -416,6 +381,16 @@ dist_package_update_d2r2_components:
 	cp -Rp $(DIR_BUILD_LIB_D2R2_COMPONENTS) $(DIR_DISTS_LIB)
 	@echo END TARGET: dist_package_update_d2r2_components
 
+dist_package_update_holistic:
+	@echo BEGIN TARGET: dist_package_update_holistic
+	mkdir -p $(DIR_DISTS)
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holistic" > $(DIR_DISTS)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_DISTS)
+	$(TOOL_GEN_PACKAGE_README) --packageDir $(DIR_DISTS)
+	mkdir -p $(DIR_DISTS)/PROJECT
+	cp -Rp $(DIR_GEN) $(DIR_DISTS)/PROJECT/
+	@echo END TARGET: dist_package_update_holistic
+
 
 # ================================================================
 # Holistic platform runtime distribution packages.
@@ -429,7 +404,10 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: platform_update
 	mkdir -p $(DIR_PLATFORM)
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM)/
+	cp -p $(DIR_BUILD)/holistic.json $(DIR_DISTS)/PACKAGES/
 	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_PLATFORM)/
+	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DISTS)/PACKAGES/
+
 	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM)
 	$(DIR_ROOT)/TESTS/run-tests.js
 	@echo FINISH TARGET: platform_update

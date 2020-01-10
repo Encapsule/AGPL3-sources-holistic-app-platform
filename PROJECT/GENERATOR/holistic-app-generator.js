@@ -12,8 +12,8 @@ const arctoolslib = require("@encapsule/arctools"); // Encapsule/arctools packag
 const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with Encapsule/arctools
 const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
 
-const holisticMetadata = require("../../PLATFORM/holistic");
-const holisticPlatformRuntimePackageNames = require("../../PLATFORM/holistic-rtl-packages");
+const holisticMetadata = require("../../PACKAGES/holistic");
+const holisticPlatformRuntimePackageNames = require("../../PACKAGES/holistic-rtl-packages");
 
 
 const holisticPlatformManifest = require("./holistic-platform-manifest");
@@ -149,7 +149,7 @@ const resourceFilePaths = {
     },
     holistic: {
         packageDir: holisticPackageDir,
-        platformSourcesDir: path.join(holisticPackageDir, "PLATFORM"),
+        platformSourcesDir: path.join(holisticPackageDir, "PACKAGES"),
         platformGitIgnore: path.join(holisticPackageDir, ".gitignore"),
         platformBabelRc: path.join(holisticPackageDir, ".babelrc"),
         platformEslintRc: path.join(holisticPackageDir, ".eslintrc.js"),

@@ -20,7 +20,7 @@ const buildYear = buildDate.getFullYear();
 const copyrightHolder = packageMeta.contributors[0].name;
 
 console.log(JSON.stringify({
-    name: packageMeta.name,
+    name: "holistic",
     description: packageMeta.description,
     version: packageMeta.version,
     codename: packageMeta.codename,
