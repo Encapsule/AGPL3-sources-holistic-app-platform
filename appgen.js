@@ -2,6 +2,16 @@
 
 "use strict";
 
+//
+// Encapsule Project Holistic Platform 'appgen' script.
+// Used to initialize and maintain holistic platform runtime
+// libraries, build, and test infrastructure in derived apps
+// and services git repositories.
+//
+// Copyright (C) 2020 Christopher D. Russell
+// Published by Encapsule Project, Seattle WA USA
+//
+
 // Node.js runtime modules
 const childProcess = require('child_process'); // Node.js
 const fs = require('fs'); // Node.js
@@ -12,14 +22,13 @@ const arctoolslib = require("@encapsule/arctools"); // Encapsule/arctools packag
 const arccore = arctoolslib.arccore; // ... Encapsule/arccore is bundled with Encapsule/arctools
 const handlebars = arctoolslib.handlebars; // ... handlebars template engine is bundled with Encapsule/arctools
 
-const holisticMetadata = require("../../PACKAGES/holistic");
-const holisticPlatformRuntimePackageNames = require("../../PACKAGES/holistic-rtl-packages");
+const holisticMetadata = require("./PACKAGES/holistic");
+const holisticPlatformRuntimePackageNames = require("./PACKAGES/holistic-rtl-packages");
 
 
-const holisticPlatformManifest = require("./holistic-platform-manifest");
-
-const holisticAppManifestFilter = require('./LIB/holistic-app-manifest-filter');
-const packageMapFilter = require('./LIB/package-map-filter');
+const holisticPlatformManifest = require("./PROJECT/GENERATOR/holistic-platform-manifest");
+const holisticAppManifestFilter = require('./PROJECT/GENERATOR/LIB/holistic-app-manifest-filter');
+const packageMapFilter = require('./PROJECT/GENERATOR/LIB/package-map-filter');
 
 // Re-used throughout this script module...
 var filterResponse;
@@ -111,7 +120,7 @@ const appRepoDir = path.resolve(program.appRepoDir);
 console.log("> Open '" + appRepoDir + "' ...");
 
 // Get the full-qualified path of the Encapsule/holistic package root directory.
-const holisticPackageDir = path.resolve(path.join(__dirname, "../.."));
+const holisticPackageDir = path.resolve(path.join(__dirname));
 
 const resourceFilePaths = {
     application: {
@@ -150,11 +159,10 @@ const resourceFilePaths = {
     holistic: {
         packageDir: holisticPackageDir,
         platformSourcesDir: path.join(holisticPackageDir, "PACKAGES"),
-        platformGitIgnore: path.join(holisticPackageDir, ".gitignore"),
-        platformBabelRc: path.join(holisticPackageDir, ".babelrc"),
-        platformEslintRc: path.join(holisticPackageDir, ".eslintrc.js"),
-        platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.client.hbs"),
-
+        // platformGitIgnore: path.join(holisticPackageDir, ".gitignore"),
+        // platformBabelRc: path.join(holisticPackageDir, ".babelrc"),
+        // platformEslintRc: path.join(holisticPackageDir, ".eslintrc.js"),
+        // platformWebpackClientRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/webpack.config.app.client.hbs"),
         platformGenerateBuildTagRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/generate-runtime-buildtag.js.hbs"),
         platformGenerateRuntimeManifestRc: path.join(holisticPackageDir, "PROJECT/GENERATOR/TEMPLATES/generate-runtime-package-manifest.js.hbs")
     }
@@ -427,7 +435,7 @@ touchFile(path.join(resourceFilePaths.application.projectDeployDir, ".gitkeep"))
 
 ////
 // Create application .gitignore
-docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "gitignore-template.hbs"));
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "PROJECT/GENERATOR/TEMPLATES", "gitignore-template.hbs"));
 document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageGitIgnore,
@@ -440,7 +448,7 @@ console.log("> Write '" + resourceFilePaths.application.packageGitIgnore + "'.")
 
 ////
 // Create application .babelrc
-docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "babelrc-template.hbs"));
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "PROJECT/GENERATOR/TEMPLATES", "babelrc-template.hbs"));
 document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageBabelRc,
@@ -453,7 +461,7 @@ console.log("> Write '" + resourceFilePaths.application.packageBabelRc + "'.");
 
 ////
 // Create application .eslintrc.js
-docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "eslintrc-template.hbs"));
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "PROJECT/GENERATOR/TEMPLATES", "eslintrc-template.hbs"));
 document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageEslintRc,
@@ -466,7 +474,7 @@ console.log("> Write '" + resourceFilePaths.application.packageEslintRc + "'.");
 
 ////
 // Create application webpackage.config for client.
-docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "webpack.config.app.client.hbs"));
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "PROJECT/GENERATOR/TEMPLATES", "webpack.config.app.client.hbs"));
 document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageWebpackClientRc,
@@ -505,7 +513,7 @@ console.log("> Write '" + resourceFilePaths.application.projectBuildToolGenerate
 
 ////
 // Create application Makefile
-docTemplate = loadDocumentTemplate(path.resolve(__dirname, "TEMPLATES", "Makefile-template.hbs"));
+docTemplate = loadDocumentTemplate(path.resolve(__dirname, "PROJECT/GENERATOR/TEMPLATES", "Makefile-template.hbs"));
 document = docTemplate(holisticMetadata);
 filterResponse = arctoolslib.stringToFileSync.request({
     path: resourceFilePaths.application.packageMakefile,

@@ -389,6 +389,7 @@ dist_package_update_holistic:
 	$(TOOL_GEN_PACKAGE_README) --packageDir $(DIR_DISTS)
 	mkdir -p $(DIR_DISTS)/PROJECT
 	cp -Rp $(DIR_GEN) $(DIR_DISTS)/PROJECT/
+	cp -p ./appgen.js $(DIR_DISTS)/
 	@echo END TARGET: dist_package_update_holistic
 
 
