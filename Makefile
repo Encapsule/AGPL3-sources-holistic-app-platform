@@ -14,15 +14,24 @@ TOOL_MOCHA=$(DIR_TOOLBIN)/mocha
 
 DIR_GEN=$(DIR_ROOT)/PROJECT/GENERATOR
 
-DIR_PROJECT=$(DIR_ROOT)/PROJECT/PLATFORM
-DIR_PROJECT_ASSETS=$(DIR_PROJECT)/ASSETS
+DIR_PROJECT=$(DIR_ROOT)/PROJECT
+DIR_GENERATOR=$(DIR_PROJECT)/GENERATOR
+DIR_PLATFORM=$(DIR_PROJECT)/PLATFORM
+DIR_PLATFORM_ASSETS=$(DIR_PLATFORM)/ASSETS
 
-TOOL_GEN_REPO_BUILDTAG=$(DIR_PROJECT)/generate-package-build-manifest.js
-TOOL_GEN_PACKAGE_NAMES_MANIFEST=$(DIR_PROJECT)/export-platform-packages-json.js
-TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PROJECT)/generate-package-manifest.js
-TOOL_GEN_PACKAGE_LICENSE=$(DIR_PROJECT)/generate-package-license.js
-TOOL_GEN_PACKAGE_README=$(DIR_PROJECT)/generate-package-readme.js
+$(info DIR_PROJECT is $(DIR_PROJECT))
+$(info DIR_GENERATOR is $(DIR_GENERATOR))
+$(info DIR_PLATFORM is $(DIR_PLATFORM))
+$(info DIR_PLATFORM_ASSETS is $(DIR_PLATFORM_ASSETS))
+
+TOOL_GEN_REPO_BUILDTAG=$(DIR_PLATFORM)/generate-package-build-manifest.js
+TOOL_GEN_PACKAGE_NAMES_MANIFEST=$(DIR_PLATFORM)/export-platform-packages-json.js
+TOOL_GEN_PACKAGE_MANIFEST=$(DIR_PLATFORM)/generate-package-manifest.js
+TOOL_GEN_PACKAGE_LICENSE=$(DIR_PLATFORM)/generate-package-license.js
+TOOL_GEN_PACKAGE_README=$(DIR_PLATFORM)/generate-package-readme.js
 TOOL_GEN_FILTER_README=$(DIR_TOOLBIN)/arc_doc_filter
+
+$(info TOOL_GEN_REPO_BUILDTAG is $(TOOL_GEN_REPO_BUILDTAG))
 
 TOOL_BABEL=$(DIR_TOOLBIN)/babel
 TOOL_WEBPACK=$(DIR_TOOLBIN)/webpack-cli
@@ -70,7 +79,7 @@ DIR_DIST_LIB_HASH_ROUTER=$(DIR_DISTS_LIB)/hash-router
 DIR_DIST_LIB_HOLODECK=$(DIR_DISTS_LIB)/holodeck
 DIR_DIST_LIB_HOLODECK_ASSETS=$(DIR_DISTS_LIB)/holodeck-assets
 
-DIR_PLATFORM=$(DIR_ROOT)/PACKAGES
+DIR_PLATFORM_RTL_PACKAGES=$(DIR_ROOT)/PACKAGES
 
 default:
 	@echo This Makefile is used to build, test, and publish new versions of
@@ -102,7 +111,8 @@ env_clean_cache: env_clean
 	@echo env_reset target complete.
 
 env_generate_build_tag:
-	@echo generate_build_tag target starting...
+	@echo generate_build_tag target starting..
+	$(info TOOL_GEN_REPO_BUILDTAG is $(TOOL_GEN_REPO_BUILDTAG))
 	$(TOOL_GEN_REPO_BUILDTAG) > $(DIR_BUILD)/holistic.json
 	$(TOOL_GEN_PACKAGE_NAMES_MANIFEST) > $(DIR_BUILD)/holistic-rtl-packages.json
 	@echo generate_build_tag target complete.
@@ -123,7 +133,7 @@ source_package_build_hash_router:
 	@echo source_package_build_hash_router target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HASH_ROUTER)/
 	mkdir -p $(DIR_BUILD_LIB_HASH_ROUTER)
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HASH_ROUTER)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HASH_ROUTER)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HASH_ROUTER)/* $(DIR_BUILD_LIB_HASH_ROUTER)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/hash-router" > $(DIR_BUILD_LIB_HASH_ROUTER)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HASH_ROUTER)
@@ -133,7 +143,7 @@ source_package_build_holism:
 	@echo source_package_build_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism" > $(DIR_BUILD_LIB_HOLISM)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM)
@@ -153,7 +163,7 @@ source_package_build_holism_services:
 	@echo source_package_build_holism_services target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM_SERVICES)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM_SERVICES)
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_SERVICES)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_SERVICES)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLISM_SERVICES)/* $(DIR_BUILD_LIB_HOLISM_SERVICES)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism-services" > $(DIR_BUILD_LIB_HOLISM_SERVICES)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM_SERVICES)
@@ -171,7 +181,7 @@ source_package_build_holism_metadata:
 	@echo source_package_build_holism_metadata target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM_METADATA)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM_METADATA)
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_METADATA)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_METADATA)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLISM_METADATA)/* $(DIR_BUILD_LIB_HOLISM_METADATA)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism-metadata" > $(DIR_BUILD_LIB_HOLISM_METADATA)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISM_METADATA)
@@ -181,7 +191,7 @@ source_package_build_hrequest:
 	@echo source_package_build_hrequest...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/hrequest" > $(DIR_BUILD_LIB_HREQUEST)/package.json
 	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HREQUEST)
@@ -198,7 +208,7 @@ source_package_build_holarchy:
 	@echo source_package_build_holarchy...
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)
 
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY)/* $(DIR_BUILD_LIB_HOLARCHY)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLARCHY) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLARCHY)
 
@@ -212,7 +222,7 @@ source_package_build_holarchy_sml:
 	@echo source_package_build_holarchy_sml...
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY_SML)
 
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY_SML)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY_SML)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY_SML)/* $(DIR_BUILD_LIB_HOLARCHY_SML)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLARCHY_SML) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLARCHY_SML)
 
@@ -226,7 +236,7 @@ source_package_build_holodeck:
 	@echo source_package_build_holodeck...
 	mkdir -p $(DIR_BUILD_LIB_HOLODECK)
 
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLODECK)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLODECK)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLODECK)/* $(DIR_BUILD_LIB_HOLODECK)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLODECK) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLODECK)
 
@@ -240,7 +250,7 @@ source_package_build_holodeck_assets:
 	@echo source_package_build_holodeck_assets...
 	mkdir -p $(DIR_BUILD_LIB_HOLODECK_ASSETS)
 
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLODECK_ASSETS)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLODECK_ASSETS)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLODECK_ASSETS)/* $(DIR_BUILD_LIB_HOLODECK_ASSETS)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLODECK_ASSETS) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLODECK_ASSETS)
 
@@ -255,7 +265,7 @@ source_package_build_d2r2:
 	@echo source_package_build_d2r2...
 	mkdir -p $(DIR_BUILD_LIB_D2R2)
 
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2)/* $(DIR_BUILD_LIB_D2R2)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2)
 
@@ -269,7 +279,7 @@ source_package_build_d2r2_components:
 	@echo source_package_build_d2r2_components...
 	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)
 
-	cp -p $(DIR_PROJECT_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2_COMPONENTS)/.gitignore
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2_COMPONENTS)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/* $(DIR_BUILD_LIB_D2R2_COMPONENTS)/
 	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_D2R2_COMPONENTS) --keep-file-extension --verbose $(DIR_SOURCES_LIB_D2R2_COMPONENTS)
 
@@ -398,18 +408,18 @@ dist_package_update_holistic:
 
 platform_clean:
 	@echo BEGIN TARGET: platform_clean
-	rm -rf $(DIR_PLATFORM)/*
+	rm -rf $(DIR_PLATFORM_RTL_PACKAGES)/*
 	@echo FINISH TARGET: platform_clean
 
 platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: platform_update
-	mkdir -p $(DIR_PLATFORM)
-	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM)/
+	mkdir -p $(DIR_PLATFORM_RTL_PACKAGES)
+	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM_RTL_PACKAGES)/
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_DISTS)/PACKAGES/
-	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_PLATFORM)/
+	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_PLATFORM_RTL_PACKAGES)/
 	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DISTS)/PACKAGES/
 
-	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM)
+	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM_RTL_PACKAGES)
 	$(DIR_ROOT)/TESTS/run-tests.js
 	@echo FINISH TARGET: platform_update
 

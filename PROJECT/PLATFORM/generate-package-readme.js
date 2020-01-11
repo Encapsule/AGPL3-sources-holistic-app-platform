@@ -12,8 +12,8 @@ const handlebars = arctools.handlebars;
 const program = arctools.commander;
 
 program
-    .name('generate_package_license')
-    .description('Generates LICENSE file from repo build and package DB metadata.')
+    .name('generate-package-readme')
+    .description('Generates README.md file from repo build and package DB metadata.')
     .version(repoBuild.version)
     .option('--packageDir <packageDir>', 'Use <packageDir> as root directory of package.')
     .parse(process.argv);
@@ -65,7 +65,7 @@ const packageNameTerse = packageNameSplit[1];
 // ----------------------------------------------------------------
 var markdown = [];
 
-// injectReadmeSection handles sectionDescriptor objects w/heading markdown string & markdown array properties.
+// the injectReadmeSection function processes sectionDescriptor objects w/heading markdown string & markdown array properties.
 function injectReadmeSection(sectionDescriptor_) {
     if (sectionDescriptor_.heading) {
         markdown.push(sectionDescriptor_.heading);
@@ -79,6 +79,10 @@ function injectReadmeSection(sectionDescriptor_) {
 } // function injectReadmeSection
 
 // Start of the markdown document...
+// https://github.com/Encapsule/holistic/tree/v0.0.32-jeunelanding
+
+
+markdown.push("[![@encapsule/holistic](ASSETS/encapsule-holistic-96x96.png \"@encapsule/holistic\")](https://github.com/Encapsule/holistic)");
 markdown.push("[![Encapsule Project](https://encapsule.io/images/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project\")](https://encapsule.io)");
 
 markdown.push("### Encapsule Project");
