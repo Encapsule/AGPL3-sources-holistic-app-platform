@@ -15,8 +15,8 @@ module.exports = {
     },
 
     packageReadme: {
-        summaryDescriptor: {
-            heading: "# Summary Descriptor Heading 1",
+        descriptionDescriptor: {
+            heading: "### Optional package-specific description",
             markdown: [
                 "This is a line of text terminated with a period but no newline.",
                 "This is the next line in the content array also with no newline.",
@@ -33,7 +33,15 @@ module.exports = {
                 "blah blah blah Reusable React components for blah blah blah."
             ]
         },
-        bodySections: []
+        bodySections: [
+            {
+                heading: "# Body Section 1",
+                markdown: [
+                    "Content line 1.",
+                    "Content line 2."
+                ]
+            }
+        ]
     }
 
 };

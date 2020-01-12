@@ -133,6 +133,23 @@ source_package_build_hash_router:
 	@echo source_package_build_hash_router target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HASH_ROUTER)/
 	mkdir -p $(DIR_BUILD_LIB_HASH_ROUTER)
+
+	mkdir -p $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-32x32.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-64x64.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-96x96.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-v2-128x128.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-64x64.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-72x72.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-96x96.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-128x128.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+
+
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HASH_ROUTER)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HASH_ROUTER)/* $(DIR_BUILD_LIB_HASH_ROUTER)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/hash-router" > $(DIR_BUILD_LIB_HASH_ROUTER)/package.json

@@ -81,36 +81,35 @@ function injectReadmeSection(sectionDescriptor_) {
 // Start of the markdown document...
 // https://github.com/Encapsule/holistic/tree/v0.0.32-jeunelanding
 
+markdown.push("# [![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project\")](https://encapsule.io) Encapsule Project");
 
-markdown.push("[![@encapsule/holistic](ASSETS/encapsule-holistic-96x96.png \"@encapsule/holistic\")](https://github.com/Encapsule/holistic)");
-markdown.push("[![Encapsule Project](https://encapsule.io/images/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project\")](https://encapsule.io)");
+markdown.push("## " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename);
 
-markdown.push("### Encapsule Project");
+markdown.push("This package is part of the  [![@encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://github.com/Encapsule/holistic) [**Holistic Application Platform**](https://encapsule.io/docs/holistic) v" + targetManifest.version + " **" + targetManifest.codename + "** release distribution.");
 
-markdown.push("# " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\"");
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
-              "Sources: Encapsule/holistic#" + targetManifest.buildSource + "\n" +
+              "Sources: Encapsule/holistic-master#" + targetManifest.buildSource + "\n" +
               "Purpose: " + packageData.packageType + " (" + (packageData.browserSafe?"Node.js + modern browsers (via package bundler)":"Node.js") + ")\n" +
               "Created: " + repoBuild.buildDateISO + "\n" +
               "License: " + targetManifest.license + "\n" +
               "```");
 
-markdown.push("# Summary");
+markdown.push("### Description");
 
-markdown.push(targetManifest.description);
+markdown.push("> " + targetManifest.name + ": **" + targetManifest.description + "**");
 
 ////
-// Insert optional package-specific content to the Summary section body.
+// Insert optional package-specific content to the description section
 //
-if (packageData.packageReadme.summaryDescriptor) {
-    injectReadmeSection(packageData.packageReadme.summaryDescriptor);
+if (packageData.packageReadme.descriptionDescriptor) {
+    injectReadmeSection(packageData.packageReadme.descriptionDescriptor);
 }
 
 switch (packageData.packageType) {
 case 'library':
     injectReadmeSection({
-        heading: "## Usage",
+        heading: "### Usage",
         markdown: [
             "This package's contained library functionality is intended for use in derived projects.",
             "For example:",
@@ -123,7 +122,7 @@ case 'library':
     break;
 case 'tools':
     injectReadmeSection({
-        heading: "## Usage",
+        heading: "### Usage",
         markdown: [
             "The `" + targetManifest.name + "` "  + packageData.packageType + " package is typically installed globally.",
             "```\n$ npm install --global " + targetManifest.name + "\n```"
@@ -134,11 +133,8 @@ default:
     throw new Error("Unknown packageType declaration value '" + packageData.packageType + "'!");
 }
 
-if (packageData.packageReadme.documentationDescriptor) {
-    injectReadmeSection(packageData.packageReadme.documentationDescriptor);
-}
 
-markdown.push("## Distribution");
+markdown.push("### Distribution");
 markdown.push("The `" + targetManifest.name + "` " + packageData.packageType + " package is published on [npmjs](https://npmjs.com).");
 markdown.push([
     "- [" + targetManifest.name + " Package Distribution](https://npmjs.com/package/" + targetManifest.name + "/v/" + targetManifest.version + ") " +
@@ -146,6 +142,10 @@ markdown.push([
     "- [Encapsule/" + packageNameTerse + " git Repository](https://github.com/Encapsule/" + packageNameTerse + ") ([GitHub](https://github.com/Encapsule))"
 ].join("\n"));
 
+
+if (packageData.packageReadme.documentationDescriptor) {
+    injectReadmeSection(packageData.packageReadme.documentationDescriptor);
+}
 
 // Body content (after summary section typically).
 while (packageData.packageReadme.bodySections && packageData.packageReadme.bodySections.length) {
@@ -156,8 +156,11 @@ while (packageData.packageReadme.bodySections && packageData.packageReadme.bodyS
 // Footer
 //
 markdown.push("<hr>");
-markdown.push("Published under [" + targetManifest.license + "](LICENSE) license by [Encapsule Project](https://encapsule.io) Seattle, Washington");
-markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ")");
+markdown.push("Published with &#9825; under [" + targetManifest.license + "](LICENSE) license by [![Encapsule Project GitHub](ASSETS/blue-burst-encapsule.io-icon-16x16.png \"Encapsule Project GitHub\")](https://github.com/encapsule) [**Encapsule Project**](https://encapsule.io)");
+markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ") (cdr-at-encapsule.io) Seattle, Washington USA");
+markdown.push("Please follow [@Encapsule](https://twitter.com/encapsule) on Twitter for news and updates.");
+markdown.push("<hr>");
+markdown.push("[![Holistic Platform](ASSETS/encapsule-holistic-32x32.png \"Holistic Platform\")](https://encapsule.io/docs/holistic)");
 
 ////
 // Final doc preparation
