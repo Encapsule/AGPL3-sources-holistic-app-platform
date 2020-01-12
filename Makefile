@@ -136,19 +136,10 @@ source_package_build_hash_router:
 
 	mkdir -p $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-32x32.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-64x64.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-96x96.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-v2-128x128.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-64x64.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-72x72.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-96x96.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-128x128.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
-
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HASH_ROUTER)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HASH_ROUTER)/* $(DIR_BUILD_LIB_HASH_ROUTER)/
@@ -160,6 +151,12 @@ source_package_build_holism:
 	@echo source_package_build_holism target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM)
+	mkdir -p $(DIR_BUILD_LIB_HOLISM)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLISM)/* $(DIR_BUILD_LIB_HOLISM)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism" > $(DIR_BUILD_LIB_HOLISM)/package.json
@@ -180,6 +177,12 @@ source_package_build_holism_services:
 	@echo source_package_build_holism_services target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM_SERVICES)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM_SERVICES)
+	mkdir -p $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_SERVICES)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLISM_SERVICES)/* $(DIR_BUILD_LIB_HOLISM_SERVICES)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism-services" > $(DIR_BUILD_LIB_HOLISM_SERVICES)/package.json
@@ -198,6 +201,12 @@ source_package_build_holism_metadata:
 	@echo source_package_build_holism_metadata target starting...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HOLISM_METADATA)/
 	mkdir -p $(DIR_BUILD_LIB_HOLISM_METADATA)
+	mkdir -p $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_METADATA)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLISM_METADATA)/* $(DIR_BUILD_LIB_HOLISM_METADATA)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holism-metadata" > $(DIR_BUILD_LIB_HOLISM_METADATA)/package.json
@@ -208,6 +217,12 @@ source_package_build_hrequest:
 	@echo source_package_build_hrequest...
 	$(TOOL_ESLINT) $(DIR_SOURCES_LIB_HREQUEST)/
 	mkdir -p $(DIR_BUILD_LIB_HREQUEST)
+	mkdir -p $(DIR_BUILD_LIB_HREQUEST)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HREQUEST)/* $(DIR_BUILD_LIB_HREQUEST)/
 	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/hrequest" > $(DIR_BUILD_LIB_HREQUEST)/package.json
@@ -224,6 +239,12 @@ source_package_build_hrequest:
 source_package_build_holarchy:
 	@echo source_package_build_holarchy...
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)
+	mkdir -p $(DIR_BUILD_LIB_HOLARCHY)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY)/* $(DIR_BUILD_LIB_HOLARCHY)/
@@ -238,6 +259,12 @@ source_package_build_holarchy:
 source_package_build_holarchy_sml:
 	@echo source_package_build_holarchy_sml...
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY_SML)
+	mkdir -p $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLARCHY_SML)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLARCHY_SML)/* $(DIR_BUILD_LIB_HOLARCHY_SML)/
@@ -252,6 +279,12 @@ source_package_build_holarchy_sml:
 source_package_build_holodeck:
 	@echo source_package_build_holodeck...
 	mkdir -p $(DIR_BUILD_LIB_HOLODECK)
+	mkdir -p $(DIR_BUILD_LIB_HOLODECK)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLODECK)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLODECK)/* $(DIR_BUILD_LIB_HOLODECK)/
@@ -266,6 +299,12 @@ source_package_build_holodeck:
 source_package_build_holodeck_assets:
 	@echo source_package_build_holodeck_assets...
 	mkdir -p $(DIR_BUILD_LIB_HOLODECK_ASSETS)
+	mkdir -p $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLODECK_ASSETS)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_HOLODECK_ASSETS)/* $(DIR_BUILD_LIB_HOLODECK_ASSETS)/
@@ -281,6 +320,12 @@ source_package_build_holodeck_assets:
 source_package_build_d2r2:
 	@echo source_package_build_d2r2...
 	mkdir -p $(DIR_BUILD_LIB_D2R2)
+	mkdir -p $(DIR_BUILD_LIB_D2R2)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2)/* $(DIR_BUILD_LIB_D2R2)/
@@ -295,6 +340,12 @@ source_package_build_d2r2:
 source_package_build_d2r2_components:
 	@echo source_package_build_d2r2_components...
 	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)
+	mkdir -p $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
 
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_D2R2_COMPONENTS)/.gitignore
 	cp -Rp $(DIR_SOURCES_LIB_D2R2_COMPONENTS)/* $(DIR_BUILD_LIB_D2R2_COMPONENTS)/

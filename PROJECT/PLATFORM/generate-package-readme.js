@@ -152,15 +152,32 @@ while (packageData.packageReadme.bodySections && packageData.packageReadme.bodyS
     injectReadmeSection(packageData.packageReadme.bodySections.shift());
 }
 
+markdown.push("# Issues");
+
+markdown.push("## [![encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic) Holistic Platform RTL's");
+
+markdown.push("**@encapsule/holistic** package and included runtime library and tool issues and questions: [GitHub Issue Queue](https://github.com/Encapsule/holistic/issues)");
+
+markdown.push("## [![@encapsule/arccore](ASSETS/blue-burst-encapsule.io-icon-16x16.png \"@encapsule/arccore\")](https://encapsule.io/docs/ARCcore) Encapsule ARC RTL's + Tools");
+
+markdown.push("**@encapsule/arccore** pacakge and included runtime library issues and questions: [GitHub Issue Queue](https://github.com/Encapsule/ARCcore/issues)");
+
+markdown.push("**@encapsule/arctools** package and included runtime library and tool issues and questions: [GitHub Issue Queue](https://github.com/Encapsule/ARCtools/issues)");
+
+
 ////
 // Footer
 //
 markdown.push("<hr>");
-markdown.push("Published with &#9825; under [" + targetManifest.license + "](LICENSE) license by [![Encapsule Project GitHub](ASSETS/blue-burst-encapsule.io-icon-16x16.png \"Encapsule Project GitHub\")](https://github.com/encapsule) [**Encapsule Project**](https://encapsule.io)");
-markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ") (cdr-at-encapsule.io) Seattle, Washington USA");
+markdown.push("Published with **&#x2764;**+**&#x2692;** under [" + targetManifest.license + "](LICENSE) license by [![Encapsule Project GitHub](ASSETS/blue-burst-encapsule.io-icon-16x16.png \"Encapsule Project GitHub\")](https://github.com/encapsule) [**Encapsule Project**](https://encapsule.io)");
+markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ") Seattle, Washington USA");
 markdown.push("Please follow [@Encapsule](https://twitter.com/encapsule) on Twitter for news and updates.");
 markdown.push("<hr>");
-markdown.push("[![Holistic Platform](ASSETS/encapsule-holistic-32x32.png \"Holistic Platform\")](https://encapsule.io/docs/holistic)");
+
+markdown.push("[![encapsule/holistic](ASSETS/encapsule-holistic-48x48.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic)");
+markdown.push("[![encapsule/holistic](ASSETS/encapsule-holistic-32x32.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic)");
+markdown.push("[![encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic)");
+
 
 ////
 // Final doc preparation
