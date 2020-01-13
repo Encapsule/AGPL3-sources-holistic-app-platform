@@ -126,7 +126,7 @@ source_packages_clean:
 	@echo source_packages_clean target complete.
 
 source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_holarchy_sml source_package_build_d2r2 source_package_build_d2r2_components source_package_build_holodeck source_package_build_holodeck_assets
-	rm -v `find $(DIR_BUILD) | grep '~'`
+	rm -fv `find $(DIR_BUILD) | grep '~'`
 	@echo source_packages_build complete.
 
 source_package_build_hash_router:
