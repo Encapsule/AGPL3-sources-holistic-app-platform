@@ -22,7 +22,7 @@ module.exports = {
             "semver": packageMeta.devDependencies["semver"]
         },
         bin: {
-            appgen: "./appgen.js"
+            appgen: "./appgen"
         }
     },
     packageReadme: {

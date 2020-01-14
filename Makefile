@@ -539,7 +539,7 @@ dist_package_update_holistic:
 	cp -Rp $(DIR_BUILD_LIB_HOLISTIC) $(DIR_DISTS)
 	mkdir -p $(DIR_DIST_PKG_HOLISTIC_PROJECT)
 	cp -Rp $(DIR_GEN) $(DIR_DIST_PKG_HOLISTIC_PROJECT)/
-	cp -p ./appgen.js $(DIR_DIST_PKG_HOLISTIC)/
+	cp -p ./appgen $(DIR_DIST_PKG_HOLISTIC)/
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_DIST_PKG_HOLISTIC_PACKAGES)/
 	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DIST_PKG_HOLISTIC_PACKAGES)/
 	@echo END TARGET: dist_package_update_holistic

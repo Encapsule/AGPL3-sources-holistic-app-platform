@@ -5,10 +5,10 @@
 This package is part of the  [![@encapsule/holistic](ASSETS/encapsule-holistic-16x16.png "@encapsule/holistic")](https://github.com/Encapsule/holistic) [Holistic app platform](https://encapsule.io/docs/holistic) v0.0.33 **quatsino** distribution.
 
 ```
-Package: @encapsule/holism v0.0.33 "quatsino" build ID "M26aHPqHRwykfW-zneM8Pg"
-Sources: Encapsule/holistic-master#da582f861605b823016f44cb095775a589523e84
+Package: @encapsule/holism v0.0.33 "quatsino" build ID "sTAPoKbtTEi-NGkdssJXzw"
+Sources: Encapsule/holistic-master#f5a2d9c263f98ed00aa962068672107c28702230
 Purpose: library (Node.js)
-Created: 2020-01-14T06:06:51.000Z
+Created: 2020-01-14T06:19:20.000Z
 License: MIT
 ```
 
