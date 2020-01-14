@@ -446,6 +446,7 @@ dist_package_update_hash_router:
 	@echo BEGIN TARGET: dist_package_update_hash_router
 	mkdir -p $(DIR_DIST_PKG_HASH_ROUTER)
 	mkdir -p $(DIR_DIST_LIB_HASH_ROUTER)
+	cp -Rp $(DIR_BUILD_LIB_HASH_ROUTER) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HASH_ROUTER) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_hash_router
 
@@ -453,6 +454,7 @@ dist_package_update_holarchy:
 	@echo BEGIN TARGET: dist_package_update_holarchy
 	mkdir -p $(DIR_DIST_PKG_HOLARCHY)
 	mkdir -p $(DIR_DIST_LIB_HOLARCHY)
+	cp -Rp $(DIR_BUILD_LIB_HOLARCHY) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLARCHY) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holarchy
 
@@ -460,6 +462,7 @@ dist_package_update_holarchy_sml:
 	@echo BEGIN TARGET: dist_package_update_holarchy_sml
 	mkdir -p $(DIR_DIST_PKG_HOLARCHY_SML)
 	mkdir -p $(DIR_DIST_LIB_HOLARCHY_SML)
+	cp -Rp $(DIR_BUILD_LIB_HOLARCHY_SML) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLARCHY_SML) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holarchy_sml
 
@@ -467,6 +470,7 @@ dist_package_update_holism:
 	@echo BEGIN TARGET: dist_package_update_holism
 	mkdir -p $(DIR_DIST_PKG_HOLISM)
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holism
 
@@ -474,6 +478,7 @@ dist_package_update_holism_services:
 	@echo BEGIN TARGET: dist_package_update_holism_services
 	mkdir -p $(DIR_DIST_PKG_HOLISM_SERVICES)
 	mkdir -p $(DIR_DIST_LIB_HOLISM_SERVICES)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM_SERVICES) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM_SERVICES) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holism_services
 
@@ -481,6 +486,7 @@ dist_package_update_holism_metadata:
 	@echo BEGIN TARGET: dist_package_update_holism_metadata
 	mkdir -p $(DIR_DIST_PKG_HOLISM_METADATA)
 	mkdir -p $(DIR_DIST_LIB_HOLISM_METADATA)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM_METADATA) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLISM_METADATA) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holism_metadata
 
@@ -488,6 +494,7 @@ dist_package_update_holodeck:
 	@echo BEGIN TARGET: dist_package_update_holodeck
 	mkdir -p $(DIR_DIST_PKG_HOLODECK)
 	mkdir -p $(DIR_DIST_LIB_HOLODECK)
+	cp -Rp $(DIR_BUILD_LIB_HOLODECK) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLODECK) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holodeck
 
@@ -495,6 +502,7 @@ dist_package_update_holodeck_assets:
 	@echo BEGIN TARGET: dist_package_update_holodeck_assets
 	mkdir -p $(DIR_DIST_PKG_HOLODECK_ASSETS)
 	mkdir -p $(DIR_DIST_LIB_HOLODECK_ASSETS)
+	cp -Rp $(DIR_BUILD_LIB_HOLODECK_ASSETS) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLODECK_ASSETS) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holodeck_assets
 
@@ -502,6 +510,7 @@ dist_package_update_hrequest:
 	@echo BEGIN TARGET: dist_package_update_hrequest
 	mkdir -p $(DIR_DIST_PKG_HREQUEST)
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
+	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_hrequest
 
@@ -509,6 +518,7 @@ dist_package_update_d2r2:
 	@echo BEGIN TARGET: dist_package_update_d2r2
 	mkdir -p $(DIR_DIST_PKG_D2R2)
 	mkdir -p $(DIR_DIST_LIB_D2R2)
+	cp -Rp $(DIR_BUILD_LIB_D2R2) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_D2R2) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_hrequest
 
@@ -516,6 +526,7 @@ dist_package_update_d2r2_components:
 	@echo BEGIN TARGET: dist_package_update_d2r2_components
 	mkdir -p $(DIR_DIST_PKG_D2R2_COMPONENTS)
 	mkdir -p $(DIR_DIST_LIB_D2R2_COMPONENTS)
+	cp -Rp $(DIR_BUILD_LIB_D2R2_COMPONENTS) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_D2R2_COMPONENTS) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_d2r2_components
 
