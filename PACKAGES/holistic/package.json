@@ -1,0 +1,40 @@
+{
+    "name": "@encapsule/holistic",
+    "version": "0.0.33",
+    "codename": "quatsino",
+    "buildID": "5xbcEAsRQrmIGmDqAeQ0tg",
+    "buildTime": 1578976740,
+    "buildSource": "338c6769d62cb4dfcce14f670bbb1488b59232d0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holistic.git"
+    },
+    "author": "Encapsule",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holistic/issues"
+    },
+    "homepage": "https://github.com/Encapsule/holistic#readme",
+    "description": "Encapsule Project holistic platform RTL's and 'appgen' derived app/service git repo maintainence utility.",
+    "keywords": [
+        "encapsule",
+        "holistic"
+    ],
+    "main": "index.js",
+    "dependencies": {
+        "@encapsule/arccore": "0.1.8",
+        "@encapsule/arctools": "0.1.8",
+        "mkdirp": "^0.5.1",
+        "semver": "^5.6.0"
+    },
+    "bin": {
+        "appgen": "./appgen.js"
+    }
+}
