@@ -558,6 +558,7 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	mkdir -p $(DIR_PLATFORM_RTL_PACKAGES)
 
 	cp -Rp $(DIR_DISTS)/* $(DIR_PLATFORM_RTL_PACKAGES)
+	rm -rf $(DIR_PLATFORM_RTL_PACKAGES)/holistic/.git
 
 	$(DIR_ROOT)/TESTS/run-tests.js
 	@echo FINISH TARGET: platform_update
