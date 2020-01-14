@@ -85,7 +85,7 @@ markdown.push("# [![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72
 
 markdown.push("## " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename);
 
-markdown.push("This package is part of the  [![@encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://github.com/Encapsule/holistic) [**Holistic Application Platform**](https://encapsule.io/docs/holistic) v" + targetManifest.version + " **" + targetManifest.codename + "** release distribution.");
+markdown.push("This package is part of the  [![@encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://github.com/Encapsule/holistic) [Holistic app platform](https://encapsule.io/docs/holistic) v" + targetManifest.version + " **" + targetManifest.codename + "** distribution.");
 
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
@@ -153,30 +153,19 @@ while (packageData.packageReadme.bodySections && packageData.packageReadme.bodyS
 }
 
 markdown.push("# Issues");
-
-markdown.push("## [![encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic) Holistic Platform RTL's");
-
-markdown.push("**@encapsule/holistic** package and included runtime library and tool issues and questions: [GitHub Issue Queue](https://github.com/Encapsule/holistic/issues)");
-
-markdown.push("## [![@encapsule/arccore](ASSETS/blue-burst-encapsule.io-icon-16x16.png \"@encapsule/arccore\")](https://encapsule.io/docs/ARCcore) Encapsule ARC RTL's + Tools");
-
-markdown.push("**@encapsule/arccore** pacakge and included runtime library issues and questions: [GitHub Issue Queue](https://github.com/Encapsule/ARCcore/issues)");
-
-markdown.push("**@encapsule/arctools** package and included runtime library and tool issues and questions: [GitHub Issue Queue](https://github.com/Encapsule/ARCtools/issues)");
-
+markdown.push("Please post bug reports to one of the follow issue queues depending on topic:");
+markdown.push("- @encapsule/holistic [GitHub Issues](https://github.com/Encapsule/holistic/issues) - Holistic platform RTL + appgen issues.");
+markdown.push("- @encapsule/arccore [GitHub Issues](https://github.com/Encapsule/ARCcore/issues) - Core data RTL issues.");
+markdown.push("- @encapsule/arctools [GitHub Issue](https://github.com/Encapsule/ARCtools/issues) - Core data tools and RTL issues.");
 
 ////
 // Footer
 //
 markdown.push("<hr>");
-markdown.push("Published with **&#x2764;**+**&#x2692;** under [" + targetManifest.license + "](LICENSE) license by [![Encapsule Project GitHub](ASSETS/blue-burst-encapsule.io-icon-16x16.png \"Encapsule Project GitHub\")](https://github.com/encapsule) [**Encapsule Project**](https://encapsule.io)");
-markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ") Seattle, Washington USA");
+markdown.push("Published under [" + targetManifest.license + "](LICENSE) license by [![Encapsule Project GitHub](ASSETS/blue-burst-encapsule.io-icon-16x16.png \"Encapsule Project GitHub\")](https://github.com/encapsule) [Encapsule Project](https://encapsule.io)");
 markdown.push("Please follow [@Encapsule](https://twitter.com/encapsule) on Twitter for news and updates.");
-markdown.push("<hr>");
-
-markdown.push("[![encapsule/holistic](ASSETS/encapsule-holistic-48x48.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic)");
+markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ") Seattle, Washington USA");
 markdown.push("[![encapsule/holistic](ASSETS/encapsule-holistic-32x32.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic)");
-markdown.push("[![encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic)");
 
 
 ////
