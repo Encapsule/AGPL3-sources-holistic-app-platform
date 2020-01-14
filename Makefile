@@ -67,19 +67,25 @@ DIR_BUILD_LIB_HASH_ROUTER=$(DIR_BUILD_LIB)/hash-router
 DIR_BUILD_LIB_HOLODECK=$(DIR_BUILD_LIB)/holodeck
 DIR_BUILD_LIB_HOLODECK_ASSETS=$(DIR_BUILD_LIB)/holodeck-assets
 
-DIR_DISTS=$(DIR_ROOT)/DISTS/holistic
-DIR_DISTS_LIB=$(DIR_DISTS)/PACKAGES
-DIR_DIST_LIB_HOLARCHY=$(DIR_DISTS_LIB)/holarchy
-DIR_DIST_LIB_HOLARCHY_SML=$(DIR_DISTS_LIB)/holarchy-sml
-DIR_DIST_LIB_HOLISM=$(DIR_DISTS_LIB)/holism
-DIR_DIST_LIB_HOLISM_METADATA=$(DIR_DISTS_LIB)/holism-metadata
-DIR_DIST_LIB_HOLISM_SERVICES=$(DIR_DISTS_LIB)/holism-services
-DIR_DIST_LIB_HREQUEST=$(DIR_DISTS_LIB)/hrequest
-DIR_DIST_LIB_D2R2=$(DIR_DISTS_LIB)/d2r2
-DIR_DIST_LIB_D2R2_COMPONENTS=$(DIR_DISTS_LIB)/d2r2-components
-DIR_DIST_LIB_HASH_ROUTER=$(DIR_DISTS_LIB)/hash-router
-DIR_DIST_LIB_HOLODECK=$(DIR_DISTS_LIB)/holodeck
-DIR_DIST_LIB_HOLODECK_ASSETS=$(DIR_DISTS_LIB)/holodeck-assets
+XXX_DIR_DISTS=$(DIR_ROOT)/DISTS/holistic
+
+DIR_DISTS=$(DIR_ROOT)/DISTS
+
+DIR_DIST_LIB_HOLISTIC=$(DIR_DISTS)/holistic
+DIR_DIST_LIB_HOLISTIC_PACKAGES=$(DIR_DIST_LIB_HOLISTIC)/PACKAGES
+DIR_DIST_LIB_HOLISTIC_PROJECT=$(DIR_DIST_LIB_HOLISTIC)/PROJECT
+
+DIR_DIST_LIB_HOLARCHY=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/holarchy
+DIR_DIST_LIB_HOLARCHY_SML=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/holarchy-sml
+DIR_DIST_LIB_HOLISM=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/holism
+DIR_DIST_LIB_HOLISM_METADATA=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/holism-metadata
+DIR_DIST_LIB_HOLISM_SERVICES=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/holism-services
+DIR_DIST_LIB_HREQUEST=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/hrequest
+DIR_DIST_LIB_D2R2=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/d2r2
+DIR_DIST_LIB_D2R2_COMPONENTS=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/d2r2-components
+DIR_DIST_LIB_HASH_ROUTER=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/hash-router
+DIR_DIST_LIB_HOLODECK=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/holodeck
+DIR_DIST_LIB_HOLODECK_ASSETS=$(DIR_DIST_LIB_HOLISTIC_PACKAGES)/holodeck-assets
 
 DIR_PLATFORM_RTL_PACKAGES=$(DIR_ROOT)/PACKAGES
 
@@ -391,7 +397,7 @@ source_package_build_holistic:
 # of the distribution repo which is typically then commited and published.
 dist_packages_initialize: dist_packages_reset
 	@echo BEGIN TARGET: dist_packages_initialize
-	git clone git@github.com:Encapsule/holistic.git $(DIR_DISTS)
+	git clone git@github.com:Encapsule/holistic.git $(XXX_DIR_DISTS)
 	@echo FINISH TARGET: dist_packages_initialize
 
 # OPTIONAL: check the status of the package distribution repositories.
@@ -399,19 +405,19 @@ dist_packages_status:
 	@echo BEGIN TARGET: dist_packages_status
 
 	@echo ================================================================
-	cd $(DIR_DISTS) && git remote -v && git status
+	cd $(XXX_DIR_DISTS) && git remote -v && git status
 
 	@echo ================================================================
 	@echo FINISH TARGET: dist_packages_status
 
 dist_packages_clean:
 	@echo BEGIN TARGET: dist_packages_clean
-	rm -rf $(DIR_DISTS)/*
+	rm -rf $(XXX_DIR_DISTS)/*
 	@echo COMPLETE TARGET: dist_packages_clean
 
 dist_packages_reset:
 	@echo BEGIN TARGET: dist_packages_reset
-	rm -rf $(DIR_DISTS)
+	rm -rf $(XXX_DIR_DISTS)
 	@echo FINISH TARGET: dist_packages_reset
 
 dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets dist_package_update_holistic
@@ -420,78 +426,71 @@ dist_packages_update: source_packages_build dist_package_update_holarchy dist_pa
 dist_package_update_hash_router:
 	@echo BEGIN TARGET: dist_package_update_hash_router
 	mkdir -p $(DIR_DIST_LIB_HASH_ROUTER)
-	cp -Rp $(DIR_BUILD_LIB_HASH_ROUTER) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HASH_ROUTER) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_hash_router
 
 dist_package_update_holarchy:
 	@echo BEGIN TARGET: dist_package_update_holarchy
 	mkdir -p $(DIR_DIST_LIB_HOLARCHY)
-	cp -Rp $(DIR_BUILD_LIB_HOLARCHY) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLARCHY) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holarchy
 
 dist_package_update_holarchy_sml:
 	@echo BEGIN TARGET: dist_package_update_holarchy_sml
 	mkdir -p $(DIR_DIST_LIB_HOLARCHY_SML)
-	cp -Rp $(DIR_BUILD_LIB_HOLARCHY_SML) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLARCHY_SML) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holarchy_sml
 
 dist_package_update_holism:
 	@echo BEGIN TARGET: dist_package_update_holism
 	mkdir -p $(DIR_DIST_LIB_HOLISM)
-	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holism
 
 dist_package_update_holism_services:
 	@echo BEGIN TARGET: dist_package_update_holism_services
 	mkdir -p $(DIR_DIST_LIB_HOLISM_SERVICES)
-	cp -Rp $(DIR_BUILD_LIB_HOLISM_SERVICES) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM_SERVICES) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holism_services
 
 dist_package_update_holism_metadata:
 	@echo BEGIN TARGET: dist_package_update_holism_metadata
 	mkdir -p $(DIR_DIST_LIB_HOLISM_METADATA)
-	cp -Rp $(DIR_BUILD_LIB_HOLISM_METADATA) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLISM_METADATA) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holism_metadata
 
 dist_package_update_holodeck:
 	@echo BEGIN TARGET: dist_package_update_holodeck
 	mkdir -p $(DIR_DIST_LIB_HOLODECK)
-	cp -Rp $(DIR_BUILD_LIB_HOLODECK) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLODECK) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holodeck
 
 dist_package_update_holodeck_assets:
 	@echo BEGIN TARGET: dist_package_update_holodeck_assets
 	mkdir -p $(DIR_DIST_LIB_HOLODECK_ASSETS)
-	cp -Rp $(DIR_BUILD_LIB_HOLODECK_ASSETS) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HOLODECK_ASSETS) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holodeck_assets
 
 dist_package_update_hrequest:
 	@echo BEGIN TARGET: dist_package_update_hrequest
 	mkdir -p $(DIR_DIST_LIB_HREQUEST)
-	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_HREQUEST) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_hrequest
 
 dist_package_update_d2r2:
 	@echo BEGIN TARGET: dist_package_update_d2r2
 	mkdir -p $(DIR_DIST_LIB_D2R2)
-	cp -Rp $(DIR_BUILD_LIB_D2R2) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_D2R2) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_hrequest
 
 dist_package_update_d2r2_components:
 	@echo BEGIN TARGET: dist_package_update_d2r2_components
 	mkdir -p $(DIR_DIST_LIB_D2R2_COMPONENTS)
-	cp -Rp $(DIR_BUILD_LIB_D2R2_COMPONENTS) $(DIR_DISTS_LIB)
+	cp -Rp $(DIR_BUILD_LIB_D2R2_COMPONENTS) $(DIR_DIST_LIB_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_d2r2_components
 
 dist_package_update_holistic:
 	@echo BEGIN TARGET: dist_package_update_holistic
-	mkdir -p $(DIR_DISTS)
-	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holistic" > $(DIR_DISTS)/package.json
-	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_DISTS)
-	$(TOOL_GEN_PACKAGE_README) --packageDir $(DIR_DISTS)
-	mkdir -p $(DIR_DISTS)/PROJECT
-	cp -Rp $(DIR_GEN) $(DIR_DISTS)/PROJECT/
-	cp -p ./appgen.js $(DIR_DISTS)/
 	@echo END TARGET: dist_package_update_holistic
 
 
@@ -507,11 +506,12 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: platform_update
 	mkdir -p $(DIR_PLATFORM_RTL_PACKAGES)
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM_RTL_PACKAGES)/
-	cp -p $(DIR_BUILD)/holistic.json $(DIR_DISTS)/PACKAGES/
+	cp -p $(DIR_BUILD)/holistic.json $(XXX_DIR_DISTS)/PACKAGES/
 	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_PLATFORM_RTL_PACKAGES)/
-	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DISTS)/PACKAGES/
+	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(XXX_DIR_DISTS)/PACKAGES/
 
-	cp -Rp $(DIR_DISTS_LIB)/* $(DIR_PLATFORM_RTL_PACKAGES)
+	cp -Rp $(DIR_DIST_LIB_HOLISTIC_PACKAGES)/* $(DIR_PLATFORM_RTL_PACKAGES)
+
 	$(DIR_ROOT)/TESTS/run-tests.js
 	@echo FINISH TARGET: platform_update
 
