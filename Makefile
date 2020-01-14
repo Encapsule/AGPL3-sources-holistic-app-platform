@@ -39,18 +39,18 @@ TOOL_WEBPACK_FLAGS=--display-modules --verbose --debug --progress --colors --dev
 
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
+DIR_SOURCES_LIB_D2R2=$(DIR_SOURCES_LIB)/d2r2
+DIR_SOURCES_LIB_D2R2_COMPONENTS=$(DIR_SOURCES_LIB)/d2r2-components
+DIR_SOURCES_LIB_HASH_ROUTER=$(DIR_SOURCES_LIB)/hash-router
 DIR_SOURCES_LIB_HOLARCHY=$(DIR_SOURCES_LIB)/holarchy
 DIR_SOURCES_LIB_HOLARCHY_SML=$(DIR_SOURCES_LIB)/holarchy-sml
 DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
 DIR_SOURCES_LIB_HOLISM_METADATA=$(DIR_SOURCES_LIB)/holism-metadata
 DIR_SOURCES_LIB_HOLISM_SERVICES=$(DIR_SOURCES_LIB)/holism-services
 DIR_SOURCES_LIB_HOLISTIC=$(DIR_SOURCES_LIB)/holistic
-DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
-DIR_SOURCES_LIB_D2R2=$(DIR_SOURCES_LIB)/d2r2
-DIR_SOURCES_LIB_D2R2_COMPONENTS=$(DIR_SOURCES_LIB)/d2r2-components
-DIR_SOURCES_LIB_HASH_ROUTER=$(DIR_SOURCES_LIB)/hash-router
 DIR_SOURCES_LIB_HOLODECK=$(DIR_SOURCES_LIB)/holodeck
 DIR_SOURCES_LIB_HOLODECK_ASSETS=$(DIR_SOURCES_LIB)/holodeck-assets
+DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
@@ -431,16 +431,19 @@ dist_packages_status:
 
 dist_packages_clean:
 	@echo BEGIN TARGET: dist_packages_clean
-	rm -rf $(DIR_DIST_PKG_HOLISTIC)/*
+	rm -rf $(DIR_DIST_PKG_D2R2) $(DIR_DIST_PKG_D2R2_COMPONENTS) $(DIR_DIST_PKG_HASH_ROUTER) $(DIR_DIST_PKG_HOLARCHY) $(DIR_DIST_PKG_HOLARCHY_SML) $(DIR_DIST_PKG_HOLISM) $(DIR_DIST_PKG_HOLISM_METADATA) $(DIR_DIST_PKG_HOLISM_SERVICES) $(DIR_DIST_PKG_HOLISTIC)/* $(DIR_DIST_PKG_HOLODECK) $(DIR_DIST_PKG_HOLODECK_ASSETS) $(DIR_DIST_PKG_HREQUEST) $(DIR_DISTS)/*.json
 	@echo COMPLETE TARGET: dist_packages_clean
 
 dist_packages_reset:
 	@echo BEGIN TARGET: dist_packages_reset
-	rm -rf $(DIR_DIST_PKG_HOLISTIC)
+	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
 dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets dist_package_update_holistic
-	@echo COMPLETE TARGET: dist_packages_update
+	@echo BEGIN TARGET: dist_packages_update
+	cp -p $(DIR_BUILD)/holistic.json $(DIR_DISTS)
+	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DISTS)
+	@echo FINISH TARGET: dist_packages_update
 
 dist_package_update_hash_router:
 	@echo BEGIN TARGET: dist_package_update_hash_router
@@ -532,6 +535,13 @@ dist_package_update_d2r2_components:
 
 dist_package_update_holistic:
 	@echo BEGIN TARGET: dist_package_update_holistic
+	mkdir -p $(DIR_DIST_PKG_HOLISTIC)
+	cp -Rp $(DIR_BUILD_LIB_HOLISTIC) $(DIR_DISTS)
+	mkdir -p $(DIR_DIST_PKG_HOLISTIC_PROJECT)
+	cp -Rp $(DIR_GEN) $(DIR_DIST_PKG_HOLISTIC_PROJECT)/
+	cp -p ./appgen.js $(DIR_DIST_PKG_HOLISTIC)/
+	cp -p $(DIR_BUILD)/holistic.json $(DIR_DIST_PKG_HOLISTIC_PACKAGES)/
+	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DIST_PKG_HOLISTIC_PACKAGES)/
 	@echo END TARGET: dist_package_update_holistic
 
 
@@ -546,12 +556,8 @@ platform_clean:
 platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: platform_update
 	mkdir -p $(DIR_PLATFORM_RTL_PACKAGES)
-	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM_RTL_PACKAGES)/
-	cp -p $(DIR_BUILD)/holistic.json $(DIR_DIST_PKG_HOLISTIC)/PACKAGES/
-	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_PLATFORM_RTL_PACKAGES)/
-	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DIST_PKG_HOLISTIC)/PACKAGES/
 
-	cp -Rp $(DIR_DIST_PKG_HOLISTIC_PACKAGES)/* $(DIR_PLATFORM_RTL_PACKAGES)
+	cp -Rp $(DIR_DISTS)/* $(DIR_PLATFORM_RTL_PACKAGES)
 
 	$(DIR_ROOT)/TESTS/run-tests.js
 	@echo FINISH TARGET: platform_update
