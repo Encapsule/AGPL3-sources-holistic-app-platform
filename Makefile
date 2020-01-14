@@ -67,8 +67,6 @@ DIR_BUILD_LIB_HASH_ROUTER=$(DIR_BUILD_LIB)/hash-router
 DIR_BUILD_LIB_HOLODECK=$(DIR_BUILD_LIB)/holodeck
 DIR_BUILD_LIB_HOLODECK_ASSETS=$(DIR_BUILD_LIB)/holodeck-assets
 
-XXX_DIR_DISTS=$(DIR_ROOT)/DISTS/holistic
-
 DIR_DISTS=$(DIR_ROOT)/DISTS
 
 DIR_DIST_LIB_HOLISTIC=$(DIR_DISTS)/holistic
@@ -397,7 +395,7 @@ source_package_build_holistic:
 # of the distribution repo which is typically then commited and published.
 dist_packages_initialize: dist_packages_reset
 	@echo BEGIN TARGET: dist_packages_initialize
-	git clone git@github.com:Encapsule/holistic.git $(XXX_DIR_DISTS)
+	git clone git@github.com:Encapsule/holistic.git $(DIR_DIST_LIB_HOLISTIC)
 	@echo FINISH TARGET: dist_packages_initialize
 
 # OPTIONAL: check the status of the package distribution repositories.
@@ -405,19 +403,19 @@ dist_packages_status:
 	@echo BEGIN TARGET: dist_packages_status
 
 	@echo ================================================================
-	cd $(XXX_DIR_DISTS) && git remote -v && git status
+	cd $(DIR_DIST_LIB_HOLISTIC) && git remote -v && git status
 
 	@echo ================================================================
 	@echo FINISH TARGET: dist_packages_status
 
 dist_packages_clean:
 	@echo BEGIN TARGET: dist_packages_clean
-	rm -rf $(XXX_DIR_DISTS)/*
+	rm -rf $(DIR_DIST_LIB_HOLISTIC)/*
 	@echo COMPLETE TARGET: dist_packages_clean
 
 dist_packages_reset:
 	@echo BEGIN TARGET: dist_packages_reset
-	rm -rf $(XXX_DIR_DISTS)
+	rm -rf $(DIR_DIST_LIB_HOLISTIC)
 	@echo FINISH TARGET: dist_packages_reset
 
 dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets dist_package_update_holistic
@@ -506,9 +504,9 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 	@echo BEGIN TARGET: platform_update
 	mkdir -p $(DIR_PLATFORM_RTL_PACKAGES)
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_PLATFORM_RTL_PACKAGES)/
-	cp -p $(DIR_BUILD)/holistic.json $(XXX_DIR_DISTS)/PACKAGES/
+	cp -p $(DIR_BUILD)/holistic.json $(DIR_DIST_LIB_HOLISTIC)/PACKAGES/
 	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_PLATFORM_RTL_PACKAGES)/
-	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(XXX_DIR_DISTS)/PACKAGES/
+	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DIST_LIB_HOLISTIC)/PACKAGES/
 
 	cp -Rp $(DIR_DIST_LIB_HOLISTIC_PACKAGES)/* $(DIR_PLATFORM_RTL_PACKAGES)
 
