@@ -11,7 +11,7 @@ module.exports = {
     packageType: "tools",
     packageEnvironment: [ "node" ],
     packageManifestOverrides: {
-        description: "Encapsule Project holistic platform RTL's and 'appgen' derived app/service git repo maintainence utility.",
+        description: "Encapsule Project Holistic Application Platorm runtime lirbaries + appgen repo maintenance command line tool.",
         keywords: [ "encapsule", "holistic" ],
         license: "MIT",
         main: "index.js",
@@ -26,17 +26,34 @@ module.exports = {
         }
     },
     packageReadme: {
-        summaryDescriptor: {
-            heading: "@encapsule/holistic",
-            markdown: [
-            ]
-        },
-        documentationDescriptor: {
-            heading: "## Documentation",
-            markdown: [
-            ],
-            bodySections: []
-        }
-    }
+	overviewDescriptor: {
+	    // heading: "> overviewDescriptor heading",
+	    markdown: [
+		"The @encapsule/holistic package contains:\n",
+		"- The [appgen](#appgen-utility) command-line utility used to maintain derived app and service git repositories.",
+		"- Copies of the [Holistic Platform](#holistic-platform) runtime library packages used by appgen."
+	    ]
+	},
+	usageDescriptor: {
+	    // heading: "> usageDescriptor heading",
+	    markdown: [
+		"This is a line of markdown test in the usageDescriptor.markdown array."
+	    ]
+	},
+	bodySections: [
+	    {
+		 //heading: "> body section 1 heading",
+		markdown: [
+		    "This is some general introductory test to the Documentation section."
+		]
+	    },
+	    {
+		heading: "### appgen utility",
+		markdown: [
+		    "This is a line of text about `appgen` utility."
+		]
+	    }
+	]
 
+    }
 };
