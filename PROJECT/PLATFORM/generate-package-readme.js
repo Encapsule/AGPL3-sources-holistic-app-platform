@@ -62,8 +62,26 @@ const packageNameSplit = targetManifest.name.split("/");
 const packageOrg = packageNameSplit[0];
 const packageNameTerse = packageNameSplit[1];
 
+function insertHeader(level_, text_) {
+    switch (level_) {
+    case 1:
+	markdown.push("# ![@encapsule/holistic](ASSETS/encapsule-holistic-48x48.png \"@encapsule/holistic\") " + text_);
+	break;
+    case 2:
+	markdown.push("## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png \"@encapsule/holistic\") " + text_);
+	break;
+    case 3:
+	markdown.push("### ![@encapsule/holistic](ASSETS/encapsule-holistic-24x24.png \"@encapsule/holistic\") " + text_);
+	break;
+    case 4:
+	markdown.push("#### ![@encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\") " + text_);
+	break;
+    default:
+	throw new Error("Unrecognized header level " + level_);
+    }
+}
+
 // ----------------------------------------------------------------
-var markdown = [];
 
 // the injectReadmeSection function processes sectionDescriptor objects w/heading markdown string & markdown array properties.
 function injectReadmeSection(sectionDescriptor_) {
@@ -80,13 +98,24 @@ function injectReadmeSection(sectionDescriptor_) {
 
 // Start of the markdown document...
 // https://github.com/Encapsule/holistic/tree/v0.0.32-jeunelanding
+var markdown = [];
 
+// ENCAPULE PROJECT HEADING 1
 markdown.push("# [![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project\")](https://encapsule.io) Encapsule Project");
 
-markdown.push("# " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename);
+markdown.push([
+    "**",
+    "[ [Homepage](https://encapsule.io \"Encapsule Project Homepage...\") ] ",
+    "[ [GitHub](https://github.com/Encapsule \"Encapsule Project GitHub...\") ] ",
+    "[ [Twitter](https://twitter.com/Encapsule \"Encapsule Project Twitter...\") ] ",
+    "[ [Discussion](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group \"Holistic app platform discussion group...\") ]",
+    "**"
+].join(""));
 
-markdown.push("**" + targetManifest.description + "**");
+// PACKAGE HEADING 1
+insertHeader(1, targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename);
 
+// PACKAGE METADATA PRE
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
               "Sources: Encapsule/holistic-master#" + targetManifest.buildSource + "\n" +
@@ -95,31 +124,32 @@ markdown.push("```\n" +
               "License: " + targetManifest.license + "\n" +
               "```");
 
-markdown.push("[![@encapsule/holistic](ASSETS/encapsule-holistic-16x16.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic) This package is part of the  Holistic Application Platform v" + targetManifest.version + " **" + targetManifest.codename + "** release distribution.");
-
-markdown.push("## Overview");
-
-////
-// Insert optional package-specific content to the description section
-//
+// PACKAGE OVERVIEW HEADING 2
+insertHeader(2, "Overview");
+// markdown.push("## [![@encapsule/holistic](ASSETS/encapsule-holistic-48x48.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic) Overview");
+markdown.push(targetManifest.description);
 if (packageData.packageReadme.overviewDescriptor) {
     injectReadmeSection(packageData.packageReadme.overviewDescriptor);
 }
 
+// PACKAGE DISTRIBUTION HEADING 2
+insertHeader(2, "Distribution");
+if (targetManifest.name !== "@encapsule/holistic") {
+    markdown.push("This package is an unpublished _pseudo-package_ that is included in the @encapsule/holistic v" + targetManifest.version + " " + targetManifest.codename + " package for distribution via the `appgen` utility.");
+} else {
+    markdown.push("This package is not currently published to npmjs.com and is only available from [@Encapsule](https://github.com/Encapsule) on GitHub.");
+    markdown.push("```\n" +
+		  "$ cd ~/Downloads\n" +
+		  "$ git clone git@github.com:Encapsule/holistic.git\n" +
+		  "```");
+}
 
-markdown.push("## Distribution");
-markdown.push("The `" + targetManifest.name + "` " + packageData.packageType + " package can be obtained from:");
-markdown.push([
-    "- npmjs.com: [" + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename + "](https://npmjs.com/package/" + targetManifest.name + "/v/" + targetManifest.version + ") " +
-        "([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))",
-    "- GitHub.com: [Encapsule/" + packageNameTerse + " v" + targetManifest.version + " " + targetManifest.codename + "](https://github.com/Encapsule/" + packageNameTerse + ") ([GitHub](https://github.com/Encapsule))"
-].join("\n"));
-
-
+// PACKAGE INSTALLATION HEADING 2
+insertHeader(2, "Installation");
 switch (packageData.packageType) {
 case 'library':
     injectReadmeSection({
-        heading: "## Usage",
+        // heading: "## Installation",
         markdown: [
             "This package's contained library functionality is intended for use in derived projects.",
             "For example:",
@@ -132,7 +162,7 @@ case 'library':
     break;
 case 'tools':
     injectReadmeSection({
-        heading: "## Usage",
+        // heading: "## Installation",
         markdown: [
             "The `" + targetManifest.name + "` "  + packageData.packageType + " package is typically installed globally.",
             "```\n$ npm install --global " + targetManifest.name + "\n```"
@@ -143,23 +173,15 @@ default:
     throw new Error("Unknown packageType declaration value '" + packageData.packageType + "'!");
 }
 
-
-// Documentation section (typically not the actual developer reference but links to other resources here).
 if (packageData.packageReadme.usageDescriptor) {
     injectReadmeSection(packageData.packageReadme.usageDescriptor);
 }
 
 
-markdown.push("## Issues");
-markdown.push("Please post bug reports to one of the follow issue queues depending on topic:");
-markdown.push("- @encapsule/holistic [GitHub Issues](https://github.com/Encapsule/holistic/issues) - Holistic platform RTL + appgen issues.");
-markdown.push("- @encapsule/arccore [GitHub Issues](https://github.com/Encapsule/ARCcore/issues) - Core data RTL issues.");
-markdown.push("- @encapsule/arctools [GitHub Issue](https://github.com/Encapsule/ARCtools/issues) - Core data tools and RTL issues.");
 
-
-// Body content (any other package-specific content to be inserted into the README.md document after the package summary and before the footer sections.
+// PACKAGE DOCUMENTATION SECTION 2
 if (packageData.packageReadme.bodySections && packageData.packageReadme.bodySections.length) {
-    markdown.push("## Documentation");
+    insertHeader(2, "Documentation");
     while (packageData.packageReadme.bodySections.length) {
 	injectReadmeSection(packageData.packageReadme.bodySections.shift());
     }
@@ -168,23 +190,26 @@ if (packageData.packageReadme.bodySections && packageData.packageReadme.bodySect
 
 if (targetManifest.name === "@encapsule/holistic") {
 
-    markdown.push("[![encapsule/holistic](ASSETS/encapsule-holistic-48x48.png \"@encapsule/holistic\")](https://encapsule.io/docs/holistic)");
-    markdown.push("### Holistic Platform");
+    insertHeader(3, "Holistic Platform RTL's");
     markdown.push("The \"Holistic App Platform\" is a collection of runtime library packages that are used to build full-stack web applications and services using [Node.js](https://nodejs.org) and [React](https://react.org).");
 
 
     holisticPackages.forEach(function(packageName_) {
-	markdown.push("#### " + packageName_);
+	insertHeader(4, packageName_);
 	markdown.push(packageDB[packageName_].packageManifestOverrides.description);
 	markdown.push("[README](PACKAGES/" + packageName_.split("/")[1] + "/README.md)");
     });
 
 }
 
+// PACKAGE ISSUES HEADING 2
+insertHeader(2, "Issues");
+markdown.push("Please post bug reports to one of the follow issue queues depending on topic:");
+markdown.push("- @encapsule/holistic [GitHub Issues](https://github.com/Encapsule/holistic/issues) - Holistic platform RTL + appgen issues.");
+markdown.push("- @encapsule/arccore [GitHub Issues](https://github.com/Encapsule/ARCcore/issues) - Core data RTL issues.");
+markdown.push("- @encapsule/arctools [GitHub Issue](https://github.com/Encapsule/ARCtools/issues) - Core data tools and RTL issues.");
 
-////
-// Footer
-//
+// PAGE FOOTER SECTION
 markdown.push("<hr>");
 markdown.push("[![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project\")](https://encapsule.io)");
 markdown.push("Published under [" + targetManifest.license + "](LICENSE) license by [Encapsule Project](https://encapsule.io)");

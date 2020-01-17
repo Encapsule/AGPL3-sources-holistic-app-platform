@@ -165,6 +165,7 @@ source_package_build_hash_router:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HASH_ROUTER)/ASSETS/
 
@@ -182,6 +183,7 @@ source_package_build_holism:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISM)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM)/.gitignore
@@ -208,6 +210,7 @@ source_package_build_holism_services:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISM_SERVICES)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_SERVICES)/.gitignore
@@ -232,6 +235,7 @@ source_package_build_holism_metadata:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISM_METADATA)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISM_METADATA)/.gitignore
@@ -248,6 +252,7 @@ source_package_build_hrequest:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HREQUEST)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HREQUEST)/.gitignore
@@ -270,6 +275,7 @@ source_package_build_holarchy:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLARCHY)/ASSETS/
 
@@ -290,6 +296,7 @@ source_package_build_holarchy_sml:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLARCHY_SML)/ASSETS/
 
@@ -310,6 +317,7 @@ source_package_build_holodeck:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLODECK)/ASSETS/
 
@@ -330,6 +338,7 @@ source_package_build_holodeck_assets:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLODECK_ASSETS)/ASSETS/
 
@@ -351,6 +360,7 @@ source_package_build_d2r2:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_D2R2)/ASSETS/
 
@@ -371,6 +381,7 @@ source_package_build_d2r2_components:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_D2R2_COMPONENTS)/ASSETS/
 
@@ -391,6 +402,7 @@ source_package_build_holistic:
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISTIC)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISTIC)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISTIC)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLISTIC)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISTIC)/ASSETS/
 	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISTIC)/ASSETS/
 

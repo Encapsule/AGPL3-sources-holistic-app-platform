@@ -1,22 +1,26 @@
 # [![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io) Encapsule Project
 
-## @encapsule/holism v0.0.33 quatsino
+**[ [Homepage](https://encapsule.io "Encapsule Project Homepage...") ] [ [GitHub](https://github.com/Encapsule "Encapsule Project GitHub...") ] [ [Twitter](https://twitter.com/Encapsule "Encapsule Project Twitter...") ] [ [Discussion](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") ]**
 
-This package is part of the  [![@encapsule/holistic](ASSETS/encapsule-holistic-16x16.png "@encapsule/holistic")](https://github.com/Encapsule/holistic) [Holistic app platform](https://encapsule.io/docs/holistic) v0.0.33 **quatsino** distribution.
+# ![@encapsule/holistic](ASSETS/encapsule-holistic-48x48.png "@encapsule/holistic") @encapsule/holism v0.0.33 quatsino
 
 ```
-Package: @encapsule/holism v0.0.33 "quatsino" build ID "NDxWu29CSVCrFcS-sh-3KA"
-Sources: Encapsule/holistic-master#7d1aaae3785dd40cd55666ff07528cc7a668c1f3
+Package: @encapsule/holism v0.0.33 "quatsino" build ID "kgkjQnzfSXq-CUO_4afiHQ"
+Sources: Encapsule/holistic-master#d1e99b5e3f0e724b0b034dfbb9e9d5091495f32a
 Purpose: library (Node.js)
-Created: 2020-01-14T18:01:33.000Z
+Created: 2020-01-17T20:56:41.000Z
 License: MIT
 ```
 
-### Description
+## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Overview
 
-> @encapsule/holism: **Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.**
+Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.
 
-### Usage
+## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Distribution
+
+This package is an unpublished _pseudo-package_ that is included in the @encapsule/holistic v0.0.33 quatsino package for distribution via the `appgen` utility.
+
+## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Installation
 
 This package's contained library functionality is intended for use in derived projects.
 
@@ -38,18 +42,7 @@ console.log(JSON.stringify(holism.__meta));
 /* ... your derived code here ... */
 ```
 
-### Distribution
-
-The `@encapsule/holism` library package is published on [npmjs](https://npmjs.com).
-
-- [@encapsule/holism Package Distribution](https://npmjs.com/package/@encapsule/holism/v/0.0.33) ([@encapsule on npmjs.com](https://www.npmjs.com/org/encapsule))
-- [Encapsule/holism git Repository](https://github.com/Encapsule/holism) ([GitHub](https://github.com/Encapsule))
-
-## Documentation
-
-Developer API and examples: [Encapsule Project holism documentation](https://encapsule.io/docs/holism)
-
-# Issues
+## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Issues
 
 Please post bug reports to one of the follow issue queues depending on topic:
 
@@ -61,10 +54,12 @@ Please post bug reports to one of the follow issue queues depending on topic:
 
 <hr>
 
-Published under [MIT](LICENSE) license by [![Encapsule Project GitHub](ASSETS/blue-burst-encapsule.io-icon-16x16.png "Encapsule Project GitHub")](https://github.com/encapsule) [Encapsule Project](https://encapsule.io)
+[![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io)
+
+Published under [MIT](LICENSE) license by [Encapsule Project](https://encapsule.io)
 
 Please follow [@Encapsule](https://twitter.com/encapsule) on Twitter for news and updates.
 
 Copyright &copy; 2020 [Christopher D. Russell](https://github.com/ChrisRus) Seattle, Washington USA
 
-[![encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic")](https://encapsule.io/docs/holistic)
+<hr>
