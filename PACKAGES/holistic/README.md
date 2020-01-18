@@ -1,14 +1,18 @@
-# [![](ASSETS/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project Homepage")](https://encapsule.io) Encapsule Project
+# [![](ASSETS/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project Homepage")](https://encapsule.io)&nbsp;Encapsule Project
 
 **[ [Homepage](https://encapsule.io "Encapsule Project Homepage...") ] [ [GitHub](https://github.com/Encapsule "Encapsule Project GitHub...") ] [ [Twitter](https://twitter.com/Encapsule "Encapsule Project Twitter...") ] [ [Discussion](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") ]**
 
-# ![](ASSETS/encapsule-holistic-48x48.png)&nbsp;@encapsule/holistic v0.0.33 quatsino
+Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture and runtime libraries.
+
+# ![](ASSETS/encapsule-holistic-48x48.png)&nbsp;Holistic App Platform
+
+## &#x029C9; @encapsule/holistic v0.0.33 quatsino (distribution package) &#x029C9;
 
 ```
-Package: @encapsule/holistic v0.0.33 "quatsino" build ID "pTD2lu-tStWnAP-ca9CpTw"
-Sources: Encapsule/holistic-master#b923b1227b458e623e4188fcf79340c9eba09783
+Package: @encapsule/holistic v0.0.33 "quatsino" build ID "tkwd91cmSnm7CYIwDi1fJA"
+Sources: Encapsule/holistic-master#4bee16a660173acf04d5d62ed4139a8fbd312a50
 Purpose: tools (Node.js)
-Created: 2020-01-18T04:05:35.000Z
+Created: 2020-01-18T09:40:25.000Z
 License: MIT
 ```
 
@@ -81,71 +85,71 @@ This is some information about the appgen utility.
 
 The "Holistic App Platform" is a collection of runtime library packages that are used to build full-stack web applications and services using [Node.js](https://nodejs.org) and [React](https://react.org).
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/d2r2
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/d2r2 &#x25F0;
 
 Data-Driven React Render (d2r2) allows you to map JSON data types to React components and affect layout via JSON document composition dynamically at runtime w/type safety.
 
-[README](PACKAGES/d2r2/README.md)
+[README &#x25BA;](PACKAGES/d2r2/README.md "Jump to d2r2 RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/d2r2-components
-
-A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.
-
-[README](PACKAGES/d2r2-components/README.md)
-
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/hash-router
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/d2r2-components &#x25F0;
 
 A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.
 
-[README](PACKAGES/hash-router/README.md)
+[README &#x25BA;](PACKAGES/d2r2-components/README.md "Jump to d2r2-components RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/holarchy
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/hash-router &#x25F0;
+
+A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.
+
+[README &#x25BA;](PACKAGES/hash-router/README.md "Jump to hash-router RTL package README...")
+
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/holarchy &#x25F0;
 
 Holistic server and client application runtime factories, re-usable plug-in export library.
 
-[README](PACKAGES/holarchy/README.md)
+[README &#x25BA;](PACKAGES/holarchy/README.md "Jump to holarchy RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/holarchy-sml
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/holarchy-sml &#x25F0;
 
 @encapsule/holarchy standard model library contains reusable ObservableProcessModels, TransitionOperators, ControllerActions, and shared OCD template specs.
 
-[README](PACKAGES/holarchy-sml/README.md)
+[README &#x25BA;](PACKAGES/holarchy-sml/README.md "Jump to holarchy-sml RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/holism
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/holism &#x25F0;
 
 Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.
 
-[README](PACKAGES/holism/README.md)
+[README &#x25BA;](PACKAGES/holism/README.md "Jump to holism RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/holism-metadata
-
-Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.
-
-[README](PACKAGES/holism-metadata/README.md)
-
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/holism-services
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/holism-metadata &#x25F0;
 
 Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.
 
-[README](PACKAGES/holism-services/README.md)
+[README &#x25BA;](PACKAGES/holism-metadata/README.md "Jump to holism-metadata RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/holodeck
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/holism-services &#x25F0;
+
+Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.
+
+[README &#x25BA;](PACKAGES/holism-services/README.md "Jump to holism-services RTL package README...")
+
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/holodeck &#x25F0;
 
 Holdeck is a synchronous test runner and test harness system used to test @encapsule/holistic RTL's and derived apps and services.
 
-[README](PACKAGES/holodeck/README.md)
+[README &#x25BA;](PACKAGES/holodeck/README.md "Jump to holodeck RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/holodeck-assets
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/holodeck-assets &#x25F0;
 
 Holdeck assets bundles reusable test harnesses, and test vectors useful for testing apps and services derviced from @encapsule/holistic platform RTL's.
 
-[README](PACKAGES/holodeck-assets/README.md)
+[README &#x25BA;](PACKAGES/holodeck-assets/README.md "Jump to holodeck-assets RTL package README...")
 
-#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;@encapsule/hrequest
+#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;&#x25F0; @encapsule/hrequest &#x25F0;
 
 HTTP request filters for Node.js and browser clients.
 
-[README](PACKAGES/hrequest/README.md)
+[README &#x25BA;](PACKAGES/hrequest/README.md "Jump to hrequest RTL package README...")
 
 ## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Issues
 
@@ -161,7 +165,7 @@ Please post bug reports to one of the follow issue queues depending on topic:
 
 Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).
 
-**[ [Top](#encapsule-project "Scroll to the top of the page...") ]**
+**[ [&#x025B4; Top](#encapsule-project "Scroll to the top of the page...") ]**
 
 <hr>
 
