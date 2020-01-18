@@ -2,21 +2,21 @@
 
 **[ [Homepage](https://encapsule.io "Encapsule Project Homepage...") ] [ [GitHub](https://github.com/Encapsule "Encapsule Project GitHub...") ] [ [Twitter](https://twitter.com/Encapsule "Encapsule Project Twitter...") ] [ [Discussion](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") ]**
 
-# ![](ASSETS/encapsule-holistic-48x48.png) @encapsule/d2r2-components v0.0.33 quatsino
+# ![](ASSETS/encapsule-holistic-48x48.png)&nbsp;@encapsule/d2r2-components v0.0.33 quatsino
 
 ```
-Package: @encapsule/d2r2-components v0.0.33 "quatsino" build ID "GET42ccHRdSmbF3hk186QA"
-Sources: Encapsule/holistic-master#c02706941bea7d95352b13e8e22c710178e0c9f7
+Package: @encapsule/d2r2-components v0.0.33 "quatsino" build ID "U3C5O8hGTN6mRje5FZQ0Dw"
+Sources: Encapsule/holistic-master#032cf574c27d38073122f7652a88ebd1c3081ac3
 Purpose: library (Node.js)
-Created: 2020-01-18T03:33:27.000Z
+Created: 2020-01-18T04:01:41.000Z
 License: MIT
 ```
 
-## ![](ASSETS/encapsule-holistic-32x32.png) Description
+## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Description
 
 A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.
 
-## ![](ASSETS/encapsule-holistic-32x32.png) Distribution
+## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Distribution
 
 This package is an unpublished _pseudo-package_ that is included in the @encapsule/holistic v0.0.33 quatsino package for distribution via the `appgen` utility.
 
@@ -24,7 +24,7 @@ If you are viewing this README.md in the `./PACKAGES` subdirectory of the @encap
 
 If you are viewing this README.md in the `./HOLISTIC` subdirectory of your derived app/service repository then you're looking at the package that has been registered by _directory path_ (not package registry) in your derived app/service repo's `package.json` for the module require/import namespace `@encapsule/d2r2-components`.
 
-## ![](ASSETS/encapsule-holistic-32x32.png) Usage
+## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Usage
 
 In the context of your derived app/service repo, `appgen` will install and register `@encapsule/d2r2-components` by _directory path_ in your `package.json`.
 
@@ -38,7 +38,7 @@ console.log(JSON.stringify(d2r2-components.__meta));
 /* ... your derived code here ... */
 ```
 
-## ![](ASSETS/encapsule-holistic-32x32.png) Issues
+## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Issues
 
 Please post bug reports to one of the follow issue queues depending on topic:
 
@@ -48,7 +48,7 @@ Please post bug reports to one of the follow issue queues depending on topic:
 
 - @encapsule/arctools [GitHub Issue](https://github.com/Encapsule/ARCtools/issues) - Core data tools and RTL issues.
 
-## ![](ASSETS/encapsule-holistic-32x32.png) Discussion
+## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Discussion
 
 Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#-holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).
 

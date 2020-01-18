@@ -65,16 +65,16 @@ const packageNameTerse = packageNameSplit[1];
 function insertHeader(level_, text_) {
     switch (level_) {
     case 1:
-	markdown.push("# ![](ASSETS/encapsule-holistic-48x48.png) " + text_);
+	markdown.push("# ![](ASSETS/encapsule-holistic-48x48.png)&nbsp;" + text_);
 	break;
     case 2:
-	markdown.push("## ![](ASSETS/encapsule-holistic-32x32.png) " + text_);
+	markdown.push("## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;" + text_);
 	break;
     case 3:
-	markdown.push("### ![](ASSETS/encapsule-holistic-24x24.png) " + text_);
+	markdown.push("### ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;" + text_);
 	break;
     case 4:
-	markdown.push("#### ![](ASSETS/encapsule-holistic-16x16.png) " + text_);
+	markdown.push("#### ![](ASSETS/encapsule-holistic-16x16.png)&nbsp;" + text_);
 	break;
     default:
 	throw new Error("Unrecognized header level " + level_);
