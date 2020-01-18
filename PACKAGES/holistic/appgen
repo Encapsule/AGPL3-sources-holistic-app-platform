@@ -137,7 +137,7 @@ const resourceFilePaths = {
         packageModulesDir: path.join(appRepoDir, "node_modules"),
         packageReadme: path.join(appRepoDir, "README.md"),
         packageLicense: path.join(appRepoDir, "LICENSE"),
-	    packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
+	packageMakefile: path.join(appRepoDir, "Makefile"), // template generated
         packageGitIgnore: path.join(appRepoDir, ".gitignore"), // template generated
         packageBabelRc: path.join(appRepoDir, ".babelrc"), // template generated
         packageEslintRc: path.join(appRepoDir, ".eslintrc.js"), // template generated
@@ -147,6 +147,7 @@ const resourceFilePaths = {
         packageBuildToolGenerateRuntimePackageManifest: path.join(appRepoDir, "PROJECT/BUILD/generate-runtime-package-manifest.js"),
 
         platformSourcesDir: path.join(appRepoDir, "HOLISTIC"),
+	platformPackagesDir: path.join(appRepoDir, "HOLISTIC/PACKAGES"),
 
         projectDir: path.join(appRepoDir, "PROJECT"),
         projectBuildDir: path.join(appRepoDir, "PROJECT/BUILD"),
@@ -390,6 +391,7 @@ console.log("> Remove '" + resourceFilePaths.application.platformSourcesDir + "'
 ////
 // Copy the latest version of the holistic platform sources into the application.
 makeDirectory(resourceFilePaths.application.platformSourcesDir);
+makeDirectory(resourceFilePaths.application.platformPackagesDir);
 
 holisticPlatformRuntimePackageNames.forEach(function (packageName_) {
     const terseName = packageName_.split("/")[1];
@@ -397,20 +399,20 @@ holisticPlatformRuntimePackageNames.forEach(function (packageName_) {
     const command =  [
 	"cp -Rpv",
 	sourceDirectory,
-	(resourceFilePaths.application.platformSourcesDir + "/")
+	(resourceFilePaths.application.platformPackagesDir + "/")
     ].join(" ");
     var consoleOutput = syncExec({
 	cwd: resourceFilePaths.holistic.packageDir,
 	command: command
     });
-    console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "/" + terseName + "'.");
+    console.log("> Create '" + resourceFilePaths.application.platformPlatformDir + "/" + terseName + "'.");
 });
 
 let sourceFile = path.join(resourceFilePaths.holistic.platformSourcesDir, "holistic*.json");
 let command = [
     "cp -pv",
     sourceFile,
-    (resourceFilePaths.application.platformSourcesDir + "/")
+    (resourceFilePaths.application.platformPackagesDir + "/")
 ].join(" ");
 consoleOutput = syncExec({
     cwd: resourceFilePaths.holistic.packageDir,

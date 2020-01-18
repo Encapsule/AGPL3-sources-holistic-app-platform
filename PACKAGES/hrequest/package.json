@@ -2,9 +2,9 @@
     "name": "@encapsule/hrequest",
     "version": "0.0.33",
     "codename": "quatsino",
-    "buildID": "tkwd91cmSnm7CYIwDi1fJA",
-    "buildTime": 1579340425,
-    "buildSource": "4bee16a660173acf04d5d62ed4139a8fbd312a50",
+    "buildID": "oV-Qy6AlScKh58ocHIubQQ",
+    "buildTime": 1579376631,
+    "buildSource": "18c1e1299d71952d50076431aca307a3a243e4c9",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hrequest.git"
