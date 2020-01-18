@@ -1,40 +1,36 @@
-# [![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project")](https://encapsule.io) Encapsule Project
+# [![](ASSETS/blue-burst-encapsule.io-icon-72x72.png "Encapsule Project Homepage")](https://encapsule.io) Encapsule Project
 
 **[ [Homepage](https://encapsule.io "Encapsule Project Homepage...") ] [ [GitHub](https://github.com/Encapsule "Encapsule Project GitHub...") ] [ [Twitter](https://twitter.com/Encapsule "Encapsule Project Twitter...") ] [ [Discussion](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") ]**
 
-# ![@encapsule/holistic](ASSETS/encapsule-holistic-48x48.png "@encapsule/holistic") @encapsule/holism v0.0.33 quatsino
+# ![](ASSETS/encapsule-holistic-48x48.png) @encapsule/holism v0.0.33 quatsino
 
 ```
-Package: @encapsule/holism v0.0.33 "quatsino" build ID "kgkjQnzfSXq-CUO_4afiHQ"
-Sources: Encapsule/holistic-master#d1e99b5e3f0e724b0b034dfbb9e9d5091495f32a
+Package: @encapsule/holism v0.0.33 "quatsino" build ID "GetLGRUWSfijQYMxC2VI-Q"
+Sources: Encapsule/holistic-master#6d676cdd0a4ea248d1fbc3752e8f4c760020a3cb
 Purpose: library (Node.js)
-Created: 2020-01-17T20:56:41.000Z
+Created: 2020-01-18T02:56:04.000Z
 License: MIT
 ```
 
-## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Overview
+## ![](ASSETS/encapsule-holistic-32x32.png) Description
 
 Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.
 
-## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Distribution
+## ![](ASSETS/encapsule-holistic-32x32.png) Distribution
 
 This package is an unpublished _pseudo-package_ that is included in the @encapsule/holistic v0.0.33 quatsino package for distribution via the `appgen` utility.
 
-## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Installation
+If you are viewing this README.md in the `./PACKAGES` subdirectory of the @encapsule/holistic package then you're looking at the source package that `appgen` will copy into your designated derived app/service git repo's `./HOLISTIC` directory.
 
-This package's contained library functionality is intended for use in derived projects.
+If you are viewing this README.md in the `./HOLISTIC` subdirectory of your derived app/service repository then you're looking at the package that has been registered by _directory path_ (not package registry) in your derived app/service repo's `package.json` for the module require/import namespace `@encapsule/holism`.
 
-For example:
+## ![](ASSETS/encapsule-holistic-32x32.png) Usage
 
-1. Create simple test project, declare a dependency and install `@encapsule/holism` package:
+In the context of your derived app/service repo, `appgen` will install and register `@encapsule/holism` by _directory path_ in your `package.json`.
 
-```
-$ mkdir testProject && cd testProject
-$ yarn init
-$ yarn add @encapsule/holism --dev
-```
+@encapsule/holism can then be imported/required into any module in your project as follows:
 
-2. Create a simple script `index.js`:
+Example script, `holism-example.js`:
 
 ```JavaScript
 const holism = require('@encapsule/holism');
@@ -42,7 +38,7 @@ console.log(JSON.stringify(holism.__meta));
 /* ... your derived code here ... */
 ```
 
-## ![@encapsule/holistic](ASSETS/encapsule-holistic-32x32.png "@encapsule/holistic") Issues
+## ![](ASSETS/encapsule-holistic-32x32.png) Issues
 
 Please post bug reports to one of the follow issue queues depending on topic:
 
@@ -51,6 +47,12 @@ Please post bug reports to one of the follow issue queues depending on topic:
 - @encapsule/arccore [GitHub Issues](https://github.com/Encapsule/ARCcore/issues) - Core data RTL issues.
 
 - @encapsule/arctools [GitHub Issue](https://github.com/Encapsule/ARCtools/issues) - Core data tools and RTL issues.
+
+## ![](ASSETS/encapsule-holistic-32x32.png) Discussion
+
+Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).
+
+**[ [Top](#encapsule-project "Scroll to the top of the page...") ]**
 
 <hr>
 

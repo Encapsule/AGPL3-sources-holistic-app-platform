@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-services",
     "version": "0.0.33",
     "codename": "quatsino",
-    "buildID": "kgkjQnzfSXq-CUO_4afiHQ",
-    "buildTime": 1579294601,
-    "buildSource": "d1e99b5e3f0e724b0b034dfbb9e9d5091495f32a",
+    "buildID": "GetLGRUWSfijQYMxC2VI-Q",
+    "buildTime": 1579316164,
+    "buildSource": "6d676cdd0a4ea248d1fbc3752e8f4c760020a3cb",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holism-services.git"

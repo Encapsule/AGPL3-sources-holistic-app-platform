@@ -11,7 +11,7 @@ module.exports = {
     packageType: "tools",
     packageEnvironment: [ "node" ],
     packageManifestOverrides: {
-        description: "Encapsule Project Holistic Application Platorm runtime lirbaries + appgen repo maintenance command line tool.",
+        description: "This package contains the Holistic App Platform runtime libraries (RTL's) and the 'appgen' utility for initializing and maintaining derived application and service git repositories.",
         keywords: [ "encapsule", "holistic" ],
         license: "MIT",
         main: "index.js",
@@ -29,28 +29,17 @@ module.exports = {
 	overviewDescriptor: {
 	    // heading: "> overviewDescriptor heading",
 	    markdown: [
-		"The @encapsule/holistic package contains:\n",
-		"- The [appgen](#appgen-utility) command-line utility used to maintain derived app and service git repositories.",
-		"- Copies of the [Holistic Platform](#holistic-platform) runtime library packages used by appgen."
-	    ]
-	},
-	usageDescriptor: {
-	    // heading: "> usageDescriptor heading",
-	    markdown: [
-		"This is a line of markdown test in the usageDescriptor.markdown array."
+		"**Welcome the the Holistic App Platform!**",
+		"In this document:",
+		"- [appgen](#appgen-utility) command-line utility used to maintain derived app and service git repositories.",
+		"- [Holistic Platform Runtime](#holistic-platform-runtime) runtime library packages managed by `appgen`."
 	    ]
 	},
 	bodySections: [
 	    {
 		 //heading: "> body section 1 heading",
 		markdown: [
-		    "This is some general introductory test to the Documentation section."
-		]
-	    },
-	    {
-		heading: "### appgen utility",
-		markdown: [
-		    "This is a line of text about `appgen` utility."
+		    "The following sections explains the purpose and use of the [appgen](#appgen-utility) utility. And, provides an overview of the [Holistic Platform Runtime](#holistic-platform-runtime) library pseudo-packages copied by `appgen` into derived application and service git repositories."
 		]
 	    }
 	]
