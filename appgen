@@ -390,16 +390,58 @@ console.log("> Remove '" + resourceFilePaths.application.platformSourcesDir + "'
 ////
 // Copy the latest version of the holistic platform sources into the application.
 makeDirectory(resourceFilePaths.application.platformSourcesDir);
-var command =  [
-    "cp -Rpv",
-    path.join(resourceFilePaths.holistic.platformSourcesDir, "*"),
+
+holisticPlatformRuntimePackageNames.forEach(function (packageName_) {
+    const terseName = packageName_.split("/")[1];
+    const sourceDirectory = path.join(resourceFilePaths.holistic.platformSourcesDir, terseName);
+    const command =  [
+	"cp -Rpv",
+	sourceDirectory,
+	(resourceFilePaths.application.platformSourcesDir + "/")
+    ].join(" ");
+    var consoleOutput = syncExec({
+	cwd: resourceFilePaths.holistic.packageDir,
+	command: command
+    });
+    console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "/" + terseName + "'.");
+});
+
+let sourceFile = path.join(resourceFilePaths.holistic.platformSourcesDir, "holistic*.json");
+let command = [
+    "cp -pv",
+    sourceFile,
     (resourceFilePaths.application.platformSourcesDir + "/")
 ].join(" ");
-var consoleOutput = syncExec({
+consoleOutput = syncExec({
     cwd: resourceFilePaths.holistic.packageDir,
     command: command
 });
-console.log("> Create '" + resourceFilePaths.application.platformSourcesDir + "'.");
+console.log(consoleOutput);
+
+makeDirectory(path.join(resourceFilePaths.application.platformSourcesDir, "ASSETS"));
+
+command = [
+    "cp -pv",
+    path.join(resourceFilePaths.holistic.packageDir, "README.md"),
+    (resourceFilePaths.application.platformSourcesDir + "/")
+].join(" ");
+consoleOutput = syncExec({
+    cwd: resourceFilePaths.holistic.packageDir,
+    command: command
+});
+console.log(consoleOutput);
+    
+command = [
+    "cp -Rpv",
+    path.join(resourceFilePaths.holistic.packageDir, "ASSETS/*"),
+    (resourceFilePaths.application.platformSourcesDir + "/ASSETS/")
+].join(" ");
+consoleOutput= syncExec({
+    cwd: resourceFilePaths.holistic.packageDir,
+    command: command
+});
+console.log(consoleOutput);
+
 
 ////
 // Remove any cached holistic platform runtime packages from application's node_modules.
