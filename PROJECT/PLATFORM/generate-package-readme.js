@@ -238,9 +238,9 @@ markdown.push("- @encapsule/arctools [GitHub Issue](https://github.com/Encapsule
 
 // PACKAGE DISCUSSION HEADING 2
 insertHeader(2, "Discussion");
-markdown.push("Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group \"Holistic app platform discussion group...\") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#-holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).");
+markdown.push("Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group \"Holistic app platform discussion group...\") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).");
 
-markdown.push("**[ [Top](#-encapsule-project \"Scroll to the top of the page...\") ]**");
+markdown.push("**[ [Top](#encapsule-project \"Scroll to the top of the page...\") ]**");
 
 // PAGE FOOTER SECTION
 markdown.push("<hr>");

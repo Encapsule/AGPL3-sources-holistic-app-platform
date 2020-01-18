@@ -5,10 +5,10 @@
 # ![](ASSETS/encapsule-holistic-48x48.png)&nbsp;@encapsule/holistic v0.0.33 quatsino
 
 ```
-Package: @encapsule/holistic v0.0.33 "quatsino" build ID "U3C5O8hGTN6mRje5FZQ0Dw"
-Sources: Encapsule/holistic-master#032cf574c27d38073122f7652a88ebd1c3081ac3
+Package: @encapsule/holistic v0.0.33 "quatsino" build ID "pTD2lu-tStWnAP-ca9CpTw"
+Sources: Encapsule/holistic-master#b923b1227b458e623e4188fcf79340c9eba09783
 Purpose: tools (Node.js)
-Created: 2020-01-18T04:01:41.000Z
+Created: 2020-01-18T04:05:35.000Z
 License: MIT
 ```
 
@@ -22,9 +22,9 @@ This package contains the Holistic App Platform runtime libraries (RTL's) and th
 
 In this document:
 
-- [appgen](#-appgen-utility) command-line utility used to maintain derived app and service git repositories.
+- [appgen](#appgen-utility) command-line utility used to maintain derived app and service git repositories.
 
-- [Holistic Platform Runtime](#-holistic-platform-runtime) runtime library packages managed by `appgen`.
+- [Holistic Platform Runtime](#holistic-platform-runtime) runtime library packages managed by `appgen`.
 
 ## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Distribution
 
@@ -71,7 +71,7 @@ Always `yarn install` whenever you pull updates from GitHub. And, whenever switc
 
 ## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Documentation
 
-The following sections explains the purpose and use of the [appgen](#-appgen-utility) utility. And, provides an overview of the [Holistic Platform Runtime](#-holistic-platform-runtime) library pseudo-packages copied by `appgen` into derived application and service git repositories.
+The following sections explains the purpose and use of the [appgen](#appgen-utility) utility. And, provides an overview of the [Holistic Platform Runtime](#holistic-platform-runtime) library pseudo-packages copied by `appgen` into derived application and service git repositories.
 
 ### ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;appgen Utility
 
@@ -159,9 +159,9 @@ Please post bug reports to one of the follow issue queues depending on topic:
 
 ## ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Discussion
 
-Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#-holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).
+Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).
 
-**[ [Top](#-encapsule-project "Scroll to the top of the page...") ]**
+**[ [Top](#encapsule-project "Scroll to the top of the page...") ]**
 
 <hr>
 

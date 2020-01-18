@@ -31,15 +31,15 @@ module.exports = {
 	    markdown: [
 		"**Welcome the the Holistic App Platform!**",
 		"In this document:",
-		"- [appgen](#-appgen-utility) command-line utility used to maintain derived app and service git repositories.",
-		"- [Holistic Platform Runtime](#-holistic-platform-runtime) runtime library packages managed by `appgen`."
+		"- [appgen](#appgen-utility) command-line utility used to maintain derived app and service git repositories.",
+		"- [Holistic Platform Runtime](#holistic-platform-runtime) runtime library packages managed by `appgen`."
 	    ]
 	},
 	bodySections: [
 	    {
 		 //heading: "> body section 1 heading",
 		markdown: [
-		    "The following sections explains the purpose and use of the [appgen](#-appgen-utility) utility. And, provides an overview of the [Holistic Platform Runtime](#-holistic-platform-runtime) library pseudo-packages copied by `appgen` into derived application and service git repositories."
+		    "The following sections explains the purpose and use of the [appgen](#appgen-utility) utility. And, provides an overview of the [Holistic Platform Runtime](#holistic-platform-runtime) library pseudo-packages copied by `appgen` into derived application and service git repositories."
 		]
 	    }
 	]
