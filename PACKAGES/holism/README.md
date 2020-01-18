@@ -5,10 +5,10 @@
 # ![](ASSETS/encapsule-holistic-48x48.png) @encapsule/holism v0.0.33 quatsino
 
 ```
-Package: @encapsule/holism v0.0.33 "quatsino" build ID "GetLGRUWSfijQYMxC2VI-Q"
-Sources: Encapsule/holistic-master#6d676cdd0a4ea248d1fbc3752e8f4c760020a3cb
+Package: @encapsule/holism v0.0.33 "quatsino" build ID "I6SeIZIGTw21ntg51_N1Pg"
+Sources: Encapsule/holistic-master#5828a9c5590c5d29455cada241ae48e059a31e56
 Purpose: library (Node.js)
-Created: 2020-01-18T02:56:04.000Z
+Created: 2020-01-18T03:22:25.000Z
 License: MIT
 ```
 
@@ -50,9 +50,9 @@ Please post bug reports to one of the follow issue queues depending on topic:
 
 ## ![](ASSETS/encapsule-holistic-32x32.png) Discussion
 
-Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).
+Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group "Holistic app platform discussion group...") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#-holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).
 
-**[ [Top](#encapsule-project "Scroll to the top of the page...") ]**
+**[ [Top](#-encapsule-project "Scroll to the top of the page...") ]**
 
 <hr>
 
