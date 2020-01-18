@@ -100,8 +100,14 @@ function injectReadmeSection(sectionDescriptor_) {
 // https://github.com/Encapsule/holistic/tree/v0.0.32-jeunelanding
 var markdown = [];
 
+// ****************************************************************
+// ****************************************************************
+// ****************************************************************
+// ****************************************************************
+// ****************************************************************
+
 // ENCAPULE PROJECT HEADING 1
-markdown.push("# [![](ASSETS/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project Homepage\")](https://encapsule.io) Encapsule Project");
+markdown.push("# [![](ASSETS/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project Homepage\")](https://encapsule.io)&nbsp;Encapsule Project");
 
 markdown.push([
     "**",
@@ -112,8 +118,17 @@ markdown.push([
     "**"
 ].join(""));
 
+markdown.push("Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture and runtime libraries.");
+
 // PACKAGE HEADING 1
-insertHeader(1, targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename);
+
+if (targetManifest.name === "@encapsule/holistic") {
+    insertHeader(1, "Holistic App Platform");
+    markdown.push("## &#x029C9; " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename + " (distribution package) &#x029C9;");
+} else {
+    insertHeader(1, "Holistic App Platform &bull; " + packageNameTerse);
+    markdown.push("## &#x25F0; " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename + " (app runtime library) &#x25F0;");
+}
 
 // PACKAGE METADATA PRE
 markdown.push("```\n" +
@@ -123,6 +138,10 @@ markdown.push("```\n" +
               "Created: " + repoBuild.buildDateISO + "\n" +
               "License: " + targetManifest.license + "\n" +
               "```");
+
+if (targetManifest.name !== "@encapsule/holistic") {
+    markdown.push("**[ [&#x025C2; Holistic App Platform](../../README.md \"Back to the main Holistic App Platform REAMDE...\") ]**");
+}
 
 // PACKAGE DESCRIPTION HEADING 2
 insertHeader(2, "Description");
@@ -138,17 +157,7 @@ if (packageData.packageReadme.overviewDescriptor) {
 insertHeader(2, "Distribution");
 
 
-if (targetManifest.name !== "@encapsule/holistic") {
-
-    // PSEUDO-PACKAGE DISTRIBUTION
-
-    markdown.push("This package is an unpublished _pseudo-package_ that is included in the @encapsule/holistic v" + targetManifest.version + " " + targetManifest.codename + " package for distribution via the `appgen` utility.");
-    
-    markdown.push("If you are viewing this README.md in the `./PACKAGES` subdirectory of the @encapsule/holistic package then you're looking at the source package that `appgen` will copy into your designated derived app/service git repo's `./HOLISTIC` directory.");
-
-    markdown.push("If you are viewing this README.md in the `./HOLISTIC` subdirectory of your derived app/service repository then you're looking at the package that has been registered by _directory path_ (not package registry) in your derived app/service repo's `package.json` for the module require/import namespace `" + targetManifest.name + "`.");
-
-} else {
+if (targetManifest.name === "@encapsule/holistic") {
 
     // HOLISTIC DISTRIBUTION
 
@@ -170,6 +179,17 @@ if (targetManifest.name !== "@encapsule/holistic") {
 
     markdown.push("You will generally only need to clone the repo once.");
     markdown.push("Subsequently, retrieve updates via `git fetch` and `git pull`.");
+
+} else {
+
+    // PSEUDO-PACKAGE DISTRIBUTION
+
+    markdown.push("This package is an unpublished _pseudo-package_ that is included in the @encapsule/holistic v" + targetManifest.version + " " + targetManifest.codename + " package for distribution via the `appgen` utility.");
+    
+    markdown.push("If you are viewing this README.md in the `./PACKAGES` subdirectory of the @encapsule/holistic package then you're looking at the source package that `appgen` will copy into your designated derived app/service git repo's `./HOLISTIC` directory.");
+
+    markdown.push("If you are viewing this README.md in the `./HOLISTIC` subdirectory of your derived app/service repo then you're looking at the package that has been registered by _directory path_ (not package registry) in your derived app/service repo's `package.json` for the module require/import namespace `" + targetManifest.name + "`.");
+
 }
 
 if (targetManifest.name === "@encapsule/holistic") {
@@ -222,9 +242,10 @@ if (targetManifest.name === "@encapsule/holistic") {
 
 
     holisticPackages.forEach(function(packageName_) {
-	insertHeader(4, packageName_);
+	let terseName = packageName_.split("/")[1];
+	insertHeader(4, "&#x25F0; " + packageName_ + " &#x25F0;");
 	markdown.push(packageDB[packageName_].packageManifestOverrides.description);
-	markdown.push("[README](PACKAGES/" + packageName_.split("/")[1] + "/README.md)");
+	markdown.push("[README &#x25BA;](PACKAGES/" + terseName + "/README.md \"Jump to " + terseName + " RTL package README...\")");
     });
 
 }
@@ -240,7 +261,11 @@ markdown.push("- @encapsule/arctools [GitHub Issue](https://github.com/Encapsule
 insertHeader(2, "Discussion");
 markdown.push("Join the Holistic App Platform [discussion group](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group \"Holistic app platform discussion group...\") to talk about the architecture, design, development, and test of full-stack interactive HTML5 applications and services implemented in JavaScript, derived from [Holistic Platform Runtime](#holistic-platform-runtime), and Facebook [React](https://reactjs.org). And, hosted on [Node.js](https://nodejs.org).");
 
-markdown.push("**[ [Top](#encapsule-project \"Scroll to the top of the page...\") ]**");
+if (targetManifest.name !== "@encapsule/holistic") {
+    markdown.push("**[ [&#x025C2; Holistic App Platform](../../README.md \"Back to the main Holistic App Platform REAMDE...\") ] [ [&#x025B4; Top](#encapsule-project \"Scroll to the top of the page...\") ]**");
+} else {
+    markdown.push("**[ [&#x025B4; Top](#encapsule-project \"Scroll to the top of the page...\") ]**");
+}
 
 // PAGE FOOTER SECTION
 markdown.push("<hr>");
