@@ -6,7 +6,7 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "HTTP request filters for Node.js and browser clients.",
+        description: "This package contains arccore.filter wrappers for XMLHttpRequest (browser) and the request module (Node.js server). Provides a mechanism to ensure the runtime fidelity of HTTP GET/POST communication between the client and server. And, between the server and other backend service integrations.",
         keywords: [ "HTTP", "request", "filter", "node", "browser", "Encapsule" ],
         license: "MIT",
         main: "index.js",

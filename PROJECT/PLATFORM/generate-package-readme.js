@@ -1,8 +1,17 @@
 #!/usr/bin/env node
 
+// ▴	9652	25B4	 	BLACK UP-POINTING SMALL TRIANGLE
+// ▸	9656	25B8	 	BLACK RIGHT-POINTING SMALL TRIANGLE
+// ▾	9662	25BE	 	BLACK DOWN-POINTING SMALL TRIANGLE
+// ◂	9666	25C2	 	BLACK LEFT-POINTING SMALL TRIANGLE
+// <p>I will display &#9666;</p>
+// <p>I will display &#x25C2;</p>
+
+
 const arctools = require('@encapsule/arctools');
 const path = require('path');
 const fs = require('fs');
+
 
 // Information about the most recent build (contains no information specific to a package).
 const repoBuild = require('../../BUILD/holistic');
@@ -110,27 +119,45 @@ var markdown = [];
 markdown.push("# [![](ASSETS/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project Homepage\")](https://encapsule.io)&nbsp;Encapsule Project");
 
 markdown.push([
-    "**",
-    "[ [Homepage](https://encapsule.io \"Encapsule Project Homepage...\") ] ",
-    "[ [GitHub](https://github.com/Encapsule \"Encapsule Project GitHub...\") ] ",
-    "[ [Twitter](https://twitter.com/Encapsule \"Encapsule Project Twitter...\") ] ",
-    "[ [Discussion](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group \"Holistic app platform discussion group...\") ]",
-    "**"
+    "[ [**GitHub**](https://github.com/Encapsule \"Encapsule Project GitHub...\") ] ",
+    "[ [**Discussion**](https://groups.google.com/a/encapsule.io/forum/#!forum/holistic-app-platform-discussion-group \"Holistic app platform discussion group...\") ] ",
+    "[ [**Homepage**](https://encapsule.io \"Encapsule Project Homepage...\") ] ",
+    "[ [**Twitter**](https://twitter.com/Encapsule \"Encapsule Project Twitter...\") ]",
 ].join(""));
 
-markdown.push("Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture and runtime libraries.");
+markdown.push("Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.");
 
 // PACKAGE HEADING 1
 
 if (targetManifest.name === "@encapsule/holistic") {
     insertHeader(1, "Holistic App Platform");
-    markdown.push("## &#x029C9; " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename + " (distribution package) &#x029C9;");
+    markdown.push("## &#x029C9; " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename + " &#x029C9;");
+    markdown.push("[ [**appgen**](#appgen-utility) ] [ [**Holistic Platform Runtime**](#holistic-platform-runtime) ]");
 } else {
-    insertHeader(1, "Holistic App Platform &bull; " + packageNameTerse);
-    markdown.push("## &#x25F0; " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename + " (app runtime library) &#x25F0;");
+    insertHeader(1, "[Holistic App Platform](../../README.md#encapsule-project \"Back to the Holistic App Platform README...\") &bull; " + packageNameTerse);
+    let packageLinks = [];
+    holisticPackages.forEach(function (packageName_) {
+	let terseName = packageName_.split("/")[1];
+	if (packageName_ === targetManifest.name) {
+	    // Current package
+	    packageLinks.push("**" + terseName + "**");
+	} else {
+	    // Another package
+	    packageLinks.push("[" + terseName + "](../" + terseName + "/README.md#encapsule-project \"Jump to " + terseName + " README...\")");
+	}
+    });
+    markdown.push("[**RTL's**](../../README.md#holistic-platform-runtime \"Jump back to the RTL index...\")**::** [ " + packageLinks.join(" &bull; ") + " ]");
+    markdown.push("## &#x25F0; " + targetManifest.name + " v" + targetManifest.version + " " + targetManifest.codename + " &#x25F0;");
+
 }
 
 // PACKAGE METADATA PRE
+if (targetManifest.name === "@encapsule/holistic") {
+    markdown.push("**" + packageNameTerse + "** platform distribution package:");
+} else {
+    markdown.push("**" + packageNameTerse + "** runtime library (RTL) package:");
+}
+
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
               "Sources: Encapsule/holistic-master#" + targetManifest.buildSource + "\n" +
@@ -139,9 +166,6 @@ markdown.push("```\n" +
               "License: " + targetManifest.license + "\n" +
               "```");
 
-if (targetManifest.name !== "@encapsule/holistic") {
-    markdown.push("**[ [&#x025C2; Holistic App Platform](../../README.md \"Back to the main Holistic App Platform REAMDE...\") ]**");
-}
 
 // PACKAGE DESCRIPTION HEADING 2
 insertHeader(2, "Description");
@@ -184,12 +208,11 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     // PSEUDO-PACKAGE DISTRIBUTION
 
-    markdown.push("This package is an unpublished _pseudo-package_ that is included in the @encapsule/holistic v" + targetManifest.version + " " + targetManifest.codename + " package for distribution via the `appgen` utility.");
+    markdown.push("The " + targetManifest.name + " package is runtime library (RTL) package bundled in the @encapsule/holistic package for distribution via the `appgen` utility.");
+
+    markdown.push("Once you have run `appgen` on your derived app/service git repo, `" + targetManifest.name + " ` will be registered and available for [use](#usage) in your app/service implementation.");
     
-    markdown.push("If you are viewing this README.md in the `./PACKAGES` subdirectory of the @encapsule/holistic package then you're looking at the source package that `appgen` will copy into your designated derived app/service git repo's `./HOLISTIC` directory.");
-
-    markdown.push("If you are viewing this README.md in the `./HOLISTIC` subdirectory of your derived app/service repo then you're looking at the package that has been registered by _directory path_ (not package registry) in your derived app/service repo's `package.json` for the module require/import namespace `" + targetManifest.name + "`.");
-
+    markdown.push("For more information, see: [**appgen**](../../README.md#appgen-utility)");
 }
 
 if (targetManifest.name === "@encapsule/holistic") {
@@ -207,8 +230,8 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     markdown.push("By convention, the latest supported release of @encapsule/holistic is available on the #master branch.");
     markdown.push("Other topic branches are used for testing updates prior to general release.");
-    markdown.push("Be very aware the disconnect between git versioning and yarn (we don't automate that).");
-    markdown.push("Always `yarn install` whenever you pull updates from GitHub. And, whenever switching topic branches.");
+    markdown.push("Please be aware of the disconnect between the state of your project's `node_modules` directory which is managed by `yarn` and the state of critical `package.json` and `yarn.lock` files that is managed by `git`.");
+    markdown.push("Always `yarn install` whenever you pull updates from GitHub. And, whenever switching topic branches. This is currently the only way to ensure that you have the expected/correct package dependencies installed.");
 
 
 } else {
@@ -242,10 +265,11 @@ if (targetManifest.name === "@encapsule/holistic") {
 
 
     holisticPackages.forEach(function(packageName_) {
-	let terseName = packageName_.split("/")[1];
-	insertHeader(4, "&#x25F0; " + packageName_ + " &#x25F0;");
+	const terseName = packageName_.split("/")[1];
+	const readmeLink = "(PACKAGES/" + terseName + "/README.md \"Jump to " + terseName + " RTL package README...\")";
+	markdown.push("#### &#x25F0; [" + packageName_ + "]" + readmeLink + " &#x25F0;");
 	markdown.push(packageDB[packageName_].packageManifestOverrides.description);
-	markdown.push("[README &#x25BA;](PACKAGES/" + terseName + "/README.md \"Jump to " + terseName + " RTL package README...\")");
+	markdown.push("[README &#x25BA;]" + readmeLink);
     });
 
 }

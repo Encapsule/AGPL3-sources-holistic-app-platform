@@ -8,9 +8,8 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.",
-        keywords: [ "Encapsule", "React", "ComponentRouter", "component", "components" ],
-
+        description: "This package contains a collection of re-usable d2r2 view components for use with @encapsule/d2r2 <ComponentRouter/>.",
+        keywords: [ "Encapsule", "React", "ComponentRouter", "d2r2" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {

@@ -35,6 +35,23 @@ module.exports = {
 		"- [Holistic Platform Runtime](#holistic-platform-runtime) runtime library packages managed by `appgen`."
 	    ]
 	},
+
+	appgenSections: [
+
+	    {
+		markdown: [
+
+
+		]
+	    }
+
+
+
+
+	    
+
+	],
+
 	bodySections: [
 	    {
 		 //heading: "> body section 1 heading",
