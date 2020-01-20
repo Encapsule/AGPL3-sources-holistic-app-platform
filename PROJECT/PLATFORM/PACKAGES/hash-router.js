@@ -8,14 +8,14 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "A collection of reusable React components compatible with @encapsule/d2r2 <ComponentRouter/>.",
+        description: "This package contains a minimal client-side hash router implementation that is designed to be integrated into higher-level abstractions. For example, a re-usable ObservableProcessModel (OPM).",
         keywords: [ "HTML5", "browser", "client", "hash", "router" ],
         license: "MIT",
         main: "minimal-hash-router.js"
     },
 
     packageReadme: {
-        descriptionDescriptor: {
+        overviewDescriptor: {
             heading: "### Optional package-specific description",
             markdown: [
                 "This is a line of text terminated with a period but no newline.",
@@ -25,12 +25,6 @@ module.exports = {
                 "The proceeding line has two newlines. This line terminates with a single newline.\n",
                 "This is the next line following a line that terminates in newline. This line ends in two newlines.\n\n",
                 "Lastly..."
-            ]
-        },
-        documentationDescriptor: {
-            heading: "# Documentation Descriptor Heading 1",
-            markdown: [
-                "blah blah blah Reusable React components for blah blah blah."
             ]
         },
         bodySections: [

@@ -7,7 +7,7 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Holistic server and client application runtime factories, re-usable plug-in export library.",
+        description: "This package contains the ObservableProcessController (OPC), ObservableProcessModel (OPM), ObservableControllerData (OCD), TransitionOperator (TOP), and ControllerAction (ACT) ES6 classes that are used to define and execute hierarchical asynchronous system models. Used to build complex reactive data-driven UX. And, back-end process orchestration data workflows.",
         keywords: [ "Encapsule" ],
         license: "MIT",
         main: "index.js",
@@ -16,14 +16,18 @@ module.exports = {
         }
     },
     packageReadme: {
-        summaryDescriptor: {
+        overviewDescriptor: {
             heading: undefined,
-            markdown: []
+            markdown: [
+		"_Replace with holarchy module overview._"
+	    ]
         },
-        documentationDescriptor: {
-            heading: "## Documentation",
-            markdown: []
-        },
-        bodySections: []
+        bodySections: [
+	    {
+		markdown: [
+		    "_Replace with detailed information about the holarchy package._"
+		]
+	    }
+	]
     }
 };
