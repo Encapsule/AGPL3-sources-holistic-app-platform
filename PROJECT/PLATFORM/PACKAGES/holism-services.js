@@ -8,9 +8,8 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.",
-        keywords: [ "HTTP", "REST", "filter", "server", "service", "framework", "node", "Encapsule" ],
-
+        description: "This package contains re-usable service filter plug-ins for use with the @encapsule/holism app server package.",
+        keywords: [ "Encapsule", "holistic", "holism", "holism-services", "service", "service filter", "plug-in", "HTTP", "REST" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {
@@ -20,17 +19,17 @@ module.exports = {
     },
 
     packageReadme: {
-        summaryDescriptor: {
-            heading: undefined,
-            markdown: []
-        },
-        documentationDescriptor: {
-            heading: "## Documentation",
+        overviewDescriptor: {
             markdown: [
-                "A small collection of useful [service filter](https://encapsule.io/docs/holism/services) plug-ins for [@encapsule/holism](https://encapsule.io/docs/holism)."
-            ]
+		"_Replace with holism-services overview._"
+	    ]
         },
         bodySections: [
+	    {
+		markdown: [
+		    "_Replace with holism-services package documentation._"
+		]
+	    }
         ]
     }
 };

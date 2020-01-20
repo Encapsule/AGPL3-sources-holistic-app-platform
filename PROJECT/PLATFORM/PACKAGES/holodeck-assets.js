@@ -7,8 +7,8 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Holdeck assets bundles reusable test harnesses, and test vectors useful for testing apps and services derviced from @encapsule/holistic platform RTL's.",
-        keywords: [ "Encapsule" ],
+        description: "This package contains re-usable test runners, harnesses, and vectors for use in conjunction with @encapsule/holodeck test infrastructure package.",
+        keywords: [ "Encapsule", "holistic", "holodeck", "holodeck-assets", "test", "runner", "harness", "vector" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {
@@ -18,14 +18,17 @@ module.exports = {
         }
     },
     packageReadme: {
-        summaryDescriptor: {
-            heading: undefined,
-            markdown: []
+        overviewDescriptor: {
+            markdown: [
+		"_Replace with holodeck-assets package overview._"
+	    ]
         },
-        documentationDescriptor: {
-            heading: "## Documentation",
-            markdown: []
-        },
-        bodySections: []
+        bodySections: [
+	    {
+		markdown: [
+		    "_Replace with holodeck-assets documentation._"
+		]
+	    }
+	]
     }
 };

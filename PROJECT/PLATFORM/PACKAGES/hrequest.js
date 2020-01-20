@@ -6,7 +6,7 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "This package contains arccore.filter wrappers for XMLHttpRequest (browser) and the request module (Node.js server). Provides a mechanism to ensure the runtime fidelity of HTTP GET/POST communication between the client and server. And, between the server and other backend service integrations.",
+        description: "This package contains arccore.filter wrappers for XMLHttpRequest (browser) and the request module (Node.js server). Provides a mechanism to ensure the runtime fidelity of HTTP GET/POST communication between the client and server. And, between the server and other backend REST service integrations.",
         keywords: [ "HTTP", "request", "filter", "node", "browser", "Encapsule" ],
         license: "MIT",
         main: "index.js",
@@ -17,17 +17,17 @@ module.exports = {
         }
     },
     packageReadme: {
-        summaryDescriptor: {
-            heading: undefined,
-            markdown: []
-        },
-        documentationDescriptor: {
-            heading: "## Documentation",
+        overviewDescriptor: {
             markdown: [
-                "Developer API and examples: [Encapsule Project hrequest documentation](https://encapsule.io/docs/hrequest)"
-            ]
+		"_Replace with hrequest package overview._"
+	    ]
         },
         bodySections: [
+	    {
+		markdown: [
+		    "_Replace with hrequest package documentation._"
+		]
+	    }
         ]
     }
 };

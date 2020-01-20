@@ -6,7 +6,7 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Library of service filter plug-ins for @encapsule/holism HTTP server and REST framework.",
+        description: "This package contains an extensible framework for defining application-specific metadata - i.e. data about your app. It is intended for use in derived apps/services and is typically used in conjunction with @encapsule/holism integration plug-in filters to satisfy queries re: publishing organization, application, page, route, hashroute, resource, operation...",
         keywords: [ "Encapsule", "holism", "http", "metadata", "integration" ],
 
         license: "MIT",
@@ -17,29 +17,15 @@ module.exports = {
     },
 
     packageReadme: {
-        summaryDescriptor: {
-            heading: "# @encapsule/holism-metadata",
+        overviewDescriptor: {
             markdown: [
-                "TODO: write some documentation."
-            ]
-        },
-        documentationDescriptor: {
-            heading: "# Documentation Heading?",
-            markdown: [
-                "blah blah this is some text in the documentation markdown array."
+		"_Replace with holism-metadata overview._"
             ]
         },
         bodySections: [
             {
-                heading: "## Body section 1",
                 markdown: [
-                    "Hey this is a line of text"
-                ]
-            },
-            {
-                heading: "## Body section 2",
-                markdown: [
-                    "Hey this is a line of text."
+		    "_Replace with holism-metadata documentation._"
                 ]
             }
         ]
