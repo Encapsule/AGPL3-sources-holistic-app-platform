@@ -2,9 +2,9 @@
     "name": "@encapsule/d2r2",
     "version": "0.0.33",
     "codename": "quatsino",
-    "buildID": "P8D-x1lWQj2k9n8rhJpeRA",
-    "buildTime": 1579479271,
-    "buildSource": "1f376c508e7fc2f14e527e694c592de280e933c2",
+    "buildID": "dzYMjrRCRDOnCvTe6OXp2Q",
+    "buildTime": 1579563456,
+    "buildSource": "d07a275c48e694b7fb27768ea813ef203dd5b3c8",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/d2r2.git"
@@ -22,7 +22,7 @@
         "url": "https://github.com/Encapsule/d2r2/issues"
     },
     "homepage": "https://github.com/Encapsule/d2r2#readme",
-    "description": "Data-Driven React Render (d2r2) allows you to map JSON data types to React components and affect layout via JSON document composition dynamically at runtime w/type safety.",
+    "description": "This package contains the Data-Driven React Router (d2r2) component factory extension for React. And, the ComponentRouter dynamic view compositor packaged as a generic React component. Used to build extensible view templates, and decoupled view libraries.",
     "keywords": [
         "Encapsule",
         "React",
