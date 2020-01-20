@@ -8,8 +8,8 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "@encapsule/holarchy standard model library contains reusable ObservableProcessModels, TransitionOperators, ControllerActions, and shared OCD template specs.",
-        keywords: [ "Encapsule" ],
+        description: "This package contains the Holistic App Platform's core re-usable Software Model Library (SML) derived from @encapsule/holarchy ObservableProcessModel (OPM), TransitionOperator (TOP), and ControllerAction (ACT). Intended for use in derived app/services in conjunction with application-specific SML's executing in ObservableProcessController (OPC) instance(s).",
+        keywords: [ "Encapsule", "holistic", "holarchy", "holarchy-sml", "software model", "software library", "SML", "reuse", "re-use", "ObservableProcessController", "ObservableProcessModel", "ObservableControllerData", "TransitionOperator", "ControllerAction" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {
@@ -20,14 +20,18 @@ module.exports = {
         }
     },
     packageReadme: {
-        summaryDescriptor: {
+        overviewDescriptor: {
             heading: undefined,
-            markdown: []
+            markdown: [
+		"_Replace with holarchy-sml overview._"
+	    ]
         },
-        documentationDescriptor: {
-            heading: "## Documentation",
-            markdown: []
-        },
-        bodySections: []
+        bodySections: [
+	    {
+		markdown: [
+		    "_Replace with holarchy-sml documentation._"
+		]
+	    }
+	]
     }
 };
