@@ -6,8 +6,8 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Filter-extensible JSON-configured HTTP 1.1 REST framework for Node.js.",
-        keywords: [ "HTTP", "REST", "filter", "server", "framework", "node", "Encapsule" ],
+        description: "This package contains an experimental HTTP 1.1 application server and REST framework derived from the Node.js HTTP API's and the @encapsule/arccore filter RTL. This provides developers with a simple mechanism to define and re-use backend operations as plug-in service filters hosted by the holism server RTL. The package is intended for use in derived applications and services.",
+        keywords: [ "Encapsule", "holistic", "holism", "HTTP", "REST", "filter", "server", "framework", "node.js", "plug-in", "declarative" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {
@@ -15,17 +15,18 @@ module.exports = {
         }
     },
     packageReadme: {
-        summaryDescriptor: {
+        overviewDescriptor: {
             heading: undefined,
-            markdown: []
-        },
-        documentationDescriptor: {
-            heading: "## Documentation",
             markdown: [
-                "Developer API and examples: [Encapsule Project holism documentation](https://encapsule.io/docs/holism)"
-            ]
+		"_Replace with overview of holism._"
+	    ]
         },
         bodySections: [
+	    {
+		markdown: [
+		    "_Replace with holism documentation._"
+		]
+	    }
         ]
     }
 };
