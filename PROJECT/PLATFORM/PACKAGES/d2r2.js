@@ -8,9 +8,8 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Data-Driven React Render (d2r2) allows you to map JSON data types to React components and affect layout via JSON document composition dynamically at runtime w/type safety.",
+	description: "This package contains the Data-Driven React Router (d2r2) component factory extension for React. And, the ComponentRouter dynamic view compositor packaged as a generic React component. Used to build extensible view templates, and decoupled view libraries.",
         keywords: [ "Encapsule", "React", "ComponentRouter", "discriminator", "render", "filter", "d2r2", "layout", "template" ],
-
         license: "MIT",
         main: "index.js",
         peerDependencies: {
@@ -21,20 +20,19 @@ module.exports = {
     },
 
     packageReadme: {
-        summaryDescriptor: {
-            heading: undefined,
+        overviewDescriptor: {
             markdown: [
-                "Yo...",
-                "What is up?"
+		"_Replace with an overview of d2r2 RTL._"
             ]
         },
-        documentationDescriptor: {
-            heading: "## Documentation",
-            markdown: [
-                "Data-Driven React Render (d2r2) library for Node.js and modern browser clients."
-            ]
-        },
-        bodySections: []
+        bodySections: [
+	    {
+		markdown: [
+		    "_Replace with documentation about the d2r2 RTL._"
+
+		]
+	    }
+	]
     }
 
 };

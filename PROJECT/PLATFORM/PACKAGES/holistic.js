@@ -37,19 +37,10 @@ module.exports = {
 	},
 
 	appgenSections: [
-
 	    {
 		markdown: [
-
-
 		]
 	    }
-
-
-
-
-	    
-
 	],
 
 	bodySections: [

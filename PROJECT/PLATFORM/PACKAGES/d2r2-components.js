@@ -8,7 +8,7 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "This package contains a collection of re-usable d2r2 view components for use with @encapsule/d2r2 <ComponentRouter/>.",
+        description: "This package contains a collection of re-usable d2r2 React components for use with the d2r2 ComponentRouter dynamic view compositor.",
         keywords: [ "Encapsule", "React", "ComponentRouter", "d2r2" ],
         license: "MIT",
         main: "index.js",
@@ -24,8 +24,8 @@ module.exports = {
     },
 
     packageReadme: {
-        summaryDescriptor: {
-            heading: "# Summary Descriptor Heading 1",
+	overviewDescriptor: {
+            heading: "# overview descriptor header",
             markdown: [
                 "This is a line of text terminated with a period but no newline.",
                 "This is the next line in the content array also with no newline.",
@@ -42,7 +42,14 @@ module.exports = {
                 "blah blah blah Reusable React components for d2r2."
             ]
         },
-        bodySections: []
+        bodySections: [
+	    {
+		heading: "# WHAT IS IT?",
+		markdown: [
+		    "This is some text in the body section."
+		]
+	    }
+	]
     }
 
 };
