@@ -181,7 +181,8 @@ if (packageData.packageReadme.overviewDescriptor) {
     injectReadmeSection(packageData.packageReadme.overviewDescriptor);
     if (targetManifest.name === "@encapsule/holistic") {
 	holisticPackages.forEach(function(packageName_) {
-	    markdown.push("    - " + icons.packages.rtl + " [" + packageName_ + "](PACKAGES/" + packageName_.split("/")[1] + "/README.md \"" + packageData.packageManifestOverrides.description + "\")");
+	    let terseName = packageName_.split("/")[1];
+	    markdown.push("    - " + icons.packages.rtl + " [" + packageName_ + "](PACKAGES/" + terseName + "/README.md \"Jump to " + terseName + " RTL package README...\")");
 	});
     }
 } else {
@@ -213,14 +214,14 @@ if (targetManifest.name === "@encapsule/holistic") {
     markdown.push("If not, then they are readily available for all major platforms at the links above.");
 
     markdown.push("### Clone");
-    markdown.push("Execute `git clone` to obtain a copy of the @encapsule/holistic package repo from [@Encapsule](https://github.com/Encapsule) GitHub organization:");
+    markdown.push("Execute `git clone` to obtain a copy of the @encapsule/holistic package repo from [@Encapsule](https://github.com/Encapsule) GitHub organization.");
+    markdown.push("You will typically only need to clone the @encapsule/holistic package repo once.");
     markdown.push("```\n" +
 		  "$ cd ~/code # or, wherever...\n" +
 		  "$ git clone git@github.com:Encapsule/holistic.git\n" +
 		  "```");
 
-    markdown.push("You will typically only need to clone the @encapsule/holistic package repo once.");
-    markdown.push("Subsequent updates can be obtained via `git pull origin master`.");
+    markdown.push("After one-time `git clone`, follow the steps outlined in the [Installation](#installation) section below.");
 
 } else {
 
@@ -229,10 +230,10 @@ if (targetManifest.name === "@encapsule/holistic") {
     markdown.push("The " + targetManifest.name + " package is a runtime library (RTL) distributed in the @encapsule/holistic package:");
     markdown.push("```\n@encapsule/holistic/PACKAGES/" + packageNameTerse + "\n```");
 
-    markdown.push("The `appgen` utility is used to create a copy of this RTL package inside your derived app/service git repo:");
+    markdown.push("The `appgen` utility is used to create a copy of this RTL package inside your derived app/service project...");
     markdown.push("```\n@AcmeCo/SampleApp/HOLISTIC/PACKAGES/" + packageNameTerse + "\n```");
 
-    markdown.push("... and to modifying `@AcmeCo/SampleApp/package.json` to include:");
+    markdown.push("... and modify its `package.json` file to include the following package registration:");
     markdown.push("```\n\"devDependencies\": {\n    \"" + targetManifest.name + "\": \"./HOLISTIC/PACKAGES/" + packageNameTerse + "\"\n}\n```");
 
     markdown.push("> See also: [appgen](../../README.md#appgen-utility \"Jump to appgen documentation...\")");
@@ -259,6 +260,8 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     markdown.push("- Latest supported version is available on #master branch.");
     markdown.push("- Other topic branches are used for testing features prior to release.");
+
+    markdown.push("After you have executed `yarn install`, the [appgen](#appgen-utility) utility is ready to use.");
 
 } else {
 
@@ -305,7 +308,7 @@ if (targetManifest.name === "@encapsule/holistic") {
 	const readmeLink = "(PACKAGES/" + terseName + "/README.md \"Jump to " + terseName + " RTL package README...\")";
 	const packageData = packageDB[packageName_];
 	
-	markdown.push("### " + icons.packages.rtl + " [" + packageName_ + "]" + readmeLink);
+	markdown.push("#### " + icons.packages.rtl + " [" + packageName_ + "]" + readmeLink);
 	markdown.push(packageData.packageManifestOverrides.description);
 	if (!packageData.packageReadme.overviewDescriptor) {
 	    markdown.push("> TODO: **MISSING OVERVIEW**");

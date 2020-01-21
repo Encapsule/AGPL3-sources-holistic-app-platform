@@ -35,7 +35,7 @@ let exportObject = {
 		// THIS HAS TO COME LAST IN THE OVERVIEW!
 		"### Contents",
 		"- [**appgen**](#appgen-utility) - A command-line utility used to initialize & maintain derived app/service git repos.",
-		"- [**Holistic Platform Runtime**](#holistic-platform-runtime) - Core runtime app/service runtime libraries (RTL) packages."
+		"- [**Holistic Platform Runtime**](#holistic-platform-runtime \"Jump to RTL package index...\") - Core runtime app/service runtime libraries (RTL) packages."
 	    ]
 	},
 
