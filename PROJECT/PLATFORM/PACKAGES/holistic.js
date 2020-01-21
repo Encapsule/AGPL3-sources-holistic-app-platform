@@ -3,10 +3,11 @@
 
 const arccore = require("@encapsule/arccore");
 const holisticBuild = require("../../../BUILD/holistic");
+
 const holisticPlatformManifest = require("../../GENERATOR/holistic-platform-manifest");
 const packageMeta = require("../../../package");
 
-module.exports = {
+let exportObject = {
 
     packageType: "tools",
     packageEnvironment: [ "node" ],
@@ -27,18 +28,60 @@ module.exports = {
     },
     packageReadme: {
 	overviewDescriptor: {
-	    // heading: "> overviewDescriptor heading",
 	    markdown: [
-		"**Welcome the the Holistic App Platform!**",
-		"In this document:",
-		"- [appgen](#appgen-utility) command-line utility used to maintain derived app and service git repositories.",
-		"- [Holistic Platform Runtime](#holistic-platform-runtime) runtime library packages managed by `appgen`."
+		"### Welcome the the Holistic App Platform",
+		
+
+		// THIS HAS TO COME LAST IN THE OVERVIEW!
+		"### Contents",
+		"- [**appgen**](#appgen-utility) - A command-line utility used to initialize & maintain derived app/service git repos.",
+		"- [**Holistic Platform Runtime**](#holistic-platform-runtime) - Core runtime app/service runtime libraries (RTL) packages."
 	    ]
 	},
 
 	appgenSections: [
 	    {
+		heading: "#### Overview",
 		markdown: [
+		    "This will be an explanation of the role of `appgen`."
+		]
+	    },
+	    {
+		heading: "#### Usage",
+		markdown: [
+		    "##### Prerequisites",
+		    "worry free. boom.",
+		    
+		    "##### Initial Project Setup",
+		    "sdj s kdjf s dkjhfsd",
+
+		    "##### Project Update",
+		    "E E Dksjks l lksdf",
+
+		    "##### Update Verification",
+		    "sf l llsdkfj wl kwksxcnsl",
+
+		    "##### Update Commit",
+		    "fs j lkclkxs lwpo ns"
+		]
+	    },
+	    {
+		heading: "#### Derived Projects",
+		markdown: [
+		    "Some introductory text.",
+
+		    "##### yarn Integrations",
+		    " sdkjfsdfs whole list blah blah",
+
+		    "##### Project Directory Structure",
+		    "Some initial discussion of the `appgen`-created directory structure.",
+
+		    "##### Holistic App Build: Makefile",
+		    "An explanation of the `appgen`-generated Makefile created in the root of derived projects.",
+
+		    "##### App-Specific Build: Makefile-App",
+		    "jdhf  fkjhsdfkj s"
+		    
 		]
 	    }
 	],
@@ -54,3 +97,11 @@ module.exports = {
 
     }
 };
+
+/*
+holisticPackages.forEach(function(packageName_) {
+    exportObject.packageReadme.overviewDescriptor.markdown.push("    - [" + packageName_ + "](PACKAGES/" + packageName_.split("/")[1] + "/README.md)");
+});
+*/
+
+module.exports = exportObject;

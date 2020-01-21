@@ -10,17 +10,20 @@ const icons = {
     packages: {
 	dist: "&#x029C9;",
 	rtl: "&#x25F0;"
+    },
+    other: {
+	gear: "&#9881;"
     }
 };
 
+const arccore = require("@encapsule/arccore");
 const arctools = require('@encapsule/arctools');
 const path = require('path');
 const fs = require('fs');
 
-
 // Information about the most recent build (contains no information specific to a package).
 const repoBuild = require('../../BUILD/holistic');
-const holisticPackages = require("../../BUILD/holistic-rtl-packages");
+const holisticPackages = arccore.util.clone(require("../../BUILD/holistic-rtl-packages"));
 const packageDB = require('./PACKAGES/');
 
 const program = arctools.commander;
@@ -150,13 +153,13 @@ if (targetManifest.name === "@encapsule/holistic") {
 	let terseName = packageName_.split("/")[1];
 	if (packageName_ === targetManifest.name) {
 	    // Current package
-	    packageLinks.push(icons.packages.rtl + " **" + terseName + "** " + icons.packages.rtl);
+	    packageLinks.push(icons.packages.rtl + " **" + terseName + "**");
 	} else {
 	    // Another package
 	    packageLinks.push("[" + terseName + "](../" + terseName + "/README.md#encapsule-project \"Jump to " + terseName + " README...\")");
 	}
     });
-    markdown.push("> [RTL index](../../README.md#holistic-platform-runtime \"Jump back to the RTL index...\"): " + packageLinks.join(" &bull; ") );
+    markdown.push("> [**RTL index**](../../README.md#holistic-platform-runtime \"Jump back to the RTL index...\"): " + packageLinks.join(" &bull; ") );
 
 }
 
@@ -171,12 +174,16 @@ markdown.push("```\n" +
               "License: " + targetManifest.license + "\n" +
               "```");
 
-
 insertHeader(2, "Overview");
 
 // PACKAGE OVERVIEW HEADING 2
 if (packageData.packageReadme.overviewDescriptor) {
     injectReadmeSection(packageData.packageReadme.overviewDescriptor);
+    if (targetManifest.name === "@encapsule/holistic") {
+	holisticPackages.forEach(function(packageName_) {
+	    markdown.push("    - " + icons.packages.rtl + " [" + packageName_ + "](PACKAGES/" + packageName_.split("/")[1] + "/README.md \"" + packageData.packageManifestOverrides.description + "\")");
+	});
+    }
 } else {
     markdown.push("**MISSING OVERVIEW SECTION FOR PACKAGE!**");
 }
@@ -188,28 +195,37 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     // HOLISTIC DISTRIBUTION
 
-    markdown.push("The @encapsule/holistic package (this package) is not published.");
-    markdown.push("It is only available from the [@Encapsule](https://github.com/Encapsule) GitHub.");
+    markdown.push("The @encapsule/holistic package is not currently published on npmjs.com or any other package registry.");
+    markdown.push("It is only available via `git` from the [@Encapsule](https://github.com/Encapsule) organization on GitHub.");
 
-    markdown.push("To get started you need to have a small collection of core tools installed on your host OS:");
+    markdown.push("Eventually, @encapsule/holistic will be stable and well-enough documented to merit publication or major platform releases.");
+    markdown.push("Meanwhile, distribution via `git` and manual installation via `yarn` has proven effective, and highly reliable for developers.");
 
+    markdown.push("### Prerequisites");
+    markdown.push("To get started you need a small set of core tools installed on your host OS:");
+
+    markdown.push("- [GNU Make](https://www.gnu.org/software/make/)");
     markdown.push("- [git](https://git-scm.com/)");
     markdown.push("- [Node.js](https://nodejs.org)");
-    markdown.push("- [yarn](https://yarnpkg.com)");
+    markdown.push("- [yarn](https://yarnpkg.com) (depends on Node.js)");
 
-    markdown.push("Presuming you already have these installed, clone the @encapsule/holistic git repo:");
-    
+    markdown.push("Most of you will likely already have all of these tool installed.");
+    markdown.push("If not, then they are readily available for all major platforms at the links above.");
+
+    markdown.push("### Clone");
+    markdown.push("Execute `git clone` to obtain a copy of the @encapsule/holistic package repo from [@Encapsule](https://github.com/Encapsule) GitHub organization:");
     markdown.push("```\n" +
 		  "$ cd ~/code # or, wherever...\n" +
 		  "$ git clone git@github.com:Encapsule/holistic.git\n" +
 		  "```");
 
-    markdown.push("You will generally only need to clone the repo once.");
-    markdown.push("Subsequently, retrieve updates via `git fetch` and `git pull`.");
+    markdown.push("You will typically only need to clone the @encapsule/holistic package repo once.");
+    markdown.push("Subsequent updates can be obtained via `git pull origin master`.");
 
 } else {
 
     // PSEUDO-PACKAGE DISTRIBUTION
+
     markdown.push("The " + targetManifest.name + " package is a runtime library (RTL) distributed in the @encapsule/holistic package:");
     markdown.push("```\n@encapsule/holistic/PACKAGES/" + packageNameTerse + "\n```");
 
@@ -228,7 +244,10 @@ if (targetManifest.name === "@encapsule/holistic") {
     // PACKAGE INSTALLATION HEADING 2
     insertHeader(2, "Installation");
 
-    markdown.push("Once you have a local clone of the @encapsule/holistic git repo, you will need to ensure you're using the latest release version, and reinstall its dependencies before using `appgen` to update your derived app/service repo's.");
+    markdown.push("Installation of the @encapsule/holistic package from git repo source is a per-version process that should be re-executed every time you update your local clone of the repo. This includes changing branches.");
+
+    markdown.push("- Ensure you have the latest version of @encapsule/holistic repo.");
+    markdown.push("- Update your local `node_modules` directory. **IMPORTANT**");
 
     markdown.push("```\n" +
 		  "$ cd ~/code/holistic\n" +
@@ -236,10 +255,10 @@ if (targetManifest.name === "@encapsule/holistic") {
 		  "$ yarn install\n" +
 		  "```");
 
-    markdown.push("By convention, the latest supported release of @encapsule/holistic is available on the #master branch.");
-    markdown.push("Other topic branches are used for testing updates prior to general release.");
-    markdown.push("Please be aware of the disconnect between the state of your project's `node_modules` directory which is managed by `yarn` and the state of critical `package.json` and `yarn.lock` files that is managed by `git`.");
-    markdown.push("Always `yarn install` whenever you pull updates from GitHub. And, whenever switching topic branches. This is currently the only way to ensure that you have the expected/correct package dependencies installed.");
+    markdown.push("> Be aware of the disconnect between what is present in your `node_modules` directory (managed by `yarn`). And, the state of critical `package.json` and `yarn.lock` files (managed by `git`).");
+
+    markdown.push("- Latest supported version is available on #master branch.");
+    markdown.push("- Other topic branches are used for testing features prior to release.");
 
 } else {
 
@@ -268,7 +287,14 @@ if (packageData.packageReadme.bodySections && packageData.packageReadme.bodySect
 if (targetManifest.name === "@encapsule/holistic") {
 
     insertHeader(3, "appgen Utility");
-    markdown.push("This is some information about the appgen utility.");
+
+    if (packageData.packageReadme.appgenSections && packageData.packageReadme.appgenSections.length) {
+	while (packageData.packageReadme.appgenSections.length) {
+	    injectReadmeSection(packageData.packageReadme.appgenSections.shift());
+	}
+    } else {
+	markdown.push("**MISSING APPGEN DOCUMENTATION!**");
+    }
 
     insertHeader(3, "Holistic Platform Runtime");
     markdown.push("The \"Holistic App Platform\" is a collection of runtime library packages that are used to build full-stack web applications and services using [Node.js](https://nodejs.org) and [React](https://react.org).");
