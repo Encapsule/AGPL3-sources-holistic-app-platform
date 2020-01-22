@@ -169,8 +169,8 @@ markdown.push(targetManifest.description);
 markdown.push("```\n" +
               "Package: " + targetManifest.name + " v" + targetManifest.version + " \"" + targetManifest.codename + "\" build ID \"" + targetManifest.buildID + "\"\n" +
               "Sources: Encapsule/holistic-master#" + targetManifest.buildSource + "\n" +
-              "Purpose: " + packageData.packageType + " (" + (packageData.browserSafe?"Node.js + modern browsers (via package bundler)":"Node.js") + ")\n" +
-              "Created: " + repoBuild.buildDateISO + "\n" +
+              
+              "Created: " + repoBuild.buildDateISO + " Purpose: " + packageData.packageType + " (" + (packageData.browserSafe?"Node.js + modern browsers (via package bundler)":"Node.js") + ") " +
               "License: " + targetManifest.license + "\n" +
               "```");
 
@@ -197,10 +197,7 @@ if (targetManifest.name === "@encapsule/holistic") {
     // HOLISTIC DISTRIBUTION
 
     markdown.push("The @encapsule/holistic package is not currently published on npmjs.com or any other package registry.");
-    markdown.push("It is only available via `git` from the [@Encapsule](https://github.com/Encapsule) organization on GitHub.");
-
-    markdown.push("Eventually, @encapsule/holistic will be stable and well-enough documented to merit publication or major platform releases.");
-    markdown.push("Meanwhile, distribution via `git` and manual installation via `yarn` has proven effective, and highly reliable for developers.");
+    markdown.push("Currently, you need to obtain the @encapsule/holistic package via `git clone` as below.");
 
     markdown.push("### Prerequisites");
     markdown.push("To get started you need a small set of core tools installed on your host OS:");
@@ -227,6 +224,11 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     // PSEUDO-PACKAGE DISTRIBUTION
 
+    markdown.push("The `" + targetManifest.name + "` RTL package is installed in derived app/service projects by running [appgen](../../README#appgen-utility \"Jump to appgen documentation...\").");
+
+    
+    markdown.push("#### Detail");
+
     markdown.push("The " + targetManifest.name + " package is a runtime library (RTL) distributed in the @encapsule/holistic package:");
     markdown.push("```\n@encapsule/holistic/PACKAGES/" + packageNameTerse + "\n```");
 
@@ -235,8 +237,6 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     markdown.push("... and modify its `package.json` file to include the following package registration:");
     markdown.push("```\n\"devDependencies\": {\n    \"" + targetManifest.name + "\": \"./HOLISTIC/PACKAGES/" + packageNameTerse + "\"\n}\n```");
-
-    markdown.push("> See also: [appgen](../../README.md#appgen-utility \"Jump to appgen documentation...\")");
 
 }
 
@@ -277,19 +277,29 @@ if (targetManifest.name === "@encapsule/holistic") {
 }
 
 // PACKAGE DOCUMENTATION SECTION 2
-insertHeader(2, "Documentation");
+insertHeader(1, "Documentation");
 
-if (packageData.packageReadme.bodySections && packageData.packageReadme.bodySections.length) {
-    while (packageData.packageReadme.bodySections.length) {
-	injectReadmeSection(packageData.packageReadme.bodySections.shift());
+if (targetManifest.name === "@encapsule/holistic") {
+    if (packageData.packageReadme.holisticAppSections && packageData.packageReadme.holisticAppSections.length) {
+	while (packageData.packageReadme.holisticAppSections.length) {
+	    injectReadmeSection(packageData.packageReadme.holisticAppSections.shift());
+	}
+    } else {
+	markdown.push("**MISSING HOLISTIC APP DOCUMENTATION!**");
     }
 } else {
-    markdown.push("**MISSING PACKAGE DOCUMENTATION!**");
+    if (packageData.packageReadme.bodySections && packageData.packageReadme.bodySections.length) {
+	while (packageData.packageReadme.bodySections.length) {
+	    injectReadmeSection(packageData.packageReadme.bodySections.shift());
+	}
+    } else {
+	markdown.push("**MISSING PACKAGE DOCUMENTATION!**");
+    }
 }
 
 if (targetManifest.name === "@encapsule/holistic") {
 
-    insertHeader(3, "appgen Utility");
+    insertHeader(2, "appgen Utility");
 
     if (packageData.packageReadme.appgenSections && packageData.packageReadme.appgenSections.length) {
 	while (packageData.packageReadme.appgenSections.length) {
@@ -299,20 +309,20 @@ if (targetManifest.name === "@encapsule/holistic") {
 	markdown.push("**MISSING APPGEN DOCUMENTATION!**");
     }
 
-    insertHeader(3, "Holistic Platform Runtime");
+    insertHeader(2, "Holistic Platform Runtime");
     markdown.push("The \"Holistic App Platform\" is a collection of runtime library packages that are used to build full-stack web applications and services using [Node.js](https://nodejs.org) and [React](https://react.org).");
-
 
     holisticPackages.forEach(function(packageName_) {
 	const terseName = packageName_.split("/")[1];
 	const readmeLink = "(PACKAGES/" + terseName + "/README.md \"Jump to " + terseName + " RTL package README...\")";
 	const packageData = packageDB[packageName_];
 	
-	markdown.push("#### " + icons.packages.rtl + " [" + packageName_ + "]" + readmeLink);
+	markdown.push("### " + icons.packages.rtl + " [" + packageName_ + "]" + readmeLink);
 	markdown.push(packageData.packageManifestOverrides.description);
 	if (!packageData.packageReadme.overviewDescriptor) {
 	    markdown.push("> TODO: **MISSING OVERVIEW**");
 	}
+
 	if (!packageData.packageReadme.bodySections || !packageData.packageReadme.bodySections.length) {
 	    markdown.push("> TODO: **MISSING DOCUMENTATION**");
 	}
@@ -341,9 +351,9 @@ if (targetManifest.name !== "@encapsule/holistic") {
 // PAGE FOOTER SECTION
 markdown.push("<hr>");
 markdown.push("[![Encapsule Project](ASSETS/blue-burst-encapsule.io-icon-72x72.png \"Encapsule Project\")](https://encapsule.io)");
+markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ") Seattle, Washington USA");
 markdown.push("Published under [" + targetManifest.license + "](LICENSE) license by [Encapsule Project](https://encapsule.io)");
 markdown.push("Please follow [@Encapsule](https://twitter.com/encapsule) on Twitter for news and updates.");
-markdown.push("Copyright &copy; " + copyright.year + " [" + copyright.name + "](" + copyright.url + ") Seattle, Washington USA");
 markdown.push("<hr>");
 
 ////
@@ -359,4 +369,3 @@ fs.writeFileSync(targetReadmePath, mddoc);
 console.log("Wrote '" + targetReadmePath + "':");
 
 process.exit(0);
-

@@ -22,13 +22,13 @@ module.exports = {
     packageReadme: {
         overviewDescriptor: {
             markdown: [
-		"_Replace with an overview of d2r2 RTL._"
+		"**TODO**"
             ]
         },
         bodySections: [
 	    {
 		markdown: [
-		    "_Replace with documentation about the d2r2 RTL._"
+		    "**TODO**"
 
 		]
 	    }

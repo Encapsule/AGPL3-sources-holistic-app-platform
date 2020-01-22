@@ -19,13 +19,13 @@ module.exports = {
     packageReadme: {
         overviewDescriptor: {
             markdown: [
-		"_Replace with hrequest package overview._"
+		"**TODO**"
 	    ]
         },
         bodySections: [
 	    {
 		markdown: [
-		    "_Replace with hrequest package documentation._"
+		    "**TODO**"
 		]
 	    }
         ]

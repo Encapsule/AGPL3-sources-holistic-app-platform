@@ -21,15 +21,14 @@ module.exports = {
     },
     packageReadme: {
         overviewDescriptor: {
-            heading: undefined,
             markdown: [
-		"_Replace with holarchy-sml overview._"
+		"**TODO**"
 	    ]
         },
         bodySections: [
 	    {
 		markdown: [
-		    "_Replace with holarchy-sml documentation._"
+		    "**TODO**"
 		]
 	    }
 	]

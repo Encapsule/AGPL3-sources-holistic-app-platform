@@ -2,9 +2,9 @@
     "name": "@encapsule/hash-router",
     "version": "0.0.33",
     "codename": "quatsino",
-    "buildID": "dzYMjrRCRDOnCvTe6OXp2Q",
-    "buildTime": 1579563456,
-    "buildSource": "d07a275c48e694b7fb27768ea813ef203dd5b3c8",
+    "buildID": "rPP9CkRURnmTD2TeULCrWg",
+    "buildTime": 1579708262,
+    "buildSource": "cb76a0899cb6c150a343df95604bf375c6f6f7e4",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/hash-router.git"

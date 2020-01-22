@@ -19,13 +19,13 @@ module.exports = {
     packageReadme: {
         overviewDescriptor: {
             markdown: [
-		"_Replace with holism-metadata overview._"
+		"**TODO**"
             ]
         },
         bodySections: [
             {
                 markdown: [
-		    "_Replace with holism-metadata documentation._"
+		    "**TODO**"
                 ]
             }
         ]

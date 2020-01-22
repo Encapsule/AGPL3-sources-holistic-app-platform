@@ -18,13 +18,13 @@ module.exports = {
         overviewDescriptor: {
             heading: undefined,
             markdown: [
-		"_Replace with overview of holism._"
+		"**TODO**"
 	    ]
         },
         bodySections: [
 	    {
 		markdown: [
-		    "_Replace with holism documentation._"
+		    "**TODO**"
 		]
 	    }
         ]

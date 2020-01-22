@@ -21,13 +21,13 @@ module.exports = {
     packageReadme: {
         overviewDescriptor: {
             markdown: [
-		"_Replace with holism-services overview._"
+		"**TODO**"
 	    ]
         },
         bodySections: [
 	    {
 		markdown: [
-		    "_Replace with holism-services package documentation._"
+		    "**TODO**"
 		]
 	    }
         ]

@@ -20,13 +20,13 @@ module.exports = {
         overviewDescriptor: {
             heading: undefined,
             markdown: [
-		"_Replace with holodeck package overview._"
+		"**TODO**"
 	    ]
         },
         bodySections: [
 	    {
 		markdown: [
-		    "_Replace with holodeck package documentation_."
+		    "**TODO**"
 		]
 	    }
 	]

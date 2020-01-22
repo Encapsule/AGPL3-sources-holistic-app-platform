@@ -19,13 +19,13 @@ module.exports = {
         overviewDescriptor: {
             heading: undefined,
             markdown: [
-		"_Replace with holarchy module overview._"
+		"**TODO**"
 	    ]
         },
         bodySections: [
 	    {
 		markdown: [
-		    "_Replace with detailed information about the holarchy package._"
+		    "**TODO**"
 		]
 	    }
 	]
