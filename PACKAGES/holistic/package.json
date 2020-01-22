@@ -2,9 +2,9 @@
     "name": "@encapsule/holistic",
     "version": "0.0.33",
     "codename": "quatsino",
-    "buildID": "rPP9CkRURnmTD2TeULCrWg",
-    "buildTime": 1579708262,
-    "buildSource": "cb76a0899cb6c150a343df95604bf375c6f6f7e4",
+    "buildID": "yDxLNwX_SI6pJshQQLhTWQ",
+    "buildTime": 1579708408,
+    "buildSource": "ac4ecce5f6c43c9c619089b7428e4e504cba6087",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
