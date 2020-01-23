@@ -1,13 +1,10 @@
 #!/usr/bin/env node
 
-const arctools = require('@encapsule/arctools');
-
-const repoBuild = require('../../BUILD/holistic');
-
-const packageDB = require('./PACKAGES/');
+const arctools = require("@encapsule/arctools");
+const repoBuild = require("../../BUILD/holistic");
+const packageDB = require("./PACKAGES/");
 
 const program = arctools.commander;
-
 program
     .name('generate_package_manifest')
     .description('Generates package.json file from repo build and package DB metadata.')
@@ -41,17 +38,18 @@ var manifest = {
     buildID: repoBuild.buildID,
     buildTime: repoBuild.buildTime,
     buildSource: repoBuild.buildSource,
+    
     repository: {
         type: "git",
-        url: "git+https://github.com/Encapsule/" + packageNameTerse + ".git",
+        url: "git+https://github.com/Encapsule/holistic.git"
     },
     author: repoBuild.author,
     contributors: repoBuild.contributors,
     license: "MIT",
     bugs: {
-        url: "https://github.com/Encapsule/" + packageNameTerse + "/issues"
+        url: "https://github.com/Encapsule/holistic/issues"
     },
-    homepage: "https://github.com/Encapsule/" + packageNameTerse + "#readme",
+    homepage: "https://github.com/Encapsule"
 };
 
 // Set/overwrite manifest settings w/declared per-package overrides.

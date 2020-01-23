@@ -2,9 +2,9 @@
     "name": "@encapsule/holistic",
     "version": "0.0.33",
     "codename": "quatsino",
-    "buildID": "yDxLNwX_SI6pJshQQLhTWQ",
-    "buildTime": 1579708408,
-    "buildSource": "ac4ecce5f6c43c9c619089b7428e4e504cba6087",
+    "buildID": "8xJVdz3KSbyRf6r4eYzpcA",
+    "buildTime": 1579799926,
+    "buildSource": "a6fd415e6bc8243a06ccaff062205479863f92c9",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
@@ -21,7 +21,7 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "homepage": "https://github.com/Encapsule/holistic#readme",
+    "homepage": "https://github.com/Encapsule",
     "description": "This package contains the Holistic App Platform runtime libraries (RTL's) and the 'appgen' utility for initializing and maintaining derived application and service git repositories.",
     "keywords": [
         "encapsule",
