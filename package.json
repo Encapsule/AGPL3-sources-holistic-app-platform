@@ -1,7 +1,7 @@
 {
     "name": "holistic-master",
-    "version": "0.1.0",
-    "codename": "alert-bay",
+    "version": "0.1.00",
+    "codename": "alertbay",
     "description": "A platform of libraries, infrastructure, tools, and process for building Node.js services and stateful HTML5 applications fronted by React.",
     "author": "Encapsule",
     "contributors": [
