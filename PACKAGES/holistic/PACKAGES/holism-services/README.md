@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains re-usable service filter plug-ins for use with the @encapsule/holism app server package.
 
 ```
-Package: @encapsule/holism-services v0.0.33 "quatsino" build ID "4lQZ1Bc0SJSfyRO_EliYMA"
-Sources: Encapsule/holistic-master#a87574f771f287b095ce4b1b9fecd1fe0281e897
-Created: 2020-01-23T17:07:08.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holism-services v0.0.33 "quatsino" build ID "8xJVdz3KSbyRf6r4eYzpcA"
+Sources: Encapsule/holistic-master#a6fd415e6bc8243a06ccaff062205479863f92c9
+Created: 2020-01-23T17:18:46.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
