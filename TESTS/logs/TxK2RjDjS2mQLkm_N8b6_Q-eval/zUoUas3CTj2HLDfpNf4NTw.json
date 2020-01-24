@@ -163,7 +163,7 @@
                                   "operators": {
                                     "ocd": {
                                       "isNamespaceTruthy": {
-                                        "path": "#.clock.value"
+                                        "path": "#.inputs.clock.value"
                                       }
                                     }
                                   }
@@ -433,7 +433,7 @@
                                   "operators": {
                                     "ocd": {
                                       "isNamespaceTruthy": {
-                                        "path": "#.clock.value"
+                                        "path": "#.inputs.clock.value"
                                       }
                                     }
                                   }
@@ -775,7 +775,7 @@
                                 "operators": {
                                   "ocd": {
                                     "isNamespaceTruthy": {
-                                      "path": "#.clock.value"
+                                      "path": "#.inputs.clock.value"
                                     }
                                   }
                                 }
