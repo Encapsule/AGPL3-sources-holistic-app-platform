@@ -115,14 +115,18 @@ const factoryResponse = holodeck.harnessFactory.request({
 
         // Dispatch act requests. Note we don't care about the object status. If the opci is invalid, then the logs will be full of errors.
         messageBody.actRequests.forEach((actRequest_) => {
-
             // ================================================================
             // CLEAN THIS UP! HOME STRETCH BABY
             // ================================================================
-
             // TODO: FIX THIS: This is a bug in OPC.act
             delete opcInstance._private.lastEvalautionRepsonse;
-
+	    if (!opcInstance.isValid()) {
+		response.result.actionEvaluations.push({
+		    actRequest: actRequest_,
+		    actResponse: { error: "OPC instance is invalid!" }
+		});
+		return;
+	    }
             let actResponse = opcInstance.act(actRequest_);
             if (!actResponse.error) {
                 delete actResponse.result.summary.evalStopwatch;
@@ -131,14 +135,11 @@ const factoryResponse = holodeck.harnessFactory.request({
                 // it probably doesn't make sense to return last evaluation response in all cases (like this one).
                 delete actResponse.result;
             }
-
             response.result.actionEvaluations.push({
                 actRequest: actRequest_,
                 actResponse: actResponse
             });
-
         });
-
         return response;
     }
 

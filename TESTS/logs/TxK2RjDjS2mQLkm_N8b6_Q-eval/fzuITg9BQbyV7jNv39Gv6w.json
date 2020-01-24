@@ -33,9 +33,6 @@
                             "____label": "Observable Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
-                            "value": {
-                              "____opaque": true
-                            },
                             "clock": {
                               "____accept": "jsBoolean",
                               "____defaultValue": false
@@ -184,8 +181,10 @@
                                   "____label": "Render Info",
                                   "____description": "Info useful for debugging the d2r2/React Output Processor.",
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "renderCount": {
-                                    "____accept": "jsNumber"
+                                    "____accept": "jsNumber",
+                                    "____defaultValue": -1
                                   }
                                 }
                               }
@@ -1089,9 +1088,6 @@
                           "____label": "Observable Frame Latch",
                           "____types": "jsObject",
                           "____defaultValue": {},
-                          "value": {
-                            "____opaque": true
-                          },
                           "clock": {
                             "____accept": "jsBoolean",
                             "____defaultValue": false
@@ -1240,8 +1236,10 @@
                                 "____label": "Render Info",
                                 "____description": "Info useful for debugging the d2r2/React Output Processor.",
                                 "____types": "jsObject",
+                                "____defaultValue": {},
                                 "renderCount": {
-                                  "____accept": "jsNumber"
+                                  "____accept": "jsNumber",
+                                  "____defaultValue": -1
                                 }
                               }
                             }
@@ -1503,8 +1501,10 @@
                                   "____label": "Render Info",
                                   "____description": "Info useful for debugging the d2r2/React Output Processor.",
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "renderCount": {
-                                    "____accept": "jsNumber"
+                                    "____accept": "jsNumber",
+                                    "____defaultValue": -1
                                   }
                                 }
                               }
@@ -1716,9 +1716,6 @@
                             "____label": "Observable Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
-                            "value": {
-                              "____opaque": true
-                            },
                             "clock": {
                               "____accept": "jsBoolean",
                               "____defaultValue": false
@@ -1879,7 +1876,14 @@
                               "opm": "z_mTe02hSWmaM1iRO1pBeA"
                             },
                             "value": {
-                              "____opaque": true
+                              "____label": "Render Info",
+                              "____description": "Info useful for debugging the d2r2/React Output Processor.",
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "renderCount": {
+                                "____accept": "jsNumber",
+                                "____defaultValue": -1
+                              }
                             },
                             "____defaultValue": {},
                             "clock": {
@@ -1906,6 +1910,9 @@
                           "pathRenderContext": null,
                           "pathRenderData": null,
                           "clock": {
+                            "value": {
+                              "renderCount": -1
+                            },
                             "clock": false,
                             "__opmiStep": "waiting"
                           }
@@ -2054,8 +2061,10 @@
                                             "____label": "Render Info",
                                             "____description": "Info useful for debugging the d2r2/React Output Processor.",
                                             "____types": "jsObject",
+                                            "____defaultValue": {},
                                             "renderCount": {
-                                              "____accept": "jsNumber"
+                                              "____accept": "jsNumber",
+                                              "____defaultValue": -1
                                             }
                                           }
                                         }
@@ -2274,6 +2283,9 @@
                                                   "pathRenderContext": null,
                                                   "pathRenderData": null,
                                                   "clock": {
+                                                    "value": {
+                                                      "renderCount": -1
+                                                    },
                                                     "clock": false,
                                                     "__opmiStep": "waiting"
                                                   }
@@ -2347,9 +2359,6 @@
                                       "____label": "Observable Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
-                                      "value": {
-                                        "____opaque": true
-                                      },
                                       "clock": {
                                         "____accept": "jsBoolean",
                                         "____defaultValue": false
@@ -2459,6 +2468,9 @@
                                                   "pathRenderContext": null,
                                                   "pathRenderData": null,
                                                   "clock": {
+                                                    "value": {
+                                                      "renderCount": -1
+                                                    },
                                                     "clock": false,
                                                     "__opmiStep": "waiting"
                                                   }
@@ -2617,8 +2629,10 @@
                                             "____label": "Render Info",
                                             "____description": "Info useful for debugging the d2r2/React Output Processor.",
                                             "____types": "jsObject",
+                                            "____defaultValue": {},
                                             "renderCount": {
-                                              "____accept": "jsNumber"
+                                              "____accept": "jsNumber",
+                                              "____defaultValue": -1
                                             }
                                           }
                                         }
@@ -2837,6 +2851,9 @@
                                                   "pathRenderContext": null,
                                                   "pathRenderData": null,
                                                   "clock": {
+                                                    "value": {
+                                                      "renderCount": -1
+                                                    },
                                                     "clock": false,
                                                     "__opmiStep": "waiting"
                                                   }
@@ -2960,9 +2977,6 @@
                                       "____label": "Observable Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
-                                      "value": {
-                                        "____opaque": true
-                                      },
                                       "clock": {
                                         "____accept": "jsBoolean",
                                         "____defaultValue": false
@@ -3072,6 +3086,9 @@
                                                   "pathRenderContext": null,
                                                   "pathRenderData": null,
                                                   "clock": {
+                                                    "value": {
+                                                      "renderCount": -1
+                                                    },
                                                     "clock": false,
                                                     "__opmiStep": "waiting"
                                                   }
@@ -3228,8 +3245,10 @@
                                             "____label": "Render Info",
                                             "____description": "Info useful for debugging the d2r2/React Output Processor.",
                                             "____types": "jsObject",
+                                            "____defaultValue": {},
                                             "renderCount": {
-                                              "____accept": "jsNumber"
+                                              "____accept": "jsNumber",
+                                              "____defaultValue": -1
                                             }
                                           }
                                         }
@@ -3448,6 +3467,9 @@
                                                   "pathRenderContext": null,
                                                   "pathRenderData": null,
                                                   "clock": {
+                                                    "value": {
+                                                      "renderCount": -1
+                                                    },
                                                     "clock": false,
                                                     "__opmiStep": "waiting"
                                                   }
@@ -3571,9 +3593,6 @@
                                       "____label": "Observable Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
-                                      "value": {
-                                        "____opaque": true
-                                      },
                                       "clock": {
                                         "____accept": "jsBoolean",
                                         "____defaultValue": false
@@ -3683,6 +3702,9 @@
                                                   "pathRenderContext": null,
                                                   "pathRenderData": null,
                                                   "clock": {
+                                                    "value": {
+                                                      "renderCount": -1
+                                                    },
                                                     "clock": false,
                                                     "__opmiStep": "waiting"
                                                   }

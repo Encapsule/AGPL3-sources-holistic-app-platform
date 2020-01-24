@@ -22,7 +22,8 @@
                           "opm": "z_mTe02hSWmaM1iRO1pBeA"
                         },
                         "value": {
-                          "____accept": "jsString"
+                          "____accept": "jsString",
+                          "____defaultValue": "default"
                         }
                       }
                     },
@@ -36,9 +37,6 @@
                             "____label": "Observable Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
-                            "value": {
-                              "____opaque": true
-                            },
                             "clock": {
                               "____accept": "jsBoolean",
                               "____defaultValue": false
@@ -852,9 +850,6 @@
                           "____label": "Observable Frame Latch",
                           "____types": "jsObject",
                           "____defaultValue": {},
-                          "value": {
-                            "____opaque": true
-                          },
                           "clock": {
                             "____accept": "jsBoolean",
                             "____defaultValue": false
@@ -958,9 +953,6 @@
                             "____label": "Observable Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
-                            "value": {
-                              "____opaque": true
-                            },
                             "clock": {
                               "____accept": "jsBoolean",
                               "____defaultValue": false
@@ -1062,7 +1054,8 @@
                           "opm": "z_mTe02hSWmaM1iRO1pBeA"
                         },
                         "value": {
-                          "____accept": "jsString"
+                          "____accept": "jsString",
+                          "____defaultValue": "default"
                         }
                       }
                     },
@@ -1077,7 +1070,8 @@
                           "opm": "z_mTe02hSWmaM1iRO1pBeA"
                         },
                         "value": {
-                          "____opaque": true
+                          "____accept": "jsString",
+                          "____defaultValue": "default"
                         },
                         "____label": "Observable Frame Latch",
                         "____defaultValue": {},
@@ -1093,6 +1087,7 @@
                     },
                     "ocdi": {
                       "frameLatch": {
+                        "value": "default",
                         "clock": false,
                         "__opmiStep": "waiting"
                       }
@@ -1188,9 +1183,6 @@
                                       "____label": "Observable Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
-                                      "value": {
-                                        "____opaque": true
-                                      },
                                       "clock": {
                                         "____accept": "jsBoolean",
                                         "____defaultValue": false
@@ -1294,6 +1286,7 @@
                                             "opmBindingPath": "~.frameLatch",
                                             "ocdi": {
                                               "frameLatch": {
+                                                "value": "default",
                                                 "clock": false,
                                                 "__opmiStep": "waiting"
                                               }
@@ -1400,9 +1393,6 @@
                                       "____label": "Observable Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
-                                      "value": {
-                                        "____opaque": true
-                                      },
                                       "clock": {
                                         "____accept": "jsBoolean",
                                         "____defaultValue": false
@@ -1506,6 +1496,7 @@
                                             "opmBindingPath": "~.frameLatch",
                                             "ocdi": {
                                               "frameLatch": {
+                                                "value": "default",
                                                 "clock": false,
                                                 "__opmiStep": "waiting"
                                               }
@@ -1610,9 +1601,6 @@
                                       "____label": "Observable Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
-                                      "value": {
-                                        "____opaque": true
-                                      },
                                       "clock": {
                                         "____accept": "jsBoolean",
                                         "____defaultValue": false
@@ -1716,6 +1704,7 @@
                                             "opmBindingPath": "~.frameLatch",
                                             "ocdi": {
                                               "frameLatch": {
+                                                "value": "default",
                                                 "clock": false,
                                                 "__opmiStep": "waiting"
                                               }
@@ -1848,9 +1837,6 @@
                                         "____label": "Observable Frame Latch",
                                         "____types": "jsObject",
                                         "____defaultValue": {},
-                                        "value": {
-                                          "____opaque": true
-                                        },
                                         "clock": {
                                           "____accept": "jsBoolean",
                                           "____defaultValue": false
@@ -2052,9 +2038,6 @@
                                         "____label": "Observable Frame Latch",
                                         "____types": "jsObject",
                                         "____defaultValue": {},
-                                        "value": {
-                                          "____opaque": true
-                                        },
                                         "clock": {
                                           "____accept": "jsBoolean",
                                           "____defaultValue": false
@@ -2263,9 +2246,6 @@
                                         "____label": "Observable Frame Latch",
                                         "____types": "jsObject",
                                         "____defaultValue": {},
-                                        "value": {
-                                          "____opaque": true
-                                        },
                                         "clock": {
                                           "____accept": "jsBoolean",
                                           "____defaultValue": false

@@ -25,7 +25,7 @@ class SimpleStopwatch {
         }
         const mark = { label: label_, ellapsedDelta: ellapsedDelta, ellapsedTotal: ellapsedTotal };
         this.marks.push(mark);
-        console.log(`**** ${JSON.stringify(mark)}`);
+        // console.log(`**** ${JSON.stringify(mark)}`);
         return mark;
     }
 

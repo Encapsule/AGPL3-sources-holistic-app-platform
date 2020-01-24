@@ -397,6 +397,7 @@ console.log("> Write '" + resourceFilePaths.application.packageManifest + "'.");
 
 ////
 // Remove existing copy of the holistic platform sources from the application.
+
 var consoleOutput = syncExec({
     cwd: resourceFilePaths.application.appRepoDir,
     command: ("rm -rfv " + resourceFilePaths.application.platformSourcesDir)
@@ -409,7 +410,7 @@ makeDirectory(resourceFilePaths.application.platformSourcesDir);
 makeDirectory(resourceFilePaths.application.platformPackagesDir);
 
 const sourceDirectory = resourceFilePaths.holistic.platformSourcesDir + "/*";
-const destDirectory = resourceFilePaths.application.platformPackagesDir + "/";
+const destDirectory = resourceFilePaths.application.platformPackagesDir;
 
 let command = [
     "cp -Rpv",

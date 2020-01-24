@@ -60,8 +60,10 @@ module.exports = {
                     ____label: "Render Info",
                     ____description: "Info useful for debugging the d2r2/React Output Processor.",
                     ____types: "jsObject",
+		    ____defaultValue: {},
                     renderCount: {
-                        ____accept: "jsNumber"
+                        ____accept: "jsNumber",
+			____defaultValue: -1
                     }
                 }
             }

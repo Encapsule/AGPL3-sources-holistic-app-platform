@@ -541,6 +541,8 @@ const factoryResponse = arccore.filter.create({
                         evalFrame.summary.reports.transitions.push(ocdPathIRUT_);
                         result.summary.counts.transitions++;
                         opmInstanceFrame.evalResponse.finishStep = nextStep;
+
+			console.log(`%c${result.evalNumber}:${result.summary.counts.frames} > ${opmBindingPath} :: ${initialStep} => ${nextStep}`, "color: #0066FF; background-color: #DDEEFF; font-weight: bold;");
                     }
 
                 } // opmBindingPath in evalFrame
@@ -589,7 +591,12 @@ const factoryResponse = arccore.filter.create({
 
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
+
+	let logStyles = !response.error?"color: #009966; background-color: #DDFFEE;":"color: #996600; background-color: #FFEEDD;";
+	console.log(`%c${result.evalNumber}:${result.summary.counts.frames-1} evaluation completed in ${result.summary.evalStopwatch.totalMicroseconds} microseconds.`, logStyles);
+
         response.result = result;
+
 
         return response;
     },

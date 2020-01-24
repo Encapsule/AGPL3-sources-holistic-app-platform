@@ -31,16 +31,19 @@ module.exports = [
                 holarchy: {
                     ObservableProcessController: {
                         constructorRequest: {
+
                             id: "uZN6-qpIQO6CkwmLDWtMCw",
                             name: "OPC Frame Latch Test #1",
                             description: "Try to apply the Frame Latch OPM in an OPC system.",
+
                             ocdTemplateSpec: {
                                 ____types: "jsObject",
                                 frameLatch: {
                                     ____types: "jsObject",
                                     ____appdsl: { opm: "z_mTe02hSWmaM1iRO1pBeA" },
                                     value: {
-                                        ____accept: "jsString"
+                                        ____accept: "jsString",
+                                        ____defaultValue: "default"
                                     }
                                 }
                             },
@@ -81,6 +84,7 @@ module.exports = [
                                     }
                                 }
                             }
+
 
                         ]
                     }
