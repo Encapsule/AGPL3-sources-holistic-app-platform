@@ -542,7 +542,7 @@ const factoryResponse = arccore.filter.create({
                         result.summary.counts.transitions++;
                         opmInstanceFrame.evalResponse.finishStep = nextStep;
 
-			console.log(`%c${result.evalNumber}:${result.summary.counts.frames} > ${opmBindingPath} :: ${initialStep} => ${nextStep}`, "color: #0066FF; background-color: #DDEEFF; font-weight: bold;");
+			console.log(`%cOPC:[${result.evalNumber}:${result.summary.counts.frames}] ${opmBindingPath}:: ${initialStep} => ${nextStep}`, "color: #0066FF; font-size: larger; background-color: #DDEEFF; font-weight: bold;");
                     }
 
                 } // opmBindingPath in evalFrame
@@ -592,8 +592,8 @@ const factoryResponse = arccore.filter.create({
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
 
-	let logStyles = !response.error?"color: #009966; background-color: #DDFFEE;":"color: #996600; background-color: #FFEEDD;";
-	console.log(`%c${result.evalNumber}:${result.summary.counts.frames-1} evaluation completed in ${result.summary.evalStopwatch.totalMicroseconds} microseconds.`, logStyles);
+	let logStyles = !response.error?"color: #006600; background-color: #AAEECC; font-size: larger; font-weight: bold;":"color: #CC0000; background-color: #DDEEFF; font-weight: bold;";
+	console.log(`%cOPC:[${result.evalNumber}:${result.summary.counts.frames-1}] Evaluation complete in ${result.summary.evalStopwatch.totalMicroseconds} us.`, logStyles);
 
         response.result = result;
 

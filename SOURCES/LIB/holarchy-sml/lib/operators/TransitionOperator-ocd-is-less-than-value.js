@@ -2,9 +2,9 @@
 const holarchy = require("@encapsule/holarchy");
 
 module.exports = new holarchy.TransitionOperator({
-    id: "kD1PcgqYQlm7fJatNG2ZsA",
-    name: "OCD Namespace Is Truthy",
-    description: "Returns Boolean true iff the indicated OCD namespace is truthy.",
+    id: "XxX_a1sQS1OlJbWAYfx6tQ",
+    name: "OCD Namespace Is Less Than Value",
+    description: "Returns Boolean true iff the indicated OCD namespace is less than the indicated value.",
 
     operatorRequestSpec: {
         ____types: "jsObject",
@@ -16,11 +16,14 @@ module.exports = new holarchy.TransitionOperator({
                     ____types: "jsObject",
                     ocd: {
                         ____types: "jsObject",
-                        isNamespaceTruthy: {
+                        isNamespaceLessThanValue: {
                             ____types: "jsObject",
                             path: {
                                 ____accept: "jsString"
-                            }
+                            },
+			    value: {
+				____accept: [ "jsString", "jsNumber" ]
+			    }
                         }
                     }
                 }
@@ -34,7 +37,7 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.operatorRequest.holarchy.sml.operators.ocd.isNamespaceTruthy;
+            const message = request_.operatorRequest.holarchy.sml.operators.ocd.isNamespaceLessThanValue;
             const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
                 dataPath: message.path
@@ -48,7 +51,7 @@ module.exports = new holarchy.TransitionOperator({
                 errors.push(filterResponse.error);
                 break;
             }
-            response.result = (filterResponse.result)?true:false;
+            response.result = (filterResponse.result < message.value)?true:false;
             break;
         }
         if (errors.length) {

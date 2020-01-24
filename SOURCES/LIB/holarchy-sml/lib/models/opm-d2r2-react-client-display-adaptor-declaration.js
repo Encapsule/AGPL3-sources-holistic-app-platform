@@ -103,7 +103,7 @@ module.exports = {
         initialized: {
             description: "Input invariants have been satisfied.",
             transitions: [
-                { nextStep: "render", transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.clock.value" } } } } } } },
+                { nextStep: "render", transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value" } } } } } } },
                 { nextStep: "rehydrate", transitionIf: { always: true } }
             ],
         },
