@@ -1,10 +1,10 @@
 {
     "name": "@encapsule/holodeck-assets",
-    "version": "0.0.33",
-    "codename": "quatsino",
-    "buildID": "8xJVdz3KSbyRf6r4eYzpcA",
-    "buildTime": 1579799926,
-    "buildSource": "a6fd415e6bc8243a06ccaff062205479863f92c9",
+    "version": "0.0.34",
+    "codename": "klickseewy",
+    "buildID": "My29SrEOS4mv9C100xHQyw",
+    "buildTime": 1579885413,
+    "buildSource": "7037f565f460b1831abb3512cd43059993923525",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
@@ -36,7 +36,7 @@
     "main": "index.js",
     "peerDependencies": {
         "@encapsule/arccore": "0.1.8",
-        "@encapsule/holodeck": "0.0.33",
-        "@encapsule/holarchy": "0.0.33"
+        "@encapsule/holodeck": "0.0.34",
+        "@encapsule/holarchy": "0.0.34"
     }
 }
