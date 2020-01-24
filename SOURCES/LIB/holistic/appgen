@@ -64,7 +64,7 @@ function touchFile(filepath_) {
 
 function makeDirectory(directoryPath_) {
     console.log("> Create '" + directoryPath_ + "'");
-    mkdirp(directoryPath_);
+    mkdirp.sync(directoryPath_);
 }
 
 function loadDocumentTemplate(filepath_) {
