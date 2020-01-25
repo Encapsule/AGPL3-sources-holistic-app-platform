@@ -2,9 +2,9 @@
 const holarchy = require("@encapsule/holarchy");
 
 module.exports = new holarchy.TransitionOperator({
-    id: "XxX_a1sQS1OlJbWAYfx6tQ",
-    name: "OCD Namespace Is Less Than Value",
-    description: "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
+    id: "k7THIKKDQMKOac1Rxh9tEQ",
+    name: "OCD Namespace Is Identical To Value",
+    description: "Returns Boolean true iff the indicated OCD namespace is identical (i.e. strictly equal (===)) to the indicated value. Limited to number and string value comparisons only.",
 
     operatorRequestSpec: {
         ____types: "jsObject",
@@ -16,7 +16,7 @@ module.exports = new holarchy.TransitionOperator({
                     ____types: "jsObject",
                     ocd: {
                         ____types: "jsObject",
-                        isNamespaceLessThanValue: {
+                        isNamespaceIdenticalToValue: {
                             ____types: "jsObject",
                             path: {
                                 ____accept: "jsString"
@@ -37,7 +37,7 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.operatorRequest.holarchy.sml.operators.ocd.isNamespaceLessThanValue;
+            const message = request_.operatorRequest.holarchy.sml.operators.ocd.isNamespaceIdenticalToValue;
             const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
                 dataPath: message.path
@@ -52,7 +52,7 @@ module.exports = new holarchy.TransitionOperator({
                 break;
             }
 	    // TODO: It would be better to also confirm that both values are the same type.
-            response.result = (filterResponse.result < message.value);
+            response.result = (filterResponse.result === message.value);
             break;
         }
         if (errors.length) {

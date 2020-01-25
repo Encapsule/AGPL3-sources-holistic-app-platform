@@ -11,7 +11,9 @@ module.exports = {
         require("./TransitionOperator-opm-at-step"),
         require("./TransitionOperator-ocd-is-truthy"),
         require("./TransitionOperator-ocd-is-boolean-flag-set"),
-	require("./TransitionOperator-ocd-is-less-than-value")
+	require("./TransitionOperator-ocd-is-less-than-value"),
+	require("./TransitionOperator-ocd-is-greater-than-value"),
+	require("./TransitionOperator-ocd-is-identical-to-value")
     ]
 
 };
