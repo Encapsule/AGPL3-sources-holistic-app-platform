@@ -59,7 +59,12 @@ mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
 
 const holodeckAssets = require("@encapsule/holodeck-assets");
 
-const runnerResponse = holodeckAssets.holistic.request({ logsDirectory: path.resolve(path.join(__dirname, "logs")) });
+const runnerResponse = holodeckAssets.holistic.request({
+    logsDirectory: path.resolve(path.join(__dirname, "logs")),
+    testRunnerOptions: {
+        // onlyExecuteVectors: ["fzuITg9BQbyV7jNv39Gv6w" ]
+    }
+});
 
 if (runnerResponse.error) {
     console.error(runnerResponse.error);

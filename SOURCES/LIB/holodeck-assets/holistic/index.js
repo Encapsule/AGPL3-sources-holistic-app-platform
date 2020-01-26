@@ -22,6 +22,17 @@ const factoryResponse = arccore.filter.create({
             ____label: "Holodeck Logs Directory",
             ____description: "Fully-qualified local filesystem path of the holodeck eval logs directory.",
             ____accept: "jsString"
+        },
+        testRunnerOptions: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            onlyExecuteVectors: {
+                ____types: [ "jsNull", "jsArray" ],
+                ____defaultValue: null,
+                vectorId: {
+                    ____accept: "jsString"
+                }
+            }
         }
     },
     outputFilterSpec: {
@@ -47,6 +58,7 @@ const factoryResponse = arccore.filter.create({
                     ...holodeckPackageHarnesses,
                     ...holarchyPackageHarnesses
                 ],
+                testRunnerOptions: request_.testRunnerOptions,
                 testRequestSets: [
                     ...holodeckPackageVectorSets,
                     ...holarchyPackageVectorSets,

@@ -1,6 +1,6 @@
 // opm-d2r2-react-client-display-adaptor-declaration.js
 //
-// This is constructor data for @encapsule/holarchy.ObservableProcessModel constructor function.
+// This is constructor data for @encapsule/holarchy.ObservableProcessModel class constructor function.
 //
 
 module.exports = {
@@ -8,7 +8,6 @@ module.exports = {
     id: "IxoJ83u0TXmG7PLUYBvsyg",
     name: "d2r2/React Client Display Adaptor",
     description: "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-
     opmDataSpec: {
         ____label: "d2r2/React Client Display Adaptor Memory",
         ____description: "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
@@ -16,11 +15,10 @@ module.exports = {
         ____defaultValue: {},
 
         inputs: {
-
+            // TODO: Probably none of the inputs should be serialized.
             ____label: "Adaptor Inputs",
             ____types: "jsObject",
             ____defaultValue: {},
-
             ComponentRouter: {
                 // TODO: Not serializable
                 ____label: "d2r2 <ComponentRouter/>",
@@ -28,7 +26,6 @@ module.exports = {
                 ____accept: [ "jsNull", "jsFunction" ],
                 ____defaultValue: null
             },
-
             DOMElement: {
                 // TODO: Not serializable
                 ____label: "d2r2 Target DOM Element",
@@ -36,39 +33,49 @@ module.exports = {
                 ____opaque: true, // this is typically a "[object HTMLDivElement]" type not natively supported by filter.
                 ____defaultValue: null
             },
-
-            pathRenderContext: {
-                ____label: "Render Context OCD Path",
-                ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
-                ____accept: [ "jsNull", "jsString" ],
-                ____defaultValue: null
-            },
-
-            pathRenderData: {
-                ____label: "Render Data OCD Path",
-                ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                ____accept: [ "jsNull", "jsString" ],
-                ____defaultValue: null
-            },
-
             clock: {
                 ____label: "React Output Processor Clock",
                 ____description: "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
                 ____types: "jsObject",
                 ____appdsl: { opm: "z_mTe02hSWmaM1iRO1pBeA" /* bind to Frame Latch OPM */ },
                 value: {
-                    ____label: "Render Info",
-                    ____description: "Info useful for debugging the d2r2/React Output Processor.",
-                    ____types: "jsObject",
-		    ____defaultValue: {},
-                    renderCount: {
-                        ____accept: "jsNumber",
-			____defaultValue: -1
+                    ____label: "Render Command",
+                    ____types: [ "jsNull", "jsObject" ],
+                    ____defaultValue: null,
+                    options: {
+                        ____types: "jsObject",
+                        ____defaultValue: {},
+                        rehydrate: {
+                            ____types: "jsBoolean",
+                            ____defaultValue: false
+                        }
+                    },
+                    pathRenderContext: {
+                        ____label: "Render Context OCD Path",
+                        ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
+                        ____accept: "jsString"
+                    },
+                    pathRenderData: {
+                        ____label: "Render Data OCD Path",
+                        ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                        ____accept: "jsString"
                     }
-                }
-            }
+                } // value
+            } // clock
+        }, // inputs
 
-        } // inputs
+        private: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            renderCount: {
+                ____accept: "jsNumber",
+                ____defaultValue: -1
+            },
+            renderPending: {
+                ____accept: "jsBoolean",
+                ____defaultValue: false
+            }
+        }
 
     }, // opmDataSpec
 
@@ -77,49 +84,70 @@ module.exports = {
         uninitialized: {
             description: "Default OPM process step.",
             transitions: [
-                {
-                    nextStep: "wait_invariants",
-                    transitionIf: { always: true }
-                }
+                { transitionIf: { always: true }, nextStep: "uninitialized_invariants" }
             ]
         },
-        wait_invariants: {
-            description: "Waiting for input invariants to be satisfied.",
+
+        uninitialized_invariants: {
+            description: "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
             transitions: [
                 {
-                    nextStep: "initialized",
                     transitionIf: {
                         and: [
                             { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.ComponentRouter" } } } } } },
-                            { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.DOMElement" } } } } } },
-                            { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.pathRenderContext" } } } } } },
-                            { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.pathRenderData" } } } } } }
+                            { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.DOMElement" } } } } } }
                         ]
-                    }
+                    },
+                    nextStep: "uninitialized_inputs"
                 }
             ]
+        },
 
+        uninitialized_inputs: {
+            description: "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
+            transitions: [ { transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value" } } } } } }, nextStep: "initialized" } ]
         },
+
         initialized: {
-            description: "Input invariants have been satisfied.",
+            description: "Preparing for initial render operation. Determining if we rehyrdate server-rendered view. Or, replace it.",
             transitions: [
-                { nextStep: "render", transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value" } } } } } } },
-                { nextStep: "rehydrate", transitionIf: { always: true } }
-            ],
+                { transitionIf: { holarcy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.input.clock.value.options.rehydrate" } } } } } }, nextStep: "rehydrate" },
+                { transitionIf: { always: true }, nextStep: "render" }
+            ]
         },
+
         rehydrate: {
-            description: "Rehydrating the client application view and registering user input and DOM event handlers.",
-            actions: { enter: [ { holarchy: { sml: { actions: { react: { rehydrate: true } } } } } ] },
-            transitions: [ { nextStep: "wait_clock", transitionIf: { always: true } } ]
+            description: "Rehydrating the specified d2r2 ComponentRouter render data context to reconstruct server-rendered d2r2 ComponentRouter render data context in the client application.",
+            actions: {
+                enter: [
+                    { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
+                    { holarchy: { sml: { actions: { react: { rehydrate: true } } } } }
+                ]
+            },
+            transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]
         },
+
         render: {
-            description: "Rendering client application view updates.",
-            actions: { enter: [ { holarchy: { sml: { actions: { react: { render: true } } } } } ] },
-            transitions: [ { nextStep: "wait_clock", transitionIf: { always: true } } ]
+            description: "Rendering the specified d2r2 ComponentRouter render data context to refresh layout and client-side React component mountings.",
+            actions: {
+                enter: [
+                    { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
+                    { holarchy: { sml: { actions: { react: { render: true } } } } },
+                ]
+            },
+            transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]
         },
-        wait_clock: {
+
+        rendering: {
+            description: "Rendering the specified d2r2 ComponentRouter render data context. Please wait for the operation to complete.",
+            transitions: [ { transitionIf: { not: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.private.renderPending" } } } } } } }, nextStep: "ready" } ]
+        },
+
+        ready: {
             description: "Waiting for next clock signal to re-render client application view.",
-            transitions: [ { nextStep: "render", transitionIf: { holarchy: { sml: { operators: { opmInStep: { path: "#.clock", step: "updated" } } } } } } ]
+            transitions: [ { transitionIf: { holarchy: { sml: { operators: { opmInStep: { path: "#.clock", step: "updated" } } } } },  nextStep: "render" } ]
         }
-    }
-};
+
+    } // steps
+
+}; // OPM declaration

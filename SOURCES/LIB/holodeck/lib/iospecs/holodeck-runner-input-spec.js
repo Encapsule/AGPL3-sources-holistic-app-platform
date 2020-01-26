@@ -19,6 +19,17 @@ module.exports = {
         ____defaultValue: [],
         testHarnessFilter: { ____accept: "jsObject" } // test harness filter instance reference
     },
+    testRunnerOptions: {
+        ____types: "jsObject",
+        ____defaultValue: {},
+        onlyExecuteVectors: {
+            ____types: [ "jsNull", "jsArray" ],
+            ____defaultValue: null,
+            vectorId: {
+                ____accept: "jsString"
+            }
+        }
+    },
     testRequestSets: {
         ____types: "jsArray",
         ____defaultValue: [],
