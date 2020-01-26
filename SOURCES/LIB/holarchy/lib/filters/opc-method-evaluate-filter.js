@@ -118,25 +118,30 @@ const factoryResponse = arccore.filter.create({
                 // as a side-effect of executing process model step enter and exit
                 // actions.
 
-                // Traverse the controller data filter specification and find all namespace declarations containing an OPM binding.
-
                 let namespaceQueue = [ { specPath: "~", dataPath: "~", specRef: controllerDataSpec, dataRef: controllerData } ];
 
                 while (namespaceQueue.length) {
+
                     // Retrieve the next record from the queue.
                     let record = namespaceQueue.shift();
 
-                    // If dataRef is undefined, then we're done traversing this branch of the filter spec descriptor tree.
-                    if (record.dataRef === undefined) {
+                    // We are searching the controller data for objects that are "bound" (i.e. associated with OPM).
+                    // The value record.dataRef is a reference to the actual data in the OCD we're currently looking at.
+
+                    const inTypeSetResponse = arccore.types.check.inTypeSet({ value: record.dataRef, types: [ "jsObject", "jsArray" ] });
+                    if (inTypeSetResponse.error) {
+                        errors.push(inTypeSetResponse.error);
+                        break;
+                    }
+                    if (!inTypeSetResponse.result) {
+                        // We only process objects and arrays. All other types by definition end the possibility of binding additional OPM on this branch of the controller data tree.
                         continue;
                     }
 
                     // Determine if the current spec namespace has an OPM binding annotation.
-                    // TODO: We should validate the controller data spec wrt OPM bindings to ensure the annotation is only made on appropriately-declared non-map object namespaces w/appropriate props...
-                    if (record.specRef.____appdsl && record.specRef.____appdsl.opm) {
+                    if ((Object.prototype.toString.call(record.dataRef) === "[object Object]") && !record.specRef.asMap && record.specRef.____appdsl && record.specRef.____appdsl.opm) {
 
-                        // We can here safely presume that the following
-                        // construction-time invariants have been met:
+                        // We can here safely presume that the following construction-time invariants have been met:
                         // - ID is a valid IRUT
                         // - ID IRUT identifies a specific OPM registered with this OPC instance.
                         const opmID = record.specRef.____appdsl.opm;
