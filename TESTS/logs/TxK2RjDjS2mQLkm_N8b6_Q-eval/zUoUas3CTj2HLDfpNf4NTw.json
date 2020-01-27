@@ -38,24 +38,6 @@
                           "____opaque": true,
                           "____defaultValue": null
                         },
-                        "pathRenderContext": {
-                          "____label": "Render Context OCD Path",
-                          "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
-                          "____accept": [
-                            "jsNull",
-                            "jsString"
-                          ],
-                          "____defaultValue": null
-                        },
-                        "pathRenderData": {
-                          "____label": "Render Data OCD Path",
-                          "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                          "____accept": [
-                            "jsNull",
-                            "jsString"
-                          ],
-                          "____defaultValue": null
-                        },
                         "clock": {
                           "____label": "React Output Processor Clock",
                           "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
@@ -64,15 +46,43 @@
                             "opm": "z_mTe02hSWmaM1iRO1pBeA"
                           },
                           "value": {
-                            "____label": "Render Info",
-                            "____description": "Info useful for debugging the d2r2/React Output Processor.",
-                            "____types": "jsObject",
-                            "____defaultValue": {},
-                            "renderCount": {
-                              "____accept": "jsNumber",
-                              "____defaultValue": -1
+                            "____label": "Render Command",
+                            "____types": [
+                              "jsNull",
+                              "jsObject"
+                            ],
+                            "____defaultValue": null,
+                            "options": {
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "rehydrate": {
+                                "____types": "jsBoolean",
+                                "____defaultValue": false
+                              }
+                            },
+                            "pathRenderContext": {
+                              "____label": "Render Context OCD Path",
+                              "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
+                              "____accept": "jsString"
+                            },
+                            "pathRenderData": {
+                              "____label": "Render Data OCD Path",
+                              "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                              "____accept": "jsString"
                             }
                           }
+                        }
+                      },
+                      "private": {
+                        "____types": "jsObject",
+                        "____defaultValue": {},
+                        "renderCount": {
+                          "____accept": "jsNumber",
+                          "____defaultValue": -1
+                        },
+                        "renderPending": {
+                          "____accept": "jsBoolean",
+                          "____defaultValue": false
                         }
                       }
                     },
@@ -81,18 +91,17 @@
                         "description": "Default OPM process step.",
                         "transitions": [
                           {
-                            "nextStep": "wait_invariants",
                             "transitionIf": {
                               "always": true
-                            }
+                            },
+                            "nextStep": "uninitialized_invariants"
                           }
                         ]
                       },
-                      "wait_invariants": {
-                        "description": "Waiting for input invariants to be satisfied.",
+                      "uninitialized_invariants": {
+                        "description": "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
                         "transitions": [
                           {
-                            "nextStep": "initialized",
                             "transitionIf": {
                               "and": [
                                 {
@@ -120,43 +129,17 @@
                                       }
                                     }
                                   }
-                                },
-                                {
-                                  "holarchy": {
-                                    "sml": {
-                                      "operators": {
-                                        "ocd": {
-                                          "isNamespaceTruthy": {
-                                            "path": "#.inputs.pathRenderContext"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "holarchy": {
-                                    "sml": {
-                                      "operators": {
-                                        "ocd": {
-                                          "isNamespaceTruthy": {
-                                            "path": "#.inputs.pathRenderData"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
                                 }
                               ]
-                            }
+                            },
+                            "nextStep": "uninitialized_inputs"
                           }
                         ]
                       },
-                      "initialized": {
-                        "description": "Input invariants have been satisfied.",
+                      "uninitialized_inputs": {
+                        "description": "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
                         "transitions": [
                           {
-                            "nextStep": "render",
                             "transitionIf": {
                               "holarchy": {
                                 "sml": {
@@ -169,20 +152,55 @@
                                   }
                                 }
                               }
-                            }
+                            },
+                            "nextStep": "initialized"
+                          }
+                        ]
+                      },
+                      "initialized": {
+                        "description": "Preparing for initial render operation. Determining if we rehyrdate server-rendered view. Or, replace it.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "ocd": {
+                                      "isNamespaceTruthy": {
+                                        "path": "#.inputs.clock.value.options.rehydrate"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "rehydrate"
                           },
                           {
-                            "nextStep": "rehydrate",
                             "transitionIf": {
                               "always": true
-                            }
+                            },
+                            "nextStep": "render"
                           }
                         ]
                       },
                       "rehydrate": {
-                        "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
+                        "description": "Rehydrating the specified d2r2 ComponentRouter render data context to reconstruct server-rendered d2r2 ComponentRouter render data context in the client application.",
                         "actions": {
                           "enter": [
+                            {
+                              "holarchy": {
+                                "sml": {
+                                  "actions": {
+                                    "ocd": {
+                                      "setBooleanFlag": {
+                                        "path": "#.private.renderPending"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             {
                               "holarchy": {
                                 "sml": {
@@ -198,17 +216,30 @@
                         },
                         "transitions": [
                           {
-                            "nextStep": "wait_clock",
                             "transitionIf": {
                               "always": true
-                            }
+                            },
+                            "nextStep": "rendering"
                           }
                         ]
                       },
                       "render": {
-                        "description": "Rendering client application view updates.",
+                        "description": "Rendering the specified d2r2 ComponentRouter render data context to refresh layout and client-side React component mountings.",
                         "actions": {
                           "enter": [
+                            {
+                              "holarchy": {
+                                "sml": {
+                                  "actions": {
+                                    "ocd": {
+                                      "setBooleanFlag": {
+                                        "path": "#.private.renderPending"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             {
                               "holarchy": {
                                 "sml": {
@@ -224,18 +255,40 @@
                         },
                         "transitions": [
                           {
-                            "nextStep": "wait_clock",
                             "transitionIf": {
                               "always": true
-                            }
+                            },
+                            "nextStep": "rendering"
                           }
                         ]
                       },
-                      "wait_clock": {
+                      "rendering": {
+                        "description": "Rendering the specified d2r2 ComponentRouter render data context. Please wait for the operation to complete.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "not": {
+                                "holarchy": {
+                                  "sml": {
+                                    "operators": {
+                                      "ocd": {
+                                        "isNamespaceTruthy": {
+                                          "path": "#.private.renderPending"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "ready"
+                          }
+                        ]
+                      },
+                      "ready": {
                         "description": "Waiting for next clock signal to re-render client application view.",
                         "transitions": [
                           {
-                            "nextStep": "render",
                             "transitionIf": {
                               "holarchy": {
                                 "sml": {
@@ -247,7 +300,8 @@
                                   }
                                 }
                               }
-                            }
+                            },
+                            "nextStep": "render"
                           }
                         ]
                       }
@@ -297,24 +351,6 @@
                           "____opaque": true,
                           "____defaultValue": null
                         },
-                        "pathRenderContext": {
-                          "____label": "Render Context OCD Path",
-                          "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
-                          "____accept": [
-                            "jsNull",
-                            "jsString"
-                          ],
-                          "____defaultValue": null
-                        },
-                        "pathRenderData": {
-                          "____label": "Render Data OCD Path",
-                          "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                          "____accept": [
-                            "jsNull",
-                            "jsString"
-                          ],
-                          "____defaultValue": null
-                        },
                         "clock": {
                           "____label": "React Output Processor Clock",
                           "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
@@ -323,15 +359,43 @@
                             "opm": "z_mTe02hSWmaM1iRO1pBeA"
                           },
                           "value": {
-                            "____label": "Render Info",
-                            "____description": "Info useful for debugging the d2r2/React Output Processor.",
-                            "____types": "jsObject",
-                            "____defaultValue": {},
-                            "renderCount": {
-                              "____accept": "jsNumber",
-                              "____defaultValue": -1
+                            "____label": "Render Command",
+                            "____types": [
+                              "jsNull",
+                              "jsObject"
+                            ],
+                            "____defaultValue": null,
+                            "options": {
+                              "____types": "jsObject",
+                              "____defaultValue": {},
+                              "rehydrate": {
+                                "____types": "jsBoolean",
+                                "____defaultValue": false
+                              }
+                            },
+                            "pathRenderContext": {
+                              "____label": "Render Context OCD Path",
+                              "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
+                              "____accept": "jsString"
+                            },
+                            "pathRenderData": {
+                              "____label": "Render Data OCD Path",
+                              "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                              "____accept": "jsString"
                             }
                           }
+                        }
+                      },
+                      "private": {
+                        "____types": "jsObject",
+                        "____defaultValue": {},
+                        "renderCount": {
+                          "____accept": "jsNumber",
+                          "____defaultValue": -1
+                        },
+                        "renderPending": {
+                          "____accept": "jsBoolean",
+                          "____defaultValue": false
                         }
                       }
                     },
@@ -347,12 +411,12 @@
                             "transitionIf": {
                               "always": true
                             },
-                            "nextStep": "wait_invariants"
+                            "nextStep": "uninitialized_invariants"
                           }
                         ]
                       },
-                      "wait_invariants": {
-                        "description": "Waiting for input invariants to be satisfied.",
+                      "uninitialized_invariants": {
+                        "description": "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
                         "actions": {
                           "enter": [],
                           "exit": []
@@ -386,41 +450,15 @@
                                       }
                                     }
                                   }
-                                },
-                                {
-                                  "holarchy": {
-                                    "sml": {
-                                      "operators": {
-                                        "ocd": {
-                                          "isNamespaceTruthy": {
-                                            "path": "#.inputs.pathRenderContext"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                {
-                                  "holarchy": {
-                                    "sml": {
-                                      "operators": {
-                                        "ocd": {
-                                          "isNamespaceTruthy": {
-                                            "path": "#.inputs.pathRenderData"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
                                 }
                               ]
                             },
-                            "nextStep": "initialized"
+                            "nextStep": "uninitialized_inputs"
                           }
                         ]
                       },
-                      "initialized": {
-                        "description": "Input invariants have been satisfied.",
+                      "uninitialized_inputs": {
+                        "description": "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
                         "actions": {
                           "enter": [],
                           "exit": []
@@ -440,20 +478,58 @@
                                 }
                               }
                             },
-                            "nextStep": "render"
+                            "nextStep": "initialized"
+                          }
+                        ]
+                      },
+                      "initialized": {
+                        "description": "Preparing for initial render operation. Determining if we rehyrdate server-rendered view. Or, replace it.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "ocd": {
+                                      "isNamespaceTruthy": {
+                                        "path": "#.inputs.clock.value.options.rehydrate"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "rehydrate"
                           },
                           {
                             "transitionIf": {
                               "always": true
                             },
-                            "nextStep": "rehydrate"
+                            "nextStep": "render"
                           }
                         ]
                       },
                       "rehydrate": {
-                        "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
+                        "description": "Rehydrating the specified d2r2 ComponentRouter render data context to reconstruct server-rendered d2r2 ComponentRouter render data context in the client application.",
                         "actions": {
                           "enter": [
+                            {
+                              "holarchy": {
+                                "sml": {
+                                  "actions": {
+                                    "ocd": {
+                                      "setBooleanFlag": {
+                                        "path": "#.private.renderPending"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             {
                               "holarchy": {
                                 "sml": {
@@ -473,14 +549,27 @@
                             "transitionIf": {
                               "always": true
                             },
-                            "nextStep": "wait_clock"
+                            "nextStep": "rendering"
                           }
                         ]
                       },
                       "render": {
-                        "description": "Rendering client application view updates.",
+                        "description": "Rendering the specified d2r2 ComponentRouter render data context to refresh layout and client-side React component mountings.",
                         "actions": {
                           "enter": [
+                            {
+                              "holarchy": {
+                                "sml": {
+                                  "actions": {
+                                    "ocd": {
+                                      "setBooleanFlag": {
+                                        "path": "#.private.renderPending"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
                             {
                               "holarchy": {
                                 "sml": {
@@ -500,11 +589,38 @@
                             "transitionIf": {
                               "always": true
                             },
-                            "nextStep": "wait_clock"
+                            "nextStep": "rendering"
                           }
                         ]
                       },
-                      "wait_clock": {
+                      "rendering": {
+                        "description": "Rendering the specified d2r2 ComponentRouter render data context. Please wait for the operation to complete.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "not": {
+                                "holarchy": {
+                                  "sml": {
+                                    "operators": {
+                                      "ocd": {
+                                        "isNamespaceTruthy": {
+                                          "path": "#.private.renderPending"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "ready"
+                          }
+                        ]
+                      },
+                      "ready": {
                         "description": "Waiting for next clock signal to re-render client application view.",
                         "actions": {
                           "enter": [],
@@ -557,24 +673,6 @@
                         "____opaque": true,
                         "____defaultValue": null
                       },
-                      "pathRenderContext": {
-                        "____label": "Render Context OCD Path",
-                        "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
-                        "____accept": [
-                          "jsNull",
-                          "jsString"
-                        ],
-                        "____defaultValue": null
-                      },
-                      "pathRenderData": {
-                        "____label": "Render Data OCD Path",
-                        "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                        "____accept": [
-                          "jsNull",
-                          "jsString"
-                        ],
-                        "____defaultValue": null
-                      },
                       "clock": {
                         "____label": "React Output Processor Clock",
                         "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
@@ -583,15 +681,43 @@
                           "opm": "z_mTe02hSWmaM1iRO1pBeA"
                         },
                         "value": {
-                          "____label": "Render Info",
-                          "____description": "Info useful for debugging the d2r2/React Output Processor.",
-                          "____types": "jsObject",
-                          "____defaultValue": {},
-                          "renderCount": {
-                            "____accept": "jsNumber",
-                            "____defaultValue": -1
+                          "____label": "Render Command",
+                          "____types": [
+                            "jsNull",
+                            "jsObject"
+                          ],
+                          "____defaultValue": null,
+                          "options": {
+                            "____types": "jsObject",
+                            "____defaultValue": {},
+                            "rehydrate": {
+                              "____types": "jsBoolean",
+                              "____defaultValue": false
+                            }
+                          },
+                          "pathRenderContext": {
+                            "____label": "Render Context OCD Path",
+                            "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
+                            "____accept": "jsString"
+                          },
+                          "pathRenderData": {
+                            "____label": "Render Data OCD Path",
+                            "____description": "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
+                            "____accept": "jsString"
                           }
                         }
+                      }
+                    },
+                    "private": {
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "renderCount": {
+                        "____accept": "jsNumber",
+                        "____defaultValue": -1
+                      },
+                      "renderPending": {
+                        "____accept": "jsBoolean",
+                        "____defaultValue": false
                       }
                     }
                   },
@@ -610,9 +736,19 @@
                         }
                       },
                       {
-                        "u": "wait_invariants",
+                        "u": "uninitialized_invariants",
                         "p": {
-                          "description": "Waiting for input invariants to be satisfied.",
+                          "description": "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "uninitialized_inputs",
+                        "p": {
+                          "description": "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
                           "actions": {
                             "enter": [],
                             "exit": []
@@ -622,7 +758,7 @@
                       {
                         "u": "initialized",
                         "p": {
-                          "description": "Input invariants have been satisfied.",
+                          "description": "Preparing for initial render operation. Determining if we rehyrdate server-rendered view. Or, replace it.",
                           "actions": {
                             "enter": [],
                             "exit": []
@@ -632,9 +768,22 @@
                       {
                         "u": "rehydrate",
                         "p": {
-                          "description": "Rehydrating the client application view and registering user input and DOM event handlers.",
+                          "description": "Rehydrating the specified d2r2 ComponentRouter render data context to reconstruct server-rendered d2r2 ComponentRouter render data context in the client application.",
                           "actions": {
                             "enter": [
+                              {
+                                "holarchy": {
+                                  "sml": {
+                                    "actions": {
+                                      "ocd": {
+                                        "setBooleanFlag": {
+                                          "path": "#.private.renderPending"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
                               {
                                 "holarchy": {
                                   "sml": {
@@ -654,9 +803,22 @@
                       {
                         "u": "render",
                         "p": {
-                          "description": "Rendering client application view updates.",
+                          "description": "Rendering the specified d2r2 ComponentRouter render data context to refresh layout and client-side React component mountings.",
                           "actions": {
                             "enter": [
+                              {
+                                "holarchy": {
+                                  "sml": {
+                                    "actions": {
+                                      "ocd": {
+                                        "setBooleanFlag": {
+                                          "path": "#.private.renderPending"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
                               {
                                 "holarchy": {
                                   "sml": {
@@ -674,7 +836,17 @@
                         }
                       },
                       {
-                        "u": "wait_clock",
+                        "u": "rendering",
+                        "p": {
+                          "description": "Rendering the specified d2r2 ComponentRouter render data context. Please wait for the operation to complete.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "ready",
                         "p": {
                           "description": "Waiting for next clock signal to re-render client application view.",
                           "actions": {
@@ -688,7 +860,7 @@
                       {
                         "e": {
                           "u": "uninitialized",
-                          "v": "wait_invariants"
+                          "v": "uninitialized_invariants"
                         },
                         "p": {
                           "priority": 0,
@@ -699,8 +871,8 @@
                       },
                       {
                         "e": {
-                          "u": "wait_invariants",
-                          "v": "initialized"
+                          "u": "uninitialized_invariants",
+                          "v": "uninitialized_inputs"
                         },
                         "p": {
                           "priority": 0,
@@ -731,32 +903,6 @@
                                     }
                                   }
                                 }
-                              },
-                              {
-                                "holarchy": {
-                                  "sml": {
-                                    "operators": {
-                                      "ocd": {
-                                        "isNamespaceTruthy": {
-                                          "path": "#.inputs.pathRenderContext"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "holarchy": {
-                                  "sml": {
-                                    "operators": {
-                                      "ocd": {
-                                        "isNamespaceTruthy": {
-                                          "path": "#.inputs.pathRenderData"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
                               }
                             ]
                           }
@@ -764,8 +910,8 @@
                       },
                       {
                         "e": {
-                          "u": "initialized",
-                          "v": "render"
+                          "u": "uninitialized_inputs",
+                          "v": "initialized"
                         },
                         "p": {
                           "priority": 0,
@@ -790,6 +936,28 @@
                           "v": "rehydrate"
                         },
                         "p": {
+                          "priority": 0,
+                          "operator": {
+                            "holarchy": {
+                              "sml": {
+                                "operators": {
+                                  "ocd": {
+                                    "isNamespaceTruthy": {
+                                      "path": "#.inputs.clock.value.options.rehydrate"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "initialized",
+                          "v": "render"
+                        },
+                        "p": {
                           "priority": 1,
                           "operator": {
                             "always": true
@@ -799,7 +967,7 @@
                       {
                         "e": {
                           "u": "rehydrate",
-                          "v": "wait_clock"
+                          "v": "rendering"
                         },
                         "p": {
                           "priority": 0,
@@ -811,7 +979,7 @@
                       {
                         "e": {
                           "u": "render",
-                          "v": "wait_clock"
+                          "v": "rendering"
                         },
                         "p": {
                           "priority": 0,
@@ -822,7 +990,31 @@
                       },
                       {
                         "e": {
-                          "u": "wait_clock",
+                          "u": "rendering",
+                          "v": "ready"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "not": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "ocd": {
+                                      "isNamespaceTruthy": {
+                                        "path": "#.private.renderPending"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "ready",
                           "v": "render"
                         },
                         "p": {

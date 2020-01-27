@@ -2001,119 +2001,185 @@
                       "actResponse": {
                         "error": null,
                         "result": {
-                          "evalNumber": 1,
-                          "summary": {
-                            "counts": {
-                              "bindings": 3,
-                              "frames": 3,
-                              "errors": 0,
-                              "transitions": 2
-                            }
-                          },
-                          "evalFrames": [
-                            {
-                              "summary": {
-                                "counts": {
-                                  "bindings": 1,
-                                  "transitions": 1,
-                                  "errors": 0
+                          "actionResult": "whatever",
+                          "lastEvaluation": {
+                            "evalNumber": 1,
+                            "summary": {
+                              "counts": {
+                                "bindings": 3,
+                                "frames": 3,
+                                "errors": 0,
+                                "transitions": 2
+                              }
+                            },
+                            "evalFrames": [
+                              {
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 1,
+                                    "transitions": 1,
+                                    "errors": 0
+                                  },
+                                  "reports": {
+                                    "transitions": [
+                                      "rWatZg2xDbHwiPCI5s_mzw"
+                                    ],
+                                    "errors": []
+                                  }
                                 },
-                                "reports": {
-                                  "transitions": [
-                                    "rWatZg2xDbHwiPCI5s_mzw"
-                                  ],
-                                  "errors": []
-                                }
-                              },
-                              "bindings": {
-                                "rWatZg2xDbHwiPCI5s_mzw": {
-                                  "evalRequest": {
-                                    "dataBinding": {
-                                      "dataPath": "~.frameLatch",
-                                      "specPath": "~.frameLatch"
-                                    },
-                                    "initialStep": "waiting",
-                                    "opmRef": {
-                                      "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                      "name": "Observable Frame Latch",
-                                      "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
-                                      "opmDataSpec": {
-                                        "____label": "Observable Frame Latch",
-                                        "____types": "jsObject",
-                                        "____defaultValue": {},
-                                        "clock": {
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": false
-                                        }
+                                "bindings": {
+                                  "rWatZg2xDbHwiPCI5s_mzw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.frameLatch",
+                                        "specPath": "~.frameLatch"
                                       },
-                                      "steps": {
-                                        "uninitialized": {
-                                          "description": "Default starting process step.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": [
-                                              {
-                                                "holarchy": {
-                                                  "sml": {
-                                                    "actions": {
-                                                      "ocd": {
-                                                        "setBooleanFlag": {
-                                                          "path": "#.clock"
+                                      "initialStep": "waiting",
+                                      "opmRef": {
+                                        "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                        "name": "Observable Frame Latch",
+                                        "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                        "opmDataSpec": {
+                                          "____label": "Observable Frame Latch",
+                                          "____types": "jsObject",
+                                          "____defaultValue": {},
+                                          "clock": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          }
+                                        },
+                                        "steps": {
+                                          "uninitialized": {
+                                            "description": "Default starting process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "setBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
                                                         }
                                                       }
                                                     }
                                                   }
                                                 }
+                                              ]
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "always": true
+                                                },
+                                                "nextStep": "updated"
                                               }
                                             ]
                                           },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
-                                                "always": true
-                                              },
-                                              "nextStep": "updated"
-                                            }
-                                          ]
-                                        },
-                                        "updated": {
-                                          "description": "The value managed by the frame latch has been written.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": [
-                                              {
-                                                "holarchy": {
-                                                  "sml": {
-                                                    "actions": {
-                                                      "ocd": {
-                                                        "clearBooleanFlag": {
-                                                          "path": "#.clock"
+                                          "updated": {
+                                            "description": "The value managed by the frame latch has been written.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "clearBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
                                                         }
                                                       }
                                                     }
                                                   }
                                                 }
+                                              ]
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "always": true
+                                                },
+                                                "nextStep": "waiting"
                                               }
                                             ]
                                           },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
-                                                "always": true
+                                          "waiting": {
+                                            "description": "Frame latch value has not changed since last signalled update.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "operators": {
+                                                        "ocd": {
+                                                          "isBooleanFlagSet": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "nextStep": "updated"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "transitioned",
+                                      "finishStep": "updated",
+                                      "phases": {
+                                        "p1_toperator": [
+                                          {
+                                            "request": {
+                                              "context": {
+                                                "opmBindingPath": "~.frameLatch",
+                                                "ocdi": {
+                                                  "frameLatch": {
+                                                    "value": "whatever",
+                                                    "clock": false,
+                                                    "__opmiStep": "waiting"
+                                                  }
+                                                },
+                                                "transitionDispatcher": {
+                                                  "filterDescriptor": {
+                                                    "operationID": "3vrG6NddzzKSMlEOxmNMFw",
+                                                    "operationName": "Discriminator Filter",
+                                                    "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                    "inputTypeVIID": "zCofp69CPdYRnFaU8CZKRQ",
+                                                    "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "outputTypeVIID": "6X9HLGqRl2U0ElygkBKqIw",
+                                                    "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "operationVDID": "0fz0E2xONVdNno7tx1QUtA"
+                                                  },
+                                                  "supportedFilters": [
+                                                    "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                    "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                    "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                    "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                    "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                                                    "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                    "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                    "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                    "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                                                    "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                                  ],
+                                                  "options": {
+                                                    "action": "routeRequest"
+                                                  }
+                                                }
                                               },
-                                              "nextStep": "waiting"
-                                            }
-                                          ]
-                                        },
-                                        "waiting": {
-                                          "description": "Frame latch value has not changed since last signalled update.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": []
-                                          },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
+                                              "operatorRequest": {
                                                 "holarchy": {
                                                   "sml": {
                                                     "operators": {
@@ -2125,199 +2191,410 @@
                                                     }
                                                   }
                                                 }
-                                              },
-                                              "nextStep": "updated"
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "evalResponse": {
-                                    "status": "transitioned",
-                                    "finishStep": "updated",
-                                    "phases": {
-                                      "p1_toperator": [
-                                        {
-                                          "request": {
-                                            "context": {
-                                              "opmBindingPath": "~.frameLatch",
-                                              "ocdi": {
-                                                "frameLatch": {
-                                                  "value": "whatever",
-                                                  "clock": false,
-                                                  "__opmiStep": "waiting"
-                                                }
-                                              },
-                                              "transitionDispatcher": {
-                                                "filterDescriptor": {
-                                                  "operationID": "3vrG6NddzzKSMlEOxmNMFw",
-                                                  "operationName": "Discriminator Filter",
-                                                  "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                  "inputTypeVIID": "zCofp69CPdYRnFaU8CZKRQ",
-                                                  "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "6X9HLGqRl2U0ElygkBKqIw",
-                                                  "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "0fz0E2xONVdNno7tx1QUtA"
-                                                },
-                                                "supportedFilters": [
-                                                  "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
-                                                  "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
-                                                  "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
-                                                  "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
-                                                  "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
-                                                  "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                                                  "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
-                                                  "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
-                                                  "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
-                                                  "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
-                                                ],
-                                                "options": {
-                                                  "action": "routeRequest"
-                                                }
                                               }
                                             },
-                                            "operatorRequest": {
+                                            "response": {
+                                              "error": null,
+                                              "result": true
+                                            }
+                                          }
+                                        ],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": {
+                                          "error": null,
+                                          "result": "updated"
+                                        }
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 1,
+                                    "transitions": 1,
+                                    "errors": 0
+                                  },
+                                  "reports": {
+                                    "transitions": [
+                                      "rWatZg2xDbHwiPCI5s_mzw"
+                                    ],
+                                    "errors": []
+                                  }
+                                },
+                                "bindings": {
+                                  "rWatZg2xDbHwiPCI5s_mzw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.frameLatch",
+                                        "specPath": "~.frameLatch"
+                                      },
+                                      "initialStep": "updated",
+                                      "opmRef": {
+                                        "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                        "name": "Observable Frame Latch",
+                                        "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                        "opmDataSpec": {
+                                          "____label": "Observable Frame Latch",
+                                          "____types": "jsObject",
+                                          "____defaultValue": {},
+                                          "clock": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          }
+                                        },
+                                        "steps": {
+                                          "uninitialized": {
+                                            "description": "Default starting process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "setBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "always": true
+                                                },
+                                                "nextStep": "updated"
+                                              }
+                                            ]
+                                          },
+                                          "updated": {
+                                            "description": "The value managed by the frame latch has been written.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "clearBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              ]
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "always": true
+                                                },
+                                                "nextStep": "waiting"
+                                              }
+                                            ]
+                                          },
+                                          "waiting": {
+                                            "description": "Frame latch value has not changed since last signalled update.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "operators": {
+                                                        "ocd": {
+                                                          "isBooleanFlagSet": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "nextStep": "updated"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "transitioned",
+                                      "finishStep": "waiting",
+                                      "phases": {
+                                        "p1_toperator": [
+                                          {
+                                            "request": {
+                                              "context": {
+                                                "opmBindingPath": "~.frameLatch",
+                                                "ocdi": {
+                                                  "frameLatch": {
+                                                    "value": "whatever",
+                                                    "clock": false,
+                                                    "__opmiStep": "waiting"
+                                                  }
+                                                },
+                                                "transitionDispatcher": {
+                                                  "filterDescriptor": {
+                                                    "operationID": "3vrG6NddzzKSMlEOxmNMFw",
+                                                    "operationName": "Discriminator Filter",
+                                                    "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                    "inputTypeVIID": "zCofp69CPdYRnFaU8CZKRQ",
+                                                    "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "outputTypeVIID": "6X9HLGqRl2U0ElygkBKqIw",
+                                                    "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "operationVDID": "0fz0E2xONVdNno7tx1QUtA"
+                                                  },
+                                                  "supportedFilters": [
+                                                    "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                    "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                    "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                    "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                    "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                                                    "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                    "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                    "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                    "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                                                    "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                                  ],
+                                                  "options": {
+                                                    "action": "routeRequest"
+                                                  }
+                                                }
+                                              },
+                                              "operatorRequest": {
+                                                "always": true
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": true
+                                            }
+                                          }
+                                        ],
+                                        "p2_exit": [
+                                          {
+                                            "request": {
                                               "holarchy": {
                                                 "sml": {
-                                                  "operators": {
+                                                  "actions": {
                                                     "ocd": {
-                                                      "isBooleanFlagSet": {
+                                                      "clearBooleanFlag": {
                                                         "path": "#.clock"
                                                       }
                                                     }
                                                   }
                                                 }
                                               }
+                                            },
+                                            "response": {
+                                              "error": null
                                             }
-                                          },
-                                          "response": {
-                                            "error": null,
-                                            "result": true
                                           }
+                                        ],
+                                        "p3_enter": [],
+                                        "p4_finalize": {
+                                          "error": null,
+                                          "result": "waiting"
                                         }
-                                      ],
-                                      "p2_exit": [],
-                                      "p3_enter": [],
-                                      "p4_finalize": {
-                                        "error": null,
-                                        "result": "updated"
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
                                       }
-                                    },
-                                    "errors": {
-                                      "p1_toperator": 0,
-                                      "p2_exit": 0,
-                                      "p3_enter": 0,
-                                      "p4_finalize": 0,
-                                      "total": 0
                                     }
                                   }
                                 }
-                              }
-                            },
-                            {
-                              "summary": {
-                                "counts": {
-                                  "bindings": 1,
-                                  "transitions": 1,
-                                  "errors": 0
-                                },
-                                "reports": {
-                                  "transitions": [
-                                    "rWatZg2xDbHwiPCI5s_mzw"
-                                  ],
-                                  "errors": []
-                                }
                               },
-                              "bindings": {
-                                "rWatZg2xDbHwiPCI5s_mzw": {
-                                  "evalRequest": {
-                                    "dataBinding": {
-                                      "dataPath": "~.frameLatch",
-                                      "specPath": "~.frameLatch"
-                                    },
-                                    "initialStep": "updated",
-                                    "opmRef": {
-                                      "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                      "name": "Observable Frame Latch",
-                                      "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
-                                      "opmDataSpec": {
-                                        "____label": "Observable Frame Latch",
-                                        "____types": "jsObject",
-                                        "____defaultValue": {},
-                                        "clock": {
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": false
-                                        }
+                              {
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 1,
+                                    "transitions": 0,
+                                    "errors": 0
+                                  },
+                                  "reports": {
+                                    "transitions": [],
+                                    "errors": []
+                                  }
+                                },
+                                "bindings": {
+                                  "rWatZg2xDbHwiPCI5s_mzw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.frameLatch",
+                                        "specPath": "~.frameLatch"
                                       },
-                                      "steps": {
-                                        "uninitialized": {
-                                          "description": "Default starting process step.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": [
-                                              {
-                                                "holarchy": {
-                                                  "sml": {
-                                                    "actions": {
-                                                      "ocd": {
-                                                        "setBooleanFlag": {
-                                                          "path": "#.clock"
+                                      "initialStep": "waiting",
+                                      "opmRef": {
+                                        "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                        "name": "Observable Frame Latch",
+                                        "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                        "opmDataSpec": {
+                                          "____label": "Observable Frame Latch",
+                                          "____types": "jsObject",
+                                          "____defaultValue": {},
+                                          "clock": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          }
+                                        },
+                                        "steps": {
+                                          "uninitialized": {
+                                            "description": "Default starting process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "setBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
                                                         }
                                                       }
                                                     }
                                                   }
                                                 }
+                                              ]
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "always": true
+                                                },
+                                                "nextStep": "updated"
                                               }
                                             ]
                                           },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
-                                                "always": true
-                                              },
-                                              "nextStep": "updated"
-                                            }
-                                          ]
-                                        },
-                                        "updated": {
-                                          "description": "The value managed by the frame latch has been written.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": [
-                                              {
-                                                "holarchy": {
-                                                  "sml": {
-                                                    "actions": {
-                                                      "ocd": {
-                                                        "clearBooleanFlag": {
-                                                          "path": "#.clock"
+                                          "updated": {
+                                            "description": "The value managed by the frame latch has been written.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "actions": {
+                                                        "ocd": {
+                                                          "clearBooleanFlag": {
+                                                            "path": "#.clock"
+                                                          }
                                                         }
                                                       }
                                                     }
                                                   }
                                                 }
+                                              ]
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "always": true
+                                                },
+                                                "nextStep": "waiting"
                                               }
                                             ]
                                           },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
-                                                "always": true
+                                          "waiting": {
+                                            "description": "Frame latch value has not changed since last signalled update.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            },
+                                            "transitions": [
+                                              {
+                                                "transitionIf": {
+                                                  "holarchy": {
+                                                    "sml": {
+                                                      "operators": {
+                                                        "ocd": {
+                                                          "isBooleanFlagSet": {
+                                                            "path": "#.clock"
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "nextStep": "updated"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "waiting",
+                                      "phases": {
+                                        "p1_toperator": [
+                                          {
+                                            "request": {
+                                              "context": {
+                                                "opmBindingPath": "~.frameLatch",
+                                                "ocdi": {
+                                                  "frameLatch": {
+                                                    "value": "whatever",
+                                                    "clock": false,
+                                                    "__opmiStep": "waiting"
+                                                  }
+                                                },
+                                                "transitionDispatcher": {
+                                                  "filterDescriptor": {
+                                                    "operationID": "3vrG6NddzzKSMlEOxmNMFw",
+                                                    "operationName": "Discriminator Filter",
+                                                    "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                    "inputTypeVIID": "zCofp69CPdYRnFaU8CZKRQ",
+                                                    "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "outputTypeVIID": "6X9HLGqRl2U0ElygkBKqIw",
+                                                    "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "operationVDID": "0fz0E2xONVdNno7tx1QUtA"
+                                                  },
+                                                  "supportedFilters": [
+                                                    "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                    "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
+                                                    "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                    "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                    "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                                                    "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                    "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                    "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                    "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                                                    "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
+                                                  ],
+                                                  "options": {
+                                                    "action": "routeRequest"
+                                                  }
+                                                }
                                               },
-                                              "nextStep": "waiting"
-                                            }
-                                          ]
-                                        },
-                                        "waiting": {
-                                          "description": "Frame latch value has not changed since last signalled update.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": []
-                                          },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
+                                              "operatorRequest": {
                                                 "holarchy": {
                                                   "sml": {
                                                     "operators": {
@@ -2329,305 +2606,31 @@
                                                     }
                                                   }
                                                 }
-                                              },
-                                              "nextStep": "updated"
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "evalResponse": {
-                                    "status": "transitioned",
-                                    "finishStep": "waiting",
-                                    "phases": {
-                                      "p1_toperator": [
-                                        {
-                                          "request": {
-                                            "context": {
-                                              "opmBindingPath": "~.frameLatch",
-                                              "ocdi": {
-                                                "frameLatch": {
-                                                  "value": "whatever",
-                                                  "clock": false,
-                                                  "__opmiStep": "waiting"
-                                                }
-                                              },
-                                              "transitionDispatcher": {
-                                                "filterDescriptor": {
-                                                  "operationID": "3vrG6NddzzKSMlEOxmNMFw",
-                                                  "operationName": "Discriminator Filter",
-                                                  "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                  "inputTypeVIID": "zCofp69CPdYRnFaU8CZKRQ",
-                                                  "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "6X9HLGqRl2U0ElygkBKqIw",
-                                                  "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "0fz0E2xONVdNno7tx1QUtA"
-                                                },
-                                                "supportedFilters": [
-                                                  "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
-                                                  "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
-                                                  "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
-                                                  "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
-                                                  "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
-                                                  "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                                                  "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
-                                                  "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
-                                                  "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
-                                                  "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
-                                                ],
-                                                "options": {
-                                                  "action": "routeRequest"
-                                                }
                                               }
                                             },
-                                            "operatorRequest": {
-                                              "always": true
+                                            "response": {
+                                              "error": null,
+                                              "result": false
                                             }
-                                          },
-                                          "response": {
-                                            "error": null,
-                                            "result": true
                                           }
-                                        }
-                                      ],
-                                      "p2_exit": [
-                                        {
-                                          "request": {
-                                            "holarchy": {
-                                              "sml": {
-                                                "actions": {
-                                                  "ocd": {
-                                                    "clearBooleanFlag": {
-                                                      "path": "#.clock"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          },
-                                          "response": {
-                                            "error": null
-                                          }
-                                        }
-                                      ],
-                                      "p3_enter": [],
-                                      "p4_finalize": {
-                                        "error": null,
-                                        "result": "waiting"
-                                      }
-                                    },
-                                    "errors": {
-                                      "p1_toperator": 0,
-                                      "p2_exit": 0,
-                                      "p3_enter": 0,
-                                      "p4_finalize": 0,
-                                      "total": 0
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            {
-                              "summary": {
-                                "counts": {
-                                  "bindings": 1,
-                                  "transitions": 0,
-                                  "errors": 0
-                                },
-                                "reports": {
-                                  "transitions": [],
-                                  "errors": []
-                                }
-                              },
-                              "bindings": {
-                                "rWatZg2xDbHwiPCI5s_mzw": {
-                                  "evalRequest": {
-                                    "dataBinding": {
-                                      "dataPath": "~.frameLatch",
-                                      "specPath": "~.frameLatch"
-                                    },
-                                    "initialStep": "waiting",
-                                    "opmRef": {
-                                      "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                      "name": "Observable Frame Latch",
-                                      "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
-                                      "opmDataSpec": {
-                                        "____label": "Observable Frame Latch",
-                                        "____types": "jsObject",
-                                        "____defaultValue": {},
-                                        "clock": {
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": false
-                                        }
+                                        ],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
                                       },
-                                      "steps": {
-                                        "uninitialized": {
-                                          "description": "Default starting process step.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": [
-                                              {
-                                                "holarchy": {
-                                                  "sml": {
-                                                    "actions": {
-                                                      "ocd": {
-                                                        "setBooleanFlag": {
-                                                          "path": "#.clock"
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            ]
-                                          },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
-                                                "always": true
-                                              },
-                                              "nextStep": "updated"
-                                            }
-                                          ]
-                                        },
-                                        "updated": {
-                                          "description": "The value managed by the frame latch has been written.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": [
-                                              {
-                                                "holarchy": {
-                                                  "sml": {
-                                                    "actions": {
-                                                      "ocd": {
-                                                        "clearBooleanFlag": {
-                                                          "path": "#.clock"
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            ]
-                                          },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
-                                                "always": true
-                                              },
-                                              "nextStep": "waiting"
-                                            }
-                                          ]
-                                        },
-                                        "waiting": {
-                                          "description": "Frame latch value has not changed since last signalled update.",
-                                          "actions": {
-                                            "enter": [],
-                                            "exit": []
-                                          },
-                                          "transitions": [
-                                            {
-                                              "transitionIf": {
-                                                "holarchy": {
-                                                  "sml": {
-                                                    "operators": {
-                                                      "ocd": {
-                                                        "isBooleanFlagSet": {
-                                                          "path": "#.clock"
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "nextStep": "updated"
-                                            }
-                                          ]
-                                        }
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
                                       }
-                                    }
-                                  },
-                                  "evalResponse": {
-                                    "status": "noop",
-                                    "finishStep": "waiting",
-                                    "phases": {
-                                      "p1_toperator": [
-                                        {
-                                          "request": {
-                                            "context": {
-                                              "opmBindingPath": "~.frameLatch",
-                                              "ocdi": {
-                                                "frameLatch": {
-                                                  "value": "whatever",
-                                                  "clock": false,
-                                                  "__opmiStep": "waiting"
-                                                }
-                                              },
-                                              "transitionDispatcher": {
-                                                "filterDescriptor": {
-                                                  "operationID": "3vrG6NddzzKSMlEOxmNMFw",
-                                                  "operationName": "Discriminator Filter",
-                                                  "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                  "inputTypeVIID": "zCofp69CPdYRnFaU8CZKRQ",
-                                                  "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "6X9HLGqRl2U0ElygkBKqIw",
-                                                  "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "0fz0E2xONVdNno7tx1QUtA"
-                                                },
-                                                "supportedFilters": [
-                                                  "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
-                                                  "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
-                                                  "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
-                                                  "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
-                                                  "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
-                                                  "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                                                  "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
-                                                  "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
-                                                  "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
-                                                  "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]"
-                                                ],
-                                                "options": {
-                                                  "action": "routeRequest"
-                                                }
-                                              }
-                                            },
-                                            "operatorRequest": {
-                                              "holarchy": {
-                                                "sml": {
-                                                  "operators": {
-                                                    "ocd": {
-                                                      "isBooleanFlagSet": {
-                                                        "path": "#.clock"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          },
-                                          "response": {
-                                            "error": null,
-                                            "result": false
-                                          }
-                                        }
-                                      ],
-                                      "p2_exit": [],
-                                      "p3_enter": [],
-                                      "p4_finalize": null
-                                    },
-                                    "errors": {
-                                      "p1_toperator": 0,
-                                      "p2_exit": 0,
-                                      "p3_enter": 0,
-                                      "p4_finalize": 0,
-                                      "total": 0
                                     }
                                   }
                                 }
                               }
-                            }
-                          ]
+                            ]
+                          }
                         }
                       }
                     }

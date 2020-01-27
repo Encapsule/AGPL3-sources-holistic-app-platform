@@ -91,8 +91,6 @@ const factoryResponse = holodeck.harnessFactory.request({
         // order to avoid taking a dependency on toJSON. This way we can later
         // fix toJSON to work as intended w/out breaking existing tests.
 
-        // THIS IS CRAP >>>> const serialized = arccore.util.deepCopy(toJSON);
-
         const serialized = JSON.parse(JSON.stringify(toJSON));
 
         // Let's just delete the known non-idempotent (i.e. volatile) timing information
@@ -115,21 +113,23 @@ const factoryResponse = holodeck.harnessFactory.request({
 
         // Dispatch act requests. Note we don't care about the object status. If the opci is invalid, then the logs will be full of errors.
         messageBody.actRequests.forEach((actRequest_) => {
-            // ================================================================
-            // CLEAN THIS UP! HOME STRETCH BABY
-            // ================================================================
-            // TODO: FIX THIS: This is a bug in OPC.act
+
+            // TODO: FIX THIS: This is a bug in OPC.act - should it delete last eval results on entry? Maybe in OPC._evaluate?
             delete opcInstance._private.lastEvalautionRepsonse;
-	    if (!opcInstance.isValid()) {
-		response.result.actionEvaluations.push({
-		    actRequest: actRequest_,
-		    actResponse: { error: "OPC instance is invalid!" }
-		});
-		return;
-	    }
+
+            if (!opcInstance.isValid()) {
+                response.result.actionEvaluations.push({
+                    actRequest: actRequest_,
+                    actResponse: { error: "OPC instance is invalid!" }
+                });
+                return;
+            }
+
             let actResponse = opcInstance.act(actRequest_);
+
+            // Delete non-idempotent data from the response.
             if (!actResponse.error) {
-                delete actResponse.result.summary.evalStopwatch;
+                delete actResponse.result.lastEvaluation.summary.evalStopwatch;
             } else {
                 // TODO: FIX THIS: Depending on how act fails
                 // it probably doesn't make sense to return last evaluation response in all cases (like this one).

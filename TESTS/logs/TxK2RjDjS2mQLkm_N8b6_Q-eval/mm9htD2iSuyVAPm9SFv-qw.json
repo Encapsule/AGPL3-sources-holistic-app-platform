@@ -111,7 +111,7 @@
                         }
                       },
                       "actResponse": {
-                        "error": "No ControllerAction class instances registered!"
+                        "error": "Error dispatching controller action filter. Skipping any further evaluation. No ControllerAction class instances registered!"
                       }
                     }
                   ]
