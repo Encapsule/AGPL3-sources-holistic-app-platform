@@ -129,12 +129,11 @@ const factoryResponse = arccore.filter.create({
                     // The value record.dataRef is a reference to the actual data in the OCD we're currently looking at.
 
                     const inTypeSetResponse = arccore.types.check.inTypeSet({ value: record.dataRef, types: [ "jsObject", "jsArray" ] });
-                    if (inTypeSetResponse.error) {
-                        errors.push(inTypeSetResponse.error);
-                        break;
-                    }
-                    if (!inTypeSetResponse.result) {
-                        // We only process objects and arrays. All other types by definition end the possibility of binding additional OPM on this branch of the controller data tree.
+                    if (inTypeSetResponse.error || !inTypeSetResponse.result) {
+                        // inTypeSet will respond with an error when asked to evaluate types that are not in the set supported by filter.
+                        // So, we ignore these because by definition we don't track these in filter specs. And, what's not tracked cannot be bound to an OPM.
+                        // But, for types that filter does support, we actually only care to evaluate the two we asked about above;
+                        // by definition finding any other type ends the possibility of binding additional OPM on this branch of the controller data tree.
                         continue;
                     }
 

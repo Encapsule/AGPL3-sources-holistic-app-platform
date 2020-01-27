@@ -159,9 +159,10 @@ class ObservableProcessController {
             // skip any futher processing (including a possible evaluation)
             // and return. Transport errors represent serious flaws in a derived
             // app/service that must be corrected. We skip possible evaluation
-            // below on error to make it simpler for developers to diagnose
+            // that would normally occur to make it simpler for developers to diagnose
             // the transport error.
             if (actionResponse.error) {
+                errors.push("Error dispatching controller action filter. Skipping any further evaluation.");
                 errors.push(actionResponse.error);
                 break;
             }
@@ -177,7 +178,16 @@ class ObservableProcessController {
             // the controller action as observed in the contained ocdi according
 
             if (this._private.opcActorStack.length === 1) {
-                response = this._evaluate();
+                let evaluateResponse = this._evaluate();
+                if (evaluateResponse.error) {
+                    errors.push("Unable to evaluate OPC state after executing controller action due to error:");
+                    errors.push(evaluateResponse.error);
+                    break;
+                }
+                response.result = {
+                    actionResult: actionResponse.result,
+                    lastEvaluation: evaluateResponse.result
+                }
             }
 
             break;

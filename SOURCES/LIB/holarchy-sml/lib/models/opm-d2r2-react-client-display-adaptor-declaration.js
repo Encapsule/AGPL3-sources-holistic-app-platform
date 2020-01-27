@@ -111,7 +111,7 @@ module.exports = {
         initialized: {
             description: "Preparing for initial render operation. Determining if we rehyrdate server-rendered view. Or, replace it.",
             transitions: [
-                { transitionIf: { holarcy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.input.clock.value.options.rehydrate" } } } } } }, nextStep: "rehydrate" },
+                { transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value.options.rehydrate" } } } } } }, nextStep: "rehydrate" },
                 { transitionIf: { always: true }, nextStep: "render" }
             ]
         },
