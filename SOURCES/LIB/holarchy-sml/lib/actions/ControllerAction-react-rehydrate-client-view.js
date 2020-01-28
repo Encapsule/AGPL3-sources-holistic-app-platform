@@ -40,6 +40,7 @@ module.exports = new holarchy.ControllerAction({
             inBreakScope = true;
             const message = request_.actionRequest.holarchy.sml.actions.react.rehydrate;
 
+            // Resolve the full path to the d2r2 React Client Display Adaptor's input namespace.
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
                 dataPath: "#.inputs"
@@ -50,6 +51,7 @@ module.exports = new holarchy.ControllerAction({
             }
             const pathInputs = rpResponse.result;
 
+            // Read the d2r2 React Client Display Adaptor's input namespace from the OCD.
             let ocdResponse = request_.context.ocdi.readNamespace(pathInputs);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
@@ -57,26 +59,29 @@ module.exports = new holarchy.ControllerAction({
             }
             const inputs = ocdResponse.result;
 
+            // Resolve the full path to the specified d2r2 render context namespace.
             rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
-                dataPath: inputs.pathDataContext
+                dataPath: inputs.clock.value.pathRenderContext
             });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
                 break;
             }
-            const pathDataContext = rpResponse.result;
+            const pathRenderContext = rpResponse.result;
 
-            ocdResponse = request_.ocdi.readNamespace(pathDataContext);
+            // Read the specified OCD namespace and use it as the d2r2 renderContext.
+            ocdResponse = request_.context.ocdi.readNamespace(pathRenderContext);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
-            const dataContext = ocdResponse.result;
+            let renderContext = ocdResponse.result;
 
+            // Resolve the full path to the specified d2r2 render context namespace.
             rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
-                dataPath: inputs.pathRenderData
+                dataPath: inputs.clock.value.pathRenderData
             });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
@@ -84,19 +89,38 @@ module.exports = new holarchy.ControllerAction({
             }
             const pathRenderData = rpResponse.result;
 
-            ocdResponse = request_.ocdi.readNamespace(pathRenderData);
+            // Read the specifed OCD namespace and use it as the d2r2 renderData.
+            ocdResponse = request_.context.ocdi.readNamespace(pathRenderData);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
             const renderData = ocdResponse.result;
 
-            // TODO: This seems to presume renderData is embedded already?
-            const d2r2Component = React.createElement(ComponentRouter, dataContext);
+            // ================================================================
+            // ================================================================
+            // ================================================================
+            // THIS NEEDS TO BE REPLACED. WE WANT TO USE THE RAW DATA READ FROM
+            // THE SPECIFIED RENDER CONTEXT AND RENDER DATA WITHOUT ANY MODIFICATION.
+            // WE DO NOT WANT TO HAVE ANY KNOWLEDGE WHATEVER IN THIS MODEL ABOUT
+            // THE FORMAT OF THESE MESSAGES.
+
+            let legacyReactContext = {
+                appStateContext: { // TODO: remove this especially
+                    ComponentRouter: inputs.ComponentRouter
+                },
+                document: renderContext,
+                renderData: renderData
+            };
+
+            // ================================================================
+            // ================================================================
+            // ================================================================
+
+            const d2r2Component = React.createElement(inputs.ComponentRouter, legacyReactContext);
 
             // See: https://reactjs.org/docs/react-dom.html#hydrate
-
-            ReactDOM.hydrate(d2r2Component, DOMElement, function() {
+            ReactDOM.hydrate(d2r2Component, inputs.DOMElement, function() {
 
                 // TODO: What should an external actor, in this case React, do if a transport error
                 // occurs when calling opci.act? I think it's reasonable to provide some sort of centralized
@@ -109,7 +133,7 @@ module.exports = new holarchy.ControllerAction({
                 const actResponse = request_.context.act({
                     actorName: "React Rehydrate Completion Handler",
                     actionDescription: "Signal completion of client application view rehydration via React.",
-                    actionRequest: { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.rehydrated" } } } } } },
+                    actionRequest: { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#.private.renderPending" } } } } } },
                     opmBindingPath: request_.context.opmBindingPath
                 });
 
