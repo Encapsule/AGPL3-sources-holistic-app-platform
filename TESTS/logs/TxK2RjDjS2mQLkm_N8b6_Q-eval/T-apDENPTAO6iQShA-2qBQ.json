@@ -77,7 +77,25 @@
                       "badNamespace": {}
                     },
                     "transitionDispatcher": {},
-                    "actionDispatcher": {},
+                    "actionDispatcher": {
+                      "filterDescriptor": {
+                        "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
+                        "operationName": "Discriminator Filter",
+                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
+                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
+                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "operationVDID": "B3T0EzfBNVfyHI7to6QUtA"
+                      },
+                      "supportedFilters": [
+                        "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
+                        "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
+                      ],
+                      "options": {
+                        "action": "routeRequest"
+                      }
+                    },
                     "opcActorStack": [],
                     "evalCount": 1,
                     "lastEvalResponse": {
@@ -113,8 +131,7 @@
                     "constructionWarnings": [
                       "WARNING: No ObservableProcessModel class instances registered!",
                       "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'T-apDENPTAO6iQShA-2qBQ'. Unknown/unregistered OPM specified.",
-                      "WARNING: No TransitionOperator class instances have been registered!",
-                      "WARNING: No ControllerAction class instances have been registered!"
+                      "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },
                   "actionEvaluations": []

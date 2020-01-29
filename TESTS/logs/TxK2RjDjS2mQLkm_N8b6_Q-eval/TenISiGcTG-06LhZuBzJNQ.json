@@ -356,7 +356,7 @@
                                     "____types": "jsObject",
                                     "opmi": {
                                       "____types": "jsObject",
-                                      "inStep": {
+                                      "atStep": {
                                         "____types": "jsObject",
                                         "path": {
                                           "____accept": "jsString"
@@ -375,10 +375,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                          "inputTypeVDID": "JI94Ix-sn-tgo2-20gNnZw",
+                          "inputTypeVDID": "JI94wB-snzhgo2940gNnzg",
                           "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "wnUhRFZzvpO6TDOctCBccg"
+                          "operationVDID": "woWNRFat8ZO6svOctDGrcg"
                         },
                         {
                           "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
@@ -923,7 +923,25 @@
                         "action": "routeRequest"
                       }
                     },
-                    "actionDispatcher": {},
+                    "actionDispatcher": {
+                      "filterDescriptor": {
+                        "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
+                        "operationName": "Discriminator Filter",
+                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
+                        "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
+                        "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                        "operationVDID": "B3T0EzfBNVfyHI7to6QUtA"
+                      },
+                      "supportedFilters": [
+                        "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
+                        "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
+                      ],
+                      "options": {
+                        "action": "routeRequest"
+                      }
+                    },
                     "opcActorStack": [],
                     "evalCount": 1,
                     "lastEvalResponse": {
@@ -1064,9 +1082,7 @@
                         ]
                       }
                     },
-                    "constructionWarnings": [
-                      "WARNING: No ControllerAction class instances have been registered!"
-                    ]
+                    "constructionWarnings": []
                   },
                   "actionEvaluations": []
                 }

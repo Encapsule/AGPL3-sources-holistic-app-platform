@@ -165,18 +165,20 @@
                     "transitionDispatcher": {},
                     "actionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "JMMqUQ69mX8OlWIeTkDJdg",
+                        "operationID": "39IqfZxMgJVwbOr-1NDKJA",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                        "inputTypeVIID": "4oWxnuHKn4v9Tg3IRkDmJQ",
+                        "inputTypeVIID": "kVyKpltP-r1iPJ0oocIaCA",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "YwdAuAjCULYMXHfs5FNQdQ",
+                        "outputTypeVIID": "dt3GnQRu4pc-5yFpmz_vig",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "axb0E2a4NVe6KY7tGp4UtA"
+                        "operationVDID": "na70ExouNVfsX47tsDoUtA"
                       },
                       "supportedFilters": [
                         "[93_stDeORb-9W_0d69fswg::NOOP Controller Test Action #2]",
-                        "[BO184bcvSzmr9oF4KJynSA::NOOP Controller Test Action #3]"
+                        "[BO184bcvSzmr9oF4KJynSA::NOOP Controller Test Action #3]",
+                        "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
+                        "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                       ],
                       "options": {
                         "action": "routeRequest"

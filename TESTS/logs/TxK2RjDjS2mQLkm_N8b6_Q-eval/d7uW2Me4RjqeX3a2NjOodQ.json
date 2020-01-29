@@ -37,7 +37,7 @@
               "54MiSgQdSiukMX4fIZJimg": {
                 "d7uW2Me4RjqeX3a2NjOodQ": {
                   "opcToJSON": {
-                    "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
+                    "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Unable to evaluate OPC state after executing controller action due to error: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed.",
                     "result": {
                       "id": "d7uW2Me4RjqeX3a2NjOodQ",
                       "name": "Test OPC options #2",
@@ -61,7 +61,25 @@
                       },
                       "ocdi": {},
                       "transitionDispatcher": {},
-                      "actionDispatcher": {},
+                      "actionDispatcher": {
+                        "filterDescriptor": {
+                          "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
+                          "operationName": "Discriminator Filter",
+                          "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                          "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
+                          "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                          "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
+                          "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                          "operationVDID": "B3T0EzfBNVfyHI7to6QUtA"
+                        },
+                        "supportedFilters": [
+                          "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
+                          "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
+                        ],
+                        "options": {
+                          "action": "routeRequest"
+                        }
+                      },
                       "opcActorStack": [],
                       "evalCount": 1,
                       "lastEvalResponse": {
@@ -82,11 +100,10 @@
                       },
                       "constructionWarnings": [
                         "WARNING: No ObservableProcessModel class instances registered!",
-                        "WARNING: No TransitionOperator class instances have been registered!",
-                        "WARNING: No ControllerAction class instances have been registered!"
+                        "WARNING: No TransitionOperator class instances have been registered!"
                       ],
                       "constructionError": {
-                        "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
+                        "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Unable to evaluate OPC state after executing controller action due to error: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
                       }
                     }
                   },
