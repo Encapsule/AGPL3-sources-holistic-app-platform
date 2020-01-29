@@ -408,6 +408,9 @@ const factoryResponse = arccore.filter.create({
                     // Get the stepDescriptor for the next process step that declares the actions to take on step entry.
                     const nextStepDescriptor = opmRef.getStepDescriptor(nextStep);
 
+                    // RIGHT LOCATION?
+			        console.log(`%cOPC [${result.evalNumber}:${result.summary.counts.frames}] transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`, "color: #112233; background-color: #DDEEFF;");
+
                     // Dispatch the OPM instance's step exit action(s).
 
                     opmInstanceFrame.evalResponse.status = "transitioning-dispatch-exit-actions";
@@ -546,7 +549,6 @@ const factoryResponse = arccore.filter.create({
                         result.summary.counts.transitions++;
                         opmInstanceFrame.evalResponse.finishStep = nextStep;
 
-			console.log(`%cOPC:[${result.evalNumber}:${result.summary.counts.frames}] ${opmBindingPath}:: ${initialStep} => ${nextStep}`, "color: #0066FF; font-size: larger; background-color: #DDEEFF; font-weight: bold;");
                     }
 
                 } // opmBindingPath in evalFrame
@@ -596,8 +598,13 @@ const factoryResponse = arccore.filter.create({
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
 
-	let logStyles = !response.error?"color: #006600; background-color: #AAEECC; font-size: larger; font-weight: bold;":"color: #CC0000; background-color: #DDEEFF; font-weight: bold;";
-	console.log(`%cOPC:[${result.evalNumber}:${result.summary.counts.frames-1}] Evaluation complete in ${result.summary.evalStopwatch.totalMicroseconds} us.`, logStyles);
+
+	    let logStyles = response.error?
+            "color: #000000; background-color: #FF0000; font-weight: bold;"
+            :
+            "color: #000000; background-color: #FFCC00; font-weight: bold;";
+
+	    console.log(`%cOPC:_evaluate [${result.evalNumber}:${result.summary.counts.frames-1}] Evaluation complete in ${result.summary.evalStopwatch.totalMilliseconds} ms.`, logStyles);
 
         response.result = result;
 

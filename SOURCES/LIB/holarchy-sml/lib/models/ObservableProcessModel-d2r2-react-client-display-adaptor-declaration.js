@@ -145,7 +145,7 @@ module.exports = {
 
         ready: {
             description: "Waiting for next clock signal to re-render client application view.",
-            transitions: [ { transitionIf: { holarchy: { sml: { operators: { opmInStep: { path: "#.clock", step: "updated" } } } } },  nextStep: "render" } ]
+            transitions: [ { transitionIf: { holarchy: { sml: { operators: { opmi: { atStep: { path: "#.inputs.clock", step: "updated" } } } } } },  nextStep: "render" } ]
         }
 
     } // steps

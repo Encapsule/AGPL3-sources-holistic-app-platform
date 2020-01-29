@@ -6,6 +6,8 @@ const ocdRuntimeSpecAspects = require("./iospecs/ocd-runtime-spec-aspects");
 const opcMethodConstructorInputSpec = require("./iospecs/opc-method-constructor-input-spec");
 const opcMethodConstructorOutputSpec = require("./iospecs/opc-method-constructor-output-spec");
 
+const intrinsics = require("../intrinsics");
+
 const factoryResponse = arccore.filter.create({
     operationID: "XXile9azSHO39alE6mMKsg",
     operationName: "OPC Constructor Request Processor",
@@ -81,6 +83,8 @@ const factoryResponse = arccore.filter.create({
             // Note that there's a 1:N relationship between an OPM declaration and an OPM runtime instance.
             // This is because a single OPM declaration may be bound to an arbitrary number of OCD namespaces
             // and so it's 1:N.
+
+            request_.observableProcessModelSets.push(intrinsics.models);
 
             for (let index0 = 0 ; index0 < request_.observableProcessModelSets.length ; index0++) {
                 const modelSet = request_.observableProcessModelSets[index0];
@@ -284,6 +288,8 @@ const factoryResponse = arccore.filter.create({
             let transitionOperatorFilters = [];
             // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
 
+            request_.transitionOperatorSets.push(intrinsics.operators);
+
             request_.transitionOperatorSets.forEach(transitionOperatorSet_ => {
                 transitionOperatorSet_.forEach(transitionOperatorInstance_ => {
                     if (!transitionOperatorInstance_.isValid()) {
@@ -323,6 +329,8 @@ const factoryResponse = arccore.filter.create({
             // for processing.
             let controllerActionFilters = [];
             // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
+
+            request_.controllerActionSets.push(intrinsics.actions);
 
             request_.controllerActionSets.forEach(controllerActionSet_ => {
                 controllerActionSet_.forEach(controllerActionInstance_ => {
