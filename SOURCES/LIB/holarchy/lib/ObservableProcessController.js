@@ -5,16 +5,7 @@ const actInputFilter = require("./filters/opc-method-act-input-filter");
 const actOutputFilter = require("./filters/opc-method-act-output-filter");
 const evaluateFilter = require("./filters/opc-method-evaluate-filter");
 
-const consoleStyles = {
-    constructor: {
-        normal: "color: #112233; background-color: #DDEEFF; font-weight: bold;",
-        success: "color: #112233; background-color: #DDEEFF; font-weight: bold;",
-        error: "color: #112233; background-color: #DDEEFF; font-weight: bold;",
-    },
-    act: "color: #000000; background-color: #FFFF00; font-weight: bold;",
-    evaluate: "color: #000000; background-color: #FFCC00; font-weight: bold;"
-};
-
+const consoleStyles = require("./util/console-colors-lut");
 
 class ObservableProcessController {
 
@@ -30,7 +21,8 @@ class ObservableProcessController {
             // Allocate private per-class-instance state.
             this._private = {};
 
-            console.log("%cOPC::constructor starting...", consoleStyles.constructor.normal);
+
+            console.log("%cOPC::constructor starting...", consoleStyles.opc.constructor.entry);
 
             while (!inBreakScope) {
                 inBreakScope = true;
@@ -92,9 +84,9 @@ class ObservableProcessController {
             }
 
             if (this._private.constructionError) {
-                console.error(`%cOPC::constructor failed: ${this._private.constructionError.error}`, consoleStyles.constructor.error);
+                console.error(`%cOPC::constructor failed: ${this._private.constructionError.error}`, consoleStyles.error);
             } else {
-                console.log("%cOPC::constructor complete.", consoleStyles.constructor.success);
+                console.log("%cOPC::constructor complete.", consoleStyles.opc.constructor.success);
             }
 
         } catch (exception_) {
@@ -188,7 +180,9 @@ class ObservableProcessController {
                     actionDescription: request.actionDescription
                 });
 
-                console.log(`%cOPC [${this._private.opcActorStack.length}] actor: ${request.actorName} action: ${request.actionDescription}`, consoleStyles.act);
+                const styles = (this._private.opcActorStack.length === 1)?consoleStyles.opc.act.entry:consoleStyles.opc.act.levelN;
+
+                console.log(`%cOPC::act [${this._private.opcActorStack.length}] Actor: '${request.actorName}' Task: '${request.actionDescription}'`, styles);
 
                 let actionResponse = null;
                 try {
@@ -276,8 +270,6 @@ class ObservableProcessController {
                     error: `Precondition violation: Unexpected actor call stack depth of ${this._private.opcActorStack.length} found.`
                 };
             }
-            const currentActor = this._private.opcActorStack[0];
-            console.log(`%cOPC [${this._private.opcActorStack.length}] actor: ${currentActor.actorName} action: ${currentActor.actionDescription}`, consoleStyles.evaluate);
             const evalFilterResponse = evaluateFilter.request({ opcRef: this });
             this._private.lastEvalResponse =  evalFilterResponse;
             this._private.evalCount++;

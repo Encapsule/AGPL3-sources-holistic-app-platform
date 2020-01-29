@@ -1,11 +1,13 @@
 
-// Copyright (C) 2019 Christopher D. Russell
+// Copyright (C) 2020 Christopher D. Russell
 
 const arccore = require("@encapsule/arccore");
 const SimpleStopwatch = require("../util/SimpleStopwatch");
 
 const opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-spec");
 const opcMethodEvaluateOutputSpec = require("./iospecs/opc-method-evaluate-output-spec");
+
+const consoleStyles = require("../util/console-colors-lut");
 
 const factoryResponse = arccore.filter.create({
 
@@ -53,6 +55,10 @@ const factoryResponse = arccore.filter.create({
         // Outer loop used to aid flow of control and error reporting.
         while (!inBreakScope) {
             inBreakScope = true;
+
+            const currentActor = opcRef._private.opcActorStack[0];
+            console.log(`%cOPC::_evaluate [e${result.evalNumber}][${opcRef._private.id}::${opcRef._private.name}] instance '${opcRef._private.iid}'`, consoleStyles.opc.evaluate.entry);
+            console.log(`%cStarting cell eveluation #${result.evalNumber} to respond to the actions of actor '${currentActor.actorName}'.`, consoleStyles.opc.evaluate.entryDetails);
 
             // ================================================================
             // Prologue - executed before starting the outer evaluation loop.
@@ -408,8 +414,7 @@ const factoryResponse = arccore.filter.create({
                     // Get the stepDescriptor for the next process step that declares the actions to take on step entry.
                     const nextStepDescriptor = opmRef.getStepDescriptor(nextStep);
 
-                    // RIGHT LOCATION?
-			        console.log(`%cOPC [${result.evalNumber}:${result.summary.counts.frames}] transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`, "color: #112233; background-color: #DDEEFF;");
+			        console.log(`%cOPC._evaluate [e${result.evalNumber}::f${result.summary.counts.frames}] transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`, consoleStyles.opc.evaluate.transition);
 
                     // Dispatch the OPM instance's step exit action(s).
 
@@ -598,20 +603,12 @@ const factoryResponse = arccore.filter.create({
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
 
-
-	    let logStyles = response.error?
-            "color: #000000; background-color: #FF0000; font-weight: bold;"
-            :
-            "color: #000000; background-color: #FFCC00; font-weight: bold;";
-
+	    let logStyles = response.error?consoleStyles.error:consoleStyles.opc.evaluate.success;
 	    console.log(`%cOPC:_evaluate [${result.evalNumber}:${result.summary.counts.frames-1}] Evaluation complete in ${result.summary.evalStopwatch.totalMilliseconds} ms.`, logStyles);
 
         response.result = result;
-
-
         return response;
-    },
-
+    }
 });
 
 if (factoryResponse.error) {
