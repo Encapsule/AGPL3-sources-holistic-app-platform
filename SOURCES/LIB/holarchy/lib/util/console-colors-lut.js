@@ -1,22 +1,25 @@
 
 
-module.exports = {
-    error: "color: yellow; background-color: red; font-weight: bold;",
+const holarchyConsoleStylesLUT = {
+    error: "color: yellow; background-color: red; font-weight: bold; font-size: larger;",
     opc: {
         constructor: {
-            entry: "color: blue; background-color: white; font-weight: bold; font-size: smaller;",
-            success: "color: black; background-color: #99CCFF; font-weight: bold; font-size: smaller;"
+            entry: "color: blue; font-weight: bold; font-size: larger;",
+            success: "color: blue; font-weight: bold; font-size: larger;"
         },
         act: {
-            entry: "color: blue; background-color: white; font-weight: bold; font-size: smaller;",
-            levelN: "color: #000000; background-color: #88CCFF; font-weight: bold; font-size: smaller;",
-            success: "color: #000000; background-color: #FFCC66; font-weight: bold; font-size: smaller;"
+            entry: "color: #CC9900; font-weight: bold; font-size: larger;",
+            levelN: "color: #CC0066; font-weight: bold;",
+            success: "color: blue; font-weight: bold; font-size: larger;"
         },
         evaluate: {
-            entry: "color: blue; background-color: white; font-weight: bold; font-size: smaller;",
-            entryDetails: "color: #999999; background-color: white; font-weight: normal; font-size: smaller; font-style: italic; padding-left: 1em;",
-            transition: "color: #000000; background-color: #CCCCFF; font-weight: normal; font-size: smaller;",
-            success: "color: blue; background-color: white; font-weight: bold; font-size: smaller;"
+            entry: "padding-left: 1em; color: blue; font-weight: bold; font-size: larger;",
+            entryDetails: "padding-left: 2em; color: blue; font-weight: normal; font-style: italic;",
+            transition: "padding-left: 2em; color: blue; font-weight: normal;",
+            success: "padding-left: 1em; color: blue; font-weight: bold; font-size: larger"
         }
     }
 };
+
+module.exports =  holarchyConsoleStylesLUT;
+

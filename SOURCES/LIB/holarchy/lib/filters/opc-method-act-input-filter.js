@@ -1,6 +1,4 @@
 
-// Copyright (C) 2019 Christopher D. Russell
-
 const arccore = require("@encapsule/arccore");
 
 const opcMethodActInputSpec = require("./iospecs/opc-method-act-input-spec");

@@ -6,6 +6,7 @@ const actOutputFilter = require("./filters/opc-method-act-output-filter");
 const evaluateFilter = require("./filters/opc-method-evaluate-filter");
 
 const consoleStyles = require("./util/console-colors-lut");
+const logger = require("./util/holarchy-logger-filter");
 
 class ObservableProcessController {
 
@@ -23,6 +24,12 @@ class ObservableProcessController {
 
 
             console.log("%cOPC::constructor starting...", consoleStyles.opc.constructor.entry);
+
+            logger.request({
+                opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
+                subsystem: "opc", method: "constructor",
+                message: "WTF Starting",
+            });
 
             while (!inBreakScope) {
                 inBreakScope = true;
@@ -85,8 +92,26 @@ class ObservableProcessController {
 
             if (this._private.constructionError) {
                 console.error(`%cOPC::constructor failed: ${this._private.constructionError.error}`, consoleStyles.error);
+
+                logger.request({
+                    logLevel: "error",
+                    opc: {
+                        id: request_?request_.id:undefined,
+                        iid: this._private.iid,
+                        name: this._private.name,
+                    },
+                    subsystem: "opc", method: "constructor",
+                    message: "Error.",
+                });
+
             } else {
                 console.log("%cOPC::constructor complete.", consoleStyles.opc.constructor.success);
+
+                logger.request({
+                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                    subsystem: "opc", method: "constructor",
+                    message: "Complete.",
+                });
             }
 
         } catch (exception_) {
