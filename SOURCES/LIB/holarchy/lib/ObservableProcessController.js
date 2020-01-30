@@ -23,12 +23,12 @@ class ObservableProcessController {
             this._private = {};
 
 
-            console.log("%cOPC::constructor starting...", consoleStyles.opc.constructor.entry);
+            // TODO: DEPRECATED > console.log("%cOPC::constructor starting...", consoleStyles.opc.constructor.entry);
 
             logger.request({
                 opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
                 subsystem: "opc", method: "constructor",
-                message: "WTF Starting",
+                message: "Starting",
             });
 
             while (!inBreakScope) {
@@ -91,8 +91,7 @@ class ObservableProcessController {
             }
 
             if (this._private.constructionError) {
-                console.error(`%cOPC::constructor failed: ${this._private.constructionError.error}`, consoleStyles.error);
-
+                // TODO: DEPRECATED > console.error(`%cOPC::constructor failed: ${this._private.constructionError.error}`, consoleStyles.error);
                 logger.request({
                     logLevel: "error",
                     opc: {
@@ -105,8 +104,7 @@ class ObservableProcessController {
                 });
 
             } else {
-                console.log("%cOPC::constructor complete.", consoleStyles.opc.constructor.success);
-
+                // TODO: DEPRECATED > console.log("%cOPC::constructor complete.", consoleStyles.opc.constructor.success);
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "constructor",
@@ -115,6 +113,7 @@ class ObservableProcessController {
             }
 
         } catch (exception_) {
+            // TODO: send through the logger
             const message = [ "ObserverableProcessController::constructor (no-throw) caught an unexpected runtime exception: ", exception_.message ].join(" ");
             this._private.constructionError = message;
             console.error(message);
@@ -143,6 +142,7 @@ class ObservableProcessController {
             };
         } catch (exception_) {
             const message = [ "ObservableProcessController::isValid (no-throw) caught an unexpected runtime exception: ", exception_.message ].join(" ");
+            // TODO: Send through the logger
             console.error(message);
             console.error(exception_.stack);
             return { error: message };
@@ -158,6 +158,7 @@ class ObservableProcessController {
             return this._private;
         } catch (exception_) {
             const message = [ "ObservableProcessController.toJSON (no-throw) caught an unexpected runtime exception: ", exception_.message ].join(" ");
+            // TODO: Send through the logger
             console.error(message);
             console.error(exception_.stack);
             return { error: message };
@@ -206,8 +207,13 @@ class ObservableProcessController {
                 });
 
                 const styles = (this._private.opcActorStack.length === 1)?consoleStyles.opc.act.entry:consoleStyles.opc.act.levelN;
-
                 console.log(`%cOPC::act [${this._private.opcActorStack.length}] Actor: '${request.actorName}' Task: '${request.actionDescription}'`, styles);
+
+                logger.request({
+                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                    subsystem: "opc", method: "act",
+                    message: "Starting action."
+                });
 
                 let actionResponse = null;
                 try {
@@ -270,6 +276,7 @@ class ObservableProcessController {
             return response;
         } catch (exception_) {
             const message = [ "ObservableProcessController.act (no-throw) caught an unexpected exception: ", exception_.message ].join(" ");
+            // TODO: Send through the logger
             console.error(message);
             console.error(exception_.stack);
             return { error: message };
@@ -302,6 +309,7 @@ class ObservableProcessController {
             return evalFilterResponse;
         } catch (evaluateException_) {
             const message = [ "ObservableProcessController:_evaluate (no-throw) caught an unexpected runtime exception: ", evaluateException_.message ].join(" ");
+            // TODO: Send through the logger
             console.error(message);
             console.error(exception_.stack);
             this._private.opcActorStack.pop();

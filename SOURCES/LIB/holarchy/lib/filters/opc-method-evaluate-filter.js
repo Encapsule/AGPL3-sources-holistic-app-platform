@@ -3,6 +3,7 @@
 
 const arccore = require("@encapsule/arccore");
 const SimpleStopwatch = require("../util/SimpleStopwatch");
+const logger = require("../util/holarchy-logger-filter");
 
 const opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-spec");
 const opcMethodEvaluateOutputSpec = require("./iospecs/opc-method-evaluate-output-spec");
@@ -319,6 +320,7 @@ const factoryResponse = arccore.filter.create({
                     const stepDescriptor = opmRef.getStepDescriptor(initialStep);
 
                     if (!stepDescriptor) {
+                        // TODO: Send through logger
                         console.warn(`No step descriptor in model for [${opmRef.getID()}::${opmRef.getName()}] for step '${initialStep}'. Ignoring.`);
                         opmInstanceFrame.evalResponse.status = "noop";
                         opmInstanceFrame.evalResponse.finishStep = initialStep;
@@ -356,6 +358,7 @@ const factoryResponse = arccore.filter.create({
                         try {
                             transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
                         } catch (topException_) {
+                            // TODO: Send through logger
                             console.error(topException_);
                             transitionResponse = {
                                 error: `TransitionOperator threw an illegal exception that was handled by OPC: ${topException_.message}`
@@ -368,6 +371,7 @@ const factoryResponse = arccore.filter.create({
                         });
 
                         if (transitionResponse.error) {
+                            // TODO: Send through logger
                             console.error(transitionResponse.error);
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p1_toperator++;
@@ -436,6 +440,7 @@ const factoryResponse = arccore.filter.create({
                         try {
                             actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
                         } catch (actException_) {
+                            // TODO: Send through logger
                             console.error(actException_);
                             actionResponse = {
                                 error: `ControllerAction threw an illegal exception that was handled by OPC: ${actException_}`
@@ -448,6 +453,7 @@ const factoryResponse = arccore.filter.create({
                         });
 
                         if (actionResponse.error) {
+                            // TODO: Send through logger
                             console.error(actionResponse.error);
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p2_exit++;
@@ -494,6 +500,7 @@ const factoryResponse = arccore.filter.create({
                         try {
                             actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
                         } catch (actException_) {
+                            // TODO: Send through logger
                             console.error(actException_)
                             actionResponse = {
                                 error: `ControllerAction threw an illegal exception that was handled by the OPC: ${actException_.message}`
@@ -506,6 +513,7 @@ const factoryResponse = arccore.filter.create({
                         });
 
                         if (actionResponse.error) {
+                            // TODO: Send through logger
                             console.error(actionResponse.error);
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p3_enter++;
@@ -539,6 +547,7 @@ const factoryResponse = arccore.filter.create({
                     opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 
                     if (transitionResponse.error) {
+                        // TODO: Send through logger
                         console.error(transitionResponse.error);
                         opmInstanceFrame.evalResponse.status = "error";
                         opmInstanceFrame.evalResponse.errors.p4_finalize++;
