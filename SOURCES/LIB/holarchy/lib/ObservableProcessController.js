@@ -22,9 +22,6 @@ class ObservableProcessController {
             // Allocate private per-class-instance state.
             this._private = {};
 
-
-            // TODO: DEPRECATED > console.log("%cOPC::constructor starting...", consoleStyles.opc.constructor.entry);
-
             logger.request({
                 opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
                 subsystem: "opc", method: "constructor",
@@ -91,7 +88,6 @@ class ObservableProcessController {
             }
 
             if (this._private.constructionError) {
-                // TODO: DEPRECATED > console.error(`%cOPC::constructor failed: ${this._private.constructionError.error}`, consoleStyles.error);
                 logger.request({
                     logLevel: "error",
                     opc: {
@@ -102,9 +98,7 @@ class ObservableProcessController {
                     subsystem: "opc", method: "constructor",
                     message: "Error.",
                 });
-
             } else {
-                // TODO: DEPRECATED > console.log("%cOPC::constructor complete.", consoleStyles.opc.constructor.success);
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "constructor",
@@ -205,9 +199,6 @@ class ObservableProcessController {
                     actorName: request.actorName,
                     actionDescription: request.actionDescription
                 });
-
-                const styles = (this._private.opcActorStack.length === 1)?consoleStyles.opc.act.entry:consoleStyles.opc.act.levelN;
-                console.log(`%cOPC::act [${this._private.opcActorStack.length}] Actor: '${request.actorName}' Task: '${request.actionDescription}'`, styles);
 
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },

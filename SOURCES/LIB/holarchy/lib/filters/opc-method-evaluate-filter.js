@@ -58,8 +58,12 @@ const factoryResponse = arccore.filter.create({
             inBreakScope = true;
 
             const currentActor = opcRef._private.opcActorStack[0];
-            console.log(`%cOPC::_evaluate [e${result.evalNumber}][${opcRef._private.id}::${opcRef._private.name}] instance '${opcRef._private.iid}'`, consoleStyles.opc.evaluate.entry);
-            console.log(`%cStarting cell eveluation #${result.evalNumber} to respond to the actions of actor '${currentActor.actorName}'.`, consoleStyles.opc.evaluate.entryDetails);
+
+            logger.request({
+                opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
+                subsystem: "opc", method: "evaluate",
+                message: "Starting evaluation."
+            });
 
             // ================================================================
             // Prologue - executed before starting the outer evaluation loop.
@@ -418,7 +422,13 @@ const factoryResponse = arccore.filter.create({
                     // Get the stepDescriptor for the next process step that declares the actions to take on step entry.
                     const nextStepDescriptor = opmRef.getStepDescriptor(nextStep);
 
-			        console.log(`%cOPC._evaluate [e${result.evalNumber}::f${result.summary.counts.frames}] transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`, consoleStyles.opc.evaluate.transition);
+			        // console.log(`%cOPC._evaluate [e${result.evalNumber}::f${result.summary.counts.frames}] transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`, consoleStyles.opc.evaluate.transition);
+
+                    logger.request({
+                        opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
+                        subsystem: "opc", method: "evaluate",
+                        message: `Transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`
+                    });
 
                     // Dispatch the OPM instance's step exit action(s).
 
@@ -612,8 +622,13 @@ const factoryResponse = arccore.filter.create({
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
 
-	    let logStyles = response.error?consoleStyles.error:consoleStyles.opc.evaluate.success;
-	    console.log(`%cOPC:_evaluate [${result.evalNumber}:${result.summary.counts.frames-1}] Evaluation complete in ${result.summary.evalStopwatch.totalMilliseconds} ms.`, logStyles);
+        logger.request({
+            opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
+                   evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount,
+                   actorStack: opcRef._private.opcActorStack },
+            subsystem: "opc", method: "evaluate",
+            message: `Evaluation complete in ${result.summary.evalStopwatch.totalMilliseconds} ms.`
+        });
 
         response.result = result;
         return response;
