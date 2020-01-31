@@ -15,7 +15,7 @@ module.exports = {
         ____label: "Actor Task Description",
         ____description: "A short description of what exactly this actor is attempting to do by calling this specific ControllerAction.",
         ____accept: "jsString",
-        ____defaultValue: "<actor specifies no task description ¯\_(ツ)_/¯>"
+        ____defaultValue: "<bad actor specifies no task description>"
     },
 
     actorTaskContext: {

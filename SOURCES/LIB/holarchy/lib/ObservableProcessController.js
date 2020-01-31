@@ -24,7 +24,7 @@ class ObservableProcessController {
 
             logger.request({
                 opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
-                subsystem: "opc", method: "constructor",
+                subsystem: "opc", method: "constructor", phase: "prologue",
                 message: "Starting",
             });
 
@@ -68,7 +68,7 @@ class ObservableProcessController {
 
                     filterResponse = this.act({
                         actorName: "ObservableProcessController::constructor",
-                        actionDescription: "Performing default post-construction runtime state evaluation.",
+                        actorTaskDescription: "Performing initial post-construction system evaluation.",
                         actionRequest: { holarchy: { opc: { noop: true } } }
                     });
 
@@ -95,13 +95,13 @@ class ObservableProcessController {
                         iid: this._private.iid,
                         name: this._private.name,
                     },
-                    subsystem: "opc", method: "constructor",
+                    subsystem: "opc", method: "constructor", phase: "prologue",
                     message: "Error.",
                 });
             } else {
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                    subsystem: "opc", method: "constructor",
+                    subsystem: "opc", method: "constructor", phase: "prologue",
                     message: "Complete.",
                 });
             }
@@ -197,12 +197,12 @@ class ObservableProcessController {
                 // Push the actor stack.
                 this._private.opcActorStack.push({
                     actorName: request.actorName,
-                    actionDescription: request.actionDescription
+                    actorTaskDescription: request.actorTaskDescription
                 });
 
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                    subsystem: "opc", method: "act",
+                    subsystem: "opc", method: "act", phase: "prologue",
                     message: "Starting action."
                 });
 
@@ -212,7 +212,7 @@ class ObservableProcessController {
                     // TODO: It would be more informative to convert this DMR to return the filter so we can see the mapping prior to dispatch.
                     actionResponse = this._private.actionDispatcher.request(controllerActionRequest);
                 } catch (actionCallException_) {
-                    errors.push("Handled exception dispatch controller action: " + actionCallException_.message);
+                    errors.push("Handled exception during controller action dispatch: " + actionCallException_.message);
                     this_.private.opcActorStack.pop();
                     break;
                 }
@@ -293,6 +293,10 @@ class ObservableProcessController {
                     error: `Precondition violation: Unexpected actor call stack depth of ${this._private.opcActorStack.length} found.`
                 };
             }
+            this._private.opcActorStack.push({
+                actorName: "OPC Evaluator",
+                actorTaskDescription: `Respond to the actions of actor '${this._private.opcActorStack[0].actorName}'.`
+            });
             const evalFilterResponse = evaluateFilter.request({ opcRef: this });
             this._private.lastEvalResponse =  evalFilterResponse;
             this._private.evalCount++;
@@ -302,7 +306,7 @@ class ObservableProcessController {
             const message = [ "ObservableProcessController:_evaluate (no-throw) caught an unexpected runtime exception: ", evaluateException_.message ].join(" ");
             // TODO: Send through the logger
             console.error(message);
-            console.error(exception_.stack);
+            console.error(evaluateException_.stack);
             this._private.opcActorStack.pop();
             return { error: message };
         }

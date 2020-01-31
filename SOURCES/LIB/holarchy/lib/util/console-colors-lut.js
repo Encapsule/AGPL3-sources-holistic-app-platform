@@ -4,19 +4,18 @@ const holarchyConsoleStylesLUT = {
     error: "color: yellow; background-color: red; font-weight: bold; font-size: larger;",
     opc: {
         constructor: {
-            entry: "color: blue; font-weight: bold; font-size: larger;",
-            success: "color: blue; font-weight: bold; font-size: larger;"
+            prologue: "border-left: 4px solid red; background-color: #FFEEDD; padding: 0.5em; color: red; font-weight: bold; font-size: larger;",
+            epilogue: "border-left: 4px solid red: #FFEEDD; padding: 0.5em; color: red; font-weight: bold; font-size: larger;"
         },
         act: {
-            entry: "color: #CC9900; font-weight: bold; font-size: larger;",
-            levelN: "color: #CC0066; font-weight: bold;",
-            success: "color: blue; font-weight: bold; font-size: larger;"
+            prologue: "color: #CC9900; font-weight: bold;",
+            body: "color: #CC0066; font-weight: bold;",
+            epilogue: "color: blue; font-weight: bold;"
         },
         evaluate: {
-            entry: "padding-left: 1em; color: blue; font-weight: bold; font-size: larger;",
-            entryDetails: "padding-left: 2em; color: blue; font-weight: normal; font-style: italic;",
-            transition: "padding-left: 2em; color: blue; font-weight: normal;",
-            success: "padding-left: 1em; color: blue; font-weight: bold; font-size: larger"
+            epilogue: "border-left: 4px solod #00CCFF; padding-left: 1em; color: blue; font-weight: bold;",
+            body: "border-left: 4px solid #00CCFF; padding-left: 1em; color: blue; font-weight: normal; background-color: #DDEEFF;",
+            prologue: "border-left: 4px solid #00CCFF; padding-left: 1em; color: blue; font-weight: bold;"
         }
     }
 };

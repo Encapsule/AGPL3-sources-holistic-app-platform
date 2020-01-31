@@ -1,7 +1,7 @@
 
 const arccore = require("@encapsule/arccore");
 const opcActorStackEntrySpec = require("../filters/iospecs/opc-actor-stack-entry-spec");
-const holarchyConsoleStylesLUT = require("./console-colors-lut");
+const consoleColorsLUT = require("./console-colors-lut");
 
 
 const factoryResponse = arccore.filter.create({
@@ -84,6 +84,12 @@ const factoryResponse = arccore.filter.create({
             ____inValueSet: [ "constructor", "act", "evaluate" ]
         },
 
+        phase: {
+            ____label: "Method Phase",
+            ____description: "Subsystem method phase (e.g. prologue, body, epilogue).",
+            ____accept: "jsString"
+        },
+
         message: {
             ____label: "Message String",
             ____description: "The message string to log.",
@@ -98,7 +104,37 @@ const factoryResponse = arccore.filter.create({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            console.log(JSON.stringify(request_));
+
+            // console.log(JSON.stringify(request_));  // This should probably be the default option.
+
+            let message = [
+                `%c[${request_.opc.id}::${request_.opc.iid}::${request_.opc.name}]`,
+                request_.subsystem,
+                request_.method,
+                request_.message
+            ].join(" ")
+
+            let styles = consoleColorsLUT[request_.subsystem][request_.method][request_.phase];
+            styles = styles?styles:"";
+
+            switch (request_.logLevel) {
+            case "info":
+                console.info(message, styles);
+                break;
+            case "diagnostic":
+                console.log(message, styles);
+                break;
+            case "warning":
+                console.warn(message, styles);
+                break;
+            case "error":
+                console.error(message, styles);
+                break;
+            default:
+                errors.push(`Unhandled log level value '${request_.logLevel}'.`);
+                break;
+            }
+
             break;
         }
         if (errors.length) {
