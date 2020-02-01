@@ -29,12 +29,7 @@
               "54MiSgQdSiukMX4fIZJimg": {
                 "QvEwWTkbT8G_SQsmWmg2zQ": {
                   "opcToJSON": {
-                    "error": "ObservableProcessController::constructor for [fail::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned. Expected 22-character string. Found 4-character string instead.",
-                    "result": {
-                      "constructionError": {
-                        "error": "ObservableProcessController::constructor for [fail::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned. Expected 22-character string. Found 4-character string instead."
-                      }
-                    }
+                    "error": "ObservableProcessController::constructor for [fail::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Please supply a valid IRUT. Or, use the special 'demo' keyword to have a one-time-use random IRUT assigned. Expected 22-character string. Found 4-character string instead."
                   },
                   "actionEvaluations": []
                 }

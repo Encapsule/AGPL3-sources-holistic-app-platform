@@ -10,26 +10,28 @@ const logger = require("./util/holarchy-logger-filter");
 
 class ObservableProcessController {
 
+    // ================================================================
     constructor(request_) {
 
         // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
 
+        let errors = [];
+        let inBreakScope = false;
+
+        // Allocate private per-class-instance state.
+        this._private = {};
+
         try {
-
-            let errors = [];
-            let inBreakScope = false;
-
-            // Allocate private per-class-instance state.
-            this._private = {};
-
-            logger.request({
-                opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
-                subsystem: "opc", method: "constructor", phase: "prologue",
-                message: "Starting",
-            });
 
             while (!inBreakScope) {
                 inBreakScope = true;
+
+                // ----------------------------------------------------------------
+                logger.request({
+                    opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
+                    subsystem: "opc", method: "constructor", phase: "prologue",
+                    message: "STARTING",
+                });
 
                 // ----------------------------------------------------------------
                 // Bind instance methods.
@@ -49,17 +51,9 @@ class ObservableProcessController {
                     break;
                 }
 
-                // ****************************************************************
-                // ****************************************************************
-                // KEEP A COPY OF THE NORMALIZED OUTPUT OF THE CONSTRUCTION FILTER
-                // We no longer care about the request input; internal methods
-                // should only access this._private. Clients of this class should
-                // not deference data in an OPC instance's _private namespace.
-                // The names, types, and semantics of this information can change
-                // release to release as an implementation of this library. Only
-                // ever rely on public methods which we will try to keep stable.
-                //
-
+                // ----------------------------------------------------------------
+                // Keep a copy of the normalized output of the constructor filter.
+                // The caller's request_ value is no longer used after this point.
                 this._private = filterResponse.result;
 
                 // Perform the first post-construction evaluation of the OPC system model
@@ -82,36 +76,31 @@ class ObservableProcessController {
 
             } // while(!inBreakScope)
 
-            if (errors.length) {
-                errors.unshift(`ObservableProcessController::constructor for [${(request_ && request_.id)?request_.id:"unspecified"}::${(request_ && request_.name)?request_.name:"unspecified"}] failed yielding a zombie instance.`);
-                this._private.constructionError = { error: errors.join(" ") };
-            }
-
-            if (this._private.constructionError) {
-                logger.request({
-                    logLevel: "error",
-                    opc: {
-                        id: request_?request_.id:undefined,
-                        iid: this._private.iid,
-                        name: this._private.name,
-                    },
-                    subsystem: "opc", method: "constructor", phase: "prologue",
-                    message: "Error.",
-                });
-            } else {
-                logger.request({
-                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                    subsystem: "opc", method: "constructor", phase: "prologue",
-                    message: "Complete.",
-                });
-            }
-
         } catch (exception_) {
-            // TODO: send through the logger
-            const message = [ "ObserverableProcessController::constructor (no-throw) caught an unexpected runtime exception: ", exception_.message ].join(" ");
-            this._private.constructionError = message;
-            console.error(message);
-            console.error(exception_.stack);
+            errors.push(`ObserverableProcessController::constructor (no-throw) caught an unexpected runtime exception: ${exception_.message}`);
+        }
+
+        if (!errors.length) {
+            logger.request({
+                opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                subsystem: "opc", method: "constructor", phase: "epilogue",
+                message: "COMPLETE",
+            });
+        } else {
+            errors.unshift(`ObservableProcessController::constructor for [${(request_ && request_.id)?request_.id:"unspecified"}::${(request_ && request_.name)?request_.name:"unspecified"}] failed yielding a zombie instance.`);
+            this._private.constructionError = errors.join(" ");
+
+            logger.request({
+                logLevel: "error",
+                opc: {
+                    id: request_?request_.id:undefined,
+                    iid: this._private.iid,
+                    name: this._private.name,
+                },
+                subsystem: "opc", method: "constructor", phase: "epilogue",
+                message: this._private.constructionError
+            });
+
         }
 
     } // end constructor function
@@ -122,44 +111,28 @@ class ObservableProcessController {
     // should be via public API methods. Do not dereference the _private data
     // namespace or call underscore-prefixed private class methods.
 
+    // ================================================================
     // Determines if the OPMI is valid or not.
-
-    // Called w/no options_, returns Boolean true iff ObservableProcessController::constructor succeeded. Otherwise false.
-    isValid(options_) {
-        try {
-            if (!options_ || !options_.getError) {
-                return this._private.constructionError?false:true;
-            }
-            return {
-                error: this._private.constructionError?this._private.constructionError.error:null,
-                result: this._private
-            };
-        } catch (exception_) {
-            const message = [ "ObservableProcessController::isValid (no-throw) caught an unexpected runtime exception: ", exception_.message ].join(" ");
-            // TODO: Send through the logger
-            console.error(message);
-            console.error(exception_.stack);
-            return { error: message };
-        }
+    isValid() {
+        return this._private.constructionError?false:true;
     }
 
+    // ================================================================
     // Produces a serializable object representing the internal state of this OPCI.
+    // Iff the instance is invalid, then it returns a filter response object w/error set.
     toJSON() {
-        try {
-            if (!this.isValid()) {
-                return this.isValid({ getError: true });
-            }
-            return this._private;
-        } catch (exception_) {
-            const message = [ "ObservableProcessController.toJSON (no-throw) caught an unexpected runtime exception: ", exception_.message ].join(" ");
-            // TODO: Send through the logger
-            console.error(message);
-            console.error(exception_.stack);
-            return { error: message };
-        }
+        // TODO: This is totally inadequate for more than v0.0.x testing.
+        // Actual serialization of an active OPC system is the goal. And,
+        // this will take additional work because there's not currently
+        // enough context in an OPC instance to actually accomplish the
+        // task of suspending a running observable process(es) and re-
+        // animating them later (potentially somewhere else) in a generic
+        // way that will work for arbitrary use of the OCD store. More
+        // about this later.
+        return (!this._private.constructionError?this._private:{ error: this._private.constructionError });
     } // toJSON method
 
-
+    // ================================================================
     act(request_) {
         try {
             let response = { error: null };
@@ -172,7 +145,7 @@ class ObservableProcessController {
                 if (!this.isValid()) {
                     // Retrieve just the error string, not the entire response.
                     errors.push("Zombie instance:");
-                    errors.push(this.toJSON());
+                    errors.push(this.toJSON().error);
                     break;
                 }
 
@@ -201,9 +174,10 @@ class ObservableProcessController {
                 });
 
                 logger.request({
-                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
+                           evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "prologue",
-                    message: "Starting action."
+                    message: "STARTING"
                 });
 
                 let actionResponse = null;
@@ -243,6 +217,13 @@ class ObservableProcessController {
 
                 if (this._private.opcActorStack.length === 1) {
 
+                    logger.request({
+                        opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
+                               evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                        subsystem: "opc", method: "act", phase: "body",
+                        message: "EVALUATING"
+                    });
+
                     let evaluateResponse = this._evaluate();
                     if (evaluateResponse.error) {
                         errors.push("Unable to evaluate OPC state after executing controller action due to error:");
@@ -281,12 +262,13 @@ class ObservableProcessController {
     // outside of the implementation of public and private methods in this class.
     //
 
+    // ================================================================
     _evaluate() {
         try {
             // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
             // Deletegate to the evaluation filter.
             if (!this.isValid()) {
-                return { error: this.toJSON() };
+                return { error: this.toJSON().error };
             }
             if (this._private.opcActorStack.length !== 1) {
                 return {
@@ -294,7 +276,7 @@ class ObservableProcessController {
                 };
             }
             this._private.opcActorStack.push({
-                actorName: "OPC Evaluator",
+                actorName: "OPC._evaluate",
                 actorTaskDescription: `Respond to the actions of actor '${this._private.opcActorStack[0].actorName}'.`
             });
             const evalFilterResponse = evaluateFilter.request({ opcRef: this });
@@ -310,8 +292,9 @@ class ObservableProcessController {
             this._private.opcActorStack.pop();
             return { error: message };
         }
+
     } // _evaluate method
 
-}
+} // ObservableProcessController
 
 module.exports = ObservableProcessController;

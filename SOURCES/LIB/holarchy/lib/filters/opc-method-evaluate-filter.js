@@ -14,7 +14,7 @@ const factoryResponse = arccore.filter.create({
 
     operationID: "T7PiatEGTo2dbdy8jOMHQg",
     operationName: "OPC Evaluation Filter",
-    operationDescription: "Encapsulates the OPC's core OPM instance evaluation algorithm providing a detailed audit trail of the algorithm's execution.",
+    operationDescription: "Implements OPC's algorithm for locating and evaluating OPM instances in the OCD shared memory space.",
     inputFilterSpec:  opcMethodEvaluateInputSpec,
     outputFilterSpec: opcMethodEvaluateOutputSpec,
 
@@ -300,6 +300,15 @@ const factoryResponse = arccore.filter.create({
                 // ================================================================
                 //
                 // ¯\_(ツ)_/¯ - following along? Hang on for the fun part ...
+
+                /*
+                  O       o O       o O       o
+                  | O   o | | O   o | | O   o |
+                  | | O | | | | O | | | | O | |
+                  | o   O | | o   O | | o   O |
+                  o       O o       O o       O
+                */
+
                 //
                 // ================================================================
                 // Evaluate each discovered OPM-bound object instance in the controller
@@ -613,8 +622,8 @@ const factoryResponse = arccore.filter.create({
         }
 
         // Note that in all cases the response descriptor object returned by ObservableProcessController:_evaluate is informational.
-        // If !response.result (i.e. no error) then the following is true:
-        // - There were no errors encountered while dynamically binding OPM instances in OPD.
+        // If !response.error (i.e. no error) then the following is true:
+        // - There were no errors encountered while dynamically binding OPM instances in OCD.
         // - There were no errors encountered during OPM instance evaluation including transition evaluations, and consequent action request dispatches.
         // - This does not mean that your operator and action filters are correct.
         // - This does not mean that your OPM's encode what you think they do.
@@ -629,6 +638,14 @@ const factoryResponse = arccore.filter.create({
             subsystem: "opc", method: "evaluate", phase: "prologue",
             message: `Evaluation complete in ${result.summary.evalStopwatch.totalMilliseconds} ms.`
         });
+
+        /*
+          O       o O       o O       o
+          | O   o | | O   o | | O   o |
+          | | O | | | | O | | | | O | |
+          | o   O | | o   O | | o   O |
+          o       O o       O o       O
+        */
 
         response.result = result;
         return response;

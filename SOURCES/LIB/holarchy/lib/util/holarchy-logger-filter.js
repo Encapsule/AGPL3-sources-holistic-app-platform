@@ -3,6 +3,14 @@ const arccore = require("@encapsule/arccore");
 const opcActorStackEntrySpec = require("../filters/iospecs/opc-actor-stack-entry-spec");
 const consoleColorsLUT = require("./console-colors-lut");
 
+const logLevelLUT = {
+    info: console.info,
+    diagnostc: console.log,
+    warning: console.warning,
+    error: console.error
+};
+
+
 
 const factoryResponse = arccore.filter.create({
     operationID: "h7lnSqFxSgma0qvNdZqOZg",
@@ -107,33 +115,76 @@ const factoryResponse = arccore.filter.create({
 
             // console.log(JSON.stringify(request_));  // This should probably be the default option.
 
-            let message = [
-                `%c[${request_.opc.id}::${request_.opc.iid}::${request_.opc.name}]`,
-                request_.subsystem,
-                request_.method,
-                request_.message
-            ].join(" ")
-
-            let styles = consoleColorsLUT[request_.subsystem][request_.method][request_.phase];
-            styles = styles?styles:"";
-
-            switch (request_.logLevel) {
-            case "info":
-                console.info(message, styles);
-                break;
-            case "diagnostic":
-                console.log(message, styles);
-                break;
-            case "warning":
-                console.warn(message, styles);
-                break;
-            case "error":
-                console.error(message, styles);
-                break;
-            default:
-                errors.push(`Unhandled log level value '${request_.logLevel}'.`);
+            // Locate the subsystem.
+            const subsystemStyles = consoleColorsLUT[request_.subsystem];
+            if (!subsystemStyles) {
+                errors.push(`Unhandled subsystem value '${request_.subsystem}'.`);
                 break;
             }
+
+            // Locate the method.
+            const methodStyles = subsystemStyles[request_.method];
+            if (!methodStyles) {
+                errors.push(`Unhandled method value '${request_.method}'.`);
+                break;
+            }
+
+            // Locate the phase.
+            const styles = methodStyles[request_.phase];
+            if (!styles) {
+                errors.push(`Unhandled phase value '${request_.phase}'.`);
+                break;
+            }
+
+            // Send the output to selected console method.
+            let consoleMethod = logLevelLUT[request_.logLevel];
+            if (!consoleMethod) {
+                errors.push(`Unhandled logLevel value '${request_.logLevel}'.`);
+                break;
+            }
+
+            let message = null;
+            let actorStack = null;
+
+            switch(request_.subsystem) {
+
+            case "opc":
+                switch (request_.method) {
+
+                case "constructor":
+                    message = [
+                        `%cOPC::constructor <${request_.opc.iid}>[${request_.opc.id}::${request_.opc.name}]`,
+                        request_.message
+                    ].join(" ");
+                    consoleMethod(message, styles);
+                    break;
+
+                case "act":
+                    actorStack = request_.opc.actorStack.map((stackEntry_) => {
+                        return `(${stackEntry_.actorName})`;
+                    }).join(" > ");
+                    message = [
+                        `%cOPC::act <${request_.opc.iid}> actor stack: ${actorStack}`
+                    ].join(" ");
+                    consoleMethod(message, styles);
+                    break;
+
+                case "evaluate":
+                    message = [
+                        `%cOPC::evaluate <${request_.opc.iid}> ${request_.message}`
+                    ].join(" ");
+                    consoleMethod(message, styles);
+                    break;
+
+                default:
+                    errors.push(`Unhandled method '${request_.method}' specified on subsystem '${request_.subsystem}'.`);
+                    break;
+                }
+                break;
+            default:
+                errors.push(`Unhandled subsystem '${request_.subsystem}' value.`);
+                break;
+            } // end switch
 
             break;
         }
