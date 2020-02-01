@@ -134,10 +134,13 @@ class ObservableProcessController {
 
     // ================================================================
     act(request_) {
+
+        let response = { error: null };
+        let errors = [];
+        let inBreakScope = false;
+        let initialActorStackDepth = 0; // default
+
         try {
-            let response = { error: null };
-            let errors = [];
-            let inBreakScope = false;
 
             while (!inBreakScope) {
                 inBreakScope = true;
@@ -168,11 +171,13 @@ class ObservableProcessController {
                 };
 
                 // Push the actor stack.
+                initialActorStackDepth = this._private.opcActorStack.length; // save the initial stack depth
                 this._private.opcActorStack.push({
                     actorName: request.actorName,
                     actorTaskDescription: request.actorTaskDescription
                 });
 
+                // Log the start of the action.
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                            evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
@@ -180,6 +185,7 @@ class ObservableProcessController {
                     message: "STARTING"
                 });
 
+                // Dispatch the action on behalf of the actor.
                 let actionResponse = null;
                 try {
                     // Dispatch the actor's requested action.
@@ -187,7 +193,6 @@ class ObservableProcessController {
                     actionResponse = this._private.actionDispatcher.request(controllerActionRequest);
                 } catch (actionCallException_) {
                     errors.push("Handled exception during controller action dispatch: " + actionCallException_.message);
-                    this_.private.opcActorStack.pop();
                     break;
                 }
 
@@ -201,7 +206,6 @@ class ObservableProcessController {
                 if (actionResponse.error) {
                     errors.push("Error dispatching controller action filter. Skipping any further evaluation.");
                     errors.push(actionResponse.error);
-                    this._private.opcActorStack.pop();
                     break;
                 }
 
@@ -221,14 +225,16 @@ class ObservableProcessController {
                         opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                                evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                         subsystem: "opc", method: "act", phase: "body",
-                        message: "EVALUATING"
+                        message: "SHARING LOVE"
                     });
 
+                    // Evaluate is an actor too. It adds itself to the OPC actor stack.
+                    // And is responsible itself for ensuring that it cleans up after
+                    // itself no matter how it may fail.
                     let evaluateResponse = this._evaluate();
                     if (evaluateResponse.error) {
                         errors.push("Unable to evaluate OPC state after executing controller action due to error:");
                         errors.push(evaluateResponse.error);
-                        this._private.opcActorStack.pop();
                         break;
                     }
                     response.result = {
@@ -236,23 +242,52 @@ class ObservableProcessController {
                         lastEvaluation: evaluateResponse.result
                     }
                 }
-                this._private.opcActorStack.pop();
                 break;
-            }
+
+            } // while (!inBreakScope)
 
             if (errors.length) {
                 response.error = errors.join(" ");
-                console.error(`OPC.act transport error: ${response.error}`);
             }
 
-            return response;
         } catch (exception_) {
-            const message = [ "ObservableProcessController.act (no-throw) caught an unexpected exception: ", exception_.message ].join(" ");
-            // TODO: Send through the logger
-            console.error(message);
-            console.error(exception_.stack);
-            return { error: message };
+            response.error = `ObservableProcessController.act (no-throw) caught an unexpected exception: ${exception_.message}`;
         }
+
+        if (!response.error) {
+
+            logger.request({
+                opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
+                       evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                subsystem: "opc", method: "act", phase: "epilogue",
+                message: "COMPLETE"
+            });
+
+        } else {
+
+            logger.request({
+                logLevel: "error",
+                opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
+                       evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                subsystem: "opc", method: "act", phase: "body",
+                message: response.error
+            });
+
+        }
+
+        // Check and maintain the OPC actor stack.
+        if (this.isValid()) {
+            if (initialActorStackDepth !== this._private.opcActorStack.length) {
+                // Check and maintain the OPC actor stack.
+                if ((initialActorStackDepth + 1) !== this._private.opcActorStack.length) {
+                    response.error = `Invariant assertion error: OPC.act actor stack depth off by ${this._private.opcActorStack.length - initialActorStackDepth - 1}.`; // Nope
+                } else {
+                    this._private.opcActorStack.pop();
+                }
+            }
+        }
+
+        return response;
 
     } // act method
 

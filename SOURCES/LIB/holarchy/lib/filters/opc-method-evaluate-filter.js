@@ -62,7 +62,7 @@ const factoryResponse = arccore.filter.create({
             logger.request({
                 opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
                 subsystem: "opc", method: "evaluate", phase: "epilogue",
-                message: "Starting evaluation."
+                message: `STARTING OPC system state update #${result.evalNumber}`
             });
 
             // ================================================================
@@ -631,14 +631,6 @@ const factoryResponse = arccore.filter.create({
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
 
-        logger.request({
-            opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
-                   evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount,
-                   actorStack: opcRef._private.opcActorStack },
-            subsystem: "opc", method: "evaluate", phase: "prologue",
-            message: `Evaluation complete in ${result.summary.evalStopwatch.totalMilliseconds} ms.`
-        });
-
         /*
           O       o O       o O       o
           | O   o | | O   o | | O   o |
@@ -646,6 +638,14 @@ const factoryResponse = arccore.filter.create({
           | o   O | | o   O | | o   O |
           o       O o       O o       O
         */
+
+        logger.request({
+            opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
+                   evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount,
+                   actorStack: opcRef._private.opcActorStack },
+            subsystem: "opc", method: "evaluate", phase: "prologue",
+            message: `COMPLETE update #${result.evalNumber} in ${result.summary.framesCount} frames running taking ${result.summary.evalStopwatch.totalMilliseconds} ms.`
+        });
 
         response.result = result;
         return response;

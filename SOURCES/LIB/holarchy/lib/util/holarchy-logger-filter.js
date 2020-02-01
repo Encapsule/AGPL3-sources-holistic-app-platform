@@ -125,14 +125,14 @@ const factoryResponse = arccore.filter.create({
             // Locate the method.
             const methodStyles = subsystemStyles[request_.method];
             if (!methodStyles) {
-                errors.push(`Unhandled method value '${request_.method}'.`);
+                errors.push(`Unhandled subsystem method value '${request_.method}'.`);
                 break;
             }
 
             // Locate the phase.
             const styles = methodStyles[request_.phase];
             if (!styles) {
-                errors.push(`Unhandled phase value '${request_.phase}'.`);
+                errors.push(`Unhandled subsystem method phase value '${request_.phase}'.`);
                 break;
             }
 
@@ -165,8 +165,26 @@ const factoryResponse = arccore.filter.create({
                     }).join(" > ");
                     message = [
                         `%cOPC::act <${request_.opc.iid}> actor stack: ${actorStack}`
-                    ].join(" ");
-                    consoleMethod(message, styles);
+                    ];
+
+                    styles += `border-left: ${4 * request_.opc.actorStack.length}px solid #FFCC00;`;
+                    switch (request_.phase) {
+                    case "prologue":
+                        message.push(request_.message);
+                        break;
+                    case "body":
+                        message.push(request_.message);
+                        break;
+                    case "epilogue":
+                        message.push(request_.message);
+                        break;
+                    default:
+                        errors.push(`Unhandled subsystem method phase '${request_.phase}'.`);
+                        break;
+                    }
+                    if (!errors.length) {
+                        consoleMethod(message.join(" "), styles);
+                    }
                     break;
 
                 case "evaluate":
