@@ -31,19 +31,19 @@ const factoryResponse = arccore.filter.create({
             id: {
                 ____label: "OPC ID",
                 ____accept: "jsString",
-                ____defaultValue: "<not defined>"
+                ____defaultValue: "not specified"
             },
 
             iid: {
                 ____label: "OPC IID",
                 ____accept: "jsString",
-                ____defaultValue: "<not defined>"
+                ____defaultValue: "not specified"
             },
 
             name: {
                 ____label: "OPC Name",
                 ____accept: "jsString",
-                ____defaultValue: "<not defined>"
+                ____defaultValue: "not specified"
             },
 
             evalCount: {
@@ -189,7 +189,7 @@ const factoryResponse = arccore.filter.create({
 
                 case "evaluate":
                     message = [
-                        `%cOPC::evaluate <${request_.opc.iid}> ${request_.message}`
+                        `%cOPC::evaluate <${request_.opc.iid}> [${request_.opc.evalCount}:${request_.opc.frameCount}] ${request_.message}`
                     ].join(" ");
                     consoleMethod(message, styles);
                     break;

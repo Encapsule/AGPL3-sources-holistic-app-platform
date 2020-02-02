@@ -434,7 +434,7 @@ const factoryResponse = arccore.filter.create({
 			        // console.log(`%cOPC._evaluate [e${result.evalNumber}::f${result.summary.counts.frames}] transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`, consoleStyles.opc.evaluate.transition);
 
                     logger.request({
-                        opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
+                        opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
                         subsystem: "opc", method: "evaluate", phase: "body",
                         message: `Transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`
                     });
@@ -641,7 +641,7 @@ const factoryResponse = arccore.filter.create({
 
         logger.request({
             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
-                   evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount,
+                   evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount-1,
                    actorStack: opcRef._private.opcActorStack },
             subsystem: "opc", method: "evaluate", phase: "prologue",
             message: `COMPLETE update #${result.evalNumber} in ${result.summary.framesCount} frames running taking ${result.summary.evalStopwatch.totalMilliseconds} ms.`
