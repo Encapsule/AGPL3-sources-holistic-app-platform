@@ -4,8 +4,14 @@ var arccore = require("@encapsule/arccore");
 
 var opcActorStackEntrySpec = require("../filters/iospecs/opc-actor-stack-entry-spec");
 
-var holarchyConsoleStylesLUT = require("./console-colors-lut");
+var consoleColorsLUT = require("./console-colors-lut");
 
+var logLevelLUT = {
+  info: console.info,
+  diagnostc: console.log,
+  warning: console.warning,
+  error: console.error
+};
 var factoryResponse = arccore.filter.create({
   operationID: "h7lnSqFxSgma0qvNdZqOZg",
   operationName: "Holarchy Logger",
@@ -25,17 +31,17 @@ var factoryResponse = arccore.filter.create({
       id: {
         ____label: "OPC ID",
         ____accept: "jsString",
-        ____defaultValue: "<not defined>"
+        ____defaultValue: "not specified"
       },
       iid: {
         ____label: "OPC IID",
         ____accept: "jsString",
-        ____defaultValue: "<not defined>"
+        ____defaultValue: "not specified"
       },
       name: {
         ____label: "OPC Name",
         ____accept: "jsString",
-        ____defaultValue: "<not defined>"
+        ____defaultValue: "not specified"
       },
       evalCount: {
         ____label: "Evaluation Count",
@@ -77,6 +83,11 @@ var factoryResponse = arccore.filter.create({
       ____accept: "jsString",
       ____inValueSet: ["constructor", "act", "evaluate"]
     },
+    phase: {
+      ____label: "Method Phase",
+      ____description: "Subsystem method phase (e.g. prologue, body, epilogue).",
+      ____accept: "jsString"
+    },
     message: {
       ____label: "Message String",
       ____description: "The message string to log.",
@@ -92,8 +103,100 @@ var factoryResponse = arccore.filter.create({
     var inBreakScope = false;
 
     while (!inBreakScope) {
-      inBreakScope = true;
-      console.log(JSON.stringify(request_));
+      inBreakScope = true; // console.log(JSON.stringify(request_));  // This should probably be the default option.
+      // Locate the subsystem.
+
+      var subsystemStyles = consoleColorsLUT[request_.subsystem];
+
+      if (!subsystemStyles) {
+        errors.push("Unhandled subsystem value '".concat(request_.subsystem, "'."));
+        break;
+      } // Locate the method.
+
+
+      var methodStyles = subsystemStyles[request_.method];
+
+      if (!methodStyles) {
+        errors.push("Unhandled subsystem method value '".concat(request_.method, "'."));
+        break;
+      } // Locate the phase.
+
+
+      var styles = methodStyles[request_.phase];
+
+      if (!styles) {
+        errors.push("Unhandled subsystem method phase value '".concat(request_.phase, "'."));
+        break;
+      } // Send the output to selected console method.
+
+
+      var consoleMethod = logLevelLUT[request_.logLevel];
+
+      if (!consoleMethod) {
+        errors.push("Unhandled logLevel value '".concat(request_.logLevel, "'."));
+        break;
+      }
+
+      var message = null;
+      var actorStack = null;
+
+      switch (request_.subsystem) {
+        case "opc":
+          switch (request_.method) {
+            case "constructor":
+              message = ["%cOPC::constructor <".concat(request_.opc.iid, ">[").concat(request_.opc.id, "::").concat(request_.opc.name, "]"), request_.message].join(" ");
+              consoleMethod(message, styles);
+              break;
+
+            case "act":
+              actorStack = request_.opc.actorStack.map(function (stackEntry_) {
+                return "(".concat(stackEntry_.actorName, ")");
+              }).join(" > ");
+              message = ["%cOPC::act <".concat(request_.opc.iid, "> actor stack: ").concat(actorStack)];
+              styles += "border-left: ".concat(4 * request_.opc.actorStack.length, "px solid #FFCC00;");
+
+              switch (request_.phase) {
+                case "prologue":
+                  message.push(request_.message);
+                  break;
+
+                case "body":
+                  message.push(request_.message);
+                  break;
+
+                case "epilogue":
+                  message.push(request_.message);
+                  break;
+
+                default:
+                  errors.push("Unhandled subsystem method phase '".concat(request_.phase, "'."));
+                  break;
+              }
+
+              if (!errors.length) {
+                consoleMethod(message.join(" "), styles);
+              }
+
+              break;
+
+            case "evaluate":
+              message = ["%cOPC::evaluate <".concat(request_.opc.iid, "> [").concat(request_.opc.evalCount, ":").concat(request_.opc.frameCount, "] ").concat(request_.message)].join(" ");
+              consoleMethod(message, styles);
+              break;
+
+            default:
+              errors.push("Unhandled method '".concat(request_.method, "' specified on subsystem '").concat(request_.subsystem, "'."));
+              break;
+          }
+
+          break;
+
+        default:
+          errors.push("Unhandled subsystem '".concat(request_.subsystem, "' value."));
+          break;
+      } // end switch
+
+
       break;
     }
 
