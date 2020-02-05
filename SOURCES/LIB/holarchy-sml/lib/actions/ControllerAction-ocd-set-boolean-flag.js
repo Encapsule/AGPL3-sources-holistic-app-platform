@@ -4,8 +4,8 @@ const holarchy = require("@encapsule/holarchy");
 
 module.exports = new holarchy.ControllerAction({
     id: "5rFEDGLYRSiZCeChMnkCHQ",
-    name: "Set Boolean Flag",
-    description: "Sets a Boolean flag in the OCD.",
+    name: "OCD Boolean Flag Set",
+    description: "Set the Boolean-type OCD namespace specified by path to value true.",
 
     actionRequestSpec: {
         ____types: "jsObject",

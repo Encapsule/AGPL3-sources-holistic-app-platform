@@ -74,12 +74,7 @@ const opmClientHashRouteLocationProcessor = module.exports = {
 
         initialize: {
             description: "Registering hashchange DOM event callback.",
-            actions: {
-                enter: [
-                    { holarchy: { sml: { actions: { client: { dom: { command: { reloadPageWithHash: true } } } } } } },
-                    { holarchy: { sml: { actions: { client: { dom: { event: { hashchange: { hook: true } } } } } } } }
-                ]
-            },
+            actions: { enter: [ { holarchy: { sml: { actions: { ClientDOMLocationProcessor: { initialize: true } } } } } ] },
             transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ]
         },
 

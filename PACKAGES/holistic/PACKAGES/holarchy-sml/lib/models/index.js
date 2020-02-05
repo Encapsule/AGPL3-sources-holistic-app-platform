@@ -1,10 +1,10 @@
 "use strict";
 
-var observableFrameLatchDeclaration = require("./ObservableProcessModel-frame-latch-declaration");
+var observableFrameLatchDeclaration = require("./declarations/ObservableProcessModel-frame-latch-declaration");
 
 var observableFrameLatch = require("./ObservableProcessModel-frame-latch");
 
-var d2r2ReactClientDisplayAdaptorDeclaration = require("./ObservableProcessModel-d2r2-react-client-display-adaptor-declaration");
+var d2r2ReactClientDisplayAdaptorDeclaration = require("./declarations/ObservableProcessModel-d2r2-react-client-display-adaptor-declaration");
 
 var d2r2ReactClientDisplayAdaptor = require("./ObservableProcessModel-d2r2-react-client-display-adaptor");
 

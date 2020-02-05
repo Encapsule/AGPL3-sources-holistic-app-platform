@@ -17730,7 +17730,7 @@
                           "constructorRequest": {
                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                             "name": "Observable Frame Latch",
-                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                             "opmDataSpec": {
                               "____label": "Observable Frame Latch",
                               "____types": "jsObject",
@@ -17839,7 +17839,7 @@
                           "toJSON": {
                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                             "name": "Observable Frame Latch",
-                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                             "opmDataSpec": {
                               "____label": "Observable Frame Latch",
                               "____types": "jsObject",
@@ -17937,7 +17937,7 @@
                           },
                           "getID": "z_mTe02hSWmaM1iRO1pBeA",
                           "getName": "Observable Frame Latch",
-                          "getDescription": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                          "getDescription": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                           "getDataSpec": {
                             "____label": "Observable Frame Latch",
                             "____types": "jsObject",
@@ -17949,7 +17949,7 @@
                           },
                           "getDigraph": {
                             "name": "[z_mTe02hSWmaM1iRO1pBeA::Observable Frame Latch] OPM Digraph",
-                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                             "vlist": [
                               {
                                 "u": "uninitialized",
@@ -18102,7 +18102,7 @@
                                 {
                                   "id": "z_mTe02hSWmaM1iRO1pBeA",
                                   "name": "Observable Frame Latch",
-                                  "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                  "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                   "opmDataSpec": {
                                     "____label": "Observable Frame Latch",
                                     "____types": "jsObject",
@@ -18758,10 +18758,10 @@
                               [
                                 {
                                   "operationID": "_yxWfFLnTqqN-UxRdd7W5w",
-                                  "operationName": "Clear Boolean Flag",
-                                  "operationDescription": "Clears a Boolean flag in the OCD.",
+                                  "operationName": "OCD Boolean Flag Clear",
+                                  "operationDescription": "Set the Boolean-type OCD namespace specified by path to value false.",
                                   "inputFilterSpec": {
-                                    "____label": "Clear Boolean Flag Request",
+                                    "____label": "OCD Boolean Flag Clear Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -18809,17 +18809,17 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "Q26xScNwSEHmeE4xjO_vtg",
-                                  "inputTypeVDID": "ouIsY-huis0tFd2_lHI_qA",
+                                  "inputTypeVDID": "9KJ61BzJTOYImYOv8ZM5CA",
                                   "outputTypeVIID": "_Jrf_S2nEWwsSx89q6ealg",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "21zxkmR-mjHNlBIwaJ2tSA"
+                                  "operationVDID": "22q-kmTKtTHNrr0waO5nSA"
                                 },
                                 {
                                   "operationID": "5rFEDGLYRSiZCeChMnkCHQ",
-                                  "operationName": "Set Boolean Flag",
-                                  "operationDescription": "Sets a Boolean flag in the OCD.",
+                                  "operationName": "OCD Boolean Flag Set",
+                                  "operationDescription": "Set the Boolean-type OCD namespace specified by path to value true.",
                                   "inputFilterSpec": {
-                                    "____label": "Set Boolean Flag Request",
+                                    "____label": "OCD Boolean Flag Set Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -18867,17 +18867,17 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "YJSR1JZOriuhfXfKbnMV4Q",
-                                  "inputTypeVDID": "cERI940VZR5U7QOd6FeiGQ",
+                                  "inputTypeVDID": "0aDJ9bYLiGczLvkVsJtGVA",
                                   "outputTypeVIID": "kyxCxyo_W507HuHlFVvwIQ",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "bE_OksOp1jF7C44weUB_SA"
+                                  "operationVDID": "bC2bksMrjTF7fEIweT-ASA"
                                 },
                                 {
                                   "operationID": "iyvk_9vhRn2qvrjOes5v7Q",
-                                  "operationName": "Write Frame Latch",
+                                  "operationName": "Frame Latch: Write",
                                   "operationDescription": "Writes the value made observable by frame latch OPM instance.",
                                   "inputFilterSpec": {
-                                    "____label": "Write Frame Latch Request",
+                                    "____label": "Frame Latch: Write Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -18932,10 +18932,10 @@
                                     "____opaque": true
                                   },
                                   "inputTypeVIID": "dOV6tM17rLvrsqbIM4LzCg",
-                                  "inputTypeVDID": "_sHq6rzS5dLZDEfwpEy_Yw",
+                                  "inputTypeVDID": "CBUEuxn9T06VG532f5Ezxw",
                                   "outputTypeVIID": "LPeeiMV42LNeAhthe2myDQ",
                                   "outputTypeVDID": "8-d-OpyoAkX4G5bt5_5T_Q",
-                                  "operationVDID": "E6VN-IT57adhKU13b50bSw"
+                                  "operationVDID": "E1VL-IRXcqdhnLh3bwcMSw"
                                 },
                                 {
                                   "operationID": "Ve_kEFkGSMSgOqUWu9Yo_w",
@@ -18999,10 +18999,10 @@
                                 },
                                 {
                                   "operationID": "d2vRmtn2QA6Ox8W4PwDWNA",
-                                  "operationName": "React Client View Rehydrate",
+                                  "operationName": "d2r2/React Client Display Adaptor: Rehydrate",
                                   "operationDescription": "Rehydrate server-rendered React view and connect UI event handlers.",
                                   "inputFilterSpec": {
-                                    "____label": "React Client View Rehydrate Request",
+                                    "____label": "d2r2/React Client Display Adaptor: Rehydrate Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -19050,10 +19050,126 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "dJjTV9BAp4Z9pSavLeZ-wQ",
-                                  "inputTypeVDID": "dWayec_SLLNxaNT03o8KAQ",
+                                  "inputTypeVDID": "QsM3rOgn6il6aRhn9xqRBA",
                                   "outputTypeVIID": "8JLm4g169JeAd37FiSdhHA",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "6hSNkiHYVjGWTpEw603mSA"
+                                  "operationVDID": "6miUkiFTADGWytkw6x7fSA"
+                                },
+                                {
+                                  "operationID": "TlGPCf7uSf2cZMGZCcU85A",
+                                  "operationName": "DOM Client Location Proccessor: Initialize",
+                                  "operationDescription": "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
+                                  "inputFilterSpec": {
+                                    "____label": "DOM Client Location Proccessor: Initialize Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ClientDOMLocationProcessor": {
+                                              "____types": "jsObject",
+                                              "initialize": {
+                                                "____accept": "jsBoolean",
+                                                "____inValueSet": [
+                                                  true
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "KcjWETRZ6ZKqUaStr-bLlw",
+                                  "inputTypeVDID": "mfaBKDN9kltgaZJiwNko_A",
+                                  "outputTypeVIID": "whU_teLC4EBk4cHg3IMb1A",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "IHxNkuvceTH3VXIwPRZ0SA"
+                                },
+                                {
+                                  "operationID": "peTmTek_SB64-ofd_PSGjg",
+                                  "operationName": "DOM Client Location Processor: 'hashchange'",
+                                  "operationDescription": "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor OPM memory to record the event details.",
+                                  "inputFilterSpec": {
+                                    "____label": "DOM Client Location Processor: 'hashchange' Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ClientDOMLocationProcessor": {
+                                              "____types": "jsObject",
+                                              "sinkEvent": {
+                                                "____types": "jsObject",
+                                                "hashchangeEventDescriptor": {
+                                                  "____accept": "jsObject"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "jMDSigpNQiytsxBBL5EuAg",
+                                  "inputTypeVDID": "P1ap7ppsVfwGi8-3l5Pk5w",
+                                  "outputTypeVIID": "1JPeHOASC2_0nFByiFxbHQ",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "LLEIkux7PDFnSUUwLVgNSA"
                                 }
                               ]
                             ]
@@ -19107,7 +19223,7 @@
                               "z_mTe02hSWmaM1iRO1pBeA": {
                                 "id": "z_mTe02hSWmaM1iRO1pBeA",
                                 "name": "Observable Frame Latch",
-                                "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                 "opmDataSpec": {
                                   "____label": "Observable Frame Latch",
                                   "____types": "jsObject",
@@ -19210,7 +19326,7 @@
                                 "opmiRef": {
                                   "id": "z_mTe02hSWmaM1iRO1pBeA",
                                   "name": "Observable Frame Latch",
-                                  "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                  "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                   "opmDataSpec": {
                                     "____label": "Observable Frame Latch",
                                     "____types": "jsObject",
@@ -19383,23 +19499,25 @@
                             },
                             "actionDispatcher": {
                               "filterDescriptor": {
-                                "operationID": "qLg05EHjIU11M68WqqmCWg",
+                                "operationID": "XRL2clDypWnujvm5F4Qxcw",
                                 "operationName": "Discriminator Filter",
                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                "inputTypeVIID": "Ge5WPYOYsqjlpgBw-02qug",
+                                "inputTypeVIID": "Emtl_sIwargrlHf-ni6OVA",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                "outputTypeVIID": "TD_O-aDUTKuXE59DTLOPzA",
+                                "outputTypeVIID": "z76sWWKra6W3aMdHS0Lbnw",
                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                "operationVDID": "IL30E4xUNVeuwY7tnGYUtA"
+                                "operationVDID": "a0j0E0EJNVfXm47tn-EUtA"
                               },
                               "supportedFilters": [
-                                "[5rFEDGLYRSiZCeChMnkCHQ::Set Boolean Flag]",
+                                "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
                                 "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]",
+                                "[TlGPCf7uSf2cZMGZCcU85A::DOM Client Location Proccessor: Initialize]",
                                 "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
-                                "[_yxWfFLnTqqN-UxRdd7W5w::Clear Boolean Flag]",
-                                "[d2vRmtn2QA6Ox8W4PwDWNA::React Client View Rehydrate]",
-                                "[iyvk_9vhRn2qvrjOes5v7Q::Write Frame Latch]"
+                                "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
+                                "[d2vRmtn2QA6Ox8W4PwDWNA::d2r2/React Client Display Adaptor: Rehydrate]",
+                                "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]",
+                                "[peTmTek_SB64-ofd_PSGjg::DOM Client Location Processor: 'hashchange']"
                               ],
                               "options": {
                                 "action": "routeRequest"
@@ -19445,7 +19563,7 @@
                                           "opmRef": {
                                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                                             "name": "Observable Frame Latch",
-                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                             "opmDataSpec": {
                                               "____label": "Observable Frame Latch",
                                               "____types": "jsObject",
@@ -19658,7 +19776,7 @@
                                           "opmRef": {
                                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                                             "name": "Observable Frame Latch",
-                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                             "opmDataSpec": {
                                               "____label": "Observable Frame Latch",
                                               "____types": "jsObject",
@@ -19869,7 +19987,7 @@
                                           "opmRef": {
                                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                                             "name": "Observable Frame Latch",
-                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                             "opmDataSpec": {
                                               "____label": "Observable Frame Latch",
                                               "____types": "jsObject",
@@ -20110,7 +20228,7 @@
                                               "opmRef": {
                                                 "id": "z_mTe02hSWmaM1iRO1pBeA",
                                                 "name": "Observable Frame Latch",
-                                                "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                                "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                                 "opmDataSpec": {
                                                   "____label": "Observable Frame Latch",
                                                   "____types": "jsObject",
@@ -20314,7 +20432,7 @@
                                               "opmRef": {
                                                 "id": "z_mTe02hSWmaM1iRO1pBeA",
                                                 "name": "Observable Frame Latch",
-                                                "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                                "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                                 "opmDataSpec": {
                                                   "____label": "Observable Frame Latch",
                                                   "____types": "jsObject",
@@ -20525,7 +20643,7 @@
                                               "opmRef": {
                                                 "id": "z_mTe02hSWmaM1iRO1pBeA",
                                                 "name": "Observable Frame Latch",
-                                                "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                                "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                                 "opmDataSpec": {
                                                   "____label": "Observable Frame Latch",
                                                   "____types": "jsObject",
@@ -21798,7 +21916,7 @@
                                 {
                                   "id": "z_mTe02hSWmaM1iRO1pBeA",
                                   "name": "Observable Frame Latch",
-                                  "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                  "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                   "opmDataSpec": {
                                     "____label": "Observable Frame Latch",
                                     "____types": "jsObject",
@@ -22779,10 +22897,10 @@
                               [
                                 {
                                   "operationID": "_yxWfFLnTqqN-UxRdd7W5w",
-                                  "operationName": "Clear Boolean Flag",
-                                  "operationDescription": "Clears a Boolean flag in the OCD.",
+                                  "operationName": "OCD Boolean Flag Clear",
+                                  "operationDescription": "Set the Boolean-type OCD namespace specified by path to value false.",
                                   "inputFilterSpec": {
-                                    "____label": "Clear Boolean Flag Request",
+                                    "____label": "OCD Boolean Flag Clear Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -22830,17 +22948,17 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "Q26xScNwSEHmeE4xjO_vtg",
-                                  "inputTypeVDID": "ouIsY-huis0tFd2_lHI_qA",
+                                  "inputTypeVDID": "9KJ61BzJTOYImYOv8ZM5CA",
                                   "outputTypeVIID": "_Jrf_S2nEWwsSx89q6ealg",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "21zxkmR-mjHNlBIwaJ2tSA"
+                                  "operationVDID": "22q-kmTKtTHNrr0waO5nSA"
                                 },
                                 {
                                   "operationID": "5rFEDGLYRSiZCeChMnkCHQ",
-                                  "operationName": "Set Boolean Flag",
-                                  "operationDescription": "Sets a Boolean flag in the OCD.",
+                                  "operationName": "OCD Boolean Flag Set",
+                                  "operationDescription": "Set the Boolean-type OCD namespace specified by path to value true.",
                                   "inputFilterSpec": {
-                                    "____label": "Set Boolean Flag Request",
+                                    "____label": "OCD Boolean Flag Set Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -22888,17 +23006,17 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "YJSR1JZOriuhfXfKbnMV4Q",
-                                  "inputTypeVDID": "cERI940VZR5U7QOd6FeiGQ",
+                                  "inputTypeVDID": "0aDJ9bYLiGczLvkVsJtGVA",
                                   "outputTypeVIID": "kyxCxyo_W507HuHlFVvwIQ",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "bE_OksOp1jF7C44weUB_SA"
+                                  "operationVDID": "bC2bksMrjTF7fEIweT-ASA"
                                 },
                                 {
                                   "operationID": "iyvk_9vhRn2qvrjOes5v7Q",
-                                  "operationName": "Write Frame Latch",
+                                  "operationName": "Frame Latch: Write",
                                   "operationDescription": "Writes the value made observable by frame latch OPM instance.",
                                   "inputFilterSpec": {
-                                    "____label": "Write Frame Latch Request",
+                                    "____label": "Frame Latch: Write Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -22953,10 +23071,10 @@
                                     "____opaque": true
                                   },
                                   "inputTypeVIID": "dOV6tM17rLvrsqbIM4LzCg",
-                                  "inputTypeVDID": "_sHq6rzS5dLZDEfwpEy_Yw",
+                                  "inputTypeVDID": "CBUEuxn9T06VG532f5Ezxw",
                                   "outputTypeVIID": "LPeeiMV42LNeAhthe2myDQ",
                                   "outputTypeVDID": "8-d-OpyoAkX4G5bt5_5T_Q",
-                                  "operationVDID": "E6VN-IT57adhKU13b50bSw"
+                                  "operationVDID": "E1VL-IRXcqdhnLh3bwcMSw"
                                 },
                                 {
                                   "operationID": "Ve_kEFkGSMSgOqUWu9Yo_w",
@@ -23020,10 +23138,10 @@
                                 },
                                 {
                                   "operationID": "d2vRmtn2QA6Ox8W4PwDWNA",
-                                  "operationName": "React Client View Rehydrate",
+                                  "operationName": "d2r2/React Client Display Adaptor: Rehydrate",
                                   "operationDescription": "Rehydrate server-rendered React view and connect UI event handlers.",
                                   "inputFilterSpec": {
-                                    "____label": "React Client View Rehydrate Request",
+                                    "____label": "d2r2/React Client Display Adaptor: Rehydrate Request",
                                     "____types": "jsObject",
                                     "context": {
                                       "____label": "OPC Context Descriptor",
@@ -23071,10 +23189,126 @@
                                     "____accept": "jsUndefined"
                                   },
                                   "inputTypeVIID": "dJjTV9BAp4Z9pSavLeZ-wQ",
-                                  "inputTypeVDID": "dWayec_SLLNxaNT03o8KAQ",
+                                  "inputTypeVDID": "QsM3rOgn6il6aRhn9xqRBA",
                                   "outputTypeVIID": "8JLm4g169JeAd37FiSdhHA",
                                   "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                                  "operationVDID": "6hSNkiHYVjGWTpEw603mSA"
+                                  "operationVDID": "6miUkiFTADGWytkw6x7fSA"
+                                },
+                                {
+                                  "operationID": "TlGPCf7uSf2cZMGZCcU85A",
+                                  "operationName": "DOM Client Location Proccessor: Initialize",
+                                  "operationDescription": "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
+                                  "inputFilterSpec": {
+                                    "____label": "DOM Client Location Proccessor: Initialize Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ClientDOMLocationProcessor": {
+                                              "____types": "jsObject",
+                                              "initialize": {
+                                                "____accept": "jsBoolean",
+                                                "____inValueSet": [
+                                                  true
+                                                ]
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "KcjWETRZ6ZKqUaStr-bLlw",
+                                  "inputTypeVDID": "mfaBKDN9kltgaZJiwNko_A",
+                                  "outputTypeVIID": "whU_teLC4EBk4cHg3IMb1A",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "IHxNkuvceTH3VXIwPRZ0SA"
+                                },
+                                {
+                                  "operationID": "peTmTek_SB64-ofd_PSGjg",
+                                  "operationName": "DOM Client Location Processor: 'hashchange'",
+                                  "operationDescription": "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor OPM memory to record the event details.",
+                                  "inputFilterSpec": {
+                                    "____label": "DOM Client Location Processor: 'hashchange' Request",
+                                    "____types": "jsObject",
+                                    "context": {
+                                      "____label": "OPC Context Descriptor",
+                                      "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                      "____types": "jsObject",
+                                      "opmBindingPath": {
+                                        "____label": "OPM Binding Path",
+                                        "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                        "____accept": "jsString"
+                                      },
+                                      "ocdi": {
+                                        "____label": "OCD Store Instance",
+                                        "____description": "A reference to the OCD store instance managed by OPC.",
+                                        "____accept": "jsObject"
+                                      },
+                                      "act": {
+                                        "____label": "OPC.act Method",
+                                        "____description": "A reference to ObservableProcessController.act method.",
+                                        "____accept": "jsFunction"
+                                      }
+                                    },
+                                    "actionRequest": {
+                                      "____types": "jsObject",
+                                      "holarchy": {
+                                        "____types": "jsObject",
+                                        "sml": {
+                                          "____types": "jsObject",
+                                          "actions": {
+                                            "____types": "jsObject",
+                                            "ClientDOMLocationProcessor": {
+                                              "____types": "jsObject",
+                                              "sinkEvent": {
+                                                "____types": "jsObject",
+                                                "hashchangeEventDescriptor": {
+                                                  "____accept": "jsObject"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "outputFilterSpec": {
+                                    "____accept": "jsUndefined"
+                                  },
+                                  "inputTypeVIID": "jMDSigpNQiytsxBBL5EuAg",
+                                  "inputTypeVDID": "P1ap7ppsVfwGi8-3l5Pk5w",
+                                  "outputTypeVIID": "1JPeHOASC2_0nFByiFxbHQ",
+                                  "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                                  "operationVDID": "LLEIkux7PDFnSUUwLVgNSA"
                                 }
                               ]
                             ]
@@ -23109,7 +23343,7 @@
                               "z_mTe02hSWmaM1iRO1pBeA": {
                                 "id": "z_mTe02hSWmaM1iRO1pBeA",
                                 "name": "Observable Frame Latch",
-                                "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                 "opmDataSpec": {
                                   "____label": "Observable Frame Latch",
                                   "____types": "jsObject",
@@ -23865,7 +24099,7 @@
                                 "opmiRef": {
                                   "id": "z_mTe02hSWmaM1iRO1pBeA",
                                   "name": "Observable Frame Latch",
-                                  "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                  "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                   "opmDataSpec": {
                                     "____label": "Observable Frame Latch",
                                     "____types": "jsObject",
@@ -24113,23 +24347,25 @@
                             },
                             "actionDispatcher": {
                               "filterDescriptor": {
-                                "operationID": "qLg05EHjIU11M68WqqmCWg",
+                                "operationID": "XRL2clDypWnujvm5F4Qxcw",
                                 "operationName": "Discriminator Filter",
                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                "inputTypeVIID": "Ge5WPYOYsqjlpgBw-02qug",
+                                "inputTypeVIID": "Emtl_sIwargrlHf-ni6OVA",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                "outputTypeVIID": "TD_O-aDUTKuXE59DTLOPzA",
+                                "outputTypeVIID": "z76sWWKra6W3aMdHS0Lbnw",
                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                "operationVDID": "IL30E4xUNVeuwY7tnGYUtA"
+                                "operationVDID": "a0j0E0EJNVfXm47tn-EUtA"
                               },
                               "supportedFilters": [
-                                "[5rFEDGLYRSiZCeChMnkCHQ::Set Boolean Flag]",
+                                "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
                                 "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]",
+                                "[TlGPCf7uSf2cZMGZCcU85A::DOM Client Location Proccessor: Initialize]",
                                 "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
-                                "[_yxWfFLnTqqN-UxRdd7W5w::Clear Boolean Flag]",
-                                "[d2vRmtn2QA6Ox8W4PwDWNA::React Client View Rehydrate]",
-                                "[iyvk_9vhRn2qvrjOes5v7Q::Write Frame Latch]"
+                                "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
+                                "[d2vRmtn2QA6Ox8W4PwDWNA::d2r2/React Client Display Adaptor: Rehydrate]",
+                                "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]",
+                                "[peTmTek_SB64-ofd_PSGjg::DOM Client Location Processor: 'hashchange']"
                               ],
                               "options": {
                                 "action": "routeRequest"
@@ -24590,7 +24826,7 @@
                                           "opmRef": {
                                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                                             "name": "Observable Frame Latch",
-                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                             "opmDataSpec": {
                                               "____label": "Observable Frame Latch",
                                               "____types": "jsObject",
@@ -25252,7 +25488,7 @@
                                           "opmRef": {
                                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                                             "name": "Observable Frame Latch",
-                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                             "opmDataSpec": {
                                               "____label": "Observable Frame Latch",
                                               "____types": "jsObject",
@@ -25912,7 +26148,7 @@
                                           "opmRef": {
                                             "id": "z_mTe02hSWmaM1iRO1pBeA",
                                             "name": "Observable Frame Latch",
-                                            "description": "Observable frame latch model buffers a value in an OPM-bound namespace for one evaluation frame.",
+                                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                                             "opmDataSpec": {
                                               "____label": "Observable Frame Latch",
                                               "____types": "jsObject",

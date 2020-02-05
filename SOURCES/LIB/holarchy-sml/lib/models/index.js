@@ -1,8 +1,8 @@
 
-const observableFrameLatchDeclaration = require("./ObservableProcessModel-frame-latch-declaration");
+const observableFrameLatchDeclaration = require("./declarations/ObservableProcessModel-frame-latch-declaration");
 const observableFrameLatch = require("./ObservableProcessModel-frame-latch");
 
-const d2r2ReactClientDisplayAdaptorDeclaration = require("./ObservableProcessModel-d2r2-react-client-display-adaptor-declaration");
+const d2r2ReactClientDisplayAdaptorDeclaration = require("./declarations/ObservableProcessModel-d2r2-react-client-display-adaptor-declaration");
 const d2r2ReactClientDisplayAdaptor = require("./ObservableProcessModel-d2r2-react-client-display-adaptor");
 
 const SMLModels = {
