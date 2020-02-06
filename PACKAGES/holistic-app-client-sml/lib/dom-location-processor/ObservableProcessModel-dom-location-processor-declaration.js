@@ -55,7 +55,7 @@ var opmClientHashRouteLocationProcessor = module.exports = {
         transitionIf: {
           always: true
         },
-        nextStep: initialize
+        nextStep: "initialize"
       }]
     },
     initialize: {

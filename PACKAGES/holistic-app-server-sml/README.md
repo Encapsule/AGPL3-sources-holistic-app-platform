@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 Software Model Library (SML) containing Node.js app server plug-in filter assets derived from @encapsule/holarchy.
 
 ```
-Package: @encapsule/holistic-app-server-sml v0.1.00 "alertbay" build ID "zc9w9K5WSsmuzsvi1dqySA"
-Sources: Encapsule/holistic-master#fd0126234b58215e790c8b38d39e2b4ecef1c2e9
-Created: 2020-02-06T00:17:46.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holistic-app-server-sml v0.1.00 "alertbay" build ID "-byDTo-JSCyqh8ZO-j9jIA"
+Sources: Encapsule/holistic-master#dfe0bb546b032cb7f1adb160963ee9a931e4ed18
+Created: 2020-02-06T19:13:27.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
