@@ -4,7 +4,7 @@ const opmClientHashRouteLocationProcessor = module.exports = {
 
     id: "-1Ptaq_zTUa8Gfv_3ODtDg",
     name: "Client Hash Route Location Processor",
-
+    description: "Hooks and monitors DOM events related to location and hashroute change providing notification stream to other OPM. Additionally, abstracts programmatic operations on location and hashroute displayed to the user via the browser's address (location) bar.",
 
     opmDataSpec: {
         ____label: "Client Hash Route Location Processor",
@@ -19,6 +19,7 @@ const opmClientHashRouteLocationProcessor = module.exports = {
 
         _private: {
             ____types: "jsObject",
+            ____defaultValue: {},
 
             routerEventCount: {
                 ____accept: "jsNumber",
@@ -97,8 +98,8 @@ const opmClientHashRouteLocationProcessor = module.exports = {
                                 }
                             }
                         },
-                        nextStep: "process_route_udpate"
-                    }
+                    },
+                    nextStep: "process_route_udpate"
                 }
             ]
         },
