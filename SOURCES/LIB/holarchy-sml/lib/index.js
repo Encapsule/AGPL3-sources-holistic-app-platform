@@ -1,7 +1,7 @@
 
 module.exports = {
     actions: require("./actions"),
-    operators: require("./operators"),
-    models: require("./models")
+    models: require("./models"),
+    operators: require("./operators")
 };
 

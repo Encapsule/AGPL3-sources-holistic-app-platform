@@ -56,6 +56,12 @@ class ObservableProcessController {
                 // The caller's request_ value is no longer used after this point.
                 this._private = filterResponse.result;
 
+                logger.request({
+                    opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
+                    subsystem: "opc", method: "constructor", phase: "prologue",
+                    message: "INSTANCE INITIALIZED",
+                });
+
                 // Perform the first post-construction evaluation of the OPC system model
                 // if the instance was constructed in "automatic" evaluate mode.
                 if (this._private.options.evaluate.firstEvaluation === "constructor") {
@@ -225,7 +231,7 @@ class ObservableProcessController {
                         opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                                evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                         subsystem: "opc", method: "act", phase: "body",
-                        message: "SHARING LOVE"
+                        message: "UPDATING SYSTEM STATE..."
                     });
 
                     // Evaluate is an actor too. It adds itself to the OPC actor stack.

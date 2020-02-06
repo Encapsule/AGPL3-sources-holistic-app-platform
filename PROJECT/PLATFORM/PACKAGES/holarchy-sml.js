@@ -22,15 +22,15 @@ module.exports = {
     packageReadme: {
         overviewDescriptor: {
             markdown: [
-		"**TODO**"
-	    ]
+		        "**TODO**"
+	        ]
         },
         bodySections: [
-	    {
-		markdown: [
-		    "**TODO**"
-		]
-	    }
-	]
+	        {
+		        markdown: [
+		            "**TODO**"
+		        ]
+	        }
+	    ]
     }
 };

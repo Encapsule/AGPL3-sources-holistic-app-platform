@@ -69,7 +69,7 @@ const opmClientHashRouteLocationProcessor = module.exports = {
 
         uninitialized: {
             description: "Default starting process step.",
-            transitions: [ { transitionIf: { always: true }, nextStep: initialize } ]
+            transitions: [ { transitionIf: { always: true }, nextStep: "initialize" } ]
         },
 
         initialize: {

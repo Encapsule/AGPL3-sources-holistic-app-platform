@@ -1,7 +1,7 @@
 // vector-set-d2r2-react-processor.js
 
 const holarchy = require("@encapsule/holarchy");
-const sml = require("@encapsule/holarchy-sml");
+const clientSML = require("@encapsule/holistic-app-client-sml");
 
 module.exports = [
 
@@ -13,7 +13,7 @@ module.exports = [
             holistic: {
                 holarchy: {
                     ObservableProcessModel: {
-                        constructorRequest: sml.models.test.declaration.d2r2ReactClientDisplayAdaptor
+                        constructorRequest: clientSML.client.test.declaration.d2r2ReactClientDisplayAdaptor
                     }
                 }
             }
@@ -43,17 +43,17 @@ module.exports = [
 
                             observableProcessModelSets: [
                                 [
-                                    sml.models.core.observableFrameLatch,
-                                    sml.models.core.d2r2ReactClientDisplayAdaptor
+                                    clientSML.common.models.core.observableFrameLatch,
+                                    clientSML.client.models.d2r2ReactClientDisplayAdaptor
                                 ]
                             ],
 
                             transitionOperatorSets: [
-                                sml.operators.logical
+                                clientSML.common.operators.logical
                             ],
 
                             controllerActionSets: [
-                                sml.actions.ocd
+                                clientSML.common.actions.ocd
                             ]
                         }
                     },

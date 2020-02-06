@@ -15,6 +15,7 @@ module.exports = {
         peerDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
             "@encapsule/holarchy": holistic.version,
+            "@encapsule/holarchy-sml": holistic.version,
             "react": react.version,
             "react-dom": react.version
         }
@@ -22,15 +23,15 @@ module.exports = {
     packageReadme: {
         overviewDescriptor: {
             markdown: [
-		"**TODO**"
-	    ]
+		        "**TODO**"
+	        ]
         },
         bodySections: [
-	    {
-		markdown: [
-		    "**TODO**"
-		]
-	    }
-	]
+	        {
+		        markdown: [
+		            "**TODO**"
+		        ]
+	        }
+	    ]
     }
 };

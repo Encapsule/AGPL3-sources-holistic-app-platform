@@ -29,14 +29,18 @@ let exportObject = {
     packageReadme: {
 	overviewDescriptor: {
 	    markdown: [
-		"### Welcome the the Holistic App Platform",
-		
-		"TODO: Add a brief overview of the goals of holistic app platform along with current status.",
+		    "### Welcome the the Holistic App Platform",
 
-		// THIS HAS TO COME LAST IN THE OVERVIEW!
-		"### Contents",
-		"- [**appgen**](#appgen-utility) - A command-line utility used to initialize & maintain derived app/service git repos.",
-		"- [**Holistic Platform Runtime**](#holistic-platform-runtime \"Jump to RTL package index...\") - Core runtime app/service runtime libraries (RTL) packages."
+            "Holistic app platform is a collection of modular JavaScript runtime libraries (RTL) used to build full-stack client/server applications from plug-and-play software models.",
+            "Work on is project is quite active right now as it's being used to re-design and re-implement an existing commercial SaaS product.",
+
+            "**PRE-RELEASE STATUS**",
+            "Holistic app platform is becoming quite stable. But, lacks examples (required) and API documentation (required). Unless you're one of a small handful of insane people (thank you insane people!) who are working with this codebase every day then you probably should just make a bookmark and come back a little later in 2020 ;-)",
+
+		    // THIS HAS TO COME LAST IN THE OVERVIEW!
+		    "### Contents",
+		    "- [**appgen**](#appgen-utility) - A command-line utility used to initialize & maintain derived app/service git repos.",
+		    "- [**Holistic Platform Runtime**](#holistic-platform-runtime \"Jump to RTL package index...\") - Core runtime app/service runtime libraries (RTL) packages."
 	    ]
 	},
 
@@ -49,7 +53,7 @@ let exportObject = {
 
 		    "All holistic applications maintained with `appgen` have the same basic structure and base-level feature set:",
 
-		    "- Base-level directory structure and entry module file nameing conventions.",
+		    "- Base-level directory structure and entry module file naming conventions.",
 		    "    - Base-level directory structure is prescriptive and required.",
 		    "    - Developers can extend the directory / fire structure:",
 		    "        - Extend existing branches.",
@@ -63,18 +67,18 @@ let exportObject = {
 		    "        - install - executed after `yarn install`.",
 		    "        - clean - remove the previous application build.",
 		    "        - scrub - clean and additionally delete `node_modules` directory.",
-		    "        - reset - scub and additionally clear your local yarn cache forcing complete restage on `yarn install`.",
+		    "        - reset - scrub and additionally clear your local yarn cache forcing complete re-stage on `yarn install`.",
 		    "        - build - build the holistic application by calling `make application`.",
 		    "        - server - build and start the Node.js HTTP app server on localhost.",
 		    "        - debug-server - build and start the Node.js HTTP app server on localhost under Node.js inspector.",
 		    "        - start - launch a previously built Node.js HTTP app server on localhost.",
 		    "        - holodeck - execute your application's @encapsule/holodeck test runner.",
-		    "        - appinfo - print holisitic application and platform metadata.",
+		    "        - appinfo - print holistic application and platform metadata.",
 		    "        - platform - print holistic app platform metadata.",
-		    "        - iruts - generage a batch of v4 UUID-derived IRUT-format identifier strings.",
+		    "        - iruts - generate a batch of v4 UUID-derived IRUT-format identifier strings.",
 
 		    "- Core application build is automated by an `appgen`-generated `Makefile`.",
-		    "    - Abstracts building a holistic application so that you can launch the Node.js HTTP app server. And, servce the bundled client application.",
+		    "    - Abstracts building a holistic application so that you can launch the Node.js HTTP app server. And, service the bundled client application.",
 		    "    - Does not abstract the application-specific details required to:",
 		    "        - Test your holistic application.",
 		    "        - Package your application for distribution (e.g. further source transformation, Dockerfile generation...).",
@@ -94,7 +98,7 @@ let exportObject = {
 
 		    "The `appgen` utility is a code generation tool used by developers to initialize and maintain **holistic applications**.",
 
-		    "Both initialization and maintainence operations are performed using the same simple command line:",
+		    "Both initialization and maintenance operations are performed using the same simple command line:",
 
 		    "```\n$ path_to_holistic/appgen --appRepoDir path_to_your_app_repo\n```",
 
@@ -105,7 +109,7 @@ let exportObject = {
 		    "- Remove previously installed platform runtime libraries (RTL's).",
 		    "- Install new platform RTL's.",
 		    "- Register platform RTL dependencies.",
-		    "- Merge application and platform-defined package dependnecies.",
+		    "- Merge application and platform-defined package dependencies.",
 		    "- De-duplicate and error check finalized dependencies.",
 		    "- Merge platform-defined yarn integrations (e.g. run targets) with app-specific integrations.",
 		    "- Merge changes back into `package.json`.",
