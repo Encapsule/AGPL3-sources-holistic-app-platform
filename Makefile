@@ -4,7 +4,7 @@
 # $(patsubst %\,%,$(__PATHS_FEATURE))
 
 DIR_ROOT=$(patsubst %/,%,$(dir $(realpath $(firstword $(MAKEFILE_LIST)))))
-$(info ***** @encapsule/holistic platform make *****)
+$(info ***** @encapsule/holistic-master platform make *****)
 $(info DIR_ROOT is $(DIR_ROOT))
 
 DIR_MODULES=$(DIR_ROOT)/node_modules
@@ -37,6 +37,8 @@ TOOL_BABEL=$(DIR_TOOLBIN)/babel
 TOOL_WEBPACK=$(DIR_TOOLBIN)/webpack-cli
 TOOL_WEBPACK_FLAGS=--display-modules --verbose --debug --progress --colors --devtool source-map --output-pathinfo
 
+# SOURCES
+
 DIR_SOURCES=$(DIR_ROOT)/SOURCES
 DIR_SOURCES_LIB=$(DIR_SOURCES)/LIB
 DIR_SOURCES_LIB_D2R2=$(DIR_SOURCES_LIB)/d2r2
@@ -48,27 +50,32 @@ DIR_SOURCES_LIB_HOLISM=$(DIR_SOURCES_LIB)/holism
 DIR_SOURCES_LIB_HOLISM_METADATA=$(DIR_SOURCES_LIB)/holism-metadata
 DIR_SOURCES_LIB_HOLISM_SERVICES=$(DIR_SOURCES_LIB)/holism-services
 DIR_SOURCES_LIB_HOLISTIC=$(DIR_SOURCES_LIB)/holistic
+DIR_SOURCES_LIB_HOLISTIC_APP_CLIENT_SML=$(DIR_SOURCES_LIB)/holistic-app-client-sml
+DIR_SOURCES_LIB_HOLISTIC_APP_SERVER_SML=$(DIR_SOURCES_LIB)/holistic-app-server-sml
 DIR_SOURCES_LIB_HOLODECK=$(DIR_SOURCES_LIB)/holodeck
 DIR_SOURCES_LIB_HOLODECK_ASSETS=$(DIR_SOURCES_LIB)/holodeck-assets
 DIR_SOURCES_LIB_HREQUEST=$(DIR_SOURCES_LIB)/hrequest
 
+# BUILD
+
 DIR_BUILD=$(DIR_ROOT)/BUILD
 DIR_BUILD_LIB=$(DIR_BUILD)/LIB
+DIR_BUILD_LIB_D2R2=$(DIR_BUILD_LIB)/d2r2
+DIR_BUILD_LIB_D2R2_COMPONENTS=$(DIR_BUILD_LIB)/d2r2-components
+DIR_BUILD_LIB_HASH_ROUTER=$(DIR_BUILD_LIB)/hash-router
 DIR_BUILD_LIB_HOLARCHY=$(DIR_BUILD_LIB)/holarchy
 DIR_BUILD_LIB_HOLARCHY_SML=$(DIR_BUILD_LIB)/holarchy-sml
 DIR_BUILD_LIB_HOLISM=$(DIR_BUILD_LIB)/holism
 DIR_BUILD_LIB_HOLISM_METADATA=$(DIR_BUILD_LIB)/holism-metadata
 DIR_BUILD_LIB_HOLISM_SERVICES=$(DIR_BUILD_LIB)/holism-services
 DIR_BUILD_LIB_HOLISTIC=$(DIR_BUILD_LIB)/holistic
-DIR_BUILD_LIB_HREQUEST=$(DIR_BUILD_LIB)/hrequest
-DIR_BUILD_LIB_D2R2=$(DIR_BUILD_LIB)/d2r2
-DIR_BUILD_LIB_D2R2_COMPONENTS=$(DIR_BUILD_LIB)/d2r2-components
-DIR_BUILD_LIB_HASH_ROUTER=$(DIR_BUILD_LIB)/hash-router
+DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML=$(DIR_BUILD_LIB)/holistic-app-client-sml
+DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML=$(DIR_BUILD_LIB)/holistic-app-server-sml
 DIR_BUILD_LIB_HOLODECK=$(DIR_BUILD_LIB)/holodeck
 DIR_BUILD_LIB_HOLODECK_ASSETS=$(DIR_BUILD_LIB)/holodeck-assets
+DIR_BUILD_LIB_HREQUEST=$(DIR_BUILD_LIB)/hrequest
 
 DIR_DISTS=$(DIR_ROOT)/DISTS
-
 DIR_DIST_PKG_HOLISTIC=$(DIR_DISTS)/holistic
 DIR_DIST_PKG_HOLISTIC_PACKAGES=$(DIR_DIST_PKG_HOLISTIC)/PACKAGES
 DIR_DIST_PKG_HOLISTIC_PROJECT=$(DIR_DIST_PKG_HOLISTIC)/PROJECT
@@ -78,6 +85,12 @@ DIR_DIST_LIB_HOLARCHY=$(DIR_DIST_PKG_HOLISTIC_PACKAGES)/holarchy
 
 DIR_DIST_PKG_HOLARCHY_SML=$(DIR_DISTS)/holarchy-sml
 DIR_DIST_LIB_HOLARCHY_SML=$(DIR_DIST_PKG_HOLISTIC_PACKAGES)/holarchy-sml
+
+DIR_DIST_PKG_HOLISTIC_APP_CLIENT_SML=$(DIR_DISTS)/holistic-app-client-sml
+DIR_DIST_LIB_HOLISTIC_APP_CLIENT_SML=$(DIR_DIST_PKG_HOLISTIC_PACKAGES)/holistic-app-client-sml
+
+DIR_DIST_PKG_HOLISTIC_APP_SERVER_SML=$(DIR_DISTS)/holistic-app-server-sml
+DIR_DIST_LIB_HOLISTIC_APP_SERVER_SML=$(DIR_DIST_PKG_HOLISTIC_PACKAGES)/holistic-app-server-sml
 
 DIR_DIST_PKG_HOLISM=$(DIR_DISTS)/holism
 DIR_DIST_LIB_HOLISM=$(DIR_DIST_PKG_HOLISTIC_PACKAGES)/holism
@@ -152,7 +165,7 @@ source_packages_clean:
 	rm -rf $(DIR_BUILD)/*
 	@echo source_packages_clean target complete.
 
-source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_holarchy_sml source_package_build_d2r2 source_package_build_d2r2_components source_package_build_holodeck source_package_build_holodeck_assets source_package_build_holistic
+source_packages_build: env_initialize env_generate_build_tag source_package_build_hash_router source_package_build_holism source_package_build_holism_metadata source_package_build_holism_services source_package_build_hrequest source_package_build_holarchy source_package_build_holarchy_sml source_package_build_d2r2 source_package_build_d2r2_components source_package_build_holodeck source_package_build_holodeck_assets source_package_build_holistic source_package_build_holistic_app_client_sml source_package_build_holistic_app_server_sml
 	rm -fv `find $(DIR_BUILD) | grep '~'`
 	@echo source_packages_build complete.
 
@@ -310,6 +323,48 @@ source_package_build_holarchy_sml:
 	mkdir -p $(DIR_BUILD_LIB_HOLARCHY_SML)/docs
 	@echo source_package_build_holarchy_sml complete.
 
+source_package_build_holistic_app_client_sml:
+	@echo source_package_build_holistic_app_client_sml...
+	mkdir -p $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)
+	mkdir -p $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/ASSETS/
+
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HOLISTIC_APP_CLIENT_SML)/* $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLISTIC_APP_CLIENT_SML)
+
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holistic-app-client-sml" > $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)
+	mkdir -p $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML)/docs
+	@echo source_package_build_holistic_app_client_sml complete.
+
+source_package_build_holistic_app_server_sml:
+	@echo source_package_build_holistic_app_server_sml...
+	mkdir -p $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)
+	mkdir -p $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/ASSETS
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-16x16.png $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/blue-burst-encapsule.io-icon-72x72.png $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-16x16.png $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-24x24.png $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-32x32.png $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/ASSETS/
+	cp -p $(DIR_PLATFORM_ASSETS)/images/encapsule-holistic-48x48.png $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/ASSETS/
+
+	cp -p $(DIR_PLATFORM_ASSETS)/lib-package-gitignore $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/.gitignore
+	cp -Rp $(DIR_SOURCES_LIB_HOLISTIC_APP_SERVER_SML)/* $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/
+	$(TOOL_BABEL) --out-dir $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML) --keep-file-extension --verbose $(DIR_SOURCES_LIB_HOLISTIC_APP_SERVER_SML)
+
+	$(TOOL_GEN_PACKAGE_MANIFEST) --packageName "@encapsule/holistic-app-server-sml" > $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/package.json
+	$(TOOL_GEN_PACKAGE_LICENSE) --packageDir $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)
+	$(TOOL_GEN_PACKAGE_README) --packageDir  $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)
+	mkdir -p $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML)/docs
+	@echo source_package_build_holistic_app_server_sml complete.
+
 source_package_build_holodeck:
 	@echo source_package_build_holodeck...
 	mkdir -p $(DIR_BUILD_LIB_HOLODECK)
@@ -451,7 +506,7 @@ dist_packages_reset:
 	rm -rf $(DIR_DISTS)/*
 	@echo FINISH TARGET: dist_packages_reset
 
-dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets dist_package_update_holistic
+dist_packages_update: source_packages_build dist_package_update_holarchy dist_package_update_holarchy_sml dist_package_update_holism dist_package_update_holism_services dist_package_update_hrequest dist_package_update_d2r2 dist_package_update_d2r2_components dist_package_update_holism_metadata dist_package_update_hash_router dist_package_update_holodeck  dist_package_update_holodeck_assets dist_package_update_holistic dist_package_update_holistic_app_client_sml dist_package_update_holistic_app_server_sml
 	@echo BEGIN TARGET: dist_packages_update
 	cp -p $(DIR_BUILD)/holistic.json $(DIR_DISTS)
 	cp -p $(DIR_BUILD)/holistic-rtl-packages.json $(DIR_DISTS)
@@ -480,6 +535,23 @@ dist_package_update_holarchy_sml:
 	cp -Rp $(DIR_BUILD_LIB_HOLARCHY_SML) $(DIR_DISTS)
 	cp -Rp $(DIR_BUILD_LIB_HOLARCHY_SML) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
 	@echo END TARGET: dist_package_update_holarchy_sml
+
+
+dist_package_update_holistic_app_client_sml:
+	@echo BEGIN TARGET: dist_package_update_holistic_app_client_sml
+	mkdir -p $(DIR_DIST_PKG_HOLISTIC_APP_CLIENT_SML)
+	mkdir -p $(DIR_DIST_LIB_HOLISTIC_APP_CLIENT_SML)
+	cp -Rp $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML) $(DIR_DISTS)
+	cp -Rp $(DIR_BUILD_LIB_HOLISTIC_APP_CLIENT_SML) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
+	@echo END TARGET: dist_package_update_holistic_app_client_sml
+
+dist_package_update_holistic_app_server_sml:
+	@echo BEGIN TARGET: dist_package_update_holistic_app_server_sml
+	mkdir -p $(DIR_DIST_PKG_HOLISTIC_APP_SERVER_SML)
+	mkdir -p $(DIR_DIST_LIB_HOLISTIC_APP_SERVER_SML)
+	cp -Rp $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML) $(DIR_DISTS)
+	cp -Rp $(DIR_BUILD_LIB_HOLISTIC_APP_SERVER_SML) $(DIR_DIST_PKG_HOLISTIC_PACKAGES)
+	@echo END TARGET: dist_package_update_holistic_app_server_sml
 
 dist_package_update_holism:
 	@echo BEGIN TARGET: dist_package_update_holism
