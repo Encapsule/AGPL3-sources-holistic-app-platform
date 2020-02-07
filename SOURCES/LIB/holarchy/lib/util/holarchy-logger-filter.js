@@ -167,7 +167,7 @@ const factoryResponse = arccore.filter.create({
                         `%cOPC::act <${request_.opc.iid}> actor stack: ${actorStack}`
                     ];
 
-                    styles += `border-left: ${4 * request_.opc.actorStack.length}px solid #FFCC00;`;
+                    styles += `border-left: ${4 * request_.opc.actorStack.length}px solid #33CC33;`;
                     switch (request_.phase) {
                     case "prologue":
                         message.push(request_.message);

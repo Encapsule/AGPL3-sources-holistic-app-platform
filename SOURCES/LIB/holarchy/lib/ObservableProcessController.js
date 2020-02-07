@@ -57,9 +57,9 @@ class ObservableProcessController {
                 this._private = filterResponse.result;
 
                 logger.request({
-                    opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
-                    subsystem: "opc", method: "constructor", phase: "prologue",
-                    message: "INSTANCE INITIALIZED",
+                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name },
+                    subsystem: "opc", method: "constructor", phase: "body",
+                    message: `INSTANCE "${this._private.iid}" INITIALIZED`
                 });
 
                 // Perform the first post-construction evaluation of the OPC system model

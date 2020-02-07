@@ -371,8 +371,6 @@ const factoryResponse = arccore.filter.create({
                         try {
                             transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
                         } catch (topException_) {
-                            // TODO: Send through logger
-                            console.error(topException_);
                             transitionResponse = {
                                 error: `TransitionOperator threw an illegal exception that was handled by OPC: ${topException_.message}`
                             };
@@ -385,7 +383,14 @@ const factoryResponse = arccore.filter.create({
 
                         if (transitionResponse.error) {
                             // TODO: Send through logger
-                            console.error(transitionResponse.error);
+
+                            logger.request({
+                                logLevel: "error",
+                                opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                                subsystem: "opc", method: "evaluate", phase: "body",
+                                message: transitionResponse.error
+                            });
+                            // console.error(transitionResponse.error);
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p1_toperator++;
                             opmInstanceFrame.evalResponse.errors.total++;
@@ -459,8 +464,6 @@ const factoryResponse = arccore.filter.create({
                         try {
                             actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
                         } catch (actException_) {
-                            // TODO: Send through logger
-                            console.error(actException_);
                             actionResponse = {
                                 error: `ControllerAction threw an illegal exception that was handled by OPC: ${actException_}`
                             };
@@ -519,8 +522,6 @@ const factoryResponse = arccore.filter.create({
                         try {
                             actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
                         } catch (actException_) {
-                            // TODO: Send through logger
-                            console.error(actException_)
                             actionResponse = {
                                 error: `ControllerAction threw an illegal exception that was handled by the OPC: ${actException_.message}`
                             }
