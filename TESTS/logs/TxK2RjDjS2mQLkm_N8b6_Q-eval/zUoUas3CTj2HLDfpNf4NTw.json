@@ -205,8 +205,8 @@
                               "holarchy": {
                                 "sml": {
                                   "actions": {
-                                    "react": {
-                                      "rehydrate": true
+                                    "d2r2ReactClientDisplayAdaptor": {
+                                      "operation": "hydrate"
                                     }
                                   }
                                 }
@@ -244,8 +244,8 @@
                               "holarchy": {
                                 "sml": {
                                   "actions": {
-                                    "react": {
-                                      "render": true
+                                    "d2r2ReactClientDisplayAdaptor": {
+                                      "operation": "render"
                                     }
                                   }
                                 }
@@ -536,8 +536,8 @@
                               "holarchy": {
                                 "sml": {
                                   "actions": {
-                                    "react": {
-                                      "rehydrate": true
+                                    "d2r2ReactClientDisplayAdaptor": {
+                                      "operation": "hydrate"
                                     }
                                   }
                                 }
@@ -576,8 +576,8 @@
                               "holarchy": {
                                 "sml": {
                                   "actions": {
-                                    "react": {
-                                      "render": true
+                                    "d2r2ReactClientDisplayAdaptor": {
+                                      "operation": "render"
                                     }
                                   }
                                 }
@@ -792,8 +792,8 @@
                                 "holarchy": {
                                   "sml": {
                                     "actions": {
-                                      "react": {
-                                        "rehydrate": true
+                                      "d2r2ReactClientDisplayAdaptor": {
+                                        "operation": "hydrate"
                                       }
                                     }
                                   }
@@ -827,8 +827,8 @@
                                 "holarchy": {
                                   "sml": {
                                     "actions": {
-                                      "react": {
-                                        "render": true
+                                      "d2r2ReactClientDisplayAdaptor": {
+                                        "operation": "render"
                                       }
                                     }
                                   }

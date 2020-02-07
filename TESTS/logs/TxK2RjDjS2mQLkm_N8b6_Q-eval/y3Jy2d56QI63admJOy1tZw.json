@@ -12,8 +12,8 @@
                 "ObservableProcessModel": {
                   "constructorRequest": {
                     "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                    "name": "Client Hash Route Location Processor",
-                    "description": "Hooks and monitors DOM events related to location and hashroute change providing notification stream to other OPM. Additionally, abstracts programmatic operations on location and hashroute displayed to the user via the browser's address (location) bar.",
+                    "name": "DOM Location Processor",
+                    "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                     "opmDataSpec": {
                       "____label": "Client Hash Route Location Processor",
                       "____types": "jsObject",
@@ -100,27 +100,7 @@
                       },
                       "wait": {
                         "description": "Waiting for DOM hashchange event.",
-                        "transitions": [
-                          {
-                            "transitionIf": {
-                              "holarchy": {
-                                "sml": {
-                                  "operators": {
-                                    "ocd": {
-                                      "array": {
-                                        "path": "#._private.locationHistory",
-                                        "equalToValueIndirect": {
-                                          "path": "#._private.lastProcessedIndex"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "nextStep": "process_route_udpate"
-                          }
-                        ]
+                        "transitions": []
                       },
                       "process_route_udpate": {
                         "description": "Processing location route update."
@@ -147,8 +127,8 @@
                   "isValid": true,
                   "toJSON": {
                     "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                    "name": "Client Hash Route Location Processor",
-                    "description": "Hooks and monitors DOM events related to location and hashroute change providing notification stream to other OPM. Additionally, abstracts programmatic operations on location and hashroute displayed to the user via the browser's address (location) bar.",
+                    "name": "DOM Location Processor",
+                    "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                     "opmDataSpec": {
                       "____label": "Client Hash Route Location Processor",
                       "____types": "jsObject",
@@ -244,27 +224,7 @@
                           "enter": [],
                           "exit": []
                         },
-                        "transitions": [
-                          {
-                            "transitionIf": {
-                              "holarchy": {
-                                "sml": {
-                                  "operators": {
-                                    "ocd": {
-                                      "array": {
-                                        "path": "#._private.locationHistory",
-                                        "equalToValueIndirect": {
-                                          "path": "#._private.lastProcessedIndex"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "nextStep": "process_route_udpate"
-                          }
-                        ]
+                        "transitions": []
                       },
                       "process_route_udpate": {
                         "description": "Processing location route update.",
@@ -293,8 +253,8 @@
                     }
                   },
                   "getID": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                  "getName": "Client Hash Route Location Processor",
-                  "getDescription": "Hooks and monitors DOM events related to location and hashroute change providing notification stream to other OPM. Additionally, abstracts programmatic operations on location and hashroute displayed to the user via the browser's address (location) bar.",
+                  "getName": "DOM Location Processor",
+                  "getDescription": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                   "getDataSpec": {
                     "____label": "Client Hash Route Location Processor",
                     "____types": "jsObject",
@@ -342,8 +302,8 @@
                     }
                   },
                   "getDigraph": {
-                    "name": "[-1Ptaq_zTUa8Gfv_3ODtDg::Client Hash Route Location Processor] OPM Digraph",
-                    "description": "Hooks and monitors DOM events related to location and hashroute change providing notification stream to other OPM. Additionally, abstracts programmatic operations on location and hashroute displayed to the user via the browser's address (location) bar.",
+                    "name": "[-1Ptaq_zTUa8Gfv_3ODtDg::DOM Location Processor] OPM Digraph",
+                    "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                     "vlist": [
                       {
                         "u": "uninitialized",
@@ -440,31 +400,6 @@
                           "priority": 0,
                           "operator": {
                             "always": true
-                          }
-                        }
-                      },
-                      {
-                        "e": {
-                          "u": "wait",
-                          "v": "process_route_udpate"
-                        },
-                        "p": {
-                          "priority": 0,
-                          "operator": {
-                            "holarchy": {
-                              "sml": {
-                                "operators": {
-                                  "ocd": {
-                                    "array": {
-                                      "path": "#._private.locationHistory",
-                                      "equalToValueIndirect": {
-                                        "path": "#._private.lastProcessedIndex"
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
                           }
                         }
                       }

@@ -3,8 +3,8 @@
 const opmClientHashRouteLocationProcessor = module.exports = {
 
     id: "-1Ptaq_zTUa8Gfv_3ODtDg",
-    name: "Client Hash Route Location Processor",
-    description: "Hooks and monitors DOM events related to location and hashroute change providing notification stream to other OPM. Additionally, abstracts programmatic operations on location and hashroute displayed to the user via the browser's address (location) bar.",
+    name: "DOM Location Processor",
+    description: "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
 
     opmDataSpec: {
         ____label: "Client Hash Route Location Processor",
@@ -82,6 +82,7 @@ const opmClientHashRouteLocationProcessor = module.exports = {
         wait: {
             description: "Waiting for DOM hashchange event.",
             transitions: [
+                /*
                 {
                     transitionIf: {
                         holarchy: {
@@ -90,8 +91,10 @@ const opmClientHashRouteLocationProcessor = module.exports = {
                                     ocd: {
                                         array: {
                                             path: "#._private.locationHistory",
-                                            equalToValueIndirect: {
-                                                path: "#._private.lastProcessedIndex"
+                                            length: {
+                                                equalToValueIndirect: {
+                                                    path: "#._private.lastProcessedIndex"
+                                                }
                                             }
                                         }
                                     }
@@ -101,6 +104,7 @@ const opmClientHashRouteLocationProcessor = module.exports = {
                     },
                     nextStep: "process_route_udpate"
                 }
+                */
             ]
         },
 

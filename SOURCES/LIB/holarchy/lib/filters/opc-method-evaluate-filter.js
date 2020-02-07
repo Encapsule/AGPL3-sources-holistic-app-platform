@@ -382,8 +382,6 @@ const factoryResponse = arccore.filter.create({
                         });
 
                         if (transitionResponse.error) {
-                            // TODO: Send through logger
-
                             logger.request({
                                 logLevel: "error",
                                 opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
@@ -435,8 +433,6 @@ const factoryResponse = arccore.filter.create({
 
                     // Get the stepDescriptor for the next process step that declares the actions to take on step entry.
                     const nextStepDescriptor = opmRef.getStepDescriptor(nextStep);
-
-			        // console.log(`%cOPC._evaluate [e${result.evalNumber}::f${result.summary.counts.frames}] transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`, consoleStyles.opc.evaluate.transition);
 
                     logger.request({
                         opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
@@ -596,11 +592,13 @@ const factoryResponse = arccore.filter.create({
                 // If any of the OPM instance's in the just-completed eval frame transitioned, add another eval frame.
                 // Otherwise exit the outer eval loop and conclude the OPC evaluation algorithm.
 
+                /*
                 if (evalFrame.summary.counts.errors) {
                     // Bail out of the frame loop if the frame we just evaluated had errors. There should be no errors on the control plane of an OPC.
                     result.error = "ObservableProcessController evaluation aborted due to frame-scope error(s).";
                     break;
                 }
+                */
 
                 if (!evalFrame.summary.counts.transitions) {
                     // Exit the frame loop when the evaluation of the last frame resulted in no OPMI step transitions.

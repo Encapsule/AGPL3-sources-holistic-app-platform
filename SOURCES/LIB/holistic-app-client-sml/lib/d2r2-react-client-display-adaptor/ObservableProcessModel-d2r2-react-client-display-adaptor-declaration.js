@@ -121,7 +121,7 @@ module.exports = {
             actions: {
                 enter: [
                     { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
-                    { holarchy: { sml: { actions: { react: { rehydrate: true } } } } }
+                    { holarchy: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "hydrate" } } } } }
                 ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]
@@ -132,7 +132,7 @@ module.exports = {
             actions: {
                 enter: [
                     { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
-                    { holarchy: { sml: { actions: { react: { render: true } } } } },
+                    { holarchy: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "render" } } } } }
                 ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]

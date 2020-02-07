@@ -143,6 +143,17 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            switch (request_.logLevel) {
+            case "error":
+                styles += "background-color: #FFCC99;";
+                break;
+            case "warning":
+                styles += "background-color: #FFCC99;";
+                break;
+            default:
+                break;
+            }
+
             let message = null;
             let actorStack = null;
 

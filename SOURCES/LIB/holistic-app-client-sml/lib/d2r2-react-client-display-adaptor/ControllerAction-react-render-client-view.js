@@ -1,13 +1,13 @@
-// ControllerAction-react-rehydrate-client-view.js
+// ControllerAction-react-render-client-view.js
 
 const holarchy = require("@encapsule/holarchy");
 const React = require("react");
 const ReactDOM = require("react-dom");
 
 module.exports = new holarchy.ControllerAction({
-    id: "d2vRmtn2QA6Ox8W4PwDWNA",
-    name: "d2r2/React Client Display Adaptor: Rehydrate",
-    description: "Rehydrate server-rendered React view and connect UI event handlers.",
+    id: "ENIOOasYSdmJj_RXjA__hQ",
+    name: "d2r2/React Client Display Adaptor: Rydrate/Render",
+    description: "Rehydrate and/or render/re-render client application view via d2r2/React transport using context and render data obtained from specified input paths in the OCD.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -17,11 +17,15 @@ module.exports = new holarchy.ControllerAction({
                 ____types: "jsObject",
                 actions: {
                     ____types: "jsObject",
-                    react: {
+                    d2r2ReactClientDisplayAdaptor: {
                         ____types: "jsObject",
-                        rehydrate: {
-                            ____types: "jsBoolean",
-                            ____inValueSet: [ true ]
+                        operation: {
+                            ____accept: "jsString",
+                            ____inValueSet: [
+                                "hydrate", // Display updated via ReactDOM.hydrate (presumes page loaded with server-rendered HTML and we have the server-rendered boot ROM data)
+                                "render"   // Display updated via ReactDOM.render
+                            ],
+                            ____defaultValue: "render"
                         }
                     }
                 }
@@ -31,6 +35,7 @@ module.exports = new holarchy.ControllerAction({
 
     actionResultSpec: { ____accept: "jsUndefined" }, // no response.result
 
+
     bodyFunction: function(request_) {
 
         let response = { error: null, result: undefined /*no result*/ };
@@ -38,7 +43,7 @@ module.exports = new holarchy.ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.actionRequest.holarchy.sml.actions.react.rehydrate;
+            const message = request_.actionRequest.holarchy.sml.actions.d2r2ReactClientDisplayAdaptor;
 
             // Resolve the full path to the d2r2 React Client Display Adaptor's input namespace.
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
@@ -119,8 +124,11 @@ module.exports = new holarchy.ControllerAction({
 
             const d2r2Component = React.createElement(inputs.ComponentRouter, legacyReactContext);
 
-            // See: https://reactjs.org/docs/react-dom.html#hydrate
-            ReactDOM.hydrate(d2r2Component, inputs.DOMElement, function() {
+            const reactOperation = { hydrate: ReactDOM.hydrate /* https://reactjs.org/docs/react-dom.html#hydrate */,
+                                     render: ReactDOM.render /* https://reactjs.org/docs/react-dom.html#render */
+                                   }[message.operation];
+
+            reactOperation(d2r2Component, inputs.DOMElement, function() {
 
                 // TODO: What should an external actor, in this case React, do if a transport error
                 // occurs when calling opci.act? I think it's reasonable to provide some sort of centralized
@@ -131,8 +139,8 @@ module.exports = new holarchy.ControllerAction({
                 // they will be reported via a standardized mechanism and as such will not slip by unnoticed.
 
                 const actResponse = request_.context.act({
-                    actorName: "React Rehydrate Completion Handler",
-                    actionDescription: "Signal completion of client application view rehydration via React.",
+                    actorName: "d2r2/React Display Adaptor Update Completion Handler",
+                    actionDescription: `Signal completion of client application view via d2r2/React ${message.operation} operation.`,
                     actionRequest: { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#.private.renderPending" } } } } } },
                     opmBindingPath: request_.context.opmBindingPath
                 });

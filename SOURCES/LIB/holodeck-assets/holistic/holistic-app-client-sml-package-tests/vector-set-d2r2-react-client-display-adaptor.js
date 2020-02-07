@@ -53,7 +53,8 @@ module.exports = [
                             ],
 
                             controllerActionSets: [
-                                clientSML.common.actions.ocd
+                                clientSML.common.actions.ocd,
+                                clientSML.client.actions.d2r2ReactClientDisplayAdaptor
                             ]
                         }
                     },
