@@ -1,5 +1,6 @@
 
 const arccore = require("@encapsule/arccore");
+const SimpleStopwatch = require("./util/SimpleStopwatch");
 const constructorFilter = require("./filters/opc-method-constructor-filter");
 const actInputFilter = require("./filters/opc-method-act-input-filter");
 const actOutputFilter = require("./filters/opc-method-act-output-filter");
@@ -14,12 +15,14 @@ class ObservableProcessController {
     constructor(request_) {
 
         // #### sourceTag: Gql9wS2STNmuD5vvbQJ3xA
+        const stopwatch = new SimpleStopwatch("OPC::constructor");
 
         let errors = [];
         let inBreakScope = false;
 
         // Allocate private per-class-instance state.
         this._private = {};
+
 
         try {
 
@@ -30,7 +33,7 @@ class ObservableProcessController {
                 logger.request({
                     opc: { id: request_?request_.id:undefined, name: request_?request_.name:undefined },
                     subsystem: "opc", method: "constructor", phase: "prologue",
-                    message: "STARTING",
+                    message: "STARTING...",
                 });
 
                 // ----------------------------------------------------------------
@@ -59,7 +62,7 @@ class ObservableProcessController {
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name },
                     subsystem: "opc", method: "constructor", phase: "body",
-                    message: `INSTANCE "${this._private.iid}" INITIALIZED`
+                    message: `INSTANCE "${this._private.iid}" INITIALIZED!`
                 });
 
                 // Perform the first post-construction evaluation of the OPC system model
@@ -86,11 +89,13 @@ class ObservableProcessController {
             errors.push(`ObserverableProcessController::constructor (no-throw) caught an unexpected runtime exception: ${exception_.message}`);
         }
 
+        const timings = stopwatch.stop();
+
         if (!errors.length) {
             logger.request({
                 opc: { id: this._private.id, iid: this._private.iid, name: this._private.name, evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                 subsystem: "opc", method: "constructor", phase: "epilogue",
-                message: "COMPLETE",
+                message: `COMPLETE in ${timings.totalMilliseconds} ms.`,
             });
         } else {
             errors.unshift(`ObservableProcessController::constructor for [${(request_ && request_.id)?request_.id:"unspecified"}::${(request_ && request_.name)?request_.name:"unspecified"}] failed yielding a zombie instance.`);
@@ -104,7 +109,7 @@ class ObservableProcessController {
                     name: this._private.name,
                 },
                 subsystem: "opc", method: "constructor", phase: "epilogue",
-                message: this._private.constructionError
+                message: `ERROR in ${timings.totalMillisconds}: ${this._private.constructionError}`
             });
 
         }
@@ -145,6 +150,8 @@ class ObservableProcessController {
         let errors = [];
         let inBreakScope = false;
         let initialActorStackDepth = 0; // default
+
+        let stopwatch = new SimpleStopwatch("OPC::act");
 
         try {
 
@@ -188,7 +195,7 @@ class ObservableProcessController {
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                            evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "prologue",
-                    message: "STARTING"
+                    message: "STARTING..."
                 });
 
                 // Dispatch the action on behalf of the actor.
@@ -231,7 +238,7 @@ class ObservableProcessController {
                         opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                                evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                         subsystem: "opc", method: "act", phase: "body",
-                        message: "UPDATING SYSTEM STATE..."
+                        message: "PROCESSING CHANGES..."
                     });
 
                     // Evaluate is an actor too. It adds itself to the OPC actor stack.
@@ -260,13 +267,15 @@ class ObservableProcessController {
             response.error = `ObservableProcessController.act (no-throw) caught an unexpected exception: ${exception_.message}`;
         }
 
+        const timings = stopwatch.stop();
+
         if (!response.error) {
 
             logger.request({
                 opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                        evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                 subsystem: "opc", method: "act", phase: "epilogue",
-                message: "COMPLETE"
+                message: `COMPLETE in ${timings.totalMilliseconds} ms`
             });
 
         } else {
@@ -276,7 +285,7 @@ class ObservableProcessController {
                 opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                        evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                 subsystem: "opc", method: "act", phase: "body",
-                message: response.error
+                message: `ERROR in ${timings.totalMilliseconds} ms: ${response.error}`
             });
 
         }
