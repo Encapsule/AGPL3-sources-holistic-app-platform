@@ -12,7 +12,7 @@ let exportObject = {
     packageType: "tools",
     packageEnvironment: [ "node" ],
     packageManifestOverrides: {
-        description: "This package contains the Holistic App Platform runtime libraries (RTL's) and the 'appgen' utility for initializing and maintaining derived application and service git repositories.",
+        description: "Full-stack component engineering platform for building complex stateful webs apps and services with software models.",
         keywords: [ "encapsule", "holistic" ],
         license: "MIT",
         main: "index.js",

@@ -121,7 +121,7 @@ module.exports = {
             actions: {
                 enter: [
                     { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
-                    { holarchy: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "hydrate" } } } } }
+                    { holistic: { app: { client: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "hydrate" } } } } } } }
                 ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]
@@ -132,7 +132,7 @@ module.exports = {
             actions: {
                 enter: [
                     { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
-                    { holarchy: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "render" } } } } }
+                    { holistic: { app: { client: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "render" } } } } } } }
                 ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]

@@ -1,4 +1,15 @@
 
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
+
+// @encapsule/holarchy - the keystone of holistic app platform
+// Copyright (C) 2020 Christopher D. Russell for Encapsule Project
+
 const arccore = require("@encapsule/arccore");
 const SimpleStopwatch = require("./util/SimpleStopwatch");
 const constructorFilter = require("./filters/opc-method-constructor-filter");
@@ -196,6 +207,13 @@ class ObservableProcessController {
                            evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "prologue",
                     message: "STARTING..."
+                });
+
+                logger.request({
+                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
+                           evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                    subsystem: "opc", method: "act", phase: "body",
+                    message: request.actorTaskDescription
                 });
 
                 // Dispatch the action on behalf of the actor.

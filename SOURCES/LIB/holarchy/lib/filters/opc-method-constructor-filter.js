@@ -1,3 +1,14 @@
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
+
+// @encapsule/holarchy - the keystone of holistic app platform
+// Copyright (C) 2020 Christopher D. Russell for Encapsule Project
+
 const arccore = require("@encapsule/arccore");
 const ObservableControllerData = require("../ObservableControllerData");
 

@@ -1,5 +1,13 @@
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
 
-// Copyright (C) 2020 Christopher D. Russell
+// @encapsule/holarchy - the keystone of holistic app platform
+// Copyright (C) 2020 Christopher D. Russell for Encapsule Project
 
 const arccore = require("@encapsule/arccore");
 const SimpleStopwatch = require("../util/SimpleStopwatch");
@@ -19,14 +27,6 @@ const factoryResponse = arccore.filter.create({
     outputFilterSpec: opcMethodEvaluateOutputSpec,
 
     bodyFunction: function(opcEvaluateRequest_) {
-
-        /*
-          O       o O       o O       o
-          | O   o | | O   o | | O   o |
-          | | O | | | | O | | | | O | |
-          | o   O | | o   O | | o   O |
-          o       O o       O o       O
-        */
 
         let response = { error: null, result: undefined };
         let errors = [];
@@ -300,15 +300,6 @@ const factoryResponse = arccore.filter.create({
                 // ================================================================
                 //
                 // ¯\_(ツ)_/¯ - following along? Hang on for the fun part ...
-
-                /*
-                  O       o O       o O       o
-                  | O   o | | O   o | | O   o |
-                  | | O | | | | O | | | | O | |
-                  | o   O | | o   O | | o   O |
-                  o       O o       O o       O
-                */
-
                 //
                 // ================================================================
                 // Evaluate each discovered OPM-bound object instance in the controller
@@ -629,14 +620,6 @@ const factoryResponse = arccore.filter.create({
 
         result.summary.evalStopwatch = evalStopwatch.stop();
         result.summary.framesCount = result.evalFrames.length;
-
-        /*
-          O       o O       o O       o
-          | O   o | | O   o | | O   o |
-          | | O | | | | O | | | | O | |
-          | o   O | | o   O | | o   O |
-          o       O o       O o       O
-        */
 
         logger.request({
             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,

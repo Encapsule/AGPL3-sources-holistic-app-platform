@@ -11,21 +11,27 @@ module.exports = new holarchy.ControllerAction({
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        holistic: {
             ____types: "jsObject",
-            sml: {
+            app: {
                 ____types: "jsObject",
-                actions: {
+                client: {
                     ____types: "jsObject",
-                    d2r2ReactClientDisplayAdaptor: {
+                    sml: {
                         ____types: "jsObject",
-                        operation: {
-                            ____accept: "jsString",
-                            ____inValueSet: [
-                                "hydrate", // Display updated via ReactDOM.hydrate (presumes page loaded with server-rendered HTML and we have the server-rendered boot ROM data)
-                                "render"   // Display updated via ReactDOM.render
-                            ],
-                            ____defaultValue: "render"
+                        actions: {
+                            ____types: "jsObject",
+                            d2r2ReactClientDisplayAdaptor: {
+                                ____types: "jsObject",
+                                operation: {
+                                    ____accept: "jsString",
+                                    ____inValueSet: [
+                                        "hydrate", // Display updated via ReactDOM.hydrate (presumes page loaded with server-rendered HTML and we have the server-rendered boot ROM data)
+                                        "render"   // Display updated via ReactDOM.render
+                                    ],
+                                    ____defaultValue: "render"
+                                }
+                            }
                         }
                     }
                 }
@@ -43,7 +49,7 @@ module.exports = new holarchy.ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.actionRequest.holarchy.sml.actions.d2r2ReactClientDisplayAdaptor;
+            const message = request_.actionRequest.holistic.app.client.sml.actions.d2r2ReactClientDisplayAdaptor;
 
             // Resolve the full path to the d2r2 React Client Display Adaptor's input namespace.
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
@@ -140,7 +146,7 @@ module.exports = new holarchy.ControllerAction({
 
                 const actResponse = request_.context.act({
                     actorName: "d2r2/React Display Adaptor Update Completion Handler",
-                    actionDescription: `Signal completion of client application view via d2r2/React ${message.operation} operation.`,
+                    actorTaskDescription: `Signal completion of client application view via d2r2/React ${message.operation} operation.`,
                     actionRequest: { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#.private.renderPending" } } } } } },
                     opmBindingPath: request_.context.opmBindingPath
                 });

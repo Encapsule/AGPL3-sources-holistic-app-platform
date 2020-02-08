@@ -34,10 +34,8 @@ const opmClientHashRouteLocationProcessor = module.exports = {
             locationHistory: {
                 ____types: "jsArray",
                 ____defaultValue: [],
-
                 routerEventDescriptor: {
                     ____types: "jsObject",
-
                     eventSource: {
                         ____accept: "jsString",
                         ____inValueSet: [
@@ -46,15 +44,8 @@ const opmClientHashRouteLocationProcessor = module.exports = {
                             "app_route",     // Application logic set this route (so we don't need to inform the app like in the case of user_route)
                         ]
                     },
-
-                    location: {
-                        // See: https://www.w3.org/TR/html52/browsers.html#the-location-interface
-                        ____accept: "jsObject"
-                    },
-
-                    routerEventNumber: {
-                        ____accept: "jsNumber"
-                    }
+                    href: { ____accept: "jsString" /* copy of location.href */ },
+                    routerEventNumber: { ____accept: "jsNumber" }
                 }
             }
         },
@@ -75,7 +66,11 @@ const opmClientHashRouteLocationProcessor = module.exports = {
 
         initialize: {
             description: "Registering hashchange DOM event callback.",
-            actions: { enter: [ { holarchy: { sml: { actions: { ClientDOMLocationProcessor: { initialize: true } } } } } ] },
+            actions: {
+                enter: [
+                    { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { initialize: true } } } } } } }
+                ]
+            },
             transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ]
         },
 
