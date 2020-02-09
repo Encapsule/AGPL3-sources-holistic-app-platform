@@ -51,7 +51,10 @@ const factoryResponse = arccore.filter.create({
                 opmiSpecPaths: [],
                 ocdi: null,
 
-                operatorDispatcher: null,
+                transitionDispatcherFilterMap: {},
+                transitionDispatcher: null,
+
+                actionDispatcherFilterMap: {},
                 actionDispatcher: null,
 
                 evalCount: 0,
@@ -307,7 +310,13 @@ const factoryResponse = arccore.filter.create({
                         const warningMessage = `WARNING: Ignoring invalid TransitionOperator class instance: ${transitionOperatorInstance_.toJSON()}`;
                         result.constructionWarnings.push(warningMessage);
                     } else {
-                        transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
+                        const filter = transitionOperatorInstance_.getFilter();
+                        const id = filter.filterDescriptor.operationID;
+                        // Silently de-duplicate.
+                        if (!result.transitionDispatcherFilterMap[id]) {
+                            result.transitionDispatcherFilterMap[id] = filter;
+                            transitionOperatorFilters.push(filter);
+                        }
                     }
                 });
             });
@@ -349,7 +358,13 @@ const factoryResponse = arccore.filter.create({
                         const warningMessage = `WARNING: Ignoring invalid ControllerAction class instance: ${controllerActionInstance_.toJSON()}`;
                         result.constructionWarnings.push(warningMessage);
                     } else {
-                        controllerActionFilters.push(controllerActionInstance_.getFilter());
+                        const filter = controllerActionInstance_.getFilter();
+                        const id = filter.filterDescriptor.operationID;
+                        // Silently de-duplicate.
+                        if (!result.actionDispatcherFilterMap[id]) {
+                            result.actionDispatcherFilterMap[id] = filter;
+                            controllerActionFilters.push(filter);
+                        }
                     }
                 });
             });

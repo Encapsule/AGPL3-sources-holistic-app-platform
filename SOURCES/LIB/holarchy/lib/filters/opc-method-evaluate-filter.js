@@ -379,7 +379,9 @@ const factoryResponse = arccore.filter.create({
                                 subsystem: "opc", method: "evaluate", phase: "body",
                                 message: transitionResponse.error
                             });
-                            // console.error(transitionResponse.error);
+                            console.warn(operatorRequest);
+                            console.warn(opcRef._private.transitionDispatcherFilterMap);
+
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p1_toperator++;
                             opmInstanceFrame.evalResponse.errors.total++;
@@ -428,7 +430,7 @@ const factoryResponse = arccore.filter.create({
                     logger.request({
                         opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
                         subsystem: "opc", method: "evaluate", phase: "body",
-                        message: `Transition [ '${initialStep}' -> '${nextStep}' ] at ocd path '${opmBindingPath}'.`
+                        message: `PROCESS STEP TRANSITION: [ '${initialStep}' -> '${nextStep}' ] at OCD path '${opmBindingPath}'.`
                     });
 
                     // Dispatch the OPM instance's step exit action(s).
@@ -626,7 +628,7 @@ const factoryResponse = arccore.filter.create({
                    evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount-1,
                    actorStack: opcRef._private.opcActorStack },
             subsystem: "opc", method: "evaluate", phase: "prologue",
-            message: `COMPLETE update #${result.evalNumber} in ${result.summary.framesCount} frames running taking ${result.summary.evalStopwatch.totalMilliseconds} ms.`
+            message: `COMPLETE OPC system state update #${result.evalNumber}. Completed ${result.summary.framesCount} eval frame(s) in ${result.summary.evalStopwatch.totalMilliseconds} ms.`
         });
 
         response.result = result;

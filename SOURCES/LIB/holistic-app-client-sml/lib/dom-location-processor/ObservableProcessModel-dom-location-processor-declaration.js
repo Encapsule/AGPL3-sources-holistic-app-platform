@@ -77,29 +77,12 @@ const opmClientHashRouteLocationProcessor = module.exports = {
         wait: {
             description: "Waiting for DOM hashchange event.",
             transitions: [
-                /*
                 {
                     transitionIf: {
-                        holarchy: {
-                            sml: {
-                                operators: {
-                                    ocd: {
-                                        array: {
-                                            path: "#._private.locationHistory",
-                                            length: {
-                                                equalToValueIndirect: {
-                                                    path: "#._private.lastProcessedIndex"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
+                        holarchy: { sml: { operators: { ocd: { array: { path: "#._private.locationHistory", length: { equalToValue: "#._private.lastProcessedIndex" } } } } } }
                     },
                     nextStep: "process_route_udpate"
                 }
-                */
             ]
         },
 
