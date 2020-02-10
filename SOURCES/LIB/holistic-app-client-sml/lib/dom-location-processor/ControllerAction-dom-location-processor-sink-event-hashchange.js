@@ -64,12 +64,40 @@ module.exports = new holarchy.ControllerAction({
             }
             const _private = ocdResponse.result;
 
-            _private.routerEventCount++;
-            _private.locationHistory.push({
-                eventSource: !_private.routerEventCount?"initial":"user_route",
+            const routerEventDescriptor = {
+                actor: ((_private.routerEventCount === _private.lastOutputEventIndex)?(_private.routerEventCount?"user":"server"):"app"),
                 href: location.href, // capture the entire href serialization from the location object
                 routerEventNumber: _private.routerEventCount
-            });
+            };
+
+            _private.locationHistory.push(routerEventDescriptor);
+
+            _private.routerEventCount++; // total hashchange events
+
+            if (_private.routerEventCount > _private.lastOutputEventIndex) {
+
+                // Always re-written in the epilogue.
+                _private.lastOutputEventIndex++;
+                _private.updateObservers = true;
+
+                // Resolve the full path the DOM Location Processor outputs.currentRoute namespace.
+                let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+                    opmBindingPath: request_.context.opmBindingPath,
+                    dataPath: "#.outputs.currentRoute"
+                });
+                if (rpResponse.error) {
+                    errors.push(rpResponse.error);
+                    break;
+                }
+                const pathCurrentRoute = rpResponse.result;
+
+                // Write the current route descriptor to the output.
+                let ocdResponse = request_.context.ocdi.writeNamespace(pathCurrentRoute, routerEventDescriptor);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+            }
 
             ocdResponse = request_.context.ocdi.writeNamespace(pathPrivate, _private);
             if (ocdResponse.error) {

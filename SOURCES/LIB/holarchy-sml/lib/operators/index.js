@@ -11,12 +11,16 @@ module.exports = {
         require("./TransitionOperator-logical-not"),
         require("./TransitionOperator-logical-true"),
 
-        // OCD primitive transition operators
-        require("./TransitionOperator-ocd-is-truthy"),
-        require("./TransitionOperator-ocd-is-boolean-flag-set"),
-	    require("./TransitionOperator-ocd-is-less-than-value"),
-	    require("./TransitionOperator-ocd-is-greater-than-value"),
-	    require("./TransitionOperator-ocd-is-identical-to-value"),
+        // OCD value transition operators
+        require("./TransitionOperator-ocd-compare-values"), // direct + indirect value comparison w/multiple operators support
+        require("./TransitionOperator-ocd-is-truthy"), // convenience
+        require("./TransitionOperator-ocd-is-boolean-flag-set"), // convenience
+
+	    require("./TransitionOperator-ocd-is-less-than-value"), // deprecated
+	    require("./TransitionOperator-ocd-is-greater-than-value"), // deprecated
+	    require("./TransitionOperator-ocd-is-identical-to-value"), // deprecated
+
+        // OCD array transition operators
         require("./TransitionOperator-ocd-array-length-equal-to-value"),
 
         // OPM primitive transition operators.

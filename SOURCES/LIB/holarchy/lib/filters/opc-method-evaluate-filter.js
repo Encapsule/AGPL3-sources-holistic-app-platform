@@ -59,14 +59,14 @@ const factoryResponse = arccore.filter.create({
 
             const currentActor = opcRef._private.opcActorStack[0];
 
-            logger.request({
-                opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
-                subsystem: "opc", method: "evaluate", phase: "epilogue",
-                message: `STARTING OPC system state update #${result.evalNumber}`
-            });
-
             // ================================================================
             // Prologue - executed before starting the outer evaluation loop.
+
+            logger.request({
+                opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
+                subsystem: "opc", method: "evaluate", phase: "prologue",
+                message: `STARTING OPC system state update #${result.evalNumber}`
+            });
 
             // Get a reference to the entire filter spec for the controller data store.
             let filterResponse = opcRef._private.ocdi.getNamespaceSpec("~");
@@ -627,7 +627,7 @@ const factoryResponse = arccore.filter.create({
             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
                    evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount-1,
                    actorStack: opcRef._private.opcActorStack },
-            subsystem: "opc", method: "evaluate", phase: "prologue",
+            subsystem: "opc", method: "evaluate", phase: "epilogue",
             message: `COMPLETE OPC system state update #${result.evalNumber}. Completed ${result.summary.framesCount} eval frame(s) in ${result.summary.evalStopwatch.totalMilliseconds} ms.`
         });
 

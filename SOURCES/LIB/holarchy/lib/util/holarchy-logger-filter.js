@@ -143,6 +143,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            // TODO: Parameterize this.
             switch (request_.logLevel) {
             case "error":
                 styles += "background-color: #FFCC99;";
@@ -178,15 +179,22 @@ const factoryResponse = arccore.filter.create({
                         `%cOPC::act <${request_.opc.iid}> actor stack: ${actorStack}`
                     ];
 
-                    styles += `border-left: ${4 * request_.opc.actorStack.length}px solid #33CC33;`;
+                    const border = `${4 * request_.opc.actorStack.length}px solid ${consoleColorsLUT.opc.act.borderColor}`
+
+                    styles += `border-left: ${border};`;
+
                     switch (request_.phase) {
                     case "prologue":
+                        styles += `border-top: ${border};`;
+                        if (request_.opc.actorStack.length === 1) { styles += "margin-top: 1em"; }
                         message.push(request_.message);
                         break;
                     case "body":
+                        message = [ `%cOPC::act <${request_.opc.iid}>` ];
                         message.push(request_.message);
                         break;
                     case "epilogue":
+                        styles += `border-bottom: ${border};`;
                         message.push(request_.message);
                         break;
                     default:

@@ -1,5 +1,20 @@
 // ObservableProcessModel-client-hash-route-location-processor.js
 
+const routerEventDescriptorSpec = {
+    ____types: "jsObject",
+    actor: {
+        ____accept: "jsString",
+        ____inValueSet: [
+            "server", // href value set by the app server actor (usually a copy of HTTP request URL from the user actor's agent, the browser).
+            "user",  // User actor set the current href value via browser user agent forward/back navigation. Or, explicit modification of browser location bar input value.
+            "app",   // Application actor set the current href value by calling a DOM Location Processor controller action.
+        ]
+    },
+    href: { ____accept: "jsString" /* copy of location.href */ },
+    routerEventNumber: { ____accept: "jsNumber" }
+};
+
+
 const opmClientHashRouteLocationProcessor = module.exports = {
 
     id: "-1Ptaq_zTUa8Gfv_3ODtDg",
@@ -22,37 +37,44 @@ const opmClientHashRouteLocationProcessor = module.exports = {
             ____defaultValue: {},
 
             routerEventCount: {
+                ____label: "Router Event Count",
+                ____description: "A count of the total number of observed changes of the DOM location object induced by all actors.",
                 ____accept: "jsNumber",
                 ____defaultValue: 0
             },
 
-            lastProcessedIndex: {
+            lastOutputEventIndex: {
+                ____label: "Last Output Index",
+                ____description: "A count of the total number of routerEventDescriptor objects written to the model's output.",
                 ____accept: "jsNumber",
                 ____defaultValue: 0
             },
 
             locationHistory: {
+                ____label: "Location History Array",
+                ____description: "Array written by the sink hashchange event action for every observed change in location.",
                 ____types: "jsArray",
                 ____defaultValue: [],
-                routerEventDescriptor: {
-                    ____types: "jsObject",
-                    eventSource: {
-                        ____accept: "jsString",
-                        ____inValueSet: [
-                            "initial_route", // User requested a response from the HTTP server and the current route is set to the one they requested.
-                            "user_route",    // User has changed the browser location. Or, used the browser forward/back to navigate the route stack (maintained by the browser)
-                            "app_route",     // Application logic set this route (so we don't need to inform the app like in the case of user_route)
-                        ]
-                    },
-                    href: { ____accept: "jsString" /* copy of location.href */ },
-                    routerEventNumber: { ____accept: "jsNumber" }
-                }
+                routerEventDescriptor: routerEventDescriptorSpec
+            },
+
+            updateObservers: {
+                ____label: "Update Observers Flag",
+                ____description: "A Boolean flag set by DOM Location Processor actions to indicate to the DOM Location Processor model that it should transition to update step.",
+                ____accept: "jsBoolean",
+                ____defaultValue: false
             }
+
         },
 
         outputs: {
             ____types: "jsObject",
-            ____defaultValue: {}
+            ____defaultValue: {},
+            currentRoute: {
+                ...routerEventDescriptorSpec,
+                ____types: [ "jsNull", "jsObject" ],
+                ____defaultValue: null
+            }
         }
 
     },
@@ -67,9 +89,8 @@ const opmClientHashRouteLocationProcessor = module.exports = {
         initialize: {
             description: "Registering hashchange DOM event callback.",
             actions: {
-                enter: [
-                    { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { initialize: true } } } } } } }
-                ]
+                enter: [ { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { initialize: true } } } } } } } ],
+                exit : [ { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } } ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ]
         },
@@ -78,25 +99,16 @@ const opmClientHashRouteLocationProcessor = module.exports = {
             description: "Waiting for DOM hashchange event.",
             transitions: [
                 {
-                    transitionIf: {
-                        holarchy: { sml: { operators: { ocd: { array: { path: "#._private.locationHistory", length: { equalToValue: "#._private.lastProcessedIndex" } } } } } }
-                    },
-                    nextStep: "process_route_udpate"
+                    transitionIf: { holarchy: { sml: { operators: { ocd: { isBooleanFlagSet: { path: "#._private.updateObservers" } } } } } },
+                    nextStep: "update"
                 }
             ]
         },
 
-        process_route_udpate: {
-            description: "Processing location route update."
-
-        },
-
-        external_route_update: {
-
-        },
-
-        internal_route_update: {
-
+        update: {
+            description: "The observable browser location has been updated. Information about the current location, and who set it is available in this model's output namespace.",
+            transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ],
+            actions: { exit: [ { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#._private.updateObservers" } } } } } } ] }
         }
 
     }
