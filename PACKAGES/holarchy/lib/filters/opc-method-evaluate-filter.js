@@ -4,7 +4,15 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// Copyright (C) 2020 Christopher D. Russell
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
+// @encapsule/holarchy - the keystone of holistic app platform
+// Copyright (C) 2020 Christopher D. Russell for Encapsule Project
 var arccore = require("@encapsule/arccore");
 
 var SimpleStopwatch = require("../util/SimpleStopwatch");
@@ -24,13 +32,6 @@ var factoryResponse = arccore.filter.create({
   inputFilterSpec: opcMethodEvaluateInputSpec,
   outputFilterSpec: opcMethodEvaluateOutputSpec,
   bodyFunction: function bodyFunction(opcEvaluateRequest_) {
-    /*
-      O       o O       o O       o
-      | O   o | | O   o | | O   o |
-      | | O | | | | O | | | | O | |
-      | o   O | | o   O | | o   O |
-      o       O o       O o       O
-    */
     var response = {
       error: null,
       result: undefined
@@ -320,14 +321,6 @@ var factoryResponse = arccore.filter.create({
         // ================================================================
         //
         // ¯\_(ツ)_/¯ - following along? Hang on for the fun part ...
-
-        /*
-          O       o O       o O       o
-          | O   o | | O   o | | O   o |
-          | | O | | | | O | | | | O | |
-          | o   O | | o   O | | o   O |
-          o       O o       O o       O
-        */
         //
         // ================================================================
         // Evaluate each discovered OPM-bound object instance in the controller
@@ -410,8 +403,9 @@ var factoryResponse = arccore.filter.create({
                 method: "evaluate",
                 phase: "body",
                 message: _transitionResponse.error
-              }); // console.error(transitionResponse.error);
-
+              });
+              console.warn(operatorRequest);
+              console.warn(opcRef._private.transitionDispatcherFilterMap);
               _opmInstanceFrame.evalResponse.status = "error";
               _opmInstanceFrame.evalResponse.errors.p1_toperator++;
               _opmInstanceFrame.evalResponse.errors.total++;
@@ -467,7 +461,7 @@ var factoryResponse = arccore.filter.create({
             subsystem: "opc",
             method: "evaluate",
             phase: "body",
-            message: "Transition [ '".concat(initialStep, "' -> '").concat(nextStep, "' ] at ocd path '").concat(opmBindingPath, "'.")
+            message: "PROCESS STEP TRANSITION: [ '".concat(initialStep, "' -> '").concat(nextStep, "' ] at OCD path '").concat(opmBindingPath, "'.")
           }); // Dispatch the OPM instance's step exit action(s).
 
           _opmInstanceFrame.evalResponse.status = "transitioning-dispatch-exit-actions";
@@ -649,14 +643,6 @@ var factoryResponse = arccore.filter.create({
 
     result.summary.evalStopwatch = evalStopwatch.stop();
     result.summary.framesCount = result.evalFrames.length;
-    /*
-      O       o O       o O       o
-      | O   o | | O   o | | O   o |
-      | | O | | | | O | | | | O | |
-      | o   O | | o   O | | o   O |
-      o       O o       O o       O
-    */
-
     logger.request({
       opc: {
         id: opcRef._private.id,
@@ -669,7 +655,7 @@ var factoryResponse = arccore.filter.create({
       subsystem: "opc",
       method: "evaluate",
       phase: "prologue",
-      message: "COMPLETE update #".concat(result.evalNumber, " in ").concat(result.summary.framesCount, " frames running taking ").concat(result.summary.evalStopwatch.totalMilliseconds, " ms.")
+      message: "COMPLETE OPC system state update #".concat(result.evalNumber, ". Completed ").concat(result.summary.framesCount, " eval frame(s) in ").concat(result.summary.evalStopwatch.totalMilliseconds, " ms.")
     });
     response.result = result;
     return response;

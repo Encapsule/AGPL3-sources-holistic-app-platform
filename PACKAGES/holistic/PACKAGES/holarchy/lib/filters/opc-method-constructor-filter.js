@@ -4,6 +4,15 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
+// @encapsule/holarchy - the keystone of holistic app platform
+// Copyright (C) 2020 Christopher D. Russell for Encapsule Project
 var arccore = require("@encapsule/arccore");
 
 var ObservableControllerData = require("../ObservableControllerData");
@@ -46,7 +55,9 @@ var factoryResponse = arccore.filter.create({
         ocdRuntimeSpec: {},
         opmiSpecPaths: [],
         ocdi: null,
-        operatorDispatcher: null,
+        transitionDispatcherFilterMap: {},
+        transitionDispatcher: null,
+        actionDispatcherFilterMap: {},
         actionDispatcher: null,
         evalCount: 0,
         lastEvalResponse: null,
@@ -324,7 +335,13 @@ var factoryResponse = arccore.filter.create({
 
             result.constructionWarnings.push(_warningMessage3);
           } else {
-            transitionOperatorFilters.push(transitionOperatorInstance_.getFilter());
+            var filter = transitionOperatorInstance_.getFilter();
+            var id = filter.filterDescriptor.operationID; // Silently de-duplicate.
+
+            if (!result.transitionDispatcherFilterMap[id]) {
+              result.transitionDispatcherFilterMap[id] = filter;
+              transitionOperatorFilters.push(filter);
+            }
           }
         });
       });
@@ -375,7 +392,13 @@ var factoryResponse = arccore.filter.create({
 
             result.constructionWarnings.push(_warningMessage5);
           } else {
-            controllerActionFilters.push(controllerActionInstance_.getFilter());
+            var filter = controllerActionInstance_.getFilter();
+            var id = filter.filterDescriptor.operationID; // Silently de-duplicate.
+
+            if (!result.actionDispatcherFilterMap[id]) {
+              result.actionDispatcherFilterMap[id] = filter;
+              controllerActionFilters.push(filter);
+            }
           }
         });
       });

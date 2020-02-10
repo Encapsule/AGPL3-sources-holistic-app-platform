@@ -202,11 +202,15 @@
                               }
                             },
                             {
-                              "holarchy": {
-                                "sml": {
-                                  "actions": {
-                                    "d2r2ReactClientDisplayAdaptor": {
-                                      "operation": "hydrate"
+                              "holistic": {
+                                "app": {
+                                  "client": {
+                                    "sml": {
+                                      "actions": {
+                                        "d2r2ReactClientDisplayAdaptor": {
+                                          "operation": "hydrate"
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -241,11 +245,15 @@
                               }
                             },
                             {
-                              "holarchy": {
-                                "sml": {
-                                  "actions": {
-                                    "d2r2ReactClientDisplayAdaptor": {
-                                      "operation": "render"
+                              "holistic": {
+                                "app": {
+                                  "client": {
+                                    "sml": {
+                                      "actions": {
+                                        "d2r2ReactClientDisplayAdaptor": {
+                                          "operation": "render"
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -533,11 +541,15 @@
                               }
                             },
                             {
-                              "holarchy": {
-                                "sml": {
-                                  "actions": {
-                                    "d2r2ReactClientDisplayAdaptor": {
-                                      "operation": "hydrate"
+                              "holistic": {
+                                "app": {
+                                  "client": {
+                                    "sml": {
+                                      "actions": {
+                                        "d2r2ReactClientDisplayAdaptor": {
+                                          "operation": "hydrate"
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -573,11 +585,15 @@
                               }
                             },
                             {
-                              "holarchy": {
-                                "sml": {
-                                  "actions": {
-                                    "d2r2ReactClientDisplayAdaptor": {
-                                      "operation": "render"
+                              "holistic": {
+                                "app": {
+                                  "client": {
+                                    "sml": {
+                                      "actions": {
+                                        "d2r2ReactClientDisplayAdaptor": {
+                                          "operation": "render"
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -789,11 +805,15 @@
                                 }
                               },
                               {
-                                "holarchy": {
-                                  "sml": {
-                                    "actions": {
-                                      "d2r2ReactClientDisplayAdaptor": {
-                                        "operation": "hydrate"
+                                "holistic": {
+                                  "app": {
+                                    "client": {
+                                      "sml": {
+                                        "actions": {
+                                          "d2r2ReactClientDisplayAdaptor": {
+                                            "operation": "hydrate"
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -824,11 +844,15 @@
                                 }
                               },
                               {
-                                "holarchy": {
-                                  "sml": {
-                                    "actions": {
-                                      "d2r2ReactClientDisplayAdaptor": {
-                                        "operation": "render"
+                                "holistic": {
+                                  "app": {
+                                    "client": {
+                                      "sml": {
+                                        "actions": {
+                                          "d2r2ReactClientDisplayAdaptor": {
+                                            "operation": "render"
+                                          }
+                                        }
                                       }
                                     }
                                   }

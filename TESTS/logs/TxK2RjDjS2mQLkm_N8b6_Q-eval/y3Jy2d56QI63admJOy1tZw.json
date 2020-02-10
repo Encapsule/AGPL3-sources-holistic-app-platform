@@ -46,8 +46,8 @@
                                 "app_route"
                               ]
                             },
-                            "location": {
-                              "____accept": "jsObject"
+                            "href": {
+                              "____accept": "jsString"
                             },
                             "routerEventNumber": {
                               "____accept": "jsNumber"
@@ -77,11 +77,15 @@
                         "actions": {
                           "enter": [
                             {
-                              "holarchy": {
-                                "sml": {
-                                  "actions": {
-                                    "ClientDOMLocationProcessor": {
-                                      "initialize": true
+                              "holistic": {
+                                "app": {
+                                  "client": {
+                                    "sml": {
+                                      "actions": {
+                                        "DOMLocationProcessor": {
+                                          "initialize": true
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -100,7 +104,27 @@
                       },
                       "wait": {
                         "description": "Waiting for DOM hashchange event.",
-                        "transitions": []
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "ocd": {
+                                      "array": {
+                                        "path": "#._private.locationHistory",
+                                        "length": {
+                                          "equalToValue": "#._private.lastProcessedIndex"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "process_route_udpate"
+                          }
+                        ]
                       },
                       "process_route_udpate": {
                         "description": "Processing location route update."
@@ -161,8 +185,8 @@
                                 "app_route"
                               ]
                             },
-                            "location": {
-                              "____accept": "jsObject"
+                            "href": {
+                              "____accept": "jsString"
                             },
                             "routerEventNumber": {
                               "____accept": "jsNumber"
@@ -196,11 +220,15 @@
                         "actions": {
                           "enter": [
                             {
-                              "holarchy": {
-                                "sml": {
-                                  "actions": {
-                                    "ClientDOMLocationProcessor": {
-                                      "initialize": true
+                              "holistic": {
+                                "app": {
+                                  "client": {
+                                    "sml": {
+                                      "actions": {
+                                        "DOMLocationProcessor": {
+                                          "initialize": true
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -224,7 +252,27 @@
                           "enter": [],
                           "exit": []
                         },
-                        "transitions": []
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "holarchy": {
+                                "sml": {
+                                  "operators": {
+                                    "ocd": {
+                                      "array": {
+                                        "path": "#._private.locationHistory",
+                                        "length": {
+                                          "equalToValue": "#._private.lastProcessedIndex"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "nextStep": "process_route_udpate"
+                          }
+                        ]
                       },
                       "process_route_udpate": {
                         "description": "Processing location route update.",
@@ -287,8 +335,8 @@
                               "app_route"
                             ]
                           },
-                          "location": {
-                            "____accept": "jsObject"
+                          "href": {
+                            "____accept": "jsString"
                           },
                           "routerEventNumber": {
                             "____accept": "jsNumber"
@@ -322,11 +370,15 @@
                           "actions": {
                             "enter": [
                               {
-                                "holarchy": {
-                                  "sml": {
-                                    "actions": {
-                                      "ClientDOMLocationProcessor": {
-                                        "initialize": true
+                                "holistic": {
+                                  "app": {
+                                    "client": {
+                                      "sml": {
+                                        "actions": {
+                                          "DOMLocationProcessor": {
+                                            "initialize": true
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -400,6 +452,31 @@
                           "priority": 0,
                           "operator": {
                             "always": true
+                          }
+                        }
+                      },
+                      {
+                        "e": {
+                          "u": "wait",
+                          "v": "process_route_udpate"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "holarchy": {
+                              "sml": {
+                                "operators": {
+                                  "ocd": {
+                                    "array": {
+                                      "path": "#._private.locationHistory",
+                                      "length": {
+                                        "equalToValue": "#._private.lastProcessedIndex"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
