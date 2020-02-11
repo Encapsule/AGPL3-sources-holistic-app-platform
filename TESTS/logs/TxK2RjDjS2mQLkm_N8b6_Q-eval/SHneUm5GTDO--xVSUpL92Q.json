@@ -323,6 +323,117 @@
                           "operationVDID": "7gxZROb4cZP8fnSc1KDncg"
                         },
                         {
+                          "operationID": "2w7n6KxdR8mdIliePJesLQ",
+                          "operationName": "OCD Compare Values",
+                          "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                          "inputFilterSpec": {
+                            "____label": "OCD Compare Values Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "opmBindingPath": {
+                                "____label": "OPM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "compare": {
+                                        "____types": "jsObject",
+                                        "values": {
+                                          "____types": "jsObject",
+                                          "a": {
+                                            "____label": "Operand A",
+                                            "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "b": {
+                                            "____label": "Operand B",
+                                            "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "operator": {
+                                            "____label": "Comparison Operator",
+                                            "____description": "A string enum indicating the comparison operator to use.",
+                                            "____accept": "jsString",
+                                            "____inValueSet": [
+                                              "===",
+                                              "==",
+                                              "<",
+                                              "<=",
+                                              ">",
+                                              ">="
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
+                          "inputTypeVDID": "GRMd8fNvZzqE_yMKzZz4EQ",
+                          "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "l0byRNe3upMr2TycKkiPcg"
+                        },
+                        {
                           "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
                           "operationName": "OCD Namespace Is Truthy",
                           "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
@@ -1075,17 +1186,18 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "s2i7UisRgaxiksz8yrnlOg",
+                        "operationID": "pxjjfvcSn8GNAK4C9s545A",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                        "inputTypeVIID": "JXkHiWUVjsPhjKzpaHDeFA",
+                        "inputTypeVIID": "XuhVFrsVhmRs_N4WH14U6A",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "IICInqpB7sLC83fJxzqT8g",
+                        "outputTypeVIID": "4iM-0csbe__wDuFnNO1h5A",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "bRT0E_rUNVecEo7tdAwUtA"
+                        "operationVDID": "_zb0E-hXNVeBRY7tl1gUtA"
                       },
                       "supportedFilters": [
                         "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                        "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                         "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                         "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                         "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
@@ -1289,6 +1401,119 @@
                           "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "7gxZROb4cZP8fnSc1KDncg"
+                        }
+                      },
+                      "2w7n6KxdR8mdIliePJesLQ": {
+                        "filterDescriptor": {
+                          "operationID": "2w7n6KxdR8mdIliePJesLQ",
+                          "operationName": "OCD Compare Values",
+                          "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                          "inputFilterSpec": {
+                            "____label": "OCD Compare Values Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "opmBindingPath": {
+                                "____label": "OPM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "compare": {
+                                        "____types": "jsObject",
+                                        "values": {
+                                          "____types": "jsObject",
+                                          "a": {
+                                            "____label": "Operand A",
+                                            "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "b": {
+                                            "____label": "Operand B",
+                                            "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "operator": {
+                                            "____label": "Comparison Operator",
+                                            "____description": "A string enum indicating the comparison operator to use.",
+                                            "____accept": "jsString",
+                                            "____inValueSet": [
+                                              "===",
+                                              "==",
+                                              "<",
+                                              "<=",
+                                              ">",
+                                              ">="
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
+                          "inputTypeVDID": "GRMd8fNvZzqE_yMKzZz4EQ",
+                          "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "l0byRNe3upMr2TycKkiPcg"
                         }
                       },
                       "kD1PcgqYQlm7fJatNG2ZsA": {
@@ -2064,17 +2289,18 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "s2i7UisRgaxiksz8yrnlOg",
+                                                "operationID": "pxjjfvcSn8GNAK4C9s545A",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "JXkHiWUVjsPhjKzpaHDeFA",
+                                                "inputTypeVIID": "XuhVFrsVhmRs_N4WH14U6A",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "IICInqpB7sLC83fJxzqT8g",
+                                                "outputTypeVIID": "4iM-0csbe__wDuFnNO1h5A",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "bRT0E_rUNVecEo7tdAwUtA"
+                                                "operationVDID": "_zb0E-hXNVeBRY7tl1gUtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::OPM In Step Expression Operator]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                                                 "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
