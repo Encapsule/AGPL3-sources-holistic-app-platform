@@ -84,11 +84,11 @@ module.exports = {
         uninitialized: {
             description: "Default OPM process step.",
             transitions: [
-                { transitionIf: { always: true }, nextStep: "uninitialized_invariants" }
+                { transitionIf: { always: true }, nextStep: "wait_invariants" }
             ]
         },
 
-        uninitialized_invariants: {
+        wait_invariants: {
             description: "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
             transitions: [
                 {
@@ -98,12 +98,12 @@ module.exports = {
                             { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.DOMElement" } } } } } }
                         ]
                     },
-                    nextStep: "uninitialized_inputs"
+                    nextStep: "wait_inputs"
                 }
             ]
         },
 
-        uninitialized_inputs: {
+        wait_inputs: {
             description: "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
             transitions: [ { transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value" } } } } } }, nextStep: "initialized" } ]
         },

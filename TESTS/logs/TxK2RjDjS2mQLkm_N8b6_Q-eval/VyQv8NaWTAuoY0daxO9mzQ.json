@@ -1,0 +1,359 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "XsVRVdrxTNvzPj7OQrDwAg": {
+      "VyQv8NaWTAuoY0daxO9mzQ": {
+        "harnessRequest": {
+          "id": "VyQv8NaWTAuoY0daxO9mzQ",
+          "name": "Client App View OPM #1",
+          "description": "Attempt to instantiate the current App Client View OPM via our test harness.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableProcessModel": {
+                  "constructorRequest": {
+                    "id": "Hsu-43zBRgqHItCPWPiBng",
+                    "name": "Holistic Client App View Processor",
+                    "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
+                    "opmDataSpec": {
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "Hsu-43zBRgqHItCPWPiBng": {
+                        "____types": "jsObject",
+                        "____defaultValue": {},
+                        "inputs": {
+                          "____types": "jsObject",
+                          "____defaultValue": {}
+                        },
+                        "_private": {
+                          "____types": "jsObject",
+                          "____defaultValue": {}
+                        },
+                        "outputs": {
+                          "____types": "jsObject",
+                          "____defaultValue": {}
+                        }
+                      }
+                    },
+                    "steps": {
+                      "uninitialized": {
+                        "description": "Default starting process step.",
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "initialize"
+                          }
+                        ]
+                      },
+                      "initialize": {
+                        "description": "Performing initialization actions."
+                      },
+                      "wait_invariants": {
+                        "description": "Waiting for invariant inputs to be satisfied."
+                      },
+                      "wait_app_config": {
+                        "description": "Waiting for the client application runtime to be configured."
+                      },
+                      "wait_server_route": {
+                        "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href)."
+                      },
+                      "wait_app_resume": {
+                        "description": "Waiting for the App Client Runtime to resume the client application runtime."
+                      },
+                      "rehydrate": {
+                        "description": "Use data from the server to rehydate the server-rendered d2r2/React view."
+                      },
+                      "ready": {
+                        "description": "View is interactive and up-to-date."
+                      },
+                      "update": {
+                        "description": "Update the client application's view model to incorporate changes in underlying data and model state."
+                      },
+                      "render": {
+                        "description": "Send the updated view to the d2r2/React Display Adaptor."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "mC3pPO5wS3SxvhgZgMjsJQ": {
+                "VyQv8NaWTAuoY0daxO9mzQ": {
+                  "isValid": true,
+                  "toJSON": {
+                    "id": "Hsu-43zBRgqHItCPWPiBng",
+                    "name": "Holistic Client App View Processor",
+                    "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
+                    "opmDataSpec": {
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "Hsu-43zBRgqHItCPWPiBng": {
+                        "____types": "jsObject",
+                        "____defaultValue": {},
+                        "inputs": {
+                          "____types": "jsObject",
+                          "____defaultValue": {}
+                        },
+                        "_private": {
+                          "____types": "jsObject",
+                          "____defaultValue": {}
+                        },
+                        "outputs": {
+                          "____types": "jsObject",
+                          "____defaultValue": {}
+                        }
+                      }
+                    },
+                    "steps": {
+                      "uninitialized": {
+                        "description": "Default starting process step.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "initialize"
+                          }
+                        ]
+                      },
+                      "initialize": {
+                        "description": "Performing initialization actions.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "wait_invariants": {
+                        "description": "Waiting for invariant inputs to be satisfied.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "wait_app_config": {
+                        "description": "Waiting for the client application runtime to be configured.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "wait_server_route": {
+                        "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href).",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "wait_app_resume": {
+                        "description": "Waiting for the App Client Runtime to resume the client application runtime.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "rehydrate": {
+                        "description": "Use data from the server to rehydate the server-rendered d2r2/React view.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "ready": {
+                        "description": "View is interactive and up-to-date.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "update": {
+                        "description": "Update the client application's view model to incorporate changes in underlying data and model state.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      },
+                      "render": {
+                        "description": "Send the updated view to the d2r2/React Display Adaptor.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
+                      }
+                    }
+                  },
+                  "getID": "Hsu-43zBRgqHItCPWPiBng",
+                  "getName": "Holistic Client App View Processor",
+                  "getDescription": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
+                  "getDataSpec": {
+                    "____types": "jsObject",
+                    "____defaultValue": {},
+                    "Hsu-43zBRgqHItCPWPiBng": {
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "inputs": {
+                        "____types": "jsObject",
+                        "____defaultValue": {}
+                      },
+                      "_private": {
+                        "____types": "jsObject",
+                        "____defaultValue": {}
+                      },
+                      "outputs": {
+                        "____types": "jsObject",
+                        "____defaultValue": {}
+                      }
+                    }
+                  },
+                  "getDigraph": {
+                    "name": "[Hsu-43zBRgqHItCPWPiBng::Holistic Client App View Processor] OPM Digraph",
+                    "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
+                    "vlist": [
+                      {
+                        "u": "uninitialized",
+                        "p": {
+                          "description": "Default starting process step.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "initialize",
+                        "p": {
+                          "description": "Performing initialization actions.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "wait_invariants",
+                        "p": {
+                          "description": "Waiting for invariant inputs to be satisfied.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "wait_app_config",
+                        "p": {
+                          "description": "Waiting for the client application runtime to be configured.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "wait_server_route",
+                        "p": {
+                          "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href).",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "wait_app_resume",
+                        "p": {
+                          "description": "Waiting for the App Client Runtime to resume the client application runtime.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "rehydrate",
+                        "p": {
+                          "description": "Use data from the server to rehydate the server-rendered d2r2/React view.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "ready",
+                        "p": {
+                          "description": "View is interactive and up-to-date.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "update",
+                        "p": {
+                          "description": "Update the client application's view model to incorporate changes in underlying data and model state.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      },
+                      {
+                        "u": "render",
+                        "p": {
+                          "description": "Send the updated view to the d2r2/React Display Adaptor.",
+                          "actions": {
+                            "enter": [],
+                            "exit": []
+                          }
+                        }
+                      }
+                    ],
+                    "elist": [
+                      {
+                        "e": {
+                          "u": "uninitialized",
+                          "v": "initialize"
+                        },
+                        "p": {
+                          "priority": 0,
+                          "operator": {
+                            "always": true
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

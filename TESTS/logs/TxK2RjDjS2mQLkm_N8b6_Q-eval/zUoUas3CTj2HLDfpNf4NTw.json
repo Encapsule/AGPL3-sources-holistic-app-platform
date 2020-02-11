@@ -94,11 +94,11 @@
                             "transitionIf": {
                               "always": true
                             },
-                            "nextStep": "uninitialized_invariants"
+                            "nextStep": "wait_invariants"
                           }
                         ]
                       },
-                      "uninitialized_invariants": {
+                      "wait_invariants": {
                         "description": "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
                         "transitions": [
                           {
@@ -132,11 +132,11 @@
                                 }
                               ]
                             },
-                            "nextStep": "uninitialized_inputs"
+                            "nextStep": "wait_inputs"
                           }
                         ]
                       },
-                      "uninitialized_inputs": {
+                      "wait_inputs": {
                         "description": "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
                         "transitions": [
                           {
@@ -421,11 +421,11 @@
                             "transitionIf": {
                               "always": true
                             },
-                            "nextStep": "uninitialized_invariants"
+                            "nextStep": "wait_invariants"
                           }
                         ]
                       },
-                      "uninitialized_invariants": {
+                      "wait_invariants": {
                         "description": "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
                         "actions": {
                           "enter": [],
@@ -463,11 +463,11 @@
                                 }
                               ]
                             },
-                            "nextStep": "uninitialized_inputs"
+                            "nextStep": "wait_inputs"
                           }
                         ]
                       },
-                      "uninitialized_inputs": {
+                      "wait_inputs": {
                         "description": "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
                         "actions": {
                           "enter": [],
@@ -756,7 +756,7 @@
                         }
                       },
                       {
-                        "u": "uninitialized_invariants",
+                        "u": "wait_invariants",
                         "p": {
                           "description": "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
                           "actions": {
@@ -766,7 +766,7 @@
                         }
                       },
                       {
-                        "u": "uninitialized_inputs",
+                        "u": "wait_inputs",
                         "p": {
                           "description": "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
                           "actions": {
@@ -888,7 +888,7 @@
                       {
                         "e": {
                           "u": "uninitialized",
-                          "v": "uninitialized_invariants"
+                          "v": "wait_invariants"
                         },
                         "p": {
                           "priority": 0,
@@ -899,8 +899,8 @@
                       },
                       {
                         "e": {
-                          "u": "uninitialized_invariants",
-                          "v": "uninitialized_inputs"
+                          "u": "wait_invariants",
+                          "v": "wait_inputs"
                         },
                         "p": {
                           "priority": 0,
@@ -938,7 +938,7 @@
                       },
                       {
                         "e": {
-                          "u": "uninitialized_inputs",
+                          "u": "wait_inputs",
                           "v": "initialized"
                         },
                         "p": {

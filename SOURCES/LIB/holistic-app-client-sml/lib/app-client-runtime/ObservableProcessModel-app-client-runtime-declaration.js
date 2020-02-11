@@ -12,17 +12,14 @@ module.exports = {
         "PPL45jw5RDWSMNsB97WIWg": {
             ____types: "jsObject",
             ____defaultValue: {},
-
             inputs: {
                 ____types: "jsObject",
                 ____defaultValue: {}
             },
-
             _private: {
                 ____types: "jsObject",
                 ____defaultValue: {}
             },
-
             outputs: {
                 ____types: "jsObject",
                 ____defaultValue: {}
