@@ -73,7 +73,7 @@ class ObservableProcessController {
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name },
                     subsystem: "opc", method: "constructor", phase: "body",
-                    message: `INSTANCE "${this._private.iid}" INITIALIZED!`
+                    message: `OPC instance "${this._private.iid}" initialized!`
                 });
 
                 // Perform the first post-construction evaluation of the OPC system model
@@ -206,14 +206,14 @@ class ObservableProcessController {
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                            evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "prologue",
-                    message: "STARTING action on behalf of actor..."
+                    message: "START ACTION..."
                 });
 
                 logger.request({
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                            evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "body",
-                    message: request.actorTaskDescription
+                    message: `ACTOR: ${request_.actorName}: ${request.actorTaskDescription}`
                 });
 
                 // Dispatch the action on behalf of the actor.
@@ -256,7 +256,7 @@ class ObservableProcessController {
                         opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                                evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                         subsystem: "opc", method: "act", phase: "body",
-                        message: "UPDATE SYSTEM STATE..."
+                        message: "SEQUENCE..."
                     });
 
                     // Evaluate is an actor too. It adds itself to the OPC actor stack.
@@ -293,7 +293,7 @@ class ObservableProcessController {
                 opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                        evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                 subsystem: "opc", method: "act", phase: "epilogue",
-                message: `COMPLETE action on behalf of actor in ${timings.totalMilliseconds} ms`
+                message: `COMPLETE in ${timings.totalMilliseconds} ms`
             });
 
         } else {

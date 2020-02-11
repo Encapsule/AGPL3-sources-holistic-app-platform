@@ -45,8 +45,30 @@ module.exports = new holarchy.ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            // Resolve the full path the DOM Location Processor _private namespace.
+            console.log(`Current value of location.href is '${location.href}'`);
+
+            // Resolve the full path the DOM Location Processor outputs namespace.
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+                opmBindingPath: request_.context.opmBindingPath,
+                dataPath: "#.outputs"
+            });
+            if (rpResponse.error) {
+                errors.push(rpResponse.error);
+                break;
+            }
+            const pathOutputs = rpResponse.result;
+
+            let ocdResponse = request_.context.ocdi.readNamespace(pathOutputs);
+            if (ocdResponse.error) { errors.push(ocdResponse.error); break; }
+            const outputs = ocdResponse.result;
+
+            if (outputs.currentRoute && (outputs.currentRoute.href === location.href)) {
+                console.log("This event will be ignored. It was induced by the DOM Location Processor's init action replacing the server's non-hashroute with the default, #.");
+                break;
+            }
+
+            // Resolve the full path the DOM Location Processor _private namespace.
+            rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 opmBindingPath: request_.context.opmBindingPath,
                 dataPath: "#._private"
             });
@@ -57,7 +79,7 @@ module.exports = new holarchy.ControllerAction({
             const pathPrivate = rpResponse.result;
 
             // Read the DOM Location Processor's _private OCD namespace.
-            let ocdResponse = request_.context.ocdi.readNamespace(pathPrivate);
+            ocdResponse = request_.context.ocdi.readNamespace(pathPrivate);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
