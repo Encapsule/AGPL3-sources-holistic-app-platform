@@ -176,7 +176,7 @@ const factoryResponse = arccore.filter.create({
                         return `(${stackEntry_.actorName})`;
                     }).join(" > ");
                     message = [
-                        `%cOPC::act <${request_.opc.iid}> actor stack: ${actorStack}`
+                        `%cOPC::act <${request_.opc.iid.substr(0,4)}...> actor stack: ${actorStack}`
                     ];
 
                     const border = `6px solid ${consoleColorsLUT.opc.act.borderColor}`
@@ -191,7 +191,7 @@ const factoryResponse = arccore.filter.create({
                         message.push(request_.message);
                         break;
                     case "body":
-                        message = [ `%cOPC::act <${request_.opc.iid}>` ];
+                        message = [ `%cOPC::act <${request_.opc.iid.substr(0,4)}...>` ];
                         message.push(request_.message);
                         break;
                     case "epilogue":
@@ -209,7 +209,7 @@ const factoryResponse = arccore.filter.create({
 
                 case "evaluate":
                     message = [
-                        `%cOPC::evaluate <${request_.opc.iid}> [${request_.opc.evalCount}:${request_.opc.frameCount}] ${request_.message}`
+                        `%cOPC::evaluate <${request_.opc.iid.substr(0,4)}...> [${request_.opc.evalCount}:${request_.opc.frameCount}] ${request_.message}`
                     ].join(" ");
                     consoleMethod(message, styles);
                     break;

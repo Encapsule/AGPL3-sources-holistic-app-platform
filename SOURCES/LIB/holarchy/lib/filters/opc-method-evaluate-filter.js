@@ -430,7 +430,7 @@ const factoryResponse = arccore.filter.create({
                     logger.request({
                         opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
                         subsystem: "opc", method: "evaluate", phase: "body",
-                        message: `PROCESS STEP TRANSITION: [ '${initialStep}' -> '${nextStep}' ] at OCD path '${opmBindingPath}'.`
+                        message: `OPMI "${opmBindingPath}" tranistion "${initialStep}" => "${nextStep}".`
                     });
 
                     // Dispatch the OPM instance's step exit action(s).
