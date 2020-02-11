@@ -8,6 +8,7 @@ module.exports = [
     // to the client view via d2r2 and React RTL's.
 
     require("./vector-set-d2r2-react-client-display-adaptor"),
-    require("./vector-set-dom-location-processor")
+    require("./vector-set-dom-location-processor"),
+    require("./vector-set-app-client-runtime")
 
 ];
