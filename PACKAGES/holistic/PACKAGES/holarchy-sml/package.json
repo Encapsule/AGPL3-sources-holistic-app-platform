@@ -2,9 +2,9 @@
     "name": "@encapsule/holarchy-sml",
     "version": "0.1.00",
     "codename": "alertbay",
-    "buildID": "8dEsF6K-RZymB4AM1pKZPg",
-    "buildTime": 1581399053,
-    "buildSource": "ed7723006b66c820989c2a261500545d53ecf77e",
+    "buildID": "7IafcCSaSOiUQttCUphzKw",
+    "buildTime": 1581449403,
+    "buildSource": "86aa018317fc7d1db1ab35e740eccb92519980d4",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"

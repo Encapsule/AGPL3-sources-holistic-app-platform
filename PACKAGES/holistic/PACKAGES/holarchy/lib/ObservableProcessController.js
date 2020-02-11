@@ -265,7 +265,21 @@ function () {
             subsystem: "opc",
             method: "act",
             phase: "body",
-            message: "ACTOR: ".concat(request_.actorName, ": ").concat(request.actorTaskDescription)
+            message: "Actor: ".concat(request_.actorName)
+          });
+          logger.request({
+            opc: {
+              id: this._private.id,
+              iid: this._private.iid,
+              name: this._private.name,
+              evalCount: this._private.evalCount,
+              frameCount: 0,
+              actorStack: this._private.opcActorStack
+            },
+            subsystem: "opc",
+            method: "act",
+            phase: "body",
+            message: "Task: ".concat(request.actorTaskDescription)
           }); // Dispatch the action on behalf of the actor.
 
           var actionResponse = null;

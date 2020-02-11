@@ -461,7 +461,7 @@ var factoryResponse = arccore.filter.create({
             subsystem: "opc",
             method: "evaluate",
             phase: "body",
-            message: "PROCESS STEP TRANSITION: [ '".concat(initialStep, "' -> '").concat(nextStep, "' ] at OCD path '").concat(opmBindingPath, "'.")
+            message: "OPMI \"".concat(opmBindingPath, "\" tranistion \"").concat(initialStep, "\" => \"").concat(nextStep, "\".")
           }); // Dispatch the OPM instance's step exit action(s).
 
           _opmInstanceFrame.evalResponse.status = "transitioning-dispatch-exit-actions";
