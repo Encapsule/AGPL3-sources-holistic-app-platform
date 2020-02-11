@@ -18,9 +18,9 @@ const holarchyConsoleStylesLUT = {
 
         },
         evaluate: {
-            prologue: "margin-left: 12px; border-left: 6px solid #0099FF; border-top: 6px solid #0033CC; padding-left: 0.5em; background-color: #99CCFF; color: #000033; font-weight: bold; font-size-smallest;",
-            body: "margin-left: 12px; border-left: 6px solid #00CCFF; padding-left: 0.5em; background-color: #DDEEFF; color: #000033; font-weight: normal; font-size: smallest;",
-            epilogue: "margin-left: 12px; border-left: 6px solid #0099FF; border-bottom: 6px solid #0033CC; padding-left: 0.5em; background-color: #99CCFF; color: #000033; font-weight: bold; font-size: smallest;"
+            prologue: "margin-left: 12px; border-left: 6px solid #0033CC; border-top: 6px solid #0099FF; padding-left: 0.5em; background-color: #99CCFF; color: #000033; font-weight: bold; font-size-smallest;",
+            body: "margin-left: 12px; border-left: 6px solid #0033CC; padding-left: 0.5em; background-color: #DDEEFF; color: #000033; font-weight: normal; font-size: smallest;",
+            epilogue: "margin-left: 12px; border-left: 6px solid #0033CC; border-bottom: 6px solid #0099FF; padding-left: 0.5em; background-color: #99CCFF; color: #000033; font-weight: bold; font-size: smallest;"
         }
     }
 };

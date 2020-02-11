@@ -1,6 +1,6 @@
 // ObservableProcessModel-app-client-kernel-declaration.js
 
-const opmClientHashRouteLocationProcessor = module.exports = {
+module.exports = {
 
     id: "PPL45jw5RDWSMNsB97WIWg",
     name: "Holistic Client App Runtime",
@@ -9,22 +9,25 @@ const opmClientHashRouteLocationProcessor = module.exports = {
     opmDataSpec: {
         ____types: "jsObject",
         ____defaultValue: {},
-
-        inputs: {
+        "PPL45jw5RDWSMNsB97WIWg": {
             ____types: "jsObject",
-            ____defaultValue: {}
-        },
+            ____defaultValue: {},
 
-        _private: {
-            ____types: "jsObject",
-            ____defaultValue: {}
-        },
+            inputs: {
+                ____types: "jsObject",
+                ____defaultValue: {}
+            },
 
-        outputs: {
-            ____types: "jsObject",
-            ____defaultValue: {}
+            _private: {
+                ____types: "jsObject",
+                ____defaultValue: {}
+            },
+
+            outputs: {
+                ____types: "jsObject",
+                ____defaultValue: {}
+            }
         }
-
     },
 
     steps: {
