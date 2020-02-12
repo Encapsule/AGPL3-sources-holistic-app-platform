@@ -282,10 +282,10 @@ const factoryResponse = arccore.filter.create({
                 evalStopwatch.mark(`frame ${result.evalFrames.length} end OPM instance binding / start OPM instance evaluation`);
 
                 if (errors.length) {
-                    // As a matter of implementation policy, we do not further evaluation of an OPM instance
-                    // if any error is encountered during the evaluation of the model's transition operator
-                    // expression.
-                    // TODO: I don't think we're handling errors here correctly?
+                    // If we encountered any errors locating the cells (OPM instances)
+                    // that we need to evaluate (defines the work to be done in the frame
+                    // evaluation loop), then we do not execute the frame evaluation loop.
+                    console.error("Something that should be impossible occurred. Please file a GibHub issue in the @encapsule/holistic repo including this log. Thank you!");
                     break; // from the outer evaluation loop
                 }
 
@@ -450,6 +450,8 @@ const factoryResponse = arccore.filter.create({
                         };
 
                         let actionResponse;
+
+                        // TODO: Delegate all actions through OPC.act and participate in the actor stack for all actions.
                         try {
                             actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
                         } catch (actException_) {
@@ -475,11 +477,10 @@ const factoryResponse = arccore.filter.create({
                             result.summary.counts.errors++;
                             break;
                         }
-                    }
 
-                    // If we encountered any error during the evaluation of the model step's exit actions skip
-                    // the remainder of the model evaluation and proceed to the next model in the frame.
+                    } // for exitActionIndex
 
+                    // If we encountered any error during the evaluation of the cell's exit actions, skip further eval of this cell and continue to the next cell in the frame.
                     if (opmInstanceFrame.evalResponse.status === "error") {
                         continue;
                     }
@@ -508,6 +509,7 @@ const factoryResponse = arccore.filter.create({
 
                         let actionResponse;
 
+                        // TODO: Delegate all actions through OPC.act and participate in the actor stack for all actions.
                         try {
                             actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
                         } catch (actException_) {
@@ -533,10 +535,9 @@ const factoryResponse = arccore.filter.create({
                             result.summary.counts.errors++;
                         }
 
-                    }
-                    // If we encountered any error during the evaluation of the model step's enter actions skip
-                    // the remainder of the model evaluation and proceed to the next model in the frame.
+                    } // for enterActionIndex
 
+                    // If we encountered any error during the evaluation of the cell's enter actions, skip further eval of the cell and continue to the next cell in the frame.
                     if (opmInstanceFrame.evalResponse.status === "error") {
                         continue;
                     }
