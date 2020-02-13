@@ -67,7 +67,7 @@
                       "filterDescriptor": {
                         "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                         "operationName": "Discriminator Filter",
-                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                         "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                         "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -79,7 +79,7 @@
                         "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                       ],
                       "options": {
-                        "action": "routeRequest"
+                        "action": "getFilter"
                       }
                     },
                     "actionDispatcherFilterMap": {
@@ -239,7 +239,7 @@
                         }
                       },
                       "actResponse": {
-                        "error": "Error dispatching controller action filter. Skipping any further evaluation. Filter [Bnc0Tl1kHS6mkmBC0YzR-Q::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action], [S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]}."
+                        "error": "Error dispatching controller action filter. Skipping any further evaluation. Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins."
                       }
                     }
                   ]

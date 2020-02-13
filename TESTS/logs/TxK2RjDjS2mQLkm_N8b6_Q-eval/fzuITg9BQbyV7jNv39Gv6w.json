@@ -3313,7 +3313,7 @@
                       "filterDescriptor": {
                         "operationID": "-HkKCH781L6Dpbs9yepB2w",
                         "operationName": "Discriminator Filter",
-                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                         "inputTypeVIID": "ssY6OysuGBznaDVF-A5LGA",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                         "outputTypeVIID": "-qKU7D7u0yJfYoMiyNECIg",
@@ -3330,7 +3330,7 @@
                         "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]"
                       ],
                       "options": {
-                        "action": "routeRequest"
+                        "action": "getFilter"
                       }
                     },
                     "actionDispatcherFilterMap": {

@@ -455,7 +455,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -467,7 +467,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -689,7 +689,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -701,7 +701,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -1262,7 +1262,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -1274,7 +1274,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -1569,7 +1569,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -1581,7 +1581,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -1825,7 +1825,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -1837,7 +1837,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -2077,7 +2077,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -2089,7 +2089,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -2334,7 +2334,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -2346,7 +2346,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -2597,7 +2597,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -2609,7 +2609,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -2854,7 +2854,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -2866,7 +2866,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -3123,7 +3123,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -3135,7 +3135,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -3380,7 +3380,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -3392,7 +3392,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -3619,7 +3619,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -3631,7 +3631,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -3879,7 +3879,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -3891,7 +3891,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -4197,7 +4197,7 @@
                               "filterDescriptor": {
                                 "operationID": "39IqfZxMgJVwbOr-1NDKJA",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "kVyKpltP-r1iPJ0oocIaCA",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "dt3GnQRu4pc-5yFpmz_vig",
@@ -4211,7 +4211,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -4734,7 +4734,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -4746,7 +4746,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -4970,7 +4970,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -4982,7 +4982,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -5220,7 +5220,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -5232,7 +5232,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -5392,7 +5392,7 @@
                                 }
                               },
                               "actResponse": {
-                                "error": "Error dispatching controller action filter. Skipping any further evaluation. Filter [Bnc0Tl1kHS6mkmBC0YzR-Q::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action], [S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]}."
+                                "error": "Error dispatching controller action filter. Skipping any further evaluation. Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins."
                               }
                             }
                           ]
@@ -5575,7 +5575,7 @@
                               "filterDescriptor": {
                                 "operationID": "39IqfZxMgJVwbOr-1NDKJA",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "kVyKpltP-r1iPJ0oocIaCA",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "dt3GnQRu4pc-5yFpmz_vig",
@@ -5589,7 +5589,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -6242,7 +6242,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -6254,7 +6254,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -8358,7 +8358,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -8370,7 +8370,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -10692,7 +10692,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -10704,7 +10704,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -13028,7 +13028,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -13040,7 +13040,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -15183,7 +15183,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -15195,7 +15195,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -15443,7 +15443,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Filter [Bnc0Tl1kHS6mkmBC0YzR-Q::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action], [S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]}."
+                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins."
                                                 }
                                               }
                                             ],
@@ -17449,7 +17449,7 @@
                               "filterDescriptor": {
                                 "operationID": "KtoXFATK7G6m_RNAtiQm6w",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "XoBgofI5qssOhvKiDSK6ZQ",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "l-_1nihPpe_OeAf7ZAe98g",
@@ -17463,7 +17463,7 @@
                                 "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -17811,7 +17811,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Filter [KtoXFATK7G6m_RNAtiQm6w::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action], [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1], [S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action], [V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]}."
+                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins."
                                                 }
                                               }
                                             ],
@@ -19817,7 +19817,7 @@
                               "filterDescriptor": {
                                 "operationID": "KtoXFATK7G6m_RNAtiQm6w",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "XoBgofI5qssOhvKiDSK6ZQ",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "l-_1nihPpe_OeAf7ZAe98g",
@@ -19831,7 +19831,7 @@
                                 "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -20179,7 +20179,7 @@
                                                   "badControllerActionResponseError": true
                                                 },
                                                 "response": {
-                                                  "error": "Filter [KtoXFATK7G6m_RNAtiQm6w::Discriminator Filter] failed while performing main operation. Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
+                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. It looks like this action request was intended for [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1]. But, the controller action plug-in rejected the request."
                                                 }
                                               }
                                             ],
@@ -22185,7 +22185,7 @@
                               "filterDescriptor": {
                                 "operationID": "KtoXFATK7G6m_RNAtiQm6w",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "XoBgofI5qssOhvKiDSK6ZQ",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "l-_1nihPpe_OeAf7ZAe98g",
@@ -22199,7 +22199,7 @@
                                 "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -22547,7 +22547,7 @@
                                                   "badControllerActionThrowError": true
                                                 },
                                                 "response": {
-                                                  "error": "ControllerAction threw an illegal exception that was handled by OPC: Error: This is a forced exception thrown from a controller action body function."
+                                                  "error": "Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
                                                 }
                                               }
                                             ],
@@ -24454,7 +24454,7 @@
                               "filterDescriptor": {
                                 "operationID": "Bnc0Tl1kHS6mkmBC0YzR-Q",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "SRiafVUa66ggM5TZY0la3A",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "jjb3PrbAh7w9cRo1X_znNA",
@@ -24466,7 +24466,7 @@
                                 "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -24715,7 +24715,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Filter [Bnc0Tl1kHS6mkmBC0YzR-Q::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action], [S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]}."
+                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins."
                                                 }
                                               }
                                             ],
@@ -26720,7 +26720,7 @@
                               "filterDescriptor": {
                                 "operationID": "KtoXFATK7G6m_RNAtiQm6w",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "XoBgofI5qssOhvKiDSK6ZQ",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "l-_1nihPpe_OeAf7ZAe98g",
@@ -26734,7 +26734,7 @@
                                 "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -27083,7 +27083,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Filter [KtoXFATK7G6m_RNAtiQm6w::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action], [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1], [S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action], [V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]}."
+                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins."
                                                 }
                                               }
                                             ],
@@ -29088,7 +29088,7 @@
                               "filterDescriptor": {
                                 "operationID": "KtoXFATK7G6m_RNAtiQm6w",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "XoBgofI5qssOhvKiDSK6ZQ",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "l-_1nihPpe_OeAf7ZAe98g",
@@ -29102,7 +29102,7 @@
                                 "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -29451,7 +29451,7 @@
                                                   "badControllerActionResponseError": true
                                                 },
                                                 "response": {
-                                                  "error": "Filter [KtoXFATK7G6m_RNAtiQm6w::Discriminator Filter] failed while performing main operation. Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
+                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. It looks like this action request was intended for [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1]. But, the controller action plug-in rejected the request."
                                                 }
                                               }
                                             ],
@@ -31456,7 +31456,7 @@
                               "filterDescriptor": {
                                 "operationID": "KtoXFATK7G6m_RNAtiQm6w",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "XoBgofI5qssOhvKiDSK6ZQ",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "l-_1nihPpe_OeAf7ZAe98g",
@@ -31470,7 +31470,7 @@
                                 "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -31819,7 +31819,7 @@
                                                   "badControllerActionThrowError": true
                                                 },
                                                 "response": {
-                                                  "error": "ControllerAction threw an illegal exception that was handled by the OPC: This is a forced exception thrown from a controller action body function."
+                                                  "error": "Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
                                                 }
                                               }
                                             ],
@@ -34871,7 +34871,7 @@
                               "filterDescriptor": {
                                 "operationID": "3G6W5-BeMEabR9naG8i6hQ",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "2KVxqPlUWI3qhd-oo6hCdg",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "Y1CKbks9QnB7SHQx86DP0g",
@@ -34887,7 +34887,7 @@
                                 "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -40963,7 +40963,7 @@
                               "filterDescriptor": {
                                 "operationID": "-HkKCH781L6Dpbs9yepB2w",
                                 "operationName": "Discriminator Filter",
-                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                 "inputTypeVIID": "ssY6OysuGBznaDVF-A5LGA",
                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                 "outputTypeVIID": "-qKU7D7u0yJfYoMiyNECIg",
@@ -40980,7 +40980,7 @@
                                 "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]"
                               ],
                               "options": {
-                                "action": "routeRequest"
+                                "action": "getFilter"
                               }
                             },
                             "actionDispatcherFilterMap": {
@@ -44112,7 +44112,7 @@
                           "constructorRequest": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
                             "name": "Holistic Client App Runtime",
-                            "description": "Encapsulates the lifecycle and management of core holistic client application features on behalf of the derived app.",
+                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "opmDataSpec": {
                               "____types": "jsObject",
                               "____defaultValue": {},
@@ -44141,43 +44141,105 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot0_start_app_kernel"
+                                    "nextStep": "boot0_hook_events"
                                   }
                                 ]
                               },
-                              "boot0_start_app_kernel": {
+                              "boot0_hook_events": {
+                                "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
+                                "actions": {
+                                  "enter": [
+                                    {
+                                      "holistic": {
+                                        "app": {
+                                          "client": {
+                                            "runtime": {
+                                              "private": {
+                                                "actions": {
+                                                  "hookEvents": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "boot1_start_kernel"
+                                  }
+                                ]
+                              },
+                              "boot1_start_kernel": {
                                 "description": "Start core client app kernel subsystems.",
                                 "actions": {
-                                  "enter": []
+                                  "enter": [
+                                    {
+                                      "holistic": {
+                                        "app": {
+                                          "client": {
+                                            "runtime": {
+                                              "private": {
+                                                "actions": {
+                                                  "startKernel": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
                                 },
                                 "transitions": [
                                   {
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot1_query_derived_app_config"
+                                    "nextStep": "boot2_query_derived"
                                   }
                                 ]
                               },
-                              "boot1_query_derived_app_config": {
+                              "boot2_query_derived": {
                                 "description": "Query the derived client app for information required to initialize the core client app runtime.",
                                 "actions": {
-                                  "enter": []
+                                  "enter": [
+                                    {
+                                      "holistic": {
+                                        "app": {
+                                          "client": {
+                                            "runtime": {
+                                              "private": {
+                                                "actions": {
+                                                  "queryDerivedAppConfig": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
                                 },
                                 "transitions": [
                                   {
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot2_wait_kernel_start"
+                                    "nextStep": "boot3_wait_kernel"
                                   }
                                 ]
                               },
-                              "boot2_wait_kernel_start": {
+                              "boot3_wait_kernel": {
                                 "description": "Wait for the core client app kernel subsystems to become available.",
                                 "transitions": []
                               },
-                              "boot3_configure_derived_app": {
+                              "boot4_config_derived": {
                                 "description": "Configure the derived application runtime.",
                                 "actions": {
                                   "enter": []
@@ -44187,40 +44249,37 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot4_wait_app_resources"
+                                    "nextStep": "boot5_wait_browser"
                                   }
                                 ]
                               },
-                              "boot4_wait_app_resources": {
+                              "boot5_wait_browser": {
                                 "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
                                 "transitions": [
                                   {
                                     "transitionIf": {},
-                                    "nextStep": "boot5_deserialize_suspended_app"
+                                    "nextStep": "boot6_deserialize_app"
                                   }
                                 ]
                               },
-                              "boot5_deserialize_suspended_app": {
+                              "boot6_deserialize_app": {
                                 "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
                                 "actions": {
                                   "enter": []
                                 },
                                 "transitions": []
                               },
-                              "boot6_resume_suspended_app": {
-                                "description": "Restore the derived application's process state and resume the application process.",
-                                "actions": {
-                                  "enter": []
-                                },
-                                "transitions": []
+                              "boot7_load_app_memory": {
+                                "description": "Load the deserialized app into the OCD to initialize the client app runtime."
                               },
-                              "boot7_wait_app_client": {
-                                "description": "Wait for the derived application to resume and signal back that its subsystems are ready to accept input from external actors.",
-                                "transitions": []
+                              "boot8_init_app_view": {
+                                "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately."
                               },
-                              "runtime0_app_client_running": {
-                                "description": "Derived application runtime is online and ready to respond to external actors.",
-                                "transitions": []
+                              "boot9_start_app": {
+                                "description": "Start the client application runtime."
+                              },
+                              "running": {
+                                "description": "The client application is online and awaiting input from external actors."
                               },
                               "error_process_boot_failure": {
                                 "description": "Client application process boot failed due to unrecoverable error(s)."
@@ -44252,7 +44311,7 @@
                           "toJSON": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
                             "name": "Holistic Client App Runtime",
-                            "description": "Encapsulates the lifecycle and management of core holistic client application features on behalf of the derived app.",
+                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "opmDataSpec": {
                               "____types": "jsObject",
                               "____defaultValue": {},
@@ -44285,14 +44344,61 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot0_start_app_kernel"
+                                    "nextStep": "boot0_hook_events"
                                   }
                                 ]
                               },
-                              "boot0_start_app_kernel": {
+                              "boot0_hook_events": {
+                                "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
+                                "actions": {
+                                  "enter": [
+                                    {
+                                      "holistic": {
+                                        "app": {
+                                          "client": {
+                                            "runtime": {
+                                              "private": {
+                                                "actions": {
+                                                  "hookEvents": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
+                                  "exit": []
+                                },
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "boot1_start_kernel"
+                                  }
+                                ]
+                              },
+                              "boot1_start_kernel": {
                                 "description": "Start core client app kernel subsystems.",
                                 "actions": {
-                                  "enter": [],
+                                  "enter": [
+                                    {
+                                      "holistic": {
+                                        "app": {
+                                          "client": {
+                                            "runtime": {
+                                              "private": {
+                                                "actions": {
+                                                  "startKernel": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
                                   "exit": []
                                 },
                                 "transitions": [
@@ -44300,14 +44406,30 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot1_query_derived_app_config"
+                                    "nextStep": "boot2_query_derived"
                                   }
                                 ]
                               },
-                              "boot1_query_derived_app_config": {
+                              "boot2_query_derived": {
                                 "description": "Query the derived client app for information required to initialize the core client app runtime.",
                                 "actions": {
-                                  "enter": [],
+                                  "enter": [
+                                    {
+                                      "holistic": {
+                                        "app": {
+                                          "client": {
+                                            "runtime": {
+                                              "private": {
+                                                "actions": {
+                                                  "queryDerivedAppConfig": true
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ],
                                   "exit": []
                                 },
                                 "transitions": [
@@ -44315,11 +44437,11 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot2_wait_kernel_start"
+                                    "nextStep": "boot3_wait_kernel"
                                   }
                                 ]
                               },
-                              "boot2_wait_kernel_start": {
+                              "boot3_wait_kernel": {
                                 "description": "Wait for the core client app kernel subsystems to become available.",
                                 "actions": {
                                   "enter": [],
@@ -44327,7 +44449,7 @@
                                 },
                                 "transitions": []
                               },
-                              "boot3_configure_derived_app": {
+                              "boot4_config_derived": {
                                 "description": "Configure the derived application runtime.",
                                 "actions": {
                                   "enter": [],
@@ -44338,11 +44460,11 @@
                                     "transitionIf": {
                                       "always": true
                                     },
-                                    "nextStep": "boot4_wait_app_resources"
+                                    "nextStep": "boot5_wait_browser"
                                   }
                                 ]
                               },
-                              "boot4_wait_app_resources": {
+                              "boot5_wait_browser": {
                                 "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
                                 "actions": {
                                   "enter": [],
@@ -44351,11 +44473,11 @@
                                 "transitions": [
                                   {
                                     "transitionIf": {},
-                                    "nextStep": "boot5_deserialize_suspended_app"
+                                    "nextStep": "boot6_deserialize_app"
                                   }
                                 ]
                               },
-                              "boot5_deserialize_suspended_app": {
+                              "boot6_deserialize_app": {
                                 "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
                                 "actions": {
                                   "enter": [],
@@ -44363,24 +44485,32 @@
                                 },
                                 "transitions": []
                               },
-                              "boot6_resume_suspended_app": {
-                                "description": "Restore the derived application's process state and resume the application process.",
+                              "boot7_load_app_memory": {
+                                "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
                                 },
                                 "transitions": []
                               },
-                              "boot7_wait_app_client": {
-                                "description": "Wait for the derived application to resume and signal back that its subsystems are ready to accept input from external actors.",
+                              "boot8_init_app_view": {
+                                "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
                                 },
                                 "transitions": []
                               },
-                              "runtime0_app_client_running": {
-                                "description": "Derived application runtime is online and ready to respond to external actors.",
+                              "boot9_start_app": {
+                                "description": "Start the client application runtime.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                },
+                                "transitions": []
+                              },
+                              "running": {
+                                "description": "The client application is online and awaiting input from external actors.",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
@@ -44415,7 +44545,7 @@
                           },
                           "getID": "PPL45jw5RDWSMNsB97WIWg",
                           "getName": "Holistic Client App Runtime",
-                          "getDescription": "Encapsulates the lifecycle and management of core holistic client application features on behalf of the derived app.",
+                          "getDescription": "This model manages, tracks, and controls the lifecycle of the client application.",
                           "getDataSpec": {
                             "____types": "jsObject",
                             "____defaultValue": {},
@@ -44438,7 +44568,7 @@
                           },
                           "getDigraph": {
                             "name": "[PPL45jw5RDWSMNsB97WIWg::Holistic Client App Runtime] OPM Digraph",
-                            "description": "Encapsulates the lifecycle and management of core holistic client application features on behalf of the derived app.",
+                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "vlist": [
                               {
                                 "u": "uninitialized",
@@ -44451,27 +44581,85 @@
                                 }
                               },
                               {
-                                "u": "boot0_start_app_kernel",
+                                "u": "boot0_hook_events",
+                                "p": {
+                                  "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
+                                  "actions": {
+                                    "enter": [
+                                      {
+                                        "holistic": {
+                                          "app": {
+                                            "client": {
+                                              "runtime": {
+                                                "private": {
+                                                  "actions": {
+                                                    "hookEvents": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "boot1_start_kernel",
                                 "p": {
                                   "description": "Start core client app kernel subsystems.",
                                   "actions": {
-                                    "enter": [],
+                                    "enter": [
+                                      {
+                                        "holistic": {
+                                          "app": {
+                                            "client": {
+                                              "runtime": {
+                                                "private": {
+                                                  "actions": {
+                                                    "startKernel": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
                                     "exit": []
                                   }
                                 }
                               },
                               {
-                                "u": "boot1_query_derived_app_config",
+                                "u": "boot2_query_derived",
                                 "p": {
                                   "description": "Query the derived client app for information required to initialize the core client app runtime.",
                                   "actions": {
-                                    "enter": [],
+                                    "enter": [
+                                      {
+                                        "holistic": {
+                                          "app": {
+                                            "client": {
+                                              "runtime": {
+                                                "private": {
+                                                  "actions": {
+                                                    "queryDerivedAppConfig": true
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    ],
                                     "exit": []
                                   }
                                 }
                               },
                               {
-                                "u": "boot2_wait_kernel_start",
+                                "u": "boot3_wait_kernel",
                                 "p": {
                                   "description": "Wait for the core client app kernel subsystems to become available.",
                                   "actions": {
@@ -44481,7 +44669,7 @@
                                 }
                               },
                               {
-                                "u": "boot3_configure_derived_app",
+                                "u": "boot4_config_derived",
                                 "p": {
                                   "description": "Configure the derived application runtime.",
                                   "actions": {
@@ -44491,7 +44679,7 @@
                                 }
                               },
                               {
-                                "u": "boot4_wait_app_resources",
+                                "u": "boot5_wait_browser",
                                 "p": {
                                   "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
                                   "actions": {
@@ -44501,7 +44689,7 @@
                                 }
                               },
                               {
-                                "u": "boot5_deserialize_suspended_app",
+                                "u": "boot6_deserialize_app",
                                 "p": {
                                   "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
                                   "actions": {
@@ -44511,9 +44699,9 @@
                                 }
                               },
                               {
-                                "u": "boot6_resume_suspended_app",
+                                "u": "boot7_load_app_memory",
                                 "p": {
-                                  "description": "Restore the derived application's process state and resume the application process.",
+                                  "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -44521,9 +44709,9 @@
                                 }
                               },
                               {
-                                "u": "boot7_wait_app_client",
+                                "u": "boot8_init_app_view",
                                 "p": {
-                                  "description": "Wait for the derived application to resume and signal back that its subsystems are ready to accept input from external actors.",
+                                  "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -44531,9 +44719,19 @@
                                 }
                               },
                               {
-                                "u": "runtime0_app_client_running",
+                                "u": "boot9_start_app",
                                 "p": {
-                                  "description": "Derived application runtime is online and ready to respond to external actors.",
+                                  "description": "Start the client application runtime.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "running",
+                                "p": {
+                                  "description": "The client application is online and awaiting input from external actors.",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -44575,7 +44773,7 @@
                               {
                                 "e": {
                                   "u": "uninitialized",
-                                  "v": "boot0_start_app_kernel"
+                                  "v": "boot0_hook_events"
                                 },
                                 "p": {
                                   "priority": 0,
@@ -44586,8 +44784,8 @@
                               },
                               {
                                 "e": {
-                                  "u": "boot0_start_app_kernel",
-                                  "v": "boot1_query_derived_app_config"
+                                  "u": "boot0_hook_events",
+                                  "v": "boot1_start_kernel"
                                 },
                                 "p": {
                                   "priority": 0,
@@ -44598,8 +44796,8 @@
                               },
                               {
                                 "e": {
-                                  "u": "boot1_query_derived_app_config",
-                                  "v": "boot2_wait_kernel_start"
+                                  "u": "boot1_start_kernel",
+                                  "v": "boot2_query_derived"
                                 },
                                 "p": {
                                   "priority": 0,
@@ -44610,8 +44808,8 @@
                               },
                               {
                                 "e": {
-                                  "u": "boot3_configure_derived_app",
-                                  "v": "boot4_wait_app_resources"
+                                  "u": "boot2_query_derived",
+                                  "v": "boot3_wait_kernel"
                                 },
                                 "p": {
                                   "priority": 0,
@@ -44622,8 +44820,20 @@
                               },
                               {
                                 "e": {
-                                  "u": "boot4_wait_app_resources",
-                                  "v": "boot5_deserialize_suspended_app"
+                                  "u": "boot4_config_derived",
+                                  "v": "boot5_wait_browser"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "boot5_wait_browser",
+                                  "v": "boot6_deserialize_app"
                                 },
                                 "p": {
                                   "priority": 0,
@@ -44690,19 +44900,69 @@
                                 ]
                               },
                               "initialize": {
-                                "description": "Performing initialization actions."
+                                "description": "Performing initialization actions.",
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "wait_invariants"
+                                  }
+                                ]
                               },
                               "wait_invariants": {
-                                "description": "Waiting for invariant inputs to be satisfied."
+                                "description": "Waiting for invariant inputs to be satisfied.",
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "wait_app_config"
+                                  }
+                                ]
                               },
                               "wait_app_config": {
-                                "description": "Waiting for the client application runtime to be configured."
+                                "description": "Waiting for the client application runtime to be configured.",
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "holarchy": {
+                                        "sml": {
+                                          "operators": {
+                                            "opmi": {
+                                              "path": "~.vp5.client",
+                                              "step": "boot1_query_derived_app_config"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "nextStep": "wait_server_route"
+                                  }
+                                ]
                               },
                               "wait_server_route": {
                                 "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href)."
                               },
                               "wait_app_resume": {
-                                "description": "Waiting for the App Client Runtime to resume the client application runtime."
+                                "description": "Waiting for the App Client Runtime to resume the client application runtime.",
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "holarchy": {
+                                        "sml": {
+                                          "operators": {
+                                            "opmi": {
+                                              "path": "~.vp5.client",
+                                              "step": "boot1_query_derived_app_config"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "nextStep": "wait_server_route"
+                                  }
+                                ]
                               },
                               "rehydrate": {
                                 "description": "Use data from the server to rehydate the server-rendered d2r2/React view."
@@ -44780,7 +45040,14 @@
                                   "enter": [],
                                   "exit": []
                                 },
-                                "transitions": []
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "wait_invariants"
+                                  }
+                                ]
                               },
                               "wait_invariants": {
                                 "description": "Waiting for invariant inputs to be satisfied.",
@@ -44788,7 +45055,14 @@
                                   "enter": [],
                                   "exit": []
                                 },
-                                "transitions": []
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "always": true
+                                    },
+                                    "nextStep": "wait_app_config"
+                                  }
+                                ]
                               },
                               "wait_app_config": {
                                 "description": "Waiting for the client application runtime to be configured.",
@@ -44796,7 +45070,23 @@
                                   "enter": [],
                                   "exit": []
                                 },
-                                "transitions": []
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "holarchy": {
+                                        "sml": {
+                                          "operators": {
+                                            "opmi": {
+                                              "path": "~.vp5.client",
+                                              "step": "boot1_query_derived_app_config"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "nextStep": "wait_server_route"
+                                  }
+                                ]
                               },
                               "wait_server_route": {
                                 "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href).",
@@ -44812,7 +45102,23 @@
                                   "enter": [],
                                   "exit": []
                                 },
-                                "transitions": []
+                                "transitions": [
+                                  {
+                                    "transitionIf": {
+                                      "holarchy": {
+                                        "sml": {
+                                          "operators": {
+                                            "opmi": {
+                                              "path": "~.vp5.client",
+                                              "step": "boot1_query_derived_app_config"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "nextStep": "wait_server_route"
+                                  }
+                                ]
                               },
                               "rehydrate": {
                                 "description": "Use data from the server to rehydate the server-rendered d2r2/React view.",
@@ -44986,6 +45292,72 @@
                                   "priority": 0,
                                   "operator": {
                                     "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "initialize",
+                                  "v": "wait_invariants"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "wait_invariants",
+                                  "v": "wait_app_config"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "wait_app_config",
+                                  "v": "wait_server_route"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "holarchy": {
+                                      "sml": {
+                                        "operators": {
+                                          "opmi": {
+                                            "path": "~.vp5.client",
+                                            "step": "boot1_query_derived_app_config"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "wait_app_resume",
+                                  "v": "wait_server_route"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "holarchy": {
+                                      "sml": {
+                                        "operators": {
+                                          "opmi": {
+                                            "path": "~.vp5.client",
+                                            "step": "boot1_query_derived_app_config"
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }

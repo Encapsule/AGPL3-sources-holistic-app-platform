@@ -1971,7 +1971,7 @@
                       "filterDescriptor": {
                         "operationID": "KtoXFATK7G6m_RNAtiQm6w",
                         "operationName": "Discriminator Filter",
-                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                         "inputTypeVIID": "XoBgofI5qssOhvKiDSK6ZQ",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                         "outputTypeVIID": "l-_1nihPpe_OeAf7ZAe98g",
@@ -1985,7 +1985,7 @@
                         "[V4-doRzDTVyYFtHMM8Z2jQ::Bad Controller Action #2]"
                       ],
                       "options": {
-                        "action": "routeRequest"
+                        "action": "getFilter"
                       }
                     },
                     "actionDispatcherFilterMap": {
@@ -2334,7 +2334,7 @@
                                           "badControllerActionThrowError": true
                                         },
                                         "response": {
-                                          "error": "ControllerAction threw an illegal exception that was handled by the OPC: This is a forced exception thrown from a controller action body function."
+                                          "error": "Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
                                         }
                                       }
                                     ],

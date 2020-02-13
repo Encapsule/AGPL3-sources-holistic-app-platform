@@ -168,7 +168,7 @@
                       "filterDescriptor": {
                         "operationID": "39IqfZxMgJVwbOr-1NDKJA",
                         "operationName": "Discriminator Filter",
-                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                         "inputTypeVIID": "kVyKpltP-r1iPJ0oocIaCA",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                         "outputTypeVIID": "dt3GnQRu4pc-5yFpmz_vig",
@@ -182,7 +182,7 @@
                         "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                       ],
                       "options": {
-                        "action": "routeRequest"
+                        "action": "getFilter"
                       }
                     },
                     "actionDispatcherFilterMap": {
