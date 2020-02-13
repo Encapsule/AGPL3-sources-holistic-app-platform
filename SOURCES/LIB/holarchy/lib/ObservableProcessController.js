@@ -213,25 +213,38 @@ class ObservableProcessController {
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                            evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "body",
-                    message: `Actor: ${request_.actorName}`
-                });
-                logger.request({
-                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                           evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                    subsystem: "opc", method: "act", phase: "body",
                     message: `Task: ${request.actorTaskDescription}`
                 });
-
-
-
-
 
                 // Dispatch the action on behalf of the actor.
                 let actionResponse = null;
                 try {
                     // Dispatch the actor's requested action.
-                    // TODO: It would be more informative to convert this DMR to return the filter so we can see the mapping prior to dispatch.
                     actionResponse = this._private.actionDispatcher.request(controllerActionRequest);
+                    if (actionResponse.error) {
+                        actionResponse = {
+                            error: "Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins.",
+                            result: actionResponse.error
+                        };
+                    } else {
+                        let actionFilter = actionResponse.result;
+
+                        logger.request({
+                            opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
+                                   evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                            subsystem: "opc", method: "act", phase: "body",
+                            message: `Dispatching action filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]...`
+                        });
+
+                        actionResponse = actionFilter.request(controllerActionRequest);
+                        if (actionResponse.error) {
+                            actionResponse = {
+                                error: `It looks like this action request was intended for [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]. But, the controller action plug-in rejected the request.`,
+                                result: actionResponse.error
+                            };
+                        }
+                    }
+
                 } catch (actionCallException_) {
                     errors.push("Handled exception during controller action dispatch: " + actionCallException_.message);
                     break;
@@ -312,7 +325,7 @@ class ObservableProcessController {
                 logLevel: "error",
                 opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                        evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                subsystem: "opc", method: "act", phase: "body",
+                subsystem: "opc", method: "act", phase: "epilogue",
                 message: `ERROR in ${timings.totalMilliseconds} ms: ${response.error}`
             });
 

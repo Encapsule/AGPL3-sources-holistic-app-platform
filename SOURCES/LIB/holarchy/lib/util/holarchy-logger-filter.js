@@ -143,6 +143,8 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            styles += "border-radius: 3px;";
+
             // TODO: Parameterize this.
             switch (request_.logLevel) {
             case "error":

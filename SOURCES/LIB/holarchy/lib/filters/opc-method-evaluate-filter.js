@@ -430,35 +430,23 @@ const factoryResponse = arccore.filter.create({
                     logger.request({
                         opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
                         subsystem: "opc", method: "evaluate", phase: "body",
-                        message: `OPMI "${opmBindingPath}" tranistion "${initialStep}" => "${nextStep}".`
+                        message: `Cell [${ocdPathIRUT_}] (${opmBindingPath}) OPM transition: { "${initialStep}" => "${nextStep}" }.`
                     });
 
-                    // Dispatch the OPM instance's step exit action(s).
+                    // Dispatch the OPM instance's step EXIT action(s).
 
                     opmInstanceFrame.evalResponse.status = "transitioning-dispatch-exit-actions";
 
                     for (let exitActionIndex = 0 ; exitActionIndex < stepDescriptor.actions.exit.length ; exitActionIndex++) {
-                        // Dispatch the action request.
+
                         const actionRequest = stepDescriptor.actions.exit[exitActionIndex];
-                        const dispatcherRequest = {
+
+                        let actionResponse = opcRef.act({
+                            actorName: `${opmRef.getID()}::${ocdPathIRUT_}`,
+                            actorTaskDescription: `EXIT ACTION #${exitActionIndex}: OPM [${opmRef.getID()}::${opmRef.getName()}] step "${initialStep}" on cell [${ocdPathIRUT_}]...`,
                             actionRequest: actionRequest,
-                            context: {
-                                opmBindingPath: opmBindingPath,
-                                ocdi: opcRef._private.ocdi,
-                                act: opcRef.act
-                            }
-                        };
-
-                        let actionResponse;
-
-                        // TODO: Delegate all actions through OPC.act and participate in the actor stack for all actions.
-                        try {
-                            actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
-                        } catch (actException_) {
-                            actionResponse = {
-                                error: `ControllerAction threw an illegal exception that was handled by OPC: ${actException_}`
-                            };
-                        }
+                            opmBindingPath: opmBindingPath
+                        });
 
                         opmInstanceFrame.evalResponse.phases.p2_exit.push({
                             request: actionRequest,
@@ -494,29 +482,19 @@ const factoryResponse = arccore.filter.create({
                     // ================================================================
 
                     // Dispatch the OPM instance's step enter action(s).
+
                     opmInstanceFrame.evalResponse.status = "transitioning-dispatch-enter-actions";
 
                     for (let enterActionIndex = 0 ; enterActionIndex < nextStepDescriptor.actions.enter.length ; enterActionIndex++) {
+
                         const actionRequest = nextStepDescriptor.actions.enter[enterActionIndex];
-                        const dispatcherRequest = {
+
+                        let actionResponse = opcRef.act({
+                            actorName: `${opmRef.getID()}::${ocdPathIRUT_}`,
+                            actorTaskDescription: `ENTER ACTION #${enterActionIndex}: OPM [${opmRef.getID()}::${opmRef.getName()}] step "${nextStep}" on cell [${ocdPathIRUT_}]...`,
                             actionRequest: actionRequest,
-                            context: {
-                                opmBindingPath: opmBindingPath,
-                                ocdi: opcRef._private.ocdi,
-                                act: opcRef.act
-                            }
-                        };
-
-                        let actionResponse;
-
-                        // TODO: Delegate all actions through OPC.act and participate in the actor stack for all actions.
-                        try {
-                            actionResponse = opcRef._private.actionDispatcher.request(dispatcherRequest);
-                        } catch (actException_) {
-                            actionResponse = {
-                                error: `ControllerAction threw an illegal exception that was handled by the OPC: ${actException_.message}`
-                            }
-                        }
+                            opmBindingPath: opmBindingPath
+                        });
 
                         opmInstanceFrame.evalResponse.phases.p3_enter.push({
                             request: actionRequest,
@@ -625,6 +603,7 @@ const factoryResponse = arccore.filter.create({
         result.summary.framesCount = result.evalFrames.length;
 
         logger.request({
+            errorLevel: response.error?"error":"info",
             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
                    evalCount: opcRef._private.evalCount, frameCount: result.summary.framesCount-1,
                    actorStack: opcRef._private.opcActorStack },

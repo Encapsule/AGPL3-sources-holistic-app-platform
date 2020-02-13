@@ -298,7 +298,8 @@ const factoryResponse = arccore.filter.create({
             // ================================================================
             // Build an arccore.discriminator filter instance to route transition
             // operatror request messages to a registered transition operator
-            // filter for processing.
+            // filter for processing. This is an application of the Discriminated
+            // Message Routing (DMR) pattern.
             let transitionOperatorFilters = [];
             // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
 
@@ -327,7 +328,7 @@ const factoryResponse = arccore.filter.create({
                     // add another layer of detail to the evaluation algorithm. (we would like to know the ID of the
                     // transition operator filters that are called and we otherwise do not know this because it's
                     // not encoded obviously in a transition operator's request.
-                    options: { action: "routeRequest" },
+                    options: { action: "routeRequest" }, // TODO: consider flipping this to getFilter and caching the entries in the OPM instance?
                     filters: transitionOperatorFilters
                 });
                 if (filterResponse.error) {
@@ -346,7 +347,8 @@ const factoryResponse = arccore.filter.create({
             // ================================================================
             // Build an arccore.discrimintor filter instance to route controller
             // action request messages to a registitered controller action filter
-            // for processing.
+            // for processing. This is an application of the Discriminated Message
+            // Routing (DMR) pattern.
             let controllerActionFilters = [];
             // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
 
@@ -375,7 +377,7 @@ const factoryResponse = arccore.filter.create({
                     // add another layer of detail to the evaluation algorithm. (we would like to know the ID of the
                     // controller action filters that are called and we otherwise do not know this because it's
                     // not encoded obviously in a controller action's request.
-                    options: { action: "routeRequest" },
+                    options: { action: "getFilter" },
                     filters: controllerActionFilters
                 });
                 if (filterResponse.error) {
