@@ -60,7 +60,7 @@ module.exports = new holarchy.ControllerAction({
                 // (in this case an actor external to OPC) that is affecting some
                 // change to the overall state of the system modeled by the OPC.
 
-                let actResponse = request_.context.act({
+                const actResponse = request_.context.act({
                     opmBindingPath: request_.context.opmBindingPath,
                     actorName: "DOM hashchange Event Handler",
                     actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",

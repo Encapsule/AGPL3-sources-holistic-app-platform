@@ -285,7 +285,7 @@ const factoryResponse = arccore.filter.create({
                     // If we encountered any errors locating the cells (OPM instances)
                     // that we need to evaluate (defines the work to be done in the frame
                     // evaluation loop), then we do not execute the frame evaluation loop.
-                    console.error("Something that should be impossible occurred. Please file a GibHub issue in the @encapsule/holistic repo including this log. Thank you!");
+                    errors.unshift("PLEASE REPORT THE FOLLOWING ERROR AS A BUG:");
                     break; // from the outer evaluation loop
                 }
 
@@ -324,8 +324,12 @@ const factoryResponse = arccore.filter.create({
                     const stepDescriptor = opmRef.getStepDescriptor(initialStep);
 
                     if (!stepDescriptor) {
-                        // TODO: Send through logger
-                        console.warn(`No step descriptor in model for [${opmRef.getID()}::${opmRef.getName()}] for step '${initialStep}'. Ignoring.`);
+                        logger.request({
+                            logLevel: "warn",
+                            opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                            subsystem: "opc", method: "evaluate", phase: "body",
+                            message: `No step descriptor in model for [${opmRef.getID()}::${opmRef.getName()}] for step '${initialStep}'. Ignoring.`
+                        });
                         opmInstanceFrame.evalResponse.status = "noop";
                         opmInstanceFrame.evalResponse.finishStep = initialStep;
                         continue;
@@ -379,9 +383,10 @@ const factoryResponse = arccore.filter.create({
                                 subsystem: "opc", method: "evaluate", phase: "body",
                                 message: transitionResponse.error
                             });
+                            console.log("Offending operator request:");
                             console.warn(operatorRequest);
+                            console.log("Registered operator filters:");
                             console.warn(opcRef._private.transitionDispatcherFilterMap);
-
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p1_toperator++;
                             opmInstanceFrame.evalResponse.errors.total++;
@@ -454,8 +459,16 @@ const factoryResponse = arccore.filter.create({
                         });
 
                         if (actionResponse.error) {
-                            // TODO: Send through logger
-                            console.error(actionResponse.error);
+                            logger.request({
+                                logLevel: "error",
+                                opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                                subsystem: "opc", method: "evaluate", phase: "body",
+                                message: actionResponse.error
+                            });
+                            console.log("Failed EXIT action request:");
+                            console.warn(actionRequest);
+                            console.log("Registered controller action plug-ins:");
+                            console.warn(opcRef._private.actionDispatcherFilterMap);
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p2_exit++;
                             opmInstanceFrame.evalResponse.errors.total++;
@@ -502,8 +515,17 @@ const factoryResponse = arccore.filter.create({
                         });
 
                         if (actionResponse.error) {
-                            // TODO: Send through logger
-                            console.error(actionResponse.error);
+
+                            logger.request({
+                                logLevel: "error",
+                                opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                                subsystem: "opc", method: "evaluate", phase: "body",
+                                message: actionResponse.error
+                            });
+                            console.log("Failed ENTER action request:");
+                            console.warn(actionRequest);
+                            console.log("Registered controller action plug-ins:");
+                            console.warn(opcRef._private.actionDispatcherFilterMap);
                             opmInstanceFrame.evalResponse.status = "error";
                             opmInstanceFrame.evalResponse.errors.p3_enter++;
                             opmInstanceFrame.evalResponse.errors.total++;
@@ -535,8 +557,12 @@ const factoryResponse = arccore.filter.create({
                     opmInstanceFrame.evalResponse.phases.p4_finalize = transitionResponse;
 
                     if (transitionResponse.error) {
-                        // TODO: Send through logger
-                        console.error(transitionResponse.error);
+                        logger.request({
+                            logLevel: "error",
+                            opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                            subsystem: "opc", method: "evaluate", phase: "body",
+                            message: transitionResponse.error
+                        });
                         opmInstanceFrame.evalResponse.status = "error";
                         opmInstanceFrame.evalResponse.errors.p4_finalize++;
                         opmInstanceFrame.evalResponse.errors.total++;

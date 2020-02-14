@@ -36,21 +36,15 @@ module.exports = {
 
         boot0_hook_events: {
             description: "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
-            actions: {
-                enter: [
-                    { holistic: { app: { client: { runtime: { private: { actions: { hookEvents: true } } } } } } }
-                ]
-            },
-            transitions: [
-                { transitionIf: { always: true }, nextStep: "boot1_start_kernel" }
-            ]
+            actions: { enter: [ { holistic: { app: { client: { sml: { HolisticAppClient: { actions: { _private: { hookEvents: true } } } } } } } } ] },
+            transitions: [ { transitionIf: { always: true }, nextStep: "boot1_start_kernel" } ]
         },
 
         boot1_start_kernel: {
             description: "Start core client app kernel subsystems.",
             actions: {
                 enter: [
-                    { holistic: { app: { client: { runtime: { private: { actions: { startKernel: true } } } } } } }
+                    // { holistic: { app: { client: { runtime: { private: { actions: { startKernel: true } } } } } } }
                 ]
             },
             transitions: [
@@ -62,7 +56,7 @@ module.exports = {
             description: "Query the derived client app for information required to initialize the core client app runtime.",
             actions: {
                 enter: [
-                    { holistic: { app: { client: { runtime: { private: { actions: { queryDerivedAppConfig: true } } } } } } }
+                    // { holistic: { app: { client: { runtime: { private: { actions: { queryDerivedAppConfig: true } } } } } } }
                 ]
             },
             transitions: [
