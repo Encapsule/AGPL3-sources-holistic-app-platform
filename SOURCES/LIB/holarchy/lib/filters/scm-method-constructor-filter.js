@@ -1,4 +1,4 @@
-// sm-method-constructor.js
+// scm-method-constructor.js
 
 const arccore = require("@encapsule/arccore");
 const ObservableProcessController = require("../ObservableProcessController");
@@ -9,17 +9,17 @@ const ControllerAction = require("../ControllerAction");
 const factoryResponse = arccore.filter.create({
 
     operationID: "xbcn-VBLTaC_0GmCuTQ8NA",
-    operationName: "SoftwareModel::constructor Filter",
+    operationName: "SoftwareCellModel::constructor Filter",
     operationDescription: "Filters request descriptor passed to SoftwareRuntimeModel::constructor function.",
 
     inputFilterSpec: {
 
-        ____label: "Software Runtime Model Descriptor",
-        ____description: "A descriptor object passed to SoftwareModel ES6 class constructor function.",
+        ____label: "Software Cell Model Descriptor",
+        ____description: "A request object passed to SoftwareCellModel ES6 class constructor function.",
         ____types: "jsObject",
 
-        SoftwareRuntimeModel: { ____accept: "jsFunction" }, // We build SRM class instances
-        SoftwareRuntimeModelInstance: { ____opaque: true }, // Reference to calling SRM::constructor's this reference
+        SoftwareCellModel: { ____accept: "jsFunction" }, // We build SRM class instances
+        SoftwareCellModelInstance: { ____opaque: true }, // Reference to the calling SCM instance's this.
 
         id: {
             ____label: "Model ID",
@@ -50,7 +50,7 @@ const factoryResponse = arccore.filter.create({
             ____label: "Model Operators",
             ____description: "An optional array of Transition Operator descriptor objects one for each TransitionOperator defined by this software model.",
             ____types: "jsArray",
-            ____defaultValue: []
+            ____defaultValue: [],
             TransitionOperator: {
                 ____label: "Transition Operator",
                 ____description: "Either an TOP descriptor or its corresponding TransitionOperator ES6 class instance.",
@@ -62,7 +62,7 @@ const factoryResponse = arccore.filter.create({
             ____label: "Model Actions",
             ____description: "An optional array of controller action descriptor object(s) or equivalent ControllerAction ES6 class instance(s) defined by this software model.",
             ____types: "jsArray",
-            ____defaultValue: []
+            ____defaultValue: [],
             ControllerAction: {
                 ____label: "Controller Action",
                 ____description: "Either an ACT descriptor or its corresponding ControllerAction ES6 class instance.",
@@ -108,7 +108,7 @@ const factoryResponse = arccore.filter.create({
                 "LMFSviNhR8WQoLvtv_YnbQ": true, // non-intrusive output type identifier
                 id: request_.id,
                 name: request_.name,
-                description: request_.description
+                description: request_.description,
                 srmMap: {},
                 opmMap: {},
                 topMap: {},
