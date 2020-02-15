@@ -1,6 +1,22 @@
 
 // ObservableProcessModel.js
 
+// TODO: I am considering renaming this class AbstractProcessModel
+// to better suggest what it represents. Note that you cannot
+// "execute" an OPM (or what I think maybe should be better called
+// APM) by itself because it does not directly specify any implementation
+// for TOP or ACT plug-ins. Rather, OPM (APM) specify TOP and ACT
+// request messages that are resolved at runtime based on MDR
+// pattern to registered TOP and ACT plug-ins via arccore.discriminator.
+// To "execute" an OPM (APM) we need to construct a Holon instance
+// that associates the APM with the TOP and ACT plug-ins it requires
+// at runtime plus any other Holons that your APM binds in its
+// OCD shared memory specification. Holon ES6 class instances are
+// registered with a Holarchy cellular automata processor via constructor
+// request. Holarchy uses information in the registered Holans to
+// synthesize an OPC instance w/all required OPM, TOP, and ACT plug-ins
+// required to evaluate Holans at runtime
+
 const constructorRequestFilter = require("./filters/opm-method-constructor-filter");
 
 class ObservableProcessModel {
