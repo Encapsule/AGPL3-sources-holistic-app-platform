@@ -18,6 +18,9 @@ module.exports = [
     require("./vector-set-act-constructor"),
 
     // Low-level TransitionOperator ES6 class tests.
-    require("./vector-set-top-constructor")
+    require("./vector-set-top-constructor"),
+
+    require("./vector-set-scm-constructor"),
+    require("./vector-set-scp-constructor")
 
 ];

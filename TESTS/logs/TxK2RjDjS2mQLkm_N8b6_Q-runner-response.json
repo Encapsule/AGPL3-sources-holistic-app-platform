@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 64,
+        "requests": 67,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -22,6 +22,7 @@
             "H2zMrBw4TBie5A2mwH4BRg",
             "HwB8EphzRkSG7AeoISMctQ",
             "HxrzwXDSTlWXQJ5XAMhgtA",
+            "ILfH_hfQSM-ZOohMgpYU8A",
             "IRyR4YazRuWiZp9Rzj6-WA",
             "KGh0Va-oTXKPUZmnDG4QPQ",
             "LC56jkxeQJ2mgWfwGklLEQ",
@@ -31,6 +32,8 @@
             "T-apDENPTAO6iQShA-2qBQ",
             "TenISiGcTG-06LhZuBzJNQ",
             "UHqiKKLkTMmLBGXI4lRxEA",
+            "Va0br1teR9Ce348EfkUAdg",
+            "VcFs1BSZTLCb8nlIwW3Pmg",
             "VwWYI4ReSTSfqSnoVXXC-w",
             "VxYuiGoHRfuKRHp7PBik7Q",
             "VyQv8NaWTAuoY0daxO9mzQ",
@@ -107,7 +110,7 @@
                   }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [2gJUyOugIdK5gEqhu1OWug::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsVRVdrxTNvzPj7OQrDwAg::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::ObservableProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [Bmk7Wa_zGy0_4BHVeBPpxA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsVRVdrxTNvzPj7OQrDwAg::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::ObservableProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [iPNvpPeckqeVycFVJH8GWw::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::SoftwareCellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [m6bbtzxJy5WAAaXa8a4CUg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::SoftwareCellProcessor Harness>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
                 }
               }
             }
@@ -32327,6 +32330,80 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
+            "iPNvpPeckqeVycFVJH8GWw": {
+              "VcFs1BSZTLCb8nlIwW3Pmg": {
+                "harnessRequest": {
+                  "id": "VcFs1BSZTLCb8nlIwW3Pmg",
+                  "name": "SoftwareCellModel Constructor #1",
+                  "description": "Default construct holarchy/SoftwareCellModel ES6 class. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "SoftwareCellModel": {}
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "VcFs1BSZTLCb8nlIwW3Pmg": {
+                          "isValid": false,
+                          "toJSON": "SoftwareCellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::SoftwareCellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "m6bbtzxJy5WAAaXa8a4CUg": {
+              "ILfH_hfQSM-ZOohMgpYU8A": {
+                "harnessRequest": {
+                  "id": "ILfH_hfQSM-ZOohMgpYU8A",
+                  "name": "SoftwareCellProcessor Constructor #1",
+                  "description": "Default construct SoftwareCellProcessor ES6 class. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "SoftwareCellProcessor": {}
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "UBSclp3gSqCCmSvoG3W4tw": {
+                        "ILfH_hfQSM-ZOohMgpYU8A": {
+                          "isValid": false,
+                          "toJSON": "SoftwareCellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::SoftwareCellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
             "XsVRVdrxTNvzPj7OQrDwAg": {
               "sO15Cox_SVqcCgyrOllAwQ": {
                 "harnessRequest": {
@@ -44103,7 +44180,7 @@
               "sThxzN9-QuKCgErSNYhcQQ": {
                 "harnessRequest": {
                   "id": "sThxzN9-QuKCgErSNYhcQQ",
-                  "name": "Client App Runtime OPM #1",
+                  "name": "Holistic App Client OPM #1",
                   "description": "Attempt to instantiate the current App Client Runtime OPM via our test harness.",
                   "vectorRequest": {
                     "holistic": {
@@ -44153,10 +44230,12 @@
                                       "holistic": {
                                         "app": {
                                           "client": {
-                                            "runtime": {
-                                              "private": {
+                                            "sml": {
+                                              "HolisticAppClient": {
                                                 "actions": {
-                                                  "hookEvents": true
+                                                  "_private": {
+                                                    "hookEvents": true
+                                                  }
                                                 }
                                               }
                                             }
@@ -44178,23 +44257,7 @@
                               "boot1_start_kernel": {
                                 "description": "Start core client app kernel subsystems.",
                                 "actions": {
-                                  "enter": [
-                                    {
-                                      "holistic": {
-                                        "app": {
-                                          "client": {
-                                            "runtime": {
-                                              "private": {
-                                                "actions": {
-                                                  "startKernel": true
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
+                                  "enter": []
                                 },
                                 "transitions": [
                                   {
@@ -44208,23 +44271,7 @@
                               "boot2_query_derived": {
                                 "description": "Query the derived client app for information required to initialize the core client app runtime.",
                                 "actions": {
-                                  "enter": [
-                                    {
-                                      "holistic": {
-                                        "app": {
-                                          "client": {
-                                            "runtime": {
-                                              "private": {
-                                                "actions": {
-                                                  "queryDerivedAppConfig": true
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
+                                  "enter": []
                                 },
                                 "transitions": [
                                   {
@@ -44356,10 +44403,12 @@
                                       "holistic": {
                                         "app": {
                                           "client": {
-                                            "runtime": {
-                                              "private": {
+                                            "sml": {
+                                              "HolisticAppClient": {
                                                 "actions": {
-                                                  "hookEvents": true
+                                                  "_private": {
+                                                    "hookEvents": true
+                                                  }
                                                 }
                                               }
                                             }
@@ -44382,23 +44431,7 @@
                               "boot1_start_kernel": {
                                 "description": "Start core client app kernel subsystems.",
                                 "actions": {
-                                  "enter": [
-                                    {
-                                      "holistic": {
-                                        "app": {
-                                          "client": {
-                                            "runtime": {
-                                              "private": {
-                                                "actions": {
-                                                  "startKernel": true
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ],
+                                  "enter": [],
                                   "exit": []
                                 },
                                 "transitions": [
@@ -44413,23 +44446,7 @@
                               "boot2_query_derived": {
                                 "description": "Query the derived client app for information required to initialize the core client app runtime.",
                                 "actions": {
-                                  "enter": [
-                                    {
-                                      "holistic": {
-                                        "app": {
-                                          "client": {
-                                            "runtime": {
-                                              "private": {
-                                                "actions": {
-                                                  "queryDerivedAppConfig": true
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ],
+                                  "enter": [],
                                   "exit": []
                                 },
                                 "transitions": [
@@ -44590,10 +44607,12 @@
                                         "holistic": {
                                           "app": {
                                             "client": {
-                                              "runtime": {
-                                                "private": {
+                                              "sml": {
+                                                "HolisticAppClient": {
                                                   "actions": {
-                                                    "hookEvents": true
+                                                    "_private": {
+                                                      "hookEvents": true
+                                                    }
                                                   }
                                                 }
                                               }
@@ -44611,23 +44630,7 @@
                                 "p": {
                                   "description": "Start core client app kernel subsystems.",
                                   "actions": {
-                                    "enter": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "runtime": {
-                                                "private": {
-                                                  "actions": {
-                                                    "startKernel": true
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
+                                    "enter": [],
                                     "exit": []
                                   }
                                 }
@@ -44637,23 +44640,7 @@
                                 "p": {
                                   "description": "Query the derived client app for information required to initialize the core client app runtime.",
                                   "actions": {
-                                    "enter": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "runtime": {
-                                                "private": {
-                                                  "actions": {
-                                                    "queryDerivedAppConfig": true
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
+                                    "enter": [],
                                     "exit": []
                                   }
                                 }
@@ -44842,6 +44829,43 @@
                               }
                             ]
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "V4rhwuR97Sdl5q9h1CIHTg": {
+              "Va0br1teR9Ce348EfkUAdg": {
+                "harnessRequest": {
+                  "id": "Va0br1teR9Ce348EfkUAdg",
+                  "name": "Holistic App Client OPM ControllerAction: Hook Events",
+                  "description": "Attempt to instantiate ControllerAction Hook Events via our test harness.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "ControllerAction": {}
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "0xHlX_WKQ3y-3CFQ0DDx1w": {
+                        "Va0br1teR9Ce348EfkUAdg": {
+                          "isValid": false,
+                          "toJSON": "ControllerAction::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                         }
                       }
                     }

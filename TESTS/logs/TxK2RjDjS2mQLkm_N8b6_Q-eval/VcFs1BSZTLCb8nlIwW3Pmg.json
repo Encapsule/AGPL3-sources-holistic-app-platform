@@ -1,0 +1,37 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "iPNvpPeckqeVycFVJH8GWw": {
+      "VcFs1BSZTLCb8nlIwW3Pmg": {
+        "harnessRequest": {
+          "id": "VcFs1BSZTLCb8nlIwW3Pmg",
+          "name": "SoftwareCellModel Constructor #1",
+          "description": "Default construct holarchy/SoftwareCellModel ES6 class. Should fail.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "SoftwareCellModel": {}
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "FAvFLw0XQN6yomNs13r21g": {
+                "VcFs1BSZTLCb8nlIwW3Pmg": {
+                  "isValid": false,
+                  "toJSON": "SoftwareCellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::SoftwareCellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
