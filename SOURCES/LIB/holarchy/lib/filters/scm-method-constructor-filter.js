@@ -86,10 +86,12 @@ const factoryResponse = arccore.filter.create({
 
 
     bodyFunction: (request_) => {
+
         let response = { error: null };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
+
             inBreakScope = true;
 
             let idResponse = arccore.identifier.irut.isIRUT(request_.id);
@@ -109,7 +111,7 @@ const factoryResponse = arccore.filter.create({
                 id: request_.id,
                 name: request_.name,
                 description: request_.description,
-                srmMap: {},
+                scmMap: {},
                 opmMap: {},
                 topMap: {},
                 cacMap: {},
@@ -118,36 +120,63 @@ const factoryResponse = arccore.filter.create({
             };
 
             const indexRootVertex =  { u: "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w", p: { type: "index" } };
-            const thisSRMVertex = { u: request_.id, p: { type: "srm" } };
+            const thisSCMVertex = { u: request_.id, p: { type: "scm" } };
 
             let filterResponse = arccore.graph.directed.create({
-                name: `[${request_.id}::${request_.name} SMR`,
-                description: `A directed graph model of SMR [${request_.id}::${request_.name}].`,
-                vlist: [ indexRootVertex, thisSRMVertex ]
+                name: `[${request_.id}::${request_.name} SCM Holarchy Digraph`,
+                description: `A directed graph model of SCM relationships [${request_.id}::${request_.name}].`,
+                vlist: [ indexRootVertex, thisSCMVertex ]
             });
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
                 break;
             }
             let digraph = response.result.digraph = filterResponse.result;
-
             [
-                { u: "INDEX_SRM_K3M5vcN7TQCdonkvj-TfUQ", p: { type: "index" } },
-                { u: "INDEX_SRM_ZOMBIE_gNOouXQcS2CqpZqVsdFnzw", p: { type: "index" } },
-
-                { u: "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw", p: { type: "index" } },
+                { u: "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ",        p: { type: "index" } },
+                { u: "INDEX_SCM_ZOMBIE_gNOouXQcS2CqpZqVsdFnzw", p: { type: "index" } },
+                { u: "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw",        p: { type: "index" } },
                 { u: "INDEX_OPM_ZOMBIE_AMZezCS8TkWLTnUbKQx0Lw", p: { type: "index" } },
-
-                { u: "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog", p: { type: "index" } },
+                { u: "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",        p: { type: "index" } },
                 { u: "INDEX_TOP_ZOMBIE_eq8KY4stRseaq_akM0SlaA", p: { type: "index" } },
-
-                { u: "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg", p: { type: "index" } },
+                { u: "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg",        p: { type: "index" } },
                 { u: "INDEX_CAC_ZOMBIE_j30iUkg2Q8iK7Fa_mbJYFQ", p: { type: "index" } }
             ].forEach((indexVertexDescriptor_) => {
                 digraph.addVertex(indexVertexDescriptor_);
                 digraph.addEdge({ e: { u: indexRootVertex.u, v: indexVertexDescriptor_.u }, p: { type: "root-index-link" } });
             });
             console.log(digraph);
+
+            // PROCESS THE SCM's OPM DECLARATION
+            if (request_.opm) {
+
+                let opm = null; // Get a ObserableProcessModel ES6 class instance.
+                if (request_.opm instanceof ObservableProcessModel) {
+                    opm = request_.opm;
+                } else {
+                    opm = new ObservableProcessModel(request_.opm);
+                }
+
+                // If !opm.isValid() then we cannot query its ID. So, we have to make one up.
+                let opmVertexID = null;
+                if (opm.isValid()) {
+                    opmVertexID = opm.getID();
+                } else {
+                    opmVertexID = `OPM_ZOMBIE_${arccore.identifier.irut.fromEther().result}`;
+                }
+                response.result.opmMap[opmVertexID] = opm;
+                digraph.addVertex({ u: opmVertexID, p: { type: "opm" } });
+                digraph.addEdge({ e: { u: opm.isValid()?"INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw":"INDEX_OPM_ZOMBIE_AMZezCS8TkWLTnUbKQx0Lw", v: opmVertexID }, p: { type: "opm-index-link" } });
+                digraph.addEdge({ e: { u: thisSCMVertex.u, v: opmVertexID }, p: { type: "scm-link" } });
+
+            }
+
+            // PROCESS THE SRM's TOP DECLARATIONS
+
+            // PROCESS THE SRM'S CAC DECLARATIONS
+
+
+
 
             // PROCESS SUBMODELS (RuntimeCellModel (RCM) for use in a RuntimeCellProcessor (RCP) instance)
             /*
@@ -213,32 +242,6 @@ const factoryResponse = arccore.filter.create({
 
             }); // forEach submodels
             DISABLED FOR NOW */
-
-            // PROCESS THE SRM's OPM DECLARATION
-            if (request_.opm) {
-
-                let opm = null; // Get a ObserableProcessModel ES6 class instance.
-                if (request_.opm instanceof ObservableProcessModel) {
-                    opm = request_.opm;
-                } else {
-                    opm = new ObservableProcessModel(request_.opm);
-                }
-
-                // If !opm.isValid() then we cannot query its ID. So, we have to make one up.
-                let opmVertexID = null;
-                if (opm.isValid()) {
-                    opmVertexID = opm.getID();
-                } else {
-                    opmVertexID = `OPM_ZOMBIE_${arccore.identifier.irut.fromEther().result}`;
-                }
-
-
-            }
-
-            // PROCESS THE SRM's TOP DECLARATIONS
-
-            // PROCESS THE SRM'S CAC DECLARATIONS
-
 
 
             break;

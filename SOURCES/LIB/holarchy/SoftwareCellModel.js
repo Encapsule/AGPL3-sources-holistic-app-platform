@@ -12,7 +12,16 @@ module.exports = class SoftwareCellModel {
             this._private = { constructorError: null };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
-            let filterResponse = constructorFilter.request(request_);
+            let filterResponse;
+            if (!request_ || (Object.prototype.toString.call(request_) !== "[object Object]")) {
+                filterResponse = constructorFilter.request(request_);
+            } else {
+                filterResponse = constructorFilter.request({
+                    SoftwareCellModel,
+                    SoftwareCellModelInstance: this,
+                    ...request_
+                });
+            }
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
                 break;
