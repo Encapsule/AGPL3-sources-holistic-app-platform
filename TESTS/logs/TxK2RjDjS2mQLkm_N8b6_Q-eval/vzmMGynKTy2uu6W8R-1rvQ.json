@@ -1,0 +1,232 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "iPNvpPeckqeVycFVJH8GWw": {
+      "vzmMGynKTy2uu6W8R-1rvQ": {
+        "harnessRequest": {
+          "id": "vzmMGynKTy2uu6W8R-1rvQ",
+          "name": "SoftewareCellModel Constructor #2",
+          "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "SoftwareCellModel": {
+                  "constructorRequest": {
+                    "id": "vzmMGynKTy2uu6W8R-1rvQ",
+                    "name": "SoftewareCellModel Constructor #2",
+                    "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator definition vs plug-in ES6 class instance.",
+                    "opm": {
+                      "id": "cJSBP90NTcu1bJMhCOjbQg",
+                      "name": "Fake Transition Operator #1",
+                      "description": "A fake transition operator definition."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "FAvFLw0XQN6yomNs13r21g": {
+                "vzmMGynKTy2uu6W8R-1rvQ": {
+                  "isValid": true,
+                  "toJSON": {
+                    "LMFSviNhR8WQoLvtv_YnbQ": true,
+                    "id": "vzmMGynKTy2uu6W8R-1rvQ",
+                    "name": "SoftewareCellModel Constructor #2",
+                    "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator definition vs plug-in ES6 class instance.",
+                    "scmMap": {},
+                    "opmMap": {
+                      "cJSBP90NTcu1bJMhCOjbQg": {
+                        "id": "cJSBP90NTcu1bJMhCOjbQg",
+                        "name": "Fake Transition Operator #1",
+                        "description": "A fake transition operator definition.",
+                        "opmDataSpec": {
+                          "____types": "jsObject"
+                        },
+                        "steps": {}
+                      }
+                    },
+                    "topMap": {},
+                    "cacMap": {},
+                    "digraph": {
+                      "name": "[vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2 SCM Holarchy Digraph",
+                      "description": "A directed graph model of SCM relationships [vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2].",
+                      "vlist": [
+                        {
+                          "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "vzmMGynKTy2uu6W8R-1rvQ",
+                          "p": {
+                            "type": "scm"
+                          }
+                        },
+                        {
+                          "u": "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_SCM_ZOMBIE_gNOouXQcS2CqpZqVsdFnzw",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_OPM_ZOMBIE_AMZezCS8TkWLTnUbKQx0Lw",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_TOP_ZOMBIE_eq8KY4stRseaq_akM0SlaA",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_CAC_ZOMBIE_j30iUkg2Q8iK7Fa_mbJYFQ",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "cJSBP90NTcu1bJMhCOjbQg",
+                          "p": {
+                            "type": "opm"
+                          }
+                        }
+                      ],
+                      "elist": [
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_SCM_ZOMBIE_gNOouXQcS2CqpZqVsdFnzw"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_OPM_ZOMBIE_AMZezCS8TkWLTnUbKQx0Lw"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_TOP_ZOMBIE_eq8KY4stRseaq_akM0SlaA"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_CAC_ZOMBIE_j30iUkg2Q8iK7Fa_mbJYFQ"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "vzmMGynKTy2uu6W8R-1rvQ",
+                            "v": "cJSBP90NTcu1bJMhCOjbQg"
+                          },
+                          "p": {
+                            "type": "scm-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw",
+                            "v": "cJSBP90NTcu1bJMhCOjbQg"
+                          },
+                          "p": {
+                            "type": "opm-index-link"
+                          }
+                        }
+                      ]
+                    },
+                    "warnings": []
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
