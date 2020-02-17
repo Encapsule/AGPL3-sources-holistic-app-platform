@@ -11,7 +11,7 @@ const indexVertices = {
     scm: "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ",
     opm: "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw",
     top: "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",
-    cac: "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg",
+    act: "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg",
 };
 
 const factoryResponse = arccore.filter.create({
@@ -122,7 +122,7 @@ const factoryResponse = arccore.filter.create({
                 scmMap: {},
                 opmMap: {},
                 topMap: {},
-                cacMap: {},
+                actMap: {},
                 digraph: null
             };
 
@@ -216,11 +216,34 @@ const factoryResponse = arccore.filter.create({
                     errors.push(`ControllerAction registration at request path ~.actions[${i}] is an invalid instance due to constructor error:`);
                     errors.push(top.toJSON()); // constructor error string
                 } else {
-                    const actionVertexID = action.getID();
-                    if (!response.result.cacMap[actionVertexID]) { response.result.cacMap[actionVertexID] = { scm: request_.id, act: action }; }
-                    digraph.addVertex({ u: actionVertexID, p: { type: "cac" } });
-                    digraph.addEdge({ e: { u: indexVertices.cac, v: cacVertexID }, p: { type: "cac-index-link" } });
-                    digraph.addEdge({ e: { u: request_.id, v: cacVertexID }, p: { type: "scm-link" } });
+                    const actVertexID = action.getID();
+                    if (!response.result.actMap[actVertexID]) { response.result.actMap[actVertexID] = { scm: request_.id, act: action }; }
+                    digraph.addVertex({ u: actVertexID, p: { type: "act" } });
+                    digraph.addEdge({ e: { u: indexVertices.act, v: actVertexID }, p: { type: "act-index-link" } });
+                    digraph.addEdge({ e: { u: request_.id, v: actVertexID }, p: { type: "scm-link" } });
+                }
+            }
+
+            // ================================================================
+            // EPILOGUE
+
+            // TODO: Downgrade registration errors to warnings that can be optionally
+            // used to block construction of CellModel instances (e.g. under in a production
+            // test build). Current behavior is to block construction on accumulation of
+            // any registration error(s) that may occur during processing of the Cell Model
+            // definition descriptor, request_.
+            //
+
+            if (!errors.length) {
+                let registrations =
+                    arccore.util.dictionaryLength(response.result.scmMap) +
+                    arccore.util.dictionaryLength(response.result.opmMap) +
+                    arccore.util.dictionaryLength(response.result.topMap) +
+                    arccore.util.dictionaryLength(response.result.actMap);
+
+                if (!registrations) {
+                    // LOL...
+                    errors.push(`Heretical attempt to associate IRUT ID '${request_.id}' with the root of all CellModel's, [0000000000000000000000::Nothingness].`);
                 }
             }
 

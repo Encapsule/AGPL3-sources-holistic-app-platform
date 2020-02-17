@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 69,
+        "requests": 70,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -64,6 +64,7 @@
             "pTaZUV0vTOGhaNOVD0sXLQ",
             "pUxcxo9STsG3OMWWrREHoQ",
             "rFcPAwRGRsOlJSXBZOdwNA",
+            "rShJ0riLSiOxLt0OpFJLJA",
             "rxFiX7H-TDG0GsxqtRekoA",
             "sBB6rshGQu2f7S5rA2x9eg",
             "sO15Cox_SVqcCgyrOllAwQ",
@@ -32734,7 +32735,7 @@
                               }
                             },
                             "topMap": {},
-                            "cacMap": {},
+                            "actMap": {},
                             "digraph": {
                               "name": "[vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2 SCM Holarchy Digraph",
                               "description": "A directed graph model of SCM relationships [vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2].",
@@ -32770,7 +32771,7 @@
                                   }
                                 },
                                 {
-                                  "u": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg",
+                                  "u": "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg",
                                   "p": {
                                     "type": "index"
                                   }
@@ -32813,7 +32814,7 @@
                                 {
                                   "e": {
                                     "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
-                                    "v": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg"
+                                    "v": "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg"
                                   },
                                   "p": {
                                     "type": "root-index-link"
@@ -32946,7 +32947,7 @@
                                 }
                               }
                             },
-                            "cacMap": {},
+                            "actMap": {},
                             "digraph": {
                               "name": "[AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3 SCM Holarchy Digraph",
                               "description": "A directed graph model of SCM relationships [AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3].",
@@ -32982,7 +32983,7 @@
                                   }
                                 },
                                 {
-                                  "u": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg",
+                                  "u": "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg",
                                   "p": {
                                     "type": "index"
                                   }
@@ -33025,7 +33026,7 @@
                                 {
                                   "e": {
                                     "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
-                                    "v": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg"
+                                    "v": "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg"
                                   },
                                   "p": {
                                     "type": "root-index-link"
@@ -33052,6 +33053,49 @@
                               ]
                             }
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "iPNvpPeckqeVycFVJH8GWw": {
+              "rShJ0riLSiOxLt0OpFJLJA": {
+                "harnessRequest": {
+                  "id": "rShJ0riLSiOxLt0OpFJLJA",
+                  "name": "SoftewareCellModel Constructor #4",
+                  "description": "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "SoftwareCellModel": {
+                          "constructorRequest": {
+                            "id": "rShJ0riLSiOxLt0OpFJLJA",
+                            "name": "SoftewareCellModel Constructor #4",
+                            "description": "Try to construct a full (but-ultimately fake) CellModel including subcell definitions."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "rShJ0riLSiOxLt0OpFJLJA": {
+                          "isValid": false,
+                          "toJSON": "SoftwareCellModel::constructor for [rShJ0riLSiOxLt0OpFJLJA::SoftewareCellModel Constructor #4] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::SoftwareCellModel::constructor Filter] failed while performing main operation. Heretical attempt to associate IRUT ID 'rShJ0riLSiOxLt0OpFJLJA' with the root of all CellModel's, [0000000000000000000000::Nothingness]."
                         }
                       }
                     }

@@ -66,6 +66,25 @@ module.exports = [
                 }
             }
         }
+    },
+
+    {
+        id: "rShJ0riLSiOxLt0OpFJLJA",
+        name: "SoftewareCellModel Constructor #4",
+        description: "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    SoftwareCellModel: {
+                        constructorRequest: {
+                            id: "rShJ0riLSiOxLt0OpFJLJA",
+                            name: "SoftewareCellModel Constructor #4",
+                            description: "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
