@@ -113,7 +113,7 @@
                   }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [Bmk7Wa_zGy0_4BHVeBPpxA::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsVRVdrxTNvzPj7OQrDwAg::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::ObservableProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [iPNvpPeckqeVycFVJH8GWw::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::SoftwareCellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [m6bbtzxJy5WAAaXa8a4CUg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::SoftwareCellProcessor Harness>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [Y_1jwgg4pFZ6DbQHqwLWJg::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsVRVdrxTNvzPj7OQrDwAg::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::ObservableProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
                 }
               }
             }
@@ -32641,16 +32641,16 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "iPNvpPeckqeVycFVJH8GWw": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "VcFs1BSZTLCb8nlIwW3Pmg": {
                 "harnessRequest": {
                   "id": "VcFs1BSZTLCb8nlIwW3Pmg",
-                  "name": "SoftwareCellModel Constructor #1",
-                  "description": "Default construct holarchy/SoftwareCellModel ES6 class. Should fail.",
+                  "name": "CellModel Constructor #1",
+                  "description": "Default construct holarchy/CellModel ES6 class. Should fail.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
-                        "SoftwareCellModel": {}
+                        "CellModel": {}
                       }
                     }
                   }
@@ -32666,7 +32666,7 @@
                       "FAvFLw0XQN6yomNs13r21g": {
                         "VcFs1BSZTLCb8nlIwW3Pmg": {
                           "isValid": false,
-                          "toJSON": "SoftwareCellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::SoftwareCellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                          "toJSON": "CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                         }
                       }
                     }
@@ -32678,20 +32678,20 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "iPNvpPeckqeVycFVJH8GWw": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "vzmMGynKTy2uu6W8R-1rvQ": {
                 "harnessRequest": {
                   "id": "vzmMGynKTy2uu6W8R-1rvQ",
                   "name": "SoftewareCellModel Constructor #2",
-                  "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                  "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
-                        "SoftwareCellModel": {
+                        "CellModel": {
                           "constructorRequest": {
                             "id": "vzmMGynKTy2uu6W8R-1rvQ",
                             "name": "SoftewareCellModel Constructor #2",
-                            "description": "Try to construct a minimally configured SoftwareCellModel with a mimimally-defined OPM association.",
+                            "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
                             "opm": {
                               "id": "cJSBP90NTcu1bJMhCOjbQg",
                               "name": "Placeholder OPM",
@@ -32718,7 +32718,7 @@
                             "LMFSviNhR8WQoLvtv_YnbQ": true,
                             "id": "vzmMGynKTy2uu6W8R-1rvQ",
                             "name": "SoftewareCellModel Constructor #2",
-                            "description": "Try to construct a minimally configured SoftwareCellModel with a mimimally-defined OPM association.",
+                            "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
                             "scmMap": {},
                             "opmMap": {
                               "cJSBP90NTcu1bJMhCOjbQg": {
@@ -32738,7 +32738,7 @@
                             "actMap": {},
                             "digraph": {
                               "name": "[vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2 SCM Holarchy Digraph",
-                              "description": "A directed graph model of SCM relationships [vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2].",
+                              "description": "A directed graph model of CM relationships [vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2].",
                               "vlist": [
                                 {
                                   "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
@@ -32852,20 +32852,20 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "iPNvpPeckqeVycFVJH8GWw": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "AE_pEJ7LTdSvohEBZl_Bfw": {
                 "harnessRequest": {
                   "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                  "name": "SoftwareCellModel Constructor #3",
-                  "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                  "name": "CellModel Constructor #3",
+                  "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
-                        "SoftwareCellModel": {
+                        "CellModel": {
                           "constructorRequest": {
                             "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                            "name": "SoftwareCellModel Constructor #3",
-                            "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                            "name": "CellModel Constructor #3",
+                            "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                             "operators": [
                               {
                                 "id": "o3Q4YKI_SLOus82xE7Gaag",
@@ -32896,8 +32896,8 @@
                           "toJSON": {
                             "LMFSviNhR8WQoLvtv_YnbQ": true,
                             "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                            "name": "SoftwareCellModel Constructor #3",
-                            "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                            "name": "CellModel Constructor #3",
+                            "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                             "scmMap": {},
                             "opmMap": {},
                             "topMap": {
@@ -32949,8 +32949,8 @@
                             },
                             "actMap": {},
                             "digraph": {
-                              "name": "[AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3 SCM Holarchy Digraph",
-                              "description": "A directed graph model of SCM relationships [AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3].",
+                              "name": "[AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3 SCM Holarchy Digraph",
+                              "description": "A directed graph model of CM relationships [AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3].",
                               "vlist": [
                                 {
                                   "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
@@ -33064,7 +33064,7 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "iPNvpPeckqeVycFVJH8GWw": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "rShJ0riLSiOxLt0OpFJLJA": {
                 "harnessRequest": {
                   "id": "rShJ0riLSiOxLt0OpFJLJA",
@@ -33073,7 +33073,7 @@
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
-                        "SoftwareCellModel": {
+                        "CellModel": {
                           "constructorRequest": {
                             "id": "rShJ0riLSiOxLt0OpFJLJA",
                             "name": "SoftewareCellModel Constructor #4",
@@ -33095,7 +33095,7 @@
                       "FAvFLw0XQN6yomNs13r21g": {
                         "rShJ0riLSiOxLt0OpFJLJA": {
                           "isValid": false,
-                          "toJSON": "SoftwareCellModel::constructor for [rShJ0riLSiOxLt0OpFJLJA::SoftewareCellModel Constructor #4] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::SoftwareCellModel::constructor Filter] failed while performing main operation. Heretical attempt to associate IRUT ID 'rShJ0riLSiOxLt0OpFJLJA' with the root of all CellModel's, [0000000000000000000000::Nothingness]."
+                          "toJSON": "CellModel::constructor for [rShJ0riLSiOxLt0OpFJLJA::SoftewareCellModel Constructor #4] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. Heretical attempt to associate IRUT ID 'rShJ0riLSiOxLt0OpFJLJA' with the root of all CellModel's, [0000000000000000000000::Nothingness]."
                         }
                       }
                     }
@@ -33107,16 +33107,16 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "m6bbtzxJy5WAAaXa8a4CUg": {
+            "T-BP4MgzyDOa-pr65Zrlmg": {
               "ILfH_hfQSM-ZOohMgpYU8A": {
                 "harnessRequest": {
                   "id": "ILfH_hfQSM-ZOohMgpYU8A",
-                  "name": "SoftwareCellProcessor Constructor #1",
-                  "description": "Default construct SoftwareCellProcessor ES6 class. Should fail.",
+                  "name": "CellProcessor Constructor #1",
+                  "description": "Default construct CellProcessor ES6 class. Should fail.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
-                        "SoftwareCellProcessor": {}
+                        "CellProcessor": {}
                       }
                     }
                   }
@@ -33132,7 +33132,7 @@
                       "UBSclp3gSqCCmSvoG3W4tw": {
                         "ILfH_hfQSM-ZOohMgpYU8A": {
                           "isValid": false,
-                          "toJSON": "SoftwareCellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::SoftwareCellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                          "toJSON": "CellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::SoftwareCellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                         }
                       }
                     }

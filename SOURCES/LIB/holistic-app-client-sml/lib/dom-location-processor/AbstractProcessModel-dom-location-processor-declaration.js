@@ -1,4 +1,4 @@
-// ObservableProcessModel-client-hash-route-location-processor.js
+// AbstractProcessModel-client-hash-route-location-processor.js
 
 const routerEventDescriptorSpec = {
     ____types: "jsObject",
@@ -15,13 +15,13 @@ const routerEventDescriptorSpec = {
 };
 
 
-const opmClientHashRouteLocationProcessor = module.exports = {
+const apmClientHashRouteLocationProcessor = module.exports = {
 
     id: "-1Ptaq_zTUa8Gfv_3ODtDg",
     name: "DOM Location Processor",
     description: "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
 
-    opmDataSpec: {
+    ocdDataSpec: {
         ____label: "Client Hash Route Location Processor",
         ____types: "jsObject",
         ____defaultValue: {},
@@ -114,4 +114,3 @@ const opmClientHashRouteLocationProcessor = module.exports = {
     }
 
 };
-

@@ -1,4 +1,4 @@
-// ObservableProcessModel-app-client-view-declaration.js
+// AbstractProcessModel-app-client-view-declaration.js
 
 module.exports = {
 
@@ -6,7 +6,7 @@ module.exports = {
     name: "Holistic Client App View Processor",
     description: "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
 
-    opmDataSpec: {
+    ocdDataSpec: {
         ____types: "jsObject",
         ____defaultValue: {},
         "Hsu-43zBRgqHItCPWPiBng": {

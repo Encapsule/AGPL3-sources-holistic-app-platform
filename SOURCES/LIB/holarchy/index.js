@@ -2,10 +2,10 @@
 
 const packageMeta = require("./package.json");
 
-const SoftwareCellModel = require("./SoftwareCellModel");
-const SoftwareCellProcessor = require("./SoftwareCellProcessor");
+const CellModel = require("./CellModel");
+const CellProcessor = require("./CellProcessor");
 const ObservableProcessController = require("./lib/ObservableProcessController");
-const ObservableProcessModel = require("./lib/ObservableProcessModel");
+const AbstractProcessModel = require("./lib/AbstractProcessModel");
 const TransitionOperator = require("./lib/TransitionOperator");
 const ControllerAction = require("./lib/ControllerAction");
 const ObservableControllerData = require("./lib/ObservableControllerData");
@@ -26,17 +26,17 @@ module.exports = {
     // ================================================================
 
     /*
-      SoftwareCellModel (SCM) is an ES6 class instantiated with operator
+      CellModel (CM) is an ES6 class instantiated with operator
       new that represents a specific class of runtime "cell process".
     */
-    SoftwareCellModel,
+    CellModel,
 
     /*
-      ObservableProcessModel (OPM) is an ES6 class instantiated with
+      AbstractProcessModel (OPM) is an ES6 class instantiated with
       operator new that represents the shared memory and runtime
-      behavior(s) of a SoftwareCellModel (SCM).
+      behavior(s) of a CellModel (CM).
     */
-    ObservableProcessModel,
+    AbstractProcessModel,
 
     /*
       TransitionOperator (TOP) is an ES6 class instantiated with operator
@@ -53,34 +53,41 @@ module.exports = {
     ControllerAction,
 
     /*
-      SoftwareCellProcessor (SCP) is an ES6 class instantiated with operator new
+      CellProcessor (CP) is an ES6 class instantiated with operator new
       that provides a runtime evaluation and execution environment for
       cellular process(es) defined by SoftwareCellModel class instances.
     */
-    SoftwareCellProcessor,
+    CellProcessor,
 
     // ================================================================
     // IMPLEMENTATION
     // ================================================================
 
     /*
-      ObservableProcessController is an ES6 class instantiated with operator
-      new that provides memory management, and generic evaluation of cellular
-      process(es). Developers do not typically use the OPC class directly but
-      instead rely on SoftwareCellProcessor to create and manage an OPC
-      runtime instance on their behalf based on the registered SoftwareCellModel
-      instances plus some minimal configuration data.
+      ObservableProcessController (OPC) is an ES6 class instantiated with
+      operator new that provides memory management, and generic evaluation
+      of cellular process(es) (cellular automata). Developers do not
+      typically use the OPC class directly but instead rely on CellProcessor
+      (CP) to create and manage an OPC runtime instance on their behalf
+      based on information derived from an CellModel (CM).
      */
     ObservableProcessController,
 
     /*
-      ObservableControllerData is an ES6 class instantiated with operator
-      new encapsulates a shared in-memory heap store for cellular process
-      data. This store features absolute and relative dot-delimited path
-      addressing, introspection, and fully abstracted I/O operations via
-      its API. OPC uses OCD to manage celluar process(es) runtime data
-      on behalf of SoftwareCellProcessor. But, you can use it wherever
-      you have similar requirements.
+      ObservableControllerData (OCD) is an ES6 class instantiated with
+      operator new that encapsulates a shared in-memory store data.
+      OCD provides absolute and relative dot-delimited path addressing,
+      type introspection, and fully abstracted I/O operations via
+      its readNamespace and writeNamespace class API's that enforce
+      name/type/value constraints, and provide data normalization
+      (cascading default values) for all read and write operations via
+      @encapsule/arccore.filter. This ensures that data written into and
+      read from an OCD instance is correct at runtime, always.
+      OPC uses OCD internally to to manage celluar process(es) runtime data
+      on behalf of a CellProcessor (CP) instance. But, you can use it wherever
+      you require strong runtime data fidelity, and addressable read/write
+      facility. e.g. if you're preparing a network request you can use
+      OCD to build the request and then call toJSON.
     */
     ObservableControllerData,
 

@@ -1,15 +1,15 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "m6bbtzxJy5WAAaXa8a4CUg": {
+    "T-BP4MgzyDOa-pr65Zrlmg": {
       "ILfH_hfQSM-ZOohMgpYU8A": {
         "harnessRequest": {
           "id": "ILfH_hfQSM-ZOohMgpYU8A",
-          "name": "SoftwareCellProcessor Constructor #1",
-          "description": "Default construct SoftwareCellProcessor ES6 class. Should fail.",
+          "name": "CellProcessor Constructor #1",
+          "description": "Default construct CellProcessor ES6 class. Should fail.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "SoftwareCellProcessor": {}
+                "CellProcessor": {}
               }
             }
           }
@@ -25,7 +25,7 @@
               "UBSclp3gSqCCmSvoG3W4tw": {
                 "ILfH_hfQSM-ZOohMgpYU8A": {
                   "isValid": false,
-                  "toJSON": "SoftwareCellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::SoftwareCellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                  "toJSON": "CellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::SoftwareCellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                 }
               }
             }

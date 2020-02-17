@@ -1,19 +1,19 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "iPNvpPeckqeVycFVJH8GWw": {
+    "c65zrhI3Ejco_Sj9nPKc8g": {
       "vzmMGynKTy2uu6W8R-1rvQ": {
         "harnessRequest": {
           "id": "vzmMGynKTy2uu6W8R-1rvQ",
           "name": "SoftewareCellModel Constructor #2",
-          "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+          "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "SoftwareCellModel": {
+                "CellModel": {
                   "constructorRequest": {
                     "id": "vzmMGynKTy2uu6W8R-1rvQ",
                     "name": "SoftewareCellModel Constructor #2",
-                    "description": "Try to construct a minimally configured SoftwareCellModel with a mimimally-defined OPM association.",
+                    "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
                     "opm": {
                       "id": "cJSBP90NTcu1bJMhCOjbQg",
                       "name": "Placeholder OPM",
@@ -40,7 +40,7 @@
                     "LMFSviNhR8WQoLvtv_YnbQ": true,
                     "id": "vzmMGynKTy2uu6W8R-1rvQ",
                     "name": "SoftewareCellModel Constructor #2",
-                    "description": "Try to construct a minimally configured SoftwareCellModel with a mimimally-defined OPM association.",
+                    "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
                     "scmMap": {},
                     "opmMap": {
                       "cJSBP90NTcu1bJMhCOjbQg": {
@@ -60,7 +60,7 @@
                     "actMap": {},
                     "digraph": {
                       "name": "[vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2 SCM Holarchy Digraph",
-                      "description": "A directed graph model of SCM relationships [vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2].",
+                      "description": "A directed graph model of CM relationships [vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2].",
                       "vlist": [
                         {
                           "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",

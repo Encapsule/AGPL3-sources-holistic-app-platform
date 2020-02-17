@@ -3,12 +3,12 @@ module.exports = [
 
     {
         id: "ILfH_hfQSM-ZOohMgpYU8A",
-        name: "SoftwareCellProcessor Constructor #1",
-        description: "Default construct SoftwareCellProcessor ES6 class. Should fail.",
+        name: "CellProcessor Constructor #1",
+        description: "Default construct CellProcessor ES6 class. Should fail.",
         vectorRequest: {
             holistic: {
                 holarchy: {
-                    SoftwareCellProcessor: {
+                    CellProcessor: {
                         constructorRequest: undefined // explicitly
                     }
                 }

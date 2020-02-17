@@ -8,7 +8,7 @@ module.exports = {
     id: "IxoJ83u0TXmG7PLUYBvsyg",
     name: "d2r2/React Client Display Adaptor",
     description: "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-    opmDataSpec: {
+    ocdDataSpec: {
         ____label: "d2r2/React Client Display Adaptor Memory",
         ____description: "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
         ____types: "jsObject",
@@ -77,12 +77,12 @@ module.exports = {
             }
         }
 
-    }, // opmDataSpec
+    }, // ocdDataSpec
 
     steps: {
 
         uninitialized: {
-            description: "Default OPM process step.",
+            description: "Default APM process step.",
             transitions: [
                 { transitionIf: { always: true }, nextStep: "wait_invariants" }
             ]
@@ -150,4 +150,4 @@ module.exports = {
 
     } // steps
 
-}; // OPM declaration
+}; // APM declaration

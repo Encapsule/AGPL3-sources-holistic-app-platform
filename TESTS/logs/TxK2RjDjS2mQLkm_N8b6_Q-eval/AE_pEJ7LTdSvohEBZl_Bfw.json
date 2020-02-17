@@ -1,19 +1,19 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "iPNvpPeckqeVycFVJH8GWw": {
+    "c65zrhI3Ejco_Sj9nPKc8g": {
       "AE_pEJ7LTdSvohEBZl_Bfw": {
         "harnessRequest": {
           "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-          "name": "SoftwareCellModel Constructor #3",
-          "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+          "name": "CellModel Constructor #3",
+          "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "SoftwareCellModel": {
+                "CellModel": {
                   "constructorRequest": {
                     "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                    "name": "SoftwareCellModel Constructor #3",
-                    "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                    "name": "CellModel Constructor #3",
+                    "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                     "operators": [
                       {
                         "id": "o3Q4YKI_SLOus82xE7Gaag",
@@ -44,10 +44,10 @@
                   "toJSON": {
                     "LMFSviNhR8WQoLvtv_YnbQ": true,
                     "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                    "name": "SoftwareCellModel Constructor #3",
-                    "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                    "name": "CellModel Constructor #3",
+                    "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                     "scmMap": {},
-                    "opmMap": {},
+                    "apmMap": {},
                     "topMap": {
                       "o3Q4YKI_SLOus82xE7Gaag": {
                         "scm": "AE_pEJ7LTdSvohEBZl_Bfw",
@@ -97,8 +97,8 @@
                     },
                     "actMap": {},
                     "digraph": {
-                      "name": "[AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3 SCM Holarchy Digraph",
-                      "description": "A directed graph model of SCM relationships [AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3].",
+                      "name": "[AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3 SCM Holarchy Digraph",
+                      "description": "A directed graph model of CM relationships [AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3].",
                       "vlist": [
                         {
                           "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
@@ -119,7 +119,7 @@
                           }
                         },
                         {
-                          "u": "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw",
+                          "u": "INDEX_APM_WEn_h3N4Q-CV3AUpU7c4Dw",
                           "p": {
                             "type": "index"
                           }
@@ -156,7 +156,7 @@
                         {
                           "e": {
                             "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
-                            "v": "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw"
+                            "v": "INDEX_APM_WEn_h3N4Q-CV3AUpU7c4Dw"
                           },
                           "p": {
                             "type": "root-index-link"

@@ -1,14 +1,14 @@
 
-const observableFrameLatchDeclaration = require("./declarations/ObservableProcessModel-frame-latch-declaration");
-const observableFrameLatch = require("./ObservableProcessModel-frame-latch");
+const abstractFrameLatchDeclaration = require("./declarations/AbstractProcessModel-frame-latch-declaration");
+const abstractFrameLatch = require("./AbstractProcessModel-frame-latch");
 
 const SMLModels = {
     core: {
-        observableFrameLatch: observableFrameLatch
+        observableFrameLatch: abstractFrameLatch
     },
     test: {
         declaration: {
-            observableFrameLatch: observableFrameLatchDeclaration
+            observableFrameLatch: abstractFrameLatchDeclaration
         }
     }
 };

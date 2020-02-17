@@ -1,15 +1,15 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "XsVRVdrxTNvzPj7OQrDwAg": {
+    "XsWRwtrxCUvzPsiaQrCA6Q": {
       "ErHlg9R3SSaonNJr4mBi-g": {
         "harnessRequest": {
           "id": "ErHlg9R3SSaonNJr4mBi-g",
-          "name": "ObservableProcessModel constructor #1",
-          "description": "ObservableProcessModel constructor test #1 (undefined constructor request)",
+          "name": "AbstractProcessModel constructor #1",
+          "description": "AbstractProcessModel constructor test #1 (undefined constructor request)",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "ObservableProcessModel": {}
+                "AbstractProcessModel": {}
               }
             }
           }
@@ -25,12 +25,12 @@
               "mC3pPO5wS3SxvhgZgMjsJQ": {
                 "ErHlg9R3SSaonNJr4mBi-g": {
                   "isValid": false,
-                  "toJSON": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                  "getID": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                  "getName": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                  "getDescription": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                  "getDataSpec": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                  "getDigraph": "ObservableProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                  "toJSON": "AbstractProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                  "getID": "AbstractProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                  "getName": "AbstractProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                  "getDescription": "AbstractProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                  "getDataSpec": "AbstractProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
+                  "getDigraph": "AbstractProcessModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::OPM Constructor Request Processor] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                 }
               }
             }

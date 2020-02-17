@@ -2,14 +2,14 @@
 
 const arccore = require("@encapsule/arccore");
 const ObservableProcessController = require("../ObservableProcessController");
-const ObservableProcessModel = require("../ObservableProcessModel");
+const AbstractProcessModel = require("../AbstractProcessModel");
 const TransitionOperator = require("../TransitionOperator");
 const ControllerAction = require("../ControllerAction");
 
 const indexVertexRoot = "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w";
 const indexVertices = {
     scm: "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ",
-    opm: "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw",
+    apm: "INDEX_APM_WEn_h3N4Q-CV3AUpU7c4Dw",
     top: "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",
     act: "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg",
 };
@@ -17,46 +17,46 @@ const indexVertices = {
 const factoryResponse = arccore.filter.create({
 
     operationID: "xbcn-VBLTaC_0GmCuTQ8NA",
-    operationName: "SoftwareCellModel::constructor Filter",
-    operationDescription: "Filters request descriptor passed to SoftwareRuntimeModel::constructor function.",
+    operationName: "CellModel::constructor Filter",
+    operationDescription: "Filters request descriptor passed to CellModel::constructor function.",
 
     inputFilterSpec: {
 
-        ____label: "Software Cell Model Descriptor",
-        ____description: "A request object passed to SoftwareCellModel ES6 class constructor function.",
+        ____label: "Cell Model Descriptor",
+        ____description: "A request object passed to CellModel ES6 class constructor function.",
         ____types: "jsObject",
 
-        SoftwareCellModel: { ____accept: "jsFunction" }, // We build SRM class instances
-        SoftwareCellModelInstance: { ____opaque: true }, // Reference to the calling SCM instance's this.
+        CellModel: { ____accept: "jsFunction" }, // We build CM class instances
+        CellModelInstance: { ____opaque: true }, // Reference to the calling CM instance's this.
 
         id: {
             ____label: "Model ID",
-            ____description: "A unique version-independent IRUT identifier used to identify this SoftwareModel.",
+            ____description: "A unique version-independent IRUT identifier used to identify this CellModel.",
             ____accept: "jsString" // must be an IRUT
         },
 
         name: {
             ____label: "Model Name",
-            ____description: "A short name used to refer to this SoftwareModel.",
+            ____description: "A short name used to refer to this CellModel.",
             ____accept: "jsString"
         },
 
         description: {
             ____label: "Model Description",
-            ____description: "A short description of this SoftwareModel.",
+            ____description: "A short description of this CellModel.",
             ____accept: "jsString"
         },
 
-        opm: {
+        apm: {
             ____label: "Cell Model Behaviors",
-            ____description: "An optional OPM descriptor that if provided will be used to ascribe memory and/or higher-order observable behaviors to this cell model.",
+            ____description: "An optional APM descriptor that if provided will be used to ascribe memory and/or higher-order observable process behaviors to this CellModel.",
             ____accept: [ "jsNull", "jsObject" ], // further processed in bodyFunction
             ____defaultValue: null // If null, then a valid CM defines at least one TOP or ACT.
         },
 
         operators: {
             ____label: "Cell Model Operators",
-            ____description: "An optional array of Transition Operator descriptor objects one for each TransitionOperator defined by this software model.",
+            ____description: "An optional array of Transition Operator descriptor objects one for each TransitionOperator defined by this CellModel.",
             ____types: "jsArray",
             ____defaultValue: [],
             TransitionOperator: {
@@ -68,7 +68,7 @@ const factoryResponse = arccore.filter.create({
 
         actions: {
             ____label: "Cell Model Actions",
-            ____description: "An optional array of controller action descriptor object(s) or equivalent ControllerAction ES6 class instance(s) defined by this software model.",
+            ____description: "An optional array of controller action descriptor object(s) or equivalent ControllerAction ES6 class instance(s) defined by this CellModel.",
             ____types: "jsArray",
             ____defaultValue: [],
             ControllerAction: {
@@ -120,7 +120,7 @@ const factoryResponse = arccore.filter.create({
                 name: request_.name,
                 description: request_.description,
                 scmMap: {},
-                opmMap: {},
+                apmMap: {},
                 topMap: {},
                 actMap: {},
                 digraph: null
@@ -130,7 +130,7 @@ const factoryResponse = arccore.filter.create({
             // Create DirectedGraph to index all the assets and give us an easy way to look things up.
             let filterResponse = arccore.graph.directed.create({
                 name: `[${request_.id}::${request_.name} SCM Holarchy Digraph`,
-                description: `A directed graph model of SCM relationships [${request_.id}::${request_.name}].`,
+                description: `A directed graph model of CM relationships [${request_.id}::${request_.name}].`,
                 vlist: [
                     { u: indexVertexRoot, p: { type: "index" } },
                     { u: request_.id, p: { type: "scm" } } // This SCM. We need to add this is index on exit from this function
@@ -151,15 +151,15 @@ const factoryResponse = arccore.filter.create({
             request_.subcells.forEach((subcell_) => {
                 let cell = null;
                 if (subcell_._private && subcell._private["LMFSviNhR8WQoLvtv_YnbQ"]) {
-                    // We know this is a SoftwareRuntimeModel ES6 class instance.
+                    // We know this is a CellModel ES6 class instance.
                     cell = subcell_;
                 } else {
                     // We presume this is a Software Cell Descriptor (i.e. constructor request object).
-                    cell = new request_.SoftwareCellModel(subcell_);
+                    cell = new request_.CellModel(subcell_);
                 }
-                // cell is now a SoftwareCellModel ES6 class instance.
+                // cell is now a CellModel ES6 class instance.
                 const cellID = cell.getID();
-                // Have we previously processed this SoftwareCellModel definition?
+                // Have we previously processed this CellModel definition?
                 if (!response.result.scmMap[cellID]) {
                     // We have not.
                     response.result.scmMap[cellID] = { scm: request_.id, cell: cell };
@@ -167,26 +167,26 @@ const factoryResponse = arccore.filter.create({
                 }
                 digraph.addEdge({ e: { u: vertexIndices.scm, v: cellID }, p: { type: "scm-index-link" } });
                 response.result.scmMap = Object.assign(response.result.scmMap, cell._private.scmMap);
-                response.result.opmMap = Object.assign(response.result.opmMap, cell._private.opmMap);
+                response.result.apmMap = Object.assign(response.result.apmMap, cell._private.apmMap);
                 response.result.topMap = Object.assign(response.result.topMap, cell._private.topMap);
                 response.result.actMap = Object.assign(response.result.actMap, cell._private.actMap);
                 digraph.fromObject(cell._private.digraph.toJSON());
             }); // forEach subcell
 
             // ================================================================
-            // PROCESS ObservableProcessModel ASSOCIATION
-            if (request_.opm) {
-                let opmVertexID = null;
-                const opm = (request_.opm instanceof ObservableProcessModel)?request_.opm:new ObservableProcessModel(request_.opm);
-                if (!opm.isValid) {
-                    errors.push("The ObservableProcessModel you are attempting to associate with this new SoftwareCellModel instance is invalid!");
-                    errors.push(opm.toJSON()); // constructor error string
+            // PROCESS AbstractProcessModel ASSOCIATION
+            if (request_.apm) {
+                let apmVertexID = null;
+                const apm = (request_.apm instanceof AbstractProcessModel)?request_.apm:new AbstractProcessModel(request_.apm);
+                if (!apm.isValid) {
+                    errors.push("The AbstractProcessModel you are attempting to associate with this new CellModel instance is invalid!");
+                    errors.push(apm.toJSON()); // constructor error string
                 } else {
-                    const opmVertexID = opm.getID();
-                    if (!response.result.opmMap[opmVertexID]) { response.result.opmMap[opmVertexID] = { scm: request_.id, opm: opm }; }
-                    digraph.addVertex({ u: opmVertexID, p: { type: "opm" } });
-                    digraph.addEdge({ e: { u: indexVertices.opm, v: opmVertexID }, p: { type: "opm-index-link" } });
-                    digraph.addEdge({ e: { u: request_.id, v: opmVertexID }, p: { type: "scm-link" } });
+                    const apmVertexID = apm.getID();
+                    if (!response.result.apmMap[apmVertexID]) { response.result.apmMap[apmVertexID] = { scm: request_.id, apm: apm }; }
+                    digraph.addVertex({ u: apmVertexID, p: { type: "apm" } });
+                    digraph.addEdge({ e: { u: indexVertices.apm, v: apmVertexID }, p: { type: "apm-index-link" } });
+                    digraph.addEdge({ e: { u: request_.id, v: apmVertexID }, p: { type: "scm-link" } });
                 }
             }
 
@@ -237,7 +237,7 @@ const factoryResponse = arccore.filter.create({
             if (!errors.length) {
                 let registrations =
                     arccore.util.dictionaryLength(response.result.scmMap) +
-                    arccore.util.dictionaryLength(response.result.opmMap) +
+                    arccore.util.dictionaryLength(response.result.apmMap) +
                     arccore.util.dictionaryLength(response.result.topMap) +
                     arccore.util.dictionaryLength(response.result.actMap);
 

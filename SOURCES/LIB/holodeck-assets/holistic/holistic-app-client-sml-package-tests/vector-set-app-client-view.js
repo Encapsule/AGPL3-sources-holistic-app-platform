@@ -11,7 +11,7 @@ module.exports = [
         vectorRequest: {
             holistic: {
                 holarchy: {
-                    ObservableProcessModel: {
+                    AbstractProcessModel: {
                         constructorRequest: clientSML.client.test.declaration.appClientView
                     }
                 }

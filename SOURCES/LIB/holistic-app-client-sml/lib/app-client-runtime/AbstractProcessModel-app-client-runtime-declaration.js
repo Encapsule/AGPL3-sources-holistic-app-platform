@@ -1,4 +1,4 @@
-// ObservableProcessModel-app-client-kernel-declaration.js
+// AbstractProcessModel-app-client-kernel-declaration.js
 
 module.exports = {
 
@@ -6,7 +6,7 @@ module.exports = {
     name: "Holistic Client App Runtime",
     description: "This model manages, tracks, and controls the lifecycle of the client application.",
 
-    opmDataSpec: {
+    ocdDataSpec: {
         ____types: "jsObject",
         ____defaultValue: {},
         "PPL45jw5RDWSMNsB97WIWg": {

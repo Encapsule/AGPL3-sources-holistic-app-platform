@@ -4,6 +4,6 @@ module.exports = [
     require("./harness-ObservableProcessController"),
     require("./harness-ObservableProcessModel"),
     require("./harness-TransitionOperator"),
-    require("./harness-SoftwareCellModel"),
-    require("./harness-SoftwareCellProcessor")
+    require("./harness-CellModel"),
+    require("./harness-CellProcessor")
 ];

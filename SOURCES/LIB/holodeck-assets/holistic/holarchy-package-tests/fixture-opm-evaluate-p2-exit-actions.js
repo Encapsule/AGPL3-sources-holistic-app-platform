@@ -4,7 +4,7 @@ const holarchy = require("@encapsule/holarchy");
 
 module.exports = [
 
-    new holarchy.ObservableProcessModel({
+    new holarchy.AbstractProcessModel({
         id: "Rgt3dz-6Ra-zqpbnpBrJDg",
         name: "OPM Eval P2 Test #1",
         description: "A simple test OPM (force controller action exit error - bad message)",
@@ -34,7 +34,7 @@ module.exports = [
         }
     }),
 
-    new holarchy.ObservableProcessModel({
+    new holarchy.AbstractProcessModel({
         id: "P-uhpNlrTseMNDG3D9ahRA",
         name: "OPM Eval P2 Test #2",
         description: "A simple test OPM (force controller action exit error - action transport error)",
@@ -63,7 +63,7 @@ module.exports = [
         }
     }),
 
-    new holarchy.ObservableProcessModel({
+    new holarchy.AbstractProcessModel({
         id: "alBMdhnYSbijGj64jxm92g",
         name: "OPM Eval P2 Test #3",
         description: "A simple test OPM (force controller action exit - action exception)",

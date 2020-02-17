@@ -1,15 +1,15 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "XsVRVdrxTNvzPj7OQrDwAg": {
+    "XsWRwtrxCUvzPsiaQrCA6Q": {
       "VwWYI4ReSTSfqSnoVXXC-w": {
         "harnessRequest": {
           "id": "VwWYI4ReSTSfqSnoVXXC-w",
-          "name": "ObservableProcessModel constructor #2",
-          "description": "ObservableProcessModel constructor test #2 (minimal constructor request)",
+          "name": "AbstractProcessModel constructor #2",
+          "description": "AbstractProcessModel constructor test #2 (minimal constructor request)",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "ObservableProcessModel": {
+                "AbstractProcessModel": {
                   "constructorRequest": {
                     "id": "VwWYI4ReSTSfqSnoVXXC-w",
                     "name": "OPM #2",

@@ -1,8 +1,8 @@
-// SoftwareModel.js
+// CellModel.js
 
-const constructorFilter = require("./lib/filters/scm-method-constructor-filter");
+const constructorFilter = require("./lib/filters/cm-method-constructor-filter");
 
-module.exports = class SoftwareCellModel {
+module.exports = class CellModel {
 
     constructor(request_) {
         let errors = [];
@@ -17,8 +17,8 @@ module.exports = class SoftwareCellModel {
                 filterResponse = constructorFilter.request(request_);
             } else {
                 filterResponse = constructorFilter.request({
-                    SoftwareCellModel,
-                    SoftwareCellModelInstance: this,
+                    CellModel,
+                    CellModelInstance: this,
                     ...request_
                 });
             }
@@ -30,7 +30,7 @@ module.exports = class SoftwareCellModel {
             break;
         }
         if (errors.length) {
-            errors.unshift(`SoftwareCellModel::constructor for [${(request_ && request_.id)?request_.id:"unspecified"}::${(request_ && request_.name)?request_.name:"unspecified"}] failed yielding a zombie instance.`);
+            errors.unshift(`CellModel::constructor for [${(request_ && request_.id)?request_.id:"unspecified"}::${(request_ && request_.name)?request_.name:"unspecified"}] failed yielding a zombie instance.`);
             this._private.constructorError = errors.join(" ");
         }
     }
