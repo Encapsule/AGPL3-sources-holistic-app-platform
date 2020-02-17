@@ -1,0 +1,50 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "iPNvpPeckqeVycFVJH8GWw": {
+      "AE_pEJ7LTdSvohEBZl_Bfw": {
+        "harnessRequest": {
+          "id": "AE_pEJ7LTdSvohEBZl_Bfw",
+          "name": "SoftwareCellModel Constructor #3",
+          "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "SoftwareCellModel": {
+                  "constructorRequest": {
+                    "id": "AE_pEJ7LTdSvohEBZl_Bfw",
+                    "name": "SoftwareCellModel Constructor #3",
+                    "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                    "operators": [
+                      {
+                        "id": "o3Q4YKI_SLOus82xE7Gaag",
+                        "name": "Placeholder TOP",
+                        "description": "A minimally configured placeholder."
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "FAvFLw0XQN6yomNs13r21g": {
+                "AE_pEJ7LTdSvohEBZl_Bfw": {
+                  "isValid": false,
+                  "toJSON": "SoftwareCellModel::constructor for [AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::SoftwareCellModel::constructor Filter] failed while performing main operation. TransitionOperator registration at request path ~.operators[0] is an invalid instance due to constructor error: TransitionOperator::constructor for [o3Q4YKI_SLOus82xE7Gaag::Placeholder TOP] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~.operatorRequestSpec': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

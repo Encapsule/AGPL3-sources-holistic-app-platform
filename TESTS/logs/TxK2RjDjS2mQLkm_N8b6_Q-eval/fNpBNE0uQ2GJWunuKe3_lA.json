@@ -24,100 +24,104 @@
                       [
                         "ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction].",
                         {
-                          "operationID": "93_stDeORb-9W_0d69fswg",
-                          "operationName": "NOOP Controller Test Action #2",
-                          "operationDescription": "Do nothing test controller action plug-in filter #2.",
-                          "inputFilterSpec": {
-                            "____label": "NOOP Controller Test Action #2 Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                          "filterDescriptor": {
+                            "operationID": "93_stDeORb-9W_0d69fswg",
+                            "operationName": "NOOP Controller Test Action #2",
+                            "operationDescription": "Do nothing test controller action plug-in filter #2.",
+                            "inputFilterSpec": {
+                              "____label": "NOOP Controller Test Action #2 Request",
                               "____types": "jsObject",
-                              "opmBindingPath": {
-                                "____label": "OPM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
-                                "____accept": "jsString"
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "opmBindingPath": {
+                                  "____label": "OPM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
                               },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "act": {
-                                "____label": "OPC.act Method",
-                                "____description": "A reference to ObservableProcessController.act method.",
-                                "____accept": "jsFunction"
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "noop1": {
+                                  "____accept": "jsBoolean",
+                                  "____inValueSet": [
+                                    true
+                                  ]
+                                }
                               }
                             },
-                            "actionRequest": {
-                              "____types": "jsObject",
-                              "noop1": {
-                                "____accept": "jsBoolean",
-                                "____inValueSet": [
-                                  true
-                                ]
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____label": "No Result (Default)",
-                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                            "____accept": "jsUndefined"
-                          },
-                          "inputTypeVIID": "QbBHNSXVFcllpVVIKPdIHA",
-                          "inputTypeVDID": "QIsrGeoNAOFgnxKz89x8xg",
-                          "outputTypeVIID": "gUIA-Cjc2TyIr5-2zpWFzw",
-                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                          "operationVDID": "Y81beZWMiNaqNzCkOcKRBw"
+                            "outputFilterSpec": {
+                              "____label": "No Result (Default)",
+                              "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                              "____accept": "jsUndefined"
+                            },
+                            "inputTypeVIID": "QbBHNSXVFcllpVVIKPdIHA",
+                            "inputTypeVDID": "QIsrGeoNAOFgnxKz89x8xg",
+                            "outputTypeVIID": "gUIA-Cjc2TyIr5-2zpWFzw",
+                            "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                            "operationVDID": "Y81beZWMiNaqNzCkOcKRBw"
+                          }
                         },
                         {
-                          "operationID": "BO184bcvSzmr9oF4KJynSA",
-                          "operationName": "NOOP Controller Test Action #3",
-                          "operationDescription": "Do nothing nothing test controller action plug-in filter #3.",
-                          "inputFilterSpec": {
-                            "____label": "NOOP Controller Test Action #3 Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                          "filterDescriptor": {
+                            "operationID": "BO184bcvSzmr9oF4KJynSA",
+                            "operationName": "NOOP Controller Test Action #3",
+                            "operationDescription": "Do nothing nothing test controller action plug-in filter #3.",
+                            "inputFilterSpec": {
+                              "____label": "NOOP Controller Test Action #3 Request",
                               "____types": "jsObject",
-                              "opmBindingPath": {
-                                "____label": "OPM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
-                                "____accept": "jsString"
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "opmBindingPath": {
+                                  "____label": "OPM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
                               },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "act": {
-                                "____label": "OPC.act Method",
-                                "____description": "A reference to ObservableProcessController.act method.",
-                                "____accept": "jsFunction"
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "noop2": {
+                                  "____accept": "jsBoolean",
+                                  "____inValueSet": [
+                                    true
+                                  ]
+                                }
                               }
                             },
-                            "actionRequest": {
-                              "____types": "jsObject",
-                              "noop2": {
-                                "____accept": "jsBoolean",
-                                "____inValueSet": [
-                                  true
-                                ]
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____label": "No Result (Default)",
-                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                            "____accept": "jsUndefined"
-                          },
-                          "inputTypeVIID": "DhS9wGiVKn64Be-BByEVwg",
-                          "inputTypeVDID": "BYsrOIENALlxnxK_KNx8lw",
-                          "outputTypeVIID": "lzZ25Vwzg8KsNwEwfqOZmA",
-                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                          "operationVDID": "O1roedUe-dZRHM2k6gKnBw"
+                            "outputFilterSpec": {
+                              "____label": "No Result (Default)",
+                              "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                              "____accept": "jsUndefined"
+                            },
+                            "inputTypeVIID": "DhS9wGiVKn64Be-BByEVwg",
+                            "inputTypeVDID": "BYsrOIENALlxnxK_KNx8lw",
+                            "outputTypeVIID": "lzZ25Vwzg8KsNwEwfqOZmA",
+                            "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                            "operationVDID": "O1roedUe-dZRHM2k6gKnBw"
+                          }
                         }
                       ]
                     ]

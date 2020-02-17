@@ -12,6 +12,8 @@ module.exports = class ControllerAction {
         this.isValid = this.isValid.bind(this);
         this.toJSON = this.toJSON.bind(this);
         this.getFilter = this.getFilter.bind(this);
+        this.getID = this.getID.bind(this);
+        this.getName = this.getName.bind(this);
         while (!inBreakScope) {
             inBreakScope = true;
             const filterResponse = constructorFilter.request(request_);
@@ -33,17 +35,19 @@ module.exports = class ControllerAction {
     }
 
     toJSON() {
-        if (!this.isValid()) {
-            return this._private.constructorError;
-        }
-        return this._private.filterDescriptor;
+        return this.getFilter();
     }
 
     getFilter() {
-        if (!this.isValid()) {
-            return this._private.constructorError;
-        }
-        return this._private;
+        return (this.isValid()?this._private:this._private.constructorError);
+    }
+
+    getID() {
+        return (this.isValid()?this._private.filterDescriptor.operationID:this._private.constructorError);
+    }
+
+    getName() {
+        return (this.isValid()?this._private.filterDescriptor.operationName:this._private.constructorError);
     }
 
 };

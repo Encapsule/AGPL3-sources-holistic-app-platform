@@ -12,7 +12,8 @@ module.exports = class TransitionOperator {
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.getFilter = this.getFilter.bind(this);
-
+            this.getID = this.getID.bind(this);
+            this.getName = this.getName.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -32,11 +33,19 @@ module.exports = class TransitionOperator {
     }
 
     toJSON() {
-        return (this.isValid()?this._private.filterDescriptor:this._private.constructorError);
+        return this.getFilter();
     }
 
     getFilter() {
         return (this.isValid()?this._private:this._private.constructorError);
+    }
+
+    getID() {
+        return (this.isValid()?this._private.filterDescriptor.operationID:this._privateConstructorError);
+    }
+
+    getName() {
+        return (this.isValid()?this._private.filter.filterDescriptor.operationName:this._privateConstructorError);
     }
 
 };

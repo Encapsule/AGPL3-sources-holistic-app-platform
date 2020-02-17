@@ -41,52 +41,54 @@
                 "stn1B2JRSkOkFxuyejzGjQ": {
                   "isValid": true,
                   "toJSON": {
-                    "operationID": "stn1B2JRSkOkFxuyejzGjQ",
-                    "operationName": "ControllAction Test #2",
-                    "operationDescription": "A test ControllerAction plug-in filter.",
-                    "inputFilterSpec": {
-                      "____label": "ControllAction Test #2 Request",
-                      "____types": "jsObject",
-                      "context": {
-                        "____label": "OPC Context Descriptor",
-                        "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                    "filterDescriptor": {
+                      "operationID": "stn1B2JRSkOkFxuyejzGjQ",
+                      "operationName": "ControllAction Test #2",
+                      "operationDescription": "A test ControllerAction plug-in filter.",
+                      "inputFilterSpec": {
+                        "____label": "ControllAction Test #2 Request",
                         "____types": "jsObject",
-                        "opmBindingPath": {
-                          "____label": "OPM Binding Path",
-                          "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
-                          "____accept": "jsString"
-                        },
-                        "ocdi": {
-                          "____label": "OCD Store Instance",
-                          "____description": "A reference to the OCD store instance managed by OPC.",
-                          "____accept": "jsObject"
-                        },
-                        "act": {
-                          "____label": "OPC.act Method",
-                          "____description": "A reference to ObservableProcessController.act method.",
-                          "____accept": "jsFunction"
-                        }
-                      },
-                      "actionRequest": {
-                        "____types": "jsObject",
-                        "test": {
+                        "context": {
+                          "____label": "OPC Context Descriptor",
+                          "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
                           "____types": "jsObject",
-                          "action1": {
+                          "opmBindingPath": {
+                            "____label": "OPM Binding Path",
+                            "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD instance.",
+                            "____accept": "jsString"
+                          },
+                          "ocdi": {
+                            "____label": "OCD Store Instance",
+                            "____description": "A reference to the OCD store instance managed by OPC.",
                             "____accept": "jsObject"
+                          },
+                          "act": {
+                            "____label": "OPC.act Method",
+                            "____description": "A reference to ObservableProcessController.act method.",
+                            "____accept": "jsFunction"
+                          }
+                        },
+                        "actionRequest": {
+                          "____types": "jsObject",
+                          "test": {
+                            "____types": "jsObject",
+                            "action1": {
+                              "____accept": "jsObject"
+                            }
                           }
                         }
-                      }
-                    },
-                    "outputFilterSpec": {
-                      "____label": "No Result (Default)",
-                      "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                      "____accept": "jsUndefined"
-                    },
-                    "inputTypeVIID": "Atx8FjZfYUxmrFTQQW7XvQ",
-                    "inputTypeVDID": "1J_rqmMA7gddYW45vuT3Rw",
-                    "outputTypeVIID": "2Ct2ZVLNFcvpNEjSjPhVcA",
-                    "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                    "operationVDID": "yRqcedsdENbFkPmk76tRBw"
+                      },
+                      "outputFilterSpec": {
+                        "____label": "No Result (Default)",
+                        "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                        "____accept": "jsUndefined"
+                      },
+                      "inputTypeVIID": "Atx8FjZfYUxmrFTQQW7XvQ",
+                      "inputTypeVDID": "1J_rqmMA7gddYW45vuT3Rw",
+                      "outputTypeVIID": "2Ct2ZVLNFcvpNEjSjPhVcA",
+                      "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                      "operationVDID": "yRqcedsdENbFkPmk76tRBw"
+                    }
                   }
                 }
               }
