@@ -44,13 +44,16 @@
                     "scmMap": {},
                     "opmMap": {
                       "cJSBP90NTcu1bJMhCOjbQg": {
-                        "id": "cJSBP90NTcu1bJMhCOjbQg",
-                        "name": "Placeholder OPM",
-                        "description": "A minimally-configured placeholder.",
-                        "opmDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {}
+                        "scm": "vzmMGynKTy2uu6W8R-1rvQ",
+                        "opm": {
+                          "id": "cJSBP90NTcu1bJMhCOjbQg",
+                          "name": "Placeholder OPM",
+                          "description": "A minimally-configured placeholder.",
+                          "opmDataSpec": {
+                            "____types": "jsObject"
+                          },
+                          "steps": {}
+                        }
                       }
                     },
                     "topMap": {},
@@ -158,8 +161,7 @@
                           }
                         }
                       ]
-                    },
-                    "warnings": []
+                    }
                   }
                 }
               }

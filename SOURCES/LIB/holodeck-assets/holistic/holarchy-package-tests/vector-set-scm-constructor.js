@@ -56,7 +56,9 @@ module.exports = [
                                 {
                                     id: "o3Q4YKI_SLOus82xE7Gaag",
                                     name: "Placeholder TOP",
-                                    description: "A minimally configured placeholder."
+                                    description: "A minimally configured placeholder.",
+                                    operatorRequestSpec: { ____accept: "jsObject" },
+                                    bodyFunction: (request_) => { return { error: null, result: false }; }
                                 }
                             ]
                         }

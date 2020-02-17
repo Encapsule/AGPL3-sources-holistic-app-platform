@@ -48,14 +48,14 @@ const factoryResponse = arccore.filter.create({
         },
 
         opm: {
-            ____label: "Observable Process Model Declaration",
-            ____description: "An OPM descriptor (optional) that declares memory and behavior of this software model if specified.",
+            ____label: "Cell Model Behaviors",
+            ____description: "An optional OPM descriptor that if provided will be used to ascribe memory and/or higher-order observable behaviors to this cell model.",
             ____accept: [ "jsNull", "jsObject" ], // further processed in bodyFunction
-            ____defaultValue: null // If opm is left unspecified, then the software model aggregates at least one TransitionOperator or ControllerAction descriptor.
+            ____defaultValue: null // If null, then a valid CM defines at least one TOP or ACT.
         },
 
         operators: {
-            ____label: "Model Operators",
+            ____label: "Cell Model Operators",
             ____description: "An optional array of Transition Operator descriptor objects one for each TransitionOperator defined by this software model.",
             ____types: "jsArray",
             ____defaultValue: [],
@@ -67,7 +67,7 @@ const factoryResponse = arccore.filter.create({
         },
 
         actions: {
-            ____label: "Model Actions",
+            ____label: "Cell Model Actions",
             ____description: "An optional array of controller action descriptor object(s) or equivalent ControllerAction ES6 class instance(s) defined by this software model.",
             ____types: "jsArray",
             ____defaultValue: [],
@@ -78,14 +78,14 @@ const factoryResponse = arccore.filter.create({
             }
         },
 
-        submodels: {
-            ____label: "Submodel Registrations",
-            ____description: "An optional array of Software Model descriptor object(s) and/or SoftwareModel ES6 class instance(s).",
+        subcells: {
+            ____label: "Subcell Model Registrations",
+            ____description: "An optional array of Cell Model descriptor object(s) and/or CellModel ES6 class instance(s).",
             ____types: "jsArray",
             ____defaultValue: [],
-            submodel: {
-                ____label: "Submodel Registration",
-                ____description: "A SRM descriptor or equivalent SoftwareRuntimeModel ES6 class instance.",
+            subcell: {
+                ____label: "Subcell Model Registration",
+                ____description: "A Cell Model descriptor or equivalent CellModel ES6 class instance.",
                 ____accept: "jsObject" // further processed in bodyFunction
             }
         }
@@ -123,8 +123,7 @@ const factoryResponse = arccore.filter.create({
                 opmMap: {},
                 topMap: {},
                 cacMap: {},
-                digraph: null,
-                warnings: []
+                digraph: null
             };
 
             // ================================================================
@@ -148,6 +147,33 @@ const factoryResponse = arccore.filter.create({
             });
 
             // ================================================================
+            // PROCESS CellModel SUBCELL DEPENDENCIES
+            request_.subcells.forEach((subcell_) => {
+                let cell = null;
+                if (subcell_._private && subcell._private["LMFSviNhR8WQoLvtv_YnbQ"]) {
+                    // We know this is a SoftwareRuntimeModel ES6 class instance.
+                    cell = subcell_;
+                } else {
+                    // We presume this is a Software Cell Descriptor (i.e. constructor request object).
+                    cell = new request_.SoftwareCellModel(subcell_);
+                }
+                // cell is now a SoftwareCellModel ES6 class instance.
+                const cellID = cell.getID();
+                // Have we previously processed this SoftwareCellModel definition?
+                if (!response.result.scmMap[cellID]) {
+                    // We have not.
+                    response.result.scmMap[cellID] = { scm: request_.id, cell: cell };
+                    digraph.addVertex({ u: cellID, p: { type: "scm" }});
+                }
+                digraph.addEdge({ e: { u: vertexIndices.scm, v: cellID }, p: { type: "scm-index-link" } });
+                response.result.scmMap = Object.assign(response.result.scmMap, cell._private.scmMap);
+                response.result.opmMap = Object.assign(response.result.opmMap, cell._private.opmMap);
+                response.result.topMap = Object.assign(response.result.topMap, cell._private.topMap);
+                response.result.actMap = Object.assign(response.result.actMap, cell._private.actMap);
+                digraph.fromObject(cell._private.digraph.toJSON());
+            }); // forEach subcell
+
+            // ================================================================
             // PROCESS ObservableProcessModel ASSOCIATION
             if (request_.opm) {
                 let opmVertexID = null;
@@ -157,7 +183,7 @@ const factoryResponse = arccore.filter.create({
                     errors.push(opm.toJSON()); // constructor error string
                 } else {
                     const opmVertexID = opm.getID();
-                    if (!response.result.opmMap[opmVertexID]) { response.result.opmMap[opmVertexID] = opm; }
+                    if (!response.result.opmMap[opmVertexID]) { response.result.opmMap[opmVertexID] = { scm: request_.id, opm: opm }; }
                     digraph.addVertex({ u: opmVertexID, p: { type: "opm" } });
                     digraph.addEdge({ e: { u: indexVertices.opm, v: opmVertexID }, p: { type: "opm-index-link" } });
                     digraph.addEdge({ e: { u: request_.id, v: opmVertexID }, p: { type: "scm-link" } });
@@ -174,7 +200,7 @@ const factoryResponse = arccore.filter.create({
                     errors.push(top.toJSON()); // constructor error string
                 } else {
                     const topVertexID = top.getID();
-                    if (!response.result.topMap[topVertexID]) { response.result.topMap[topVertexID] = top; }
+                    if (!response.result.topMap[topVertexID]) { response.result.topMap[topVertexID] = { scm: request_.id, top: top }; }
                     digraph.addVertex({ u: topVertexID, p: { type: "top" } });
                     digraph.addEdge({ e: { u: indexVertices.top, v: topVertexID }, p: { type: "top-index-link" } });
                     digraph.addEdge({ e: { u: request_.id, v: topVertexID }, p: { type: "scm-link" } });
@@ -191,78 +217,12 @@ const factoryResponse = arccore.filter.create({
                     errors.push(top.toJSON()); // constructor error string
                 } else {
                     const actionVertexID = action.getID();
-                    if (!response.result.cacMap[actionVertexID]) { response.result.cacMap[actionVertexID] = action; }
+                    if (!response.result.cacMap[actionVertexID]) { response.result.cacMap[actionVertexID] = { scm: request_.id, act: action }; }
                     digraph.addVertex({ u: actionVertexID, p: { type: "cac" } });
                     digraph.addEdge({ e: { u: indexVertices.cac, v: cacVertexID }, p: { type: "cac-index-link" } });
                     digraph.addEdge({ e: { u: request_.id, v: cacVertexID }, p: { type: "scm-link" } });
                 }
             }
-
-            // PROCESS SUBMODELS (RuntimeCellModel (RCM) for use in a RuntimeCellProcessor (RCP) instance)
-            /*
-            request._submodels.forEach((submodel_) => {
-
-                let srm = null;
-
-                if (submodel_._private && submodel._private["LMFSviNhR8WQoLvtv_YnbQ"]) {
-                    // We know this is a SoftwareRuntimeModel ES6 class instance.
-                    srm = submodel_;
-                } else {
-                    srm = new request_.SoftwareRuntimeModel(submodel_);
-                }
-
-                // The srm variable is now set to a reference to a SoftwareRuntimeModel ES6 class instance.
-
-                if (!response.result.srmMap[srm._private.id]) {
-
-                    // We have not already processed this SRM.
-
-                    response.result.srmMap[srm._private.id] = srm;
-
-                    digraph.addVertex({ u: srm._private.id, p: { type: "srm" }});
-                    digraph.addEdge({
-                        e: {
-                            u: srm.isValid()?"INDEX_SRM_K3M5vcN7TQCdonkvj-TfUQ":"INDEX_SRM_ZOMBIE_gNOouXQcS2CqpZqVsdFnzw",
-                            v: srm._private.id
-                        },
-                        p: { type: srm.isValid()?"srm-index-link":"srm-zombie-index-link" }
-                    });
-
-                    if (srm.isValid()) {
-
-                        Object.keys(srm._private.srmMap).forEach((srmID_) => {
-                            if (!response.result.srmMap[srm._private.id]) {
-                                response.result.srmMap[srm._private.id] = srm;
-                            }
-                        });
-
-                        Object.keys(srm._private.opmMap).forEach((opmID_) => {
-                            if (!response.result.opmMap[opmID_]) {
-                                response.result.opmMap[opmID_] = srm._private.opmMap[opmID_];
-                            }
-                        });
-
-                        Object.keys(srm._private.topMap).forEach((topID_) => {
-                            if (!response.result.topMap[topID_]) {
-                                response.result.topMap[topID_] = srm._private.topMap[topID_];
-                            }
-                        });
-
-                        Object.keys(srm._private.cacMap).forEach((cacID_) => {
-                            if (!response.result.cacMap[cacID_]) {
-                                response.result.cacMap[cacID_] = srm._private.cacMap[cacID_];
-                            }
-                        });
-
-                        digraph.fromObject(srm._private.digraph.toJSON());
-
-                    } // srm.isValid()
-
-                } // srm not already registered
-
-            }); // forEach submodels
-            DISABLED FOR NOW */
-
 
             break;
         }

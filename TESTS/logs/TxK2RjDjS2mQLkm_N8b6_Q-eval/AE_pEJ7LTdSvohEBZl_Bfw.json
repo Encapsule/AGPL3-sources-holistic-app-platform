@@ -18,7 +18,10 @@
                       {
                         "id": "o3Q4YKI_SLOus82xE7Gaag",
                         "name": "Placeholder TOP",
-                        "description": "A minimally configured placeholder."
+                        "description": "A minimally configured placeholder.",
+                        "operatorRequestSpec": {
+                          "____accept": "jsObject"
+                        }
                       }
                     ]
                   }
@@ -37,8 +40,167 @@
             "harnessDispatch": {
               "FAvFLw0XQN6yomNs13r21g": {
                 "AE_pEJ7LTdSvohEBZl_Bfw": {
-                  "isValid": false,
-                  "toJSON": "SoftwareCellModel::constructor for [AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::SoftwareCellModel::constructor Filter] failed while performing main operation. TransitionOperator registration at request path ~.operators[0] is an invalid instance due to constructor error: TransitionOperator::constructor for [o3Q4YKI_SLOus82xE7Gaag::Placeholder TOP] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~.operatorRequestSpec': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                  "isValid": true,
+                  "toJSON": {
+                    "LMFSviNhR8WQoLvtv_YnbQ": true,
+                    "id": "AE_pEJ7LTdSvohEBZl_Bfw",
+                    "name": "SoftwareCellModel Constructor #3",
+                    "description": "Try to construct a minimally configured SoftwareCellModel with a single TransitionOperator plug-in.",
+                    "scmMap": {},
+                    "opmMap": {},
+                    "topMap": {
+                      "o3Q4YKI_SLOus82xE7Gaag": {
+                        "scm": "AE_pEJ7LTdSvohEBZl_Bfw",
+                        "top": {
+                          "filterDescriptor": {
+                            "operationID": "o3Q4YKI_SLOus82xE7Gaag",
+                            "operationName": "Placeholder TOP",
+                            "operationDescription": "A minimally configured placeholder.",
+                            "inputFilterSpec": {
+                              "____label": "Placeholder TOP Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "opmBindingPath": {
+                                  "____label": "OPM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current OPM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "ofjO8lEELEezP_Th2FWN7w",
+                            "inputTypeVDID": "-mPTG2KXPMELdmliQ1M6tA",
+                            "outputTypeVIID": "jRyE9cAVqGCeOzcPg81fwg",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "NVc3RBSNn5PA1Suc9J93cg"
+                          }
+                        }
+                      }
+                    },
+                    "cacMap": {},
+                    "digraph": {
+                      "name": "[AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3 SCM Holarchy Digraph",
+                      "description": "A directed graph model of SCM relationships [AE_pEJ7LTdSvohEBZl_Bfw::SoftwareCellModel Constructor #3].",
+                      "vlist": [
+                        {
+                          "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "AE_pEJ7LTdSvohEBZl_Bfw",
+                          "p": {
+                            "type": "scm"
+                          }
+                        },
+                        {
+                          "u": "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg",
+                          "p": {
+                            "type": "index"
+                          }
+                        },
+                        {
+                          "u": "o3Q4YKI_SLOus82xE7Gaag",
+                          "p": {
+                            "type": "top"
+                          }
+                        }
+                      ],
+                      "elist": [
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_OPM_WEn_h3N4Q-CV3AUpU7c4Dw"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                            "v": "INDEX_CAC_fQRPJmi8SKODgN0vFbPWeg"
+                          },
+                          "p": {
+                            "type": "root-index-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "AE_pEJ7LTdSvohEBZl_Bfw",
+                            "v": "o3Q4YKI_SLOus82xE7Gaag"
+                          },
+                          "p": {
+                            "type": "scm-link"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",
+                            "v": "o3Q4YKI_SLOus82xE7Gaag"
+                          },
+                          "p": {
+                            "type": "top-index-link"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
