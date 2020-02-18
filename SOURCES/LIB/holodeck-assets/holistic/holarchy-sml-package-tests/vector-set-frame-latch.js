@@ -13,7 +13,7 @@ module.exports = [
         vectorRequest: {
             holistic: {
                 holarchy: {
-                    ObservableProcessModel: {
+                    AbstractProcessModel: {
                         constructorRequest: sml.models.test.declaration.observableFrameLatch
                     }
                 }

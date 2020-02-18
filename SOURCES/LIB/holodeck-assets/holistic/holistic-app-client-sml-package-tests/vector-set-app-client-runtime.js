@@ -6,12 +6,12 @@ module.exports = [
 
     {
         id: "sThxzN9-QuKCgErSNYhcQQ",
-        name: "Holistic App Client OPM #1",
-        description: "Attempt to instantiate the current App Client Runtime OPM via our test harness.",
+        name: "Holistic App Client APM #1",
+        description: "Attempt to instantiate the current App Client Runtime APM via our test harness.",
         vectorRequest: {
             holistic: {
                 holarchy: {
-                    ObservableProcessModel: {
+                    AbstractProcessModel: {
                         constructorRequest: clientSML.client.test.declaration.appClientRuntime
                     }
                 }
@@ -21,7 +21,7 @@ module.exports = [
 
     {
         id: "Va0br1teR9Ce348EfkUAdg",
-        name: "Holistic App Client OPM ControllerAction: Hook Events",
+        name: "Holistic App Client APM ControllerAction: Hook Events",
         description: "Attempt to instantiate ControllerAction Hook Events via our test harness.",
         vectorRequest: {
             holistic: {

@@ -28,9 +28,9 @@
                       [
                         {
                           "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                          "name": "OPM Test A",
-                          "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
-                          "opmDataSpec": {
+                          "name": "APM Test A",
+                          "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -61,9 +61,9 @@
                         },
                         {
                           "id": "SyCUD3kpQ8mtYbV5A_4BPA",
-                          "name": "OPM Test B",
-                          "description": "A simple test OPM (force transition operator error - operator returns transport error)",
-                          "opmDataSpec": {
+                          "name": "APM Test B",
+                          "description": "A simple test APM (force transition operator error - operator returns transport error)",
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -94,9 +94,9 @@
                         },
                         {
                           "id": "Pkr1EErLSiiHQRt8gCaO0Q",
-                          "name": "OPM Test C",
-                          "description": "A simple test OPM (force transition operator error - operator throws an Error)",
-                          "opmDataSpec": {
+                          "name": "APM Test C",
+                          "description": "A simple test APM (force transition operator error - operator throws an Error)",
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -128,8 +128,8 @@
                         {
                           "id": "ZFpRfMRETDqavS3EqEuv1Q",
                           "name": "OPC Test D",
-                          "description": "A simple test OPM",
-                          "opmDataSpec": {
+                          "description": "A simple test APM",
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {}
@@ -165,9 +165,9 @@
                     "opmMap": {
                       "_vC2O7DGTZ22R5hvxpy0WQ": {
                         "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                        "name": "OPM Test A",
-                        "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
-                        "opmDataSpec": {
+                        "name": "APM Test A",
+                        "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -198,9 +198,9 @@
                       },
                       "SyCUD3kpQ8mtYbV5A_4BPA": {
                         "id": "SyCUD3kpQ8mtYbV5A_4BPA",
-                        "name": "OPM Test B",
-                        "description": "A simple test OPM (force transition operator error - operator returns transport error)",
-                        "opmDataSpec": {
+                        "name": "APM Test B",
+                        "description": "A simple test APM (force transition operator error - operator returns transport error)",
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -231,9 +231,9 @@
                       },
                       "Pkr1EErLSiiHQRt8gCaO0Q": {
                         "id": "Pkr1EErLSiiHQRt8gCaO0Q",
-                        "name": "OPM Test C",
-                        "description": "A simple test OPM (force transition operator error - operator throws an Error)",
-                        "opmDataSpec": {
+                        "name": "APM Test C",
+                        "description": "A simple test APM (force transition operator error - operator throws an Error)",
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -265,8 +265,8 @@
                       "ZFpRfMRETDqavS3EqEuv1Q": {
                         "id": "ZFpRfMRETDqavS3EqEuv1Q",
                         "name": "OPC Test D",
-                        "description": "A simple test OPM",
-                        "opmDataSpec": {
+                        "description": "A simple test APM",
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {}
@@ -277,9 +277,9 @@
                         "specPath": "~.test",
                         "opmiRef": {
                           "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                          "name": "OPM Test A",
-                          "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
-                          "opmDataSpec": {
+                          "name": "APM Test A",
+                          "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -512,9 +512,9 @@
                                   "initialStep": "uninitialized",
                                   "opmRef": {
                                     "id": "_vC2O7DGTZ22R5hvxpy0WQ",
-                                    "name": "OPM Test A",
-                                    "description": "A simple test OPM (force transition operator error - no registered actions/no-plug-in for request).",
-                                    "opmDataSpec": {
+                                    "name": "APM Test A",
+                                    "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
+                                    "ocdDataSpec": {
                                       "____types": "jsObject"
                                     },
                                     "steps": {

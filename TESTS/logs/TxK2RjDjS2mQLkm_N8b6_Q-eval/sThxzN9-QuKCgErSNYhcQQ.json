@@ -1,20 +1,20 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "XsVRVdrxTNvzPj7OQrDwAg": {
+    "XsWRwtrxCUvzPsiaQrCA6Q": {
       "sThxzN9-QuKCgErSNYhcQQ": {
         "harnessRequest": {
           "id": "sThxzN9-QuKCgErSNYhcQQ",
-          "name": "Holistic App Client OPM #1",
-          "description": "Attempt to instantiate the current App Client Runtime OPM via our test harness.",
+          "name": "Holistic App Client APM #1",
+          "description": "Attempt to instantiate the current App Client Runtime APM via our test harness.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "ObservableProcessModel": {
+                "AbstractProcessModel": {
                   "constructorRequest": {
                     "id": "PPL45jw5RDWSMNsB97WIWg",
                     "name": "Holistic Client App Runtime",
                     "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                    "opmDataSpec": {
+                    "ocdDataSpec": {
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "PPL45jw5RDWSMNsB97WIWg": {
@@ -183,7 +183,7 @@
                     "id": "PPL45jw5RDWSMNsB97WIWg",
                     "name": "Holistic Client App Runtime",
                     "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                    "opmDataSpec": {
+                    "ocdDataSpec": {
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "PPL45jw5RDWSMNsB97WIWg": {
@@ -408,7 +408,7 @@
                     }
                   },
                   "getDigraph": {
-                    "name": "[PPL45jw5RDWSMNsB97WIWg::Holistic Client App Runtime] OPM Digraph",
+                    "name": "[PPL45jw5RDWSMNsB97WIWg::Holistic Client App Runtime] APM Digraph",
                     "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                     "vlist": [
                       {

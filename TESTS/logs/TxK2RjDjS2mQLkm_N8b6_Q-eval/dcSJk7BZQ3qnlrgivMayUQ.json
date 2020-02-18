@@ -30,7 +30,7 @@
                           "id": "I3ja3B00Rj-PIXnDrzQzNg",
                           "name": "OPM Eval P3 Test #1",
                           "description": "A simple OPM (force controller action enter error - bad message)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -67,7 +67,7 @@
                           "id": "71VGW5zbRLiDf7E_2tFJ3g",
                           "name": "OPM Eval P3 Test #2",
                           "description": "A simple OPM (force controller action enter error - action transport error)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -104,7 +104,7 @@
                           "id": "maPNVFgWTduQ5vMiDU2sEw",
                           "name": "OPM Eval P3 Test #3",
                           "description": "A simple OPM (force controller action enter error - action exception)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -1030,7 +1030,7 @@
                         "id": "I3ja3B00Rj-PIXnDrzQzNg",
                         "name": "OPM Eval P3 Test #1",
                         "description": "A simple OPM (force controller action enter error - bad message)",
-                        "opmDataSpec": {
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -1067,7 +1067,7 @@
                         "id": "71VGW5zbRLiDf7E_2tFJ3g",
                         "name": "OPM Eval P3 Test #2",
                         "description": "A simple OPM (force controller action enter error - action transport error)",
-                        "opmDataSpec": {
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -1104,7 +1104,7 @@
                         "id": "maPNVFgWTduQ5vMiDU2sEw",
                         "name": "OPM Eval P3 Test #3",
                         "description": "A simple OPM (force controller action enter error - action exception)",
-                        "opmDataSpec": {
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -1145,7 +1145,7 @@
                           "id": "71VGW5zbRLiDf7E_2tFJ3g",
                           "name": "OPM Eval P3 Test #2",
                           "description": "A simple OPM (force controller action enter error - action transport error)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -2267,7 +2267,7 @@
                                     "id": "71VGW5zbRLiDf7E_2tFJ3g",
                                     "name": "OPM Eval P3 Test #2",
                                     "description": "A simple OPM (force controller action enter error - action transport error)",
-                                    "opmDataSpec": {
+                                    "ocdDataSpec": {
                                       "____types": "jsObject"
                                     },
                                     "steps": {

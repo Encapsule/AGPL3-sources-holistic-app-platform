@@ -27,10 +27,10 @@
                       [
                         {
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
-                          "name": "Observable Frame Latch",
+                          "name": "Abstract Frame Latch",
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "opmDataSpec": {
-                            "____label": "Observable Frame Latch",
+                          "ocdDataSpec": {
+                            "____label": "Abstract Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "clock": {
@@ -128,7 +128,7 @@
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
                           "name": "d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____label": "d2r2/React Client Display Adaptor Memory",
                             "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                             "____types": "jsObject",
@@ -202,7 +202,7 @@
                           },
                           "steps": {
                             "uninitialized": {
-                              "description": "Default OPM process step.",
+                              "description": "Default APM process step.",
                               "actions": {
                                 "enter": [],
                                 "exit": []
@@ -1568,10 +1568,10 @@
                     "opmMap": {
                       "z_mTe02hSWmaM1iRO1pBeA": {
                         "id": "z_mTe02hSWmaM1iRO1pBeA",
-                        "name": "Observable Frame Latch",
+                        "name": "Abstract Frame Latch",
                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                        "opmDataSpec": {
-                          "____label": "Observable Frame Latch",
+                        "ocdDataSpec": {
+                          "____label": "Abstract Frame Latch",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "clock": {
@@ -1669,7 +1669,7 @@
                         "id": "IxoJ83u0TXmG7PLUYBvsyg",
                         "name": "d2r2/React Client Display Adaptor",
                         "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                        "opmDataSpec": {
+                        "ocdDataSpec": {
                           "____label": "d2r2/React Client Display Adaptor Memory",
                           "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                           "____types": "jsObject",
@@ -1743,7 +1743,7 @@
                         },
                         "steps": {
                           "uninitialized": {
-                            "description": "Default OPM process step.",
+                            "description": "Default APM process step.",
                             "actions": {
                               "enter": [],
                               "exit": []
@@ -2006,7 +2006,7 @@
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
                           "name": "d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____label": "d2r2/React Client Display Adaptor Memory",
                             "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                             "____types": "jsObject",
@@ -2080,7 +2080,7 @@
                           },
                           "steps": {
                             "uninitialized": {
-                              "description": "Default OPM process step.",
+                              "description": "Default APM process step.",
                               "actions": {
                                 "enter": [],
                                 "exit": []
@@ -2340,10 +2340,10 @@
                         "specPath": "~.d2r2ReactClientOutputProcessor.inputs.clock",
                         "opmiRef": {
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
-                          "name": "Observable Frame Latch",
+                          "name": "Abstract Frame Latch",
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "opmDataSpec": {
-                            "____label": "Observable Frame Latch",
+                          "ocdDataSpec": {
+                            "____label": "Abstract Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "clock": {
@@ -2481,7 +2481,7 @@
                             "____defaultValue": null
                           },
                           "clock": {
-                            "____label": "Observable Frame Latch",
+                            "____label": "Abstract Frame Latch",
                             "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
                             "____types": "jsObject",
                             "____appdsl": {
@@ -3836,7 +3836,7 @@
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                                    "opmDataSpec": {
+                                    "ocdDataSpec": {
                                       "____label": "d2r2/React Client Display Adaptor Memory",
                                       "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                       "____types": "jsObject",
@@ -3910,7 +3910,7 @@
                                     },
                                     "steps": {
                                       "uninitialized": {
-                                        "description": "Default OPM process step.",
+                                        "description": "Default APM process step.",
                                         "actions": {
                                           "enter": [],
                                           "exit": []
@@ -4258,10 +4258,10 @@
                                   "initialStep": "uninitialized",
                                   "opmRef": {
                                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                    "name": "Observable Frame Latch",
+                                    "name": "Abstract Frame Latch",
                                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                    "opmDataSpec": {
-                                      "____label": "Observable Frame Latch",
+                                    "ocdDataSpec": {
+                                      "____label": "Abstract Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "clock": {
@@ -4486,7 +4486,7 @@
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                                    "opmDataSpec": {
+                                    "ocdDataSpec": {
                                       "____label": "d2r2/React Client Display Adaptor Memory",
                                       "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                       "____types": "jsObject",
@@ -4560,7 +4560,7 @@
                                     },
                                     "steps": {
                                       "uninitialized": {
-                                        "description": "Default OPM process step.",
+                                        "description": "Default APM process step.",
                                         "actions": {
                                           "enter": [],
                                           "exit": []
@@ -4932,10 +4932,10 @@
                                   "initialStep": "updated",
                                   "opmRef": {
                                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                    "name": "Observable Frame Latch",
+                                    "name": "Abstract Frame Latch",
                                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                    "opmDataSpec": {
-                                      "____label": "Observable Frame Latch",
+                                    "ocdDataSpec": {
+                                      "____label": "Abstract Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "clock": {
@@ -5158,7 +5158,7 @@
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                                    "opmDataSpec": {
+                                    "ocdDataSpec": {
                                       "____label": "d2r2/React Client Display Adaptor Memory",
                                       "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                                       "____types": "jsObject",
@@ -5232,7 +5232,7 @@
                                     },
                                     "steps": {
                                       "uninitialized": {
-                                        "description": "Default OPM process step.",
+                                        "description": "Default APM process step.",
                                         "actions": {
                                           "enter": [],
                                           "exit": []
@@ -5604,10 +5604,10 @@
                                   "initialStep": "waiting",
                                   "opmRef": {
                                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                    "name": "Observable Frame Latch",
+                                    "name": "Abstract Frame Latch",
                                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                    "opmDataSpec": {
-                                      "____label": "Observable Frame Latch",
+                                    "ocdDataSpec": {
+                                      "____label": "Abstract Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "clock": {

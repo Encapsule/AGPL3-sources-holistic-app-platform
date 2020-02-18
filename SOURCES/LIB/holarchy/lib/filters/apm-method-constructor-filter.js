@@ -1,16 +1,16 @@
-// opm-method-constructor-filter.js
+// apm-method-constructor-filter.js
 
 const arccore = require("@encapsule/arccore");
 
-const inputFilterSpec = require("./iospecs/opm-method-constructor-input-spec");
-const outputFilterSpec = require("./iospecs/opm-method-constructor-output-spec");
+const inputFilterSpec = require("./iospecs/apm-method-constructor-input-spec");
+const outputFilterSpec = require("./iospecs/apm-method-constructor-output-spec");
 
 // Accepts developer app state controller declaration input. Produces a DirectedGraph model of the app state controller.
 
 const factoryResponse = arccore.filter.create({
     operationID: "XoPnz1p9REe-XO3mKGII3w",
-    operationName: "OPM Constructor Request Processor",
-    operationDescription: "Filter used to normalize the request descriptor object passed to ObservableProcessModel constructor function.",
+    operationName: "APM Constructor Request Processor",
+    operationDescription: "Filter used to normalize the request descriptor object passed to AbstractProcessModel::constructor function.",
     inputFilterSpec,
     outputFilterSpec,
 
@@ -34,19 +34,19 @@ const factoryResponse = arccore.filter.create({
 
             let filterFactoryResponse = arccore.filter.create({
                 operationID: request_.id,
-                operationName: "OPM Filter Spec Validator",
-                operationDescription: "Validates the developer-defined opmDataSpec.",
-                inputFilterSpec: request_.opmDataSpec
+                operationName: "APM Filter Spec Validator",
+                operationDescription: "Validates the developer-defined ocdDataSpec.",
+                inputFilterSpec: request_.ocdDataSpec
             });
             if (filterFactoryResponse.error) {
-                errors.push("Error validating developer-specified OPM filter spec.");
+                errors.push("Error validating developer-specified APM filter spec.");
                 errors.push(filterFactoryResponse.error);
                 break;
             }
-            let opmDataFilter = filterFactoryResponse.result;
+            let ocdDataFilter = filterFactoryResponse.result;
 
             let graphFactoryResponse = arccore.graph.directed.create({
-                name: `[${request_.id}::${request_.name}] OPM Digraph`,
+                name: `[${request_.id}::${request_.name}] APM Digraph`,
                 description: request_.description
             });
             if (graphFactoryResponse.error) {
@@ -54,17 +54,17 @@ const factoryResponse = arccore.filter.create({
                 errors.push(graphFactoryResponse.error);
                 break;
             }
-            let opmDigraph = graphFactoryResponse.result;
+            let apmDigraph = graphFactoryResponse.result;
 
-            // Create vertices in the directed graph that represent the controller's set of finite states (called steps in an OPM).
+            // Create vertices in the directed graph that represent the controller's set of finite states (called steps in an APM).
             for (let stepName_ in request_.steps) {
                 let stepDescriptor = request_.steps[stepName_];
-                if (opmDigraph.isVertex(stepName_)) {
+                if (apmDigraph.isVertex(stepName_)) {
                     errors.push("Error while evaluating observable process model step declaration.");
                     errors.push("Invalid duplicate step declaration '" + stepName_ + "'.");
                     break;
                 }
-                opmDigraph.addVertex({
+                apmDigraph.addVertex({
                     u: stepName_,
                     p: {
                         description: stepDescriptor.description,
@@ -82,7 +82,7 @@ const factoryResponse = arccore.filter.create({
 
                 for (let transitionModel of stepDescriptor.transitions) {
 
-                    if (!opmDigraph.isVertex(transitionModel.nextStep)) {
+                    if (!apmDigraph.isVertex(transitionModel.nextStep)) {
                         errors.push("Error while evalatuing step '" + stepName_ + "'.");
                         errors.push("Invalid transition model specifies unknown next step target '" + transitionModel.nextStep + "'.");
                         break;
@@ -98,7 +98,7 @@ const factoryResponse = arccore.filter.create({
                             operator: transitionModel.transitionIf
                         }
                     };
-                    opmDigraph.addEdge(transitionEdgeDescriptor);
+                    apmDigraph.addEdge(transitionEdgeDescriptor);
                 } // end for transitionModel of stepDescriptor.transitions
             } // end for stepDescriptor of request_.steps
 
@@ -108,8 +108,8 @@ const factoryResponse = arccore.filter.create({
 
             response.result = {
                 declaration: request_,
-                digraph: opmDigraph,
-                opmDataFilter: opmDataFilter
+                digraph: apmDigraph,
+                ocdDataFilter: ocdDataFilter
             };
 
             break;

@@ -1,7 +1,7 @@
 
 // AbstractProcessModel.js
 
-const constructorRequestFilter = require("./filters/opm-method-constructor-filter");
+const constructorRequestFilter = require("./filters/apm-method-constructor-filter");
 
 class AbstractProcessModel {
 
@@ -62,7 +62,7 @@ class AbstractProcessModel {
     }
 
     getDataSpec() {
-        return (this.isValid()?this._private.declaration.opmDataSpec:this._private.constructorError);
+        return (this.isValid()?this._private.declaration.ocdDataSpec:this._private.constructorError);
     }
 
     getDigraph() {

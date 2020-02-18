@@ -28,9 +28,9 @@ module.exports = [
                             id: "vzmMGynKTy2uu6W8R-1rvQ",
                             name: "SoftewareCellModel Constructor #2",
                             description: "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
-                            opm: {
+                            apm: {
                                 id: "cJSBP90NTcu1bJMhCOjbQg",
-                                name: "Placeholder OPM",
+                                name: "Placeholder APM",
                                 description: "A minimally-configured placeholder."
                             }
                         }

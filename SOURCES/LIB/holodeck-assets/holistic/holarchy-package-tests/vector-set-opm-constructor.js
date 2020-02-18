@@ -26,8 +26,8 @@ module.exports = [
                     AbstractProcessModel: {
                         constructorRequest: {
                             id: "VwWYI4ReSTSfqSnoVXXC-w",
-                            name: "OPM #2",
-                            description: "OPM instance test #2 (minimal constructor request)"
+                            name: "APM #2",
+                            description: "APM instance test #2 (minimal constructor request)"
                         }
                     }
                 }
@@ -47,7 +47,7 @@ module.exports = [
                             id: "HwB8EphzRkSG7AeoISMctQ",
                             name: "ObsevableProcessModel constructor #3",
                             description: "AbstractProcessModel constructor test #3 (OCD test #1)",
-                            opmDataSpec: {
+                            ocdDataSpec: {
                                 ____bullshit: true
                             }
                         }

@@ -4,7 +4,7 @@
       "Va0br1teR9Ce348EfkUAdg": {
         "harnessRequest": {
           "id": "Va0br1teR9Ce348EfkUAdg",
-          "name": "Holistic App Client OPM ControllerAction: Hook Events",
+          "name": "Holistic App Client APM ControllerAction: Hook Events",
           "description": "Attempt to instantiate ControllerAction Hook Events via our test harness.",
           "vectorRequest": {
             "holistic": {

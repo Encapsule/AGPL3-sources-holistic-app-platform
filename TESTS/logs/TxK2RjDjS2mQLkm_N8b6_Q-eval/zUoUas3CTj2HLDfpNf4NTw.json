@@ -1,20 +1,20 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "XsVRVdrxTNvzPj7OQrDwAg": {
+    "XsWRwtrxCUvzPsiaQrCA6Q": {
       "zUoUas3CTj2HLDfpNf4NTw": {
         "harnessRequest": {
           "id": "zUoUas3CTj2HLDfpNf4NTw",
-          "name": "d2r2/React Client Output Processor OPM #1",
-          "description": "Attempt to instantiate the current d2r2/React Client Display Adaptor OPM declaration via our test harness.",
+          "name": "d2r2/React Client Output Processor APM #1",
+          "description": "Attempt to instantiate the current d2r2/React Client Display Adaptor APM declaration via our test harness.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "ObservableProcessModel": {
+                "AbstractProcessModel": {
                   "constructorRequest": {
                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
                     "name": "d2r2/React Client Display Adaptor",
                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                    "opmDataSpec": {
+                    "ocdDataSpec": {
                       "____label": "d2r2/React Client Display Adaptor Memory",
                       "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                       "____types": "jsObject",
@@ -88,7 +88,7 @@
                     },
                     "steps": {
                       "uninitialized": {
-                        "description": "Default OPM process step.",
+                        "description": "Default APM process step.",
                         "transitions": [
                           {
                             "transitionIf": {
@@ -337,7 +337,7 @@
                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
                     "name": "d2r2/React Client Display Adaptor",
                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                    "opmDataSpec": {
+                    "ocdDataSpec": {
                       "____label": "d2r2/React Client Display Adaptor Memory",
                       "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
                       "____types": "jsObject",
@@ -411,7 +411,7 @@
                     },
                     "steps": {
                       "uninitialized": {
-                        "description": "Default OPM process step.",
+                        "description": "Default APM process step.",
                         "actions": {
                           "enter": [],
                           "exit": []
@@ -742,13 +742,13 @@
                     }
                   },
                   "getDigraph": {
-                    "name": "[IxoJ83u0TXmG7PLUYBvsyg::d2r2/React Client Display Adaptor] OPM Digraph",
+                    "name": "[IxoJ83u0TXmG7PLUYBvsyg::d2r2/React Client Display Adaptor] APM Digraph",
                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                     "vlist": [
                       {
                         "u": "uninitialized",
                         "p": {
-                          "description": "Default OPM process step.",
+                          "description": "Default APM process step.",
                           "actions": {
                             "enter": [],
                             "exit": []

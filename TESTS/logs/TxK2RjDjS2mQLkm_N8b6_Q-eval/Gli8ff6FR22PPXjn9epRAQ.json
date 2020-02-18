@@ -30,7 +30,7 @@
                           "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
                           "name": "OPM Eval P2 Test #1",
                           "description": "A simple test OPM (force controller action exit error - bad message)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -67,7 +67,7 @@
                           "id": "P-uhpNlrTseMNDG3D9ahRA",
                           "name": "OPM Eval P2 Test #2",
                           "description": "A simple test OPM (force controller action exit error - action transport error)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -104,7 +104,7 @@
                           "id": "alBMdhnYSbijGj64jxm92g",
                           "name": "OPM Eval P2 Test #3",
                           "description": "A simple test OPM (force controller action exit - action exception)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -927,7 +927,7 @@
                         "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
                         "name": "OPM Eval P2 Test #1",
                         "description": "A simple test OPM (force controller action exit error - bad message)",
-                        "opmDataSpec": {
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -964,7 +964,7 @@
                         "id": "P-uhpNlrTseMNDG3D9ahRA",
                         "name": "OPM Eval P2 Test #2",
                         "description": "A simple test OPM (force controller action exit error - action transport error)",
-                        "opmDataSpec": {
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -1001,7 +1001,7 @@
                         "id": "alBMdhnYSbijGj64jxm92g",
                         "name": "OPM Eval P2 Test #3",
                         "description": "A simple test OPM (force controller action exit - action exception)",
-                        "opmDataSpec": {
+                        "ocdDataSpec": {
                           "____types": "jsObject"
                         },
                         "steps": {
@@ -1042,7 +1042,7 @@
                           "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
                           "name": "OPM Eval P2 Test #1",
                           "description": "A simple test OPM (force controller action exit error - bad message)",
-                          "opmDataSpec": {
+                          "ocdDataSpec": {
                             "____types": "jsObject"
                           },
                           "steps": {
@@ -2062,7 +2062,7 @@
                                     "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
                                     "name": "OPM Eval P2 Test #1",
                                     "description": "A simple test OPM (force controller action exit error - bad message)",
-                                    "opmDataSpec": {
+                                    "ocdDataSpec": {
                                       "____types": "jsObject"
                                     },
                                     "steps": {

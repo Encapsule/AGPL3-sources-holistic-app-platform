@@ -1,6 +1,6 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "XsVRVdrxTNvzPj7OQrDwAg": {
+    "XsWRwtrxCUvzPsiaQrCA6Q": {
       "VyQv8NaWTAuoY0daxO9mzQ": {
         "harnessRequest": {
           "id": "VyQv8NaWTAuoY0daxO9mzQ",
@@ -9,12 +9,12 @@
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "ObservableProcessModel": {
+                "AbstractProcessModel": {
                   "constructorRequest": {
                     "id": "Hsu-43zBRgqHItCPWPiBng",
                     "name": "Holistic Client App View Processor",
                     "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
-                    "opmDataSpec": {
+                    "ocdDataSpec": {
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "Hsu-43zBRgqHItCPWPiBng": {
@@ -145,7 +145,7 @@
                     "id": "Hsu-43zBRgqHItCPWPiBng",
                     "name": "Holistic Client App View Processor",
                     "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
-                    "opmDataSpec": {
+                    "ocdDataSpec": {
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "Hsu-43zBRgqHItCPWPiBng": {
@@ -325,7 +325,7 @@
                     }
                   },
                   "getDigraph": {
-                    "name": "[Hsu-43zBRgqHItCPWPiBng::Holistic Client App View Processor] OPM Digraph",
+                    "name": "[Hsu-43zBRgqHItCPWPiBng::Holistic Client App View Processor] APM Digraph",
                     "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                     "vlist": [
                       {

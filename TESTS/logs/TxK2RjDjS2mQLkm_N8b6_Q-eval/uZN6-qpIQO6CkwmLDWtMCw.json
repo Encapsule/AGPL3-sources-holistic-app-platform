@@ -31,10 +31,10 @@
                       [
                         {
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
-                          "name": "Observable Frame Latch",
+                          "name": "Abstract Frame Latch",
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "opmDataSpec": {
-                            "____label": "Observable Frame Latch",
+                          "ocdDataSpec": {
+                            "____label": "Abstract Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "clock": {
@@ -1188,10 +1188,10 @@
                     "opmMap": {
                       "z_mTe02hSWmaM1iRO1pBeA": {
                         "id": "z_mTe02hSWmaM1iRO1pBeA",
-                        "name": "Observable Frame Latch",
+                        "name": "Abstract Frame Latch",
                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                        "opmDataSpec": {
-                          "____label": "Observable Frame Latch",
+                        "ocdDataSpec": {
+                          "____label": "Abstract Frame Latch",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "clock": {
@@ -1291,10 +1291,10 @@
                         "specPath": "~.frameLatch",
                         "opmiRef": {
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
-                          "name": "Observable Frame Latch",
+                          "name": "Abstract Frame Latch",
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "opmDataSpec": {
-                            "____label": "Observable Frame Latch",
+                          "ocdDataSpec": {
+                            "____label": "Abstract Frame Latch",
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "clock": {
@@ -1417,7 +1417,7 @@
                           "____accept": "jsString",
                           "____defaultValue": "default"
                         },
-                        "____label": "Observable Frame Latch",
+                        "____label": "Abstract Frame Latch",
                         "____defaultValue": {},
                         "clock": {
                           "____accept": "jsBoolean",
@@ -2640,10 +2640,10 @@
                                   "initialStep": "uninitialized",
                                   "opmRef": {
                                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                    "name": "Observable Frame Latch",
+                                    "name": "Abstract Frame Latch",
                                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                    "opmDataSpec": {
-                                      "____label": "Observable Frame Latch",
+                                    "ocdDataSpec": {
+                                      "____label": "Abstract Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "clock": {
@@ -2855,10 +2855,10 @@
                                   "initialStep": "updated",
                                   "opmRef": {
                                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                    "name": "Observable Frame Latch",
+                                    "name": "Abstract Frame Latch",
                                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                    "opmDataSpec": {
-                                      "____label": "Observable Frame Latch",
+                                    "ocdDataSpec": {
+                                      "____label": "Abstract Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "clock": {
@@ -3068,10 +3068,10 @@
                                   "initialStep": "waiting",
                                   "opmRef": {
                                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                    "name": "Observable Frame Latch",
+                                    "name": "Abstract Frame Latch",
                                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                    "opmDataSpec": {
-                                      "____label": "Observable Frame Latch",
+                                    "ocdDataSpec": {
+                                      "____label": "Abstract Frame Latch",
                                       "____types": "jsObject",
                                       "____defaultValue": {},
                                       "clock": {
@@ -3311,10 +3311,10 @@
                                       "initialStep": "waiting",
                                       "opmRef": {
                                         "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                        "name": "Observable Frame Latch",
+                                        "name": "Abstract Frame Latch",
                                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                        "opmDataSpec": {
-                                          "____label": "Observable Frame Latch",
+                                        "ocdDataSpec": {
+                                          "____label": "Abstract Frame Latch",
                                           "____types": "jsObject",
                                           "____defaultValue": {},
                                           "clock": {
@@ -3517,10 +3517,10 @@
                                       "initialStep": "updated",
                                       "opmRef": {
                                         "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                        "name": "Observable Frame Latch",
+                                        "name": "Abstract Frame Latch",
                                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                        "opmDataSpec": {
-                                          "____label": "Observable Frame Latch",
+                                        "ocdDataSpec": {
+                                          "____label": "Abstract Frame Latch",
                                           "____types": "jsObject",
                                           "____defaultValue": {},
                                           "clock": {
@@ -3730,10 +3730,10 @@
                                       "initialStep": "waiting",
                                       "opmRef": {
                                         "id": "z_mTe02hSWmaM1iRO1pBeA",
-                                        "name": "Observable Frame Latch",
+                                        "name": "Abstract Frame Latch",
                                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                        "opmDataSpec": {
-                                          "____label": "Observable Frame Latch",
+                                        "ocdDataSpec": {
+                                          "____label": "Abstract Frame Latch",
                                           "____types": "jsObject",
                                           "____defaultValue": {},
                                           "clock": {
