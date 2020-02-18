@@ -37,7 +37,7 @@ module.exports = {
                 ____label: "React Output Processor Clock",
                 ____description: "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
                 ____types: "jsObject",
-                ____appdsl: { opm: "z_mTe02hSWmaM1iRO1pBeA" /* bind to Frame Latch OPM */ },
+                ____appdsl: { apm: "z_mTe02hSWmaM1iRO1pBeA" /* bind to Frame Latch OPM */ },
                 value: {
                     ____label: "Render Command",
                     ____types: [ "jsNull", "jsObject" ],

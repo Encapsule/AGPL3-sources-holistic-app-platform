@@ -64,7 +64,7 @@ module.exports = new holarchy.TransitionOperator({
             if (!message.a.path) {
                 operandA = message.a.value;
             } else {
-                rpResponse = holarchy.ObservableControllerData.dataPathResolve({ opmBindingPath: request_.context.opmBindingPath, dataPath: message.a.path });
+                rpResponse = holarchy.ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: message.a.path });
                 if (rpResponse.error) { errors.push(rpResponse.error); break; }
                 ocdResponse = request_.context.ocdi.readNamespace(rpResponse.result);
                 if (ocdResponse.error) { errors.push(ocdResponse.error); break; }
@@ -75,7 +75,7 @@ module.exports = new holarchy.TransitionOperator({
             if (!message.b.path) {
                 operandB = message.b.value;
             } else {
-                rpResponse = holarchy.ObservableControllerData.dataPathResolve({ opmBindingPath: request_.context.opmBindingPath, dataPath: message.b.path });
+                rpResponse = holarchy.ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: message.b.path });
                 if (rpResponse.error) { errors.push(rpResponse.error); break; }
                 ocdResponse = request_.context.ocdi.readNamespace(rpResponse.result);
                 if (ocdResponse.error) { errors.push(ocdResponse.error); break; }

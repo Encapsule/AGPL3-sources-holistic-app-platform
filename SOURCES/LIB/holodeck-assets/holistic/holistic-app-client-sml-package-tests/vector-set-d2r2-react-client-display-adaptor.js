@@ -37,7 +37,7 @@ module.exports = [
                                 ____types: "jsObject",
                                 d2r2ReactClientOutputProcessor: {
                                     ____types: "jsObject",
-                                    ____appdsl: { opm: "IxoJ83u0TXmG7PLUYBvsyg" }
+                                    ____appdsl: { apm: "IxoJ83u0TXmG7PLUYBvsyg" }
                                 }
                             },
 

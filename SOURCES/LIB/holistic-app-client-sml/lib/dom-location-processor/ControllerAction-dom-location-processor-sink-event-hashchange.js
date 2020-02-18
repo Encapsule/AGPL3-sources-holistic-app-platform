@@ -5,7 +5,7 @@ const holarchy = require("@encapsule/holarchy");
 module.exports = new holarchy.ControllerAction({
     id: "peTmTek_SB64-ofd_PSGjg",
     name: "DOM Client Location Processor: 'hashchange'",
-    description: "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor OPM memory to record the event details.",
+    description: "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor APM memory to record the event details.",
     actionRequestSpec: {
         ____types: "jsObject",
         holistic: {
@@ -49,7 +49,7 @@ module.exports = new holarchy.ControllerAction({
 
             // Resolve the full path the DOM Location Processor outputs namespace.
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.opmBindingPath,
+                apmBindingPath: request_.context.apmBindingPath,
                 dataPath: "#.outputs"
             });
             if (rpResponse.error) {
@@ -69,7 +69,7 @@ module.exports = new holarchy.ControllerAction({
 
             // Resolve the full path the DOM Location Processor _private namespace.
             rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.opmBindingPath,
+                apmBindingPath: request_.context.apmBindingPath,
                 dataPath: "#._private"
             });
             if (rpResponse.error) {
@@ -104,7 +104,7 @@ module.exports = new holarchy.ControllerAction({
 
                 // Resolve the full path the DOM Location Processor outputs.currentRoute namespace.
                 let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                    opmBindingPath: request_.context.opmBindingPath,
+                    apmBindingPath: request_.context.apmBindingPath,
                     dataPath: "#.outputs.currentRoute"
                 });
                 if (rpResponse.error) {

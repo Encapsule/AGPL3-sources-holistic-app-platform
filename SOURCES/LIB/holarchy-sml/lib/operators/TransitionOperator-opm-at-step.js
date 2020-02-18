@@ -4,8 +4,8 @@ const holarchy = require("@encapsule/holarchy");
 module.exports = new holarchy.TransitionOperator({
 
     id: "9tNY7o5GTUGH_xda2GhP-w",
-    name: "OPM In Step Expression Operator",
-    description: "Returns Boolean true iff the indicated OPM instance is in the indicated process step.",
+    name: "Cell In Step Expression Operator",
+    description: "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
     operatorRequestSpec: {
         ____types: "jsObject",
         holarchy: {
@@ -14,7 +14,7 @@ module.exports = new holarchy.TransitionOperator({
                 ____types: "jsObject",
                 operators: {
                     ____types: "jsObject",
-                    opmi: {
+                    cell: {
                         ____types: "jsObject",
                         atStep: {
                             ____types: "jsObject",
@@ -36,16 +36,16 @@ module.exports = new holarchy.TransitionOperator({
         var inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.operatorRequest.holarchy.sml.operators.opmi.atStep;
+            const message = request_.operatorRequest.holarchy.sml.operators.cell.atStep;
             const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.opmBindingPath,
+                apmBindingPath: request_.context.apmBindingPath,
                 dataPath: message.path
             });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
                 break;
             }
-            const processStepNamespace = `${rpResponse.result}.__opmiStep`;
+            const processStepNamespace = `${rpResponse.result}.__apmiStep`;
             const filterResponse = request_.context.ocdi.readNamespace(processStepNamespace);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);

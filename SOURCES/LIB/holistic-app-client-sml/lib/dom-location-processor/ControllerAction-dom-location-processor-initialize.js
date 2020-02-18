@@ -61,7 +61,7 @@ module.exports = new holarchy.ControllerAction({
                 // change to the overall state of the system modeled by the OPC.
 
                 const actResponse = request_.context.act({
-                    opmBindingPath: request_.context.opmBindingPath,
+                    apmBindingPath: request_.context.apmBindingPath,
                     actorName: "DOM hashchange Event Handler",
                     actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",
                     actionRequest: { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } }

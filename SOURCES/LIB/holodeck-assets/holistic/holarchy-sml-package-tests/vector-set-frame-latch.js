@@ -40,7 +40,7 @@ module.exports = [
                                 ____types: "jsObject",
                                 frameLatch: {
                                     ____types: "jsObject",
-                                    ____appdsl: { opm: "z_mTe02hSWmaM1iRO1pBeA" },
+                                    ____appdsl: { apm: "z_mTe02hSWmaM1iRO1pBeA" },
                                     value: {
                                         ____accept: "jsString",
                                         ____defaultValue: "default"
@@ -48,7 +48,7 @@ module.exports = [
                                 }
                             },
 
-                            observableProcessModelSets: [
+                            abstractProcessModelSets: [
                                 [
                                     sml.models.core.observableFrameLatch
                                 ]

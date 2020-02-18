@@ -43,7 +43,7 @@
                           "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
                           "____types": "jsObject",
                           "____appdsl": {
-                            "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                            "apm": "z_mTe02hSWmaM1iRO1pBeA"
                           },
                           "value": {
                             "____label": "Render Command",
@@ -366,7 +366,7 @@
                           "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
                           "____types": "jsObject",
                           "____appdsl": {
-                            "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                            "apm": "z_mTe02hSWmaM1iRO1pBeA"
                           },
                           "value": {
                             "____label": "Render Command",
@@ -698,7 +698,7 @@
                         "____description": "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
                         "____types": "jsObject",
                         "____appdsl": {
-                          "opm": "z_mTe02hSWmaM1iRO1pBeA"
+                          "apm": "z_mTe02hSWmaM1iRO1pBeA"
                         },
                         "value": {
                           "____label": "Render Command",

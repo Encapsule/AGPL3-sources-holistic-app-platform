@@ -134,7 +134,7 @@ class ObservableProcessController {
     // namespace or call underscore-prefixed private class methods.
 
     // ================================================================
-    // Determines if the OPMI is valid or not.
+    // Determines if the OPCI is valid or not.
     isValid() {
         return this._private.constructionError?false:true;
     }
@@ -187,7 +187,7 @@ class ObservableProcessController {
                 // Prepare the controller action plug-in filter request descriptor object.
                 const controllerActionRequest = {
                     context: {
-                        opmBindingPath: request.opmBindingPath,
+                        apmBindingPath: request.apmBindingPath,
                         ocdi: this._private.ocdi,
                         act: this.act
                     },

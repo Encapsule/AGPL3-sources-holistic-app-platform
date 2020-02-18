@@ -23,10 +23,10 @@ module.exports = [
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm: "I3ja3B00Rj-PIXnDrzQzNg" }
+                                    ____appdsl: { apm: "I3ja3B00Rj-PIXnDrzQzNg" }
                                 }
                             },
-                            observableProcessModelSets: [
+                            abstractProcessModelSets: [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
@@ -58,10 +58,10 @@ module.exports = [
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm: "I3ja3B00Rj-PIXnDrzQzNg" }
+                                    ____appdsl: { apm: "I3ja3B00Rj-PIXnDrzQzNg" }
                                 }
                             },
-                            observableProcessModelSets: [
+                            abstractProcessModelSets: [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
@@ -95,10 +95,10 @@ module.exports = [
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm: "71VGW5zbRLiDf7E_2tFJ3g" }
+                                    ____appdsl: { apm: "71VGW5zbRLiDf7E_2tFJ3g" }
                                 }
                             },
-                            observableProcessModelSets: [
+                            abstractProcessModelSets: [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
@@ -131,10 +131,10 @@ module.exports = [
                                 test: {
                                     ____types: "jsObject",
                                     ____defaultValue: {},
-                                    ____appdsl: { opm: "maPNVFgWTduQ5vMiDU2sEw" }
+                                    ____appdsl: { apm: "maPNVFgWTduQ5vMiDU2sEw" }
                                 }
                             },
-                            observableProcessModelSets: [
+                            abstractProcessModelSets: [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [

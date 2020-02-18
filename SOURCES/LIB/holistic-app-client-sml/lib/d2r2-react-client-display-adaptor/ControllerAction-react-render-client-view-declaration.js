@@ -52,7 +52,7 @@ module.exports = {
 
             // Resolve the full path to the d2r2 React Client Display Adaptor's input namespace.
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.opmBindingPath,
+                apmBindingPath: request_.context.apmBindingPath,
                 dataPath: "#.inputs"
             });
             if (rpResponse.error) {
@@ -71,7 +71,7 @@ module.exports = {
 
             // Resolve the full path to the specified d2r2 render context namespace.
             rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.opmBindingPath,
+                apmBindingPath: request_.context.apmBindingPath,
                 dataPath: inputs.clock.value.pathRenderContext
             });
             if (rpResponse.error) {
@@ -90,7 +90,7 @@ module.exports = {
 
             // Resolve the full path to the specified d2r2 render context namespace.
             rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                opmBindingPath: request_.context.opmBindingPath,
+                apmBindingPath: request_.context.apmBindingPath,
                 dataPath: inputs.clock.value.pathRenderData
             });
             if (rpResponse.error) {
@@ -147,7 +147,7 @@ module.exports = {
                     actorName: "d2r2/React Display Adaptor Update Completion Handler",
                     actorTaskDescription: `Signal completion of client application view via d2r2/React ${message.operation} operation.`,
                     actionRequest: { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#.private.renderPending" } } } } } },
-                    opmBindingPath: request_.context.opmBindingPath
+                    apmBindingPath: request_.context.apmBindingPath
                 });
 
                 // So for now I am going to throw an Error object.

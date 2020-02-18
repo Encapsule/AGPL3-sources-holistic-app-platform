@@ -6,7 +6,7 @@ module.exports = new holarchy.ControllerAction({
 
     id: "JwE4LMvpRGC3Jsg1RDjJ1Q",
     name: "Holistic App Client Hook Events",
-    description: "Hooks DOM events on behalf of the Holistic App Client Runtime OPM.",
+    description: "Hooks DOM events on behalf of the Holistic App Client Runtime APM.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -48,7 +48,7 @@ module.exports = new holarchy.ControllerAction({
             // Hook the window.onload event.
             window.onload((event_) => {
                 const actResponse = request_.context.act({
-                    opmBindingPath: request_.context.opmBindingPath,
+                    apmBindingPath: request_.context.apmBindingPath,
                     actorName: "DOM Event window.onload",
                     actorTaskDescription: "Signal that the window.onload event has fired.",
                     actionRequest: { holistic: { app: { client: { sml: { HolisticAppClient: { actions: { _private: { notifyEvent: { window: { onload: { event: event_ } } } } } } } } } } }

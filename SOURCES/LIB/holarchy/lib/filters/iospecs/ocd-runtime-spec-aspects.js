@@ -14,12 +14,12 @@ module.exports = {
             // ____description: <generated dynamically>
             ____types: "jsObject",
             ____defaultValue: {},
-            __opmiStep: {
+            __apmiStep: {
                 // ____label: <generated dynamically>
                 // ____description: <generated dynamically>
                 ____accept: "jsString",
                 ____defaultValue: "uninitialized"
-                // ____inValueSet: [ <dynamically generated from OPM> ]
+                // ____inValueSet: [ <dynamically generated from APM> ] // TODO: Is this really true? I think I didn't do this yet?
             }
         }
 
