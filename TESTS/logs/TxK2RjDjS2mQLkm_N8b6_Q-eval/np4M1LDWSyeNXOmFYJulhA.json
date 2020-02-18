@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "np4M1LDWSyeNXOmFYJulhA",
           "name": "Invalid OPC template spec binding #1",
-          "description": "Pass an OCD template spec w/invalid OPM binding IRUT",
+          "description": "Pass an OCD template spec w/invalid APM binding IRUT",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
@@ -18,7 +18,7 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "not and IRUT"
+                          "apm": "not and IRUT"
                         }
                       }
                     }
@@ -48,7 +48,7 @@
                         "firstEvaluation": "constructor"
                       }
                     },
-                    "opmMap": {},
+                    "apmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
@@ -56,7 +56,7 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "not and IRUT"
+                          "apm": "not and IRUT"
                         }
                       }
                     },
@@ -69,7 +69,7 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opcWarning": "WARNING: OCD runtime spec path '~.app' will not be bound to OPM ID 'not and IRUT'. Invalid ID IRUT specified."
+                          "opcWarning": "WARNING: OCD runtime spec path '~.app' will not be bound to APM ID 'not and IRUT'. Invalid ID IRUT specified."
                         }
                       }
                     },
@@ -240,8 +240,8 @@
                       }
                     },
                     "constructionWarnings": [
-                      "WARNING: No ObservableProcessModel class instances registered!",
-                      "WARNING: OCD runtime spec path '~.app' will not be bound to OPM ID 'not and IRUT'. Invalid ID IRUT specified.",
+                      "WARNING: No AbstractProcessModel class instances registered!",
+                      "WARNING: OCD runtime spec path '~.app' will not be bound to APM ID 'not and IRUT'. Invalid ID IRUT specified.",
                       "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },

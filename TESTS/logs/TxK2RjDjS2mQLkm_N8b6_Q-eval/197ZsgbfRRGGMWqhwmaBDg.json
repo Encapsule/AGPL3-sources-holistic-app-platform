@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "197ZsgbfRRGGMWqhwmaBDg",
           "name": "Invalid OPC template spec binding #2",
-          "description": "OCD spec namespace bound to OPM not allowed to use ____opaque directive.",
+          "description": "OCD spec namespace bound to APM not allowed to use ____opaque directive.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
@@ -17,7 +17,7 @@
                       "badNamespace": {
                         "____opaque": true,
                         "____appdsl": {
-                          "opm": "197ZsgbfRRGGMWqhwmaBDg"
+                          "apm": "197ZsgbfRRGGMWqhwmaBDg"
                         }
                       }
                     }
@@ -47,14 +47,14 @@
                         "firstEvaluation": "constructor"
                       }
                     },
-                    "opmMap": {},
+                    "apmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
                       "badNamespace": {
                         "____opaque": true,
                         "____appdsl": {
-                          "opm": "197ZsgbfRRGGMWqhwmaBDg"
+                          "apm": "197ZsgbfRRGGMWqhwmaBDg"
                         }
                       }
                     },
@@ -66,7 +66,7 @@
                       "badNamespace": {
                         "____opaque": true,
                         "____appdsl": {
-                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID '197ZsgbfRRGGMWqhwmaBDg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID '197ZsgbfRRGGMWqhwmaBDg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
                         }
                       }
                     },
@@ -235,8 +235,8 @@
                       }
                     },
                     "constructionWarnings": [
-                      "WARNING: No ObservableProcessModel class instances registered!",
-                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID '197ZsgbfRRGGMWqhwmaBDg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                      "WARNING: No AbstractProcessModel class instances registered!",
+                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID '197ZsgbfRRGGMWqhwmaBDg'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
                       "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },

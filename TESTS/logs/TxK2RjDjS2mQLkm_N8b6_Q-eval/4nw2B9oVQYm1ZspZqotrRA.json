@@ -12,7 +12,7 @@
                 "ObservableProcessController": {
                   "constructorRequest": {
                     "id": "4nw2B9oVQYm1ZspZqotrRA",
-                    "observableProcessModelSets": [
+                    "abstractProcessModelSets": [
                       [
                         {
                           "id": "_vC2O7DGTZ22R5hvxpy0WQ",
@@ -150,7 +150,7 @@
                         "firstEvaluation": "constructor"
                       }
                     },
-                    "opmMap": {
+                    "apmMap": {
                       "_vC2O7DGTZ22R5hvxpy0WQ": {
                         "id": "_vC2O7DGTZ22R5hvxpy0WQ",
                         "name": "APM Test A",

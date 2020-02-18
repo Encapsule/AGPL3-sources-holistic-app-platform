@@ -46,7 +46,7 @@
                         "firstEvaluation": "action"
                       }
                     },
-                    "opmMap": {},
+                    "apmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {
                       "____types": "jsObject"
@@ -193,7 +193,7 @@
                     "evalCount": 0,
                     "lastEvalResponse": null,
                     "constructionWarnings": [
-                      "WARNING: No ObservableProcessModel class instances registered!",
+                      "WARNING: No AbstractProcessModel class instances registered!",
                       "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },

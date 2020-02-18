@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "T-apDENPTAO6iQShA-2qBQ",
           "name": "Invalid OCD template spec binding #7",
-          "description": "OCD template spec namespace bound to OPM must specify the ID of a registered OPM instance to bind.",
+          "description": "OCD template spec namespace bound to APM must specify the ID of a registered APM instance to bind.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
@@ -18,7 +18,7 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "T-apDENPTAO6iQShA-2qBQ"
+                          "apm": "T-apDENPTAO6iQShA-2qBQ"
                         }
                       }
                     }
@@ -48,7 +48,7 @@
                         "firstEvaluation": "constructor"
                       }
                     },
-                    "opmMap": {},
+                    "apmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
@@ -56,7 +56,7 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opm": "T-apDENPTAO6iQShA-2qBQ"
+                          "apm": "T-apDENPTAO6iQShA-2qBQ"
                         }
                       }
                     },
@@ -69,7 +69,7 @@
                         "____types": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'T-apDENPTAO6iQShA-2qBQ'. Unknown/unregistered OPM specified."
+                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'T-apDENPTAO6iQShA-2qBQ'. Unknown/unregistered APM specified."
                         }
                       }
                     },
@@ -240,8 +240,8 @@
                       }
                     },
                     "constructionWarnings": [
-                      "WARNING: No ObservableProcessModel class instances registered!",
-                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to OPM ID 'T-apDENPTAO6iQShA-2qBQ'. Unknown/unregistered OPM specified.",
+                      "WARNING: No AbstractProcessModel class instances registered!",
+                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'T-apDENPTAO6iQShA-2qBQ'. Unknown/unregistered APM specified.",
                       "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },

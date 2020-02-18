@@ -38,7 +38,7 @@
                         "firstEvaluation": "constructor"
                       }
                     },
-                    "opmMap": {},
+                    "apmMap": {},
                     "opmiSpecPaths": [],
                     "ocdTemplateSpec": {
                       "____types": "jsObject"
@@ -214,7 +214,7 @@
                       }
                     },
                     "constructionWarnings": [
-                      "WARNING: No ObservableProcessModel class instances registered!",
+                      "WARNING: No AbstractProcessModel class instances registered!",
                       "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },

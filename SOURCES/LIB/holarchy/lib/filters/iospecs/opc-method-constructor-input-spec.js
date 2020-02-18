@@ -75,26 +75,25 @@ module.exports = {
         ____defaultValue: {}
     },
 
-    observableProcessModelSets: {
-        ____label: "Observable Process Model Sets",
-        ____description: "An array of arrays of unique ObservableProcessModel class instances.",
+    abstractProcessModelSets: {
+        ____label: "Abstract Process Model Sets",
+        ____description: "An array of arrays of unique AbstractProcessModel class instances.",
         ____types: "jsArray",
         ____defaultValue: [],
 
         index: {
-            ____label: "Observable Process Model Set",
-            ____description: "An array of unique ObservableProcessModel class instances.",
+            ____label: "Abstract Process Model Set",
+            ____description: "An array of unique AbstractProcessModel class instances.",
             ____types: "jsArray",
 
             index: {
-                ____label: "ObservableProcesModel",
-                ____description: "Reference to a ObservableProcessModel class instance.",
+                ____label: "AbstractProcesModel",
+                ____description: "Reference to a AbstractProcessModel class instance.",
                 ____accept: "jsObject"
             }
-
         }
 
-    }, // observableProcessModels
+    }, // abstractProcessModels
 
     // Transition operator filters are aggregated in an arccore.discrimintor filter for dispatch by the OPC during OPM evaluation.
     transitionOperatorSets: {
