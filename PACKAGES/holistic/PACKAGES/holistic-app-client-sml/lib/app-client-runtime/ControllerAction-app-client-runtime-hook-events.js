@@ -6,7 +6,7 @@ var holarchy = require("@encapsule/holarchy");
 module.exports = new holarchy.ControllerAction({
   id: "JwE4LMvpRGC3Jsg1RDjJ1Q",
   name: "Holistic App Client Hook Events",
-  description: "Hooks DOM events on behalf of the Holistic App Client Runtime OPM.",
+  description: "Hooks DOM events on behalf of the Holistic App Client Runtime APM.",
   actionRequestSpec: {
     ____types: "jsObject",
     holistic: {
@@ -51,7 +51,7 @@ module.exports = new holarchy.ControllerAction({
 
       window.onload(function (event_) {
         var actResponse = request_.context.act({
-          opmBindingPath: request_.context.opmBindingPath,
+          apmBindingPath: request_.context.apmBindingPath,
           actorName: "DOM Event window.onload",
           actorTaskDescription: "Signal that the window.onload event has fired.",
           actionRequest: {
