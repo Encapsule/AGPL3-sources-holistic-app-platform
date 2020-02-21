@@ -1,26 +1,29 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "c65zrhI3Ejco_Sj9nPKc8g": {
-      "AE_pEJ7LTdSvohEBZl_Bfw": {
+      "E7xo1-qaSuSrsN5-8jgmRg": {
         "harnessRequest": {
-          "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-          "name": "CellModel Constructor #3",
-          "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
+          "id": "E7xo1-qaSuSrsN5-8jgmRg",
+          "name": "CellModel Constructor #4",
+          "description": "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "CellModel": {
                   "constructorRequest": {
-                    "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                    "name": "CellModel Constructor #3",
-                    "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
-                    "operators": [
+                    "id": "E7xo1-qaSuSrsN5-8jgmRg",
+                    "name": "CellModel Constructor #4",
+                    "description": "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
+                    "actions": [
                       {
-                        "id": "o3Q4YKI_SLOus82xE7Gaag",
-                        "name": "Placeholder TOP",
-                        "description": "A minimally configured placeholder.",
-                        "operatorRequestSpec": {
-                          "____accept": "jsObject"
+                        "id": "SXYrt7-1SOe91wpQLWFutQ",
+                        "name": "Fake Test Action",
+                        "description": "A fake test action.",
+                        "actionRequestSpec": {
+                          "____types": "jsObject",
+                          "whatever": {
+                            "____accept": "jsNull"
+                          }
                         }
                       }
                     ]
@@ -39,25 +42,26 @@
             },
             "harnessDispatch": {
               "FAvFLw0XQN6yomNs13r21g": {
-                "AE_pEJ7LTdSvohEBZl_Bfw": {
+                "E7xo1-qaSuSrsN5-8jgmRg": {
                   "isValid": true,
                   "toJSON": {
                     "LMFSviNhR8WQoLvtv_YnbQ": true,
-                    "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                    "name": "CellModel Constructor #3",
-                    "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
+                    "id": "E7xo1-qaSuSrsN5-8jgmRg",
+                    "name": "CellModel Constructor #4",
+                    "description": "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
                     "cmMap": {},
                     "apmMap": {},
-                    "topMap": {
-                      "o3Q4YKI_SLOus82xE7Gaag": {
-                        "cm": "AE_pEJ7LTdSvohEBZl_Bfw",
-                        "top": {
+                    "topMap": {},
+                    "actMap": {
+                      "SXYrt7-1SOe91wpQLWFutQ": {
+                        "cm": "E7xo1-qaSuSrsN5-8jgmRg",
+                        "act": {
                           "filterDescriptor": {
-                            "operationID": "o3Q4YKI_SLOus82xE7Gaag",
-                            "operationName": "Placeholder TOP",
-                            "operationDescription": "A minimally configured placeholder.",
+                            "operationID": "SXYrt7-1SOe91wpQLWFutQ",
+                            "operationName": "Fake Test Action",
+                            "operationDescription": "A fake test action.",
                             "inputFilterSpec": {
-                              "____label": "Placeholder TOP Request",
+                              "____label": "Fake Test Action Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -65,7 +69,7 @@
                                 "____types": "jsObject",
                                 "apmBindingPath": {
                                   "____label": "APM Binding Path",
-                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
                                   "____accept": "jsString"
                                 },
                                 "ocdi": {
@@ -73,32 +77,36 @@
                                   "____description": "A reference to the OCD store instance managed by OPC.",
                                   "____accept": "jsObject"
                                 },
-                                "transitionDispatcher": {
-                                  "____label": "OPC Transition Dispatcher",
-                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                  "____accept": "jsObject"
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
                                 }
                               },
-                              "operatorRequest": {
-                                "____accept": "jsObject"
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "whatever": {
+                                  "____accept": "jsNull"
+                                }
                               }
                             },
                             "outputFilterSpec": {
-                              "____accept": "jsBoolean"
+                              "____label": "No Result (Default)",
+                              "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                              "____accept": "jsUndefined"
                             },
-                            "inputTypeVIID": "ofjO8lEELEezP_Th2FWN7w",
-                            "inputTypeVDID": "-u3TG2L-PMELD2liQ2U6tA",
-                            "outputTypeVIID": "jRyE9cAVqGCeOzcPg81fwg",
-                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "NeeiRBSBUpPAYmic9BYIcg"
+                            "inputTypeVIID": "ua9E5BPT9qhybUhTf7kT_w",
+                            "inputTypeVDID": "4NjgRYYhwxrLD6wQM5i5lg",
+                            "outputTypeVIID": "eQ6l4u2_RmjCZc_dTc4xbA",
+                            "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                            "operationVDID": "bZcmeXpGC9ZoycmkzZOoBw"
                           }
                         }
                       }
                     },
-                    "actMap": {},
                     "digraph": {
-                      "name": "[AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3 CM Holarchy Digraph",
-                      "description": "A directed graph model of CM relationships [AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3].",
+                      "name": "[E7xo1-qaSuSrsN5-8jgmRg::CellModel Constructor #4 CM Holarchy Digraph",
+                      "description": "A directed graph model of CM relationships [E7xo1-qaSuSrsN5-8jgmRg::CellModel Constructor #4].",
                       "vlist": [
                         {
                           "u": "INDEX_ROOT",
@@ -107,7 +115,7 @@
                           }
                         },
                         {
-                          "u": "AE_pEJ7LTdSvohEBZl_Bfw",
+                          "u": "E7xo1-qaSuSrsN5-8jgmRg",
                           "p": {
                             "type": "CM"
                           }
@@ -137,9 +145,9 @@
                           }
                         },
                         {
-                          "u": "o3Q4YKI_SLOus82xE7Gaag",
+                          "u": "SXYrt7-1SOe91wpQLWFutQ",
                           "p": {
-                            "type": "TOP"
+                            "type": "ACT"
                           }
                         }
                       ],
@@ -182,17 +190,17 @@
                         },
                         {
                           "e": {
-                            "u": "AE_pEJ7LTdSvohEBZl_Bfw",
-                            "v": "o3Q4YKI_SLOus82xE7Gaag"
+                            "u": "E7xo1-qaSuSrsN5-8jgmRg",
+                            "v": "SXYrt7-1SOe91wpQLWFutQ"
                           },
                           "p": {
-                            "type": "CM::TOP"
+                            "type": "CM::ACT"
                           }
                         },
                         {
                           "e": {
                             "u": "INDEX_CM",
-                            "v": "AE_pEJ7LTdSvohEBZl_Bfw"
+                            "v": "E7xo1-qaSuSrsN5-8jgmRg"
                           },
                           "p": {
                             "type": "INDEX_CM::CM"
@@ -200,11 +208,11 @@
                         },
                         {
                           "e": {
-                            "u": "INDEX_TOP",
-                            "v": "o3Q4YKI_SLOus82xE7Gaag"
+                            "u": "INDEX_ACT",
+                            "v": "SXYrt7-1SOe91wpQLWFutQ"
                           },
                           "p": {
-                            "type": "INDEX_TOP::TOP"
+                            "type": "INDEX_ACT::ACT"
                           }
                         }
                       ]

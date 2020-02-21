@@ -18,7 +18,7 @@ module.exports = [
 
     {
         id: "vzmMGynKTy2uu6W8R-1rvQ",
-        name: "SoftewareCellModel Constructor #2",
+        name: "CellModel Constructor #2",
         description: "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
         vectorRequest: {
             holistic: {
@@ -26,7 +26,7 @@ module.exports = [
                     CellModel: {
                         constructorRequest: {
                             id: "vzmMGynKTy2uu6W8R-1rvQ",
-                            name: "SoftewareCellModel Constructor #2",
+                            name: "CellModel Constructor #2",
                             description: "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
                             apm: {
                                 id: "cJSBP90NTcu1bJMhCOjbQg",
@@ -69,8 +69,38 @@ module.exports = [
     },
 
     {
+        id: "E7xo1-qaSuSrsN5-8jgmRg",
+        name: "CellModel Constructor #4",
+        description: "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
+
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellModel: {
+                        constructorRequest: {
+                            id: "E7xo1-qaSuSrsN5-8jgmRg",
+                            name: "CellModel Constructor #4",
+                            description: "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
+                            actions: [
+                                {
+                                    id: "SXYrt7-1SOe91wpQLWFutQ",
+                                    name: "Fake Test Action",
+                                    description: "A fake test action.",
+                                    actionRequestSpec: { ____types: "jsObject", whatever: { ____accept: "jsNull" }},
+                                    bodyFunction: (request_) => { return { error: null } }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+
+    {
         id: "rShJ0riLSiOxLt0OpFJLJA",
-        name: "SoftewareCellModel Constructor #4",
+        name: "SoftewareCellModel Constructor #5",
         description: "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
         vectorRequest: {
             holistic: {
@@ -78,7 +108,7 @@ module.exports = [
                     CellModel: {
                         constructorRequest: {
                             id: "rShJ0riLSiOxLt0OpFJLJA",
-                            name: "SoftewareCellModel Constructor #4",
+                            name: "SoftewareCellModel Constructor #5",
                             description: "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
                         }
                     }

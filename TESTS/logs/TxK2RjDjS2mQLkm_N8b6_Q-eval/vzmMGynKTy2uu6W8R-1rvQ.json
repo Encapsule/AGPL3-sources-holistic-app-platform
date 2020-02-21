@@ -4,7 +4,7 @@
       "vzmMGynKTy2uu6W8R-1rvQ": {
         "harnessRequest": {
           "id": "vzmMGynKTy2uu6W8R-1rvQ",
-          "name": "SoftewareCellModel Constructor #2",
+          "name": "CellModel Constructor #2",
           "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
           "vectorRequest": {
             "holistic": {
@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "vzmMGynKTy2uu6W8R-1rvQ",
-                    "name": "SoftewareCellModel Constructor #2",
+                    "name": "CellModel Constructor #2",
                     "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
                     "apm": {
                       "id": "cJSBP90NTcu1bJMhCOjbQg",
@@ -39,12 +39,12 @@
                   "toJSON": {
                     "LMFSviNhR8WQoLvtv_YnbQ": true,
                     "id": "vzmMGynKTy2uu6W8R-1rvQ",
-                    "name": "SoftewareCellModel Constructor #2",
+                    "name": "CellModel Constructor #2",
                     "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
-                    "scmMap": {},
+                    "cmMap": {},
                     "apmMap": {
                       "cJSBP90NTcu1bJMhCOjbQg": {
-                        "scm": "vzmMGynKTy2uu6W8R-1rvQ",
+                        "cm": "vzmMGynKTy2uu6W8R-1rvQ",
                         "apm": {
                           "id": "cJSBP90NTcu1bJMhCOjbQg",
                           "name": "Placeholder APM",
@@ -59,87 +59,87 @@
                     "topMap": {},
                     "actMap": {},
                     "digraph": {
-                      "name": "[vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2 SCM Holarchy Digraph",
-                      "description": "A directed graph model of CM relationships [vzmMGynKTy2uu6W8R-1rvQ::SoftewareCellModel Constructor #2].",
+                      "name": "[vzmMGynKTy2uu6W8R-1rvQ::CellModel Constructor #2 CM Holarchy Digraph",
+                      "description": "A directed graph model of CM relationships [vzmMGynKTy2uu6W8R-1rvQ::CellModel Constructor #2].",
                       "vlist": [
                         {
-                          "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
+                          "u": "INDEX_ROOT",
                           "p": {
-                            "type": "index"
+                            "type": "INDEX"
                           }
                         },
                         {
                           "u": "vzmMGynKTy2uu6W8R-1rvQ",
                           "p": {
-                            "type": "scm"
+                            "type": "CM"
                           }
                         },
                         {
-                          "u": "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ",
+                          "u": "INDEX_CM",
                           "p": {
-                            "type": "index"
+                            "type": "INDEX"
                           }
                         },
                         {
-                          "u": "INDEX_APM_WEn_h3N4Q-CV3AUpU7c4Dw",
+                          "u": "INDEX_APM",
                           "p": {
-                            "type": "index"
+                            "type": "INDEX"
                           }
                         },
                         {
-                          "u": "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",
+                          "u": "INDEX_TOP",
                           "p": {
-                            "type": "index"
+                            "type": "INDEX"
                           }
                         },
                         {
-                          "u": "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg",
+                          "u": "INDEX_ACT",
                           "p": {
-                            "type": "index"
+                            "type": "INDEX"
                           }
                         },
                         {
                           "u": "cJSBP90NTcu1bJMhCOjbQg",
                           "p": {
-                            "type": "apm"
+                            "type": "APM"
                           }
                         }
                       ],
                       "elist": [
                         {
                           "e": {
-                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
-                            "v": "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ"
+                            "u": "INDEX_ROOT",
+                            "v": "INDEX_CM"
                           },
                           "p": {
-                            "type": "root-index-link"
+                            "type": "INDEX_ROOT::INDEX_CM"
                           }
                         },
                         {
                           "e": {
-                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
-                            "v": "INDEX_APM_WEn_h3N4Q-CV3AUpU7c4Dw"
+                            "u": "INDEX_ROOT",
+                            "v": "INDEX_APM"
                           },
                           "p": {
-                            "type": "root-index-link"
+                            "type": "INDEX_ROOT::INDEX_APM"
                           }
                         },
                         {
                           "e": {
-                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
-                            "v": "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog"
+                            "u": "INDEX_ROOT",
+                            "v": "INDEX_TOP"
                           },
                           "p": {
-                            "type": "root-index-link"
+                            "type": "INDEX_ROOT::INDEX_TOP"
                           }
                         },
                         {
                           "e": {
-                            "u": "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w",
-                            "v": "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg"
+                            "u": "INDEX_ROOT",
+                            "v": "INDEX_ACT"
                           },
                           "p": {
-                            "type": "root-index-link"
+                            "type": "INDEX_ROOT::INDEX_ACT"
                           }
                         },
                         {
@@ -148,16 +148,25 @@
                             "v": "cJSBP90NTcu1bJMhCOjbQg"
                           },
                           "p": {
-                            "type": "scm-link"
+                            "type": "CM::APM"
                           }
                         },
                         {
                           "e": {
-                            "u": "INDEX_APM_WEn_h3N4Q-CV3AUpU7c4Dw",
+                            "u": "INDEX_CM",
+                            "v": "vzmMGynKTy2uu6W8R-1rvQ"
+                          },
+                          "p": {
+                            "type": "INDEX_CM::CM"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_APM",
                             "v": "cJSBP90NTcu1bJMhCOjbQg"
                           },
                           "p": {
-                            "type": "apm-index-link"
+                            "type": "INDEX_APM::APM"
                           }
                         }
                       ]
