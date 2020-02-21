@@ -3,7 +3,7 @@
   "result": {
     "XkT3fzhYT0izLU_P2WF54Q": {
       "summary": {
-        "requests": 71,
+        "requests": 88,
         "runnerStats": {
           "dispatched": [
             "197ZsgbfRRGGMWqhwmaBDg",
@@ -28,6 +28,7 @@
             "IRyR4YazRuWiZp9Rzj6-WA",
             "KGh0Va-oTXKPUZmnDG4QPQ",
             "LC56jkxeQJ2mgWfwGklLEQ",
+            "OXCzJI-JT72xRNRuEn51Bw",
             "Pe4ks7bQQ9KQee1T8qTRHw",
             "QvEwWTkbT8G_SQsmWmg2zQ",
             "SHneUm5GTDO--xVSUpL92Q",
@@ -40,6 +41,7 @@
             "VxYuiGoHRfuKRHp7PBik7Q",
             "VyQv8NaWTAuoY0daxO9mzQ",
             "X5zbSBkaQeG6Wft5cGVRwg",
+            "Xp1zz6GTQuug4w1umxHPlQ",
             "YdzP0ZKMTme24BBJcyKevA",
             "ZbwxkWJgTEKjxXpYX0_h7Q",
             "Zu13opLlRwSmU2LHvEAHnA",
@@ -78,6 +80,21 @@
             "zUoUas3CTj2HLDfpNf4NTw"
           ],
           "rejected": [
+            "130L3KaTS3uFybwDdVlWwg",
+            "5aJ-FcXOSYqqF_ha651qQA",
+            "7pAVXoWbTSeZSF4SzLrlxg",
+            "FUyhcKKfTeycNWD0JVxkhw",
+            "Geq5MDymQLKcO9JQe7Lc8w",
+            "HPaNXEH9SYmOZTLlD5jUXg",
+            "MHVj3IaXR7SIsY1MUwMG_A",
+            "N88iVPFrQJO_VNKqdyrF1Q",
+            "OP9PyLDXTaac7_AHb1qCfg",
+            "OcoS0S_MRg2traJs1gDQ-g",
+            "OrkMuFl_TyiqVKdt9Qs6Dw",
+            "QE3J6XhJSHqelGnpFMawzA",
+            "wtgq7mnyQI-qZXBxv2wTrw",
+            "xhZFsZ7KTFCHaSkVZ_VMXQ",
+            "zMnQxFBZQuaeu7buQH_qkw",
             "zxKqk_YOTme-e0AExJUhmg"
           ],
           "errors": [
@@ -32646,7 +32663,7 @@
               "VcFs1BSZTLCb8nlIwW3Pmg": {
                 "harnessRequest": {
                   "id": "VcFs1BSZTLCb8nlIwW3Pmg",
-                  "name": "CellModel Constructor #1",
+                  "name": "CellModel Constructor Error #1",
                   "description": "Default construct holarchy/CellModel ES6 class. Should fail.",
                   "vectorRequest": {
                     "holistic": {
@@ -32680,11 +32697,285 @@
         {
           "dosRgxmiR66ongCbJB78ow": {
             "c65zrhI3Ejco_Sj9nPKc8g": {
+              "OXCzJI-JT72xRNRuEn51Bw": {
+                "harnessRequest": {
+                  "id": "OXCzJI-JT72xRNRuEn51Bw",
+                  "name": "CellModel Constructor Error #2",
+                  "description": "Construct CellModel w/missing top-level metadata to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "OXCzJI-JT72xRNRuEn51Bw": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~.id': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
+              "Xp1zz6GTQuug4w1umxHPlQ": {
+                "harnessRequest": {
+                  "id": "Xp1zz6GTQuug4w1umxHPlQ",
+                  "name": "CellModel Constructor Error #2",
+                  "description": "Construct CellModel w/no artifact registrations to test error handling. Should fail, heretic.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "Xp1zz6GTQuug4w1umxHPlQ",
+                            "name": "CellModel Constructor Error #2",
+                            "description": "Construct CellModel w/bad APM registration to test error handling. Should fail."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "harnessResponse": {
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "Xp1zz6GTQuug4w1umxHPlQ": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. Heretical attempt to associate IRUT ID 'Xp1zz6GTQuug4w1umxHPlQ' with the root of all CellModel's, [0000000000000000000000::Nothingness]."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "MHVj3IaXR7SIsY1MUwMG_A": {
+                "harnessRequest": {
+                  "id": "MHVj3IaXR7SIsY1MUwMG_A",
+                  "name": "CellModel Constructor Error #3",
+                  "description": "Construct CellModel w/bad APM registration to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "OP9PyLDXTaac7_AHb1qCfg": {
+                "harnessRequest": {
+                  "id": "OP9PyLDXTaac7_AHb1qCfg",
+                  "name": "CelModel Constructor Error #4",
+                  "description": "Construct CellModel w/bad TOP registration to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "OcoS0S_MRg2traJs1gDQ-g": {
+                "harnessRequest": {
+                  "id": "OcoS0S_MRg2traJs1gDQ-g",
+                  "name": "CellModel Constructor Error #5",
+                  "description": "Construct CellModel w/bad ACT registration to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "N88iVPFrQJO_VNKqdyrF1Q": {
+                "harnessRequest": {
+                  "id": "N88iVPFrQJO_VNKqdyrF1Q",
+                  "name": "CellModel Constructor Error #6",
+                  "description": "Construct CellModel w/bad subcell registration to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "xhZFsZ7KTFCHaSkVZ_VMXQ": {
+                "harnessRequest": {
+                  "id": "xhZFsZ7KTFCHaSkVZ_VMXQ",
+                  "name": "CellModel Constructor Error #7",
+                  "description": "Construct CellModel w/bad duplicate ID APM registration to test error handling. Should fail"
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "wtgq7mnyQI-qZXBxv2wTrw": {
+                "harnessRequest": {
+                  "id": "wtgq7mnyQI-qZXBxv2wTrw",
+                  "name": "CellModel Constructor Error #8",
+                  "description": "Construct CellModel w/bad duplicate ID TOP registration to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "FUyhcKKfTeycNWD0JVxkhw": {
+                "harnessRequest": {
+                  "id": "FUyhcKKfTeycNWD0JVxkhw",
+                  "name": "CellModel Constructor Error #9",
+                  "description": "Construct CellModel w/bad duplicate ID ACT registration to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "OrkMuFl_TyiqVKdt9Qs6Dw": {
+                "harnessRequest": {
+                  "id": "OrkMuFl_TyiqVKdt9Qs6Dw",
+                  "name": "CellModel Constructor Error #10",
+                  "description": "Construct CellModel w/bad duplicate ID subcell registration to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "Geq5MDymQLKcO9JQe7Lc8w": {
+                "harnessRequest": {
+                  "id": "Geq5MDymQLKcO9JQe7Lc8w",
+                  "name": "CellModel Constructor Error #11",
+                  "description": "Construct CellModel w/bad duplicate APM registrations that do not deep compare to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "QE3J6XhJSHqelGnpFMawzA": {
+                "harnessRequest": {
+                  "id": "QE3J6XhJSHqelGnpFMawzA",
+                  "name": "CellModel Constructor Error #12",
+                  "description": "Construct CellModel w/bad duplicate TOP registrations that do not deep compare to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "130L3KaTS3uFybwDdVlWwg": {
+                "harnessRequest": {
+                  "id": "130L3KaTS3uFybwDdVlWwg",
+                  "name": "CellModel Constructor Error #13",
+                  "description": "Construct CellModel w/bad duplicate ACT registrations that do not deep compare to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "HPaNXEH9SYmOZTLlD5jUXg": {
+                "harnessRequest": {
+                  "id": "HPaNXEH9SYmOZTLlD5jUXg",
+                  "name": "CellModel Constructor Error #14",
+                  "description": "Construct CellModel w/bad duplicate submodel registrations that do not deep compare to test error handling. Should fail."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "vzmMGynKTy2uu6W8R-1rvQ": {
                 "harnessRequest": {
                   "id": "vzmMGynKTy2uu6W8R-1rvQ",
-                  "name": "CellModel Constructor #2",
-                  "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
+                  "name": "CellModel Constructor #1",
+                  "description": "Construct CellModel w/single APM registration specified using a constructor request object.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
@@ -32862,12 +33153,28 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "7pAVXoWbTSeZSF4SzLrlxg": {
+                "harnessRequest": {
+                  "id": "7pAVXoWbTSeZSF4SzLrlxg",
+                  "name": " CellModel Constructor #2",
+                  "description": "Construct CellModel w/single APM registration specified using pre-constructed AbstractProcessModel ES6 class instance."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
             "c65zrhI3Ejco_Sj9nPKc8g": {
               "AE_pEJ7LTdSvohEBZl_Bfw": {
                 "harnessRequest": {
                   "id": "AE_pEJ7LTdSvohEBZl_Bfw",
                   "name": "CellModel Constructor #3",
-                  "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
+                  "description": "Construct CellModel w/single TOP registration specified using a constructor request object.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
@@ -33083,12 +33390,28 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "5aJ-FcXOSYqqF_ha651qQA": {
+                "harnessRequest": {
+                  "id": "5aJ-FcXOSYqqF_ha651qQA",
+                  "name": "CellModel Constructor #4",
+                  "description": "Construct CellModel w/single TOP registration specified using pre-constructed TransitionOperator ES6 class instance."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
             "c65zrhI3Ejco_Sj9nPKc8g": {
               "E7xo1-qaSuSrsN5-8jgmRg": {
                 "harnessRequest": {
                   "id": "E7xo1-qaSuSrsN5-8jgmRg",
-                  "name": "CellModel Constructor #4",
-                  "description": "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
+                  "name": "CellModel Constructor #5",
+                  "description": "Construct CellModel w/single ACT registration specified using a constructor request object.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
@@ -33312,12 +33635,28 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
+            "000000000000000000": {
+              "zMnQxFBZQuaeu7buQH_qkw": {
+                "harnessRequest": {
+                  "id": "zMnQxFBZQuaeu7buQH_qkw",
+                  "name": "CellModel Constructor #6",
+                  "description": "Construct CellModel w/single ACT registration specified using a pre-constructed ControllerAction ES6 class instance."
+                },
+                "harnessResponse": {
+                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                }
+              }
+            }
+          }
+        },
+        {
+          "dosRgxmiR66ongCbJB78ow": {
             "c65zrhI3Ejco_Sj9nPKc8g": {
               "rShJ0riLSiOxLt0OpFJLJA": {
                 "harnessRequest": {
                   "id": "rShJ0riLSiOxLt0OpFJLJA",
-                  "name": "SoftewareCellModel Constructor #5",
-                  "description": "Try to compose a CellModel of two subcell models.",
+                  "name": "SoftewareCellModel Constructor #7",
+                  "description": "Construct CellModel w/two subcell registrations specified using constructor request objects.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {

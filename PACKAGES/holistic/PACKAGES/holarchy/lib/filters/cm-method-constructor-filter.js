@@ -189,10 +189,28 @@ var factoryResponse = arccore.filter.create({
         var subcell_ = request_.subcells[i];
         var cellID = subcell_ instanceof request_.CellModel ? subcell_.getID() : subcell_.id; // potentially this is a constructor error
 
-        var cell = null;
+        var cell = null; // CellModel ES6 class instance
 
         if (!response.result.cmMap[cellID]) {
+          if (digraph.isVertex(cellID)) {
+            // We should never be adding any new cached ES6 class instance references
+            // to our response.result maps if we have previously encountered this IRUT
+            // identifier. We need to ensure that every IRUT identifier presented to
+            // CellModel is unique to prevent common developer cut-and-paste errors
+            // from manifesting as curious cellular process behavior anomolies that
+            // are _very_ hard to diagnose...
+            errors.push("Subcell definition ~.subcells[".concat(i, "] specifies an invalid duplicate IRUT identifier id='").concat(cellID, "'."));
+            continue;
+          }
+
           cell = subcell_ instanceof request_.CellModel ? subcell_ : new request_.CellModel(subcell_);
+
+          if (!cell.isValid()) {
+            errors.push("CellModel definition ~.subcells[".concat(i, "] with id='").concat(cellID, "' is invalid due to constructor error:"));
+            errors.push(cell.toJSON());
+            continue;
+          }
+
           response.result.cmMap[cellID] = {
             cm: cellID,
             cell: cell
@@ -213,6 +231,7 @@ var factoryResponse = arccore.filter.create({
             }
           });
         } else {
+          // TODO: Deep inspect the two ES6 class instances for identity.
           cell = response.result.cmMap[cellID];
         }
 
@@ -243,41 +262,55 @@ var factoryResponse = arccore.filter.create({
 
 
       if (request_.apm) {
-        var apmVertexID = null;
-        var apm = request_.apm instanceof AbstractProcessModel ? request_.apm : new AbstractProcessModel(request_.apm);
+        var apmID = request_.apm instanceof AbstractProcessModel ? request_.apm.getID() : request_.apm.id;
+        var apm = null;
 
-        if (!apm.isValid) {
-          errors.push("The AbstractProcessModel you are attempting to associate with this new CellModel instance is invalid!");
-          errors.push(apm.toJSON()); // constructor error string
-        } else {
-          var _apmVertexID = apm.getID();
+        if (!response.result.apmMap[apmID]) {
+          if (digraph.isVertex(apmID)) {
+            errors.push("AbstractProcessModel definition ~.apm specifies an invalid duplicate IRUT identifier id='".concat(apmID, "'."));
+          } else {
+            apm = request_.apm instanceof AbstractProcessModel ? request_.apm : new AbstractProcessModel(request_.apm);
 
-          if (!response.result.apmMap[_apmVertexID]) {
-            response.result.apmMap[_apmVertexID] = {
-              cm: request_.id,
-              apm: apm
-            };
+            if (!apm.isValid()) {
+              errors.push("AbstractProcessModel definition ~.apm with id='".concat(apmID, "' is invalid due to constructor error:"));
+              errors.push(apm.toJSON());
+            } else {
+              response.result.apmMap[apmID] = {
+                cm: request_.id,
+                apm: apm
+              };
+              digraph.addVertex({
+                u: apmID,
+                p: {
+                  type: "APM"
+                }
+              });
+              digraph.addEdge({
+                e: {
+                  u: indexVertices.apm,
+                  v: apmID
+                },
+                p: {
+                  type: "".concat(indexVertices.apm, "::APM")
+                }
+              });
+              digraph.addEdge({
+                e: {
+                  u: request_.id,
+                  v: apmID
+                },
+                p: {
+                  type: "CM::APM"
+                }
+              });
+            }
           }
-
-          digraph.addVertex({
-            u: _apmVertexID,
-            p: {
-              type: "APM"
-            }
-          });
-          digraph.addEdge({
-            e: {
-              u: indexVertices.apm,
-              v: _apmVertexID
-            },
-            p: {
-              type: "".concat(indexVertices.apm, "::APM")
-            }
-          });
+        } else {
+          apm = response.result.apmMap[apmID];
           digraph.addEdge({
             e: {
               u: request_.id,
-              v: _apmVertexID
+              v: apmID
             },
             p: {
               type: "CM::APM"
@@ -290,23 +323,30 @@ var factoryResponse = arccore.filter.create({
 
       for (var _i = 0; _i < request_.operators.length; _i++) {
         var entry = request_.operators[_i];
-        var top = entry instanceof TransitionOperator ? entry : new TransitionOperator(entry);
+        var entryID = entry instanceof TransitionOperator ? entry.getID() : entry.id; // potentially this is a constructor error
 
-        if (!top.isValid()) {
-          errors.push("TransitionOperator registration at request path ~.operators[".concat(_i, "] is an invalid instance due to constructor error:"));
-          errors.push(top.toJSON()); // constructor error string
-        } else {
-          var topVertexID = top.getID();
+        var top = null; // TransitionOperator ES6 class instance
 
-          if (!response.result.topMap[topVertexID]) {
-            response.result.topMap[topVertexID] = {
-              cm: request_.id,
-              top: top
-            };
+        if (!response.result.topMap[entryID]) {
+          if (digraph.isVertex(entryID)) {
+            errors.push("TransitionOperator definition ~.operators[".concat(_i, "] specifies an invalid duplicate IRUT identifier id='").concat(entryID, "'."));
+            continue;
           }
 
+          top = entry instanceof TransitionOperator ? entry : new TransitionOperator(entry);
+
+          if (!top.isValid()) {
+            errors.push("TransitionOperator definition ~.operators[".concat(_i, "] is invalid due to constructor error:"));
+            errors.push(top.toJSON());
+            continue;
+          }
+
+          response.result.topMap[entryID] = {
+            cm: request_.id,
+            top: top
+          };
           digraph.addVertex({
-            u: topVertexID,
+            u: entryID,
             p: {
               type: "TOP"
             }
@@ -314,7 +354,7 @@ var factoryResponse = arccore.filter.create({
           digraph.addEdge({
             e: {
               u: indexVertices.top,
-              v: topVertexID
+              v: entryID
             },
             p: {
               type: "".concat(indexVertices.top, "::TOP")
@@ -323,7 +363,18 @@ var factoryResponse = arccore.filter.create({
           digraph.addEdge({
             e: {
               u: request_.id,
-              v: topVertexID
+              v: entryID
+            },
+            p: {
+              type: "CM::TOP"
+            }
+          });
+        } else {
+          top = response.result.topMap[entryID];
+          digraph.addEdge({
+            e: {
+              u: request_.id,
+              v: entryID
             },
             p: {
               type: "CM::TOP"
@@ -336,23 +387,32 @@ var factoryResponse = arccore.filter.create({
 
       for (var _i2 = 0; _i2 < request_.actions.length; _i2++) {
         var _entry = request_.actions[_i2];
-        var action = _entry instanceof ControllerAction ? _entry : new ControllerAction(_entry);
 
-        if (!action.isValid()) {
-          errors.push("ControllerAction registration at request path ~.actions[".concat(_i2, "] is an invalid instance due to constructor error:"));
-          errors.push(action.toJSON()); // constructor error string
-        } else {
-          var actVertexID = action.getID();
+        var _entryID = _entry instanceof ControllerAction ? _entry.getID() : _entry.id; // potentially this is a constructor error
 
-          if (!response.result.actMap[actVertexID]) {
-            response.result.actMap[actVertexID] = {
-              cm: request_.id,
-              act: action
-            };
+
+        var act = null; // ControllerAction ES6 class instance
+
+        if (!response.result.actMap[_entryID]) {
+          if (digraph.isVertex(_entryID)) {
+            errors.push("ControllerAction definition ~.actions[".concat(_i2, "] specifies an invalid duplicate IRUT identifier id='").concat(_entryID, "'."));
+            continue;
           }
 
+          act = _entry instanceof ControllerAction ? _entry : new ControllerAction(_entry);
+
+          if (!act.isValid()) {
+            errors.push("ControllerAction definition ~.actions[".concat(_i2, "] is invalid due to constructor error:"));
+            errors.push(act.toJSON());
+            continue;
+          }
+
+          response.result.actMap[_entryID] = {
+            cm: request_.id,
+            act: act
+          };
           digraph.addVertex({
-            u: actVertexID,
+            u: _entryID,
             p: {
               type: "ACT"
             }
@@ -360,7 +420,7 @@ var factoryResponse = arccore.filter.create({
           digraph.addEdge({
             e: {
               u: indexVertices.act,
-              v: actVertexID
+              v: _entryID
             },
             p: {
               type: "".concat(indexVertices.act, "::ACT")
@@ -369,7 +429,18 @@ var factoryResponse = arccore.filter.create({
           digraph.addEdge({
             e: {
               u: request_.id,
-              v: actVertexID
+              v: _entryID
+            },
+            p: {
+              type: "CM::ACT"
+            }
+          });
+        } else {
+          act = response.result.actMap[_entryID];
+          digraph.addEdge({
+            e: {
+              u: request_.id,
+              v: _entryID
             },
             p: {
               type: "CM::ACT"
