@@ -11,12 +11,12 @@ var TransitionOperator = require("../TransitionOperator");
 
 var ControllerAction = require("../ControllerAction");
 
-var indexVertexRoot = "INDEX_ROOT_GzgYOTOESoWb9vDyNSgA4w";
+var indexVertexRoot = "INDEX_ROOT";
 var indexVertices = {
-  scm: "INDEX_SCM_K3M5vcN7TQCdonkvj-TfUQ",
-  apm: "INDEX_APM_WEn_h3N4Q-CV3AUpU7c4Dw",
-  top: "INDEX_TOP_I9A9nqRHSOqi_aMfeCyiog",
-  act: "INDEX_ACT_fQRPJmi8SKODgN0vFbPWeg"
+  cm: "INDEX_CM",
+  apm: "INDEX_APM",
+  top: "INDEX_TOP",
+  act: "INDEX_ACT"
 };
 var factoryResponse = arccore.filter.create({
   operationID: "xbcn-VBLTaC_0GmCuTQ8NA",
@@ -119,13 +119,14 @@ var factoryResponse = arccore.filter.create({
       } // Optimistically initialize the response.result object.
 
 
+      console.log("CellModel::constructor [".concat(request_.id, "::").concat(request_.name, "]"));
       response.result = {
         "LMFSviNhR8WQoLvtv_YnbQ": true,
         // non-intrusive output type identifier
         id: request_.id,
         name: request_.name,
         description: request_.description,
-        scmMap: {},
+        cmMap: {},
         apmMap: {},
         topMap: {},
         actMap: {},
@@ -134,18 +135,18 @@ var factoryResponse = arccore.filter.create({
       // Create DirectedGraph to index all the assets and give us an easy way to look things up.
 
       var filterResponse = arccore.graph.directed.create({
-        name: "[".concat(request_.id, "::").concat(request_.name, " SCM Holarchy Digraph"),
+        name: "[".concat(request_.id, "::").concat(request_.name, " CM Holarchy Digraph"),
         description: "A directed graph model of CM relationships [".concat(request_.id, "::").concat(request_.name, "]."),
         vlist: [{
           u: indexVertexRoot,
           p: {
-            type: "index"
+            type: "INDEX"
           }
         }, {
           u: request_.id,
           p: {
-            type: "scm"
-          } // This SCM. We need to add this is index on exit from this function
+            type: "CM"
+          } // This CM. We need to add this is index on exit from this function
 
         }]
       });
@@ -160,7 +161,7 @@ var factoryResponse = arccore.filter.create({
         digraph.addVertex({
           u: indexVertices[key_],
           p: {
-            type: "index"
+            type: "INDEX"
           }
         });
         digraph.addEdge({
@@ -169,57 +170,77 @@ var factoryResponse = arccore.filter.create({
             v: indexVertices[key_]
           },
           p: {
-            type: "root-index-link"
+            type: "".concat(indexVertexRoot, "::").concat(indexVertices[key_])
           }
         });
+      });
+      digraph.addEdge({
+        e: {
+          u: indexVertices.cm,
+          v: request_.id
+        },
+        p: {
+          type: "".concat(indexVertices.cm, "::CM")
+        }
       }); // ================================================================
       // PROCESS CellModel SUBCELL DEPENDENCIES
 
-      request_.subcells.forEach(function (subcell_) {
+      for (var i = 0; i < request_.subcells.length; i++) {
+        var subcell_ = request_.subcells[i];
+        var cellID = subcell_ instanceof request_.CellModel ? subcell_.getID() : subcell_.id; // potentially this is a constructor error
+
         var cell = null;
 
-        if (subcell_._private && subcell._private["LMFSviNhR8WQoLvtv_YnbQ"]) {
-          // We know this is a CellModel ES6 class instance.
-          cell = subcell_;
-        } else {
-          // We presume this is a Software Cell Descriptor (i.e. constructor request object).
-          cell = new request_.CellModel(subcell_);
-        } // cell is now a CellModel ES6 class instance.
-
-
-        var cellID = cell.getID(); // Have we previously processed this CellModel definition?
-
-        if (!response.result.scmMap[cellID]) {
-          // We have not.
-          response.result.scmMap[cellID] = {
-            scm: request_.id,
+        if (!response.result.cmMap[cellID]) {
+          cell = subcell_ instanceof request_.CellModel ? subcell_ : new request_.CellModel(subcell_);
+          response.result.cmMap[cellID] = {
+            cm: cellID,
             cell: cell
           };
           digraph.addVertex({
             u: cellID,
             p: {
-              type: "scm"
+              type: "CM"
             }
           });
+          digraph.addEdge({
+            e: {
+              u: indexVertices.cm,
+              v: cellID
+            },
+            p: {
+              type: "".concat(indexVertices.cm, "::CM")
+            }
+          });
+        } else {
+          cell = response.result.cmMap[cellID];
+        }
+
+        if (!cell.isValid()) {
+          errors.push("CellModel registration at request path ~.subcells[".concat(i, "] is an invalid instance due to constructor error:"));
+          errors.push(cell.toJSON());
+          continue;
         }
 
         digraph.addEdge({
           e: {
-            u: vertexIndices.scm,
+            u: request_.id,
             v: cellID
           },
           p: {
-            type: "scm-index-link"
+            type: "CM::CM"
           }
-        });
-        response.result.scmMap = Object.assign(response.result.scmMap, cell._private.scmMap);
+        }); // u (cell) depends on v (subcell)
+
+        response.result.cmMap = Object.assign(response.result.cmMap, cell._private.cmMap);
         response.result.apmMap = Object.assign(response.result.apmMap, cell._private.apmMap);
         response.result.topMap = Object.assign(response.result.topMap, cell._private.topMap);
         response.result.actMap = Object.assign(response.result.actMap, cell._private.actMap);
         digraph.fromObject(cell._private.digraph.toJSON());
-      }); // forEach subcell
+      } // forEach subcell
       // ================================================================
       // PROCESS AbstractProcessModel ASSOCIATION
+
 
       if (request_.apm) {
         var apmVertexID = null;
@@ -233,7 +254,7 @@ var factoryResponse = arccore.filter.create({
 
           if (!response.result.apmMap[_apmVertexID]) {
             response.result.apmMap[_apmVertexID] = {
-              scm: request_.id,
+              cm: request_.id,
               apm: apm
             };
           }
@@ -241,7 +262,7 @@ var factoryResponse = arccore.filter.create({
           digraph.addVertex({
             u: _apmVertexID,
             p: {
-              type: "apm"
+              type: "APM"
             }
           });
           digraph.addEdge({
@@ -250,7 +271,7 @@ var factoryResponse = arccore.filter.create({
               v: _apmVertexID
             },
             p: {
-              type: "apm-index-link"
+              type: "".concat(indexVertices.apm, "::APM")
             }
           });
           digraph.addEdge({
@@ -259,7 +280,7 @@ var factoryResponse = arccore.filter.create({
               v: _apmVertexID
             },
             p: {
-              type: "scm-link"
+              type: "CM::APM"
             }
           });
         }
@@ -267,28 +288,27 @@ var factoryResponse = arccore.filter.create({
       // PROCESS TransitionOperator ASSOCIATIONS
 
 
-      for (var i = 0; i < request_.operators.length; i++) {
-        var entry = request_.operators[i];
+      for (var _i = 0; _i < request_.operators.length; _i++) {
+        var entry = request_.operators[_i];
+        var top = entry instanceof TransitionOperator ? entry : new TransitionOperator(entry);
 
-        var _top = entry instanceof TransitionOperator ? entry : new TransitionOperator(entry);
-
-        if (!_top.isValid()) {
-          errors.push("TransitionOperator registration at request path ~.operators[".concat(i, "] is an invalid instance due to constructor error:"));
-          errors.push(_top.toJSON()); // constructor error string
+        if (!top.isValid()) {
+          errors.push("TransitionOperator registration at request path ~.operators[".concat(_i, "] is an invalid instance due to constructor error:"));
+          errors.push(top.toJSON()); // constructor error string
         } else {
-          var topVertexID = _top.getID();
+          var topVertexID = top.getID();
 
           if (!response.result.topMap[topVertexID]) {
             response.result.topMap[topVertexID] = {
-              scm: request_.id,
-              top: _top
+              cm: request_.id,
+              top: top
             };
           }
 
           digraph.addVertex({
             u: topVertexID,
             p: {
-              type: "top"
+              type: "TOP"
             }
           });
           digraph.addEdge({
@@ -297,7 +317,7 @@ var factoryResponse = arccore.filter.create({
               v: topVertexID
             },
             p: {
-              type: "top-index-link"
+              type: "".concat(indexVertices.top, "::TOP")
             }
           });
           digraph.addEdge({
@@ -306,7 +326,7 @@ var factoryResponse = arccore.filter.create({
               v: topVertexID
             },
             p: {
-              type: "scm-link"
+              type: "CM::TOP"
             }
           });
         }
@@ -314,19 +334,19 @@ var factoryResponse = arccore.filter.create({
       // PROCESS ControllerAction ASSOCIATIONS
 
 
-      for (var _i = 0; _i < request_.actions.length; _i++) {
-        var _entry = request_.actions[_i];
+      for (var _i2 = 0; _i2 < request_.actions.length; _i2++) {
+        var _entry = request_.actions[_i2];
         var action = _entry instanceof ControllerAction ? _entry : new ControllerAction(_entry);
 
         if (!action.isValid()) {
-          errors.push("ControllerAction registration at request path ~.actions[".concat(_i, "] is an invalid instance due to constructor error:"));
-          errors.push(top.toJSON()); // constructor error string
+          errors.push("ControllerAction registration at request path ~.actions[".concat(_i2, "] is an invalid instance due to constructor error:"));
+          errors.push(action.toJSON()); // constructor error string
         } else {
           var actVertexID = action.getID();
 
           if (!response.result.actMap[actVertexID]) {
             response.result.actMap[actVertexID] = {
-              scm: request_.id,
+              cm: request_.id,
               act: action
             };
           }
@@ -334,7 +354,7 @@ var factoryResponse = arccore.filter.create({
           digraph.addVertex({
             u: actVertexID,
             p: {
-              type: "act"
+              type: "ACT"
             }
           });
           digraph.addEdge({
@@ -343,7 +363,7 @@ var factoryResponse = arccore.filter.create({
               v: actVertexID
             },
             p: {
-              type: "act-index-link"
+              type: "".concat(indexVertices.act, "::ACT")
             }
           });
           digraph.addEdge({
@@ -352,7 +372,7 @@ var factoryResponse = arccore.filter.create({
               v: actVertexID
             },
             p: {
-              type: "scm-link"
+              type: "CM::ACT"
             }
           });
         }
@@ -367,7 +387,7 @@ var factoryResponse = arccore.filter.create({
 
 
       if (!errors.length) {
-        var registrations = arccore.util.dictionaryLength(response.result.scmMap) + arccore.util.dictionaryLength(response.result.apmMap) + arccore.util.dictionaryLength(response.result.topMap) + arccore.util.dictionaryLength(response.result.actMap);
+        var registrations = arccore.util.dictionaryLength(response.result.cmMap) + arccore.util.dictionaryLength(response.result.apmMap) + arccore.util.dictionaryLength(response.result.topMap) + arccore.util.dictionaryLength(response.result.actMap);
 
         if (!registrations) {
           // LOL...

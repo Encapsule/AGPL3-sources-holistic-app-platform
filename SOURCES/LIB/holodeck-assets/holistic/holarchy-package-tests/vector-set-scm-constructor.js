@@ -101,7 +101,7 @@ module.exports = [
     {
         id: "rShJ0riLSiOxLt0OpFJLJA",
         name: "SoftewareCellModel Constructor #5",
-        description: "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
+        description: "Try to compose a CellModel of two subcell models.",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -110,6 +110,49 @@ module.exports = [
                             id: "rShJ0riLSiOxLt0OpFJLJA",
                             name: "SoftewareCellModel Constructor #5",
                             description: "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
+
+                            subcells: [
+                                {
+                                    id: "HbLgO6RMRRacUTjXqv2Rrw",
+                                    name: "Test Subcell #1",
+                                    description: "Test subcell #1 defines an APM.",
+                                    apm: {
+                                        id: "gA3KJMtcS6K8o5cV4plg3w",
+                                        name: "Test Subcell #1 APM",
+                                        description: "Just a test"
+                                    }
+                                },
+                                {
+                                    id: "0Yacg-V9QDqmbVlOFMSVVw",
+                                    name: "Test Subcell #2",
+                                    description: "Test subcell #2 defines a TOP.",
+                                    operators: [
+                                        {
+                                            id: "gcVJ6OIFQfyM6tn194wrsg",
+                                            name: "Test Subcell #2 TOP",
+                                            description: "Just a test",
+                                            operatorRequestSpec: { ____accept: "jsBoolean" },
+                                            bodyFunction: (request_) => { return { error: null }; }
+                                        }
+                                    ]
+                                },
+
+                                {
+                                    id: "fZ7sK3URSaK3QR7_IycJrw",
+                                    name: "Test Subcell #3",
+                                    description: "Test subcell #3 defines an ACT",
+                                    actions: [
+                                        {
+                                            id: "NQmQIuSMTbWYlQtmQr9n0A",
+                                            name: "Test Subcell #3 ACT",
+                                            description: "Just a test",
+                                            actionRequestSpec: { ____accept: "jsBoolean" },
+                                            bodyFunction: (request_) => { return { error: null }; }
+                                        }
+                                    ]
+                                }
+
+                            ]
                         }
                     }
                 }
