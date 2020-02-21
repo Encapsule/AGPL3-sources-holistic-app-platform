@@ -156,7 +156,7 @@ const factoryResponse = arccore.filter.create({
             for (let i = 0 ; i < request_.subcells.length ; i++) {
                 const subcell_ = request_.subcells[i];
                 const cellID = (subcell_ instanceof request_.CellModel)?subcell_.getID():subcell_.id; // potentially this is a constructor error
-                let cell = null;
+                let cell = null; // CellModel ES6 class instance
                 if (!response.result.cmMap[cellID]) {
                     if (digraph.isVertex(cellID)) {
                         // We should never be adding any new cached ES6 class instance references
@@ -170,7 +170,7 @@ const factoryResponse = arccore.filter.create({
                     }
                     cell = (subcell_ instanceof request_.CellModel)?subcell_:new request_.CellModel(subcell_);
                     if (!cell.isValid()) {
-                        errors.push(`Subcell definition ~.subcells[${i}] with id='${cellID}' is invalid due to constructor error:`);
+                        errors.push(`CellModel definition ~.subcells[${i}] with id='${cellID}' is invalid due to constructor error:`);
                         errors.push(cell.toJSON());
                         continue;
                     }
@@ -224,19 +224,27 @@ const factoryResponse = arccore.filter.create({
             // PROCESS TransitionOperator ASSOCIATIONS
             for (let i = 0 ; i < request_.operators.length ; i++) {
                 const entry = request_.operators[i];
+                const entryID = (entry instanceof TransitionOperator)?entry.getID():entry.id; // potentially this is a constructor error
+                let top = null; // TransitionOperator ES6 class instance
+                if (!response.result.topMap[entryID]) {
+                    if (digraph.isVertex(entryID)) {
+                        errors.push(`TransitionOperator definition ~.operators[${i}] specifies an invalid duplicate IRUT identifier id='${entryID}'.`);
+                        continue;
+                    }
+                    top = (entry instanceof TransitionOperator)?entry:new TransitionOperator(entry);
+                    if (!top.isValid()) {
+                        errors.push(`TransitionOperator definition ~.operators[${i}] is invalid due to constructor error:`);
+                        errors.push(top.toJSON());
+                        continue;
+                    }
+                    response.result.topMap[entryID] = { cm: request_.id, top: top };
+                    digraph.addVertex({ u: entryID, p: { type: "TOP" } });
+                    digraph.addEdge({ e: { u: indexVertices.top, v: entryID }, p: { type: `${indexVertices.top}::TOP` } });
+                    digraph.addEdge({ e: { u: request_.id, v: entryID }, p: { type: "CM::TOP" } });
 
-
-                
-                const top = (entry instanceof TransitionOperator)?entry:new TransitionOperator(entry);
-                if (!top.isValid()) {
-                    errors.push(`TransitionOperator registration at request path ~.operators[${i}] is an invalid instance due to constructor error:`);
-                    errors.push(top.toJSON()); // constructor error string
                 } else {
-                    const topVertexID = top.getID();
-                    if (!response.result.topMap[topVertexID]) { response.result.topMap[topVertexID] = { cm: request_.id, top: top }; }
-                    digraph.addVertex({ u: topVertexID, p: { type: "TOP" } });
-                    digraph.addEdge({ e: { u: indexVertices.top, v: topVertexID }, p: { type: `${indexVertices.top}::TOP` } });
-                    digraph.addEdge({ e: { u: request_.id, v: topVertexID }, p: { type: "CM::TOP" } });
+                    top = response.result.topMap[entryID];
+                    digraph.addEdge({ e: { u: request_.id, v: entryID }, p: { type: "CM::TOP" } });
                 }
             }
 
@@ -244,16 +252,27 @@ const factoryResponse = arccore.filter.create({
             // PROCESS ControllerAction ASSOCIATIONS
             for (let i = 0 ; i < request_.actions.length ; i++) {
                 const entry = request_.actions[i];
-                const action = (entry instanceof ControllerAction)?entry:new ControllerAction(entry);
-                if (!action.isValid()) {
-                    errors.push(`ControllerAction registration at request path ~.actions[${i}] is an invalid instance due to constructor error:`);
-                    errors.push(action.toJSON()); // constructor error string
+                const entryID = (entry instanceof ControllerAction)?entry.getID():entry.id; // potentially this is a constructor error
+                let act = null; // ControllerAction ES6 class instance
+                if (!response.result.actMap[entryID]) {
+                    if (digraph.isVertex(entryID)) {
+                        errors.push(`ControllerAction definition ~.actions[${i}] specifies an invalid duplicate IRUT identifier id='${entryID}'.`);
+                        continue;
+                    }
+                    act = (entry instanceof ControllerAction)?entry:new ControllerAction(entry);
+                    if (!act.isValid()) {
+                        errors.push(`ControllerAction definition ~.actions[${i}] is invalid due to constructor error:`);
+                        errors.push(act.toJSON());
+                        continue;
+                    }
+                    response.result.actMap[entryID] = { cm: request_.id, act: act };
+                    digraph.addVertex({ u: entryID, p: { type: "ACT" } });
+                    digraph.addEdge({ e: { u: indexVertices.act, v: entryID }, p: { type: `${indexVertices.act}::ACT` } });
+                    digraph.addEdge({ e: { u: request_.id, v: entryID }, p: { type: "CM::ACT" } });
+
                 } else {
-                    const actVertexID = action.getID();
-                    if (!response.result.actMap[actVertexID]) { response.result.actMap[actVertexID] = { cm: request_.id, act: action }; }
-                    digraph.addVertex({ u: actVertexID, p: { type: "ACT" } });
-                    digraph.addEdge({ e: { u: indexVertices.act, v: actVertexID }, p: { type: `${indexVertices.act}::ACT` } });
-                    digraph.addEdge({ e: { u: request_.id, v: actVertexID }, p: { type: "CM::ACT" } });
+                    act = response.result.actMap[entryID];
+                    digraph.addEdge({ e: { u: request_.id, v: entryID }, p: { type: "CM::ACT" } });
                 }
             }
 
