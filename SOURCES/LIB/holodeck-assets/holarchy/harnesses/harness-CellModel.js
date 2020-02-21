@@ -39,10 +39,10 @@ const factoryResponse = holodeck.harnessFactory.request({
         while (!inBreakScope) {
             inBreakScope = true;
             const messageBody = vectorRequest_.vectorRequest.holistic.holarchy.CellModel;
-            const scmInstance = new holarchy.CellModel(messageBody.constructorRequest);
+            const cell = new holarchy.CellModel(messageBody.constructorRequest);
             response.result = {
-                isValid: scmInstance.isValid(),
-                toJSON: scmInstance.toJSON()
+                isValid: cell.isValid(),
+                toJSON: cell.toJSON()
             };
             break;
         }

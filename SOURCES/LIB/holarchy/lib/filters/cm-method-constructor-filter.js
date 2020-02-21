@@ -154,53 +154,69 @@ const factoryResponse = arccore.filter.create({
             // ================================================================
             // PROCESS CellModel SUBCELL DEPENDENCIES
             for (let i = 0 ; i < request_.subcells.length ; i++) {
-
                 const subcell_ = request_.subcells[i];
-
                 const cellID = (subcell_ instanceof request_.CellModel)?subcell_.getID():subcell_.id; // potentially this is a constructor error
-
                 let cell = null;
-
                 if (!response.result.cmMap[cellID]) {
+                    if (digraph.isVertex(cellID)) {
+                        // We should never be adding any new cached ES6 class instance references
+                        // to our response.result maps if we have previously encountered this IRUT
+                        // identifier. We need to ensure that every IRUT identifier presented to
+                        // CellModel is unique to prevent common developer cut-and-paste errors
+                        // from manifesting as curious cellular process behavior anomolies that
+                        // are _very_ hard to diagnose...
+                        errors.push(`Subcell definition ~.subcells[${i}] specifies an invalid duplicate IRUT identifier id='${cellID}'.`);
+                        continue;
+                    }
                     cell = (subcell_ instanceof request_.CellModel)?subcell_:new request_.CellModel(subcell_);
+                    if (!cell.isValid()) {
+                        errors.push(`Subcell definition ~.subcells[${i}] with id='${cellID}' is invalid due to constructor error:`);
+                        errors.push(cell.toJSON());
+                        continue;
+                    }
                     response.result.cmMap[cellID] = { cm: cellID, cell: cell };
                     digraph.addVertex({ u: cellID, p: { type: "CM" }});
                     digraph.addEdge({ e: { u: indexVertices.cm, v: cellID }, p: { type: `${indexVertices.cm}::CM` }});
                 } else {
+                    // TODO: Deep inspect the two ES6 class instances for identity.
                     cell = response.result.cmMap[cellID];
                 }
-
                 if (!cell.isValid()) {
                     errors.push(`CellModel registration at request path ~.subcells[${i}] is an invalid instance due to constructor error:`);
                     errors.push(cell.toJSON());
                     continue;
                 }
-
                 digraph.addEdge({ e: { u: request_.id, v: cellID }, p: { type: "CM::CM" }}); // u (cell) depends on v (subcell)
-
                 response.result.cmMap = Object.assign(response.result.cmMap, cell._private.cmMap);
                 response.result.apmMap = Object.assign(response.result.apmMap, cell._private.apmMap);
                 response.result.topMap = Object.assign(response.result.topMap, cell._private.topMap);
                 response.result.actMap = Object.assign(response.result.actMap, cell._private.actMap);
-
                 digraph.fromObject(cell._private.digraph.toJSON());
-
             } // forEach subcell
 
             // ================================================================
             // PROCESS AbstractProcessModel ASSOCIATION
             if (request_.apm) {
-                let apmVertexID = null;
-                const apm = (request_.apm instanceof AbstractProcessModel)?request_.apm:new AbstractProcessModel(request_.apm);
-                if (!apm.isValid) {
-                    errors.push("The AbstractProcessModel you are attempting to associate with this new CellModel instance is invalid!");
-                    errors.push(apm.toJSON()); // constructor error string
+                const apmID = (request_.apm instanceof AbstractProcessModel)?request_.apm.getID():request_.apm.id;
+                let apm = null;
+                if (!response.result.apmMap[apmID]) {
+                    if (digraph.isVertex(apmID)) {
+                        errors.push(`AbstractProcessModel definition ~.apm specifies an invalid duplicate IRUT identifier id='${apmID}'.`);
+                    } else {
+                        apm = (request_.apm instanceof AbstractProcessModel)?request_.apm:new AbstractProcessModel(request_.apm);
+                        if (!apm.isValid()) {
+                            errors.push(`AbstractProcessModel definition ~.apm with id='${apmID}' is invalid due to constructor error:`);
+                            errors.push(apm.toJSON());
+                        } else {
+                            response.result.apmMap[apmID] = { cm: request_.id, apm: apm };
+                            digraph.addVertex({ u: apmID, p: { type: "APM" } });
+                            digraph.addEdge({ e: { u: indexVertices.apm, v: apmID }, p: { type: `${indexVertices.apm}::APM`} });
+                            digraph.addEdge({ e: { u: request_.id, v: apmID }, p: { type: "CM::APM" } });
+                        }
+                    }
                 } else {
-                    const apmVertexID = apm.getID();
-                    if (!response.result.apmMap[apmVertexID]) { response.result.apmMap[apmVertexID] = { cm: request_.id, apm: apm }; }
-                    digraph.addVertex({ u: apmVertexID, p: { type: "APM" } });
-                    digraph.addEdge({ e: { u: indexVertices.apm, v: apmVertexID }, p: { type: `${indexVertices.apm}::APM`} });
-                    digraph.addEdge({ e: { u: request_.id, v: apmVertexID }, p: { type: "CM::APM" } });
+                    apm = response.result.apmMap[apmID];
+                    digraph.addEdge({ e: { u: request_.id, v: apmID }, p: { type: "CM::APM" } });
                 }
             }
 
@@ -208,6 +224,9 @@ const factoryResponse = arccore.filter.create({
             // PROCESS TransitionOperator ASSOCIATIONS
             for (let i = 0 ; i < request_.operators.length ; i++) {
                 const entry = request_.operators[i];
+
+
+                
                 const top = (entry instanceof TransitionOperator)?entry:new TransitionOperator(entry);
                 if (!top.isValid()) {
                     errors.push(`TransitionOperator registration at request path ~.operators[${i}] is an invalid instance due to constructor error:`);
