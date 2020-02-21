@@ -1,0 +1,39 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "c65zrhI3Ejco_Sj9nPKc8g": {
+      "OXCzJI-JT72xRNRuEn51Bw": {
+        "harnessRequest": {
+          "id": "OXCzJI-JT72xRNRuEn51Bw",
+          "name": "CellModel Constructor Error #2",
+          "description": "Construct CellModel w/missing top-level metadata to test error handling. Should fail.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModel": {
+                  "constructorRequest": {}
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "FAvFLw0XQN6yomNs13r21g": {
+                "OXCzJI-JT72xRNRuEn51Bw": {
+                  "isValid": false,
+                  "toJSON": "CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~.id': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

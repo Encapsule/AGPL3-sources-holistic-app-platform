@@ -4,8 +4,8 @@
       "rShJ0riLSiOxLt0OpFJLJA": {
         "harnessRequest": {
           "id": "rShJ0riLSiOxLt0OpFJLJA",
-          "name": "SoftewareCellModel Constructor #5",
-          "description": "Try to compose a CellModel of two subcell models.",
+          "name": "SoftewareCellModel Constructor #7",
+          "description": "Construct CellModel w/two subcell registrations specified using constructor request objects.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {

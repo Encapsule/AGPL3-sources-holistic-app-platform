@@ -4,7 +4,7 @@
       "VcFs1BSZTLCb8nlIwW3Pmg": {
         "harnessRequest": {
           "id": "VcFs1BSZTLCb8nlIwW3Pmg",
-          "name": "CellModel Constructor #1",
+          "name": "CellModel Constructor Error #1",
           "description": "Default construct holarchy/CellModel ES6 class. Should fail.",
           "vectorRequest": {
             "holistic": {

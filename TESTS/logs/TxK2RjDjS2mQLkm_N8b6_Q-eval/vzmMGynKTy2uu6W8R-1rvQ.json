@@ -4,8 +4,8 @@
       "vzmMGynKTy2uu6W8R-1rvQ": {
         "harnessRequest": {
           "id": "vzmMGynKTy2uu6W8R-1rvQ",
-          "name": "CellModel Constructor #2",
-          "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
+          "name": "CellModel Constructor #1",
+          "description": "Construct CellModel w/single APM registration specified using a constructor request object.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {

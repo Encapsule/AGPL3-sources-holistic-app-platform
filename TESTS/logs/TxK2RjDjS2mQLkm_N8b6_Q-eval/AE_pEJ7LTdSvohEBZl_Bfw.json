@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "AE_pEJ7LTdSvohEBZl_Bfw",
           "name": "CellModel Constructor #3",
-          "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
+          "description": "Construct CellModel w/single TOP registration specified using a constructor request object.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {

@@ -4,8 +4,8 @@
       "E7xo1-qaSuSrsN5-8jgmRg": {
         "harnessRequest": {
           "id": "E7xo1-qaSuSrsN5-8jgmRg",
-          "name": "CellModel Constructor #4",
-          "description": "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
+          "name": "CellModel Constructor #5",
+          "description": "Construct CellModel w/single ACT registration specified using a constructor request object.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
