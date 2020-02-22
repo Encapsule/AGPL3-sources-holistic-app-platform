@@ -31,7 +31,7 @@
               "FAvFLw0XQN6yomNs13r21g": {
                 "Xp1zz6GTQuug4w1umxHPlQ": {
                   "isValid": false,
-                  "toJSON": "CellModel::constructor for [Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. Heretical attempt to associate IRUT ID 'Xp1zz6GTQuug4w1umxHPlQ' with the root of all CellModel's, [0000000000000000000000::Nothingness]."
+                  "toJSON": "CellModel::constructor for [Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. You cannot create a CellModel with id='Xp1zz6GTQuug4w1umxHPlQ that does nothing (i.e. has no artifact registrations whatsoever)."
                 }
               }
             }

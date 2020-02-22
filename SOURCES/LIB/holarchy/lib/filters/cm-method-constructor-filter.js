@@ -6,7 +6,7 @@ const AbstractProcessModel = require("../AbstractProcessModel");
 const TransitionOperator = require("../TransitionOperator");
 const ControllerAction = require("../ControllerAction");
 
-const indexVertexRoot = "INDEX_ROOT";
+
 const indexVertices = {
     cm:  "INDEX_CM",
     apm: "INDEX_APM",
@@ -14,84 +14,18 @@ const indexVertices = {
     act: "INDEX_ACT"
 };
 
+
+const inputFilterSpec = require("./iospecs/cm-method-constructor-input-spec");
+const outputFilterSpec = require("./iospecs/cm-method-constructor-output-spec");
+
 const factoryResponse = arccore.filter.create({
 
     operationID: "xbcn-VBLTaC_0GmCuTQ8NA",
     operationName: "CellModel::constructor Filter",
     operationDescription: "Filters request descriptor passed to CellModel::constructor function.",
 
-    inputFilterSpec: {
-
-        ____label: "Cell Model Descriptor",
-        ____description: "A request object passed to CellModel ES6 class constructor function.",
-        ____types: "jsObject",
-
-        CellModel: { ____accept: "jsFunction" }, // We build CM class instances
-        CellModelInstance: { ____opaque: true }, // Reference to the calling CM instance's this.
-
-        id: {
-            ____label: "Model ID",
-            ____description: "A unique version-independent IRUT identifier used to identify this CellModel.",
-            ____accept: "jsString" // must be an IRUT
-        },
-
-        name: {
-            ____label: "Model Name",
-            ____description: "A short name used to refer to this CellModel.",
-            ____accept: "jsString"
-        },
-
-        description: {
-            ____label: "Model Description",
-            ____description: "A short description of this CellModel.",
-            ____accept: "jsString"
-        },
-
-        apm: {
-            ____label: "Cell Model Behaviors",
-            ____description: "An optional APM descriptor that if provided will be used to ascribe memory and/or higher-order observable process behaviors to this CellModel.",
-            ____accept: [ "jsNull", "jsObject" ], // further processed in bodyFunction
-            ____defaultValue: null // If null, then a valid CM defines at least one TOP or ACT.
-        },
-
-        operators: {
-            ____label: "Cell Model Operators",
-            ____description: "An optional array of Transition Operator descriptor objects one for each TransitionOperator defined by this CellModel.",
-            ____types: "jsArray",
-            ____defaultValue: [],
-            TransitionOperator: {
-                ____label: "Transition Operator",
-                ____description: "Either an TOP descriptor or its corresponding TransitionOperator ES6 class instance.",
-                ____accept: "jsObject" // further processed in bodyFunction
-            }
-        },
-
-        actions: {
-            ____label: "Cell Model Actions",
-            ____description: "An optional array of controller action descriptor object(s) or equivalent ControllerAction ES6 class instance(s) defined by this CellModel.",
-            ____types: "jsArray",
-            ____defaultValue: [],
-            ControllerAction: {
-                ____label: "Controller Action",
-                ____description: "Either an ACT descriptor or its corresponding ControllerAction ES6 class instance.",
-                ____accept: "jsObject" // further processed in bodyFunction
-            }
-        },
-
-        subcells: {
-            ____label: "Subcell Model Registrations",
-            ____description: "An optional array of Cell Model descriptor object(s) and/or CellModel ES6 class instance(s).",
-            ____types: "jsArray",
-            ____defaultValue: [],
-            subcell: {
-                ____label: "Subcell Model Registration",
-                ____description: "A Cell Model descriptor or equivalent CellModel ES6 class instance.",
-                ____accept: "jsObject" // further processed in bodyFunction
-            }
-        }
-
-    }, // inputFilterSpec
-
+    inputFilterSpec,
+    outputFilterSpec,
 
     bodyFunction: (request_) => {
 
@@ -134,38 +68,28 @@ const factoryResponse = arccore.filter.create({
             let filterResponse = arccore.graph.directed.create({
                 name: `[${request_.id}::${request_.name} CM Holarchy Digraph`,
                 description: `A directed graph model of CM relationships [${request_.id}::${request_.name}].`,
-                vlist: [
-                    { u: indexVertexRoot, p: { type: "INDEX" }},
-                    { u: request_.id, p: { type: "CM" }} // This CM. We need to add this is index on exit from this function
-                ]
+                vlist: Object.keys(indexVertices).map( (key_) => { return { u: indexVertices[key_], p: { type: "INDEX" } }; })
             });
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
                 break;
             }
             let digraph = response.result.digraph = filterResponse.result;
-            Object.keys(indexVertices).forEach((key_) => {
-                digraph.addVertex({ u: indexVertices[key_], p: { type: "INDEX" } });
-                digraph.addEdge({ e: { u: indexVertexRoot, v: indexVertices[key_] }, p: { type: `${indexVertexRoot}::${indexVertices[key_]}` }});
-            });
 
-            digraph.addEdge({ e: { u: indexVertices.cm, v: request_.id }, p: { type: `${indexVertices.cm}::CM` }});
+            digraph.addVertex({ u: request_.id, p: { type: "CM" }}); // Add this CellModel to the digraph.
+            digraph.addEdge({ e: { u: indexVertices.cm, v: request_.id }, p: { type: `${indexVertices.cm}::CM` }}); // Link the CellModel to the CellModel index.
 
             // ================================================================
-            // PROCESS CellModel SUBCELL DEPENDENCIES
+            // PROCESS SUB-CellModel DEPENDENCIES
             for (let i = 0 ; i < request_.subcells.length ; i++) {
                 const subcell_ = request_.subcells[i];
                 const cellID = (subcell_ instanceof request_.CellModel)?subcell_.getID():subcell_.id; // potentially this is a constructor error
                 let cell = null; // CellModel ES6 class instance
                 if (!response.result.cmMap[cellID]) {
+                    // Theoretically we've not seen this CellModel registration before. So, we shouldn't be able to find any vertex with this IRUT ID in our digraph.
                     if (digraph.isVertex(cellID)) {
-                        // We should never be adding any new cached ES6 class instance references
-                        // to our response.result maps if we have previously encountered this IRUT
-                        // identifier. We need to ensure that every IRUT identifier presented to
-                        // CellModel is unique to prevent common developer cut-and-paste errors
-                        // from manifesting as curious cellular process behavior anomolies that
-                        // are _very_ hard to diagnose...
                         errors.push(`Subcell definition ~.subcells[${i}] specifies an invalid duplicate IRUT identifier id='${cellID}'.`);
+                        errors.push(`IRUT '${cellID}'previously registered a ${digraph.getVertexProperty(cellID).type} resource.`);
                         continue;
                     }
                     cell = (subcell_ instanceof request_.CellModel)?subcell_:new request_.CellModel(subcell_);
@@ -174,36 +98,32 @@ const factoryResponse = arccore.filter.create({
                         errors.push(cell.toJSON());
                         continue;
                     }
-                    response.result.cmMap[cellID] = { cm: cellID, cell: cell };
-                    digraph.addVertex({ u: cellID, p: { type: "CM" }});
-                    digraph.addEdge({ e: { u: indexVertices.cm, v: cellID }, p: { type: `${indexVertices.cm}::CM` }});
+                    // This establishes this CellModel's baseline truth for this submodel.
+                    response.result.cmMap[cellID] = { cm: cellID, cell: cell }; // Add the subcell CellModel instance to this CellModel's cmMap.
+                    digraph.addVertex({ u: cellID, p: { type: "CM" }}); // Add a vertex in this CellModel's digraph to represent the subcell.
+                    digraph.addEdge({ e: { u: indexVertices.cm, v: cellID }, p: { type: `${indexVertices.cm}::CM` }}); // Link the subcell's vertex to the CellModel index.
+                    digraph.addEdge({ e: { u: request_.id, v: cellID }, p: { type: "CM::CM" }}); // u (this cell) depends on v (subcell)
+
+                    // Ingest subcell APM
+                    response.result.apmMap = Object.assign(response.result.apmMap, cell._private.apmMap);
+
+                    // Ingest subcell TOP
+                    response.result.topMap = Object.assign(response.result.topMap, cell._private.topMap);
+
+                    // Ingest subcell ACT
+                    response.result.actMap = Object.assign(response.result.actMap, cell._private.actMap);
+
+                    // Ingest subcell subcells
+                    response.result.cmMap = Object.assign(response.result.cmMap, cell._private.cmMap);
+
+                    // Extend our digraph
+                    digraph.fromObject(cell._private.digraph.toJSON());
+
                 } else {
                     // TODO: Deep inspect the two ES6 class instances for identity.
                     cell = response.result.cmMap[cellID];
                 }
-                if (!cell.isValid()) {
-                    errors.push(`CellModel registration at request path ~.subcells[${i}] is an invalid instance due to constructor error:`);
-                    errors.push(cell.toJSON());
-                    continue;
-                }
-                digraph.addEdge({ e: { u: request_.id, v: cellID }, p: { type: "CM::CM" }}); // u (cell) depends on v (subcell)
 
-                const theirVertices = cell._private.digraph.getVertices();
-                theirVertices.forEach((theirVertexID_) => {
-                    if ((-1 === indexVertices.indexOf(theirVertexID_)) && (theirVertexID_ !== indexVertexRoot)) {
-                        // Not an index.
-                        if (digraph.isVertex(theirVertexID_)) {
-                            errors.push(`CellModel registration at request path ~.submodels[${i}] is invalid because its digraph contains an illegal IRUT identifier id='${theirVertexID_}'.`);
-                        } else {
-                            // Ensure deep comparison before proceeding
-                    }
-                });
-
-                response.result.cmMap = Object.assign(response.result.cmMap, cell._private.cmMap);
-                response.result.apmMap = Object.assign(response.result.apmMap, cell._private.apmMap);
-                response.result.topMap = Object.assign(response.result.topMap, cell._private.topMap);
-                response.result.actMap = Object.assign(response.result.actMap, cell._private.actMap);
-                digraph.fromObject(cell._private.digraph.toJSON());
             } // forEach subcell
 
             // ================================================================
@@ -306,8 +226,7 @@ const factoryResponse = arccore.filter.create({
                     arccore.util.dictionaryLength(response.result.actMap);
 
                 if (!registrations) {
-                    // LOL...
-                    errors.push(`Heretical attempt to associate IRUT ID '${request_.id}' with the root of all CellModel's, [0000000000000000000000::Nothingness].`);
+                    errors.push(`You cannot create a CellModel with id='${request_.id} that does nothing (i.e. has no artifact registrations whatsoever).`);
                 }
             }
 

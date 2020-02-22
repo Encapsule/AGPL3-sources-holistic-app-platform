@@ -101,18 +101,6 @@
                       "description": "A directed graph model of CM relationships [AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3].",
                       "vlist": [
                         {
-                          "u": "INDEX_ROOT",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "AE_pEJ7LTdSvohEBZl_Bfw",
-                          "p": {
-                            "type": "CM"
-                          }
-                        },
-                        {
                           "u": "INDEX_CM",
                           "p": {
                             "type": "INDEX"
@@ -137,6 +125,12 @@
                           }
                         },
                         {
+                          "u": "AE_pEJ7LTdSvohEBZl_Bfw",
+                          "p": {
+                            "type": "CM"
+                          }
+                        },
+                        {
                           "u": "o3Q4YKI_SLOus82xE7Gaag",
                           "p": {
                             "type": "TOP"
@@ -144,51 +138,6 @@
                         }
                       ],
                       "elist": [
-                        {
-                          "e": {
-                            "u": "INDEX_ROOT",
-                            "v": "INDEX_CM"
-                          },
-                          "p": {
-                            "type": "INDEX_ROOT::INDEX_CM"
-                          }
-                        },
-                        {
-                          "e": {
-                            "u": "INDEX_ROOT",
-                            "v": "INDEX_APM"
-                          },
-                          "p": {
-                            "type": "INDEX_ROOT::INDEX_APM"
-                          }
-                        },
-                        {
-                          "e": {
-                            "u": "INDEX_ROOT",
-                            "v": "INDEX_TOP"
-                          },
-                          "p": {
-                            "type": "INDEX_ROOT::INDEX_TOP"
-                          }
-                        },
-                        {
-                          "e": {
-                            "u": "INDEX_ROOT",
-                            "v": "INDEX_ACT"
-                          },
-                          "p": {
-                            "type": "INDEX_ROOT::INDEX_ACT"
-                          }
-                        },
-                        {
-                          "e": {
-                            "u": "AE_pEJ7LTdSvohEBZl_Bfw",
-                            "v": "o3Q4YKI_SLOus82xE7Gaag"
-                          },
-                          "p": {
-                            "type": "CM::TOP"
-                          }
-                        },
                         {
                           "e": {
                             "u": "INDEX_CM",
@@ -205,6 +154,15 @@
                           },
                           "p": {
                             "type": "INDEX_TOP::TOP"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "AE_pEJ7LTdSvohEBZl_Bfw",
+                            "v": "o3Q4YKI_SLOus82xE7Gaag"
+                          },
+                          "p": {
+                            "type": "CM::TOP"
                           }
                         }
                       ]
