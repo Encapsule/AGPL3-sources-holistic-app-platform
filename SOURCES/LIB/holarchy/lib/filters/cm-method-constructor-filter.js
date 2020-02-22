@@ -187,6 +187,18 @@ const factoryResponse = arccore.filter.create({
                     continue;
                 }
                 digraph.addEdge({ e: { u: request_.id, v: cellID }, p: { type: "CM::CM" }}); // u (cell) depends on v (subcell)
+
+                const theirVertices = cell._private.digraph.getVertices();
+                theirVertices.forEach((theirVertexID_) => {
+                    if ((-1 === indexVertices.indexOf(theirVertexID_)) && (theirVertexID_ !== indexVertexRoot)) {
+                        // Not an index.
+                        if (digraph.isVertex(theirVertexID_)) {
+                            errors.push(`CellModel registration at request path ~.submodels[${i}] is invalid because its digraph contains an illegal IRUT identifier id='${theirVertexID_}'.`);
+                        } else {
+                            // Ensure deep comparison before proceeding
+                    }
+                });
+
                 response.result.cmMap = Object.assign(response.result.cmMap, cell._private.cmMap);
                 response.result.apmMap = Object.assign(response.result.apmMap, cell._private.apmMap);
                 response.result.topMap = Object.assign(response.result.topMap, cell._private.topMap);

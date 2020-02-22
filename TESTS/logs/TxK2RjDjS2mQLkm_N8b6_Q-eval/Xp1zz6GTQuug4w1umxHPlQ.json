@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "Xp1zz6GTQuug4w1umxHPlQ",
           "name": "CellModel Constructor Error #2",
-          "description": "Construct CellModel w/no artifact registrations to test error handling. Should fail, heretic.",
+          "description": "Construct CellModel w/no artifact registrations to test error handling. Heretical requests should fail.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
