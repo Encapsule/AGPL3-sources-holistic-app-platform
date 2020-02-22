@@ -41,7 +41,7 @@
               "FAvFLw0XQN6yomNs13r21g": {
                 "FUyhcKKfTeycNWD0JVxkhw": {
                   "isValid": false,
-                  "toJSON": "CellModel::constructor for [FUyhcKKfTeycNWD0JVxkhw::CellModel Constructor Error #9] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. ControllerAction definition ~.actions[0] specifies an invalid duplicate IRUT identifier id='FUyhcKKfTeycNWD0JVxkhw'."
+                  "toJSON": "CellModel::constructor for [FUyhcKKfTeycNWD0JVxkhw::CellModel Constructor Error #9] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.actions[0]: Bad ACT registration: The ACT instance specifies a duplicate IRUT id='FUyhcKKfTeycNWD0JVxkhw' that is illegal in this context. IRUT id='FUyhcKKfTeycNWD0JVxkhw' was previously registered by this CellModel instance as a 'CM' artifact."
                 }
               }
             }

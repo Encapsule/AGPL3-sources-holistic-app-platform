@@ -34,7 +34,7 @@
               "FAvFLw0XQN6yomNs13r21g": {
                 "MHVj3IaXR7SIsY1MUwMG_A": {
                   "isValid": false,
-                  "toJSON": "CellModel::constructor for [MHVj3IaXR7SIsY1MUwMG_A::CellModel Constructor Error #3] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. AbstractProcessModel definition ~.apm with id='bad-id' is invalid due to constructor error: AbstractProcessModel::constructor for [bad-id::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::APM Constructor Request Processor] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                  "toJSON": "CellModel::constructor for [MHVj3IaXR7SIsY1MUwMG_A::CellModel Constructor Error #3] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.apm: Bad APM registration: The APM instance is invalid. AbstractProcessModel::constructor for [bad-id::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::APM Constructor Request Processor] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
                 }
               }
             }

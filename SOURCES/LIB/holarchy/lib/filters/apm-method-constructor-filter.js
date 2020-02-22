@@ -45,6 +45,8 @@ const factoryResponse = arccore.filter.create({
             }
             let ocdDataFilter = filterFactoryResponse.result;
 
+            request_.ocdDataSpec = ocdDataFilter.filterDescriptor.inputFilterSpec; // take the normalized version
+
             let graphFactoryResponse = arccore.graph.directed.create({
                 name: `[${request_.id}::${request_.name}] APM Digraph`,
                 description: request_.description
@@ -106,11 +108,13 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+
             response.result = {
                 declaration: request_,
                 digraph: apmDigraph,
-                ocdDataFilter: ocdDataFilter
             };
+            const vdid = arccore.identifier.irut.fromReference(response.result).result;
+            response.result.vdid = vdid;
 
             break;
         }

@@ -36,7 +36,7 @@
               "FAvFLw0XQN6yomNs13r21g": {
                 "OP9PyLDXTaac7_AHb1qCfg": {
                   "isValid": false,
-                  "toJSON": "CellModel::constructor for [OP9PyLDXTaac7_AHb1qCfg::CelModel Constructor Error #4] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. TransitionOperator definition ~.operators[0] is invalid due to constructor error: TransitionOperator::constructor for [bad-id::unspecified] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                  "toJSON": "CellModel::constructor for [OP9PyLDXTaac7_AHb1qCfg::CelModel Constructor Error #4] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.operators[0]: Bad TOP registration: The TOP instance is invalid. TransitionOperator::constructor for [bad-id::unspecified] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
                 }
               }
             }

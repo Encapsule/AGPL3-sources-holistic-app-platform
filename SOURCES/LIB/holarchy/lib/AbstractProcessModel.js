@@ -17,6 +17,7 @@ class AbstractProcessModel {
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.getID = this.getID.bind(this);
+            this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
             this.getDescription = this.getDescription.bind(this);
             this.getStepDescriptor = this.getStepDescriptor.bind(this);
@@ -47,6 +48,10 @@ class AbstractProcessModel {
 
     getID() {
         return (this.isValid()?this._private.declaration.id:this._private.constructorError);
+    }
+
+    getVDID() {
+        return (this.isValid()?this._private.vdid:this._private.constructorError);
     }
 
     getName() {
