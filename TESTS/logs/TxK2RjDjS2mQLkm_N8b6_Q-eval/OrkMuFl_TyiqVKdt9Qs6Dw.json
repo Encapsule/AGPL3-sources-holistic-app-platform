@@ -1,14 +1,53 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
-    "000000000000000000": {
+    "c65zrhI3Ejco_Sj9nPKc8g": {
       "OrkMuFl_TyiqVKdt9Qs6Dw": {
         "harnessRequest": {
           "id": "OrkMuFl_TyiqVKdt9Qs6Dw",
           "name": "CellModel Constructor Error #10",
-          "description": "Construct CellModel w/bad duplicate ID subcell registration to test error handling. Should fail."
+          "description": "Construct CellModel w/bad duplicate ID subcell registration to test error handling. Should fail.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellModel": {
+                  "constructorRequest": {
+                    "id": "OrkMuFl_TyiqVKdt9Qs6Dw",
+                    "name": "CellModel Constructor Error #10",
+                    "description": "Construct CellModel w/bad duplicate ID subcell registration to test error handling. Should fail.",
+                    "subcells": [
+                      {
+                        "id": "5A_gWDIxRiW_LMqHT2SRkw",
+                        "name": "Test Subcell Model",
+                        "description": "A subcell that registers an illegal duplicate APM ID.",
+                        "apm": {
+                          "id": "OrkMuFl_TyiqVKdt9Qs6Dw",
+                          "name": "Bad APM Definition",
+                          "description": "Deliberately re-use the outer cell's ID to test error handling."
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
         },
         "harnessResponse": {
-          "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "FAvFLw0XQN6yomNs13r21g": {
+                "OrkMuFl_TyiqVKdt9Qs6Dw": {
+                  "isValid": false,
+                  "toJSON": "CellModel::constructor for [OrkMuFl_TyiqVKdt9Qs6Dw::CellModel Constructor Error #10] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.subcells[0]: Bad CM registration. Unable to merge CellModel id='5A_gWDIxRiW_LMqHT2SRkw' into CellModel id='OrkMuFl_TyiqVKdt9Qs6Dw' due to conflict. CellModel id='5A_gWDIxRiW_LMqHT2SRkw' APM registration id='OrkMuFl_TyiqVKdt9Qs6Dw' specifies illegal duplicate IRUT ID. CellModel id='OrkMuFl_TyiqVKdt9Qs6Dw' has previously registered id='OrkMuFl_TyiqVKdt9Qs6Dw' as a CM entity."
+                }
+              }
+            }
+          }
         }
       }
     }

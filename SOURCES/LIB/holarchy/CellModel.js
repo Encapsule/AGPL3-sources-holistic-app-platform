@@ -1,5 +1,6 @@
 // CellModel.js
 
+const arccore = require("@encapsule/arccore");
 const constructorFilter = require("./lib/filters/cm-method-constructor-filter");
 
 module.exports = class CellModel {
@@ -13,8 +14,10 @@ module.exports = class CellModel {
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.getID = this.getID.bind(this);
+            this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
             this.getDescription = this.getDescription.bind(this);
+            this.vdid = null;
             let filterResponse;
             // If the caller didn't pass an object, just pass it through to the constructor filter which will fail w/correct error message.
             if (!request_ || (Object.prototype.toString.call(request_) !== "[object Object]")) {
@@ -49,6 +52,13 @@ module.exports = class CellModel {
 
     getID() {
         return (this.isValid()?this._private.id:this._private.constructorError);
+    }
+
+    getVDID() {
+        if (!this.vdid) {
+            this.vdid = arccore.identifier.irut.fromReference(this._private);
+        }
+        return this.vdid;
     }
 
     getName() {

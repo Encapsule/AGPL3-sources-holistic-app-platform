@@ -36,7 +36,7 @@
               "FAvFLw0XQN6yomNs13r21g": {
                 "N88iVPFrQJO_VNKqdyrF1Q": {
                   "isValid": false,
-                  "toJSON": "CellModel::constructor for [N88iVPFrQJO_VNKqdyrF1Q::CellModel Constructor Error #6] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. CellModel definition ~.subcells[0] with id='bad-name' is invalid due to constructor error: CellModel::constructor for [bad-name::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                  "toJSON": "CellModel::constructor for [N88iVPFrQJO_VNKqdyrF1Q::CellModel Constructor Error #6] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.subcells[0]: Bad CM registration: The CM instance is invalid. CellModel::constructor for [bad-name::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
                 }
               }
             }

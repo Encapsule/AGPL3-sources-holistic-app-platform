@@ -75,7 +75,10 @@ const factoryResponse = arccore.filter.create({
             digraph.addVertex({ u: request_.id, p: { type: "CM" }}); // Add this CellModel to the digraph.
             digraph.addEdge({ e: { u: indexVertices.CM, v: request_.id }, p: { type: `${indexVertices.CM}::CM` }}); // Link the CellModel to the CellModel index.
 
-            // ================================================================
+            // ****************************************************************
+            // ****************************************************************
+            // ****************************************************************
+            // ****************************************************************
             // Generic function to process CellModel registrations
             /*
               request = {
@@ -152,121 +155,50 @@ const factoryResponse = arccore.filter.create({
                             p: { type: `CM:${pcmr_.type}` }
                         });
                         break;
+
                     case "CM":
+                        // A subcell is just a CellModel ES6 class instance.
+                        const subcellVertices = artifact._private.digraph.getVertices();
+                        for (let i = 0 ; i < subcellVertices.length ; i++) {
+                            const subcellVertex = subcellVertices[i];
+                            if (digraph.isVertex(subcellVertex)) {
+                                const aProps = digraph.getVertexProperty(subcellVertex);
+                                const bProps = artifact._private.digraph.getVertexProperty(subcellVertex);
+                                if (aProps.type !== bProps.type) {
+                                    errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
+                                    errors.push(`CellModel id='${artifactID}' ${bProps.type} registration id='${bProps.artifact.getID()}' specifies illegal duplicate IRUT ID.`);
+                                    errors.push(`CellModel id='${request_.id}' has previously registered id='${subcellVertex}' as a ${aProps.type} entity.`);
+                                    continue;
+                                } // if the developer is confused, sloppy w/cut-n-paste, or just trying to be overly clever
+                                if (aProps.type !== "INDEX") {
+                                    if (subcellVertex === request_.id) {
+                                        errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
+                                        errors.push(`CellModel id='${artifactID}' includes a prior definition of CellModel id='${request_.id}' that we're currently trying to define.`);
+                                        continue;
+                                    } // if the developer is confused, sloppy w/cut-and-paste, or has just made a simple coding mistake w/require/import
+                                    const aVDID = aProps.entity.getVDID();
+                                    const bVDID = bProps.entity.getVDID();
+                                    if (aVDID !== bVDID) {
+                                        errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
+                                        errors.push(`CellModel id='${artifactID}' ${bProps.type} registration id='${bProps.entity.getID()}' invalid runtime version.`);
+                                        errors.push(`Expected VDID='${aVDID}' but found '${bVDID}'.`);
+                                    } // if the developer is confused, sloppy with their code oranization, unclear in their thinking wrt CellModel's it will likely be sorted here
+                                } // end if subcell intersection vertex is not an index (i.e. it has an entity class attached to its vertex property)
+                            } // end if intersection
+                        } // end for vertices in subcell graph
+                        if (!errors.length) {
+                            digraph.fromObject(artifact._private.digraph.toJSON());
+                            digraph.addEdge({ e: { u: request_.id, v: artifactID }, p: { type: "CM:CM" } });
+                        }
                         break;
                     }
-
                     break;
-
                 } // end while(!inBreakScope);
                 if (errors.length) {
                     response.error = errors.join(" ");
                 }
                 return response;
             }; // end processCellModelRegistration
-
-
-            // ================================================================
-            // Generic function to process sub-CellModel registrations
-
-
-            /*
-
-
-            // ================================================================
-            // PROCESS SUB-CellModel DEPENDENCIES
-            for (let i = 0 ; i < request_.subcells.length ; i++) {
-                const subcell_ = request_.subcells[i];
-                const cellID = (subcell_ instanceof request_.CellModel)?subcell_.getID():subcell_.id; // potentially this is a constructor error
-                let cell = null; // CellModel ES6 class instance
-                if (!response.result.cmMap[cellID]) {
-                    // Theoretically we've not seen this CellModel registration before. So, we shouldn't be able to find any vertex with this IRUT ID in our digraph.
-                    if (digraph.isVertex(cellID)) {
-                        errors.push(`Subcell definition ~.subcells[${i}] specifies an invalid duplicate IRUT identifier id='${cellID}'.`);
-                        errors.push(`IRUT '${cellID}'previously registered a ${digraph.getVertexProperty(cellID).type} resource.`);
-                        continue;
-                    }
-                    cell = (subcell_ instanceof request_.CellModel)?subcell_:new request_.CellModel(subcell_);
-                    if (!cell.isValid()) {
-                        errors.push(`CellModel definition ~.subcells[${i}] with id='${cellID}' is invalid due to constructor error:`);
-                        errors.push(cell.toJSON());
-                        continue;
-                    }
-                    // This establishes this CellModel's baseline truth for this submodel.
-                    response.result.cmMap[cellID] = { cm: cellID, cell: cell }; // Add the subcell CellModel instance to this CellModel's cmMap.
-                    digraph.addVertex({ u: cellID, p: { type: "CM" }}); // Add a vertex in this CellModel's digraph to represent the subcell.
-                    digraph.addEdge({ e: { u: indexVertices.cm, v: cellID }, p: { type: `${indexVertices.cm}::CM` }}); // Link the subcell's vertex to the CellModel index.
-                    digraph.addEdge({ e: { u: request_.id, v: cellID }, p: { type: "CM::CM" }}); // u (this cell) depends on v (subcell)
-
-                    // Ingest subcell APM
-                    // Enumerate the subcell's APM map keys.
-                    Object.keys(cell._private.apmMap).forEach((key_) => {
-                        if (!response.result.apmMap[key_]) {
-                            // We should have never seen this IRUT before
-                            if (digraph.isVertex(key_)) {
-                                errors.push(`While merging subcells into CellModel found APM registered on subcell id='${cellID}' with invalid duplicate APM id='${key_}'.`);
-                                errors.push(`IRUT id='${key_}' was previously registered to a '${digraph.getVertexProperty(key_).type}' by CM id='${request_.id}'.`);
-                            } else {
-                                response.result.apmMap[key_] = cell._private.apmMap[key_]; // Ingest this APM declaration.
-                            }
-                        } else {
-                            if (!digraph.isVertex(key_)) {
-                                errors.push(`INTERNAL ERROR: While merging CellModel found APM registered on CM id='${cellID}' that appears to already be registered but is not already in the digraph.`);
-                            } else {
-                                let vertexType = digraph.getVertexProperty(key_).type;
-                                if (vertexType !== "APM") {
-                                    errors.push(`While merging CellModel found APM registered to CM id='${cellID}' with an invalid duplicate APM id='${key_}'.`);
-                                    errors.push(`IRUT id='${key_}' was previously register to a '$vertexType}' by CM id='${request_.id}'.`);
-                                } else {
-                                    if (response.result.apmMap[key_].getVDID() !== cell._private.apmMap[key_].getVDID()) {
-                                        errors.push(`While merging CellModel found APM registered on CM id='${cellID}' that fails deep inspection comparison!`);
-                                        errors.push(`Please ensure that all APM definitions with id='${key_}' are using exactly the same definition.`);
-                                    }
-                                }
-                            }
-                        }
-                    });
-
-                    // Ingest subcell TOP
-                    Object.keys(cell._private.topMap).forEach((key_) => {
-                        if (!response.result.topMap[key_]) {
-                            response.result.topMap[key_] = cell._private.topMap[key_]; // Ingest the TOP declaration.
-                        }
-                        // TODO: Verify via deep inspection of TOP instances that the cached TOP is identical to the subcell's TOP.
-                        // Presuming it's legit, this is a NOOP.
-                    });
-
-                    // Ingest subcell ACT
-                    // hmm... response.result.actMap = Object.assign(response.result.actMap, cell._private.actMap);
-                    Object.keys(cell._private.actMap).forEach((key_) => {
-                        if (!response.result.actMap[key_]) {
-                            response.result.actMap[key_] = cell._private.actMap[key_];
-                        }
-                        // TODO: Verify via deep inspection of ACT instances that the cached ACT is identical to the subcell's ACT.
-                        // Presuming it's legit, this is a NOOP.
-                    });
-
-                    // Ingest subcell subcells
-                    // hmm... response.result.cmMap = Object.assign(response.result.cmMap, cell._private.cmMap);
-                    Object.keys(cell._private.cmMap).forEach((key_) => {
-                        if (!response.result.cmMap[key_]) {
-                            response.result.cmMap[key_] = cell._private.cmMap[key_];
-                        }
-                        // TODO: Verify via deep inspection of CM instances that the cached CM is identical to the subcell's CM.
-                        // Presuming it's legit, this is a NOOP.
-                    });
-
-                    // Extend our digraph by ingesting the subcell's digraph.
-                    digraph.fromObject(cell._private.digraph.toJSON());
-
-                } else {
-                    // TODO: Deep inspect the two ES6 class instances for identity.
-                    cell = response.result.cmMap[cellID];
-                }
-
-            } // forEach subcell
-
-            */
 
 
             // ================================================================
@@ -277,6 +209,9 @@ const factoryResponse = arccore.filter.create({
                     errors.push("At request path ~.apm:");
                     errors.push(pcmrResponse.error);
                 }
+            }
+            if (errors.length) {
+                break;
             }
 
             // ================================================================
@@ -289,6 +224,9 @@ const factoryResponse = arccore.filter.create({
                     errors.push(pcmrResponse.error);
                 }
             }
+            if (errors.length) {
+                break;
+            }
 
             // ================================================================
             // PROCESS ControllerAction ASSOCIATIONS
@@ -300,6 +238,26 @@ const factoryResponse = arccore.filter.create({
                     errors.push(pcmrResponse.error);
                 }
             }
+            if (errors.length) {
+                break;
+            }
+
+
+            // ================================================================
+            // PROCESS SUB-CellModel DEPENDENCIES
+            for (let i = 0 ; i < request_.subcells.length ; i++) {
+                const registration = request_.subcells[i];
+
+                let pcmrResponse = processCellModelRegistration({ type: "CM", registration });
+                if (pcmrResponse.error) {
+                    errors.push(`At request path ~.subcells[${i}]:`);
+                    errors.push(pcmrResponse.error);
+                }
+            } // forEach subcell
+            if (errors.length) {
+                break;
+            }
+
 
             // ================================================================
             // EPILOGUE

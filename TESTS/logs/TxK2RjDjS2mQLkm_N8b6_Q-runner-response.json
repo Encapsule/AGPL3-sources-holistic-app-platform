@@ -19,6 +19,7 @@
             "E7xo1-qaSuSrsN5-8jgmRg",
             "ElMglky8TBGkzkd6W4690A",
             "ErHlg9R3SSaonNJr4mBi-g",
+            "FUyhcKKfTeycNWD0JVxkhw",
             "FxMOqQPARcGcMZ24x2tq7A",
             "Gli8ff6FR22PPXjn9epRAQ",
             "H2zMrBw4TBie5A2mwH4BRg",
@@ -28,7 +29,12 @@
             "IRyR4YazRuWiZp9Rzj6-WA",
             "KGh0Va-oTXKPUZmnDG4QPQ",
             "LC56jkxeQJ2mgWfwGklLEQ",
+            "MHVj3IaXR7SIsY1MUwMG_A",
+            "N88iVPFrQJO_VNKqdyrF1Q",
+            "OP9PyLDXTaac7_AHb1qCfg",
             "OXCzJI-JT72xRNRuEn51Bw",
+            "OcoS0S_MRg2traJs1gDQ-g",
+            "OrkMuFl_TyiqVKdt9Qs6Dw",
             "Pe4ks7bQQ9KQee1T8qTRHw",
             "QvEwWTkbT8G_SQsmWmg2zQ",
             "SHneUm5GTDO--xVSUpL92Q",
@@ -76,6 +82,8 @@
             "uZN6-qpIQO6CkwmLDWtMCw",
             "vzmMGynKTy2uu6W8R-1rvQ",
             "waM_L9rTT6ySTY4ja__K3g",
+            "wtgq7mnyQI-qZXBxv2wTrw",
+            "xhZFsZ7KTFCHaSkVZ_VMXQ",
             "y3Jy2d56QI63admJOy1tZw",
             "zUoUas3CTj2HLDfpNf4NTw"
           ],
@@ -83,17 +91,9 @@
             "130L3KaTS3uFybwDdVlWwg",
             "5aJ-FcXOSYqqF_ha651qQA",
             "7pAVXoWbTSeZSF4SzLrlxg",
-            "FUyhcKKfTeycNWD0JVxkhw",
             "Geq5MDymQLKcO9JQe7Lc8w",
             "HPaNXEH9SYmOZTLlD5jUXg",
-            "MHVj3IaXR7SIsY1MUwMG_A",
-            "N88iVPFrQJO_VNKqdyrF1Q",
-            "OP9PyLDXTaac7_AHb1qCfg",
-            "OcoS0S_MRg2traJs1gDQ-g",
-            "OrkMuFl_TyiqVKdt9Qs6Dw",
             "QE3J6XhJSHqelGnpFMawzA",
-            "wtgq7mnyQI-qZXBxv2wTrw",
-            "xhZFsZ7KTFCHaSkVZ_VMXQ",
             "zMnQxFBZQuaeu7buQH_qkw",
             "zxKqk_YOTme-e0AExJUhmg"
           ],
@@ -32740,7 +32740,7 @@
                 "harnessRequest": {
                   "id": "Xp1zz6GTQuug4w1umxHPlQ",
                   "name": "CellModel Constructor Error #2",
-                  "description": "Construct CellModel w/no artifact registrations to test error handling. Should fail, heretic.",
+                  "description": "Construct CellModel w/no artifact registrations to test error handling. Heretical requests should fail.",
                   "vectorRequest": {
                     "holistic": {
                       "holarchy": {
@@ -32765,8 +32765,60 @@
                     "harnessDispatch": {
                       "FAvFLw0XQN6yomNs13r21g": {
                         "Xp1zz6GTQuug4w1umxHPlQ": {
-                          "isValid": false,
-                          "toJSON": "CellModel::constructor for [Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. Heretical attempt to associate IRUT ID 'Xp1zz6GTQuug4w1umxHPlQ' with the root of all CellModel's, [0000000000000000000000::Nothingness]."
+                          "isValid": true,
+                          "toJSON": {
+                            "LMFSviNhR8WQoLvtv_YnbQ": true,
+                            "id": "Xp1zz6GTQuug4w1umxHPlQ",
+                            "name": "CellModel Constructor Error #2",
+                            "description": "Construct CellModel w/bad APM registration to test error handling. Should fail.",
+                            "digraph": {
+                              "name": "[Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2 CM Holarchy Digraph",
+                              "description": "A directed graph model of CM relationships [Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2].",
+                              "vlist": [
+                                {
+                                  "u": "INDEX_CM",
+                                  "p": {
+                                    "type": "INDEX"
+                                  }
+                                },
+                                {
+                                  "u": "INDEX_APM",
+                                  "p": {
+                                    "type": "INDEX"
+                                  }
+                                },
+                                {
+                                  "u": "INDEX_TOP",
+                                  "p": {
+                                    "type": "INDEX"
+                                  }
+                                },
+                                {
+                                  "u": "INDEX_ACT",
+                                  "p": {
+                                    "type": "INDEX"
+                                  }
+                                },
+                                {
+                                  "u": "Xp1zz6GTQuug4w1umxHPlQ",
+                                  "p": {
+                                    "type": "CM"
+                                  }
+                                }
+                              ],
+                              "elist": [
+                                {
+                                  "e": {
+                                    "u": "INDEX_CM",
+                                    "v": "Xp1zz6GTQuug4w1umxHPlQ"
+                                  },
+                                  "p": {
+                                    "type": "INDEX_CM::CM"
+                                  }
+                                }
+                              ]
+                            }
+                          }
                         }
                       }
                     }
@@ -32778,15 +32830,45 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "MHVj3IaXR7SIsY1MUwMG_A": {
                 "harnessRequest": {
                   "id": "MHVj3IaXR7SIsY1MUwMG_A",
                   "name": "CellModel Constructor Error #3",
-                  "description": "Construct CellModel w/bad APM registration to test error handling. Should fail."
+                  "description": "Construct CellModel w/bad APM registration to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "MHVj3IaXR7SIsY1MUwMG_A",
+                            "name": "CellModel Constructor Error #3",
+                            "description": "Construct CellModel w/bad APM registration to test error handling. Should fail.",
+                            "apm": {
+                              "id": "bad-id"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "MHVj3IaXR7SIsY1MUwMG_A": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [MHVj3IaXR7SIsY1MUwMG_A::CellModel Constructor Error #3] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.apm: Bad APM registration: The APM instance is invalid. AbstractProcessModel::constructor for [bad-id::unspecified] failed yielding a zombie instance. Filter [XoPnz1p9REe-XO3mKGII3w::APM Constructor Request Processor] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -32794,15 +32876,47 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "OP9PyLDXTaac7_AHb1qCfg": {
                 "harnessRequest": {
                   "id": "OP9PyLDXTaac7_AHb1qCfg",
                   "name": "CelModel Constructor Error #4",
-                  "description": "Construct CellModel w/bad TOP registration to test error handling. Should fail."
+                  "description": "Construct CellModel w/bad TOP registration to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "OP9PyLDXTaac7_AHb1qCfg",
+                            "name": "CelModel Constructor Error #4",
+                            "description": "Construct CellModel w/bad TOP registration to test error handling. Should fail.",
+                            "operators": [
+                              {
+                                "id": "bad-id"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "OP9PyLDXTaac7_AHb1qCfg": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [OP9PyLDXTaac7_AHb1qCfg::CelModel Constructor Error #4] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.operators[0]: Bad TOP registration: The TOP instance is invalid. TransitionOperator::constructor for [bad-id::unspecified] failed yielding a zombie instance. Filter [-99RI_6HTsiQgwN2OV1xXQ::Transition Operator Filter Factory] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -32810,15 +32924,47 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "OcoS0S_MRg2traJs1gDQ-g": {
                 "harnessRequest": {
                   "id": "OcoS0S_MRg2traJs1gDQ-g",
                   "name": "CellModel Constructor Error #5",
-                  "description": "Construct CellModel w/bad ACT registration to test error handling. Should fail."
+                  "description": "Construct CellModel w/bad ACT registration to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "OcoS0S_MRg2traJs1gDQ-g",
+                            "name": "CellModel Constructor Error #5",
+                            "description": "Construct CellModel w/bad ACT registration to test error handling. Should fail.",
+                            "actions": [
+                              {
+                                "id": "bad-id"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "OcoS0S_MRg2traJs1gDQ-g": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [OcoS0S_MRg2traJs1gDQ-g::CellModel Constructor Error #5] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.actions[0]: Bad ACT registration: The ACT instance is invalid. ControllerAction::constructor for [bad-id::unspecified] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -32826,15 +32972,47 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "N88iVPFrQJO_VNKqdyrF1Q": {
                 "harnessRequest": {
                   "id": "N88iVPFrQJO_VNKqdyrF1Q",
                   "name": "CellModel Constructor Error #6",
-                  "description": "Construct CellModel w/bad subcell registration to test error handling. Should fail."
+                  "description": "Construct CellModel w/bad subcell registration to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "N88iVPFrQJO_VNKqdyrF1Q",
+                            "name": "CellModel Constructor Error #6",
+                            "description": "Construct CellModel w/bad subcell registration to test error handling. Should fail.",
+                            "subcells": [
+                              {
+                                "id": "bad-name"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "N88iVPFrQJO_VNKqdyrF1Q": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [N88iVPFrQJO_VNKqdyrF1Q::CellModel Constructor Error #6] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.subcells[0]: Bad CM registration: The CM instance is invalid. CellModel::constructor for [bad-name::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~.name': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -32842,15 +33020,47 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "xhZFsZ7KTFCHaSkVZ_VMXQ": {
                 "harnessRequest": {
                   "id": "xhZFsZ7KTFCHaSkVZ_VMXQ",
                   "name": "CellModel Constructor Error #7",
-                  "description": "Construct CellModel w/bad duplicate ID APM registration to test error handling. Should fail"
+                  "description": "Construct CellModel w/bad duplicate ID APM registration to test error handling. Should fail",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "xhZFsZ7KTFCHaSkVZ_VMXQ",
+                            "name": "CellModel Constructor Error #7",
+                            "description": "Construct CellModel w/bad duplicate ID APM registration to test error handling. Should fail",
+                            "apm": {
+                              "id": "xhZFsZ7KTFCHaSkVZ_VMXQ",
+                              "name": "Should Be Rejected",
+                              "description": "Reusing the IRUT of the CellModel should not be allowed."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "xhZFsZ7KTFCHaSkVZ_VMXQ": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [xhZFsZ7KTFCHaSkVZ_VMXQ::CellModel Constructor Error #7] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.apm: Bad APM registration: The APM instance specifies a duplicate IRUT id='xhZFsZ7KTFCHaSkVZ_VMXQ' that is illegal in this context. IRUT id='xhZFsZ7KTFCHaSkVZ_VMXQ' was previously registered by this CellModel instance as a 'CM' artifact."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -32858,15 +33068,52 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "wtgq7mnyQI-qZXBxv2wTrw": {
                 "harnessRequest": {
                   "id": "wtgq7mnyQI-qZXBxv2wTrw",
                   "name": "CellModel Constructor Error #8",
-                  "description": "Construct CellModel w/bad duplicate ID TOP registration to test error handling. Should fail."
+                  "description": "Construct CellModel w/bad duplicate ID TOP registration to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "wtgq7mnyQI-qZXBxv2wTrw",
+                            "name": "CellModel Constructor Error #8",
+                            "description": "Construct CellModel w/bad duplicate ID TOP registration to test error handling. Should fail.",
+                            "operators": [
+                              {
+                                "id": "wtgq7mnyQI-qZXBxv2wTrw",
+                                "name": "Duplicate ID TransitionOperator",
+                                "description": "Deliberately re-use the CellModel's ID to test error handling.",
+                                "operatorRequestSpec": {
+                                  "____accept": "jsNull"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "wtgq7mnyQI-qZXBxv2wTrw": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [wtgq7mnyQI-qZXBxv2wTrw::CellModel Constructor Error #8] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.operators[0]: Bad TOP registration: The TOP instance specifies a duplicate IRUT id='wtgq7mnyQI-qZXBxv2wTrw' that is illegal in this context. IRUT id='wtgq7mnyQI-qZXBxv2wTrw' was previously registered by this CellModel instance as a 'CM' artifact."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -32874,15 +33121,52 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "FUyhcKKfTeycNWD0JVxkhw": {
                 "harnessRequest": {
                   "id": "FUyhcKKfTeycNWD0JVxkhw",
                   "name": "CellModel Constructor Error #9",
-                  "description": "Construct CellModel w/bad duplicate ID ACT registration to test error handling. Should fail."
+                  "description": "Construct CellModel w/bad duplicate ID ACT registration to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "FUyhcKKfTeycNWD0JVxkhw",
+                            "name": "CellModel Constructor Error #9",
+                            "description": "Construct CellModel w/bad duplicate ID ACT registration to test error handling. Should fail.",
+                            "actions": [
+                              {
+                                "id": "FUyhcKKfTeycNWD0JVxkhw",
+                                "name": "Duplicate ID ControllerAction",
+                                "description": "Deliberately re-use the CellModel's ID to test error handling.",
+                                "actionRequestSpec": {
+                                  "____accept": "jsNull"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "FUyhcKKfTeycNWD0JVxkhw": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [FUyhcKKfTeycNWD0JVxkhw::CellModel Constructor Error #9] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.actions[0]: Bad ACT registration: The ACT instance specifies a duplicate IRUT id='FUyhcKKfTeycNWD0JVxkhw' that is illegal in this context. IRUT id='FUyhcKKfTeycNWD0JVxkhw' was previously registered by this CellModel instance as a 'CM' artifact."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -32890,15 +33174,54 @@
         },
         {
           "dosRgxmiR66ongCbJB78ow": {
-            "000000000000000000": {
+            "c65zrhI3Ejco_Sj9nPKc8g": {
               "OrkMuFl_TyiqVKdt9Qs6Dw": {
                 "harnessRequest": {
                   "id": "OrkMuFl_TyiqVKdt9Qs6Dw",
                   "name": "CellModel Constructor Error #10",
-                  "description": "Construct CellModel w/bad duplicate ID subcell registration to test error handling. Should fail."
+                  "description": "Construct CellModel w/bad duplicate ID subcell registration to test error handling. Should fail.",
+                  "vectorRequest": {
+                    "holistic": {
+                      "holarchy": {
+                        "CellModel": {
+                          "constructorRequest": {
+                            "id": "OrkMuFl_TyiqVKdt9Qs6Dw",
+                            "name": "CellModel Constructor Error #10",
+                            "description": "Construct CellModel w/bad duplicate ID subcell registration to test error handling. Should fail.",
+                            "subcells": [
+                              {
+                                "id": "5A_gWDIxRiW_LMqHT2SRkw",
+                                "name": "Test Subcell Model",
+                                "description": "A subcell that registers an illegal duplicate APM ID.",
+                                "apm": {
+                                  "id": "OrkMuFl_TyiqVKdt9Qs6Dw",
+                                  "name": "Bad APM Definition",
+                                  "description": "Deliberately re-use the outer cell's ID to test error handling."
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "harnessResponse": {
-                  "error": "Runner cannot locate a harness filter to process this request type: Filter [X6fwPARqopqsR_82Gvv-zw::Discriminator Filter] failed while performing main operation. Unrecognized request format. Request signature must match one of filter set {[DUGjLpXu6s7PYw43guW2jg::Harness Proxy::<F1zguurrS9-fcdvLk7TCrg::Holodeck Runner Test Harness #1>], [SaPQhpVtKhQvT4xWAqtmXg::Harness Proxy::<X2q-YtvCTrWx7csHq8R8Tw::TransitionOperator Harness>], [T-BP4MgzyDOa-pr65Zrlmg::Harness Proxy::<UBSclp3gSqCCmSvoG3W4tw::CellProcessor Harness>], [V4rhwuR97Sdl5q9h1CIHTg::Harness Proxy::<0xHlX_WKQ3y-3CFQ0DDx1w::ControllerAction Harness>], [XsWRwtrxCUvzPsiaQrCA6Q::Harness Proxy::<mC3pPO5wS3SxvhgZgMjsJQ::AbstractProcessModel Harness>], [YKGvFlRJKQNp0UxWWe4jwA::Harness Proxy::<EmU3C0AASciHnBpz-xMmgA::Holodeck Runner Test Harness #3>], [bvj2u51Uw5_SD1TRZNpwXA::Harness Proxy::<54MiSgQdSiukMX4fIZJimg::ObservableProcessControler Harness>], [c65zrhI3Ejco_Sj9nPKc8g::Harness Proxy::<FAvFLw0XQN6yomNs13r21g::CellModel Harness>], [kFKvLRgHKYYDMExB7PQjIA::Harness Proxy::<d8zMijUSTZiQlbk__HX6gA::Holodeck Runner Test Harness #2>], [z1d1czVQoTY7MjDsy97Paw::Harness Proxy::<z8JzdpB0RcC-_AlfPQRxdQ::Holodeck Runner Test #4>], [zwXafDUZ8sI7qTaRy-pjLg::Harness Proxy::<TLUZ3YPUTXK8fXhh6t3-Ew::Holodeck Runner Test #5>]}."
+                  "error": null,
+                  "result": {
+                    "harnessOptions": {
+                      "idempotent": true,
+                      "gitDiffHunkSize": 0
+                    },
+                    "harnessDispatch": {
+                      "FAvFLw0XQN6yomNs13r21g": {
+                        "OrkMuFl_TyiqVKdt9Qs6Dw": {
+                          "isValid": false,
+                          "toJSON": "CellModel::constructor for [OrkMuFl_TyiqVKdt9Qs6Dw::CellModel Constructor Error #10] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while performing main operation. At request path ~.subcells[0]: Bad CM registration. Unable to merge CellModel id='5A_gWDIxRiW_LMqHT2SRkw' into CellModel id='OrkMuFl_TyiqVKdt9Qs6Dw' due to conflict. CellModel id='5A_gWDIxRiW_LMqHT2SRkw' APM registration id='OrkMuFl_TyiqVKdt9Qs6Dw' specifies illegal duplicate IRUT ID. CellModel id='OrkMuFl_TyiqVKdt9Qs6Dw' has previously registered id='OrkMuFl_TyiqVKdt9Qs6Dw' as a CM entity."
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -33011,39 +33334,10 @@
                             "id": "vzmMGynKTy2uu6W8R-1rvQ",
                             "name": "CellModel Constructor #2",
                             "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
-                            "cmMap": {},
-                            "apmMap": {
-                              "cJSBP90NTcu1bJMhCOjbQg": {
-                                "cm": "vzmMGynKTy2uu6W8R-1rvQ",
-                                "apm": {
-                                  "id": "cJSBP90NTcu1bJMhCOjbQg",
-                                  "name": "Placeholder APM",
-                                  "description": "A minimally-configured placeholder.",
-                                  "ocdDataSpec": {
-                                    "____types": "jsObject"
-                                  },
-                                  "steps": {}
-                                }
-                              }
-                            },
-                            "topMap": {},
-                            "actMap": {},
                             "digraph": {
                               "name": "[vzmMGynKTy2uu6W8R-1rvQ::CellModel Constructor #2 CM Holarchy Digraph",
                               "description": "A directed graph model of CM relationships [vzmMGynKTy2uu6W8R-1rvQ::CellModel Constructor #2].",
                               "vlist": [
-                                {
-                                  "u": "INDEX_ROOT",
-                                  "p": {
-                                    "type": "INDEX"
-                                  }
-                                },
-                                {
-                                  "u": "vzmMGynKTy2uu6W8R-1rvQ",
-                                  "p": {
-                                    "type": "CM"
-                                  }
-                                },
                                 {
                                   "u": "INDEX_CM",
                                   "p": {
@@ -33069,58 +33363,29 @@
                                   }
                                 },
                                 {
+                                  "u": "vzmMGynKTy2uu6W8R-1rvQ",
+                                  "p": {
+                                    "type": "CM"
+                                  }
+                                },
+                                {
                                   "u": "cJSBP90NTcu1bJMhCOjbQg",
                                   "p": {
-                                    "type": "APM"
+                                    "type": "APM",
+                                    "artifact": {
+                                      "id": "cJSBP90NTcu1bJMhCOjbQg",
+                                      "name": "Placeholder APM",
+                                      "description": "A minimally-configured placeholder.",
+                                      "ocdDataSpec": {
+                                        "____types": "jsObject"
+                                      },
+                                      "steps": {}
+                                    },
+                                    "cm": "vzmMGynKTy2uu6W8R-1rvQ"
                                   }
                                 }
                               ],
                               "elist": [
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_CM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_CM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_APM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_APM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_TOP"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_TOP"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_ACT"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_ACT"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "vzmMGynKTy2uu6W8R-1rvQ",
-                                    "v": "cJSBP90NTcu1bJMhCOjbQg"
-                                  },
-                                  "p": {
-                                    "type": "CM::APM"
-                                  }
-                                },
                                 {
                                   "e": {
                                     "u": "INDEX_CM",
@@ -33136,7 +33401,16 @@
                                     "v": "cJSBP90NTcu1bJMhCOjbQg"
                                   },
                                   "p": {
-                                    "type": "INDEX_APM::APM"
+                                    "type": "INDEX_APM:APM"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "vzmMGynKTy2uu6W8R-1rvQ",
+                                    "v": "cJSBP90NTcu1bJMhCOjbQg"
+                                  },
+                                  "p": {
+                                    "type": "CM:APM"
                                   }
                                 }
                               ]
@@ -33215,72 +33489,10 @@
                             "id": "AE_pEJ7LTdSvohEBZl_Bfw",
                             "name": "CellModel Constructor #3",
                             "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
-                            "cmMap": {},
-                            "apmMap": {},
-                            "topMap": {
-                              "o3Q4YKI_SLOus82xE7Gaag": {
-                                "cm": "AE_pEJ7LTdSvohEBZl_Bfw",
-                                "top": {
-                                  "filterDescriptor": {
-                                    "operationID": "o3Q4YKI_SLOus82xE7Gaag",
-                                    "operationName": "Placeholder TOP",
-                                    "operationDescription": "A minimally configured placeholder.",
-                                    "inputFilterSpec": {
-                                      "____label": "Placeholder TOP Request",
-                                      "____types": "jsObject",
-                                      "context": {
-                                        "____label": "OPC Context Descriptor",
-                                        "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                        "____types": "jsObject",
-                                        "apmBindingPath": {
-                                          "____label": "APM Binding Path",
-                                          "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                          "____accept": "jsString"
-                                        },
-                                        "ocdi": {
-                                          "____label": "OCD Store Instance",
-                                          "____description": "A reference to the OCD store instance managed by OPC.",
-                                          "____accept": "jsObject"
-                                        },
-                                        "transitionDispatcher": {
-                                          "____label": "OPC Transition Dispatcher",
-                                          "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                          "____accept": "jsObject"
-                                        }
-                                      },
-                                      "operatorRequest": {
-                                        "____accept": "jsObject"
-                                      }
-                                    },
-                                    "outputFilterSpec": {
-                                      "____accept": "jsBoolean"
-                                    },
-                                    "inputTypeVIID": "ofjO8lEELEezP_Th2FWN7w",
-                                    "inputTypeVDID": "-u3TG2L-PMELD2liQ2U6tA",
-                                    "outputTypeVIID": "jRyE9cAVqGCeOzcPg81fwg",
-                                    "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                                    "operationVDID": "NeeiRBSBUpPAYmic9BYIcg"
-                                  }
-                                }
-                              }
-                            },
-                            "actMap": {},
                             "digraph": {
                               "name": "[AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3 CM Holarchy Digraph",
                               "description": "A directed graph model of CM relationships [AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3].",
                               "vlist": [
-                                {
-                                  "u": "INDEX_ROOT",
-                                  "p": {
-                                    "type": "INDEX"
-                                  }
-                                },
-                                {
-                                  "u": "AE_pEJ7LTdSvohEBZl_Bfw",
-                                  "p": {
-                                    "type": "CM"
-                                  }
-                                },
                                 {
                                   "u": "INDEX_CM",
                                   "p": {
@@ -33306,58 +33518,62 @@
                                   }
                                 },
                                 {
+                                  "u": "AE_pEJ7LTdSvohEBZl_Bfw",
+                                  "p": {
+                                    "type": "CM"
+                                  }
+                                },
+                                {
                                   "u": "o3Q4YKI_SLOus82xE7Gaag",
                                   "p": {
-                                    "type": "TOP"
+                                    "type": "TOP",
+                                    "artifact": {
+                                      "filterDescriptor": {
+                                        "operationID": "o3Q4YKI_SLOus82xE7Gaag",
+                                        "operationName": "Placeholder TOP",
+                                        "operationDescription": "A minimally configured placeholder.",
+                                        "inputFilterSpec": {
+                                          "____label": "Placeholder TOP Request",
+                                          "____types": "jsObject",
+                                          "context": {
+                                            "____label": "OPC Context Descriptor",
+                                            "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                            "____types": "jsObject",
+                                            "apmBindingPath": {
+                                              "____label": "APM Binding Path",
+                                              "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                              "____accept": "jsString"
+                                            },
+                                            "ocdi": {
+                                              "____label": "OCD Store Instance",
+                                              "____description": "A reference to the OCD store instance managed by OPC.",
+                                              "____accept": "jsObject"
+                                            },
+                                            "transitionDispatcher": {
+                                              "____label": "OPC Transition Dispatcher",
+                                              "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                              "____accept": "jsObject"
+                                            }
+                                          },
+                                          "operatorRequest": {
+                                            "____accept": "jsObject"
+                                          }
+                                        },
+                                        "outputFilterSpec": {
+                                          "____accept": "jsBoolean"
+                                        },
+                                        "inputTypeVIID": "ofjO8lEELEezP_Th2FWN7w",
+                                        "inputTypeVDID": "-u3TG2L-PMELD2liQ2U6tA",
+                                        "outputTypeVIID": "jRyE9cAVqGCeOzcPg81fwg",
+                                        "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                        "operationVDID": "NeeiRBSBUpPAYmic9BYIcg"
+                                      }
+                                    },
+                                    "cm": "AE_pEJ7LTdSvohEBZl_Bfw"
                                   }
                                 }
                               ],
                               "elist": [
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_CM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_CM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_APM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_APM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_TOP"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_TOP"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_ACT"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_ACT"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "AE_pEJ7LTdSvohEBZl_Bfw",
-                                    "v": "o3Q4YKI_SLOus82xE7Gaag"
-                                  },
-                                  "p": {
-                                    "type": "CM::TOP"
-                                  }
-                                },
                                 {
                                   "e": {
                                     "u": "INDEX_CM",
@@ -33373,7 +33589,16 @@
                                     "v": "o3Q4YKI_SLOus82xE7Gaag"
                                   },
                                   "p": {
-                                    "type": "INDEX_TOP::TOP"
+                                    "type": "INDEX_TOP:TOP"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "AE_pEJ7LTdSvohEBZl_Bfw",
+                                    "v": "o3Q4YKI_SLOus82xE7Gaag"
+                                  },
+                                  "p": {
+                                    "type": "CM:TOP"
                                   }
                                 }
                               ]
@@ -33455,77 +33680,10 @@
                             "id": "E7xo1-qaSuSrsN5-8jgmRg",
                             "name": "CellModel Constructor #4",
                             "description": "Try to construct a minimally configured CellModel with a single ControllerAction plug-in.",
-                            "cmMap": {},
-                            "apmMap": {},
-                            "topMap": {},
-                            "actMap": {
-                              "SXYrt7-1SOe91wpQLWFutQ": {
-                                "cm": "E7xo1-qaSuSrsN5-8jgmRg",
-                                "act": {
-                                  "filterDescriptor": {
-                                    "operationID": "SXYrt7-1SOe91wpQLWFutQ",
-                                    "operationName": "Fake Test Action",
-                                    "operationDescription": "A fake test action.",
-                                    "inputFilterSpec": {
-                                      "____label": "Fake Test Action Request",
-                                      "____types": "jsObject",
-                                      "context": {
-                                        "____label": "OPC Context Descriptor",
-                                        "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                        "____types": "jsObject",
-                                        "apmBindingPath": {
-                                          "____label": "APM Binding Path",
-                                          "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                          "____accept": "jsString"
-                                        },
-                                        "ocdi": {
-                                          "____label": "OCD Store Instance",
-                                          "____description": "A reference to the OCD store instance managed by OPC.",
-                                          "____accept": "jsObject"
-                                        },
-                                        "act": {
-                                          "____label": "OPC.act Method",
-                                          "____description": "A reference to ObservableProcessController.act method.",
-                                          "____accept": "jsFunction"
-                                        }
-                                      },
-                                      "actionRequest": {
-                                        "____types": "jsObject",
-                                        "whatever": {
-                                          "____accept": "jsNull"
-                                        }
-                                      }
-                                    },
-                                    "outputFilterSpec": {
-                                      "____label": "No Result (Default)",
-                                      "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                                      "____accept": "jsUndefined"
-                                    },
-                                    "inputTypeVIID": "ua9E5BPT9qhybUhTf7kT_w",
-                                    "inputTypeVDID": "4NjgRYYhwxrLD6wQM5i5lg",
-                                    "outputTypeVIID": "eQ6l4u2_RmjCZc_dTc4xbA",
-                                    "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                                    "operationVDID": "bZcmeXpGC9ZoycmkzZOoBw"
-                                  }
-                                }
-                              }
-                            },
                             "digraph": {
                               "name": "[E7xo1-qaSuSrsN5-8jgmRg::CellModel Constructor #4 CM Holarchy Digraph",
                               "description": "A directed graph model of CM relationships [E7xo1-qaSuSrsN5-8jgmRg::CellModel Constructor #4].",
                               "vlist": [
-                                {
-                                  "u": "INDEX_ROOT",
-                                  "p": {
-                                    "type": "INDEX"
-                                  }
-                                },
-                                {
-                                  "u": "E7xo1-qaSuSrsN5-8jgmRg",
-                                  "p": {
-                                    "type": "CM"
-                                  }
-                                },
                                 {
                                   "u": "INDEX_CM",
                                   "p": {
@@ -33551,58 +33709,67 @@
                                   }
                                 },
                                 {
+                                  "u": "E7xo1-qaSuSrsN5-8jgmRg",
+                                  "p": {
+                                    "type": "CM"
+                                  }
+                                },
+                                {
                                   "u": "SXYrt7-1SOe91wpQLWFutQ",
                                   "p": {
-                                    "type": "ACT"
+                                    "type": "ACT",
+                                    "artifact": {
+                                      "filterDescriptor": {
+                                        "operationID": "SXYrt7-1SOe91wpQLWFutQ",
+                                        "operationName": "Fake Test Action",
+                                        "operationDescription": "A fake test action.",
+                                        "inputFilterSpec": {
+                                          "____label": "Fake Test Action Request",
+                                          "____types": "jsObject",
+                                          "context": {
+                                            "____label": "OPC Context Descriptor",
+                                            "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                            "____types": "jsObject",
+                                            "apmBindingPath": {
+                                              "____label": "APM Binding Path",
+                                              "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                              "____accept": "jsString"
+                                            },
+                                            "ocdi": {
+                                              "____label": "OCD Store Instance",
+                                              "____description": "A reference to the OCD store instance managed by OPC.",
+                                              "____accept": "jsObject"
+                                            },
+                                            "act": {
+                                              "____label": "OPC.act Method",
+                                              "____description": "A reference to ObservableProcessController.act method.",
+                                              "____accept": "jsFunction"
+                                            }
+                                          },
+                                          "actionRequest": {
+                                            "____types": "jsObject",
+                                            "whatever": {
+                                              "____accept": "jsNull"
+                                            }
+                                          }
+                                        },
+                                        "outputFilterSpec": {
+                                          "____label": "No Result (Default)",
+                                          "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                                          "____accept": "jsUndefined"
+                                        },
+                                        "inputTypeVIID": "ua9E5BPT9qhybUhTf7kT_w",
+                                        "inputTypeVDID": "4NjgRYYhwxrLD6wQM5i5lg",
+                                        "outputTypeVIID": "eQ6l4u2_RmjCZc_dTc4xbA",
+                                        "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                                        "operationVDID": "bZcmeXpGC9ZoycmkzZOoBw"
+                                      }
+                                    },
+                                    "cm": "E7xo1-qaSuSrsN5-8jgmRg"
                                   }
                                 }
                               ],
                               "elist": [
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_CM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_CM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_APM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_APM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_TOP"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_TOP"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_ACT"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_ACT"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "E7xo1-qaSuSrsN5-8jgmRg",
-                                    "v": "SXYrt7-1SOe91wpQLWFutQ"
-                                  },
-                                  "p": {
-                                    "type": "CM::ACT"
-                                  }
-                                },
                                 {
                                   "e": {
                                     "u": "INDEX_CM",
@@ -33618,7 +33785,16 @@
                                     "v": "SXYrt7-1SOe91wpQLWFutQ"
                                   },
                                   "p": {
-                                    "type": "INDEX_ACT::ACT"
+                                    "type": "INDEX_ACT:ACT"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "E7xo1-qaSuSrsN5-8jgmRg",
+                                    "v": "SXYrt7-1SOe91wpQLWFutQ"
+                                  },
+                                  "p": {
+                                    "type": "CM:ACT"
                                   }
                                 }
                               ]
@@ -33729,619 +33905,10 @@
                             "id": "rShJ0riLSiOxLt0OpFJLJA",
                             "name": "SoftewareCellModel Constructor #5",
                             "description": "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
-                            "cmMap": {
-                              "HbLgO6RMRRacUTjXqv2Rrw": {
-                                "cm": "HbLgO6RMRRacUTjXqv2Rrw",
-                                "cell": {
-                                  "LMFSviNhR8WQoLvtv_YnbQ": true,
-                                  "id": "HbLgO6RMRRacUTjXqv2Rrw",
-                                  "name": "Test Subcell #1",
-                                  "description": "Test subcell #1 defines an APM.",
-                                  "cmMap": {},
-                                  "apmMap": {
-                                    "gA3KJMtcS6K8o5cV4plg3w": {
-                                      "cm": "HbLgO6RMRRacUTjXqv2Rrw",
-                                      "apm": {
-                                        "id": "gA3KJMtcS6K8o5cV4plg3w",
-                                        "name": "Test Subcell #1 APM",
-                                        "description": "Just a test",
-                                        "ocdDataSpec": {
-                                          "____types": "jsObject"
-                                        },
-                                        "steps": {}
-                                      }
-                                    }
-                                  },
-                                  "topMap": {},
-                                  "actMap": {},
-                                  "digraph": {
-                                    "name": "[HbLgO6RMRRacUTjXqv2Rrw::Test Subcell #1 CM Holarchy Digraph",
-                                    "description": "A directed graph model of CM relationships [HbLgO6RMRRacUTjXqv2Rrw::Test Subcell #1].",
-                                    "vlist": [
-                                      {
-                                        "u": "INDEX_ROOT",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "HbLgO6RMRRacUTjXqv2Rrw",
-                                        "p": {
-                                          "type": "CM"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_CM",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_APM",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_TOP",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_ACT",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "gA3KJMtcS6K8o5cV4plg3w",
-                                        "p": {
-                                          "type": "APM"
-                                        }
-                                      }
-                                    ],
-                                    "elist": [
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_CM"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_CM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_APM"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_APM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_TOP"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_TOP"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_ACT"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_ACT"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "HbLgO6RMRRacUTjXqv2Rrw",
-                                          "v": "gA3KJMtcS6K8o5cV4plg3w"
-                                        },
-                                        "p": {
-                                          "type": "CM::APM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_CM",
-                                          "v": "HbLgO6RMRRacUTjXqv2Rrw"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_CM::CM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_APM",
-                                          "v": "gA3KJMtcS6K8o5cV4plg3w"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_APM::APM"
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              "0Yacg-V9QDqmbVlOFMSVVw": {
-                                "cm": "0Yacg-V9QDqmbVlOFMSVVw",
-                                "cell": {
-                                  "LMFSviNhR8WQoLvtv_YnbQ": true,
-                                  "id": "0Yacg-V9QDqmbVlOFMSVVw",
-                                  "name": "Test Subcell #2",
-                                  "description": "Test subcell #2 defines a TOP.",
-                                  "cmMap": {},
-                                  "apmMap": {},
-                                  "topMap": {
-                                    "gcVJ6OIFQfyM6tn194wrsg": {
-                                      "cm": "0Yacg-V9QDqmbVlOFMSVVw",
-                                      "top": {
-                                        "filterDescriptor": {
-                                          "operationID": "gcVJ6OIFQfyM6tn194wrsg",
-                                          "operationName": "Test Subcell #2 TOP",
-                                          "operationDescription": "Just a test",
-                                          "inputFilterSpec": {
-                                            "____label": "Test Subcell #2 TOP Request",
-                                            "____types": "jsObject",
-                                            "context": {
-                                              "____label": "OPC Context Descriptor",
-                                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                              "____types": "jsObject",
-                                              "apmBindingPath": {
-                                                "____label": "APM Binding Path",
-                                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                                "____accept": "jsString"
-                                              },
-                                              "ocdi": {
-                                                "____label": "OCD Store Instance",
-                                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                                "____accept": "jsObject"
-                                              },
-                                              "transitionDispatcher": {
-                                                "____label": "OPC Transition Dispatcher",
-                                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                                "____accept": "jsObject"
-                                              }
-                                            },
-                                            "operatorRequest": {
-                                              "____accept": "jsBoolean"
-                                            }
-                                          },
-                                          "outputFilterSpec": {
-                                            "____accept": "jsBoolean"
-                                          },
-                                          "inputTypeVIID": "U81s5rTlp-fNMN1Dp2wrEQ",
-                                          "inputTypeVDID": "kf9hjXdbG-Fa8aV9SqI9nw",
-                                          "outputTypeVIID": "W9a-ikTdkabeeTZr59E2Yw",
-                                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                                          "operationVDID": "j02dRKVMwZPloXWcW9Vncg"
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "actMap": {},
-                                  "digraph": {
-                                    "name": "[0Yacg-V9QDqmbVlOFMSVVw::Test Subcell #2 CM Holarchy Digraph",
-                                    "description": "A directed graph model of CM relationships [0Yacg-V9QDqmbVlOFMSVVw::Test Subcell #2].",
-                                    "vlist": [
-                                      {
-                                        "u": "INDEX_ROOT",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "0Yacg-V9QDqmbVlOFMSVVw",
-                                        "p": {
-                                          "type": "CM"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_CM",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_APM",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_TOP",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_ACT",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "gcVJ6OIFQfyM6tn194wrsg",
-                                        "p": {
-                                          "type": "TOP"
-                                        }
-                                      }
-                                    ],
-                                    "elist": [
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_CM"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_CM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_APM"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_APM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_TOP"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_TOP"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_ACT"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_ACT"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "0Yacg-V9QDqmbVlOFMSVVw",
-                                          "v": "gcVJ6OIFQfyM6tn194wrsg"
-                                        },
-                                        "p": {
-                                          "type": "CM::TOP"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_CM",
-                                          "v": "0Yacg-V9QDqmbVlOFMSVVw"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_CM::CM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_TOP",
-                                          "v": "gcVJ6OIFQfyM6tn194wrsg"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_TOP::TOP"
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              "fZ7sK3URSaK3QR7_IycJrw": {
-                                "cm": "fZ7sK3URSaK3QR7_IycJrw",
-                                "cell": {
-                                  "LMFSviNhR8WQoLvtv_YnbQ": true,
-                                  "id": "fZ7sK3URSaK3QR7_IycJrw",
-                                  "name": "Test Subcell #3",
-                                  "description": "Test subcell #3 defines an ACT",
-                                  "cmMap": {},
-                                  "apmMap": {},
-                                  "topMap": {},
-                                  "actMap": {
-                                    "NQmQIuSMTbWYlQtmQr9n0A": {
-                                      "cm": "fZ7sK3URSaK3QR7_IycJrw",
-                                      "act": {
-                                        "filterDescriptor": {
-                                          "operationID": "NQmQIuSMTbWYlQtmQr9n0A",
-                                          "operationName": "Test Subcell #3 ACT",
-                                          "operationDescription": "Just a test",
-                                          "inputFilterSpec": {
-                                            "____label": "Test Subcell #3 ACT Request",
-                                            "____types": "jsObject",
-                                            "context": {
-                                              "____label": "OPC Context Descriptor",
-                                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                              "____types": "jsObject",
-                                              "apmBindingPath": {
-                                                "____label": "APM Binding Path",
-                                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                                "____accept": "jsString"
-                                              },
-                                              "ocdi": {
-                                                "____label": "OCD Store Instance",
-                                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                                "____accept": "jsObject"
-                                              },
-                                              "act": {
-                                                "____label": "OPC.act Method",
-                                                "____description": "A reference to ObservableProcessController.act method.",
-                                                "____accept": "jsFunction"
-                                              }
-                                            },
-                                            "actionRequest": {
-                                              "____accept": "jsBoolean"
-                                            }
-                                          },
-                                          "outputFilterSpec": {
-                                            "____label": "No Result (Default)",
-                                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                                            "____accept": "jsUndefined"
-                                          },
-                                          "inputTypeVIID": "acgd8Eos-QkeNjocmTZ6mw",
-                                          "inputTypeVDID": "8Kh45pt96JdfKLuKyhmAGQ",
-                                          "outputTypeVIID": "NTBvwO5GCmpOqXson8Dr0g",
-                                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                                          "operationVDID": "w6RoeRz8RtZvVD6k2WaEBw"
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "digraph": {
-                                    "name": "[fZ7sK3URSaK3QR7_IycJrw::Test Subcell #3 CM Holarchy Digraph",
-                                    "description": "A directed graph model of CM relationships [fZ7sK3URSaK3QR7_IycJrw::Test Subcell #3].",
-                                    "vlist": [
-                                      {
-                                        "u": "INDEX_ROOT",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "fZ7sK3URSaK3QR7_IycJrw",
-                                        "p": {
-                                          "type": "CM"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_CM",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_APM",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_TOP",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "INDEX_ACT",
-                                        "p": {
-                                          "type": "INDEX"
-                                        }
-                                      },
-                                      {
-                                        "u": "NQmQIuSMTbWYlQtmQr9n0A",
-                                        "p": {
-                                          "type": "ACT"
-                                        }
-                                      }
-                                    ],
-                                    "elist": [
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_CM"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_CM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_APM"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_APM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_TOP"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_TOP"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ROOT",
-                                          "v": "INDEX_ACT"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ROOT::INDEX_ACT"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "fZ7sK3URSaK3QR7_IycJrw",
-                                          "v": "NQmQIuSMTbWYlQtmQr9n0A"
-                                        },
-                                        "p": {
-                                          "type": "CM::ACT"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_CM",
-                                          "v": "fZ7sK3URSaK3QR7_IycJrw"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_CM::CM"
-                                        }
-                                      },
-                                      {
-                                        "e": {
-                                          "u": "INDEX_ACT",
-                                          "v": "NQmQIuSMTbWYlQtmQr9n0A"
-                                        },
-                                        "p": {
-                                          "type": "INDEX_ACT::ACT"
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              }
-                            },
-                            "apmMap": {
-                              "gA3KJMtcS6K8o5cV4plg3w": {
-                                "cm": "HbLgO6RMRRacUTjXqv2Rrw",
-                                "apm": {
-                                  "id": "gA3KJMtcS6K8o5cV4plg3w",
-                                  "name": "Test Subcell #1 APM",
-                                  "description": "Just a test",
-                                  "ocdDataSpec": {
-                                    "____types": "jsObject"
-                                  },
-                                  "steps": {}
-                                }
-                              }
-                            },
-                            "topMap": {
-                              "gcVJ6OIFQfyM6tn194wrsg": {
-                                "cm": "0Yacg-V9QDqmbVlOFMSVVw",
-                                "top": {
-                                  "filterDescriptor": {
-                                    "operationID": "gcVJ6OIFQfyM6tn194wrsg",
-                                    "operationName": "Test Subcell #2 TOP",
-                                    "operationDescription": "Just a test",
-                                    "inputFilterSpec": {
-                                      "____label": "Test Subcell #2 TOP Request",
-                                      "____types": "jsObject",
-                                      "context": {
-                                        "____label": "OPC Context Descriptor",
-                                        "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                        "____types": "jsObject",
-                                        "apmBindingPath": {
-                                          "____label": "APM Binding Path",
-                                          "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                          "____accept": "jsString"
-                                        },
-                                        "ocdi": {
-                                          "____label": "OCD Store Instance",
-                                          "____description": "A reference to the OCD store instance managed by OPC.",
-                                          "____accept": "jsObject"
-                                        },
-                                        "transitionDispatcher": {
-                                          "____label": "OPC Transition Dispatcher",
-                                          "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                          "____accept": "jsObject"
-                                        }
-                                      },
-                                      "operatorRequest": {
-                                        "____accept": "jsBoolean"
-                                      }
-                                    },
-                                    "outputFilterSpec": {
-                                      "____accept": "jsBoolean"
-                                    },
-                                    "inputTypeVIID": "U81s5rTlp-fNMN1Dp2wrEQ",
-                                    "inputTypeVDID": "kf9hjXdbG-Fa8aV9SqI9nw",
-                                    "outputTypeVIID": "W9a-ikTdkabeeTZr59E2Yw",
-                                    "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                                    "operationVDID": "j02dRKVMwZPloXWcW9Vncg"
-                                  }
-                                }
-                              }
-                            },
-                            "actMap": {
-                              "NQmQIuSMTbWYlQtmQr9n0A": {
-                                "cm": "fZ7sK3URSaK3QR7_IycJrw",
-                                "act": {
-                                  "filterDescriptor": {
-                                    "operationID": "NQmQIuSMTbWYlQtmQr9n0A",
-                                    "operationName": "Test Subcell #3 ACT",
-                                    "operationDescription": "Just a test",
-                                    "inputFilterSpec": {
-                                      "____label": "Test Subcell #3 ACT Request",
-                                      "____types": "jsObject",
-                                      "context": {
-                                        "____label": "OPC Context Descriptor",
-                                        "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                        "____types": "jsObject",
-                                        "apmBindingPath": {
-                                          "____label": "APM Binding Path",
-                                          "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                          "____accept": "jsString"
-                                        },
-                                        "ocdi": {
-                                          "____label": "OCD Store Instance",
-                                          "____description": "A reference to the OCD store instance managed by OPC.",
-                                          "____accept": "jsObject"
-                                        },
-                                        "act": {
-                                          "____label": "OPC.act Method",
-                                          "____description": "A reference to ObservableProcessController.act method.",
-                                          "____accept": "jsFunction"
-                                        }
-                                      },
-                                      "actionRequest": {
-                                        "____accept": "jsBoolean"
-                                      }
-                                    },
-                                    "outputFilterSpec": {
-                                      "____label": "No Result (Default)",
-                                      "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                                      "____accept": "jsUndefined"
-                                    },
-                                    "inputTypeVIID": "acgd8Eos-QkeNjocmTZ6mw",
-                                    "inputTypeVDID": "8Kh45pt96JdfKLuKyhmAGQ",
-                                    "outputTypeVIID": "NTBvwO5GCmpOqXson8Dr0g",
-                                    "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                                    "operationVDID": "w6RoeRz8RtZvVD6k2WaEBw"
-                                  }
-                                }
-                              }
-                            },
                             "digraph": {
                               "name": "[fZ7sK3URSaK3QR7_IycJrw::Test Subcell #3 CM Holarchy Digraph",
                               "description": "A directed graph model of CM relationships [fZ7sK3URSaK3QR7_IycJrw::Test Subcell #3].",
                               "vlist": [
-                                {
-                                  "u": "INDEX_ROOT",
-                                  "p": {
-                                    "type": "INDEX"
-                                  }
-                                },
-                                {
-                                  "u": "rShJ0riLSiOxLt0OpFJLJA",
-                                  "p": {
-                                    "type": "CM"
-                                  }
-                                },
                                 {
                                   "u": "INDEX_CM",
                                   "p": {
@@ -34367,6 +33934,12 @@
                                   }
                                 },
                                 {
+                                  "u": "rShJ0riLSiOxLt0OpFJLJA",
+                                  "p": {
+                                    "type": "CM"
+                                  }
+                                },
+                                {
                                   "u": "HbLgO6RMRRacUTjXqv2Rrw",
                                   "p": {
                                     "type": "CM"
@@ -34375,7 +33948,17 @@
                                 {
                                   "u": "gA3KJMtcS6K8o5cV4plg3w",
                                   "p": {
-                                    "type": "APM"
+                                    "type": "APM",
+                                    "artifact": {
+                                      "id": "gA3KJMtcS6K8o5cV4plg3w",
+                                      "name": "Test Subcell #1 APM",
+                                      "description": "Just a test",
+                                      "ocdDataSpec": {
+                                        "____types": "jsObject"
+                                      },
+                                      "steps": {}
+                                    },
+                                    "cm": "HbLgO6RMRRacUTjXqv2Rrw"
                                   }
                                 },
                                 {
@@ -34387,7 +33970,50 @@
                                 {
                                   "u": "gcVJ6OIFQfyM6tn194wrsg",
                                   "p": {
-                                    "type": "TOP"
+                                    "type": "TOP",
+                                    "artifact": {
+                                      "filterDescriptor": {
+                                        "operationID": "gcVJ6OIFQfyM6tn194wrsg",
+                                        "operationName": "Test Subcell #2 TOP",
+                                        "operationDescription": "Just a test",
+                                        "inputFilterSpec": {
+                                          "____label": "Test Subcell #2 TOP Request",
+                                          "____types": "jsObject",
+                                          "context": {
+                                            "____label": "OPC Context Descriptor",
+                                            "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                            "____types": "jsObject",
+                                            "apmBindingPath": {
+                                              "____label": "APM Binding Path",
+                                              "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                              "____accept": "jsString"
+                                            },
+                                            "ocdi": {
+                                              "____label": "OCD Store Instance",
+                                              "____description": "A reference to the OCD store instance managed by OPC.",
+                                              "____accept": "jsObject"
+                                            },
+                                            "transitionDispatcher": {
+                                              "____label": "OPC Transition Dispatcher",
+                                              "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                              "____accept": "jsObject"
+                                            }
+                                          },
+                                          "operatorRequest": {
+                                            "____accept": "jsBoolean"
+                                          }
+                                        },
+                                        "outputFilterSpec": {
+                                          "____accept": "jsBoolean"
+                                        },
+                                        "inputTypeVIID": "U81s5rTlp-fNMN1Dp2wrEQ",
+                                        "inputTypeVDID": "kf9hjXdbG-Fa8aV9SqI9nw",
+                                        "outputTypeVIID": "W9a-ikTdkabeeTZr59E2Yw",
+                                        "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                                        "operationVDID": "j02dRKVMwZPloXWcW9Vncg"
+                                      }
+                                    },
+                                    "cm": "0Yacg-V9QDqmbVlOFMSVVw"
                                   }
                                 },
                                 {
@@ -34399,74 +34025,56 @@
                                 {
                                   "u": "NQmQIuSMTbWYlQtmQr9n0A",
                                   "p": {
-                                    "type": "ACT"
+                                    "type": "ACT",
+                                    "artifact": {
+                                      "filterDescriptor": {
+                                        "operationID": "NQmQIuSMTbWYlQtmQr9n0A",
+                                        "operationName": "Test Subcell #3 ACT",
+                                        "operationDescription": "Just a test",
+                                        "inputFilterSpec": {
+                                          "____label": "Test Subcell #3 ACT Request",
+                                          "____types": "jsObject",
+                                          "context": {
+                                            "____label": "OPC Context Descriptor",
+                                            "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                            "____types": "jsObject",
+                                            "apmBindingPath": {
+                                              "____label": "APM Binding Path",
+                                              "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                              "____accept": "jsString"
+                                            },
+                                            "ocdi": {
+                                              "____label": "OCD Store Instance",
+                                              "____description": "A reference to the OCD store instance managed by OPC.",
+                                              "____accept": "jsObject"
+                                            },
+                                            "act": {
+                                              "____label": "OPC.act Method",
+                                              "____description": "A reference to ObservableProcessController.act method.",
+                                              "____accept": "jsFunction"
+                                            }
+                                          },
+                                          "actionRequest": {
+                                            "____accept": "jsBoolean"
+                                          }
+                                        },
+                                        "outputFilterSpec": {
+                                          "____label": "No Result (Default)",
+                                          "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                                          "____accept": "jsUndefined"
+                                        },
+                                        "inputTypeVIID": "acgd8Eos-QkeNjocmTZ6mw",
+                                        "inputTypeVDID": "8Kh45pt96JdfKLuKyhmAGQ",
+                                        "outputTypeVIID": "NTBvwO5GCmpOqXson8Dr0g",
+                                        "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                                        "operationVDID": "w6RoeRz8RtZvVD6k2WaEBw"
+                                      }
+                                    },
+                                    "cm": "fZ7sK3URSaK3QR7_IycJrw"
                                   }
                                 }
                               ],
                               "elist": [
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_CM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_CM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_APM"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_APM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_TOP"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_TOP"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "INDEX_ROOT",
-                                    "v": "INDEX_ACT"
-                                  },
-                                  "p": {
-                                    "type": "INDEX_ROOT::INDEX_ACT"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "rShJ0riLSiOxLt0OpFJLJA",
-                                    "v": "HbLgO6RMRRacUTjXqv2Rrw"
-                                  },
-                                  "p": {
-                                    "type": "CM::CM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "rShJ0riLSiOxLt0OpFJLJA",
-                                    "v": "0Yacg-V9QDqmbVlOFMSVVw"
-                                  },
-                                  "p": {
-                                    "type": "CM::CM"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "rShJ0riLSiOxLt0OpFJLJA",
-                                    "v": "fZ7sK3URSaK3QR7_IycJrw"
-                                  },
-                                  "p": {
-                                    "type": "CM::CM"
-                                  }
-                                },
                                 {
                                   "e": {
                                     "u": "INDEX_CM",
@@ -34509,7 +34117,7 @@
                                     "v": "gA3KJMtcS6K8o5cV4plg3w"
                                   },
                                   "p": {
-                                    "type": "INDEX_APM::APM"
+                                    "type": "INDEX_APM:APM"
                                   }
                                 },
                                 {
@@ -34518,7 +34126,7 @@
                                     "v": "gcVJ6OIFQfyM6tn194wrsg"
                                   },
                                   "p": {
-                                    "type": "INDEX_TOP::TOP"
+                                    "type": "INDEX_TOP:TOP"
                                   }
                                 },
                                 {
@@ -34527,7 +34135,34 @@
                                     "v": "NQmQIuSMTbWYlQtmQr9n0A"
                                   },
                                   "p": {
-                                    "type": "INDEX_ACT::ACT"
+                                    "type": "INDEX_ACT:ACT"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "rShJ0riLSiOxLt0OpFJLJA",
+                                    "v": "HbLgO6RMRRacUTjXqv2Rrw"
+                                  },
+                                  "p": {
+                                    "type": "CM:CM"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "rShJ0riLSiOxLt0OpFJLJA",
+                                    "v": "0Yacg-V9QDqmbVlOFMSVVw"
+                                  },
+                                  "p": {
+                                    "type": "CM:CM"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "rShJ0riLSiOxLt0OpFJLJA",
+                                    "v": "fZ7sK3URSaK3QR7_IycJrw"
+                                  },
+                                  "p": {
+                                    "type": "CM:CM"
                                   }
                                 },
                                 {
@@ -34536,7 +34171,7 @@
                                     "v": "gA3KJMtcS6K8o5cV4plg3w"
                                   },
                                   "p": {
-                                    "type": "CM::APM"
+                                    "type": "CM:APM"
                                   }
                                 },
                                 {
@@ -34545,7 +34180,7 @@
                                     "v": "gcVJ6OIFQfyM6tn194wrsg"
                                   },
                                   "p": {
-                                    "type": "CM::TOP"
+                                    "type": "CM:TOP"
                                   }
                                 },
                                 {
@@ -34554,7 +34189,7 @@
                                     "v": "NQmQIuSMTbWYlQtmQr9n0A"
                                   },
                                   "p": {
-                                    "type": "CM::ACT"
+                                    "type": "CM:ACT"
                                   }
                                 }
                               ]
