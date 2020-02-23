@@ -138,8 +138,7 @@ const factoryResponse = arccore.filter.create({
                             u: artifactID,
                             p: {
                                 type: pcmr_.type,
-                                artifact,
-                                cm: request_.id
+                                artifact
                             }
                         });
 
@@ -167,7 +166,7 @@ const factoryResponse = arccore.filter.create({
                                 if (aProps.type !== bProps.type) {
                                     errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
                                     errors.push(`CellModel id='${artifactID}' ${bProps.type} registration id='${bProps.artifact.getID()}' specifies illegal duplicate IRUT ID.`);
-                                    errors.push(`CellModel id='${request_.id}' has previously registered id='${subcellVertex}' as a ${aProps.type} entity.`);
+                                    errors.push(`CellModel id='${request_.id}' has previously registered id='${subcellVertex}' as a ${aProps.type} artifact.`);
                                     continue;
                                 } // if the developer is confused, sloppy w/cut-n-paste, or just trying to be overly clever
                                 if (aProps.type !== "INDEX") {
@@ -176,18 +175,20 @@ const factoryResponse = arccore.filter.create({
                                         errors.push(`CellModel id='${artifactID}' includes a prior definition of CellModel id='${request_.id}' that we're currently trying to define.`);
                                         continue;
                                     } // if the developer is confused, sloppy w/cut-and-paste, or has just made a simple coding mistake w/require/import
-                                    const aVDID = aProps.entity.getVDID();
-                                    const bVDID = bProps.entity.getVDID();
+                                    const aVDID = aProps.artifact.getVDID();
+                                    const bVDID = bProps.artifact.getVDID();
                                     if (aVDID !== bVDID) {
                                         errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
-                                        errors.push(`CellModel id='${artifactID}' ${bProps.type} registration id='${bProps.entity.getID()}' invalid runtime version.`);
+                                        errors.push(`CellModel id='${artifactID}' ${bProps.type} registration id='${bProps.artifact.getID()}' invalid runtime version.`);
                                         errors.push(`Expected VDID='${aVDID}' but found '${bVDID}'.`);
                                     } // if the developer is confused, sloppy with their code oranization, unclear in their thinking wrt CellModel's it will likely be sorted here
-                                } // end if subcell intersection vertex is not an index (i.e. it has an entity class attached to its vertex property)
+                                } // end if subcell intersection vertex is not an index (i.e. it has an artifact class attached to its vertex property)
                             } // end if intersection
                         } // end for vertices in subcell graph
                         if (!errors.length) {
                             digraph.fromObject(artifact._private.digraph.toJSON());
+                            let props = digraph.getVertexProperty(artifactID);
+                            digraph.setVertexProperty({ u: artifactID, p: { ...props, artifact }});
                             digraph.addEdge({ e: { u: request_.id, v: artifactID }, p: { type: "CM:CM" } });
                         }
                         break;

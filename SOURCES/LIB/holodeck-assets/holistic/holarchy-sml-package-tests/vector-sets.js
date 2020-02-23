@@ -18,5 +18,6 @@ module.exports = [
     // (and consequently processed) by other OPMI's.
 
     require("./vector-set-frame-latch"),
+    require("./vector-set-cml")
 
 ];

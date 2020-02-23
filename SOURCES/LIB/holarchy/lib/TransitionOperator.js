@@ -1,4 +1,7 @@
 
+// TransitionOperator.js
+
+const arccore = require("@encapsule/arccore");
 const constructorFilter = require("./filters/top-method-constructor-filter");
 
 module.exports = class TransitionOperator {
@@ -9,10 +12,12 @@ module.exports = class TransitionOperator {
         while (!inBreakScope) {
             inBreakScope = true;
             this._private = { constructorError: null };
+            this.vdid = null;
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.getFilter = this.getFilter.bind(this);
             this.getID = this.getID.bind(this);
+            this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
@@ -44,10 +49,15 @@ module.exports = class TransitionOperator {
         return (this.isValid()?this._private.filterDescriptor.operationID:this._privateConstructorError);
     }
 
+    getVDID() {
+        if (!this.vdid) {
+            this.vdid = arccore.identifier.irut.fromReference(this._private).result;
+        }
+        return this.vdid;
+    }
+
     getName() {
         return (this.isValid()?this._private.filter.filterDescriptor.operationName:this._privateConstructorError);
     }
 
 };
-
-

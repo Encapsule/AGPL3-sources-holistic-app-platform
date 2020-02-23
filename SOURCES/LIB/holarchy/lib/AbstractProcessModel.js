@@ -1,6 +1,7 @@
 
 // AbstractProcessModel.js
 
+const arccore = require("@encapsule/arccore");
 const constructorRequestFilter = require("./filters/apm-method-constructor-filter");
 
 class AbstractProcessModel {
@@ -14,6 +15,7 @@ class AbstractProcessModel {
         while (!inBreakScope) {
             inBreakScope = true;
             this._private = { constructorError: null };
+            this.vdid = null;
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);
             this.getID = this.getID.bind(this);
@@ -51,7 +53,10 @@ class AbstractProcessModel {
     }
 
     getVDID() {
-        return (this.isValid()?this._private.vdid:this._private.constructorError);
+        if (!this.vdid) {
+            this.vdid = arccore.identifier.irut.fromReference(this._private).result;
+        }
+        return this.vdid;
     }
 
     getName() {
