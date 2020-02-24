@@ -31,6 +31,18 @@
               "FAvFLw0XQN6yomNs13r21g": {
                 "Xp1zz6GTQuug4w1umxHPlQ": {
                   "isValid": true,
+                  "summary": {
+                    "counts": {
+                      "vertices": 5,
+                      "edges": 1,
+                      "artifacts": {
+                        "cm": 1,
+                        "apm": 0,
+                        "top": 0,
+                        "act": 0
+                      }
+                    }
+                  },
                   "toJSON": {
                     "LMFSviNhR8WQoLvtv_YnbQ": true,
                     "id": "Xp1zz6GTQuug4w1umxHPlQ",
@@ -82,6 +94,14 @@
                           }
                         }
                       ]
+                    }
+                  },
+                  "opcConfig": {
+                    "error": null,
+                    "result": {
+                      "apm": [],
+                      "top": [],
+                      "act": []
                     }
                   }
                 }

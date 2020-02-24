@@ -1,4 +1,5 @@
 
+const arccore = require("@encapsule/arccore");
 const holodeck = require("@encapsule/holodeck");
 const holarchy = require("@encapsule/holarchy");
 
@@ -25,11 +26,20 @@ const factoryResponse = holodeck.harnessFactory.request({
     testVectorResultOutputSpec: {
         ____types: "jsObject",
         isValid: { ____accept: "jsBoolean" },
+        summary: {
+            ____accept: [
+                "jsString", // invalid instance constructor error
+                "jsObject" // valid instance data
+            ]
+        },
         toJSON: {
             ____accept: [
-                "jsString", // The instance is invalid and this is this._private.constructorError string.
-                "jsObject",  // The instance is valid and this is this._private object.
+                "jsString", // invalid instance constructor error
+                "jsObject",  // valid instance data
             ]
+        },
+        opcConfig: {
+            ____accept: [ "jsString", "jsObject" ]
         }
     },
     harnessBodyFunction: (vectorRequest_) => {
@@ -40,21 +50,33 @@ const factoryResponse = holodeck.harnessFactory.request({
             inBreakScope = true;
             const messageBody = vectorRequest_.vectorRequest.holistic.holarchy.CellModel;
             const cell = new holarchy.CellModel(messageBody.constructorRequest);
+
+            let summary = cell.isValid()?{}:cell.toJSON();
+
+            if (cell.isValid()) {
+
+                summary.counts = {
+                    vertices:cell._private.digraph.verticesCount(),
+                    edges: cell._private.digraph.edgesCount(),
+                    artifacts: {
+                        cm: cell._private.digraph.outDegree("INDEX_CM"),
+                        apm: cell._private.digraph.outDegree("INDEX_APM"),
+                        top: cell._private.digraph.outDegree("INDEX_TOP"),
+                        act: cell._private.digraph.outDegree("INDEX_ACT")
+                    }
+                };
+
+            } // if cell.isValid()
+
             response.result = {
                 isValid: cell.isValid(),
+                summary,
                 toJSON: cell.toJSON(),
-                cellModelDigraphStats: {
-                    vertices: cell.isValid()?cell._private.digraph.verticesCount():"invalid",
-                    edges: cell.isValid()?cell._private.digraph.edgesCount():"invalid",
-                    counts: {
-                        cm: cell.isValid()?cell._private.digraph.outDegree("CM_INDEX"):"invalid",
-                        apm: cell.isValid()?cell._private.digraph.outDegree("APM_INDEX"):"invalid",
-                        top: cell.isValid()?cell._private.digraph.outDegree("TOP_INDEX"):"invalid",
-                        act: cell.isValid()?cell._private.digraph.outDegree("ACT_INDEX"):"invalid"
-                    }
-                }
+                opcConfig: cell.generateConfig()
             };
+
             break;
+
         }
         if (errors.length) {
             response.error = errors.join(" ");

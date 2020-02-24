@@ -73,6 +73,18 @@
               "FAvFLw0XQN6yomNs13r21g": {
                 "rShJ0riLSiOxLt0OpFJLJA": {
                   "isValid": true,
+                  "summary": {
+                    "counts": {
+                      "vertices": 11,
+                      "edges": 13,
+                      "artifacts": {
+                        "cm": 4,
+                        "apm": 1,
+                        "top": 1,
+                        "act": 1
+                      }
+                    }
+                  },
                   "toJSON": {
                     "LMFSviNhR8WQoLvtv_YnbQ": true,
                     "id": "rShJ0riLSiOxLt0OpFJLJA",
@@ -686,6 +698,112 @@
                           },
                           "p": {
                             "type": "CM:ACT"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "opcConfig": {
+                    "error": null,
+                    "result": {
+                      "apm": [
+                        {
+                          "id": "gA3KJMtcS6K8o5cV4plg3w",
+                          "name": "Test Subcell #1 APM",
+                          "description": "Just a test",
+                          "ocdDataSpec": {
+                            "____types": "jsObject"
+                          },
+                          "steps": {}
+                        }
+                      ],
+                      "top": [
+                        {
+                          "filterDescriptor": {
+                            "operationID": "gcVJ6OIFQfyM6tn194wrsg",
+                            "operationName": "Test Subcell #2 TOP",
+                            "operationDescription": "Just a test",
+                            "inputFilterSpec": {
+                              "____label": "Test Subcell #2 TOP Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____accept": "jsBoolean"
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "U81s5rTlp-fNMN1Dp2wrEQ",
+                            "inputTypeVDID": "kf9hjXdbG-Fa8aV9SqI9nw",
+                            "outputTypeVIID": "W9a-ikTdkabeeTZr59E2Yw",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "j02dRKVMwZPloXWcW9Vncg"
+                          }
+                        }
+                      ],
+                      "act": [
+                        {
+                          "filterDescriptor": {
+                            "operationID": "NQmQIuSMTbWYlQtmQr9n0A",
+                            "operationName": "Test Subcell #3 ACT",
+                            "operationDescription": "Just a test",
+                            "inputFilterSpec": {
+                              "____label": "Test Subcell #3 ACT Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____accept": "jsBoolean"
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____label": "No Result (Default)",
+                              "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                              "____accept": "jsUndefined"
+                            },
+                            "inputTypeVIID": "acgd8Eos-QkeNjocmTZ6mw",
+                            "inputTypeVDID": "8Kh45pt96JdfKLuKyhmAGQ",
+                            "outputTypeVIID": "NTBvwO5GCmpOqXson8Dr0g",
+                            "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                            "operationVDID": "w6RoeRz8RtZvVD6k2WaEBw"
                           }
                         }
                       ]

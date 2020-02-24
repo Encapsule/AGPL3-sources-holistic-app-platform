@@ -20,6 +20,7 @@ module.exports = class CellModel {
             this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
             this.getDescription = this.getDescription.bind(this);
+            this.generateConfig = this.generateConfig.bind(this);
 
             let filterResponse;
             // If the caller didn't pass an object, just pass it through to the constructor filter which will fail w/correct error message.
@@ -45,18 +46,22 @@ module.exports = class CellModel {
         }
     }
 
+    // Returns a Boolean
     isValid() {
         return (!this._private.constructorError);
     }
 
+    // If isValid then serializable object. Otherwise, constructor error string.
     toJSON() {
         return (this.isValid()?this._private:this._private.constructorError);
     }
 
+    // If isValid() then IRUT string. Otherwise, constructor error string.
     getID() {
-        return (this.isValid()?this._private.id:this._private.constructorError);
+        return (this.isValid()?this._private.id:this.toJSON());
     }
 
+    // Always returns an IRUT string. Should not be used if !isValid().
     getVDID() {
         if (!this.vdid) {
             this.vdid = arccore.identifier.irut.fromReference(this._private).result;
@@ -64,12 +69,37 @@ module.exports = class CellModel {
         return this.vdid;
     }
 
+    // If isValid() then name string returned. Otherwise, constructor error string.
     getName() {
-        return (this.isValid()?this._private.name:this._private.constructorError);
+        return (this.isValid()?this._private.name:this.toJSON());
     }
 
+    // If isValid() then descriptor string returned. Otherwise, constructor error string.
     getDescription() {
-        return (this.isValid()?this._private.description:this._private.constructorError);
+        return (this.isValid()?this._private.description:this.toJSON());
+    }
+
+    // Returns a filter response object.
+    generateConfig() {
+        let response = { error: null };
+        let errors = [];
+        let inBreakScope = false;
+        while (!inBreakScope) {
+            inBreakScope = true;
+            if (!this.isValid()) {
+                errors.push(this.toJSON());
+                break;
+            }
+            response.result = {};
+            response.result.apm = this._private.digraph.outEdges("INDEX_APM").map((edge_) => { return this._private.digraph.getVertexProperty(edge_.v).artifact; })
+            response.result.top = this._private.digraph.outEdges("INDEX_TOP").map((edge_) => { return this._private.digraph.getVertexProperty(edge_.v).artifact; })
+            response.result.act = this._private.digraph.outEdges("INDEX_ACT").map((edge_) => { return this._private.digraph.getVertexProperty(edge_.v).artifact; })
+            break;
+        }
+        if (errors.length) {
+            response.error = errors.join(" ");
+        }
+        return response;
     }
 
 
