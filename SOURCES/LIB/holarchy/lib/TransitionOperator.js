@@ -57,7 +57,7 @@ module.exports = class TransitionOperator {
     }
 
     getName() {
-        return (this.isValid()?this._private.filter.filterDescriptor.operationName:this._privateConstructorError);
+        return (this.isValid()?this._private.filterDescriptor.operationName:this._privateConstructorError);
     }
 
 };

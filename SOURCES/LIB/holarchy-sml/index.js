@@ -1,33 +1,8 @@
 
 // @encapsule/holarchy-sml package exports:
 
-const packageMeta = require("./package.json");
-const softwareModelLibrary = require("./lib");
-
 const holarchy = require("@encapsule/holarchy");
-
-const cellModel = new holarchy.CellModel({
-
-    id: "aFiXgSXQSkSuvxHnQ3uoqg",
-    name: "Holarchy Core Runtime",
-    description: "Low-level abstract process models, transition operators, and controller actions.",
-
-    // apm: {}
-
-    operators: [
-    ],
-
-    actions: [
-    ],
-
-    subcells: [
-    ]
-
-
-});
-
-
-
+const packageMeta = require("./package.json");
 
 module.exports = {
 
@@ -39,8 +14,14 @@ module.exports = {
         build: packageMeta.buildID,
         source: packageMeta.buildSource
     },
-    ...softwareModelLibrary
 
-
-
+    cml: new holarchy.CellModel({
+        id: "RyMcv3MpTI-Co1EyVOIvlw",
+        name: "Holarchy CML",
+        description: "Holarchy Cell Model Library (CML) low-level logical, memory, and cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
+        subcells: [
+            require("./lib/HolarchyCore"),
+            require("./lib/HolarchyBase")
+        ]
+    })
 };

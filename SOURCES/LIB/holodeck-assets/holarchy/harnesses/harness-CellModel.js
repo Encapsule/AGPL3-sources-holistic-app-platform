@@ -72,7 +72,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                 isValid: cell.isValid(),
                 summary,
                 toJSON: cell.toJSON(),
-                opcConfig: cell.generateConfig()
+                opcConfig: cell.getConfigOPC()
             };
 
             break;

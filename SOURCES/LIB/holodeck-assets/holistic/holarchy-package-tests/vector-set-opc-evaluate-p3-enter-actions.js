@@ -30,7 +30,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.operators.logical
+                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                             ]
@@ -65,7 +65,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.operators.logical
+                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                                 fixtureActExamples
@@ -102,7 +102,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.operators.logical
+                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                                 fixtureActExamples
@@ -138,7 +138,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.operators.logical
+                                holarchySML.cml.getCMConfig({ type: "type" }).result
                             ],
                             controllerActionSets: [
                                 fixtureActExamples
