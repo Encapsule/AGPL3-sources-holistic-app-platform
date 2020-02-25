@@ -808,6 +808,63 @@
                         }
                       ]
                     }
+                  },
+                  "scmConfig": {
+                    "error": null,
+                    "result": {
+                      "INDEX_CM": {
+                        "type": "INDEX",
+                        "rShJ0riLSiOxLt0OpFJLJA": {
+                          "id": "rShJ0riLSiOxLt0OpFJLJA",
+                          "vdid": "nB1kkpZeW5uenvclaTZNOA",
+                          "name": "SoftewareCellModel Constructor #5",
+                          "description": "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
+                          "type": "CM",
+                          "HbLgO6RMRRacUTjXqv2Rrw": {
+                            "id": "HbLgO6RMRRacUTjXqv2Rrw",
+                            "vdid": "O_wY8Q3ciZNwXdkZ3ITLIA",
+                            "name": "Test Subcell #1",
+                            "description": "Test subcell #1 defines an APM.",
+                            "type": "CM",
+                            "gA3KJMtcS6K8o5cV4plg3w": {
+                              "id": "gA3KJMtcS6K8o5cV4plg3w",
+                              "vdid": "YvrXnNHfNkAK7w7uvd2XtA",
+                              "name": "Test Subcell #1 APM",
+                              "description": "Just a test",
+                              "type": "APM"
+                            }
+                          },
+                          "0Yacg-V9QDqmbVlOFMSVVw": {
+                            "id": "0Yacg-V9QDqmbVlOFMSVVw",
+                            "vdid": "uNPI-SEmgnhsyMcZSRJr5Q",
+                            "name": "Test Subcell #2",
+                            "description": "Test subcell #2 defines a TOP.",
+                            "type": "CM",
+                            "gcVJ6OIFQfyM6tn194wrsg": {
+                              "id": "gcVJ6OIFQfyM6tn194wrsg",
+                              "vdid": "01VFbn09Xeyp5dxK9kYm2Q",
+                              "name": "Test Subcell #2 TOP",
+                              "description": "Just a test",
+                              "type": "TOP"
+                            }
+                          },
+                          "fZ7sK3URSaK3QR7_IycJrw": {
+                            "id": "fZ7sK3URSaK3QR7_IycJrw",
+                            "vdid": "xnlsjrAbGanuyX97Eq6a3w",
+                            "name": "Test Subcell #3",
+                            "description": "Test subcell #3 defines an ACT",
+                            "type": "CM",
+                            "NQmQIuSMTbWYlQtmQr9n0A": {
+                              "id": "NQmQIuSMTbWYlQtmQr9n0A",
+                              "vdid": "-bTRT-vecqU86PKlPA1a7Q",
+                              "name": "Test Subcell #3 ACT",
+                              "description": "Just a test",
+                              "type": "ACT"
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }

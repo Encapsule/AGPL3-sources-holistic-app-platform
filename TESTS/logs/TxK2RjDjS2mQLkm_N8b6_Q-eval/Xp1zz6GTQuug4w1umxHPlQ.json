@@ -99,18 +99,9 @@
                   "opcConfig": {
                     "error": null,
                     "result": {
-                      "apm": {
-                        "error": null,
-                        "result": []
-                      },
-                      "top": {
-                        "error": null,
-                        "result": []
-                      },
-                      "act": {
-                        "error": null,
-                        "result": []
-                      }
+                      "apm": [],
+                      "top": [],
+                      "act": []
                     }
                   },
                   "scmConfig": {

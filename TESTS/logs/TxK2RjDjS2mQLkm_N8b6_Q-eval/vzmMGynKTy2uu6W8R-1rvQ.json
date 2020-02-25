@@ -137,28 +137,19 @@
                   "opcConfig": {
                     "error": null,
                     "result": {
-                      "apm": {
-                        "error": null,
-                        "result": [
-                          {
-                            "id": "cJSBP90NTcu1bJMhCOjbQg",
-                            "name": "Placeholder APM",
-                            "description": "A minimally-configured placeholder.",
-                            "ocdDataSpec": {
-                              "____types": "jsObject"
-                            },
-                            "steps": {}
-                          }
-                        ]
-                      },
-                      "top": {
-                        "error": null,
-                        "result": []
-                      },
-                      "act": {
-                        "error": null,
-                        "result": []
-                      }
+                      "apm": [
+                        {
+                          "id": "cJSBP90NTcu1bJMhCOjbQg",
+                          "name": "Placeholder APM",
+                          "description": "A minimally-configured placeholder.",
+                          "ocdDataSpec": {
+                            "____types": "jsObject"
+                          },
+                          "steps": {}
+                        }
+                      ],
+                      "top": [],
+                      "act": []
                     }
                   },
                   "scmConfig": {

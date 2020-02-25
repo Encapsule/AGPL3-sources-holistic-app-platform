@@ -26,15 +26,8 @@
                     "steps": {
                       "uninitialized": {
                         "description": "Default starting process step.",
-                        "transitions": [
-                          {
-                            "nextStep": "updated",
-                            "transitionIf": {
-                              "always": true
-                            }
-                          }
-                        ],
                         "actions": {
+                          "enter": [],
                           "exit": [
                             {
                               "holarchy": {
@@ -50,19 +43,20 @@
                               }
                             }
                           ]
-                        }
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "updated"
+                          }
+                        ]
                       },
                       "updated": {
                         "description": "The value managed by the frame latch has been written.",
-                        "transitions": [
-                          {
-                            "nextStep": "waiting",
-                            "transitionIf": {
-                              "always": true
-                            }
-                          }
-                        ],
                         "actions": {
+                          "enter": [],
                           "exit": [
                             {
                               "holarchy": {
@@ -78,13 +72,24 @@
                               }
                             }
                           ]
-                        }
+                        },
+                        "transitions": [
+                          {
+                            "transitionIf": {
+                              "always": true
+                            },
+                            "nextStep": "waiting"
+                          }
+                        ]
                       },
                       "waiting": {
                         "description": "Frame latch value has not changed since last signalled update.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
                         "transitions": [
                           {
-                            "nextStep": "updated",
                             "transitionIf": {
                               "holarchy": {
                                 "sml": {
@@ -97,7 +102,8 @@
                                   }
                                 }
                               }
-                            }
+                            },
+                            "nextStep": "updated"
                           }
                         ]
                       }

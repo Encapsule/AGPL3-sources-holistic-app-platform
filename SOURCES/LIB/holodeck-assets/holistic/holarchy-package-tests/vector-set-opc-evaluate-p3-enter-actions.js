@@ -138,7 +138,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "type" }).result
+                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                                 fixtureActExamples

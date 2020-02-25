@@ -159,6 +159,9 @@ module.exports = class CellModel {
                 errors.push(this.toJSON());
                 break;
             }
+            if (!request_) {
+                request_ = {};
+            }
             let innerResponse = this.getArtifact({ id: request_.id, type: "CM" });
             if (innerResponse.error) {
                 errors.push(innerResponse.error);
@@ -169,11 +172,25 @@ module.exports = class CellModel {
             switch (request_.type) {
             case undefined:
             case "CM":
-                response.result = {
-                    apm: this.getCMConfig({ type: "APM" }),
-                    top: this.getCMConfig({ type: "TOP" }),
-                    act: this.getCMConfig({ type: "ACT" })
-                };
+                response.result = {};
+                let innerResponse = this.getCMConfig({ type: "APM" });
+                if (innerResponse.error) {
+                    errors.push(innerResponse.error);
+                    break;
+                }
+                response.result.apm = innerResponse.result;
+                innerResponse = this.getCMConfig({ type: "TOP" });
+                if (innerResponse.error) {
+                    errors.push(innerResponse.error);
+                    break;
+                }
+                response.result.top = innerResponse.result;
+                innerResponse = this.getCMConfig({ type: "ACT" });
+                if (innerResponse.error) {
+                    errors.push(innerResponse.error);
+                    break;
+                }
+                response.result.act = innerResponse.result;
                 break;
             case "SCM":
                 let context = { refStack: [], result: {} };
@@ -183,7 +200,7 @@ module.exports = class CellModel {
                     options: { startVector: [ "INDEX_CM" ] },
                     visitor: {
                         getEdgeWeight: (request_) => {
-                            let props = request_.g.getVertexProperty(request_.u);
+                            let props = request_.g.getVertexProperty(request_.e.u);
                             let edgeWeight = null;
                             switch (props.type) {
                             case "INDEX":
@@ -199,7 +216,8 @@ module.exports = class CellModel {
                                 edgeWeight = `2_${props.artifact.getName()}`;
                                 break;
                             case "CM":
-                                edgeWeight = `3_${props.artifact.getName()}`;
+                                let artifact = props.artifact?props.artifact:this;
+                                edgeWeight = `3_${artifact.getName()}`;
                                 break;
                             }
                             return edgeWeight;
@@ -246,7 +264,7 @@ module.exports = class CellModel {
 
                 break;
             default:
-                errors.push(`Invalid value '$[request_.id}' for ~.type. Must be undefined, CM, APM, TOP, or ACT.`);
+                errors.push(`Value of '${request_.type}' specified for ~.type is invalid. Must be undefined, CM, APM, TOP, or ACT.`);
                 break;
             }
 

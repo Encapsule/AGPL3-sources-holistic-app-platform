@@ -28,7 +28,7 @@ module.exports = [
             holistic: {
                 holarchy: {
                     AbstractProcessModel: {
-                        constructorRequest: cmMailboxFlag.getCMConfig({ type: "APM" }).result
+                        constructorRequest: cmMailboxFlag.getArtifact({ id: "z_mTe02hSWmaM1iRO1pBeA", type: "APM" }).result
                     }
                 }
             }

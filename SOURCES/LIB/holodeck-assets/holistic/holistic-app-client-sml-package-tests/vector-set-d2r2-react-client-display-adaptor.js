@@ -37,13 +37,13 @@ module.exports = [
                                 }
                             },
                             abstractProcessModelSets: [
-                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "APM" })
+                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "APM" }).result
                             ],
                             transitionOperatorSets: [
-                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "TOP" })
+                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
-                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "ACT" })
+                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "ACT" }).result
                             ]
                         }
                     },

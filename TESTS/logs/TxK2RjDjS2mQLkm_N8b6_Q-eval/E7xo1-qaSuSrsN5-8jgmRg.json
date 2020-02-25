@@ -183,66 +183,57 @@
                   "opcConfig": {
                     "error": null,
                     "result": {
-                      "apm": {
-                        "error": null,
-                        "result": []
-                      },
-                      "top": {
-                        "error": null,
-                        "result": []
-                      },
-                      "act": {
-                        "error": null,
-                        "result": [
-                          {
-                            "filterDescriptor": {
-                              "operationID": "SXYrt7-1SOe91wpQLWFutQ",
-                              "operationName": "Fake Test Action",
-                              "operationDescription": "A fake test action.",
-                              "inputFilterSpec": {
-                                "____label": "Fake Test Action Request",
+                      "apm": [],
+                      "top": [],
+                      "act": [
+                        {
+                          "filterDescriptor": {
+                            "operationID": "SXYrt7-1SOe91wpQLWFutQ",
+                            "operationName": "Fake Test Action",
+                            "operationDescription": "A fake test action.",
+                            "inputFilterSpec": {
+                              "____label": "Fake Test Action Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
                                 "____types": "jsObject",
-                                "context": {
-                                  "____label": "OPC Context Descriptor",
-                                  "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                  "____types": "jsObject",
-                                  "apmBindingPath": {
-                                    "____label": "APM Binding Path",
-                                    "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                    "____accept": "jsString"
-                                  },
-                                  "ocdi": {
-                                    "____label": "OCD Store Instance",
-                                    "____description": "A reference to the OCD store instance managed by OPC.",
-                                    "____accept": "jsObject"
-                                  },
-                                  "act": {
-                                    "____label": "OPC.act Method",
-                                    "____description": "A reference to ObservableProcessController.act method.",
-                                    "____accept": "jsFunction"
-                                  }
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
                                 },
-                                "actionRequest": {
-                                  "____types": "jsObject",
-                                  "whatever": {
-                                    "____accept": "jsNull"
-                                  }
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
                                 }
                               },
-                              "outputFilterSpec": {
-                                "____label": "No Result (Default)",
-                                "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                                "____accept": "jsUndefined"
-                              },
-                              "inputTypeVIID": "ua9E5BPT9qhybUhTf7kT_w",
-                              "inputTypeVDID": "4NjgRYYhwxrLD6wQM5i5lg",
-                              "outputTypeVIID": "eQ6l4u2_RmjCZc_dTc4xbA",
-                              "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                              "operationVDID": "bZcmeXpGC9ZoycmkzZOoBw"
-                            }
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "whatever": {
+                                  "____accept": "jsNull"
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____label": "No Result (Default)",
+                              "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                              "____accept": "jsUndefined"
+                            },
+                            "inputTypeVIID": "ua9E5BPT9qhybUhTf7kT_w",
+                            "inputTypeVDID": "4NjgRYYhwxrLD6wQM5i5lg",
+                            "outputTypeVIID": "eQ6l4u2_RmjCZc_dTc4xbA",
+                            "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                            "operationVDID": "bZcmeXpGC9ZoycmkzZOoBw"
                           }
-                        ]
-                      }
+                        }
+                      ]
                     }
                   },
                   "scmConfig": {
