@@ -2,7 +2,18 @@
 
 const clientSML = require("@encapsule/holistic-app-client-sml");
 
+let response = clientSML.cml.getArtifact({ id: "qzMWhMstQ4Ki06O75y5hMA", type: "CM" });
+if (response.error) {
+    throw new Error(response.error);
+}
+
+const HolisticAppClientDOMLocationProcessor = response.result;
+
+
+
 module.exports = [
+
+    /* DISABLE - WE WILL BE HANDING APM TESTING VIA THE CELLMODEL HARNESS
 
     {
         id: "y3Jy2d56QI63admJOy1tZw",
@@ -18,5 +29,7 @@ module.exports = [
             }
         }
     }
+
+    */
 
 ];

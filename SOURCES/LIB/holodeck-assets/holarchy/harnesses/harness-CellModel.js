@@ -17,6 +17,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                 CellModel: {
                     ____types: "jsObject",
                     constructorRequest: {
+                        // Either a CellModel constructor request object or pre-constructed CellModel class instance reference.
                         ____opaque: true // accept any request and let SCM sort it out
                     }
                 }
@@ -49,7 +50,7 @@ const factoryResponse = holodeck.harnessFactory.request({
         while (!inBreakScope) {
             inBreakScope = true;
             const messageBody = vectorRequest_.vectorRequest.holistic.holarchy.CellModel;
-            const cell = new holarchy.CellModel(messageBody.constructorRequest);
+            const cell = (messageBody.constructorRequest instanceof holarchy.CellModel)?messageBody.constructorRequest:new holarchy.CellModel(messageBody.constructorRequest);
 
             let summary = cell.isValid()?{}:cell.toJSON();
 

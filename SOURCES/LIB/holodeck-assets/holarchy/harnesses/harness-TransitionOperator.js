@@ -18,6 +18,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                 TransitionOperator: {
                     ____types: "jsObject",
                     constructorRequest: {
+                        // Either a TransitionOperator constructor request object or pre-constructed TransitionOperator instance reference
                         ____opaque: true
                     }
                 }
@@ -32,7 +33,9 @@ const factoryResponse = holodeck.harnessFactory.request({
     harnessBodyFunction: function(request_) {
 
         const messageBody = request_.vectorRequest.holistic.holarchy.TransitionOperator;
-        const transitionOperator = new holarchy.TransitionOperator(messageBody.constructorRequest);
+
+        // If we were not passed a pre-constructed TransitionOperator instance, then attempt to create a new instance with the constructorRequest.
+        let transitionOperator = (messageBody.contructorRequest instanceof holarchy.TransitionOperator)?messageBody.contructorRequest:new holarchy.TransitionOperator(messageBody.constructorRequest);
 
         const response = {
             error: null,

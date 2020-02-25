@@ -3,24 +3,18 @@
 const holarchy = require("@encapsule/holarchy");
 const clientSML = require("@encapsule/holistic-app-client-sml");
 
+if (!clientSML.cml.isValid()) {
+    throw new Error(clientSML.cml.toJSON());
+}
 
+let response = clientSML.cml.getArtifact({ id: "UX7JquBhSZO0QyEk7u9-sw", type: "CM" });
+if (response.error) {
+    throw new Error(response.error);
+}
+
+const HolisticAppClientDisplayAdapter = response.result;
 
 module.exports = [
-
-    {
-        id: "zUoUas3CTj2HLDfpNf4NTw",
-        name: "d2r2/React Client Output Processor APM #1",
-        description: "Attempt to instantiate the current d2r2/React Client Display Adaptor APM declaration via our test harness.",
-        vectorRequest: {
-            holistic: {
-                holarchy: {
-                    AbstractProcessModel: {
-                        constructorRequest: clientSML.client.test.declaration.d2r2ReactClientDisplayAdaptor
-                    }
-                }
-            }
-        }
-    },
 
     {
         id: "fzuITg9BQbyV7jNv39Gv6w",
@@ -42,27 +36,18 @@ module.exports = [
                                     ____appdsl: { apm: "IxoJ83u0TXmG7PLUYBvsyg" }
                                 }
                             },
-
                             abstractProcessModelSets: [
-                                [
-                                    clientSML.common.models.core.observableFrameLatch,
-                                    clientSML.client.models.d2r2ReactClientDisplayAdaptor
-                                ]
+                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "APM" })
                             ],
-
                             transitionOperatorSets: [
-                                clientSML.common.operators.logical
+                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "TOP" })
                             ],
-
                             controllerActionSets: [
-                                clientSML.common.actions.ocd,
-                                clientSML.client.actions.d2r2ReactClientDisplayAdaptor
+                                HolisticAppClientDisplayAdapter.getCMConfig({ type: "ACT" })
                             ]
                         }
                     },
-                    actionRequest: [
-
-                    ]
+                    actionRequest: []
                 }
             }
         }

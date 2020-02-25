@@ -20,6 +20,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                 ObservableProcessController: {
                     ____types: "jsObject",
                     constructorRequest: {
+                        // ObservableProcessController constructor request or pre-constructed ObservableProcessController class instance reference.
                         ____opaque: true // accept any request and let OPC sort it out
                     },
                     actRequests: {
@@ -74,7 +75,7 @@ const factoryResponse = holodeck.harnessFactory.request({
             }
         };
 
-        const opcInstance = new holarchy.ObservableProcessController(messageBody.constructorRequest);
+        const opcInstance = (messageBody.constructorRequest instanceof holarchy.ObservableProcessController)?messageBody.constructorRequest:new holarchy.ObservableProcessController(messageBody.constructorRequest);
 
         const toJSON = opcInstance.toJSON();
 

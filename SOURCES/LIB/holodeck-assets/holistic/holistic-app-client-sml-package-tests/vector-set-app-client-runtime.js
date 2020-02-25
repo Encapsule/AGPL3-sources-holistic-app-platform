@@ -1,6 +1,11 @@
 // vector-set-app-client-runtime.js
 
 const clientSML = require("@encapsule/holistic-app-client-sml");
+let response = clientSML.cml.getArtifact({ id: "ENENGxq1TkCa6Sk9YXaLlw", type: "CM" });
+if (response.error) {
+    throw new Error(response.error);
+}
+const HolisticAppClientRuntime = response.result;
 
 module.exports = [
 
@@ -12,12 +17,14 @@ module.exports = [
             holistic: {
                 holarchy: {
                     AbstractProcessModel: {
-                        constructorRequest: clientSML.client.test.declaration.appClientRuntime
+                        constructorRequest: HolisticAppClientRuntime.getArtifact({ id: "PPL45jw5RDWSMNsB97WIWg", type: "APM" }).result
                     }
                 }
             }
         }
     },
+
+    // TODO: Finish or remove this
 
     {
         id: "Va0br1teR9Ce348EfkUAdg",

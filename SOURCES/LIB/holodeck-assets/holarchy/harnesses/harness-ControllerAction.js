@@ -18,6 +18,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                 ControllerAction: {
                     ____types: "jsObject",
                     constructorRequest: {
+                        // Either a ControllerAction constructor request object or pre-constructed ControllerAction class instance reference.
                         ____opaque: true
                     }
                 }
@@ -32,7 +33,7 @@ const factoryResponse = holodeck.harnessFactory.request({
     harnessBodyFunction: function(request_) {
 
         const messageBody = request_.vectorRequest.holistic.holarchy.ControllerAction;
-        const controllerAction = new holarchy.ControllerAction(messageBody.constructorRequest);
+        const controllerAction = (messageBody.constructorRequest instanceof holarchy.ControllerAction)?messageBody.constructorRequest:new holarchy.ControllerAction(messageBody.constructorRequest);
 
         const response = {
             error: null,
