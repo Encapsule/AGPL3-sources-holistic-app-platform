@@ -140,11 +140,11 @@
                       [
                         {
                           "filterDescriptor": {
-                            "operationID": "YgABX95wR86GCYrYaDLISA",
-                            "operationName": "AND Transition Expression Operator",
-                            "operationDescription": "Returns Boolean true iff all suboperations return true.",
+                            "operationID": "9tNY7o5GTUGH_xda2GhP-w",
+                            "operationName": "Cell In Step Expression Operator",
+                            "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
                             "inputFilterSpec": {
-                              "____label": "AND Transition Expression Operator Request",
+                              "____label": "Cell In Step Expression Operator Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -168,10 +168,25 @@
                               },
                               "operatorRequest": {
                                 "____types": "jsObject",
-                                "and": {
-                                  "____types": "jsArray",
-                                  "operandOperatorVariant": {
-                                    "____accept": "jsObject"
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "sml": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "cell": {
+                                        "____types": "jsObject",
+                                        "atStep": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          },
+                                          "step": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -179,11 +194,71 @@
                             "outputFilterSpec": {
                               "____accept": "jsBoolean"
                             },
-                            "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
-                            "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
-                            "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
+                            "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
+                            "inputTypeVDID": "SK6JWEwoYvtcbTG_ft3mbw",
+                            "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
+                            "operationVDID": "wnDHRFa0dZO6z36ctJqXcg"
+                          }
+                        },
+                        {
+                          "filterDescriptor": {
+                            "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
+                            "operationName": "OCD Namespace Is Truthy",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Namespace Is Truthy Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "sml": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "isNamespaceTruthy": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
+                            "inputTypeVDID": "IqY0bMK0bTrZvoSc7_w39Q",
+                            "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "vo9QROLBZZP3NSGc3J1Fcg"
                           }
                         },
                         {
@@ -329,11 +404,11 @@
                         },
                         {
                           "filterDescriptor": {
-                            "operationID": "2w7n6KxdR8mdIliePJesLQ",
-                            "operationName": "OCD Compare Values",
-                            "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                            "operationID": "oaF3-dXwQkusjD3I2o9-8g",
+                            "operationName": "OCD Array Length Equal to Value",
+                            "operationDescription": "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect).",
                             "inputFilterSpec": {
-                              "____label": "OCD Compare Values Request",
+                              "____label": "OCD Array Length Equal to Value Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -365,61 +440,17 @@
                                       "____types": "jsObject",
                                       "ocd": {
                                         "____types": "jsObject",
-                                        "compare": {
+                                        "array": {
                                           "____types": "jsObject",
-                                          "values": {
+                                          "path": {
+                                            "____accept": "jsString"
+                                          },
+                                          "length": {
                                             "____types": "jsObject",
-                                            "a": {
-                                              "____label": "Operand A",
-                                              "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
-                                              "____types": "jsObject",
-                                              "value": {
-                                                "____accept": [
-                                                  "jsUndefined",
-                                                  "jsNull",
-                                                  "jsString",
-                                                  "jsNumber",
-                                                  "jsBoolean"
-                                                ]
-                                              },
-                                              "path": {
-                                                "____accept": [
-                                                  "jsUndefined",
-                                                  "jsString"
-                                                ]
-                                              }
-                                            },
-                                            "b": {
-                                              "____label": "Operand B",
-                                              "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
-                                              "____types": "jsObject",
-                                              "value": {
-                                                "____accept": [
-                                                  "jsUndefined",
-                                                  "jsNull",
-                                                  "jsString",
-                                                  "jsNumber",
-                                                  "jsBoolean"
-                                                ]
-                                              },
-                                              "path": {
-                                                "____accept": [
-                                                  "jsUndefined",
-                                                  "jsString"
-                                                ]
-                                              }
-                                            },
-                                            "operator": {
-                                              "____label": "Comparison Operator",
-                                              "____description": "A string enum indicating the comparison operator to use.",
-                                              "____accept": "jsString",
-                                              "____inValueSet": [
-                                                "===",
-                                                "==",
-                                                "<",
-                                                "<=",
-                                                ">",
-                                                ">="
+                                            "equalToValue": {
+                                              "____accept": [
+                                                "jsNumber",
+                                                "jsString"
                                               ]
                                             }
                                           }
@@ -433,20 +464,20 @@
                             "outputFilterSpec": {
                               "____accept": "jsBoolean"
                             },
-                            "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
-                            "inputTypeVDID": "uRMd8ZlvZzo__yMKw5z4EQ",
-                            "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
+                            "inputTypeVIID": "1w1jkkL88zPbGh1huUa66A",
+                            "inputTypeVDID": "mlQwQiCDl9WT91N9pgC1xw",
+                            "outputTypeVIID": "ll5aBQHmBVx07i4pBJMThw",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "l0AlRNfnqpMrnUicKoV4cg"
+                            "operationVDID": "ysRpRNo01JMX-6CckQu4cg"
                           }
                         },
                         {
                           "filterDescriptor": {
-                            "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
-                            "operationName": "OCD Namespace Is Truthy",
-                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                            "operationID": "YgABX95wR86GCYrYaDLISA",
+                            "operationName": "AND Transition Expression Operator",
+                            "operationDescription": "Returns Boolean true iff all suboperations return true.",
                             "inputFilterSpec": {
-                              "____label": "OCD Namespace Is Truthy Request",
+                              "____label": "AND Transition Expression Operator Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -470,22 +501,10 @@
                               },
                               "operatorRequest": {
                                 "____types": "jsObject",
-                                "holarchy": {
-                                  "____types": "jsObject",
-                                  "sml": {
-                                    "____types": "jsObject",
-                                    "operators": {
-                                      "____types": "jsObject",
-                                      "ocd": {
-                                        "____types": "jsObject",
-                                        "isNamespaceTruthy": {
-                                          "____types": "jsObject",
-                                          "path": {
-                                            "____accept": "jsString"
-                                          }
-                                        }
-                                      }
-                                    }
+                                "and": {
+                                  "____types": "jsArray",
+                                  "operandOperatorVariant": {
+                                    "____accept": "jsObject"
                                   }
                                 }
                               }
@@ -493,11 +512,11 @@
                             "outputFilterSpec": {
                               "____accept": "jsBoolean"
                             },
-                            "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
-                            "inputTypeVDID": "IqY0bMK0bTrZvoSc7_w39Q",
-                            "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
+                            "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
+                            "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
+                            "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "vo9QROLBZZP3NSGc3J1Fcg"
+                            "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
                           }
                         },
                         {
@@ -558,72 +577,6 @@
                             "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                             "operationVDID": "6TZgRIRhG5Pp7hGccaaucg"
-                          }
-                        },
-                        {
-                          "filterDescriptor": {
-                            "operationID": "XxX_a1sQS1OlJbWAYfx6tQ",
-                            "operationName": "OCD Namespace Is Less Than Value",
-                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
-                            "inputFilterSpec": {
-                              "____label": "OCD Namespace Is Less Than Value Request",
-                              "____types": "jsObject",
-                              "context": {
-                                "____label": "OPC Context Descriptor",
-                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                "____types": "jsObject",
-                                "apmBindingPath": {
-                                  "____label": "APM Binding Path",
-                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                  "____accept": "jsString"
-                                },
-                                "ocdi": {
-                                  "____label": "OCD Store Instance",
-                                  "____description": "A reference to the OCD store instance managed by OPC.",
-                                  "____accept": "jsObject"
-                                },
-                                "transitionDispatcher": {
-                                  "____label": "OPC Transition Dispatcher",
-                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                  "____accept": "jsObject"
-                                }
-                              },
-                              "operatorRequest": {
-                                "____types": "jsObject",
-                                "holarchy": {
-                                  "____types": "jsObject",
-                                  "sml": {
-                                    "____types": "jsObject",
-                                    "operators": {
-                                      "____types": "jsObject",
-                                      "ocd": {
-                                        "____types": "jsObject",
-                                        "isNamespaceLessThanValue": {
-                                          "____types": "jsObject",
-                                          "path": {
-                                            "____accept": "jsString"
-                                          },
-                                          "value": {
-                                            "____accept": [
-                                              "jsString",
-                                              "jsNumber"
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "outputFilterSpec": {
-                              "____accept": "jsBoolean"
-                            },
-                            "inputTypeVIID": "SdjtRCNawPzfg3fuyxpeog",
-                            "inputTypeVDID": "ZuD2uKtYUmA87dmOt67RFA",
-                            "outputTypeVIID": "C3a0V2HEKW7fH5xudFSe2Q",
-                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "l10SRDi7y5NJhX6c2rHccg"
                           }
                         },
                         {
@@ -760,11 +713,11 @@
                         },
                         {
                           "filterDescriptor": {
-                            "operationID": "oaF3-dXwQkusjD3I2o9-8g",
-                            "operationName": "OCD Array Length Equal to Value",
-                            "operationDescription": "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect).",
+                            "operationID": "XxX_a1sQS1OlJbWAYfx6tQ",
+                            "operationName": "OCD Namespace Is Less Than Value",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
                             "inputFilterSpec": {
-                              "____label": "OCD Array Length Equal to Value Request",
+                              "____label": "OCD Namespace Is Less Than Value Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -796,19 +749,16 @@
                                       "____types": "jsObject",
                                       "ocd": {
                                         "____types": "jsObject",
-                                        "array": {
+                                        "isNamespaceLessThanValue": {
                                           "____types": "jsObject",
                                           "path": {
                                             "____accept": "jsString"
                                           },
-                                          "length": {
-                                            "____types": "jsObject",
-                                            "equalToValue": {
-                                              "____accept": [
-                                                "jsNumber",
-                                                "jsString"
-                                              ]
-                                            }
+                                          "value": {
+                                            "____accept": [
+                                              "jsString",
+                                              "jsNumber"
+                                            ]
                                           }
                                         }
                                       }
@@ -820,20 +770,20 @@
                             "outputFilterSpec": {
                               "____accept": "jsBoolean"
                             },
-                            "inputTypeVIID": "1w1jkkL88zPbGh1huUa66A",
-                            "inputTypeVDID": "mlQwQiCDl9WT91N9pgC1xw",
-                            "outputTypeVIID": "ll5aBQHmBVx07i4pBJMThw",
+                            "inputTypeVIID": "SdjtRCNawPzfg3fuyxpeog",
+                            "inputTypeVDID": "ZuD2uKtYUmA87dmOt67RFA",
+                            "outputTypeVIID": "C3a0V2HEKW7fH5xudFSe2Q",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "ysRpRNo01JMX-6CckQu4cg"
+                            "operationVDID": "l10SRDi7y5NJhX6c2rHccg"
                           }
                         },
                         {
                           "filterDescriptor": {
-                            "operationID": "9tNY7o5GTUGH_xda2GhP-w",
-                            "operationName": "Cell In Step Expression Operator",
-                            "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
+                            "operationID": "2w7n6KxdR8mdIliePJesLQ",
+                            "operationName": "OCD Compare Values",
+                            "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
                             "inputFilterSpec": {
-                              "____label": "Cell In Step Expression Operator Request",
+                              "____label": "OCD Compare Values Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -863,15 +813,65 @@
                                     "____types": "jsObject",
                                     "operators": {
                                       "____types": "jsObject",
-                                      "cell": {
+                                      "ocd": {
                                         "____types": "jsObject",
-                                        "atStep": {
+                                        "compare": {
                                           "____types": "jsObject",
-                                          "path": {
-                                            "____accept": "jsString"
-                                          },
-                                          "step": {
-                                            "____accept": "jsString"
+                                          "values": {
+                                            "____types": "jsObject",
+                                            "a": {
+                                              "____label": "Operand A",
+                                              "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                              "____types": "jsObject",
+                                              "value": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsNull",
+                                                  "jsString",
+                                                  "jsNumber",
+                                                  "jsBoolean"
+                                                ]
+                                              },
+                                              "path": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsString"
+                                                ]
+                                              }
+                                            },
+                                            "b": {
+                                              "____label": "Operand B",
+                                              "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                              "____types": "jsObject",
+                                              "value": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsNull",
+                                                  "jsString",
+                                                  "jsNumber",
+                                                  "jsBoolean"
+                                                ]
+                                              },
+                                              "path": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsString"
+                                                ]
+                                              }
+                                            },
+                                            "operator": {
+                                              "____label": "Comparison Operator",
+                                              "____description": "A string enum indicating the comparison operator to use.",
+                                              "____accept": "jsString",
+                                              "____inValueSet": [
+                                                "===",
+                                                "==",
+                                                "<",
+                                                "<=",
+                                                ">",
+                                                ">="
+                                              ]
+                                            }
                                           }
                                         }
                                       }
@@ -883,11 +883,11 @@
                             "outputFilterSpec": {
                               "____accept": "jsBoolean"
                             },
-                            "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                            "inputTypeVDID": "SK6JWEwoYvtcbTG_ft3mbw",
-                            "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
+                            "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
+                            "inputTypeVDID": "uRMd8ZlvZzo__yMKw5z4EQ",
+                            "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "wnDHRFa0dZO6z36ctJqXcg"
+                            "operationVDID": "l0AlRNfnqpMrnUicKoV4cg"
                           }
                         }
                       ],
@@ -1228,13 +1228,13 @@
                       }
                     },
                     "transitionDispatcherFilterMap": {
-                      "YgABX95wR86GCYrYaDLISA": {
+                      "9tNY7o5GTUGH_xda2GhP-w": {
                         "filterDescriptor": {
-                          "operationID": "YgABX95wR86GCYrYaDLISA",
-                          "operationName": "AND Transition Expression Operator",
-                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
+                          "operationID": "9tNY7o5GTUGH_xda2GhP-w",
+                          "operationName": "Cell In Step Expression Operator",
+                          "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
                           "inputFilterSpec": {
-                            "____label": "AND Transition Expression Operator Request",
+                            "____label": "Cell In Step Expression Operator Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -1258,10 +1258,25 @@
                             },
                             "operatorRequest": {
                               "____types": "jsObject",
-                              "and": {
-                                "____types": "jsArray",
-                                "operandOperatorVariant": {
-                                  "____accept": "jsObject"
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "cell": {
+                                      "____types": "jsObject",
+                                      "atStep": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        },
+                                        "step": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -1269,11 +1284,71 @@
                           "outputFilterSpec": {
                             "____accept": "jsBoolean"
                           },
-                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
-                          "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
-                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
+                          "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
+                          "inputTypeVDID": "SK6JWEwoYvtcbTG_ft3mbw",
+                          "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
+                          "operationVDID": "wnDHRFa0dZO6z36ctJqXcg"
+                        }
+                      },
+                      "kD1PcgqYQlm7fJatNG2ZsA": {
+                        "filterDescriptor": {
+                          "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
+                          "operationName": "OCD Namespace Is Truthy",
+                          "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                          "inputFilterSpec": {
+                            "____label": "OCD Namespace Is Truthy Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "sml": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "isNamespaceTruthy": {
+                                        "____types": "jsObject",
+                                        "path": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
+                          "inputTypeVDID": "IqY0bMK0bTrZvoSc7_w39Q",
+                          "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "vo9QROLBZZP3NSGc3J1Fcg"
                         }
                       },
                       "0JIva4IFSm6Xm7i38g8uUA": {
@@ -1417,13 +1492,13 @@
                           "operationVDID": "7hv8ROZTdZP8DZ-c1OtJcg"
                         }
                       },
-                      "2w7n6KxdR8mdIliePJesLQ": {
+                      "oaF3-dXwQkusjD3I2o9-8g": {
                         "filterDescriptor": {
-                          "operationID": "2w7n6KxdR8mdIliePJesLQ",
-                          "operationName": "OCD Compare Values",
-                          "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                          "operationID": "oaF3-dXwQkusjD3I2o9-8g",
+                          "operationName": "OCD Array Length Equal to Value",
+                          "operationDescription": "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect).",
                           "inputFilterSpec": {
-                            "____label": "OCD Compare Values Request",
+                            "____label": "OCD Array Length Equal to Value Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -1455,61 +1530,17 @@
                                     "____types": "jsObject",
                                     "ocd": {
                                       "____types": "jsObject",
-                                      "compare": {
+                                      "array": {
                                         "____types": "jsObject",
-                                        "values": {
+                                        "path": {
+                                          "____accept": "jsString"
+                                        },
+                                        "length": {
                                           "____types": "jsObject",
-                                          "a": {
-                                            "____label": "Operand A",
-                                            "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
-                                            "____types": "jsObject",
-                                            "value": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsNull",
-                                                "jsString",
-                                                "jsNumber",
-                                                "jsBoolean"
-                                              ]
-                                            },
-                                            "path": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsString"
-                                              ]
-                                            }
-                                          },
-                                          "b": {
-                                            "____label": "Operand B",
-                                            "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
-                                            "____types": "jsObject",
-                                            "value": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsNull",
-                                                "jsString",
-                                                "jsNumber",
-                                                "jsBoolean"
-                                              ]
-                                            },
-                                            "path": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsString"
-                                              ]
-                                            }
-                                          },
-                                          "operator": {
-                                            "____label": "Comparison Operator",
-                                            "____description": "A string enum indicating the comparison operator to use.",
-                                            "____accept": "jsString",
-                                            "____inValueSet": [
-                                              "===",
-                                              "==",
-                                              "<",
-                                              "<=",
-                                              ">",
-                                              ">="
+                                          "equalToValue": {
+                                            "____accept": [
+                                              "jsNumber",
+                                              "jsString"
                                             ]
                                           }
                                         }
@@ -1523,20 +1554,20 @@
                           "outputFilterSpec": {
                             "____accept": "jsBoolean"
                           },
-                          "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
-                          "inputTypeVDID": "uRMd8ZlvZzo__yMKw5z4EQ",
-                          "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
+                          "inputTypeVIID": "1w1jkkL88zPbGh1huUa66A",
+                          "inputTypeVDID": "mlQwQiCDl9WT91N9pgC1xw",
+                          "outputTypeVIID": "ll5aBQHmBVx07i4pBJMThw",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "l0AlRNfnqpMrnUicKoV4cg"
+                          "operationVDID": "ysRpRNo01JMX-6CckQu4cg"
                         }
                       },
-                      "kD1PcgqYQlm7fJatNG2ZsA": {
+                      "YgABX95wR86GCYrYaDLISA": {
                         "filterDescriptor": {
-                          "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
-                          "operationName": "OCD Namespace Is Truthy",
-                          "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                          "operationID": "YgABX95wR86GCYrYaDLISA",
+                          "operationName": "AND Transition Expression Operator",
+                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
                           "inputFilterSpec": {
-                            "____label": "OCD Namespace Is Truthy Request",
+                            "____label": "AND Transition Expression Operator Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -1560,22 +1591,10 @@
                             },
                             "operatorRequest": {
                               "____types": "jsObject",
-                              "holarchy": {
-                                "____types": "jsObject",
-                                "sml": {
-                                  "____types": "jsObject",
-                                  "operators": {
-                                    "____types": "jsObject",
-                                    "ocd": {
-                                      "____types": "jsObject",
-                                      "isNamespaceTruthy": {
-                                        "____types": "jsObject",
-                                        "path": {
-                                          "____accept": "jsString"
-                                        }
-                                      }
-                                    }
-                                  }
+                              "and": {
+                                "____types": "jsArray",
+                                "operandOperatorVariant": {
+                                  "____accept": "jsObject"
                                 }
                               }
                             }
@@ -1583,11 +1602,11 @@
                           "outputFilterSpec": {
                             "____accept": "jsBoolean"
                           },
-                          "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
-                          "inputTypeVDID": "IqY0bMK0bTrZvoSc7_w39Q",
-                          "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
+                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
+                          "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
+                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "vo9QROLBZZP3NSGc3J1Fcg"
+                          "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
                         }
                       },
                       "UeLs9PcASwuC7KR190eYhA": {
@@ -1648,72 +1667,6 @@
                           "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "6TZgRIRhG5Pp7hGccaaucg"
-                        }
-                      },
-                      "XxX_a1sQS1OlJbWAYfx6tQ": {
-                        "filterDescriptor": {
-                          "operationID": "XxX_a1sQS1OlJbWAYfx6tQ",
-                          "operationName": "OCD Namespace Is Less Than Value",
-                          "operationDescription": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
-                          "inputFilterSpec": {
-                            "____label": "OCD Namespace Is Less Than Value Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "holarchy": {
-                                "____types": "jsObject",
-                                "sml": {
-                                  "____types": "jsObject",
-                                  "operators": {
-                                    "____types": "jsObject",
-                                    "ocd": {
-                                      "____types": "jsObject",
-                                      "isNamespaceLessThanValue": {
-                                        "____types": "jsObject",
-                                        "path": {
-                                          "____accept": "jsString"
-                                        },
-                                        "value": {
-                                          "____accept": [
-                                            "jsString",
-                                            "jsNumber"
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "SdjtRCNawPzfg3fuyxpeog",
-                          "inputTypeVDID": "ZuD2uKtYUmA87dmOt67RFA",
-                          "outputTypeVIID": "C3a0V2HEKW7fH5xudFSe2Q",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "l10SRDi7y5NJhX6c2rHccg"
                         }
                       },
                       "ggsavKiARsq7rjwn-lxdfA": {
@@ -1848,13 +1801,13 @@
                           "operationVDID": "aOniRHC3vZMQfSic0uw6cg"
                         }
                       },
-                      "oaF3-dXwQkusjD3I2o9-8g": {
+                      "XxX_a1sQS1OlJbWAYfx6tQ": {
                         "filterDescriptor": {
-                          "operationID": "oaF3-dXwQkusjD3I2o9-8g",
-                          "operationName": "OCD Array Length Equal to Value",
-                          "operationDescription": "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect).",
+                          "operationID": "XxX_a1sQS1OlJbWAYfx6tQ",
+                          "operationName": "OCD Namespace Is Less Than Value",
+                          "operationDescription": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
                           "inputFilterSpec": {
-                            "____label": "OCD Array Length Equal to Value Request",
+                            "____label": "OCD Namespace Is Less Than Value Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -1886,19 +1839,16 @@
                                     "____types": "jsObject",
                                     "ocd": {
                                       "____types": "jsObject",
-                                      "array": {
+                                      "isNamespaceLessThanValue": {
                                         "____types": "jsObject",
                                         "path": {
                                           "____accept": "jsString"
                                         },
-                                        "length": {
-                                          "____types": "jsObject",
-                                          "equalToValue": {
-                                            "____accept": [
-                                              "jsNumber",
-                                              "jsString"
-                                            ]
-                                          }
+                                        "value": {
+                                          "____accept": [
+                                            "jsString",
+                                            "jsNumber"
+                                          ]
                                         }
                                       }
                                     }
@@ -1910,20 +1860,20 @@
                           "outputFilterSpec": {
                             "____accept": "jsBoolean"
                           },
-                          "inputTypeVIID": "1w1jkkL88zPbGh1huUa66A",
-                          "inputTypeVDID": "mlQwQiCDl9WT91N9pgC1xw",
-                          "outputTypeVIID": "ll5aBQHmBVx07i4pBJMThw",
+                          "inputTypeVIID": "SdjtRCNawPzfg3fuyxpeog",
+                          "inputTypeVDID": "ZuD2uKtYUmA87dmOt67RFA",
+                          "outputTypeVIID": "C3a0V2HEKW7fH5xudFSe2Q",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "ysRpRNo01JMX-6CckQu4cg"
+                          "operationVDID": "l10SRDi7y5NJhX6c2rHccg"
                         }
                       },
-                      "9tNY7o5GTUGH_xda2GhP-w": {
+                      "2w7n6KxdR8mdIliePJesLQ": {
                         "filterDescriptor": {
-                          "operationID": "9tNY7o5GTUGH_xda2GhP-w",
-                          "operationName": "Cell In Step Expression Operator",
-                          "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
+                          "operationID": "2w7n6KxdR8mdIliePJesLQ",
+                          "operationName": "OCD Compare Values",
+                          "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
                           "inputFilterSpec": {
-                            "____label": "Cell In Step Expression Operator Request",
+                            "____label": "OCD Compare Values Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -1953,15 +1903,65 @@
                                   "____types": "jsObject",
                                   "operators": {
                                     "____types": "jsObject",
-                                    "cell": {
+                                    "ocd": {
                                       "____types": "jsObject",
-                                      "atStep": {
+                                      "compare": {
                                         "____types": "jsObject",
-                                        "path": {
-                                          "____accept": "jsString"
-                                        },
-                                        "step": {
-                                          "____accept": "jsString"
+                                        "values": {
+                                          "____types": "jsObject",
+                                          "a": {
+                                            "____label": "Operand A",
+                                            "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "b": {
+                                            "____label": "Operand B",
+                                            "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "operator": {
+                                            "____label": "Comparison Operator",
+                                            "____description": "A string enum indicating the comparison operator to use.",
+                                            "____accept": "jsString",
+                                            "____inValueSet": [
+                                              "===",
+                                              "==",
+                                              "<",
+                                              "<=",
+                                              ">",
+                                              ">="
+                                            ]
+                                          }
                                         }
                                       }
                                     }
@@ -1973,11 +1973,11 @@
                           "outputFilterSpec": {
                             "____accept": "jsBoolean"
                           },
-                          "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                          "inputTypeVDID": "SK6JWEwoYvtcbTG_ft3mbw",
-                          "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
+                          "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
+                          "inputTypeVDID": "uRMd8ZlvZzo__yMKw5z4EQ",
+                          "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "wnDHRFa0dZO6z36ctJqXcg"
+                          "operationVDID": "l0AlRNfnqpMrnUicKoV4cg"
                         }
                       },
                       "AODn0L3GQLK_21Msl1W8-g": {

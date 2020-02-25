@@ -33,7 +33,7 @@ const factoryResponse = holodeck.harnessFactory.request({
     harnessBodyFunction: function(request_) {
 
         const messageBody = request_.vectorRequest.holistic.holarchy.AbstractProcessModel;
-        const observableProcessModel = (message.constructorRequest instanceof holarchy.AbstractProcessModel)?message.constructorRequest:new holarchy.AbstractProcessModel(messageBody.constructorRequest);
+        const observableProcessModel = (messageBody.constructorRequest instanceof holarchy.AbstractProcessModel)?messageBody.constructorRequest:new holarchy.AbstractProcessModel(messageBody.constructorRequest);
 
         const response = {
             error: null,

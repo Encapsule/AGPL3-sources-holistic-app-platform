@@ -169,6 +169,73 @@ module.exports = class CellModel {
             switch (request_.type) {
             case undefined:
             case "CM":
+                response.result = {
+                    apm: this.getCMConfig({ type: "APM" }),
+                    top: this.getCMConfig({ type: "TOP" }),
+                    act: this.getCMConfig({ type: "ACT" })
+                };
+                break;
+            case "SCM":
+                let context = { refStack: [], result: {} };
+                arccore.graph.directed.depthFirstTraverse({
+                    digraph: artifact._private.digraph,
+                    context: context,
+                    options: { startVector: [ "INDEX_CM" ] },
+                    visitor: {
+                        getEdgeWeight: (request_) => {
+                            let props = request_.g.getVertexProperty(request_.u);
+                            let edgeWeight = null;
+                            switch (props.type) {
+                            case "INDEX":
+                                edgeWeight = "INDEX";
+                                break;
+                            case "APM":
+                                edgeWeight = `0_${props.artifact.getName()}`;
+                                break;
+                            case "TOP":
+                                edgeWeight = `1_${props.artifact.getName()}`;
+                                break;
+                            case "ACT":
+                                edgeWeight = `2_${props.artifact.getName()}`;
+                                break;
+                            case "CM":
+                                edgeWeight = `3_${props.artifact.getName()}`;
+                                break;
+                            }
+                            return edgeWeight;
+                        },
+                        compareEdgeWeights: (request_) => {
+                            return (request_.a < request_.b)?-1:(request_.a > request_.b)?1:0;
+                        },
+                        discoverVertex: (request_) => {
+                            if (!request_.context.refStack.length) {
+                                request_.context.refStack.push(request_.context.result);
+                            }
+                            let descriptor = request_.context.refStack[request_.context.refStack.length - 1][request_.u] = {};
+                            const props = request_.g.getVertexProperty(request_.u);
+                            switch (props.type) {
+                            case "INDEX":
+                                descriptor.type = props.type;
+                                break;
+                            default:
+                                let artifact = props.artifact?props.artifact:this;
+                                descriptor.id = artifact.getID();
+                                descriptor.vdid = artifact.getVDID();
+                                descriptor.name = artifact.getName();
+                                descriptor.description = artifact.getDescription();
+                                descriptor.type = props.type;
+                                break;
+                            }
+                            request_.context.refStack.push(descriptor);
+                            return true;
+                        },
+                        finishVertex: (request_) => {
+                            request_.context.refStack.pop();
+                            return true;
+                        }
+                    }
+                });
+                response.result = context.result;
                 break;
             case "APM":
             case "TOP":
@@ -177,6 +244,9 @@ module.exports = class CellModel {
                     .map((edge_) => { return artifact._private.digraph.getVertexProperty(edge_.v).artifact; })
                     .sort((a_, b_) => { (a_.getName() < b_.getName())?-1:(a_.getName() > b_.getName())?1:0; });
 
+                break;
+            default:
+                errors.push(`Invalid value '$[request_.id}' for ~.type. Must be undefined, CM, APM, TOP, or ACT.`);
                 break;
             }
 

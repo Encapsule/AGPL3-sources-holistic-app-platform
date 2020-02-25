@@ -21,6 +21,7 @@ module.exports = class ControllerAction {
             this.getID = this.getID.bind(this);
             this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
+            this.getDescription = this.getDescription.bind(this);
 
             const filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
@@ -61,6 +62,10 @@ module.exports = class ControllerAction {
 
     getName() {
         return (this.isValid()?this._private.filterDescriptor.operationName:this._private.constructorError);
+    }
+
+    getDescription() {
+        return (this.isValid()?this._private.filterDescriptor.operationDescription:this._private.constructorError);
     }
 
 };

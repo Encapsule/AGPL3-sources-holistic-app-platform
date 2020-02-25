@@ -37,6 +37,10 @@
                     "steps": {
                       "uninitialized": {
                         "description": "Default starting process step.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
                         "transitions": [
                           {
                             "transitionIf": {
@@ -48,6 +52,10 @@
                       },
                       "initialize": {
                         "description": "Performing initialization actions.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
                         "transitions": [
                           {
                             "transitionIf": {
@@ -59,6 +67,10 @@
                       },
                       "wait_invariants": {
                         "description": "Waiting for invariant inputs to be satisfied.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
                         "transitions": [
                           {
                             "transitionIf": {
@@ -70,6 +82,10 @@
                       },
                       "wait_app_config": {
                         "description": "Waiting for the client application runtime to be configured.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
                         "transitions": [
                           {
                             "transitionIf": {
@@ -89,10 +105,19 @@
                         ]
                       },
                       "wait_server_route": {
-                        "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href)."
+                        "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href).",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
                       },
                       "wait_app_resume": {
                         "description": "Waiting for the App Client Runtime to resume the client application runtime.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
                         "transitions": [
                           {
                             "transitionIf": {
@@ -112,16 +137,36 @@
                         ]
                       },
                       "rehydrate": {
-                        "description": "Use data from the server to rehydate the server-rendered d2r2/React view."
+                        "description": "Use data from the server to rehydate the server-rendered d2r2/React view.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
                       },
                       "ready": {
-                        "description": "View is interactive and up-to-date."
+                        "description": "View is interactive and up-to-date.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
                       },
                       "update": {
-                        "description": "Update the client application's view model to incorporate changes in underlying data and model state."
+                        "description": "Update the client application's view model to incorporate changes in underlying data and model state.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
                       },
                       "render": {
-                        "description": "Send the updated view to the d2r2/React Display Adaptor."
+                        "description": "Send the updated view to the d2r2/React Display Adaptor.",
+                        "actions": {
+                          "enter": [],
+                          "exit": []
+                        },
+                        "transitions": []
                       }
                     }
                   }

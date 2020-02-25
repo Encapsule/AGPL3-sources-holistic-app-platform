@@ -99,9 +99,33 @@
                   "opcConfig": {
                     "error": null,
                     "result": {
-                      "apm": [],
-                      "top": [],
-                      "act": []
+                      "apm": {
+                        "error": null,
+                        "result": []
+                      },
+                      "top": {
+                        "error": null,
+                        "result": []
+                      },
+                      "act": {
+                        "error": null,
+                        "result": []
+                      }
+                    }
+                  },
+                  "scmConfig": {
+                    "error": null,
+                    "result": {
+                      "INDEX_CM": {
+                        "type": "INDEX",
+                        "Xp1zz6GTQuug4w1umxHPlQ": {
+                          "id": "Xp1zz6GTQuug4w1umxHPlQ",
+                          "vdid": "HZb9kJsQO5yaDUvTvWX8YA",
+                          "name": "CellModel Constructor Error #2",
+                          "description": "Construct CellModel w/bad APM registration to test error handling. Should fail.",
+                          "type": "CM"
+                        }
+                      }
                     }
                   }
                 }

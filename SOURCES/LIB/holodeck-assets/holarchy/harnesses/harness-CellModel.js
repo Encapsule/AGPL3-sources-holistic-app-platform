@@ -41,6 +41,9 @@ const factoryResponse = holodeck.harnessFactory.request({
         },
         opcConfig: {
             ____accept: [ "jsString", "jsObject" ]
+        },
+        scmConfig: {
+            ____accept: [ "jsString", "jsObject" ]
         }
     },
     harnessBodyFunction: (vectorRequest_) => {
@@ -73,7 +76,8 @@ const factoryResponse = holodeck.harnessFactory.request({
                 isValid: cell.isValid(),
                 summary,
                 toJSON: cell.toJSON(),
-                opcConfig: cell.getConfigOPC()
+                opcConfig: cell.getCMConfig({ type: "CM" }),
+                scmConfig: cell.getCMConfig({ type: "SCM" })
             };
 
             break;

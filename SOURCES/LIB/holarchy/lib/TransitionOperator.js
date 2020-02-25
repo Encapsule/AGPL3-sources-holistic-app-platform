@@ -19,6 +19,8 @@ module.exports = class TransitionOperator {
             this.getID = this.getID.bind(this);
             this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
+            this.getDescription = this.getDescription.bind(this);
+
             let filterResponse = constructorFilter.request(request_);
             if (filterResponse.error) {
                 errors.push(filterResponse.error);
@@ -60,4 +62,7 @@ module.exports = class TransitionOperator {
         return (this.isValid()?this._private.filterDescriptor.operationName:this._privateConstructorError);
     }
 
+    getDescription() {
+        return (this.isValid()?this._private.filterDescriptor.operationDescription:this._private.constructorError);
+    }
 };
