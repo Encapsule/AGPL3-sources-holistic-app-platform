@@ -1,7 +1,7 @@
 // @encapsule/holistic-app-client/index.js
 
 const packageMeta = require("./package.json");
-const holarchySML = require("@encapsule/holarchy-sml");
+const holarchy = require("@encapsule/holarchy");
 
 module.exports = {
     __meta: {
@@ -12,8 +12,7 @@ module.exports = {
         build: packageMeta.buildID,
         source: packageMeta.buildSource
     },
-    client: require("./lib"),
-    common: { ...holarchySML }
+    cml: require("./lib")
 };
 
 
