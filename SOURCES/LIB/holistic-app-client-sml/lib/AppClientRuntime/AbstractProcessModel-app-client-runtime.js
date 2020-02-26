@@ -36,7 +36,7 @@ module.exports = {
 
         boot0_hook_events: {
             description: "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
-            actions: { enter: [ { holistic: { app: { client: { sml: { HolisticAppClient: { actions: { _private: { hookEvents: true } } } } } } } } ] },
+            actions: { enter: [ { holistic: { app: { client: { sml: { HolisticAppRuntime: { actions: { _private: { hookEvents: true } } } } } } } } ] },
             transitions: [ { transitionIf: { always: true }, nextStep: "boot1_start_kernel" } ]
         },
 

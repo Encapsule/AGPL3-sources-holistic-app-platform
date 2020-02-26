@@ -45,19 +45,27 @@ module.exports = new holarchy.ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
             // Hook the window.onload event.
-            window.onload((event_) => {
+            window.onload = (event_) => {
                 const actResponse = request_.context.act({
                     apmBindingPath: request_.context.apmBindingPath,
                     actorName: "DOM Event window.onload",
                     actorTaskDescription: "Signal that the window.onload event has fired.",
-                    actionRequest: { holistic: { app: { client: { sml: { HolisticAppClient: { actions: { _private: { notifyEvent: { window: { onload: { event: event_ } } } } } } } } } } }
-
+                    actionRequest: { holistic: { app: { client: { sml: {
+                        HolisticAppRuntime: { _private: { notifyEvent: { eventName: "window.onload", eventData: event_ } } }
+                    } } } } }
                 });
                 if (actResponse.error) {
-                    throw new Error(actResponse.error);
+
+                    // TODO: We need a general way to report external actor failures back
+                    // to the holistic app client kernel so that it can ensure that the
+                    // derived application is made aware of the issue(s).
+                    console.error("External actor failed to call DOM Event window.onload handler.");
+                    // throw new Error(actResponse.error);
                 }
-            });
+            } // end window.onload event handler callback function
+
 
             break;
         }

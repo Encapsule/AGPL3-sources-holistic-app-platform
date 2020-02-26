@@ -7,22 +7,23 @@ if (response.error) {
 }
 const HolisticAppClientView = response.result;
 
-// TODO: We won't me maintaining these low level vectors by hand anymore... We'll instead focus on CellModel harness and automate all this.
 
 module.exports = [
+
     {
         id: "VyQv8NaWTAuoY0daxO9mzQ",
-        name: "Client App View OPM #1",
-        description: "Attempt to instantiate the current App Client View OPM via our test harness.",
+        name: "Holistic Client App View CellModel Test",
+        description: "Instantiate Holistic App Client View CellModel through the CellModel test harness.",
 
         vectorRequest: {
             holistic: {
                 holarchy: {
-                    AbstractProcessModel: {
-                        constructorRequest: HolisticAppClientView.getArtifact({ id: "Hsu-43zBRgqHItCPWPiBng", type: "APM" }).result
+                    CellModel: {
+                        constructorRequest: HolisticAppClientView
                     }
                 }
             }
         }
     }
-];
+
+]; // holodeck vector set
