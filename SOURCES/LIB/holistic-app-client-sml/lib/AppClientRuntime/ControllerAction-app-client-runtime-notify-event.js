@@ -45,6 +45,42 @@ module.exports = {
 
     bodyFunction: (request_) => {
         let response = { error: null };
+        let errors = [];
+        let inBreakScope = false;
+        while (!inBreakScope) {
+            inBreakScope = true;
+
+            const message = request_.actionRequest.holistic.app.client.sml.HolisticAppRuntime._private.notifyEvent;
+
+            switch (message.eventName) {
+
+            case "window.onload":
+
+                // We just need to signal the HolisticAppClientRuntime cell process that the window has loaded.
+                let actionResponse = request_.context.act({
+                    actorName: "HolisticAppClientRuntime External DOM Event Notify",
+                    actorTaskDescription: "Inform the HolisticAppClientRutime cell process that the window has loaded.",
+                    actionRequest: { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
+                    apmBindingPath: request_.context.apmBindingPath
+                });
+
+                if (actionResponse.error) {
+                    // TODO: Report this back to the app kernel via an action that needs to get written soon.
+                    console.error(actionResponse.error);
+                }
+                break;
+
+            default:
+                errors.push(`Action implementation does not yet support event name '${message.eventName}'.`);
+                break;
+            }
+
+
+            break;
+        }
+        if (errors.length) {
+            response.error = join(" ");
+        }
         return response;
     }
 

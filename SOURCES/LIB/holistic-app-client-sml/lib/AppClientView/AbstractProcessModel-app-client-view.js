@@ -46,12 +46,6 @@ module.exports = {
 
         wait_app_config: {
             description: "Waiting for the client application runtime to be configured.",
-            transitions: [
-                {
-                    transitionIf: { holarchy: { sml: { operators: { opmi: { path: "~.vp5.client", step: "boot1_query_derived_app_config" } } } } },
-                    nextStep: "wait_server_route"
-                }
-            ]
         },
 
         wait_server_route: {
@@ -60,12 +54,6 @@ module.exports = {
 
         wait_app_resume: {
             description: "Waiting for the App Client Runtime to resume the client application runtime.",
-            transitions: [
-                {
-                    transitionIf: { holarchy: { sml: { operators: { opmi: { path: "~.vp5.client", step: "boot1_query_derived_app_config" } } } } },
-                    nextStep: "wait_server_route"
-                }
-            ]
         },
 
         rehydrate: {

@@ -18,7 +18,13 @@ module.exports = {
             },
             _private: {
                 ____types: "jsObject",
-                ____defaultValue: {}
+                ____defaultValue: {},
+                windowLoaded: {
+                    ____label: "window.onload Completed Flag",
+                    ____description: "Boolean flag set when the window.onload event occurs.",
+                    ____accept: "jsBoolean",
+                    ____defaultValue: false
+                }
             },
             outputs: {
                 ____types: "jsObject",
@@ -67,15 +73,15 @@ module.exports = {
 
         boot3_wait_kernel: {
             description: "Wait for the core client app kernel subsystems to become available.",
-            transitions: [ ]
+            transitions: [
+                // TODO: We want to check status of subprocesses and errors etc. here before calling any client app derived code.
+                { transitionIf: { always: true }, nextStep: "boot4_config_derived" }
+            ]
         },
 
         boot4_config_derived: {
             description: "Configure the derived application runtime.",
-            actions: {
-                enter: [
-                ]
-            },
+            // TODO: Dispatch an action that calls another action defined by this CellModel's APM but implemented by the derived application."
             transitions: [
                 { transitionIf: { always: true }, nextStep: "boot5_wait_browser" }
             ]
@@ -84,7 +90,9 @@ module.exports = {
         boot5_wait_browser: {
             description: "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
             transitions: [
-                { transitionIf: {}, nextStep: "boot6_deserialize_app" }
+                { transitionIf: { holarchy: { sml: { operators: { ocd: { isBooleanFlagSet: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
+                  nextStep: "boot6_deserialize_app"
+                }
             ]
         },
 

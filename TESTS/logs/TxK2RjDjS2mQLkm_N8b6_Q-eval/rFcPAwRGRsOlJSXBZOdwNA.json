@@ -141,10 +141,10 @@
                         {
                           "filterDescriptor": {
                             "operationID": "9tNY7o5GTUGH_xda2GhP-w",
-                            "operationName": "Cell In Step Expression Operator",
+                            "operationName": "Cell Process In Step Operator",
                             "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
                             "inputFilterSpec": {
-                              "____label": "Cell In Step Expression Operator Request",
+                              "____label": "Cell Process In Step Operator Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -176,7 +176,7 @@
                                       "____types": "jsObject",
                                       "cell": {
                                         "____types": "jsObject",
-                                        "atStep": {
+                                        "inStep": {
                                           "____types": "jsObject",
                                           "path": {
                                             "____accept": "jsString"
@@ -195,10 +195,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                            "inputTypeVDID": "SK6JWEwoYvtcbTG_ft3mbw",
+                            "inputTypeVDID": "t5QlvoqJUZN_7KTcPJOC_w",
                             "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "wnDHRFa0dZO6z36ctJqXcg"
+                            "operationVDID": "wnqdRFY7EJO6Q7uctDuxcg"
                           }
                         },
                         {
@@ -1198,19 +1198,19 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "hfFcAiaYralp9McsZfqmHg",
+                        "operationID": "Uv2sAs4kf6nGZS4sZ_43Hg",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                        "inputTypeVIID": "MkfnG9sWpzqDmc0n86HxCg",
+                        "inputTypeVIID": "zzojZTPF8W9-vTIlue16Gw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "x2jVlYd13EKnYEtBdjodzw",
+                        "outputTypeVIID": "1_O-kpoC7d6TCQWgdW5VzA",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "vqH0E83ENVdN-47tSeYUtA"
+                        "operationVDID": "CSX0E1ZTNVfTHY7t-T0UtA"
                       },
                       "supportedFilters": [
                         "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                         "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
-                        "[9tNY7o5GTUGH_xda2GhP-w::Cell In Step Expression Operator]",
+                        "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                         "[AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]",
                         "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                         "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
@@ -1231,10 +1231,10 @@
                       "9tNY7o5GTUGH_xda2GhP-w": {
                         "filterDescriptor": {
                           "operationID": "9tNY7o5GTUGH_xda2GhP-w",
-                          "operationName": "Cell In Step Expression Operator",
+                          "operationName": "Cell Process In Step Operator",
                           "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
                           "inputFilterSpec": {
-                            "____label": "Cell In Step Expression Operator Request",
+                            "____label": "Cell Process In Step Operator Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -1266,7 +1266,7 @@
                                     "____types": "jsObject",
                                     "cell": {
                                       "____types": "jsObject",
-                                      "atStep": {
+                                      "inStep": {
                                         "____types": "jsObject",
                                         "path": {
                                           "____accept": "jsString"
@@ -1285,10 +1285,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                          "inputTypeVDID": "SK6JWEwoYvtcbTG_ft3mbw",
+                          "inputTypeVDID": "t5QlvoqJUZN_7KTcPJOC_w",
                           "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "wnDHRFa0dZO6z36ctJqXcg"
+                          "operationVDID": "wnqdRFY7EJO6Q7uctDuxcg"
                         }
                       },
                       "kD1PcgqYQlm7fJatNG2ZsA": {
@@ -2293,19 +2293,19 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "hfFcAiaYralp9McsZfqmHg",
+                                                "operationID": "Uv2sAs4kf6nGZS4sZ_43Hg",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
-                                                "inputTypeVIID": "MkfnG9sWpzqDmc0n86HxCg",
+                                                "inputTypeVIID": "zzojZTPF8W9-vTIlue16Gw",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "x2jVlYd13EKnYEtBdjodzw",
+                                                "outputTypeVIID": "1_O-kpoC7d6TCQWgdW5VzA",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "vqH0E83ENVdN-47tSeYUtA"
+                                                "operationVDID": "CSX0E1ZTNVfTHY7t-T0UtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
-                                                "[9tNY7o5GTUGH_xda2GhP-w::Cell In Step Expression Operator]",
+                                                "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                 "[AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                                                 "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
