@@ -2,6 +2,8 @@
 
 const arccore = require("@encapsule/arccore");
 const constructorFilter = require("./lib/filters/cm-method-constructor-filter");
+const getArtifactFilter = require("./lib/filters/cm-method-get-artifact-filter");
+const getConfigFilter = require("./lib/filters/cm-method-get-config-filter");
 
 module.exports = class CellModel {
 
@@ -85,174 +87,19 @@ module.exports = class CellModel {
 
     // Returns a filter response object.
     getArtifact(request_) { // request = { id: optional, type: optional }
-        // TODO: Turn this into a method filter
-        let response = { error: null };
-        let errors = [];
-        let inBreakScope = false;
-        while (!inBreakScope) {
-            inBreakScope = true;
-            if (!this.isValid()) {
-                errors.push(this.toJSON());
-                break;
-            }
-            if (!request_.type) {
-                request_.type = "CM";
-            }
-            if ((request_.type === "CM") && (!request_.id || (request_.id === this._private.id))) {
-                response.result = this;
-                break;
-            }
-            if (!this._private.digraph.isVertex(request_.id)) {
-                errors.push(`Unknown ${request_.type} id='${request_.id}'. No artifact found.`);
-                break;
-            }
-            const props = this._private.digraph.getVertexProperty(request_.id);
-            if (props.type !== request_.type) {
-                errors.push(`Invalid id='${request_.id}' for type ${request_.type}. This ID is registered to a ${props.type} artifact, not a ${request_.type}.`);
-                break;
-            }
-            response.result = props.artifact;
-            break;
-        }
-        if (errors.length) {
-            errors.unshift("CellModel::getArtifact method error:");
-            response.error = errors.join(" ");
-        }
+        return getArtifactFilter.request({
+            ...request_,
+            CellModelInstance: this
 
-        return response;
-
+        });
     } // getArtifact
 
     // Returns a filter response object.
-    getCMConfig(request_) { // request = { id: optional CM ID, configType: optional }
-        // TODO: Turn this into a method filter.
-        let response = { error: null };
-        let errors = [];
-        let inBreakScope = false;
-        while (!inBreakScope) {
-            inBreakScope = true;
-            if (!this.isValid()) {
-                errors.push(this.toJSON());
-                break;
-            }
-            if (!request_) {
-                request_ = {};
-            }
-            let innerResponse = this.getArtifact({ id: request_.id, type: "CM" });
-            if (innerResponse.error) {
-                errors.push(innerResponse.error);
-                break;
-            }
-            const artifact = innerResponse.result;
-
-            switch (request_.type) {
-            case undefined:
-            case "CM":
-                response.result = {};
-                let innerResponse = this.getCMConfig({ type: "APM" });
-                if (innerResponse.error) {
-                    errors.push(innerResponse.error);
-                    break;
-                }
-                response.result.apm = innerResponse.result;
-                innerResponse = this.getCMConfig({ type: "TOP" });
-                if (innerResponse.error) {
-                    errors.push(innerResponse.error);
-                    break;
-                }
-                response.result.top = innerResponse.result;
-                innerResponse = this.getCMConfig({ type: "ACT" });
-                if (innerResponse.error) {
-                    errors.push(innerResponse.error);
-                    break;
-                }
-                response.result.act = innerResponse.result;
-                break;
-            case "SCM":
-                let context = { refStack: [], result: {} };
-                arccore.graph.directed.depthFirstTraverse({
-                    digraph: artifact._private.digraph,
-                    context: context,
-                    options: { startVector: [ "INDEX_CM" ] },
-                    visitor: {
-                        getEdgeWeight: (request_) => {
-                            let props = request_.g.getVertexProperty(request_.e.u);
-                            let edgeWeight = null;
-                            switch (props.type) {
-                            case "INDEX":
-                                edgeWeight = "INDEX";
-                                break;
-                            case "APM":
-                                edgeWeight = `0_${props.artifact.getName()}`;
-                                break;
-                            case "TOP":
-                                edgeWeight = `1_${props.artifact.getName()}`;
-                                break;
-                            case "ACT":
-                                edgeWeight = `2_${props.artifact.getName()}`;
-                                break;
-                            case "CM":
-                                let artifact = props.artifact?props.artifact:this;
-                                edgeWeight = `3_${artifact.getName()}`;
-                                break;
-                            }
-                            return edgeWeight;
-                        },
-                        compareEdgeWeights: (request_) => {
-                            return (request_.a < request_.b)?-1:(request_.a > request_.b)?1:0;
-                        },
-                        discoverVertex: (request_) => {
-                            if (!request_.context.refStack.length) {
-                                request_.context.refStack.push(request_.context.result);
-                            }
-                            let descriptor = request_.context.refStack[request_.context.refStack.length - 1][request_.u] = {};
-                            const props = request_.g.getVertexProperty(request_.u);
-                            switch (props.type) {
-                            case "INDEX":
-                                descriptor.type = props.type;
-                                break;
-                            default:
-                                let artifact = props.artifact?props.artifact:this;
-                                descriptor.id = artifact.getID();
-                                descriptor.vdid = artifact.getVDID();
-                                descriptor.name = artifact.getName();
-                                descriptor.description = artifact.getDescription();
-                                descriptor.type = props.type;
-                                break;
-                            }
-                            request_.context.refStack.push(descriptor);
-                            return true;
-                        },
-                        finishVertex: (request_) => {
-                            request_.context.refStack.pop();
-                            return true;
-                        }
-                    }
-                });
-                response.result = context.result;
-                break;
-            case "APM":
-            case "TOP":
-            case "ACT":
-                response.result = artifact._private.digraph.outEdges(`INDEX_${request_.type}`)
-                    .map((edge_) => { return artifact._private.digraph.getVertexProperty(edge_.v).artifact; })
-                    .sort((a_, b_) => { (a_.getName() < b_.getName())?-1:(a_.getName() > b_.getName())?1:0; });
-
-                break;
-            default:
-                errors.push(`Value of '${request_.type}' specified for ~.type is invalid. Must be undefined, CM, APM, TOP, or ACT.`);
-                break;
-            }
-
-            break;
-        }
-        if (errors.length) {
-            errors.unshift("CellModel::getCMConfigAPM method error:");
-            response.error = errors.join(" ");
-        }
-
-        return response;
-
-    }
+    getCMConfig(request_) { // request = { id: optional CM ID, type: optional }
+        return getConfigFilter.request({
+            ...request_,
+            CellModelInstance: this
+        });
+    } // getCMConfig (TODO: getConfig)
 
 }

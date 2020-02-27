@@ -1,4 +1,4 @@
-// PROJECT/PLATFORM/PACKAGES/holarchy-sml-server.js
+// PROJECT/PLATFORM/PACKAGES/holarchy-cm.js
 
 const arccore = require("@encapsule/arccore");
 const holistic = require("../../../BUILD/holistic");
@@ -6,16 +6,15 @@ const react = require("react");
 
 module.exports = {
     packageType: "library",
-    packageEnvironments: [ "browser" ],
+    packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "Software Model Library (SML) containing Node.js app server plug-in filter assets derived from @encapsule/holarchy.",
+        description: "This package contains the Holistic App Platform's core re-usable CellModel library.",
         keywords: [ "Encapsule", "holistic", "holarchy", "holarchy-sml", "software model", "software library", "SML", "reuse", "re-use", "ObservableProcessController", "ObservableProcessModel", "ObservableControllerData", "TransitionOperator", "ControllerAction" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {
             "@encapsule/arccore": arccore.__meta.version,
             "@encapsule/holarchy": holistic.version,
-            "@encapsule/holarchy-sml": holistic.version,
             "react": react.version,
             "react-dom": react.version
         }

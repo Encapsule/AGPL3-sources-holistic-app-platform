@@ -1,4 +1,4 @@
-// PROJECT/PLATFORM/PACKAGES/holarchy-sml-client.js
+// PROJECT/PLATFORM/PACKAGES/holarchy-cm-server.js
 
 const arccore = require("@encapsule/arccore");
 const holistic = require("../../../BUILD/holistic");
@@ -8,7 +8,7 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "browser" ],
     packageManifestOverrides: {
-        description: "Software Model Library (SML) containing HTML5 browser client plug-in filter assets derived from @encapsule/holarchy.",
+        description: "Exports the HolisticAppServer CellModel for use in derived @encapsule/holistic applications/services.",
         keywords: [ "Encapsule", "holistic", "holarchy", "holarchy-sml", "software model", "software library", "SML", "reuse", "re-use", "ObservableProcessController", "ObservableProcessModel", "ObservableControllerData", "TransitionOperator", "ControllerAction" ],
         license: "MIT",
         main: "index.js",
