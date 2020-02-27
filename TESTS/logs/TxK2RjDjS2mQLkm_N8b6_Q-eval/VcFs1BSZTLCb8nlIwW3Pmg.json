@@ -26,7 +26,6 @@
                 "VcFs1BSZTLCb8nlIwW3Pmg": {
                   "isValid": false,
                   "summary": "CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                  "toJSON": "CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
                   "opcConfig": {
                     "error": "CellModel::getCMConfigAPM method error: CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                   },

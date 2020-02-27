@@ -43,59 +43,6 @@
                       }
                     }
                   },
-                  "toJSON": {
-                    "LMFSviNhR8WQoLvtv_YnbQ": true,
-                    "id": "Xp1zz6GTQuug4w1umxHPlQ",
-                    "name": "CellModel Constructor Error #2",
-                    "description": "Construct CellModel w/bad APM registration to test error handling. Should fail.",
-                    "digraph": {
-                      "name": "[Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2 CM Holarchy Digraph",
-                      "description": "A directed graph model of CM relationships [Xp1zz6GTQuug4w1umxHPlQ::CellModel Constructor Error #2].",
-                      "vlist": [
-                        {
-                          "u": "INDEX_CM",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "INDEX_APM",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "INDEX_TOP",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "INDEX_ACT",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "Xp1zz6GTQuug4w1umxHPlQ",
-                          "p": {
-                            "type": "CM"
-                          }
-                        }
-                      ],
-                      "elist": [
-                        {
-                          "e": {
-                            "u": "INDEX_CM",
-                            "v": "Xp1zz6GTQuug4w1umxHPlQ"
-                          },
-                          "p": {
-                            "type": "INDEX_CM::CM"
-                          }
-                        }
-                      ]
-                    }
-                  },
                   "opcConfig": {
                     "error": null,
                     "result": {

@@ -40,7 +40,16 @@ module.exports = class TransitionOperator {
     }
 
     toJSON() {
-        return this.getFilter();
+        if (!this.isValid()) {
+            return this._private.constructorError;
+        }
+        const response = {
+            id: this.getID(),
+            vdid: this.getVDID(),
+            name: this.getName(),
+            description: this.getDescription()
+        };
+        return response;
     }
 
     getFilter() {

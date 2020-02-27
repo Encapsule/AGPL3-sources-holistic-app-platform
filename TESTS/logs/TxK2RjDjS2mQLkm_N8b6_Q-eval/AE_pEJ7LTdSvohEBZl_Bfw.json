@@ -53,171 +53,16 @@
                       }
                     }
                   },
-                  "toJSON": {
-                    "LMFSviNhR8WQoLvtv_YnbQ": true,
-                    "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                    "name": "CellModel Constructor #3",
-                    "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
-                    "digraph": {
-                      "name": "[AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3 CM Holarchy Digraph",
-                      "description": "A directed graph model of CM relationships [AE_pEJ7LTdSvohEBZl_Bfw::CellModel Constructor #3].",
-                      "vlist": [
-                        {
-                          "u": "INDEX_CM",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "INDEX_APM",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "INDEX_TOP",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "INDEX_ACT",
-                          "p": {
-                            "type": "INDEX"
-                          }
-                        },
-                        {
-                          "u": "AE_pEJ7LTdSvohEBZl_Bfw",
-                          "p": {
-                            "type": "CM"
-                          }
-                        },
-                        {
-                          "u": "o3Q4YKI_SLOus82xE7Gaag",
-                          "p": {
-                            "type": "TOP",
-                            "artifact": {
-                              "filterDescriptor": {
-                                "operationID": "o3Q4YKI_SLOus82xE7Gaag",
-                                "operationName": "Placeholder TOP",
-                                "operationDescription": "A minimally configured placeholder.",
-                                "inputFilterSpec": {
-                                  "____label": "Placeholder TOP Request",
-                                  "____types": "jsObject",
-                                  "context": {
-                                    "____label": "OPC Context Descriptor",
-                                    "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                    "____types": "jsObject",
-                                    "apmBindingPath": {
-                                      "____label": "APM Binding Path",
-                                      "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                      "____accept": "jsString"
-                                    },
-                                    "ocdi": {
-                                      "____label": "OCD Store Instance",
-                                      "____description": "A reference to the OCD store instance managed by OPC.",
-                                      "____accept": "jsObject"
-                                    },
-                                    "transitionDispatcher": {
-                                      "____label": "OPC Transition Dispatcher",
-                                      "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                      "____accept": "jsObject"
-                                    }
-                                  },
-                                  "operatorRequest": {
-                                    "____accept": "jsObject"
-                                  }
-                                },
-                                "outputFilterSpec": {
-                                  "____accept": "jsBoolean"
-                                },
-                                "inputTypeVIID": "ofjO8lEELEezP_Th2FWN7w",
-                                "inputTypeVDID": "-u3TG2L-PMELD2liQ2U6tA",
-                                "outputTypeVIID": "jRyE9cAVqGCeOzcPg81fwg",
-                                "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                                "operationVDID": "NeeiRBSBUpPAYmic9BYIcg"
-                              }
-                            }
-                          }
-                        }
-                      ],
-                      "elist": [
-                        {
-                          "e": {
-                            "u": "INDEX_CM",
-                            "v": "AE_pEJ7LTdSvohEBZl_Bfw"
-                          },
-                          "p": {
-                            "type": "INDEX_CM::CM"
-                          }
-                        },
-                        {
-                          "e": {
-                            "u": "INDEX_TOP",
-                            "v": "o3Q4YKI_SLOus82xE7Gaag"
-                          },
-                          "p": {
-                            "type": "INDEX_TOP:TOP"
-                          }
-                        },
-                        {
-                          "e": {
-                            "u": "AE_pEJ7LTdSvohEBZl_Bfw",
-                            "v": "o3Q4YKI_SLOus82xE7Gaag"
-                          },
-                          "p": {
-                            "type": "CM:TOP"
-                          }
-                        }
-                      ]
-                    }
-                  },
                   "opcConfig": {
                     "error": null,
                     "result": {
                       "apm": [],
                       "top": [
                         {
-                          "filterDescriptor": {
-                            "operationID": "o3Q4YKI_SLOus82xE7Gaag",
-                            "operationName": "Placeholder TOP",
-                            "operationDescription": "A minimally configured placeholder.",
-                            "inputFilterSpec": {
-                              "____label": "Placeholder TOP Request",
-                              "____types": "jsObject",
-                              "context": {
-                                "____label": "OPC Context Descriptor",
-                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                "____types": "jsObject",
-                                "apmBindingPath": {
-                                  "____label": "APM Binding Path",
-                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                  "____accept": "jsString"
-                                },
-                                "ocdi": {
-                                  "____label": "OCD Store Instance",
-                                  "____description": "A reference to the OCD store instance managed by OPC.",
-                                  "____accept": "jsObject"
-                                },
-                                "transitionDispatcher": {
-                                  "____label": "OPC Transition Dispatcher",
-                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                  "____accept": "jsObject"
-                                }
-                              },
-                              "operatorRequest": {
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "outputFilterSpec": {
-                              "____accept": "jsBoolean"
-                            },
-                            "inputTypeVIID": "ofjO8lEELEezP_Th2FWN7w",
-                            "inputTypeVDID": "-u3TG2L-PMELD2liQ2U6tA",
-                            "outputTypeVIID": "jRyE9cAVqGCeOzcPg81fwg",
-                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "NeeiRBSBUpPAYmic9BYIcg"
-                          }
+                          "id": "o3Q4YKI_SLOus82xE7Gaag",
+                          "vdid": "kLy9qhOG0ukfYTgyR6cTYw",
+                          "name": "Placeholder TOP",
+                          "description": "A minimally configured placeholder."
                         }
                       ],
                       "act": []
@@ -230,7 +75,7 @@
                         "type": "INDEX",
                         "AE_pEJ7LTdSvohEBZl_Bfw": {
                           "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                          "vdid": "JmoD2F846kYCEbGqh44h-g",
+                          "vdid": "92uJ7BmABplGH6VOg7RHZg",
                           "name": "CellModel Constructor #3",
                           "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                           "type": "CM",
