@@ -20,13 +20,14 @@ module.exports = class CellModel {
             this.getVDID = this.getVDID.bind(this);
             this.getName = this.getName.bind(this);
             this.getDescription = this.getDescription.bind(this);
-            this.getOPCConfig = this.getOPCConfig.bind(this);
-            // These are primarily for support of low-level holodeck test harnesses.
+
+            // These are primarily for support of CellProcessor ES6 class.
+            // But, are also leveraged by the @encapsule/holodeck-assets CellModel harness.
             this.getArtifact = this.getArtifact.bind(this);
             this.getCMConfig = this.getCMConfig.bind(this);
-            let filterResponse;
 
             // If the caller didn't pass an object, just pass it through to the constructor filter which will fail w/correct error message.
+            let filterResponse;
             if (!request_ || (Object.prototype.toString.call(request_) !== "[object Object]")) {
                 filterResponse = constructorFilter.request(request_);
             } else {
@@ -81,31 +82,6 @@ module.exports = class CellModel {
     getDescription() {
         return (this.isValid()?this._private.description:this.toJSON());
     }
-
-    // Returns a filter response object.
-    getOPCConfig() {
-
-        let response = { error: null };
-        let errors = [];
-        let inBreakScope = false;
-        while (!inBreakScope) {
-            inBreakScope = true;
-            if (!this.isValid()) {
-                errors.push(this.toJSON());
-                break;
-            }
-            response.result = {};
-            response.result.apm = this._private.digraph.outEdges("INDEX_APM").map((edge_) => { return this._private.digraph.getVertexProperty(edge_.v).artifact; })
-            response.result.top = this._private.digraph.outEdges("INDEX_TOP").map((edge_) => { return this._private.digraph.getVertexProperty(edge_.v).artifact; })
-            response.result.act = this._private.digraph.outEdges("INDEX_ACT").map((edge_) => { return this._private.digraph.getVertexProperty(edge_.v).artifact; })
-            break;
-        }
-        if (errors.length) {
-            response.error = errors.join(" ");
-        }
-        return response;
-
-    } // getOPCConfig
 
     // Returns a filter response object.
     getArtifact(request_) { // request = { id: optional, type: optional }
