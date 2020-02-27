@@ -2,9 +2,9 @@
     "name": "@encapsule/holism-metadata",
     "version": "0.1.00",
     "codename": "alertbay",
-    "buildID": "JIbMsYYiTby1qlLnXYJnsw",
-    "buildTime": 1582819588,
-    "buildSource": "5e010b7818efd3b3740ba3de5b6a4bf804f28415",
+    "buildID": "vjlSHncRQL6v60wwbKc1rA",
+    "buildTime": 1582843990,
+    "buildSource": "0bdac582a1741de913717f8fdbed4b935540192f",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
