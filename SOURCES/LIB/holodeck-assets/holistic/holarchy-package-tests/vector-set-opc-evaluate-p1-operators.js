@@ -1,5 +1,5 @@
 
-const holarchySML = require("@encapsule/holarchy-sml");
+const holarchyCM = require("@encapsule/holarchy-cm");
 const fixtureOpmExamples = require("./fixture-opm-evaluate-p1-transition-operators");
 const fixtureTopExamples = require("./fixture-top-examples");
 
@@ -59,7 +59,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
+                                holarchyCM.cml.getCMConfig({ type: "TOP" }).result
                             ]
                         }
                     }
@@ -92,7 +92,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "TOP" }).result,
+                                holarchyCM.cml.getCMConfig({ type: "TOP" }).result,
                                 fixtureTopExamples
                             ]
                         }
@@ -126,7 +126,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "TOP" }).result,
+                                holarchyCM.cml.getCMConfig({ type: "TOP" }).result,
                                 fixtureTopExamples
                             ]
                         }

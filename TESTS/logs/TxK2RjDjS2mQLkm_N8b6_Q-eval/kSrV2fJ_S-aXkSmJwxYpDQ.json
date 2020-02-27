@@ -4,7 +4,7 @@
       "kSrV2fJ_S-aXkSmJwxYpDQ": {
         "harnessRequest": {
           "id": "kSrV2fJ_S-aXkSmJwxYpDQ",
-          "name": "@encapsule/holarchy-sml CellModel Export Test",
+          "name": "@encapsule/holarchy-cm CellModel Export Test",
           "description": "Attempt to instantiate the exported CML using the CellModel harness.",
           "vectorRequest": {
             "holistic": {
@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "kSrV2fJ_S-aXkSmJwxYpDQ",
-                    "name": "@encapsule/holarchy-sml CellModel Export Test",
+                    "name": "@encapsule/holarchy-cm CellModel Export Test",
                     "description": "Attempt to instantiate the exported CML using the CellModel harness.",
                     "subcells": [
                       {
@@ -11223,15 +11223,15 @@
                       ]
                     }
                   },
-                  "scmConfig": {
+                  "cmat": {
                     "error": null,
                     "result": {
                       "INDEX_CM": {
                         "type": "INDEX",
                         "kSrV2fJ_S-aXkSmJwxYpDQ": {
                           "id": "kSrV2fJ_S-aXkSmJwxYpDQ",
-                          "vdid": "cvttS5r685G5pJxkg2l4qA",
-                          "name": "@encapsule/holarchy-sml CellModel Export Test",
+                          "vdid": "WwXulwNDnEp1eRM_0XiN0A",
+                          "name": "@encapsule/holarchy-cm CellModel Export Test",
                           "description": "Attempt to instantiate the exported CML using the CellModel harness.",
                           "type": "CM",
                           "RyMcv3MpTI-Co1EyVOIvlw": {

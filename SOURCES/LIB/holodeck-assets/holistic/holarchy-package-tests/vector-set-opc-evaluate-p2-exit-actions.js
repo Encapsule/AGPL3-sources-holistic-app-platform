@@ -1,5 +1,5 @@
 
-const holarchySML = require("@encapsule/holarchy-sml");
+const holarchyCM = require("@encapsule/holarchy-cm");
 const fixtureOpmExamples = require("./fixture-opm-evaluate-p2-exit-actions");
 const fixtureActExamples = require("./fixture-act-evaluate-p2-exit-actions");
 
@@ -29,7 +29,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
+                                holarchyCM.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                             ]
@@ -64,7 +64,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
+                                holarchyCM.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                                 fixtureActExamples
@@ -101,7 +101,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
+                                holarchyCM.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                                 fixtureActExamples
@@ -138,7 +138,7 @@ module.exports = [
                                 fixtureOpmExamples
                             ],
                             transitionOperatorSets: [
-                                holarchySML.cml.getCMConfig({ type: "TOP" }).result
+                                holarchyCM.cml.getCMConfig({ type: "TOP" }).result
                             ],
                             controllerActionSets: [
                                 fixtureActExamples

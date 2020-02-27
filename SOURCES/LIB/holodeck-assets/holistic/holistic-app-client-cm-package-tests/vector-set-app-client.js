@@ -1,5 +1,5 @@
 
-const clientSML = require("@encapsule/holistic-app-client-sml");
+const clientCM = require("@encapsule/holistic-app-client-cm");
 
 module.exports = [
 
@@ -11,7 +11,7 @@ module.exports = [
             holistic: {
                 holarchy: {
                     CellModel: {
-                        constructorRequest: clientSML.cml
+                        constructorRequest: clientCM.cml
                     }
                 }
             }

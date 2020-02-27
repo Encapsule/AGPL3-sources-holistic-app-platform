@@ -87,19 +87,26 @@ module.exports = class CellModel {
 
     // Returns a filter response object.
     getArtifact(request_) { // request = { id: optional, type: optional }
-        return getArtifactFilter.request({
+        let response = getArtifactFilter.request({
             ...request_,
             CellModelInstance: this
-
         });
+        if (response.error) {
+            response.error = `CellModel::getArtifact failed: ${response.error}`;
+        }
+        return response;
     } // getArtifact
 
     // Returns a filter response object.
     getCMConfig(request_) { // request = { id: optional CM ID, type: optional }
-        return getConfigFilter.request({
+        let response = getConfigFilter.request({
             ...request_,
             CellModelInstance: this
         });
+        if (response.error) {
+            response.error = `CellModel::getCMConfig failed: ${response.error}`;
+        }
+        return response;
     } // getCMConfig (TODO: getConfig)
 
 }

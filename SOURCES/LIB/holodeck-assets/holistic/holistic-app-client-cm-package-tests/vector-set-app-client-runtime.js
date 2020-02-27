@@ -1,7 +1,7 @@
 // vector-set-app-client-runtime.js
 
-const clientSML = require("@encapsule/holistic-app-client-sml");
-let response = clientSML.cml.getArtifact({ id: "ENENGxq1TkCa6Sk9YXaLlw", type: "CM" });
+const clientCM = require("@encapsule/holistic-app-client-cm");
+let response = clientCM.cml.getArtifact({ id: "ENENGxq1TkCa6Sk9YXaLlw", type: "CM" });
 if (response.error) {
     throw new Error(response.error);
 }

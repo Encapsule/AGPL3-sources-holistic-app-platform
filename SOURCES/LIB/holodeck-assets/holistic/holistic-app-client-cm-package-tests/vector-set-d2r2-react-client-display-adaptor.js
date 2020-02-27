@@ -1,13 +1,13 @@
 // vector-set-d2r2-react-processor.js
 
 const holarchy = require("@encapsule/holarchy");
-const clientSML = require("@encapsule/holistic-app-client-sml");
+const clientCM = require("@encapsule/holistic-app-client-cm");
 
-if (!clientSML.cml.isValid()) {
-    throw new Error(clientSML.cml.toJSON());
+if (!clientCM.cml.isValid()) {
+    throw new Error(clientCM.cml.toJSON());
 }
 
-let response = clientSML.cml.getArtifact({ id: "UX7JquBhSZO0QyEk7u9-sw", type: "CM" });
+let response = clientCM.cml.getArtifact({ id: "UX7JquBhSZO0QyEk7u9-sw", type: "CM" });
 if (response.error) {
     throw new Error(response.error);
 }

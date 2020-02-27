@@ -1,4 +1,4 @@
-// scm-method-constructor.js
+// cm-method-constructor.js
 
 const arccore = require("@encapsule/arccore");
 const ObservableProcessController = require("../ObservableProcessController");

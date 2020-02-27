@@ -8,7 +8,7 @@ module.exports = [
     //
     // Other OPM's may observe a Frame Latch OPMI by its fully-qualified
     // OCD path (or OPMI-relative path) using the transition operator
-    // @encapsule/holarchy-sml TransitionOperator-opm-at-step.js.
+    // @encapsule/holarchy-cm TransitionOperator-opm-at-step.js.
     // to determine when it has reached its "updated" step and trigger
     // whatever action(s) are required.
     //

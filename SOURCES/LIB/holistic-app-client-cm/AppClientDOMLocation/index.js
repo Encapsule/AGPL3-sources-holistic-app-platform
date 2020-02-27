@@ -1,6 +1,6 @@
 
 const holarchy = require("@encapsule/holarchy");
-const holarchyCML = require("@encapsule/holarchy-sml");
+const holarchyCML = require("@encapsule/holarchy-cm");
 
 module.exports = new holarchy.CellModel({
     id: "qzMWhMstQ4Ki06O75y5hMA",

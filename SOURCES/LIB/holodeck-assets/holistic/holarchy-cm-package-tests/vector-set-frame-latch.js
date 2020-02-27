@@ -1,6 +1,6 @@
 
 const holarchy = require("@encapsule/holarchy");
-const sml = require("@encapsule/holarchy-sml");
+const cm = require("@encapsule/holarchy-cm");
 
 /*
   id: "U5iIpgd8SHCk7pvaciVLTQ",
@@ -9,7 +9,7 @@ const sml = require("@encapsule/holarchy-sml");
 */
 
 
-let response = sml.cml.getArtifact({ id: "U5iIpgd8SHCk7pvaciVLTQ", type: "CM" });
+let response = cm.cml.getArtifact({ id: "U5iIpgd8SHCk7pvaciVLTQ", type: "CM" });
 if (response.error) {
     throw new Error(response.error);
 }

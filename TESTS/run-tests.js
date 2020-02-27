@@ -54,20 +54,20 @@ mockery.registerAllowables([
 ]);
 */
 
-console.log("> Loading repo-local copy of @encapsule/holarchy-sml");
-const local_holarchySml = require("../PACKAGES/holarchy-sml");
-console.log("> Registering mock for @encapsule/holarchy-sml");
-mockery.registerMock("@encapsule/holarchy-sml", local_holarchySml);
+console.log("> Loading repo-local copy of @encapsule/holarchy-cm");
+const local_holarchyCM = require("../PACKAGES/holarchy-cm");
+console.log("> Registering mock for @encapsule/holarchy-cm");
+mockery.registerMock("@encapsule/holarchy-cm", local_holarchyCM);
 
-console.log("> Loading repo-local copy of @encapsule/holistic-app-client-sml");
-const local_holisticAppClientSML = require("../PACKAGES/holistic-app-client-sml");
-console.log("> Registering mock for @encapsule/holistic-app-client-sml");
-mockery.registerMock("@encapsule/holistic-app-client-sml", local_holisticAppClientSML);
+console.log("> Loading repo-local copy of @encapsule/holistic-app-client-cm");
+const local_holisticAppClientCM = require("../PACKAGES/holistic-app-client-cm");
+console.log("> Registering mock for @encapsule/holistic-app-client-cm");
+mockery.registerMock("@encapsule/holistic-app-client-cm", local_holisticAppClientCM);
 
-console.log("> Locating repo-local copy of @encapsule/holistic-app-server-sml");
-const local_holisticAppServerSML = require("../PACKAGES/holistic-app-server-sml");
-console.log("> Registering mock for @encapsule/holistic-app-server-sml");
-mockery.registerMock("@encapsule/holistic-app-server-sml", local_holisticAppServerSML);
+console.log("> Locating repo-local copy of @encapsule/holistic-app-server-cm");
+const local_holisticAppServerCM = require("../PACKAGES/holistic-app-server-cm");
+console.log("> Registering mock for @encapsule/holistic-app-server-cm");
+mockery.registerMock("@encapsule/holistic-app-server-cm", local_holisticAppServerCM);
 
 console.log("> Loading repo-local copy of @encapsule/holodeck-assets");
 const local_holodeckAssets = require("../PACKAGES/holodeck-assets");

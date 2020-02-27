@@ -1,11 +1,11 @@
 // vector-set-cml (CellModel Library)
 
-const HolarchyCML = require("@encapsule/holarchy-sml") // TODO: Rename the module
+const HolarchyCM = require("@encapsule/holarchy-cm") // TODO: Rename the module
 
 module.exports = [
     {
         id: "kSrV2fJ_S-aXkSmJwxYpDQ",
-        name: "@encapsule/holarchy-sml CellModel Export Test",
+        name: "@encapsule/holarchy-cm CellModel Export Test",
         description: "Attempt to instantiate the exported CML using the CellModel harness.",
         vectorRequest: {
             holistic: {
@@ -13,9 +13,9 @@ module.exports = [
                     CellModel: {
                         constructorRequest: {
                             id: "kSrV2fJ_S-aXkSmJwxYpDQ",
-                            name: "@encapsule/holarchy-sml CellModel Export Test",
+                            name: "@encapsule/holarchy-cm CellModel Export Test",
                             description: "Attempt to instantiate the exported CML using the CellModel harness.",
-                            subcells: [ HolarchyCML.cml ]
+                            subcells: [ HolarchyCM.cml ]
                         }
                     }
                 }

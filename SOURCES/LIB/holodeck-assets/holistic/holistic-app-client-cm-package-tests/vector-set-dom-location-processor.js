@@ -1,8 +1,8 @@
 // vector-set-dom-location-processor.js
 
-const clientSML = require("@encapsule/holistic-app-client-sml");
+const clientCM = require("@encapsule/holistic-app-client-cm");
 
-let response = clientSML.cml.getArtifact({ id: "qzMWhMstQ4Ki06O75y5hMA", type: "CM" });
+let response = clientCM.cml.getArtifact({ id: "qzMWhMstQ4Ki06O75y5hMA", type: "CM" });
 if (response.error) {
     throw new Error(response.error);
 }

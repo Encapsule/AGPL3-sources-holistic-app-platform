@@ -120,7 +120,7 @@
                       ]
                     }
                   },
-                  "scmConfig": {
+                  "cmat": {
                     "error": null,
                     "result": {
                       "INDEX_CM": {

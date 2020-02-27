@@ -18,7 +18,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                     ____types: "jsObject",
                     constructorRequest: {
                         // Either a CellModel constructor request object or pre-constructed CellModel class instance reference.
-                        ____opaque: true // accept any request and let SCM sort it out
+                        ____opaque: true // accept any request and let CellModel sort it out
                     }
                 }
             }
@@ -44,7 +44,7 @@ const factoryResponse = holodeck.harnessFactory.request({
         opcConfig: {
             ____accept: [ "jsString", "jsObject" ]
         },
-        scmConfig: {
+        cmat: {
             ____accept: [ "jsString", "jsObject" ]
         }
     },
@@ -79,7 +79,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                 summary,
                 // toJSON: cell.toJSON(),
                 opcConfig: cell.getCMConfig({ type: "CM" }),
-                scmConfig: cell.getCMConfig({ type: "SCM" })
+                cmat: cell.getCMConfig({ type: "CMAT" }) // CellModel Artifact Tree (CMAT)
             };
 
             break;

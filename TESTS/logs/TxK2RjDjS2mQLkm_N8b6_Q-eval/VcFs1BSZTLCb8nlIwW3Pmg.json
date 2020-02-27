@@ -27,10 +27,10 @@
                   "isValid": false,
                   "summary": "CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
                   "opcConfig": {
-                    "error": "CellModel::getCMConfigAPM method error: CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                    "error": "CellModel::getCMConfig failed: Filter [gGdsVfPmRpuSfD4rCdzblQ::CellModel::getConfig Method Filter] failed while performing main operation. CellModel::getCMConfigAPM method error: CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                   },
-                  "scmConfig": {
-                    "error": "CellModel::getCMConfigAPM method error: CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                  "cmat": {
+                    "error": "CellModel::getCMConfig failed: Filter [gGdsVfPmRpuSfD4rCdzblQ::CellModel::getConfig Method Filter] failed while performing main operation. CellModel::getCMConfigAPM method error: CellModel::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [xbcn-VBLTaC_0GmCuTQ8NA::CellModel::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                   }
                 }
               }

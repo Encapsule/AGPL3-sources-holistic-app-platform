@@ -1,8 +1,8 @@
-// @encapsule/holistic-app-server-sml/index.js
+// @encapsule/holistic-app-server-cm/index.js
 
 const packageMeta = require("./package.json");
 
-const holarchySML = require("@encapsule/holarchy-sml");
+const holarchyCM = require("@encapsule/holarchy-cm");
 
 module.exports = {
 
@@ -15,10 +15,5 @@ module.exports = {
         source: packageMeta.buildSource
     },
 
-    common: { ...holarchySML },
-
-    server: {
-
-    },
-
+    // WIP: We're not applying @encapsule/holarchy in the Node.js app server just yet.
 };

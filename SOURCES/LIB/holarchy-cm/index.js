@@ -1,5 +1,5 @@
 
-// @encapsule/holarchy-sml package exports:
+// @encapsule/holarchy-cm package exports:
 
 const holarchy = require("@encapsule/holarchy");
 const packageMeta = require("./package");

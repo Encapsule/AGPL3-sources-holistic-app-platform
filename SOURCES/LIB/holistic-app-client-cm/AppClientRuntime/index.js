@@ -2,7 +2,7 @@
 // HolisticAppClientRuntime.js
 
 const holarchy = require("@encapsule/holarchy");
-const holarchyCML = require("@encapsule/holarchy-sml");
+const holarchyCML = require("@encapsule/holarchy-cm");
 
 module.exports = new holarchy.CellModel({
     id: "ENENGxq1TkCa6Sk9YXaLlw",

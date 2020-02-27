@@ -1,4 +1,4 @@
-// @encapsule/holistic-app-client-sml/lib/index.js
+// @encapsule/holistic-app-client-cm/lib/index.js
 
 const holarchy = require("@encapsule/holarchy");
 

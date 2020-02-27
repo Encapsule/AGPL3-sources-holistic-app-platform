@@ -8,10 +8,10 @@ const holodeckPackageVectorSets = require("./holodeck-package-tests/vector-sets"
 const holarchyPackageHarnesses = require("../holarchy/harnesses");
 const holarchyPackageVectorSets = require("./holarchy-package-tests/vector-sets");
 
-const holarchySMLPackageVectorSets = require("./holarchy-sml-package-tests/vector-sets");
+const holarchyCMPackageVectorSets = require("./holarchy-cm-package-tests/vector-sets");
 
-const holisticAppClientSMLVectorSets = require("./holistic-app-client-sml-package-tests/vector-sets");
-const holisticAppServerSMLVectorSets = require("./holistic-app-server-sml-package-tests/vector-sets");
+const holisticAppClientCMVectorSets = require("./holistic-app-client-cm-package-tests/vector-sets");
+const holisticAppServerCMVectorSets = require("./holistic-app-server-cm-package-tests/vector-sets");
 
 const factoryResponse = arccore.filter.create({
     operationID: "Ga_AZ-2HSHuB0uJ9l6n3Uw",
@@ -65,9 +65,9 @@ const factoryResponse = arccore.filter.create({
                 testRequestSets: [
                     ...holodeckPackageVectorSets,
                     ...holarchyPackageVectorSets,
-                    ...holarchySMLPackageVectorSets,
-                    ...holisticAppClientSMLVectorSets,
-                    ...holisticAppServerSMLVectorSets
+                    ...holarchyCMPackageVectorSets,
+                    ...holisticAppClientCMVectorSets,
+                    ...holisticAppServerCMVectorSets
                 ]
             });
             if (runnerResponse.error) {
