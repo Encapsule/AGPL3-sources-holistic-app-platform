@@ -435,7 +435,7 @@ const factoryResponse = arccore.filter.create({
                     logger.request({
                         opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
                         subsystem: "opc", method: "evaluate", phase: "body",
-                        message: `Cell [${ocdPathIRUT_}] (${apmBindingPath}) APM transition: { "${initialStep}" => "${nextStep}" }.`
+                        message: `Cell process [${ocdPathIRUT_}] (${apmBindingPath}) step: "${initialStep}" ==> "${nextStep}"`
                     });
 
                     // Dispatch the APM instance's step EXIT action(s).
