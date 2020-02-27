@@ -16,111 +16,153 @@
                       [
                         {
                           "id": "_vC2O7DGTZ22R5hvxpy0WQ",
+                          "vdid": "qgjH9A5Au2A1se3eieqsdw",
                           "name": "APM Test A",
                           "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "noneSuchOperator": true
-                                  },
-                                  "nextStep": "goal"
+                          "process": {
+                            "name": "[_vC2O7DGTZ22R5hvxpy0WQ::APM Test A] APM Digraph",
+                            "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": []
-                            }
+                              {
+                                "u": "goal",
+                                "p": {
+                                  "description": "Test goal step (never reached).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "goal"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "noneSuchOperator": true
+                                  }
+                                }
+                              }
+                            ]
                           }
                         },
                         {
                           "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                          "vdid": "ZKyheWsH6krWyUusZ1lcXg",
                           "name": "APM Test B",
                           "description": "A simple test APM (force transition operator error - operator returns transport error)",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "badTransitionOperatorResponseError": true
-                                  },
-                                  "nextStep": "goal"
+                          "process": {
+                            "name": "[SyCUD3kpQ8mtYbV5A_4BPA::APM Test B] APM Digraph",
+                            "description": "A simple test APM (force transition operator error - operator returns transport error)",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": []
-                            }
+                              {
+                                "u": "goal",
+                                "p": {
+                                  "description": "Test goal step (never reached).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "goal"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "badTransitionOperatorResponseError": true
+                                  }
+                                }
+                              }
+                            ]
                           }
                         },
                         {
                           "id": "Pkr1EErLSiiHQRt8gCaO0Q",
+                          "vdid": "LMXQ5QCPPf8iYpPkqG2qOw",
                           "name": "APM Test C",
                           "description": "A simple test APM (force transition operator error - operator throws an Error)",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "badTransitionOperatorThrowError": true
-                                  },
-                                  "nextStep": "goal"
+                          "process": {
+                            "name": "[Pkr1EErLSiiHQRt8gCaO0Q::APM Test C] APM Digraph",
+                            "description": "A simple test APM (force transition operator error - operator throws an Error)",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": []
-                            }
+                              {
+                                "u": "goal",
+                                "p": {
+                                  "description": "Test goal step (never reached).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "goal"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "badTransitionOperatorThrowError": true
+                                  }
+                                }
+                              }
+                            ]
                           }
                         },
                         {
                           "id": "ZFpRfMRETDqavS3EqEuv1Q",
+                          "vdid": "7PiiN-tBNKjWvrLtKUaGIQ",
                           "name": "OPC Test D",
                           "description": "A simple test APM",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {}
+                          "process": {
+                            "name": "[ZFpRfMRETDqavS3EqEuv1Q::OPC Test D] APM Digraph",
+                            "description": "A simple test APM",
+                            "vlist": [],
+                            "elist": []
+                          }
                         }
                       ]
                     ]
@@ -153,111 +195,153 @@
                     "apmMap": {
                       "_vC2O7DGTZ22R5hvxpy0WQ": {
                         "id": "_vC2O7DGTZ22R5hvxpy0WQ",
+                        "vdid": "qgjH9A5Au2A1se3eieqsdw",
                         "name": "APM Test A",
                         "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
-                        "ocdDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {
-                          "uninitialized": {
-                            "description": "Default starting process step.",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "noneSuchOperator": true
-                                },
-                                "nextStep": "goal"
+                        "process": {
+                          "name": "[_vC2O7DGTZ22R5hvxpy0WQ::APM Test A] APM Digraph",
+                          "description": "A simple test APM (force transition operator error - no registered actions/no-plug-in for request).",
+                          "vlist": [
+                            {
+                              "u": "uninitialized",
+                              "p": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
                               }
-                            ]
-                          },
-                          "goal": {
-                            "description": "Test goal step (never reached).",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
                             },
-                            "transitions": []
-                          }
+                            {
+                              "u": "goal",
+                              "p": {
+                                "description": "Test goal step (never reached).",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            }
+                          ],
+                          "elist": [
+                            {
+                              "e": {
+                                "u": "uninitialized",
+                                "v": "goal"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "noneSuchOperator": true
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       "SyCUD3kpQ8mtYbV5A_4BPA": {
                         "id": "SyCUD3kpQ8mtYbV5A_4BPA",
+                        "vdid": "ZKyheWsH6krWyUusZ1lcXg",
                         "name": "APM Test B",
                         "description": "A simple test APM (force transition operator error - operator returns transport error)",
-                        "ocdDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {
-                          "uninitialized": {
-                            "description": "Default starting process step.",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "badTransitionOperatorResponseError": true
-                                },
-                                "nextStep": "goal"
+                        "process": {
+                          "name": "[SyCUD3kpQ8mtYbV5A_4BPA::APM Test B] APM Digraph",
+                          "description": "A simple test APM (force transition operator error - operator returns transport error)",
+                          "vlist": [
+                            {
+                              "u": "uninitialized",
+                              "p": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
                               }
-                            ]
-                          },
-                          "goal": {
-                            "description": "Test goal step (never reached).",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
                             },
-                            "transitions": []
-                          }
+                            {
+                              "u": "goal",
+                              "p": {
+                                "description": "Test goal step (never reached).",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            }
+                          ],
+                          "elist": [
+                            {
+                              "e": {
+                                "u": "uninitialized",
+                                "v": "goal"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "badTransitionOperatorResponseError": true
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       "Pkr1EErLSiiHQRt8gCaO0Q": {
                         "id": "Pkr1EErLSiiHQRt8gCaO0Q",
+                        "vdid": "LMXQ5QCPPf8iYpPkqG2qOw",
                         "name": "APM Test C",
                         "description": "A simple test APM (force transition operator error - operator throws an Error)",
-                        "ocdDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {
-                          "uninitialized": {
-                            "description": "Default starting process step.",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "badTransitionOperatorThrowError": true
-                                },
-                                "nextStep": "goal"
+                        "process": {
+                          "name": "[Pkr1EErLSiiHQRt8gCaO0Q::APM Test C] APM Digraph",
+                          "description": "A simple test APM (force transition operator error - operator throws an Error)",
+                          "vlist": [
+                            {
+                              "u": "uninitialized",
+                              "p": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
                               }
-                            ]
-                          },
-                          "goal": {
-                            "description": "Test goal step (never reached).",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
                             },
-                            "transitions": []
-                          }
+                            {
+                              "u": "goal",
+                              "p": {
+                                "description": "Test goal step (never reached).",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            }
+                          ],
+                          "elist": [
+                            {
+                              "e": {
+                                "u": "uninitialized",
+                                "v": "goal"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "badTransitionOperatorThrowError": true
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       "ZFpRfMRETDqavS3EqEuv1Q": {
                         "id": "ZFpRfMRETDqavS3EqEuv1Q",
+                        "vdid": "7PiiN-tBNKjWvrLtKUaGIQ",
                         "name": "OPC Test D",
                         "description": "A simple test APM",
-                        "ocdDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {}
+                        "process": {
+                          "name": "[ZFpRfMRETDqavS3EqEuv1Q::OPC Test D] APM Digraph",
+                          "description": "A simple test APM",
+                          "vlist": [],
+                          "elist": []
+                        }
                       }
                     },
                     "opmiSpecPaths": [],

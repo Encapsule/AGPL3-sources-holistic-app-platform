@@ -28,113 +28,152 @@
                       [
                         {
                           "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                          "vdid": "Lte55YHGfv8kU5AKzCcJZg",
                           "name": "OPM Eval P2 Test #1",
                           "description": "A simple test OPM (force controller action exit error - bad message)",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "noneSuchControllerAction": true
+                          "process": {
+                            "name": "[Rgt3dz-6Ra-zqpbnpBrJDg::OPM Eval P2 Test #1] APM Digraph",
+                            "description": "A simple test OPM (force controller action exit error - bad message)",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "noneSuchControllerAction": true
+                                      }
+                                    ]
                                   }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "goal"
                                 }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": []
-                            }
+                              {
+                                "u": "goal",
+                                "p": {
+                                  "description": "Test goal step (never reached).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "goal"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              }
+                            ]
                           }
                         },
                         {
                           "id": "P-uhpNlrTseMNDG3D9ahRA",
+                          "vdid": "lF0qmMWw9_OkL7T3Q7SfVw",
                           "name": "OPM Eval P2 Test #2",
                           "description": "A simple test OPM (force controller action exit error - action transport error)",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "badControllerActionResponseError": true
+                          "process": {
+                            "name": "[P-uhpNlrTseMNDG3D9ahRA::OPM Eval P2 Test #2] APM Digraph",
+                            "description": "A simple test OPM (force controller action exit error - action transport error)",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "badControllerActionResponseError": true
+                                      }
+                                    ]
                                   }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "goal"
                                 }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": []
-                            }
+                              {
+                                "u": "goal",
+                                "p": {
+                                  "description": "Test goal step (never reached).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "goal"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              }
+                            ]
                           }
                         },
                         {
                           "id": "alBMdhnYSbijGj64jxm92g",
+                          "vdid": "vUv8n4l2FAS3b74v6iSk9Q",
                           "name": "OPM Eval P2 Test #3",
                           "description": "A simple test OPM (force controller action exit - action exception)",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "badControllerActionThrowError": true
+                          "process": {
+                            "name": "[alBMdhnYSbijGj64jxm92g::OPM Eval P2 Test #3] APM Digraph",
+                            "description": "A simple test OPM (force controller action exit - action exception)",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "badControllerActionThrowError": true
+                                      }
+                                    ]
                                   }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "goal"
                                 }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": []
-                            }
+                              {
+                                "u": "goal",
+                                "p": {
+                                  "description": "Test goal step (never reached).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "goal"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              }
+                            ]
                           }
                         }
                       ]
@@ -260,113 +299,152 @@
                     "apmMap": {
                       "Rgt3dz-6Ra-zqpbnpBrJDg": {
                         "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                        "vdid": "Lte55YHGfv8kU5AKzCcJZg",
                         "name": "OPM Eval P2 Test #1",
                         "description": "A simple test OPM (force controller action exit error - bad message)",
-                        "ocdDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {
-                          "uninitialized": {
-                            "description": "Default starting process step.",
-                            "actions": {
-                              "enter": [],
-                              "exit": [
-                                {
-                                  "noneSuchControllerAction": true
+                        "process": {
+                          "name": "[Rgt3dz-6Ra-zqpbnpBrJDg::OPM Eval P2 Test #1] APM Digraph",
+                          "description": "A simple test OPM (force controller action exit error - bad message)",
+                          "vlist": [
+                            {
+                              "u": "uninitialized",
+                              "p": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "noneSuchControllerAction": true
+                                    }
+                                  ]
                                 }
-                              ]
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "always": true
-                                },
-                                "nextStep": "goal"
                               }
-                            ]
-                          },
-                          "goal": {
-                            "description": "Test goal step (never reached).",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
                             },
-                            "transitions": []
-                          }
+                            {
+                              "u": "goal",
+                              "p": {
+                                "description": "Test goal step (never reached).",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            }
+                          ],
+                          "elist": [
+                            {
+                              "e": {
+                                "u": "uninitialized",
+                                "v": "goal"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "always": true
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       "P-uhpNlrTseMNDG3D9ahRA": {
                         "id": "P-uhpNlrTseMNDG3D9ahRA",
+                        "vdid": "lF0qmMWw9_OkL7T3Q7SfVw",
                         "name": "OPM Eval P2 Test #2",
                         "description": "A simple test OPM (force controller action exit error - action transport error)",
-                        "ocdDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {
-                          "uninitialized": {
-                            "description": "Default starting process step.",
-                            "actions": {
-                              "enter": [],
-                              "exit": [
-                                {
-                                  "badControllerActionResponseError": true
+                        "process": {
+                          "name": "[P-uhpNlrTseMNDG3D9ahRA::OPM Eval P2 Test #2] APM Digraph",
+                          "description": "A simple test OPM (force controller action exit error - action transport error)",
+                          "vlist": [
+                            {
+                              "u": "uninitialized",
+                              "p": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "badControllerActionResponseError": true
+                                    }
+                                  ]
                                 }
-                              ]
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "always": true
-                                },
-                                "nextStep": "goal"
                               }
-                            ]
-                          },
-                          "goal": {
-                            "description": "Test goal step (never reached).",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
                             },
-                            "transitions": []
-                          }
+                            {
+                              "u": "goal",
+                              "p": {
+                                "description": "Test goal step (never reached).",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            }
+                          ],
+                          "elist": [
+                            {
+                              "e": {
+                                "u": "uninitialized",
+                                "v": "goal"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "always": true
+                                }
+                              }
+                            }
+                          ]
                         }
                       },
                       "alBMdhnYSbijGj64jxm92g": {
                         "id": "alBMdhnYSbijGj64jxm92g",
+                        "vdid": "vUv8n4l2FAS3b74v6iSk9Q",
                         "name": "OPM Eval P2 Test #3",
                         "description": "A simple test OPM (force controller action exit - action exception)",
-                        "ocdDataSpec": {
-                          "____types": "jsObject"
-                        },
-                        "steps": {
-                          "uninitialized": {
-                            "description": "Default starting process step.",
-                            "actions": {
-                              "enter": [],
-                              "exit": [
-                                {
-                                  "badControllerActionThrowError": true
+                        "process": {
+                          "name": "[alBMdhnYSbijGj64jxm92g::OPM Eval P2 Test #3] APM Digraph",
+                          "description": "A simple test OPM (force controller action exit - action exception)",
+                          "vlist": [
+                            {
+                              "u": "uninitialized",
+                              "p": {
+                                "description": "Default starting process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": [
+                                    {
+                                      "badControllerActionThrowError": true
+                                    }
+                                  ]
                                 }
-                              ]
-                            },
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "always": true
-                                },
-                                "nextStep": "goal"
                               }
-                            ]
-                          },
-                          "goal": {
-                            "description": "Test goal step (never reached).",
-                            "actions": {
-                              "enter": [],
-                              "exit": []
                             },
-                            "transitions": []
-                          }
+                            {
+                              "u": "goal",
+                              "p": {
+                                "description": "Test goal step (never reached).",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            }
+                          ],
+                          "elist": [
+                            {
+                              "e": {
+                                "u": "uninitialized",
+                                "v": "goal"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "always": true
+                                }
+                              }
+                            }
+                          ]
                         }
                       }
                     },
@@ -375,39 +453,52 @@
                         "specPath": "~.test",
                         "opmiRef": {
                           "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                          "vdid": "Lte55YHGfv8kU5AKzCcJZg",
                           "name": "OPM Eval P2 Test #1",
                           "description": "A simple test OPM (force controller action exit error - bad message)",
-                          "ocdDataSpec": {
-                            "____types": "jsObject"
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "noneSuchControllerAction": true
+                          "process": {
+                            "name": "[Rgt3dz-6Ra-zqpbnpBrJDg::OPM Eval P2 Test #1] APM Digraph",
+                            "description": "A simple test OPM (force controller action exit error - bad message)",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "noneSuchControllerAction": true
+                                      }
+                                    ]
                                   }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "goal"
                                 }
-                              ]
-                            },
-                            "goal": {
-                              "description": "Test goal step (never reached).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": []
-                            }
+                              {
+                                "u": "goal",
+                                "p": {
+                                  "description": "Test goal step (never reached).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "goal"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              }
+                            ]
                           }
                         }
                       }
@@ -1497,39 +1588,52 @@
                                   "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
+                                    "vdid": "Lte55YHGfv8kU5AKzCcJZg",
                                     "name": "OPM Eval P2 Test #1",
                                     "description": "A simple test OPM (force controller action exit error - bad message)",
-                                    "ocdDataSpec": {
-                                      "____types": "jsObject"
-                                    },
-                                    "steps": {
-                                      "uninitialized": {
-                                        "description": "Default starting process step.",
-                                        "actions": {
-                                          "enter": [],
-                                          "exit": [
-                                            {
-                                              "noneSuchControllerAction": true
+                                    "process": {
+                                      "name": "[Rgt3dz-6Ra-zqpbnpBrJDg::OPM Eval P2 Test #1] APM Digraph",
+                                      "description": "A simple test OPM (force controller action exit error - bad message)",
+                                      "vlist": [
+                                        {
+                                          "u": "uninitialized",
+                                          "p": {
+                                            "description": "Default starting process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": [
+                                                {
+                                                  "noneSuchControllerAction": true
+                                                }
+                                              ]
                                             }
-                                          ]
-                                        },
-                                        "transitions": [
-                                          {
-                                            "transitionIf": {
-                                              "always": true
-                                            },
-                                            "nextStep": "goal"
                                           }
-                                        ]
-                                      },
-                                      "goal": {
-                                        "description": "Test goal step (never reached).",
-                                        "actions": {
-                                          "enter": [],
-                                          "exit": []
                                         },
-                                        "transitions": []
-                                      }
+                                        {
+                                          "u": "goal",
+                                          "p": {
+                                            "description": "Test goal step (never reached).",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "elist": [
+                                        {
+                                          "e": {
+                                            "u": "uninitialized",
+                                            "v": "goal"
+                                          },
+                                          "p": {
+                                            "priority": 0,
+                                            "operator": {
+                                              "always": true
+                                            }
+                                          }
+                                        }
+                                      ]
                                     }
                                   }
                                 },

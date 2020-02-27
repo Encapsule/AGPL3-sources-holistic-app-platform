@@ -55,152 +55,263 @@
                             "type": "APM",
                             "artifact": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
+                              "vdid": "Kz-Sl-xmVeqw4JrF_H1DvQ",
                               "name": "Holistic Client App Runtime",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                              "ocdDataSpec": {
-                                "____types": "jsObject",
-                                "____defaultValue": {},
-                                "PPL45jw5RDWSMNsB97WIWg": {
-                                  "____types": "jsObject",
-                                  "____defaultValue": {},
-                                  "inputs": {
-                                    "____types": "jsObject",
-                                    "____defaultValue": {}
-                                  },
-                                  "_private": {
-                                    "____types": "jsObject",
-                                    "____defaultValue": {},
-                                    "windowLoaded": {
-                                      "____label": "window.onload Completed Flag",
-                                      "____description": "Boolean flag set when the window.onload event occurs.",
-                                      "____accept": "jsBoolean",
-                                      "____defaultValue": false
+                              "process": {
+                                "name": "[PPL45jw5RDWSMNsB97WIWg::Holistic Client App Runtime] APM Digraph",
+                                "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                                "vlist": [
+                                  {
+                                    "u": "uninitialized",
+                                    "p": {
+                                      "description": "Default starting process step.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
                                     }
                                   },
-                                  "outputs": {
-                                    "____types": "jsObject",
-                                    "____defaultValue": {}
-                                  }
-                                }
-                              },
-                              "steps": {
-                                "uninitialized": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "boot0_hook_events"
-                                    }
-                                  ]
-                                },
-                                "boot0_hook_events": {
-                                  "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "sml": {
-                                                "HolisticAppRuntime": {
-                                                  "actions": {
-                                                    "_private": {
-                                                      "hookEvents": true
+                                  {
+                                    "u": "boot0_hook_events",
+                                    "p": {
+                                      "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
+                                      "actions": {
+                                        "enter": [
+                                          {
+                                            "holistic": {
+                                              "app": {
+                                                "client": {
+                                                  "sml": {
+                                                    "HolisticAppRuntime": {
+                                                      "actions": {
+                                                        "_private": {
+                                                          "hookEvents": true
+                                                        }
+                                                      }
                                                     }
                                                   }
                                                 }
                                               }
                                             }
                                           }
-                                        }
+                                        ],
+                                        "exit": []
                                       }
-                                    ],
-                                    "exit": []
-                                  },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "boot1_start_kernel"
                                     }
-                                  ]
-                                },
-                                "boot1_start_kernel": {
-                                  "description": "Start core client app kernel subsystems.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
                                   },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "boot2_query_derived"
+                                  {
+                                    "u": "boot1_start_kernel",
+                                    "p": {
+                                      "description": "Start core client app kernel subsystems.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
                                     }
-                                  ]
-                                },
-                                "boot2_query_derived": {
-                                  "description": "Query the derived client app for information required to initialize the core client app runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
                                   },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "boot3_wait_kernel"
+                                  {
+                                    "u": "boot2_query_derived",
+                                    "p": {
+                                      "description": "Query the derived client app for information required to initialize the core client app runtime.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
                                     }
-                                  ]
-                                },
-                                "boot3_wait_kernel": {
-                                  "description": "Wait for the core client app kernel subsystems to become available.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
                                   },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "boot4_config_derived"
+                                  {
+                                    "u": "boot3_wait_kernel",
+                                    "p": {
+                                      "description": "Wait for the core client app kernel subsystems to become available.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
                                     }
-                                  ]
-                                },
-                                "boot4_config_derived": {
-                                  "description": "Configure the derived application runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
                                   },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "boot5_wait_browser"
+                                  {
+                                    "u": "boot4_config_derived",
+                                    "p": {
+                                      "description": "Configure the derived application runtime.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
                                     }
-                                  ]
-                                },
-                                "boot5_wait_browser": {
-                                  "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
                                   },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
+                                  {
+                                    "u": "boot5_wait_browser",
+                                    "p": {
+                                      "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "boot6_deserialize_app",
+                                    "p": {
+                                      "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "boot7_load_app_memory",
+                                    "p": {
+                                      "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "boot8_init_app_view",
+                                    "p": {
+                                      "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "boot9_start_app",
+                                    "p": {
+                                      "description": "Start the client application runtime.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "running",
+                                    "p": {
+                                      "description": "The client application is online and awaiting input from external actors.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "error_process_boot_failure",
+                                    "p": {
+                                      "description": "Client application process boot failed due to unrecoverable error(s).",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "error_process_resume_failure",
+                                    "p": {
+                                      "description": "Client application process resume failured due to unrecoverable error(s).",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "u": "error_process_runtime_failure",
+                                    "p": {
+                                      "description": "Client application process crashed at runtime due to unexpected and unrecoverable error(s).",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  }
+                                ],
+                                "elist": [
+                                  {
+                                    "e": {
+                                      "u": "uninitialized",
+                                      "v": "boot0_hook_events"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "boot0_hook_events",
+                                      "v": "boot1_start_kernel"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "boot1_start_kernel",
+                                      "v": "boot2_query_derived"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "boot2_query_derived",
+                                      "v": "boot3_wait_kernel"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "boot3_wait_kernel",
+                                      "v": "boot4_config_derived"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "boot4_config_derived",
+                                      "v": "boot5_wait_browser"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "boot5_wait_browser",
+                                      "v": "boot6_deserialize_app"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
                                         "holarchy": {
                                           "sml": {
                                             "operators": {
@@ -212,75 +323,10 @@
                                             }
                                           }
                                         }
-                                      },
-                                      "nextStep": "boot6_deserialize_app"
+                                      }
                                     }
-                                  ]
-                                },
-                                "boot6_deserialize_app": {
-                                  "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                },
-                                "boot7_load_app_memory": {
-                                  "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                },
-                                "boot8_init_app_view": {
-                                  "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                },
-                                "boot9_start_app": {
-                                  "description": "Start the client application runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                },
-                                "running": {
-                                  "description": "The client application is online and awaiting input from external actors.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                },
-                                "error_process_boot_failure": {
-                                  "description": "Client application process boot failed due to unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                },
-                                "error_process_resume_failure": {
-                                  "description": "Client application process resume failured due to unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                },
-                                "error_process_runtime_failure": {
-                                  "description": "Client application process crashed at runtime due to unexpected and unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  },
-                                  "transitions": []
-                                }
+                                  }
+                                ]
                               }
                             }
                           }
@@ -2577,85 +2623,105 @@
                                                           "type": "APM",
                                                           "artifact": {
                                                             "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                                            "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                                                             "name": "Abstract Frame Latch",
                                                             "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                                            "ocdDataSpec": {
-                                                              "____label": "Abstract Frame Latch",
-                                                              "____types": "jsObject",
-                                                              "____defaultValue": {},
-                                                              "clock": {
-                                                                "____accept": "jsBoolean",
-                                                                "____defaultValue": false
-                                                              }
-                                                            },
-                                                            "steps": {
-                                                              "uninitialized": {
-                                                                "description": "Default starting process step.",
-                                                                "actions": {
-                                                                  "enter": [],
-                                                                  "exit": [
-                                                                    {
-                                                                      "holarchy": {
-                                                                        "sml": {
-                                                                          "actions": {
-                                                                            "ocd": {
-                                                                              "setBooleanFlag": {
-                                                                                "path": "#.clock"
+                                                            "process": {
+                                                              "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                                              "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                                              "vlist": [
+                                                                {
+                                                                  "u": "uninitialized",
+                                                                  "p": {
+                                                                    "description": "Default starting process step.",
+                                                                    "actions": {
+                                                                      "enter": [],
+                                                                      "exit": [
+                                                                        {
+                                                                          "holarchy": {
+                                                                            "sml": {
+                                                                              "actions": {
+                                                                                "ocd": {
+                                                                                  "setBooleanFlag": {
+                                                                                    "path": "#.clock"
+                                                                                  }
+                                                                                }
                                                                               }
                                                                             }
                                                                           }
                                                                         }
-                                                                      }
+                                                                      ]
                                                                     }
-                                                                  ]
-                                                                },
-                                                                "transitions": [
-                                                                  {
-                                                                    "transitionIf": {
-                                                                      "always": true
-                                                                    },
-                                                                    "nextStep": "updated"
                                                                   }
-                                                                ]
-                                                              },
-                                                              "updated": {
-                                                                "description": "The value managed by the frame latch has been written.",
-                                                                "actions": {
-                                                                  "enter": [],
-                                                                  "exit": [
-                                                                    {
-                                                                      "holarchy": {
-                                                                        "sml": {
-                                                                          "actions": {
-                                                                            "ocd": {
-                                                                              "clearBooleanFlag": {
-                                                                                "path": "#.clock"
+                                                                },
+                                                                {
+                                                                  "u": "updated",
+                                                                  "p": {
+                                                                    "description": "The value managed by the frame latch has been written.",
+                                                                    "actions": {
+                                                                      "enter": [],
+                                                                      "exit": [
+                                                                        {
+                                                                          "holarchy": {
+                                                                            "sml": {
+                                                                              "actions": {
+                                                                                "ocd": {
+                                                                                  "clearBooleanFlag": {
+                                                                                    "path": "#.clock"
+                                                                                  }
+                                                                                }
                                                                               }
                                                                             }
                                                                           }
                                                                         }
-                                                                      }
+                                                                      ]
                                                                     }
-                                                                  ]
-                                                                },
-                                                                "transitions": [
-                                                                  {
-                                                                    "transitionIf": {
-                                                                      "always": true
-                                                                    },
-                                                                    "nextStep": "waiting"
                                                                   }
-                                                                ]
-                                                              },
-                                                              "waiting": {
-                                                                "description": "Frame latch value has not changed since last signalled update.",
-                                                                "actions": {
-                                                                  "enter": [],
-                                                                  "exit": []
                                                                 },
-                                                                "transitions": [
-                                                                  {
-                                                                    "transitionIf": {
+                                                                {
+                                                                  "u": "waiting",
+                                                                  "p": {
+                                                                    "description": "Frame latch value has not changed since last signalled update.",
+                                                                    "actions": {
+                                                                      "enter": [],
+                                                                      "exit": []
+                                                                    }
+                                                                  }
+                                                                }
+                                                              ],
+                                                              "elist": [
+                                                                {
+                                                                  "e": {
+                                                                    "u": "uninitialized",
+                                                                    "v": "updated"
+                                                                  },
+                                                                  "p": {
+                                                                    "priority": 0,
+                                                                    "operator": {
+                                                                      "always": true
+                                                                    }
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "e": {
+                                                                    "u": "updated",
+                                                                    "v": "waiting"
+                                                                  },
+                                                                  "p": {
+                                                                    "priority": 0,
+                                                                    "operator": {
+                                                                      "always": true
+                                                                    }
+                                                                  }
+                                                                },
+                                                                {
+                                                                  "e": {
+                                                                    "u": "waiting",
+                                                                    "v": "updated"
+                                                                  },
+                                                                  "p": {
+                                                                    "priority": 0,
+                                                                    "operator": {
                                                                       "holarchy": {
                                                                         "sml": {
                                                                           "operators": {
@@ -2667,11 +2733,10 @@
                                                                           }
                                                                         }
                                                                       }
-                                                                    },
-                                                                    "nextStep": "updated"
+                                                                    }
                                                                   }
-                                                                ]
-                                                              }
+                                                                }
+                                                              ]
                                                             }
                                                           }
                                                         }
@@ -5239,85 +5304,105 @@
                                                 "type": "APM",
                                                 "artifact": {
                                                   "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                                  "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                                                   "name": "Abstract Frame Latch",
                                                   "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                                  "ocdDataSpec": {
-                                                    "____label": "Abstract Frame Latch",
-                                                    "____types": "jsObject",
-                                                    "____defaultValue": {},
-                                                    "clock": {
-                                                      "____accept": "jsBoolean",
-                                                      "____defaultValue": false
-                                                    }
-                                                  },
-                                                  "steps": {
-                                                    "uninitialized": {
-                                                      "description": "Default starting process step.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": [
-                                                          {
-                                                            "holarchy": {
-                                                              "sml": {
-                                                                "actions": {
-                                                                  "ocd": {
-                                                                    "setBooleanFlag": {
-                                                                      "path": "#.clock"
+                                                  "process": {
+                                                    "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                                    "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                                    "vlist": [
+                                                      {
+                                                        "u": "uninitialized",
+                                                        "p": {
+                                                          "description": "Default starting process step.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": [
+                                                              {
+                                                                "holarchy": {
+                                                                  "sml": {
+                                                                    "actions": {
+                                                                      "ocd": {
+                                                                        "setBooleanFlag": {
+                                                                          "path": "#.clock"
+                                                                        }
+                                                                      }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            }
+                                                            ]
                                                           }
-                                                        ]
-                                                      },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
-                                                            "always": true
-                                                          },
-                                                          "nextStep": "updated"
                                                         }
-                                                      ]
-                                                    },
-                                                    "updated": {
-                                                      "description": "The value managed by the frame latch has been written.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": [
-                                                          {
-                                                            "holarchy": {
-                                                              "sml": {
-                                                                "actions": {
-                                                                  "ocd": {
-                                                                    "clearBooleanFlag": {
-                                                                      "path": "#.clock"
+                                                      },
+                                                      {
+                                                        "u": "updated",
+                                                        "p": {
+                                                          "description": "The value managed by the frame latch has been written.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": [
+                                                              {
+                                                                "holarchy": {
+                                                                  "sml": {
+                                                                    "actions": {
+                                                                      "ocd": {
+                                                                        "clearBooleanFlag": {
+                                                                          "path": "#.clock"
+                                                                        }
+                                                                      }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            }
+                                                            ]
                                                           }
-                                                        ]
-                                                      },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
-                                                            "always": true
-                                                          },
-                                                          "nextStep": "waiting"
                                                         }
-                                                      ]
-                                                    },
-                                                    "waiting": {
-                                                      "description": "Frame latch value has not changed since last signalled update.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": []
                                                       },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
+                                                      {
+                                                        "u": "waiting",
+                                                        "p": {
+                                                          "description": "Frame latch value has not changed since last signalled update.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": []
+                                                          }
+                                                        }
+                                                      }
+                                                    ],
+                                                    "elist": [
+                                                      {
+                                                        "e": {
+                                                          "u": "uninitialized",
+                                                          "v": "updated"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
+                                                            "always": true
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "e": {
+                                                          "u": "updated",
+                                                          "v": "waiting"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
+                                                            "always": true
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "e": {
+                                                          "u": "waiting",
+                                                          "v": "updated"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
                                                             "holarchy": {
                                                               "sml": {
                                                                 "operators": {
@@ -5329,11 +5414,10 @@
                                                                 }
                                                               }
                                                             }
-                                                          },
-                                                          "nextStep": "updated"
+                                                          }
                                                         }
-                                                      ]
-                                                    }
+                                                      }
+                                                    ]
                                                   }
                                                 }
                                               }
@@ -7962,85 +8046,105 @@
                                                 "type": "APM",
                                                 "artifact": {
                                                   "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                                  "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                                                   "name": "Abstract Frame Latch",
                                                   "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                                  "ocdDataSpec": {
-                                                    "____label": "Abstract Frame Latch",
-                                                    "____types": "jsObject",
-                                                    "____defaultValue": {},
-                                                    "clock": {
-                                                      "____accept": "jsBoolean",
-                                                      "____defaultValue": false
-                                                    }
-                                                  },
-                                                  "steps": {
-                                                    "uninitialized": {
-                                                      "description": "Default starting process step.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": [
-                                                          {
-                                                            "holarchy": {
-                                                              "sml": {
-                                                                "actions": {
-                                                                  "ocd": {
-                                                                    "setBooleanFlag": {
-                                                                      "path": "#.clock"
+                                                  "process": {
+                                                    "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                                    "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                                    "vlist": [
+                                                      {
+                                                        "u": "uninitialized",
+                                                        "p": {
+                                                          "description": "Default starting process step.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": [
+                                                              {
+                                                                "holarchy": {
+                                                                  "sml": {
+                                                                    "actions": {
+                                                                      "ocd": {
+                                                                        "setBooleanFlag": {
+                                                                          "path": "#.clock"
+                                                                        }
+                                                                      }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            }
+                                                            ]
                                                           }
-                                                        ]
-                                                      },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
-                                                            "always": true
-                                                          },
-                                                          "nextStep": "updated"
                                                         }
-                                                      ]
-                                                    },
-                                                    "updated": {
-                                                      "description": "The value managed by the frame latch has been written.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": [
-                                                          {
-                                                            "holarchy": {
-                                                              "sml": {
-                                                                "actions": {
-                                                                  "ocd": {
-                                                                    "clearBooleanFlag": {
-                                                                      "path": "#.clock"
+                                                      },
+                                                      {
+                                                        "u": "updated",
+                                                        "p": {
+                                                          "description": "The value managed by the frame latch has been written.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": [
+                                                              {
+                                                                "holarchy": {
+                                                                  "sml": {
+                                                                    "actions": {
+                                                                      "ocd": {
+                                                                        "clearBooleanFlag": {
+                                                                          "path": "#.clock"
+                                                                        }
+                                                                      }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            }
+                                                            ]
                                                           }
-                                                        ]
-                                                      },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
-                                                            "always": true
-                                                          },
-                                                          "nextStep": "waiting"
                                                         }
-                                                      ]
-                                                    },
-                                                    "waiting": {
-                                                      "description": "Frame latch value has not changed since last signalled update.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": []
                                                       },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
+                                                      {
+                                                        "u": "waiting",
+                                                        "p": {
+                                                          "description": "Frame latch value has not changed since last signalled update.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": []
+                                                          }
+                                                        }
+                                                      }
+                                                    ],
+                                                    "elist": [
+                                                      {
+                                                        "e": {
+                                                          "u": "uninitialized",
+                                                          "v": "updated"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
+                                                            "always": true
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "e": {
+                                                          "u": "updated",
+                                                          "v": "waiting"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
+                                                            "always": true
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "e": {
+                                                          "u": "waiting",
+                                                          "v": "updated"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
                                                             "holarchy": {
                                                               "sml": {
                                                                 "operators": {
@@ -8052,11 +8156,10 @@
                                                                 }
                                                               }
                                                             }
-                                                          },
-                                                          "nextStep": "updated"
+                                                          }
                                                         }
-                                                      ]
-                                                    }
+                                                      }
+                                                    ]
                                                   }
                                                 }
                                               }
@@ -10624,85 +10727,105 @@
                                       "type": "APM",
                                       "artifact": {
                                         "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                        "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                                         "name": "Abstract Frame Latch",
                                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                        "ocdDataSpec": {
-                                          "____label": "Abstract Frame Latch",
-                                          "____types": "jsObject",
-                                          "____defaultValue": {},
-                                          "clock": {
-                                            "____accept": "jsBoolean",
-                                            "____defaultValue": false
-                                          }
-                                        },
-                                        "steps": {
-                                          "uninitialized": {
-                                            "description": "Default starting process step.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": [
-                                                {
-                                                  "holarchy": {
-                                                    "sml": {
-                                                      "actions": {
-                                                        "ocd": {
-                                                          "setBooleanFlag": {
-                                                            "path": "#.clock"
+                                        "process": {
+                                          "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                          "vlist": [
+                                            {
+                                              "u": "uninitialized",
+                                              "p": {
+                                                "description": "Default starting process step.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "setBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
                                                     }
-                                                  }
+                                                  ]
                                                 }
-                                              ]
-                                            },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
-                                                  "always": true
-                                                },
-                                                "nextStep": "updated"
                                               }
-                                            ]
-                                          },
-                                          "updated": {
-                                            "description": "The value managed by the frame latch has been written.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": [
-                                                {
-                                                  "holarchy": {
-                                                    "sml": {
-                                                      "actions": {
-                                                        "ocd": {
-                                                          "clearBooleanFlag": {
-                                                            "path": "#.clock"
+                                            },
+                                            {
+                                              "u": "updated",
+                                              "p": {
+                                                "description": "The value managed by the frame latch has been written.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "clearBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
                                                     }
-                                                  }
+                                                  ]
                                                 }
-                                              ]
-                                            },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
-                                                  "always": true
-                                                },
-                                                "nextStep": "waiting"
                                               }
-                                            ]
-                                          },
-                                          "waiting": {
-                                            "description": "Frame latch value has not changed since last signalled update.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": []
                                             },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
+                                            {
+                                              "u": "waiting",
+                                              "p": {
+                                                "description": "Frame latch value has not changed since last signalled update.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": []
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "elist": [
+                                            {
+                                              "e": {
+                                                "u": "uninitialized",
+                                                "v": "updated"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
+                                                  "always": true
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "e": {
+                                                "u": "updated",
+                                                "v": "waiting"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
+                                                  "always": true
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "e": {
+                                                "u": "waiting",
+                                                "v": "updated"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
                                                   "holarchy": {
                                                     "sml": {
                                                       "operators": {
@@ -10714,11 +10837,10 @@
                                                       }
                                                     }
                                                   }
-                                                },
-                                                "nextStep": "updated"
+                                                }
                                               }
-                                            ]
-                                          }
+                                            }
+                                          ]
                                         }
                                       }
                                     }
@@ -13417,85 +13539,105 @@
                                                 "type": "APM",
                                                 "artifact": {
                                                   "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                                  "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                                                   "name": "Abstract Frame Latch",
                                                   "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                                  "ocdDataSpec": {
-                                                    "____label": "Abstract Frame Latch",
-                                                    "____types": "jsObject",
-                                                    "____defaultValue": {},
-                                                    "clock": {
-                                                      "____accept": "jsBoolean",
-                                                      "____defaultValue": false
-                                                    }
-                                                  },
-                                                  "steps": {
-                                                    "uninitialized": {
-                                                      "description": "Default starting process step.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": [
-                                                          {
-                                                            "holarchy": {
-                                                              "sml": {
-                                                                "actions": {
-                                                                  "ocd": {
-                                                                    "setBooleanFlag": {
-                                                                      "path": "#.clock"
+                                                  "process": {
+                                                    "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                                    "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                                    "vlist": [
+                                                      {
+                                                        "u": "uninitialized",
+                                                        "p": {
+                                                          "description": "Default starting process step.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": [
+                                                              {
+                                                                "holarchy": {
+                                                                  "sml": {
+                                                                    "actions": {
+                                                                      "ocd": {
+                                                                        "setBooleanFlag": {
+                                                                          "path": "#.clock"
+                                                                        }
+                                                                      }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            }
+                                                            ]
                                                           }
-                                                        ]
-                                                      },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
-                                                            "always": true
-                                                          },
-                                                          "nextStep": "updated"
                                                         }
-                                                      ]
-                                                    },
-                                                    "updated": {
-                                                      "description": "The value managed by the frame latch has been written.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": [
-                                                          {
-                                                            "holarchy": {
-                                                              "sml": {
-                                                                "actions": {
-                                                                  "ocd": {
-                                                                    "clearBooleanFlag": {
-                                                                      "path": "#.clock"
+                                                      },
+                                                      {
+                                                        "u": "updated",
+                                                        "p": {
+                                                          "description": "The value managed by the frame latch has been written.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": [
+                                                              {
+                                                                "holarchy": {
+                                                                  "sml": {
+                                                                    "actions": {
+                                                                      "ocd": {
+                                                                        "clearBooleanFlag": {
+                                                                          "path": "#.clock"
+                                                                        }
+                                                                      }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            }
+                                                            ]
                                                           }
-                                                        ]
-                                                      },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
-                                                            "always": true
-                                                          },
-                                                          "nextStep": "waiting"
                                                         }
-                                                      ]
-                                                    },
-                                                    "waiting": {
-                                                      "description": "Frame latch value has not changed since last signalled update.",
-                                                      "actions": {
-                                                        "enter": [],
-                                                        "exit": []
                                                       },
-                                                      "transitions": [
-                                                        {
-                                                          "transitionIf": {
+                                                      {
+                                                        "u": "waiting",
+                                                        "p": {
+                                                          "description": "Frame latch value has not changed since last signalled update.",
+                                                          "actions": {
+                                                            "enter": [],
+                                                            "exit": []
+                                                          }
+                                                        }
+                                                      }
+                                                    ],
+                                                    "elist": [
+                                                      {
+                                                        "e": {
+                                                          "u": "uninitialized",
+                                                          "v": "updated"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
+                                                            "always": true
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "e": {
+                                                          "u": "updated",
+                                                          "v": "waiting"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
+                                                            "always": true
+                                                          }
+                                                        }
+                                                      },
+                                                      {
+                                                        "e": {
+                                                          "u": "waiting",
+                                                          "v": "updated"
+                                                        },
+                                                        "p": {
+                                                          "priority": 0,
+                                                          "operator": {
                                                             "holarchy": {
                                                               "sml": {
                                                                 "operators": {
@@ -13507,11 +13649,10 @@
                                                                 }
                                                               }
                                                             }
-                                                          },
-                                                          "nextStep": "updated"
+                                                          }
                                                         }
-                                                      ]
-                                                    }
+                                                      }
+                                                    ]
                                                   }
                                                 }
                                               }
@@ -16079,85 +16220,105 @@
                                       "type": "APM",
                                       "artifact": {
                                         "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                        "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                                         "name": "Abstract Frame Latch",
                                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                        "ocdDataSpec": {
-                                          "____label": "Abstract Frame Latch",
-                                          "____types": "jsObject",
-                                          "____defaultValue": {},
-                                          "clock": {
-                                            "____accept": "jsBoolean",
-                                            "____defaultValue": false
-                                          }
-                                        },
-                                        "steps": {
-                                          "uninitialized": {
-                                            "description": "Default starting process step.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": [
-                                                {
-                                                  "holarchy": {
-                                                    "sml": {
-                                                      "actions": {
-                                                        "ocd": {
-                                                          "setBooleanFlag": {
-                                                            "path": "#.clock"
+                                        "process": {
+                                          "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                          "vlist": [
+                                            {
+                                              "u": "uninitialized",
+                                              "p": {
+                                                "description": "Default starting process step.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "setBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
                                                     }
-                                                  }
+                                                  ]
                                                 }
-                                              ]
-                                            },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
-                                                  "always": true
-                                                },
-                                                "nextStep": "updated"
                                               }
-                                            ]
-                                          },
-                                          "updated": {
-                                            "description": "The value managed by the frame latch has been written.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": [
-                                                {
-                                                  "holarchy": {
-                                                    "sml": {
-                                                      "actions": {
-                                                        "ocd": {
-                                                          "clearBooleanFlag": {
-                                                            "path": "#.clock"
+                                            },
+                                            {
+                                              "u": "updated",
+                                              "p": {
+                                                "description": "The value managed by the frame latch has been written.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "clearBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
                                                     }
-                                                  }
+                                                  ]
                                                 }
-                                              ]
-                                            },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
-                                                  "always": true
-                                                },
-                                                "nextStep": "waiting"
                                               }
-                                            ]
-                                          },
-                                          "waiting": {
-                                            "description": "Frame latch value has not changed since last signalled update.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": []
                                             },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
+                                            {
+                                              "u": "waiting",
+                                              "p": {
+                                                "description": "Frame latch value has not changed since last signalled update.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": []
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "elist": [
+                                            {
+                                              "e": {
+                                                "u": "uninitialized",
+                                                "v": "updated"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
+                                                  "always": true
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "e": {
+                                                "u": "updated",
+                                                "v": "waiting"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
+                                                  "always": true
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "e": {
+                                                "u": "waiting",
+                                                "v": "updated"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
                                                   "holarchy": {
                                                     "sml": {
                                                       "operators": {
@@ -16169,11 +16330,10 @@
                                                       }
                                                     }
                                                   }
-                                                },
-                                                "nextStep": "updated"
+                                                }
                                               }
-                                            ]
-                                          }
+                                            }
+                                          ]
                                         }
                                       }
                                     }
@@ -18802,85 +18962,105 @@
                                       "type": "APM",
                                       "artifact": {
                                         "id": "z_mTe02hSWmaM1iRO1pBeA",
+                                        "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                                         "name": "Abstract Frame Latch",
                                         "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                                        "ocdDataSpec": {
-                                          "____label": "Abstract Frame Latch",
-                                          "____types": "jsObject",
-                                          "____defaultValue": {},
-                                          "clock": {
-                                            "____accept": "jsBoolean",
-                                            "____defaultValue": false
-                                          }
-                                        },
-                                        "steps": {
-                                          "uninitialized": {
-                                            "description": "Default starting process step.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": [
-                                                {
-                                                  "holarchy": {
-                                                    "sml": {
-                                                      "actions": {
-                                                        "ocd": {
-                                                          "setBooleanFlag": {
-                                                            "path": "#.clock"
+                                        "process": {
+                                          "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                          "vlist": [
+                                            {
+                                              "u": "uninitialized",
+                                              "p": {
+                                                "description": "Default starting process step.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "setBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
                                                     }
-                                                  }
+                                                  ]
                                                 }
-                                              ]
-                                            },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
-                                                  "always": true
-                                                },
-                                                "nextStep": "updated"
                                               }
-                                            ]
-                                          },
-                                          "updated": {
-                                            "description": "The value managed by the frame latch has been written.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": [
-                                                {
-                                                  "holarchy": {
-                                                    "sml": {
-                                                      "actions": {
-                                                        "ocd": {
-                                                          "clearBooleanFlag": {
-                                                            "path": "#.clock"
+                                            },
+                                            {
+                                              "u": "updated",
+                                              "p": {
+                                                "description": "The value managed by the frame latch has been written.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": [
+                                                    {
+                                                      "holarchy": {
+                                                        "sml": {
+                                                          "actions": {
+                                                            "ocd": {
+                                                              "clearBooleanFlag": {
+                                                                "path": "#.clock"
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
                                                     }
-                                                  }
+                                                  ]
                                                 }
-                                              ]
-                                            },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
-                                                  "always": true
-                                                },
-                                                "nextStep": "waiting"
                                               }
-                                            ]
-                                          },
-                                          "waiting": {
-                                            "description": "Frame latch value has not changed since last signalled update.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": []
                                             },
-                                            "transitions": [
-                                              {
-                                                "transitionIf": {
+                                            {
+                                              "u": "waiting",
+                                              "p": {
+                                                "description": "Frame latch value has not changed since last signalled update.",
+                                                "actions": {
+                                                  "enter": [],
+                                                  "exit": []
+                                                }
+                                              }
+                                            }
+                                          ],
+                                          "elist": [
+                                            {
+                                              "e": {
+                                                "u": "uninitialized",
+                                                "v": "updated"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
+                                                  "always": true
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "e": {
+                                                "u": "updated",
+                                                "v": "waiting"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
+                                                  "always": true
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "e": {
+                                                "u": "waiting",
+                                                "v": "updated"
+                                              },
+                                              "p": {
+                                                "priority": 0,
+                                                "operator": {
                                                   "holarchy": {
                                                     "sml": {
                                                       "operators": {
@@ -18892,11 +19072,10 @@
                                                       }
                                                     }
                                                   }
-                                                },
-                                                "nextStep": "updated"
+                                                }
                                               }
-                                            ]
-                                          }
+                                            }
+                                          ]
                                         }
                                       }
                                     }
@@ -21464,85 +21643,105 @@
                             "type": "APM",
                             "artifact": {
                               "id": "z_mTe02hSWmaM1iRO1pBeA",
+                              "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                               "name": "Abstract Frame Latch",
                               "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                              "ocdDataSpec": {
-                                "____label": "Abstract Frame Latch",
-                                "____types": "jsObject",
-                                "____defaultValue": {},
-                                "clock": {
-                                  "____accept": "jsBoolean",
-                                  "____defaultValue": false
-                                }
-                              },
-                              "steps": {
-                                "uninitialized": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "sml": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.clock"
+                              "process": {
+                                "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                                "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                                "vlist": [
+                                  {
+                                    "u": "uninitialized",
+                                    "p": {
+                                      "description": "Default starting process step.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "ocd": {
+                                                    "setBooleanFlag": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
                                           }
-                                        }
+                                        ]
                                       }
-                                    ]
-                                  },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "updated"
                                     }
-                                  ]
-                                },
-                                "updated": {
-                                  "description": "The value managed by the frame latch has been written.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "sml": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#.clock"
+                                  },
+                                  {
+                                    "u": "updated",
+                                    "p": {
+                                      "description": "The value managed by the frame latch has been written.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": [
+                                          {
+                                            "holarchy": {
+                                              "sml": {
+                                                "actions": {
+                                                  "ocd": {
+                                                    "clearBooleanFlag": {
+                                                      "path": "#.clock"
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
                                           }
-                                        }
+                                        ]
                                       }
-                                    ]
-                                  },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
-                                        "always": true
-                                      },
-                                      "nextStep": "waiting"
                                     }
-                                  ]
-                                },
-                                "waiting": {
-                                  "description": "Frame latch value has not changed since last signalled update.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
                                   },
-                                  "transitions": [
-                                    {
-                                      "transitionIf": {
+                                  {
+                                    "u": "waiting",
+                                    "p": {
+                                      "description": "Frame latch value has not changed since last signalled update.",
+                                      "actions": {
+                                        "enter": [],
+                                        "exit": []
+                                      }
+                                    }
+                                  }
+                                ],
+                                "elist": [
+                                  {
+                                    "e": {
+                                      "u": "uninitialized",
+                                      "v": "updated"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "updated",
+                                      "v": "waiting"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
+                                        "always": true
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "waiting",
+                                      "v": "updated"
+                                    },
+                                    "p": {
+                                      "priority": 0,
+                                      "operator": {
                                         "holarchy": {
                                           "sml": {
                                             "operators": {
@@ -21554,11 +21753,10 @@
                                             }
                                           }
                                         }
-                                      },
-                                      "nextStep": "updated"
+                                      }
                                     }
-                                  ]
-                                }
+                                  }
+                                ]
                               }
                             }
                           }
@@ -22136,152 +22334,263 @@
                       "apm": [
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
+                          "vdid": "Kz-Sl-xmVeqw4JrF_H1DvQ",
                           "name": "Holistic Client App Runtime",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                          "ocdDataSpec": {
-                            "____types": "jsObject",
-                            "____defaultValue": {},
-                            "PPL45jw5RDWSMNsB97WIWg": {
-                              "____types": "jsObject",
-                              "____defaultValue": {},
-                              "inputs": {
-                                "____types": "jsObject",
-                                "____defaultValue": {}
-                              },
-                              "_private": {
-                                "____types": "jsObject",
-                                "____defaultValue": {},
-                                "windowLoaded": {
-                                  "____label": "window.onload Completed Flag",
-                                  "____description": "Boolean flag set when the window.onload event occurs.",
-                                  "____accept": "jsBoolean",
-                                  "____defaultValue": false
+                          "process": {
+                            "name": "[PPL45jw5RDWSMNsB97WIWg::Holistic Client App Runtime] APM Digraph",
+                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
                               },
-                              "outputs": {
-                                "____types": "jsObject",
-                                "____defaultValue": {}
-                              }
-                            }
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "boot0_hook_events"
-                                }
-                              ]
-                            },
-                            "boot0_hook_events": {
-                              "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
-                              "actions": {
-                                "enter": [
-                                  {
-                                    "holistic": {
-                                      "app": {
-                                        "client": {
-                                          "sml": {
-                                            "HolisticAppRuntime": {
-                                              "actions": {
-                                                "_private": {
-                                                  "hookEvents": true
+                              {
+                                "u": "boot0_hook_events",
+                                "p": {
+                                  "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
+                                  "actions": {
+                                    "enter": [
+                                      {
+                                        "holistic": {
+                                          "app": {
+                                            "client": {
+                                              "sml": {
+                                                "HolisticAppRuntime": {
+                                                  "actions": {
+                                                    "_private": {
+                                                      "hookEvents": true
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
                                           }
                                         }
                                       }
-                                    }
+                                    ],
+                                    "exit": []
                                   }
-                                ],
-                                "exit": []
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "boot1_start_kernel"
                                 }
-                              ]
-                            },
-                            "boot1_start_kernel": {
-                              "description": "Start core client app kernel subsystems.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "boot2_query_derived"
+                              {
+                                "u": "boot1_start_kernel",
+                                "p": {
+                                  "description": "Start core client app kernel subsystems.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
-                              ]
-                            },
-                            "boot2_query_derived": {
-                              "description": "Query the derived client app for information required to initialize the core client app runtime.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "boot3_wait_kernel"
+                              {
+                                "u": "boot2_query_derived",
+                                "p": {
+                                  "description": "Query the derived client app for information required to initialize the core client app runtime.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
-                              ]
-                            },
-                            "boot3_wait_kernel": {
-                              "description": "Wait for the core client app kernel subsystems to become available.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "boot4_config_derived"
+                              {
+                                "u": "boot3_wait_kernel",
+                                "p": {
+                                  "description": "Wait for the core client app kernel subsystems to become available.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
-                              ]
-                            },
-                            "boot4_config_derived": {
-                              "description": "Configure the derived application runtime.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "boot5_wait_browser"
+                              {
+                                "u": "boot4_config_derived",
+                                "p": {
+                                  "description": "Configure the derived application runtime.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
                                 }
-                              ]
-                            },
-                            "boot5_wait_browser": {
-                              "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
+                              {
+                                "u": "boot5_wait_browser",
+                                "p": {
+                                  "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "boot6_deserialize_app",
+                                "p": {
+                                  "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "boot7_load_app_memory",
+                                "p": {
+                                  "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "boot8_init_app_view",
+                                "p": {
+                                  "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "boot9_start_app",
+                                "p": {
+                                  "description": "Start the client application runtime.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "running",
+                                "p": {
+                                  "description": "The client application is online and awaiting input from external actors.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "error_process_boot_failure",
+                                "p": {
+                                  "description": "Client application process boot failed due to unrecoverable error(s).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "error_process_resume_failure",
+                                "p": {
+                                  "description": "Client application process resume failured due to unrecoverable error(s).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "error_process_runtime_failure",
+                                "p": {
+                                  "description": "Client application process crashed at runtime due to unexpected and unrecoverable error(s).",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "boot0_hook_events"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "boot0_hook_events",
+                                  "v": "boot1_start_kernel"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "boot1_start_kernel",
+                                  "v": "boot2_query_derived"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "boot2_query_derived",
+                                  "v": "boot3_wait_kernel"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "boot3_wait_kernel",
+                                  "v": "boot4_config_derived"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "boot4_config_derived",
+                                  "v": "boot5_wait_browser"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "boot5_wait_browser",
+                                  "v": "boot6_deserialize_app"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
                                     "holarchy": {
                                       "sml": {
                                         "operators": {
@@ -22293,158 +22602,113 @@
                                         }
                                       }
                                     }
-                                  },
-                                  "nextStep": "boot6_deserialize_app"
+                                  }
                                 }
-                              ]
-                            },
-                            "boot6_deserialize_app": {
-                              "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            },
-                            "boot7_load_app_memory": {
-                              "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            },
-                            "boot8_init_app_view": {
-                              "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            },
-                            "boot9_start_app": {
-                              "description": "Start the client application runtime.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            },
-                            "running": {
-                              "description": "The client application is online and awaiting input from external actors.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            },
-                            "error_process_boot_failure": {
-                              "description": "Client application process boot failed due to unrecoverable error(s).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            },
-                            "error_process_resume_failure": {
-                              "description": "Client application process resume failured due to unrecoverable error(s).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            },
-                            "error_process_runtime_failure": {
-                              "description": "Client application process crashed at runtime due to unexpected and unrecoverable error(s).",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
-                              },
-                              "transitions": []
-                            }
+                              }
+                            ]
                           }
                         },
                         {
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
+                          "vdid": "_4TxJy-sL7lU19SOHOWX6w",
                           "name": "Abstract Frame Latch",
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "ocdDataSpec": {
-                            "____label": "Abstract Frame Latch",
-                            "____types": "jsObject",
-                            "____defaultValue": {},
-                            "clock": {
-                              "____accept": "jsBoolean",
-                              "____defaultValue": false
-                            }
-                          },
-                          "steps": {
-                            "uninitialized": {
-                              "description": "Default starting process step.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "holarchy": {
-                                      "sml": {
-                                        "actions": {
-                                          "ocd": {
-                                            "setBooleanFlag": {
-                                              "path": "#.clock"
+                          "process": {
+                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
+                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "actions": {
+                                              "ocd": {
+                                                "setBooleanFlag": {
+                                                  "path": "#.clock"
+                                                }
+                                              }
                                             }
                                           }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "updated"
                                 }
-                              ]
-                            },
-                            "updated": {
-                              "description": "The value managed by the frame latch has been written.",
-                              "actions": {
-                                "enter": [],
-                                "exit": [
-                                  {
-                                    "holarchy": {
-                                      "sml": {
-                                        "actions": {
-                                          "ocd": {
-                                            "clearBooleanFlag": {
-                                              "path": "#.clock"
+                              },
+                              {
+                                "u": "updated",
+                                "p": {
+                                  "description": "The value managed by the frame latch has been written.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": [
+                                      {
+                                        "holarchy": {
+                                          "sml": {
+                                            "actions": {
+                                              "ocd": {
+                                                "clearBooleanFlag": {
+                                                  "path": "#.clock"
+                                                }
+                                              }
                                             }
                                           }
                                         }
                                       }
-                                    }
+                                    ]
                                   }
-                                ]
-                              },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
-                                    "always": true
-                                  },
-                                  "nextStep": "waiting"
                                 }
-                              ]
-                            },
-                            "waiting": {
-                              "description": "Frame latch value has not changed since last signalled update.",
-                              "actions": {
-                                "enter": [],
-                                "exit": []
                               },
-                              "transitions": [
-                                {
-                                  "transitionIf": {
+                              {
+                                "u": "waiting",
+                                "p": {
+                                  "description": "Frame latch value has not changed since last signalled update.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "updated"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "updated",
+                                  "v": "waiting"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "waiting",
+                                  "v": "updated"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
                                     "holarchy": {
                                       "sml": {
                                         "operators": {
@@ -22456,11 +22720,10 @@
                                         }
                                       }
                                     }
-                                  },
-                                  "nextStep": "updated"
+                                  }
                                 }
-                              ]
-                            }
+                              }
+                            ]
                           }
                         }
                       ],
@@ -22585,7 +22848,7 @@
                         "type": "INDEX",
                         "ENENGxq1TkCa6Sk9YXaLlw": {
                           "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                          "vdid": "6EdViky8pRN_4PmKGj6mWg",
+                          "vdid": "-zVj_9-VRoCYvrOmNs1X4w",
                           "name": "Holistic App Client Runtime",
                           "description": "Holistic client application core runtime.",
                           "type": "CM",
@@ -22612,7 +22875,7 @@
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "_egvg_FFNBk5BWoDkmxdOg",
+                            "vdid": "lZcAt-IDxtOZJ_N6xGeTuw",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
@@ -22758,13 +23021,13 @@
                             },
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "uCpynhzFrFDmtzUDkK36TQ",
+                              "vdid": "TPHaUOwGu7kC-8scJovjmQ",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "fzkpKYi2TUl_qYInVJpQCg",
+                                "vdid": "kztmV4oP-TwOKfH3GsuEFA",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
