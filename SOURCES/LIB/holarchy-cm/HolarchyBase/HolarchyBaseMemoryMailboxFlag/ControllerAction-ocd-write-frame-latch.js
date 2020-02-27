@@ -11,7 +11,7 @@ module.exports = new holarchy.ControllerAction({
     ____types: "jsObject",
     holarchy: {
       ____types: "jsObject",
-      sml: {
+      cm: {
         ____types: "jsObject",
         actions: {
           ____types: "jsObject",
@@ -47,7 +47,7 @@ module.exports = new holarchy.ControllerAction({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.actionRequest.holarchy.sml.actions.frameLatch.write;
+      var message = request_.actionRequest.holarchy.cm.actions.frameLatch.write;
       var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
@@ -71,7 +71,7 @@ module.exports = new holarchy.ControllerAction({
         actorDescriptor: "Responsible for updating the state of a frame latch OPM instance.",
         actionRequest: {
           holarchy: {
-            sml: {
+            cm: {
               actions: {
                 ocd: {
                   setBooleanFlag: {

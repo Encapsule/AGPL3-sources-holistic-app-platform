@@ -16,7 +16,7 @@ module.exports = {
                 ____types: "jsObject",
                 client: {
                     ____types: "jsObject",
-                    sml: {
+                    cm: {
                         ____types: "jsObject",
                         actions: {
                             ____types: "jsObject",
@@ -48,7 +48,7 @@ module.exports = {
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.actionRequest.holistic.app.client.sml.actions.d2r2ReactClientDisplayAdaptor;
+            const message = request_.actionRequest.holistic.app.client.cm.actions.d2r2ReactClientDisplayAdaptor;
 
             // Resolve the full path to the d2r2 React Client Display Adaptor's input namespace.
             let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
@@ -146,7 +146,7 @@ module.exports = {
                 const actResponse = request_.context.act({
                     actorName: "d2r2/React Display Adaptor Update Completion Handler",
                     actorTaskDescription: `Signal completion of client application view via d2r2/React ${message.operation} operation.`,
-                    actionRequest: { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#.private.renderPending" } } } } } },
+                    actionRequest: { holarchy: { cm: { actions: { ocd: { clearBooleanFlag: { path: "#.private.renderPending" } } } } } },
                     apmBindingPath: request_.context.apmBindingPath
                 });
 

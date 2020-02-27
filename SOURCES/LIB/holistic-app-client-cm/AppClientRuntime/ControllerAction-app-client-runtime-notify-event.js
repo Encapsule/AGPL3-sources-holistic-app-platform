@@ -15,7 +15,7 @@ module.exports = {
                 ____types: "jsObject",
                 client: {
                     ____types: "jsObject",
-                    sml: {
+                    cm: {
                         ____types: "jsObject",
                         HolisticAppRuntime: {
                             ____types: "jsObject",
@@ -50,7 +50,7 @@ module.exports = {
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.actionRequest.holistic.app.client.sml.HolisticAppRuntime._private.notifyEvent;
+            const message = request_.actionRequest.holistic.app.client.cm.HolisticAppRuntime._private.notifyEvent;
 
             switch (message.eventName) {
 
@@ -60,7 +60,7 @@ module.exports = {
                 let actionResponse = request_.context.act({
                     actorName: "HolisticAppClientRuntime External DOM Event Notify",
                     actorTaskDescription: "Inform the HolisticAppClientRutime cell process that the window has loaded.",
-                    actionRequest: { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
+                    actionRequest: { holarchy: { cm: { actions: { ocd: { setBooleanFlag: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
                     apmBindingPath: request_.context.apmBindingPath
                 });
 

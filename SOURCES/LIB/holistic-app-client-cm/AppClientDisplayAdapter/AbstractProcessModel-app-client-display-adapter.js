@@ -94,8 +94,8 @@ module.exports = {
                 {
                     transitionIf: {
                         and: [
-                            { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.ComponentRouter" } } } } } },
-                            { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.DOMElement" } } } } } }
+                            { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.ComponentRouter" } } } } } },
+                            { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.DOMElement" } } } } } }
                         ]
                     },
                     nextStep: "wait_inputs"
@@ -105,13 +105,13 @@ module.exports = {
 
         wait_inputs: {
             description: "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
-            transitions: [ { transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value" } } } } } }, nextStep: "initialized" } ]
+            transitions: [ { transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value" } } } } } }, nextStep: "initialized" } ]
         },
 
         initialized: {
             description: "Preparing for initial render operation. Determining if we rehyrdate server-rendered view. Or, replace it.",
             transitions: [
-                { transitionIf: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value.options.rehydrate" } } } } } }, nextStep: "rehydrate" },
+                { transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.inputs.clock.value.options.rehydrate" } } } } } }, nextStep: "rehydrate" },
                 { transitionIf: { always: true }, nextStep: "render" }
             ]
         },
@@ -120,8 +120,8 @@ module.exports = {
             description: "Rehydrating the specified d2r2 ComponentRouter render data context to reconstruct server-rendered d2r2 ComponentRouter render data context in the client application.",
             actions: {
                 enter: [
-                    { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
-                    { holistic: { app: { client: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "hydrate" } } } } } } }
+                    { holarchy: { cm: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
+                    { holistic: { app: { client: { cm: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "hydrate" } } } } } } }
                 ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]
@@ -131,8 +131,8 @@ module.exports = {
             description: "Rendering the specified d2r2 ComponentRouter render data context to refresh layout and client-side React component mountings.",
             actions: {
                 enter: [
-                    { holarchy: { sml: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
-                    { holistic: { app: { client: { sml: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "render" } } } } } } }
+                    { holarchy: { cm: { actions: { ocd: { setBooleanFlag: { path: "#.private.renderPending" } } } } } },
+                    { holistic: { app: { client: { cm: { actions: { d2r2ReactClientDisplayAdaptor: { operation: "render" } } } } } } }
                 ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "rendering" } ]
@@ -140,12 +140,12 @@ module.exports = {
 
         rendering: {
             description: "Rendering the specified d2r2 ComponentRouter render data context. Please wait for the operation to complete.",
-            transitions: [ { transitionIf: { not: { holarchy: { sml: { operators: { ocd: { isNamespaceTruthy: { path: "#.private.renderPending" } } } } } } }, nextStep: "ready" } ]
+            transitions: [ { transitionIf: { not: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.private.renderPending" } } } } } } }, nextStep: "ready" } ]
         },
 
         ready: {
             description: "Waiting for next clock signal to re-render client application view.",
-            transitions: [ { transitionIf: { holarchy: { sml: { operators: { opmi: { atStep: { path: "#.inputs.clock", step: "updated" } } } } } },  nextStep: "render" } ]
+            transitions: [ { transitionIf: { holarchy: { cm: { operators: { opmi: { atStep: { path: "#.inputs.clock", step: "updated" } } } } } },  nextStep: "render" } ]
         }
 
     } // steps

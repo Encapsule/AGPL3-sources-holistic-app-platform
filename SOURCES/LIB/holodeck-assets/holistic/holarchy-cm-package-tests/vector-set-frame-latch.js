@@ -83,7 +83,7 @@ module.exports = [
                                 actorDescription: "A simple attempt to set a frame latch value.",
                                 actionRequest: {
                                     holarchy: {
-                                        sml: {
+                                        cm: {
                                             actions: {
                                                 frameLatch: {
                                                     write: {

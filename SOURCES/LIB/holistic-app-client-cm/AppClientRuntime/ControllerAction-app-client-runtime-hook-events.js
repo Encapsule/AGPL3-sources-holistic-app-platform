@@ -16,7 +16,7 @@ module.exports = new holarchy.ControllerAction({
                 ____types: "jsObject",
                 client: {
                     ____types: "jsObject",
-                    sml: {
+                    cm: {
                         ____types: "jsObject",
                         HolisticAppRuntime: {
                             ____types: "jsObject",
@@ -52,7 +52,7 @@ module.exports = new holarchy.ControllerAction({
                     apmBindingPath: request_.context.apmBindingPath,
                     actorName: "DOM Event window.onload",
                     actorTaskDescription: "Signal that the window.onload event has fired.",
-                    actionRequest: { holistic: { app: { client: { sml: {
+                    actionRequest: { holistic: { app: { client: { cm: {
                         HolisticAppRuntime: { _private: { notifyEvent: { eventName: "window.onload", eventData: event_ } } }
                     } } } } }
                 });

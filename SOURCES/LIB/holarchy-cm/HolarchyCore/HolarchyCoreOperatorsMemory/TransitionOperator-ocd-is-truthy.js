@@ -10,7 +10,7 @@ module.exports = new holarchy.TransitionOperator({
     ____types: "jsObject",
     holarchy: {
       ____types: "jsObject",
-      sml: {
+      cm: {
         ____types: "jsObject",
         operators: {
           ____types: "jsObject",
@@ -37,7 +37,7 @@ module.exports = new holarchy.TransitionOperator({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.operatorRequest.holarchy.sml.operators.ocd.isNamespaceTruthy;
+      var message = request_.operatorRequest.holarchy.cm.operators.ocd.isNamespaceTruthy;
       var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path

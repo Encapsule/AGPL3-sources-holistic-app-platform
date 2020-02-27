@@ -11,7 +11,7 @@ module.exports = new holarchy.ControllerAction({
     ____types: "jsObject",
     holarchy: {
       ____types: "jsObject",
-      sml: {
+      cm: {
         ____types: "jsObject",
         actions: {
           ____types: "jsObject",
@@ -41,7 +41,7 @@ module.exports = new holarchy.ControllerAction({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.actionRequest.holarchy.sml.actions.ocd.clearBooleanFlag;
+      var message = request_.actionRequest.holarchy.cm.actions.ocd.clearBooleanFlag;
       var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path

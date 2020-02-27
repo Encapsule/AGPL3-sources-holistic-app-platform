@@ -14,7 +14,7 @@ module.exports = new holarchy.ControllerAction({
                 ____types: "jsObject",
                 client: {
                     ____types: "jsObject",
-                    sml: {
+                    cm: {
                         ____types: "jsObject",
                         actions: {
                             ____types: "jsObject",

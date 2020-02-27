@@ -10,7 +10,7 @@ module.exports = new holarchy.TransitionOperator({
     ____types: "jsObject",
     holarchy: {
       ____types: "jsObject",
-      sml: {
+      cm: {
         ____types: "jsObject",
         operators: {
           ____types: "jsObject",
@@ -58,7 +58,7 @@ module.exports = new holarchy.TransitionOperator({
 
           } // operators
 
-        } // sml
+        } // cm
 
       } // holarchy
 
@@ -75,7 +75,7 @@ module.exports = new holarchy.TransitionOperator({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.operatorRequest.holarchy.sml.operators.ocd.values.areIdentical;
+      var message = request_.operatorRequest.holarchy.cm.operators.ocd.values.areIdentical;
       var rpResponse = void 0;
       var ocdResponse = void 0; // Get operand A
 

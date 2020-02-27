@@ -14,7 +14,7 @@ module.exports = new holarchy.ControllerAction({
                 ____types: "jsObject",
                 client: {
                     ____types: "jsObject",
-                    sml: {
+                    cm: {
                         ____types: "jsObject",
                         actions: {
                             ____types: "jsObject",
@@ -64,7 +64,7 @@ module.exports = new holarchy.ControllerAction({
                     apmBindingPath: request_.context.apmBindingPath,
                     actorName: "DOM hashchange Event Handler",
                     actorTaskDescription: "Notifying the DOM Location Processor of hashchange/location update.",
-                    actionRequest: { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } }
+                    actionRequest: { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } }
                 }, false);
 
                 if (actResponse.error) {

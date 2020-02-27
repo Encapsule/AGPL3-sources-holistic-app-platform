@@ -42,7 +42,7 @@ module.exports = {
 
         boot0_hook_events: {
             description: "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
-            actions: { enter: [ { holistic: { app: { client: { sml: { HolisticAppRuntime: { actions: { _private: { hookEvents: true } } } } } } } } ] },
+            actions: { enter: [ { holistic: { app: { client: { cm: { HolisticAppRuntime: { actions: { _private: { hookEvents: true } } } } } } } } ] },
             transitions: [ { transitionIf: { always: true }, nextStep: "boot1_start_kernel" } ]
         },
 
@@ -90,7 +90,7 @@ module.exports = {
         boot5_wait_browser: {
             description: "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
             transitions: [
-                { transitionIf: { holarchy: { sml: { operators: { ocd: { isBooleanFlagSet: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
+                { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
                   nextStep: "boot6_deserialize_app"
                 }
             ]

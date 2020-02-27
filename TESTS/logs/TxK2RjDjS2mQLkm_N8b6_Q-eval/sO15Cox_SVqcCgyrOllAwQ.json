@@ -12,7 +12,7 @@
                 "AbstractProcessModel": {
                   "constructorRequest": {
                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                    "vdid": "_4TxJy-sL7lU19SOHOWX6w",
+                    "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                     "name": "Abstract Frame Latch",
                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                     "process": {
@@ -28,7 +28,7 @@
                               "exit": [
                                 {
                                   "holarchy": {
-                                    "sml": {
+                                    "cm": {
                                       "actions": {
                                         "ocd": {
                                           "setBooleanFlag": {
@@ -52,7 +52,7 @@
                               "exit": [
                                 {
                                   "holarchy": {
-                                    "sml": {
+                                    "cm": {
                                       "actions": {
                                         "ocd": {
                                           "clearBooleanFlag": {
@@ -112,7 +112,7 @@
                             "priority": 0,
                             "operator": {
                               "holarchy": {
-                                "sml": {
+                                "cm": {
                                   "operators": {
                                     "ocd": {
                                       "isBooleanFlagSet": {
@@ -146,7 +146,7 @@
                   "isValid": true,
                   "toJSON": {
                     "id": "z_mTe02hSWmaM1iRO1pBeA",
-                    "vdid": "_4TxJy-sL7lU19SOHOWX6w",
+                    "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                     "name": "Abstract Frame Latch",
                     "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
                     "process": {
@@ -162,7 +162,7 @@
                               "exit": [
                                 {
                                   "holarchy": {
-                                    "sml": {
+                                    "cm": {
                                       "actions": {
                                         "ocd": {
                                           "setBooleanFlag": {
@@ -186,7 +186,7 @@
                               "exit": [
                                 {
                                   "holarchy": {
-                                    "sml": {
+                                    "cm": {
                                       "actions": {
                                         "ocd": {
                                           "clearBooleanFlag": {
@@ -246,7 +246,7 @@
                             "priority": 0,
                             "operator": {
                               "holarchy": {
-                                "sml": {
+                                "cm": {
                                   "operators": {
                                     "ocd": {
                                       "isBooleanFlagSet": {
@@ -287,7 +287,7 @@
                             "exit": [
                               {
                                 "holarchy": {
-                                  "sml": {
+                                  "cm": {
                                     "actions": {
                                       "ocd": {
                                         "setBooleanFlag": {
@@ -311,7 +311,7 @@
                             "exit": [
                               {
                                 "holarchy": {
-                                  "sml": {
+                                  "cm": {
                                     "actions": {
                                       "ocd": {
                                         "clearBooleanFlag": {
@@ -371,7 +371,7 @@
                           "priority": 0,
                           "operator": {
                             "holarchy": {
-                              "sml": {
+                              "cm": {
                                 "operators": {
                                   "ocd": {
                                     "isBooleanFlagSet": {

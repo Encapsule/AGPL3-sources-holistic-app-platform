@@ -42,7 +42,7 @@ var apmFrameLatchDeclaration = module.exports = {
       actions: {
         exit: [{
           holarchy: {
-            sml: {
+            cm: {
               actions: {
                 ocd: {
                   setBooleanFlag: {
@@ -66,7 +66,7 @@ var apmFrameLatchDeclaration = module.exports = {
       actions: {
         exit: [{
           holarchy: {
-            sml: {
+            cm: {
               actions: {
                 ocd: {
                   clearBooleanFlag: {
@@ -85,7 +85,7 @@ var apmFrameLatchDeclaration = module.exports = {
         nextStep: "updated",
         transitionIf: {
           holarchy: {
-            sml: {
+            cm: {
               operators: {
                 ocd: {
                   isBooleanFlagSet: {

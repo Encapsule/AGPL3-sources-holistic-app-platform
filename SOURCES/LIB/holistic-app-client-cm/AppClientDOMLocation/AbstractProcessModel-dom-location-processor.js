@@ -89,8 +89,8 @@ const apmClientHashRouteLocationProcessor = module.exports = {
         initialize: {
             description: "Registering hashchange DOM event callback.",
             actions: {
-                enter: [ { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { initialize: true } } } } } } } ],
-                exit : [ { holistic: { app: { client: { sml: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } } ]
+                enter: [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { initialize: true } } } } } } } ],
+                exit : [ { holistic: { app: { client: { cm: { actions: { DOMLocationProcessor: { notifyEvent: { hashchange: true } } } } } } } } ]
             },
             transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ]
         },
@@ -99,7 +99,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             description: "Waiting for DOM hashchange event.",
             transitions: [
                 {
-                    transitionIf: { holarchy: { sml: { operators: { ocd: { isBooleanFlagSet: { path: "#._private.updateObservers" } } } } } },
+                    transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#._private.updateObservers" } } } } } },
                     nextStep: "update"
                 }
             ]
@@ -108,7 +108,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
         update: {
             description: "The observable browser location has been updated. Information about the current location, and who set it is available in this model's output namespace.",
             transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ],
-            actions: { exit: [ { holarchy: { sml: { actions: { ocd: { clearBooleanFlag: { path: "#._private.updateObservers" } } } } } } ] }
+            actions: { exit: [ { holarchy: { cm: { actions: { ocd: { clearBooleanFlag: { path: "#._private.updateObservers" } } } } } } ] }
         }
 
     }
