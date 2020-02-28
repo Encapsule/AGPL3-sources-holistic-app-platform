@@ -27,7 +27,7 @@
                       [
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "D_iLGhoac3b26aBMvbC66A",
+                          "vdid": "tF5DtUS20t0tMNSGQm8b4g",
                           "name": "d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                           "process": {
@@ -38,6 +38,16 @@
                                 "u": "uninitialized",
                                 "p": {
                                   "description": "Default APM process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "initialize",
+                                "p": {
+                                  "description": "Initialize",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -177,6 +187,29 @@
                               {
                                 "e": {
                                   "u": "uninitialized",
+                                  "v": "initialize"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "holarchy": {
+                                      "cm": {
+                                        "operators": {
+                                          "cell": {
+                                            "atStep": {
+                                              "path": "#.//.//.//.//",
+                                              "step": "boot1_start_kernel"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "initialize",
                                   "v": "wait_invariants"
                                 },
                                 "p": {
@@ -479,7 +512,7 @@
                       [
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
-                          "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                          "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                           "name": "Cell Process In Step Operator",
                           "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                         },
@@ -615,7 +648,7 @@
                     "apmMap": {
                       "IxoJ83u0TXmG7PLUYBvsyg": {
                         "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                        "vdid": "D_iLGhoac3b26aBMvbC66A",
+                        "vdid": "tF5DtUS20t0tMNSGQm8b4g",
                         "name": "d2r2/React Client Display Adaptor",
                         "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                         "process": {
@@ -626,6 +659,16 @@
                               "u": "uninitialized",
                               "p": {
                                 "description": "Default APM process step.",
+                                "actions": {
+                                  "enter": [],
+                                  "exit": []
+                                }
+                              }
+                            },
+                            {
+                              "u": "initialize",
+                              "p": {
+                                "description": "Initialize",
                                 "actions": {
                                   "enter": [],
                                   "exit": []
@@ -765,6 +808,29 @@
                             {
                               "e": {
                                 "u": "uninitialized",
+                                "v": "initialize"
+                              },
+                              "p": {
+                                "priority": 0,
+                                "operator": {
+                                  "holarchy": {
+                                    "cm": {
+                                      "operators": {
+                                        "cell": {
+                                          "atStep": {
+                                            "path": "#.//.//.//.//",
+                                            "step": "boot1_start_kernel"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "e": {
+                                "u": "initialize",
                                 "v": "wait_invariants"
                               },
                               "p": {
@@ -1067,7 +1133,7 @@
                         "specPath": "~.d2r2ReactClientOutputProcessor",
                         "opmiRef": {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "D_iLGhoac3b26aBMvbC66A",
+                          "vdid": "tF5DtUS20t0tMNSGQm8b4g",
                           "name": "d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                           "process": {
@@ -1078,6 +1144,16 @@
                                 "u": "uninitialized",
                                 "p": {
                                   "description": "Default APM process step.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "initialize",
+                                "p": {
+                                  "description": "Initialize",
                                   "actions": {
                                     "enter": [],
                                     "exit": []
@@ -1217,6 +1293,29 @@
                               {
                                 "e": {
                                   "u": "uninitialized",
+                                  "v": "initialize"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "holarchy": {
+                                      "cm": {
+                                        "operators": {
+                                          "cell": {
+                                            "atStep": {
+                                              "path": "#.//.//.//.//",
+                                              "step": "boot1_start_kernel"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "initialize",
                                   "v": "wait_invariants"
                                 },
                                 "p": {
@@ -1636,7 +1735,7 @@
                           "renderCount": -1,
                           "renderPending": false
                         },
-                        "__apmiStep": "wait_invariants"
+                        "__apmiStep": "uninitialized"
                       }
                     },
                     "transitionDispatcher": {
@@ -1707,7 +1806,7 @@
                                     "____types": "jsObject",
                                     "cell": {
                                       "____types": "jsObject",
-                                      "inStep": {
+                                      "atStep": {
                                         "____types": "jsObject",
                                         "path": {
                                           "____accept": "jsString"
@@ -1726,10 +1825,10 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                          "inputTypeVDID": "q9ToVAv3KPGF1D8jwFOjRQ",
+                          "inputTypeVDID": "q9TocAv3KDWF1D8TwFOj0A",
                           "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "wpkZRFaJoZO60OectIlYcg"
+                          "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
                         }
                       },
                       "kD1PcgqYQlm7fJatNG2ZsA": {
@@ -2883,8 +2982,8 @@
                           "counts": {
                             "bindings": 6,
                             "frames": 3,
-                            "errors": 0,
-                            "transitions": 3
+                            "errors": 3,
+                            "transitions": 2
                           }
                         },
                         "evalFrames": [
@@ -2892,15 +2991,16 @@
                             "summary": {
                               "counts": {
                                 "bindings": 2,
-                                "transitions": 2,
-                                "errors": 0
+                                "transitions": 1,
+                                "errors": 1
                               },
                               "reports": {
                                 "transitions": [
-                                  "Qf5B_mFgYWCyRbJFtNW01Q",
                                   "6KIVQm2l_Kkuh0qvYBQ-nw"
                                 ],
-                                "errors": []
+                                "errors": [
+                                  "Qf5B_mFgYWCyRbJFtNW01Q"
+                                ]
                               }
                             },
                             "bindings": {
@@ -2913,7 +3013,7 @@
                                   "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                    "vdid": "D_iLGhoac3b26aBMvbC66A",
+                                    "vdid": "tF5DtUS20t0tMNSGQm8b4g",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                     "process": {
@@ -2924,6 +3024,16 @@
                                           "u": "uninitialized",
                                           "p": {
                                             "description": "Default APM process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "u": "initialize",
+                                          "p": {
+                                            "description": "Initialize",
                                             "actions": {
                                               "enter": [],
                                               "exit": []
@@ -3063,6 +3173,29 @@
                                         {
                                           "e": {
                                             "u": "uninitialized",
+                                            "v": "initialize"
+                                          },
+                                          "p": {
+                                            "priority": 0,
+                                            "operator": {
+                                              "holarchy": {
+                                                "cm": {
+                                                  "operators": {
+                                                    "cell": {
+                                                      "atStep": {
+                                                        "path": "#.//.//.//.//",
+                                                        "step": "boot1_start_kernel"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "e": {
+                                            "u": "initialize",
                                             "v": "wait_invariants"
                                           },
                                           "p": {
@@ -3243,8 +3376,8 @@
                                   }
                                 },
                                 "evalResponse": {
-                                  "status": "transitioned",
-                                  "finishStep": "wait_invariants",
+                                  "status": "error",
+                                  "finishStep": "uninitialized",
                                   "phases": {
                                     "p1_toperator": [
                                       {
@@ -3266,7 +3399,7 @@
                                                   "renderCount": -1,
                                                   "renderPending": false
                                                 },
-                                                "__apmiStep": "wait_invariants"
+                                                "__apmiStep": "uninitialized"
                                               }
                                             },
                                             "transitionDispatcher": {
@@ -3300,28 +3433,35 @@
                                             }
                                           },
                                           "operatorRequest": {
-                                            "always": true
+                                            "holarchy": {
+                                              "cm": {
+                                                "operators": {
+                                                  "cell": {
+                                                    "atStep": {
+                                                      "path": "#.//.//.//.//",
+                                                      "step": "boot1_start_kernel"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
                                           }
                                         },
                                         "response": {
-                                          "error": null,
-                                          "result": true
+                                          "error": "Filter [CMvz9x30nfjuykt8A93fQA::Discriminator Filter] failed while performing main operation. Filter [9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator] failed while performing main operation. Filter [RNUkdw8VT8WLz5H_i-SwYg::Data Path Resolve Filter] failed while performing main operation. Invalid dataPath '#.//.//.//.//' references namespace at or above the anonymous '~' namespace."
                                         }
                                       }
                                     ],
                                     "p2_exit": [],
                                     "p3_enter": [],
-                                    "p4_finalize": {
-                                      "error": null,
-                                      "result": "wait_invariants"
-                                    }
+                                    "p4_finalize": null
                                   },
                                   "errors": {
-                                    "p1_toperator": 0,
+                                    "p1_toperator": 1,
                                     "p2_exit": 0,
                                     "p3_enter": 0,
                                     "p4_finalize": 0,
-                                    "total": 0
+                                    "total": 1
                                   }
                                 }
                               },
@@ -3475,7 +3615,7 @@
                                                   "renderCount": -1,
                                                   "renderPending": false
                                                 },
-                                                "__apmiStep": "wait_invariants"
+                                                "__apmiStep": "uninitialized"
                                               }
                                             },
                                             "transitionDispatcher": {
@@ -3560,13 +3700,15 @@
                               "counts": {
                                 "bindings": 2,
                                 "transitions": 1,
-                                "errors": 0
+                                "errors": 1
                               },
                               "reports": {
                                 "transitions": [
                                   "6KIVQm2l_Kkuh0qvYBQ-nw"
                                 ],
-                                "errors": []
+                                "errors": [
+                                  "Qf5B_mFgYWCyRbJFtNW01Q"
+                                ]
                               }
                             },
                             "bindings": {
@@ -3576,10 +3718,10 @@
                                     "dataPath": "~.d2r2ReactClientOutputProcessor",
                                     "specPath": "~.d2r2ReactClientOutputProcessor"
                                   },
-                                  "initialStep": "wait_invariants",
+                                  "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                    "vdid": "D_iLGhoac3b26aBMvbC66A",
+                                    "vdid": "tF5DtUS20t0tMNSGQm8b4g",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                     "process": {
@@ -3590,6 +3732,16 @@
                                           "u": "uninitialized",
                                           "p": {
                                             "description": "Default APM process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "u": "initialize",
+                                          "p": {
+                                            "description": "Initialize",
                                             "actions": {
                                               "enter": [],
                                               "exit": []
@@ -3729,6 +3881,29 @@
                                         {
                                           "e": {
                                             "u": "uninitialized",
+                                            "v": "initialize"
+                                          },
+                                          "p": {
+                                            "priority": 0,
+                                            "operator": {
+                                              "holarchy": {
+                                                "cm": {
+                                                  "operators": {
+                                                    "cell": {
+                                                      "atStep": {
+                                                        "path": "#.//.//.//.//",
+                                                        "step": "boot1_start_kernel"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "e": {
+                                            "u": "initialize",
                                             "v": "wait_invariants"
                                           },
                                           "p": {
@@ -3909,8 +4084,8 @@
                                   }
                                 },
                                 "evalResponse": {
-                                  "status": "noop",
-                                  "finishStep": "wait_invariants",
+                                  "status": "error",
+                                  "finishStep": "uninitialized",
                                   "phases": {
                                     "p1_toperator": [
                                       {
@@ -3932,7 +4107,7 @@
                                                   "renderCount": -1,
                                                   "renderPending": false
                                                 },
-                                                "__apmiStep": "wait_invariants"
+                                                "__apmiStep": "uninitialized"
                                               }
                                             },
                                             "transitionDispatcher": {
@@ -3966,39 +4141,22 @@
                                             }
                                           },
                                           "operatorRequest": {
-                                            "and": [
-                                              {
-                                                "holarchy": {
-                                                  "cm": {
-                                                    "operators": {
-                                                      "ocd": {
-                                                        "isNamespaceTruthy": {
-                                                          "path": "#.inputs.ComponentRouter"
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              {
-                                                "holarchy": {
-                                                  "cm": {
-                                                    "operators": {
-                                                      "ocd": {
-                                                        "isNamespaceTruthy": {
-                                                          "path": "#.inputs.DOMElement"
-                                                        }
-                                                      }
+                                            "holarchy": {
+                                              "cm": {
+                                                "operators": {
+                                                  "cell": {
+                                                    "atStep": {
+                                                      "path": "#.//.//.//.//",
+                                                      "step": "boot1_start_kernel"
                                                     }
                                                   }
                                                 }
                                               }
-                                            ]
+                                            }
                                           }
                                         },
                                         "response": {
-                                          "error": null,
-                                          "result": false
+                                          "error": "Filter [CMvz9x30nfjuykt8A93fQA::Discriminator Filter] failed while performing main operation. Filter [9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator] failed while performing main operation. Filter [RNUkdw8VT8WLz5H_i-SwYg::Data Path Resolve Filter] failed while performing main operation. Invalid dataPath '#.//.//.//.//' references namespace at or above the anonymous '~' namespace."
                                         }
                                       }
                                     ],
@@ -4007,11 +4165,11 @@
                                     "p4_finalize": null
                                   },
                                   "errors": {
-                                    "p1_toperator": 0,
+                                    "p1_toperator": 1,
                                     "p2_exit": 0,
                                     "p3_enter": 0,
                                     "p4_finalize": 0,
-                                    "total": 0
+                                    "total": 1
                                   }
                                 }
                               },
@@ -4165,7 +4323,7 @@
                                                   "renderCount": -1,
                                                   "renderPending": false
                                                 },
-                                                "__apmiStep": "wait_invariants"
+                                                "__apmiStep": "uninitialized"
                                               }
                                             },
                                             "transitionDispatcher": {
@@ -4250,11 +4408,13 @@
                               "counts": {
                                 "bindings": 2,
                                 "transitions": 0,
-                                "errors": 0
+                                "errors": 1
                               },
                               "reports": {
                                 "transitions": [],
-                                "errors": []
+                                "errors": [
+                                  "Qf5B_mFgYWCyRbJFtNW01Q"
+                                ]
                               }
                             },
                             "bindings": {
@@ -4264,10 +4424,10 @@
                                     "dataPath": "~.d2r2ReactClientOutputProcessor",
                                     "specPath": "~.d2r2ReactClientOutputProcessor"
                                   },
-                                  "initialStep": "wait_invariants",
+                                  "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                    "vdid": "D_iLGhoac3b26aBMvbC66A",
+                                    "vdid": "tF5DtUS20t0tMNSGQm8b4g",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                     "process": {
@@ -4278,6 +4438,16 @@
                                           "u": "uninitialized",
                                           "p": {
                                             "description": "Default APM process step.",
+                                            "actions": {
+                                              "enter": [],
+                                              "exit": []
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "u": "initialize",
+                                          "p": {
+                                            "description": "Initialize",
                                             "actions": {
                                               "enter": [],
                                               "exit": []
@@ -4417,6 +4587,29 @@
                                         {
                                           "e": {
                                             "u": "uninitialized",
+                                            "v": "initialize"
+                                          },
+                                          "p": {
+                                            "priority": 0,
+                                            "operator": {
+                                              "holarchy": {
+                                                "cm": {
+                                                  "operators": {
+                                                    "cell": {
+                                                      "atStep": {
+                                                        "path": "#.//.//.//.//",
+                                                        "step": "boot1_start_kernel"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "e": {
+                                            "u": "initialize",
                                             "v": "wait_invariants"
                                           },
                                           "p": {
@@ -4597,8 +4790,8 @@
                                   }
                                 },
                                 "evalResponse": {
-                                  "status": "noop",
-                                  "finishStep": "wait_invariants",
+                                  "status": "error",
+                                  "finishStep": "uninitialized",
                                   "phases": {
                                     "p1_toperator": [
                                       {
@@ -4620,7 +4813,7 @@
                                                   "renderCount": -1,
                                                   "renderPending": false
                                                 },
-                                                "__apmiStep": "wait_invariants"
+                                                "__apmiStep": "uninitialized"
                                               }
                                             },
                                             "transitionDispatcher": {
@@ -4654,39 +4847,22 @@
                                             }
                                           },
                                           "operatorRequest": {
-                                            "and": [
-                                              {
-                                                "holarchy": {
-                                                  "cm": {
-                                                    "operators": {
-                                                      "ocd": {
-                                                        "isNamespaceTruthy": {
-                                                          "path": "#.inputs.ComponentRouter"
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              {
-                                                "holarchy": {
-                                                  "cm": {
-                                                    "operators": {
-                                                      "ocd": {
-                                                        "isNamespaceTruthy": {
-                                                          "path": "#.inputs.DOMElement"
-                                                        }
-                                                      }
+                                            "holarchy": {
+                                              "cm": {
+                                                "operators": {
+                                                  "cell": {
+                                                    "atStep": {
+                                                      "path": "#.//.//.//.//",
+                                                      "step": "boot1_start_kernel"
                                                     }
                                                   }
                                                 }
                                               }
-                                            ]
+                                            }
                                           }
                                         },
                                         "response": {
-                                          "error": null,
-                                          "result": false
+                                          "error": "Filter [CMvz9x30nfjuykt8A93fQA::Discriminator Filter] failed while performing main operation. Filter [9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator] failed while performing main operation. Filter [RNUkdw8VT8WLz5H_i-SwYg::Data Path Resolve Filter] failed while performing main operation. Invalid dataPath '#.//.//.//.//' references namespace at or above the anonymous '~' namespace."
                                         }
                                       }
                                     ],
@@ -4695,11 +4871,11 @@
                                     "p4_finalize": null
                                   },
                                   "errors": {
-                                    "p1_toperator": 0,
+                                    "p1_toperator": 1,
                                     "p2_exit": 0,
                                     "p3_enter": 0,
                                     "p4_finalize": 0,
-                                    "total": 0
+                                    "total": 1
                                   }
                                 }
                               },
@@ -4853,7 +5029,7 @@
                                                   "renderCount": -1,
                                                   "renderPending": false
                                                 },
-                                                "__apmiStep": "wait_invariants"
+                                                "__apmiStep": "uninitialized"
                                               }
                                             },
                                             "transitionDispatcher": {

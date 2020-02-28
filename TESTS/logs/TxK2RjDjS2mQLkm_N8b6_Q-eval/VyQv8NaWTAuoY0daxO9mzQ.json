@@ -55,7 +55,7 @@
                             "type": "APM",
                             "artifact": {
                               "id": "Hsu-43zBRgqHItCPWPiBng",
-                              "vdid": "M7kKwr_djsSpdhj_Rv7ENA",
+                              "vdid": "w_rMXry11C7wgXPbR6F5Fg",
                               "name": "Holistic Client App View Processor",
                               "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                               "process": {
@@ -172,7 +172,18 @@
                                     "p": {
                                       "priority": 0,
                                       "operator": {
-                                        "always": true
+                                        "holarchy": {
+                                          "cm": {
+                                            "operators": {
+                                              "cell": {
+                                                "atStep": {
+                                                  "path": "#.//.//.//.//",
+                                                  "step": "boot1_start_kernel"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
                                       }
                                     }
                                   },
@@ -525,7 +536,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -571,7 +582,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -1749,7 +1760,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -1795,7 +1806,7 @@
                                       "type": "TOP",
                                       "artifact": {
                                         "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                        "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                        "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                         "name": "Cell Process In Step Operator",
                                         "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                       }
@@ -2880,7 +2891,7 @@
                                                                               "type": "TOP",
                                                                               "artifact": {
                                                                                 "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                                                "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                                                "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                                                 "name": "Cell Process In Step Operator",
                                                                                 "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                                               }
@@ -2926,7 +2937,7 @@
                                                                     "type": "TOP",
                                                                     "artifact": {
                                                                       "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                                      "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                                      "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                                       "name": "Cell Process In Step Operator",
                                                                       "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                                     }
@@ -4104,7 +4115,7 @@
                                                                     "type": "TOP",
                                                                     "artifact": {
                                                                       "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                                      "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                                      "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                                       "name": "Cell Process In Step Operator",
                                                                       "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                                     }
@@ -4150,7 +4161,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -5561,7 +5572,7 @@
                                                                     "type": "TOP",
                                                                     "artifact": {
                                                                       "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                                      "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                                      "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                                       "name": "Cell Process In Step Operator",
                                                                       "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                                     }
@@ -5607,7 +5618,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -6785,7 +6796,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -6831,7 +6842,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -8303,7 +8314,7 @@
                                                                     "type": "TOP",
                                                                     "artifact": {
                                                                       "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                                      "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                                      "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                                       "name": "Cell Process In Step Operator",
                                                                       "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                                     }
@@ -8349,7 +8360,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -9527,7 +9538,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -9573,7 +9584,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -11441,7 +11452,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -11487,7 +11498,7 @@
                                       "type": "TOP",
                                       "artifact": {
                                         "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                        "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                        "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                         "name": "Cell Process In Step Operator",
                                         "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                       }
@@ -12665,7 +12676,7 @@
                                       "type": "TOP",
                                       "artifact": {
                                         "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                        "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                        "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                         "name": "Cell Process In Step Operator",
                                         "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                       }
@@ -12711,7 +12722,7 @@
                             "type": "TOP",
                             "artifact": {
                               "id": "9tNY7o5GTUGH_xda2GhP-w",
-                              "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                              "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                               "name": "Cell Process In Step Operator",
                               "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                             }
@@ -13796,7 +13807,7 @@
                                                                     "type": "TOP",
                                                                     "artifact": {
                                                                       "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                                      "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                                      "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                                       "name": "Cell Process In Step Operator",
                                                                       "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                                     }
@@ -13842,7 +13853,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -15020,7 +15031,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -15066,7 +15077,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -16477,7 +16488,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -16523,7 +16534,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -17701,7 +17712,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -17747,7 +17758,7 @@
                                       "type": "TOP",
                                       "artifact": {
                                         "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                        "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                        "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                         "name": "Cell Process In Step Operator",
                                         "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                       }
@@ -19219,7 +19230,7 @@
                                                           "type": "TOP",
                                                           "artifact": {
                                                             "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                            "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                            "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                             "name": "Cell Process In Step Operator",
                                                             "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                           }
@@ -19265,7 +19276,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -20443,7 +20454,7 @@
                                                 "type": "TOP",
                                                 "artifact": {
                                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                                   "name": "Cell Process In Step Operator",
                                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                                 }
@@ -20489,7 +20500,7 @@
                                       "type": "TOP",
                                       "artifact": {
                                         "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                        "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                        "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                         "name": "Cell Process In Step Operator",
                                         "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                                       }
@@ -22148,7 +22159,7 @@
                       "apm": [
                         {
                           "id": "Hsu-43zBRgqHItCPWPiBng",
-                          "vdid": "M7kKwr_djsSpdhj_Rv7ENA",
+                          "vdid": "w_rMXry11C7wgXPbR6F5Fg",
                           "name": "Holistic Client App View Processor",
                           "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                           "process": {
@@ -22265,7 +22276,18 @@
                                 "p": {
                                   "priority": 0,
                                   "operator": {
-                                    "always": true
+                                    "holarchy": {
+                                      "cm": {
+                                        "operators": {
+                                          "cell": {
+                                            "atStep": {
+                                              "path": "#.//.//.//.//",
+                                              "step": "boot1_start_kernel"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               },
@@ -22418,7 +22440,7 @@
                       "top": [
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
-                          "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                          "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                           "name": "Cell Process In Step Operator",
                           "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                         },
@@ -22524,26 +22546,26 @@
                         "type": "INDEX",
                         "vrmv3WMRQXql7Bx3DDEIDw": {
                           "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                          "vdid": "Ld7SC3iafe-9kmcgPHU5Lw",
+                          "vdid": "-Zb_La3-KVvVialnHrxEcw",
                           "name": "Holistic Client App View Manager",
                           "description": "Provides management of client view cells in a holistic client app.",
                           "type": "CM",
                           "Hsu-43zBRgqHItCPWPiBng": {
                             "id": "Hsu-43zBRgqHItCPWPiBng",
-                            "vdid": "M7kKwr_djsSpdhj_Rv7ENA",
+                            "vdid": "w_rMXry11C7wgXPbR6F5Fg",
                             "name": "Holistic Client App View Processor",
                             "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                             "type": "APM"
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "7gdIYgIjHGPlrDA6BypSIA",
+                            "vdid": "kWsm3zgMgaqlSSVdYBKvxw",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "MDVBKW89TvO9T62Ge7GmNg": {
                               "id": "MDVBKW89TvO9T62Ge7GmNg",
-                              "vdid": "ARuQNfLTy46qE07w9Btqmg",
+                              "vdid": "pwaQNbEpy47ncE7wEo5qmg",
                               "name": "Holarchy Core",
                               "description": "Holarchy core operations and actions for building derived CellModels.",
                               "type": "CM",
@@ -22577,13 +22599,13 @@
                               },
                               "EIZzpXTrSbqAQ32SF66aeA": {
                                 "id": "EIZzpXTrSbqAQ32SF66aeA",
-                                "vdid": "lGsx0mcuCAvdUMkjlRQaOw",
+                                "vdid": "lGum0mcuUAvdUK8jlRTPOw",
                                 "name": "Holarchy Core Cell Operators",
                                 "description": "A collection of TransitionOperator plug-ins that implement logical comparison operations on CellModel processes.",
                                 "type": "CM",
                                 "9tNY7o5GTUGH_xda2GhP-w": {
                                   "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                  "vdid": "zmPe1KlSvRGdCjqFXyENYQ",
+                                  "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                                   "name": "Cell Process In Step Operator",
                                   "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
                                   "type": "TOP"
@@ -22683,13 +22705,13 @@
                             },
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "3jH7IhctkTXG1CJEBjQXaQ",
+                              "vdid": "8Ybk54v4ql1axKGUTR6E_g",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "IHzWBqGrYy6_CuCZegZpew",
+                                "vdid": "13wcBjOr9y58CrmZ_QZuew",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
