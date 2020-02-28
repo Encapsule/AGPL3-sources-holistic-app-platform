@@ -167,6 +167,11 @@ const factoryResponse = arccore.filter.create({
                     quanderscoreCount++;
                     continue;
                 }
+                // TODO: We need a comprehensive break-down of concerns when affecting this sort
+                // of transformation generally over filter specs (we do a lot of this and it should
+                // be very efficient). This reliance on JSON.stringify is BS... And arccore.clone
+                // is not general purpose. Perhaps it is possible to use filter spec annotations of
+                // intent and judicious conditional application of clever spread operator tricks?
                 ocdRuntimeBaseSpec[key] = JSON.parse(JSON.stringify(request_.ocdTemplateSpec[key]));
             } // while keys
 
@@ -196,14 +201,37 @@ const factoryResponse = arccore.filter.create({
                         // filter spec qunderscore directives are stripped by OPC during OCD runtime spec
                         // synthesis. The remainder of the APM's descriptor object definition is then
                         // merged over bound namespace. Namespace name collisions are resolved in favor
-                        // of the bound APM's descriptor object filter spec W/OUT WARNING
+                        // of the bound APM's descriptor object filter spec W/OUT WARNING.
                         //
-                        if (record.specRef.____opaque ||
-                            record.specRef.____accept ||
-                            record.specRef.____asMap ||
-                            Array.isArray(record.specRef.____types) ||
-                            (record.specRef.____types !== "jsObject")
-                           ) {
+                        let acceptBinding = false; // presume bad APM binding
+                        let optionalNamespace = false;
+                        let nsTypesArray = null;
+
+                        if (record.specRef.____accept) {
+                            nsTypesArray = Array.isArray(record.specRef.____accept)?record.specRef.____accept:[ record.specRef.____accept ];
+                        }
+
+                        if (record.specRef.____types) {
+                            nsTypesArray = Array.isArray(record.specRef.____types)?record.specRef.____types:[ record.specRef.____types ];
+                        }
+
+                        if (nsTypesArray && (nsTypesArray.length < 3)) {
+                            if (-1 < nsTypesArray.indexOf("jsObject")) {
+                                if (!record.specRef.____asMap) {
+                                    if (nsTypesArray.length === 1) {
+                                        acceptBinding = true;
+                                    } else {
+                                        if (-1 < nsTypesArray.indexOf("jsUndefined")) {
+                                            acceptBinding = true;
+                                            optionalNamespace = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+
+                        if (!acceptBinding) {
 
                             // Issue a warning and move on. No binding.
                             const warningMessage = `WARNING: OCD runtime spec path '${record.specPath}' will not be bound to APM ID '${apmID}'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: "jsObject".`;
@@ -215,6 +243,7 @@ const factoryResponse = arccore.filter.create({
                             provisionalSpecRef.____appdsl.opcWarning = warningMessage;
 
                         } // if namespace binding ignored due to spec problem
+
                         else { // determine if there's a corresponding APM registration.
 
                             const apm = result.apmMap[apmID];
@@ -229,9 +258,9 @@ const factoryResponse = arccore.filter.create({
 
                                 const opcSpecOverlay = ocdRuntimeSpecAspects.aspects.opcProcessModelBindingRootOverlaySpec;
 
-                                const apmSpecOverlay = apm.getDataSpec(); // TODO: Ensure APM constructor filter correctly verified an OPM's template spec.
+                                const apmSpecOverlay = apm.getDataSpec();
 
-                                provisionalSpecRef = { ...record.specRef, ...apmSpecOverlay, ...opcSpecOverlay };
+                                provisionalSpecRef = { ...record.specRef, ...apmSpecOverlay, ...opcSpecOverlay, ____types: (optionalNamespace?[ "jsObject", "jsUndefined" ]:"jsObject")  };
 
                             } else {
 

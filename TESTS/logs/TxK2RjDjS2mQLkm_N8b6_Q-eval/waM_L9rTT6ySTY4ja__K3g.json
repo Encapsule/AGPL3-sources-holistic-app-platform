@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "waM_L9rTT6ySTY4ja__K3g",
           "name": "Invalid OCD template spec #5",
-          "description": "OCD template namespace ~ is not allowed to use an array value for the ____types directive.",
+          "description": "OCD template namespace ~ is NOT allowed to use ____types: [].",
           "vectorRequest": {
             "holistic": {
               "holarchy": {

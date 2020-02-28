@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "dirl1VuNQCmBrzbJXWMTtA",
           "name": "Invalid OCD template spec #1",
-          "description": "OCD template spec must be a valid filter spec.",
+          "description": "OCD template spec must be a valid filter spec #1",
           "vectorRequest": {
             "holistic": {
               "holarchy": {

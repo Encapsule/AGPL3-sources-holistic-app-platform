@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "ChcuyPLCSQCsICTprPzfog",
           "name": "Invalid OCD template spec #2",
-          "description": "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types.",
+          "description": "OCD template spec must be a valid filter spec #2",
           "vectorRequest": {
             "holistic": {
               "holarchy": {

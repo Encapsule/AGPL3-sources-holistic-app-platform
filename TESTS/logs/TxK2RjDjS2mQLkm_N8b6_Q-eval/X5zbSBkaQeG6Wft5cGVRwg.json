@@ -4,7 +4,7 @@
       "X5zbSBkaQeG6Wft5cGVRwg": {
         "harnessRequest": {
           "id": "X5zbSBkaQeG6Wft5cGVRwg",
-          "name": "Invalid OCD template spec #6",
+          "name": "Invalid OCD template spec #4",
           "description": "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive.",
           "vectorRequest": {
             "holistic": {

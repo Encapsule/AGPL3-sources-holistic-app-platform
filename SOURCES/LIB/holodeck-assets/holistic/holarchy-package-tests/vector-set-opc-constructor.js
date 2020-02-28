@@ -1,7 +1,11 @@
 
+const holarchy = require("@encapsule/holarchy");
+
 const fixtureACTExamples = require("./fixture-act-examples");
 
-module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
+const apmBindingSuccess = new holarchy.AbstractProcessModel({ id: "jDGvZvHASx-U1cV497Oamw", name: "test", description: "Binding SUCCESS!" });
+
+module.exports =  [
 
     {
         id: "gwtkQR51TYm93K32K6QHNA",
@@ -102,7 +106,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
     {
         id: "dirl1VuNQCmBrzbJXWMTtA",
         name: "Invalid OCD template spec #1",
-        description: "OCD template spec must be a valid filter spec.",
+        description: "OCD template spec must be a valid filter spec #1",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -120,7 +124,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
     {
         id: "ChcuyPLCSQCsICTprPzfog",
         name: "Invalid OCD template spec #2",
-        description: "OCD template spec ~ namespace is not allowed to use any other filter spec directives other than ____types.",
+        description: "OCD template spec must be a valid filter spec #2",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -154,44 +158,8 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
     },
 
     {
-        id: "ElMglky8TBGkzkd6W4690A",
-        name: "Invalid OCD template spec #4",
-        description: "OCD template spec ~ namespace is not allowed to use the ____accept directive.",
-        vectorRequest: {
-            holistic: {
-                holarchy: {
-                    ObservableProcessController: {
-                        constructorRequest: {
-                            id: "ElMglky8TBGkzkd6W4690A",
-                            ocdTemplateSpec: { ____accept: "jsObject" } // valid filter spec, invalid OCD template spec
-                        }
-                    }
-                }
-            }
-        }
-    },
-
-    {
-        id: "waM_L9rTT6ySTY4ja__K3g",
-        name: "Invalid OCD template spec #5",
-        description: "OCD template namespace ~ is not allowed to use an array value for the ____types directive.",
-        vectorRequest: {
-            holistic: {
-                holarchy: {
-                    ObservableProcessController: {
-                        constructorRequest: {
-                            id: "waM_L9rTT6ySTY4ja__K3g",
-                            ocdTemplateSpec: { ____types: [ "jsObject" ] } // valid filter spec, invalid OCD template spec
-                        }
-                    }
-                }
-            }
-        }
-    },
-
-    {
         id: "X5zbSBkaQeG6Wft5cGVRwg",
-        name: "Invalid OCD template spec #6",
+        name: "Invalid OCD template spec #4",
         description: "OCD template namespace ~ is not allowed to specify any value other that jsObject for ____types directive.",
         vectorRequest: {
             holistic: {
@@ -206,6 +174,46 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
             }
         }
     },
+
+
+    {
+        id: "ElMglky8TBGkzkd6W4690A",
+        name: "OCD template spec typically specifies ____types jsObject.",
+        description: "OCD template spec ~ namespace is NOT allowed to use the ____accept jsObject directive.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "vi6NeCCXSG61m6OMk7KZyw",
+                            ocdTemplateSpec: { ____accept: "jsObject" } // okay?
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    {
+        id: "waM_L9rTT6ySTY4ja__K3g",
+        name: "Invalid OCD template spec #5",
+        description: "OCD template namespace ~ is NOT allowed to use ____types: [].",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    ObservableProcessController: {
+                        constructorRequest: {
+                            id: "waM_L9rTT6ySTY4ja__K3g",
+                            ocdTemplateSpec: { ____types: [ "jsObject" ] } // valid filter spec, invalid OCD template spec
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+
+
 
     {
         id: "nCoUIS0RTlmuKUSpimee7A",
@@ -354,7 +362,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
     {
         id: "rxFiX7H-TDG0GsxqtRekoA",
         name: "Invalid OPC template spec binding #3",
-        description: "OCD spec namespace bound to APM not allowed to use ____accept directive.",
+        description: "OCD spec namespace bound to unregistered APM tests ability for dev to bind to an ____accept object. Should fail due to missing APM registration.",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -379,7 +387,7 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
     {
         id: "Pe4ks7bQQ9KQee1T8qTRHw",
         name: "Invalid OPC Template sepc binding #4",
-        description: "OCD spec namespace bound to APM not allowed to specify an array of values to ____types directive.",
+        description: "OCD spec namespace bound to APM IS allowed to specify an array of values to ____types directive (w/restrictions not tested here).",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -390,10 +398,11 @@ module.exports =  [ // EXISTING OPC CONSTRUCTOR TESTS
                                 ____types: "jsObject",
                                 badNamespace: {
                                     ____types: [ "jsObject" ], // array of type constraints allowed
-                                    ____appdsl: { apm: "Pe4ks7bQQ9KQee1T8qTRHw" }, // ....so this will be ignored leaving this namespace as-it-is-defined here in the runtime spec
-                                    ____defaultValue: {} // which means we better provide a default value or the OPC constructor will not support default construction per things we've already locked down if the tests above pass.
+                                    ____appdsl: { apm:  "jDGvZvHASx-U1cV497Oamw" }, // ....so this will be ignored leaving this namespace as-it-is-defined here in the runtime spec
+                                    ____defaultValue: {}
                                 }
-                            }
+                            },
+                            abstractProcessModelSets: [ [ apmBindingSuccess ] ]
                         }
                     }
                 }

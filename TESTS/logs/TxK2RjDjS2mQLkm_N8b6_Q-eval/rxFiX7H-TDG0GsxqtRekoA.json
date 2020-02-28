@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "rxFiX7H-TDG0GsxqtRekoA",
           "name": "Invalid OPC template spec binding #3",
-          "description": "OCD spec namespace bound to APM not allowed to use ____accept directive.",
+          "description": "OCD spec namespace bound to unregistered APM tests ability for dev to bind to an ____accept object. Should fail due to missing APM registration.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
@@ -69,7 +69,7 @@
                         "____accept": "jsObject",
                         "____defaultValue": {},
                         "____appdsl": {
-                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'rxFiX7H-TDG0GsxqtRekoA'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'rxFiX7H-TDG0GsxqtRekoA'. Unknown/unregistered APM specified."
                         }
                       }
                     },
@@ -241,7 +241,7 @@
                     },
                     "constructionWarnings": [
                       "WARNING: No AbstractProcessModel class instances registered!",
-                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'rxFiX7H-TDG0GsxqtRekoA'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
+                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'rxFiX7H-TDG0GsxqtRekoA'. Unknown/unregistered APM specified.",
                       "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },

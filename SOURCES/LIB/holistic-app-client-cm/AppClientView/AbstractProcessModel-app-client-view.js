@@ -8,7 +8,7 @@ module.exports = {
 
     ocdDataSpec: {
         ____types: "jsObject",
-        ____defaultValue: {},
+
         "Hsu-43zBRgqHItCPWPiBng": {
             ____types: "jsObject",
             ____defaultValue: {},

@@ -18,6 +18,7 @@
                       "____types": "jsObject",
                       "d2r2ReactClientOutputProcessor": {
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "____appdsl": {
                           "apm": "IxoJ83u0TXmG7PLUYBvsyg"
                         }
@@ -27,7 +28,7 @@
                       [
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                          "vdid": "guj8_A0Z2pydtetwzFwaqA",
                           "name": "d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                           "process": {
@@ -648,7 +649,7 @@
                     "apmMap": {
                       "IxoJ83u0TXmG7PLUYBvsyg": {
                         "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                        "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                        "vdid": "guj8_A0Z2pydtetwzFwaqA",
                         "name": "d2r2/React Client Display Adaptor",
                         "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                         "process": {
@@ -1133,7 +1134,7 @@
                         "specPath": "~.d2r2ReactClientOutputProcessor",
                         "opmiRef": {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                          "vdid": "guj8_A0Z2pydtetwzFwaqA",
                           "name": "d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                           "process": {
@@ -1621,6 +1622,7 @@
                       "____types": "jsObject",
                       "d2r2ReactClientOutputProcessor": {
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "____appdsl": {
                           "apm": "IxoJ83u0TXmG7PLUYBvsyg"
                         }
@@ -1633,12 +1635,12 @@
                       "____defaultValue": {},
                       "d2r2ReactClientOutputProcessor": {
                         "____types": "jsObject",
+                        "____defaultValue": {},
                         "____appdsl": {
                           "apm": "IxoJ83u0TXmG7PLUYBvsyg"
                         },
                         "____label": "d2r2/React Client Display Adaptor Memory",
                         "____description": "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
-                        "____defaultValue": {},
                         "inputs": {
                           "____label": "Adaptor Inputs",
                           "____types": "jsObject",
@@ -3013,7 +3015,7 @@
                                   "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                    "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                                    "vdid": "guj8_A0Z2pydtetwzFwaqA",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                     "process": {
@@ -3721,7 +3723,7 @@
                                   "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                    "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                                    "vdid": "guj8_A0Z2pydtetwzFwaqA",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                     "process": {
@@ -4427,7 +4429,7 @@
                                   "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                    "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                                    "vdid": "guj8_A0Z2pydtetwzFwaqA",
                                     "name": "d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                     "process": {

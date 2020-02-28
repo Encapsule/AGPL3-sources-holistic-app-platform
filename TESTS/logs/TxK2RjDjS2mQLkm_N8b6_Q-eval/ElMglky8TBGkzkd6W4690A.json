@@ -4,14 +4,14 @@
       "ElMglky8TBGkzkd6W4690A": {
         "harnessRequest": {
           "id": "ElMglky8TBGkzkd6W4690A",
-          "name": "Invalid OCD template spec #4",
-          "description": "OCD template spec ~ namespace is not allowed to use the ____accept directive.",
+          "name": "OCD template spec typically specifies ____types jsObject.",
+          "description": "OCD template spec ~ namespace is NOT allowed to use the ____accept jsObject directive.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "ObservableProcessController": {
                   "constructorRequest": {
-                    "id": "ElMglky8TBGkzkd6W4690A",
+                    "id": "vi6NeCCXSG61m6OMk7KZyw",
                     "ocdTemplateSpec": {
                       "____accept": "jsObject"
                     }
@@ -32,7 +32,7 @@
               "54MiSgQdSiukMX4fIZJimg": {
                 "ElMglky8TBGkzkd6W4690A": {
                   "opcToJSON": {
-                    "error": "ObservableProcessController::constructor for [ElMglky8TBGkzkd6W4690A::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."
+                    "error": "ObservableProcessController::constructor for [vi6NeCCXSG61m6OMk7KZyw::unspecified] failed yielding a zombie instance. Failed while processing constructor request. Filter [XXile9azSHO39alE6mMKsg::OPC Constructor Request Processor] failed while performing main operation. Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: \"jsObject\" quanderscore directive; no other directives are allowed in ~ namespace."
                   },
                   "actionEvaluations": []
                 }

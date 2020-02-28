@@ -55,7 +55,7 @@
                             "type": "APM",
                             "artifact": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "NBc6UzruyQzWNH6MzbUPfg",
+                              "vdid": "PsWk3Oe7ijtHxF2hAOfysg",
                               "name": "Holistic Client App Runtime Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "process": {
@@ -352,6 +352,18 @@
                               "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
                               "name": "Holistic App Client Runtime Receive DOM Event",
                               "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred."
+                            }
+                          }
+                        },
+                        {
+                          "u": "DNAoE5L3R-mY6jLAF2S95A",
+                          "p": {
+                            "type": "ACT",
+                            "artifact": {
+                              "id": "DNAoE5L3R-mY6jLAF2S95A",
+                              "vdid": "TOzYB2iGmdqbGeP0D9S92w",
+                              "name": "Holistic App Client Runtime Subprocess Action",
+                              "description": "Creates a cellular subprocess."
                             }
                           }
                         },
@@ -22003,6 +22015,15 @@
                         {
                           "e": {
                             "u": "INDEX_ACT",
+                            "v": "DNAoE5L3R-mY6jLAF2S95A"
+                          },
+                          "p": {
+                            "type": "INDEX_ACT:ACT"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "INDEX_ACT",
                             "v": "_yxWfFLnTqqN-UxRdd7W5w"
                           },
                           "p": {
@@ -22058,6 +22079,15 @@
                           "e": {
                             "u": "ENENGxq1TkCa6Sk9YXaLlw",
                             "v": "h-auSE-OSP2TG1jh_3EQ1Q"
+                          },
+                          "p": {
+                            "type": "CM:ACT"
+                          }
+                        },
+                        {
+                          "e": {
+                            "u": "ENENGxq1TkCa6Sk9YXaLlw",
+                            "v": "DNAoE5L3R-mY6jLAF2S95A"
                           },
                           "p": {
                             "type": "CM:ACT"
@@ -22318,13 +22348,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 33,
-                      "edges": 58,
+                      "vertices": 34,
+                      "edges": 60,
                       "artifacts": {
                         "cm": 9,
                         "apm": 2,
                         "top": 12,
-                        "act": 6
+                        "act": 7
                       }
                     }
                   },
@@ -22334,7 +22364,7 @@
                       "apm": [
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "NBc6UzruyQzWNH6MzbUPfg",
+                          "vdid": "PsWk3Oe7ijtHxF2hAOfysg",
                           "name": "Holistic Client App Runtime Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                           "process": {
@@ -22815,6 +22845,12 @@
                           "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred."
                         },
                         {
+                          "id": "DNAoE5L3R-mY6jLAF2S95A",
+                          "vdid": "TOzYB2iGmdqbGeP0D9S92w",
+                          "name": "Holistic App Client Runtime Subprocess Action",
+                          "description": "Creates a cellular subprocess."
+                        },
+                        {
                           "id": "_yxWfFLnTqqN-UxRdd7W5w",
                           "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
                           "name": "OCD Boolean Flag Clear",
@@ -22848,13 +22884,13 @@
                         "type": "INDEX",
                         "ENENGxq1TkCa6Sk9YXaLlw": {
                           "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                          "vdid": "g76gecRFFGU1PTIS0dTAWA",
+                          "vdid": "RwF9jFGnZiMhMZLJAWjiYQ",
                           "name": "Holistic App Client Runtime",
                           "description": "Holistic client application core runtime.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "NBc6UzruyQzWNH6MzbUPfg",
+                            "vdid": "PsWk3Oe7ijtHxF2hAOfysg",
                             "name": "Holistic Client App Runtime Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"
@@ -22871,6 +22907,13 @@
                             "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
                             "name": "Holistic App Client Runtime Receive DOM Event",
                             "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred.",
+                            "type": "ACT"
+                          },
+                          "DNAoE5L3R-mY6jLAF2S95A": {
+                            "id": "DNAoE5L3R-mY6jLAF2S95A",
+                            "vdid": "TOzYB2iGmdqbGeP0D9S92w",
+                            "name": "Holistic App Client Runtime Subprocess Action",
+                            "description": "Creates a cellular subprocess.",
                             "type": "ACT"
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {

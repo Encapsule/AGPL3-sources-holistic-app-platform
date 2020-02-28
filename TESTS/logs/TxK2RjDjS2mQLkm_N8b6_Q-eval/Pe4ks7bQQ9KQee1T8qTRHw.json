@@ -5,7 +5,7 @@
         "harnessRequest": {
           "id": "Pe4ks7bQQ9KQee1T8qTRHw",
           "name": "Invalid OPC Template sepc binding #4",
-          "description": "OCD spec namespace bound to APM not allowed to specify an array of values to ____types directive.",
+          "description": "OCD spec namespace bound to APM IS allowed to specify an array of values to ____types directive (w/restrictions not tested here).",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
@@ -19,11 +19,27 @@
                           "jsObject"
                         ],
                         "____appdsl": {
-                          "apm": "Pe4ks7bQQ9KQee1T8qTRHw"
+                          "apm": "jDGvZvHASx-U1cV497Oamw"
                         },
                         "____defaultValue": {}
                       }
-                    }
+                    },
+                    "abstractProcessModelSets": [
+                      [
+                        {
+                          "id": "jDGvZvHASx-U1cV497Oamw",
+                          "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
+                          "name": "test",
+                          "description": "Binding SUCCESS!",
+                          "process": {
+                            "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
+                            "description": "Binding SUCCESS!",
+                            "vlist": [],
+                            "elist": []
+                          }
+                        }
+                      ]
+                    ]
                   }
                 }
               }
@@ -50,8 +66,37 @@
                         "firstEvaluation": "constructor"
                       }
                     },
-                    "apmMap": {},
-                    "opmiSpecPaths": [],
+                    "apmMap": {
+                      "jDGvZvHASx-U1cV497Oamw": {
+                        "id": "jDGvZvHASx-U1cV497Oamw",
+                        "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
+                        "name": "test",
+                        "description": "Binding SUCCESS!",
+                        "process": {
+                          "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
+                          "description": "Binding SUCCESS!",
+                          "vlist": [],
+                          "elist": []
+                        }
+                      }
+                    },
+                    "opmiSpecPaths": [
+                      {
+                        "specPath": "~.badNamespace",
+                        "opmiRef": {
+                          "id": "jDGvZvHASx-U1cV497Oamw",
+                          "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
+                          "name": "test",
+                          "description": "Binding SUCCESS!",
+                          "process": {
+                            "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
+                            "description": "Binding SUCCESS!",
+                            "vlist": [],
+                            "elist": []
+                          }
+                        }
+                      }
+                    ],
                     "ocdTemplateSpec": {
                       "____types": "jsObject",
                       "badNamespace": {
@@ -59,7 +104,7 @@
                           "jsObject"
                         ],
                         "____appdsl": {
-                          "apm": "Pe4ks7bQQ9KQee1T8qTRHw"
+                          "apm": "jDGvZvHASx-U1cV497Oamw"
                         },
                         "____defaultValue": {}
                       }
@@ -70,17 +115,21 @@
                       "____types": "jsObject",
                       "____defaultValue": {},
                       "badNamespace": {
-                        "____types": [
-                          "jsObject"
-                        ],
+                        "____types": "jsObject",
                         "____appdsl": {
-                          "opcWarning": "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'Pe4ks7bQQ9KQee1T8qTRHw'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\"."
+                          "apm": "jDGvZvHASx-U1cV497Oamw"
                         },
-                        "____defaultValue": {}
+                        "____defaultValue": {},
+                        "__apmiStep": {
+                          "____accept": "jsString",
+                          "____defaultValue": "uninitialized"
+                        }
                       }
                     },
                     "ocdi": {
-                      "badNamespace": {}
+                      "badNamespace": {
+                        "__apmiStep": "uninitialized"
+                      }
                     },
                     "transitionDispatcher": {},
                     "transitionDispatcherFilterMap": {},
@@ -221,7 +270,7 @@
                         "evalNumber": 0,
                         "summary": {
                           "counts": {
-                            "bindings": 0,
+                            "bindings": 1,
                             "frames": 1,
                             "errors": 0,
                             "transitions": 0
@@ -231,7 +280,7 @@
                           {
                             "summary": {
                               "counts": {
-                                "bindings": 0,
+                                "bindings": 1,
                                 "transitions": 0,
                                 "errors": 0
                               },
@@ -240,14 +289,51 @@
                                 "errors": []
                               }
                             },
-                            "bindings": {}
+                            "bindings": {
+                              "EItvvpMQpcGEOpeu4obRjA": {
+                                "evalRequest": {
+                                  "dataBinding": {
+                                    "dataPath": "~.badNamespace",
+                                    "specPath": "~.badNamespace"
+                                  },
+                                  "initialStep": "uninitialized",
+                                  "apmRef": {
+                                    "id": "jDGvZvHASx-U1cV497Oamw",
+                                    "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
+                                    "name": "test",
+                                    "description": "Binding SUCCESS!",
+                                    "process": {
+                                      "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
+                                      "description": "Binding SUCCESS!",
+                                      "vlist": [],
+                                      "elist": []
+                                    }
+                                  }
+                                },
+                                "evalResponse": {
+                                  "status": "noop",
+                                  "finishStep": "uninitialized",
+                                  "phases": {
+                                    "p1_toperator": [],
+                                    "p2_exit": [],
+                                    "p3_enter": [],
+                                    "p4_finalize": null
+                                  },
+                                  "errors": {
+                                    "p1_toperator": 0,
+                                    "p2_exit": 0,
+                                    "p3_enter": 0,
+                                    "p4_finalize": 0,
+                                    "total": 0
+                                  }
+                                }
+                              }
+                            }
                           }
                         ]
                       }
                     },
                     "constructionWarnings": [
-                      "WARNING: No AbstractProcessModel class instances registered!",
-                      "WARNING: OCD runtime spec path '~.badNamespace' will not be bound to APM ID 'Pe4ks7bQQ9KQee1T8qTRHw'. Namespace must be a descriptor object (i.e. not a map) declared as ____types: \"jsObject\".",
                       "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },

@@ -55,7 +55,7 @@
                             "type": "APM",
                             "artifact": {
                               "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                              "vdid": "FQfnfzhi_RuDqZVFTjf7tg",
+                              "vdid": "dhd1UlVDm9EWryeg4T_FJw",
                               "name": "DOM Location Processor",
                               "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                               "process": {
@@ -22229,7 +22229,7 @@
                       "apm": [
                         {
                           "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                          "vdid": "FQfnfzhi_RuDqZVFTjf7tg",
+                          "vdid": "dhd1UlVDm9EWryeg4T_FJw",
                           "name": "DOM Location Processor",
                           "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                           "process": {
@@ -22638,13 +22638,13 @@
                         "type": "INDEX",
                         "qzMWhMstQ4Ki06O75y5hMA": {
                           "id": "qzMWhMstQ4Ki06O75y5hMA",
-                          "vdid": "Fj6EQ3SjloLkfSZpI8BH7g",
+                          "vdid": "Gz6EQ9ajloL1fSZpJcBH7g",
                           "name": "DOM Location Processor",
                           "description": "Abstracts monitoring and setting the window.location and hashroute.",
                           "type": "CM",
                           "-1Ptaq_zTUa8Gfv_3ODtDg": {
                             "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                            "vdid": "FQfnfzhi_RuDqZVFTjf7tg",
+                            "vdid": "dhd1UlVDm9EWryeg4T_FJw",
                             "name": "DOM Location Processor",
                             "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                             "type": "APM"

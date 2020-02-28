@@ -11,7 +11,8 @@ module.exports = new holarchy.CellModel({
     apm: require("./AbstractProcessModel-app-client-runtime"),
     actions: [
         require("./ControllerAction-app-client-runtime-hook-events"),
-        require("./ControllerAction-app-client-runtime-notify-event")
+        require("./ControllerAction-app-client-runtime-notify-event"),
+        require("./ControllerAction-app-client-runtime-subprocess-create")
     ],
     subcells: [ holarchyCML.cml ]
 });

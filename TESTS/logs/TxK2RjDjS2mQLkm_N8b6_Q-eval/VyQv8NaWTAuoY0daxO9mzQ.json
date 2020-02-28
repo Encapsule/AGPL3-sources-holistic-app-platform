@@ -55,7 +55,7 @@
                             "type": "APM",
                             "artifact": {
                               "id": "Hsu-43zBRgqHItCPWPiBng",
-                              "vdid": "w_rMXry11C7wgXPbR6F5Fg",
+                              "vdid": "YWHDx3dWrHWP7L_fYdCpzw",
                               "name": "Holistic Client App View Processor",
                               "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                               "process": {
@@ -22159,7 +22159,7 @@
                       "apm": [
                         {
                           "id": "Hsu-43zBRgqHItCPWPiBng",
-                          "vdid": "w_rMXry11C7wgXPbR6F5Fg",
+                          "vdid": "YWHDx3dWrHWP7L_fYdCpzw",
                           "name": "Holistic Client App View Processor",
                           "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                           "process": {
@@ -22546,13 +22546,13 @@
                         "type": "INDEX",
                         "vrmv3WMRQXql7Bx3DDEIDw": {
                           "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                          "vdid": "-Zb_La3-KVvVialnHrxEcw",
+                          "vdid": "N5b_LXH-KVvfialnY7xEcw",
                           "name": "Holistic Client App View Manager",
                           "description": "Provides management of client view cells in a holistic client app.",
                           "type": "CM",
                           "Hsu-43zBRgqHItCPWPiBng": {
                             "id": "Hsu-43zBRgqHItCPWPiBng",
-                            "vdid": "w_rMXry11C7wgXPbR6F5Fg",
+                            "vdid": "YWHDx3dWrHWP7L_fYdCpzw",
                             "name": "Holistic Client App View Processor",
                             "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                             "type": "APM"

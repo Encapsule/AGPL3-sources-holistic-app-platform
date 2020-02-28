@@ -24,7 +24,6 @@ const apmClientHashRouteLocationProcessor = module.exports = {
     ocdDataSpec: {
         ____label: "Client Hash Route Location Processor",
         ____types: "jsObject",
-        ____defaultValue: {},
 
         inputs: {
             ____types: "jsObject",

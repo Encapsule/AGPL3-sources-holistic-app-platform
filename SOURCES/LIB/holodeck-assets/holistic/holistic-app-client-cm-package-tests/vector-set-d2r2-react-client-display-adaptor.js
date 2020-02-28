@@ -49,6 +49,7 @@ module.exports = [
                                 ____types: "jsObject",
                                 d2r2ReactClientOutputProcessor: {
                                     ____types: "jsObject",
+                                    ____defaultValue: {},
                                     ____appdsl: { apm: "IxoJ83u0TXmG7PLUYBvsyg" }
                                 }
                             },

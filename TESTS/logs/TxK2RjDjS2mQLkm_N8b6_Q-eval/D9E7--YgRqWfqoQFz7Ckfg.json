@@ -55,7 +55,7 @@
                             "type": "APM",
                             "artifact": {
                               "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                              "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                              "vdid": "guj8_A0Z2pydtetwzFwaqA",
                               "name": "d2r2/React Client Display Adaptor",
                               "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                               "process": {
@@ -22391,7 +22391,7 @@
                       "apm": [
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                          "vdid": "guj8_A0Z2pydtetwzFwaqA",
                           "name": "d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                           "process": {
@@ -22986,13 +22986,13 @@
                         "type": "INDEX",
                         "UX7JquBhSZO0QyEk7u9-sw": {
                           "id": "UX7JquBhSZO0QyEk7u9-sw",
-                          "vdid": "6G5jiPRre-Y9rhA9_rpEvQ",
+                          "vdid": "EW5jiGhre-YorhA9hbpEvQ",
                           "name": "Holistic App Client Display Adapter",
                           "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                           "type": "CM",
                           "IxoJ83u0TXmG7PLUYBvsyg": {
                             "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                            "vdid": "tF5DtUS20t0tMNSGQm8b4g",
+                            "vdid": "guj8_A0Z2pydtetwzFwaqA",
                             "name": "d2r2/React Client Display Adaptor",
                             "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                             "type": "APM"
