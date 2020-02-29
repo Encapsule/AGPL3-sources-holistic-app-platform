@@ -181,28 +181,10 @@
                     "transitionOperatorSets": [
                       [
                         {
-                          "id": "9tNY7o5GTUGH_xda2GhP-w",
-                          "vdid": "zmPeG6lSvXidCjr_XyENrQ",
-                          "name": "Cell Process In Step Operator",
-                          "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
-                        },
-                        {
-                          "id": "kD1PcgqYQlm7fJatNG2ZsA",
-                          "vdid": "cNihhVrtDPl_5j7cSfcRug",
-                          "name": "OCD Namespace Is Truthy",
-                          "description": "Returns Boolean true iff the indicated OCD namespace is truthy."
-                        },
-                        {
-                          "id": "0JIva4IFSm6Xm7i38g8uUA",
-                          "vdid": "HyCocPERRAAEOSzTOspyaw",
-                          "name": "OR Transition Expression Operator",
-                          "description": "Returns Boolean true iff any suboperations return true."
-                        },
-                        {
-                          "id": "TLSHkl73SO-utuzM7dyN2g",
-                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                          "name": "NOT Transition Expression Operator",
-                          "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to)."
+                          "id": "YgABX95wR86GCYrYaDLISA",
+                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
+                          "name": "AND Transition Expression Operator",
+                          "description": "Returns Boolean true iff all suboperations return true."
                         },
                         {
                           "id": "e89cwnP4Qd6MocAhzdOJgw",
@@ -211,22 +193,34 @@
                           "description": "Always returns true."
                         },
                         {
+                          "id": "9tNY7o5GTUGH_xda2GhP-w",
+                          "vdid": "zmPeG6lSvXidCjr_XyENrQ",
+                          "name": "Cell Process In Step Operator",
+                          "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
+                        },
+                        {
+                          "id": "TLSHkl73SO-utuzM7dyN2g",
+                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
+                          "name": "NOT Transition Expression Operator",
+                          "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to)."
+                        },
+                        {
                           "id": "oaF3-dXwQkusjD3I2o9-8g",
                           "vdid": "rR6j6vgEL4edaMFT9p0Kug",
                           "name": "OCD Array Length Equal to Value",
                           "description": "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect)."
                         },
                         {
-                          "id": "YgABX95wR86GCYrYaDLISA",
-                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                          "name": "AND Transition Expression Operator",
-                          "description": "Returns Boolean true iff all suboperations return true."
-                        },
-                        {
                           "id": "UeLs9PcASwuC7KR190eYhA",
                           "vdid": "AvEsDNEdHzM-EAtRzKGrbg",
                           "name": "OCD Boolean Flag Is Set",
                           "description": "Returns Boolean true iff the indicated Boolean flag namespace is true."
+                        },
+                        {
+                          "id": "2w7n6KxdR8mdIliePJesLQ",
+                          "vdid": "tljozSCr53fX-AmzURPyEg",
+                          "name": "OCD Compare Values",
+                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator."
                         },
                         {
                           "id": "ggsavKiARsq7rjwn-lxdfA",
@@ -247,10 +241,16 @@
                           "description": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only."
                         },
                         {
-                          "id": "2w7n6KxdR8mdIliePJesLQ",
-                          "vdid": "tljozSCr53fX-AmzURPyEg",
-                          "name": "OCD Compare Values",
-                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator."
+                          "id": "kD1PcgqYQlm7fJatNG2ZsA",
+                          "vdid": "cNihhVrtDPl_5j7cSfcRug",
+                          "name": "OCD Namespace Is Truthy",
+                          "description": "Returns Boolean true iff the indicated OCD namespace is truthy."
+                        },
+                        {
+                          "id": "0JIva4IFSm6Xm7i38g8uUA",
+                          "vdid": "HyCocPERRAAEOSzTOspyaw",
+                          "name": "OR Transition Expression Operator",
+                          "description": "Returns Boolean true iff any suboperations return true."
                         }
                       ],
                       [
@@ -561,6 +561,102 @@
                       }
                     },
                     "transitionDispatcherFilterMap": {
+                      "YgABX95wR86GCYrYaDLISA": {
+                        "filterDescriptor": {
+                          "operationID": "YgABX95wR86GCYrYaDLISA",
+                          "operationName": "AND Transition Expression Operator",
+                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
+                          "inputFilterSpec": {
+                            "____label": "AND Transition Expression Operator Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "and": {
+                                "____types": "jsArray",
+                                "operandOperatorVariant": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
+                          "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
+                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
+                        }
+                      },
+                      "e89cwnP4Qd6MocAhzdOJgw": {
+                        "filterDescriptor": {
+                          "operationID": "e89cwnP4Qd6MocAhzdOJgw",
+                          "operationName": "Always returns Boolean true unconditionally.",
+                          "operationDescription": "Always returns true.",
+                          "inputFilterSpec": {
+                            "____label": "Always returns Boolean true unconditionally. Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "always": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
+                          "inputTypeVDID": "0EB7_Y3i7dHCIqSTVQf8bQ",
+                          "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "7hv8ROZTdZP8DZ-c1OtJcg"
+                        }
+                      },
                       "9tNY7o5GTUGH_xda2GhP-w": {
                         "filterDescriptor": {
                           "operationID": "9tNY7o5GTUGH_xda2GhP-w",
@@ -624,114 +720,6 @@
                           "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
                         }
                       },
-                      "kD1PcgqYQlm7fJatNG2ZsA": {
-                        "filterDescriptor": {
-                          "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
-                          "operationName": "OCD Namespace Is Truthy",
-                          "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
-                          "inputFilterSpec": {
-                            "____label": "OCD Namespace Is Truthy Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "holarchy": {
-                                "____types": "jsObject",
-                                "cm": {
-                                  "____types": "jsObject",
-                                  "operators": {
-                                    "____types": "jsObject",
-                                    "ocd": {
-                                      "____types": "jsObject",
-                                      "isNamespaceTruthy": {
-                                        "____types": "jsObject",
-                                        "path": {
-                                          "____accept": "jsString"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
-                          "inputTypeVDID": "IqY0aMK0bZrZvoSd7_w3IQ",
-                          "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "vqWEROJwL5P3HeKc3FBvcg"
-                        }
-                      },
-                      "0JIva4IFSm6Xm7i38g8uUA": {
-                        "filterDescriptor": {
-                          "operationID": "0JIva4IFSm6Xm7i38g8uUA",
-                          "operationName": "OR Transition Expression Operator",
-                          "operationDescription": "Returns Boolean true iff any suboperations return true.",
-                          "inputFilterSpec": {
-                            "____label": "OR Transition Expression Operator Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "or": {
-                                "____types": "jsArray",
-                                "operandOperatorVariant": {
-                                  "____accept": "jsObject"
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
-                          "inputTypeVDID": "0Xe392MJsGr0KO6YF3c80A",
-                          "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "4ImARIUqM5NmuBqcOBs-cg"
-                        }
-                      },
                       "TLSHkl73SO-utuzM7dyN2g": {
                         "filterDescriptor": {
                           "operationID": "TLSHkl73SO-utuzM7dyN2g",
@@ -775,54 +763,6 @@
                           "outputTypeVIID": "V-JP28o44DYdLwju7U90ag",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "MXgNRHS4xJPIEuycBGZEcg"
-                        }
-                      },
-                      "e89cwnP4Qd6MocAhzdOJgw": {
-                        "filterDescriptor": {
-                          "operationID": "e89cwnP4Qd6MocAhzdOJgw",
-                          "operationName": "Always returns Boolean true unconditionally.",
-                          "operationDescription": "Always returns true.",
-                          "inputFilterSpec": {
-                            "____label": "Always returns Boolean true unconditionally. Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "always": {
-                                "____accept": "jsBoolean",
-                                "____inValueSet": [
-                                  true
-                                ]
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
-                          "inputTypeVDID": "0EB7_Y3i7dHCIqSTVQf8bQ",
-                          "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "7hv8ROZTdZP8DZ-c1OtJcg"
                         }
                       },
                       "oaF3-dXwQkusjD3I2o9-8g": {
@@ -894,54 +834,6 @@
                           "operationVDID": "yhC0RNrN1ZMX5F-ckUIncg"
                         }
                       },
-                      "YgABX95wR86GCYrYaDLISA": {
-                        "filterDescriptor": {
-                          "operationID": "YgABX95wR86GCYrYaDLISA",
-                          "operationName": "AND Transition Expression Operator",
-                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
-                          "inputFilterSpec": {
-                            "____label": "AND Transition Expression Operator Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "and": {
-                                "____types": "jsArray",
-                                "operandOperatorVariant": {
-                                  "____accept": "jsObject"
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
-                          "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
-                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
-                        }
-                      },
                       "UeLs9PcASwuC7KR190eYhA": {
                         "filterDescriptor": {
                           "operationID": "UeLs9PcASwuC7KR190eYhA",
@@ -1000,6 +892,119 @@
                           "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "6eZxRIQnF5PpgaiccabWcg"
+                        }
+                      },
+                      "2w7n6KxdR8mdIliePJesLQ": {
+                        "filterDescriptor": {
+                          "operationID": "2w7n6KxdR8mdIliePJesLQ",
+                          "operationName": "OCD Compare Values",
+                          "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                          "inputFilterSpec": {
+                            "____label": "OCD Compare Values Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "cm": {
+                                  "____types": "jsObject",
+                                  "operators": {
+                                    "____types": "jsObject",
+                                    "ocd": {
+                                      "____types": "jsObject",
+                                      "compare": {
+                                        "____types": "jsObject",
+                                        "values": {
+                                          "____types": "jsObject",
+                                          "a": {
+                                            "____label": "Operand A",
+                                            "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "b": {
+                                            "____label": "Operand B",
+                                            "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                            "____types": "jsObject",
+                                            "value": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsNull",
+                                                "jsString",
+                                                "jsNumber",
+                                                "jsBoolean"
+                                              ]
+                                            },
+                                            "path": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          },
+                                          "operator": {
+                                            "____label": "Comparison Operator",
+                                            "____description": "A string enum indicating the comparison operator to use.",
+                                            "____accept": "jsString",
+                                            "____inValueSet": [
+                                              "===",
+                                              "==",
+                                              "<",
+                                              "<=",
+                                              ">",
+                                              ">="
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
+                          "inputTypeVDID": "uXfDAJlX200_coTaw1pLtg",
+                          "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "l5iBRNf6zpMr3-CcKjAWcg"
                         }
                       },
                       "ggsavKiARsq7rjwn-lxdfA": {
@@ -1200,13 +1205,13 @@
                           "operationVDID": "l9RzRDh_y5NJEa-c2o72cg"
                         }
                       },
-                      "2w7n6KxdR8mdIliePJesLQ": {
+                      "kD1PcgqYQlm7fJatNG2ZsA": {
                         "filterDescriptor": {
-                          "operationID": "2w7n6KxdR8mdIliePJesLQ",
-                          "operationName": "OCD Compare Values",
-                          "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                          "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
+                          "operationName": "OCD Namespace Is Truthy",
+                          "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
                           "inputFilterSpec": {
-                            "____label": "OCD Compare Values Request",
+                            "____label": "OCD Namespace Is Truthy Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -1238,63 +1243,10 @@
                                     "____types": "jsObject",
                                     "ocd": {
                                       "____types": "jsObject",
-                                      "compare": {
+                                      "isNamespaceTruthy": {
                                         "____types": "jsObject",
-                                        "values": {
-                                          "____types": "jsObject",
-                                          "a": {
-                                            "____label": "Operand A",
-                                            "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
-                                            "____types": "jsObject",
-                                            "value": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsNull",
-                                                "jsString",
-                                                "jsNumber",
-                                                "jsBoolean"
-                                              ]
-                                            },
-                                            "path": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsString"
-                                              ]
-                                            }
-                                          },
-                                          "b": {
-                                            "____label": "Operand B",
-                                            "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
-                                            "____types": "jsObject",
-                                            "value": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsNull",
-                                                "jsString",
-                                                "jsNumber",
-                                                "jsBoolean"
-                                              ]
-                                            },
-                                            "path": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsString"
-                                              ]
-                                            }
-                                          },
-                                          "operator": {
-                                            "____label": "Comparison Operator",
-                                            "____description": "A string enum indicating the comparison operator to use.",
-                                            "____accept": "jsString",
-                                            "____inValueSet": [
-                                              "===",
-                                              "==",
-                                              "<",
-                                              "<=",
-                                              ">",
-                                              ">="
-                                            ]
-                                          }
+                                        "path": {
+                                          "____accept": "jsString"
                                         }
                                       }
                                     }
@@ -1306,11 +1258,59 @@
                           "outputFilterSpec": {
                             "____accept": "jsBoolean"
                           },
-                          "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
-                          "inputTypeVDID": "uXfDAJlX200_coTaw1pLtg",
-                          "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
+                          "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
+                          "inputTypeVDID": "IqY0aMK0bZrZvoSd7_w3IQ",
+                          "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "l5iBRNf6zpMr3-CcKjAWcg"
+                          "operationVDID": "vqWEROJwL5P3HeKc3FBvcg"
+                        }
+                      },
+                      "0JIva4IFSm6Xm7i38g8uUA": {
+                        "filterDescriptor": {
+                          "operationID": "0JIva4IFSm6Xm7i38g8uUA",
+                          "operationName": "OR Transition Expression Operator",
+                          "operationDescription": "Returns Boolean true iff any suboperations return true.",
+                          "inputFilterSpec": {
+                            "____label": "OR Transition Expression Operator Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "or": {
+                                "____types": "jsArray",
+                                "operandOperatorVariant": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
+                          "inputTypeVDID": "0Xe392MJsGr0KO6YF3c80A",
+                          "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "4ImARIUqM5NmuBqcOBs-cg"
                         }
                       },
                       "AODn0L3GQLK_21Msl1W8-g": {

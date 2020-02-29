@@ -146,10 +146,18 @@ const factoryResponse = arccore.filter.create({
             case "APM":
             case "TOP":
             case "ACT":
-                response.result = artifact._private.digraph.outEdges(`INDEX_${request_.type}`)
-                    .map((edge_) => { return artifact._private.digraph.getVertexProperty(edge_.v).artifact; })
-                    .sort((a_, b_) => { (a_.getName() < b_.getName())?-1:(a_.getName() > b_.getName())?1:0; });
-
+                let outEdges = artifact._private.digraph.outEdges(`INDEX_${request_.type}`);
+                let adjacentVertices = outEdges.map((edge_) => { return edge_.v; });
+                let adjacentArtifacts = adjacentVertices.map((vertexID_) => {
+                    let props = artifact._private.digraph.getVertexProperty(vertexID_);
+                    return props.artifact;
+                });
+                adjacentArtifacts.sort((a_, b_) => {
+                    const aName = a_.getName();
+                    const bName = b_.getName();
+                    return (aName < bName)?-1:(aName > bName)?1:0;
+                });
+                response.result = adjacentArtifacts;
                 break;
             default:
                 errors.push(`Value of '${request_.type}' specified for ~.type is invalid. Must be undefined, CM, APM, TOP, or ACT.`);
