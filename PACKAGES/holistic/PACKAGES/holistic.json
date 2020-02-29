@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "Holistic app platform: A system of runtime libraries, tools, and developer process for building Node.js services and stateful HTML5 applications with React and re-usable, testable, composable, remixable plug-and-play software models.",
-    "version": "0.1.00",
-    "codename": "alertbay",
+    "version": "0.0.38",
+    "codename": "calvert-rc1",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "QKxl-8v7QduLEbr5eUHbpg",
-    "buildSource": "a5db382b7397a389754d65851e6714a3886eccb8",
-    "buildTime": 1583010505,
-    "buildDateISO": "2020-02-29T21:08:25.000Z"
+    "buildID": "M6jjnZWVQR-SHRoYxaFdhQ",
+    "buildSource": "a5381cbb57f2cb680ef34879fdf8b4113c62be1b",
+    "buildTime": 1583010895,
+    "buildDateISO": "2020-02-29T21:14:55.000Z"
 }
