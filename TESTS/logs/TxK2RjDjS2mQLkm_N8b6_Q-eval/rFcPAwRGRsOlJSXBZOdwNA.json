@@ -533,7 +533,7 @@
                       "filterDescriptor": {
                         "operationID": "Uv2sAs4kf6nGZS4sZ_43Hg",
                         "operationName": "Discriminator Filter",
-                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                         "inputTypeVIID": "zzojZTPF8W9-vTIlue16Gw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                         "outputTypeVIID": "1_O-kpoC7d6TCQWgdW5VzA",
@@ -557,7 +557,7 @@
                         "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
                       ],
                       "options": {
-                        "action": "routeRequest"
+                        "action": "getFilter"
                       }
                     },
                     "transitionDispatcherFilterMap": {
@@ -1641,7 +1641,7 @@
                                               "filterDescriptor": {
                                                 "operationID": "Uv2sAs4kf6nGZS4sZ_43Hg",
                                                 "operationName": "Discriminator Filter",
-                                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                                 "inputTypeVIID": "zzojZTPF8W9-vTIlue16Gw",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                                 "outputTypeVIID": "1_O-kpoC7d6TCQWgdW5VzA",
@@ -1665,7 +1665,7 @@
                                                 "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
                                               ],
                                               "options": {
-                                                "action": "routeRequest"
+                                                "action": "getFilter"
                                               }
                                             }
                                           },

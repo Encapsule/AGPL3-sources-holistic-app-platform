@@ -675,7 +675,8 @@
                                           }
                                         },
                                         "response": {
-                                          "error": "No TransitionOperator class instances registered!"
+                                          "error": "TransitionOperator request rejected by MDR phase 1 discriminator. Bad request format; this request cannot be processed by any of the TransitionOperator's registered.",
+                                          "result": "No TransitionOperator class instances registered!"
                                         }
                                       }
                                     ],

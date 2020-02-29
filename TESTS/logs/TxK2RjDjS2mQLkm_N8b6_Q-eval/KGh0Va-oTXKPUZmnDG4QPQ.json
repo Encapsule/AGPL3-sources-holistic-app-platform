@@ -533,7 +533,7 @@
                       "filterDescriptor": {
                         "operationID": "Uv2sAs4kf6nGZS4sZ_43Hg",
                         "operationName": "Discriminator Filter",
-                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                         "inputTypeVIID": "zzojZTPF8W9-vTIlue16Gw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                         "outputTypeVIID": "1_O-kpoC7d6TCQWgdW5VzA",
@@ -557,7 +557,7 @@
                         "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
                       ],
                       "options": {
-                        "action": "routeRequest"
+                        "action": "getFilter"
                       }
                     },
                     "transitionDispatcherFilterMap": {
@@ -1641,7 +1641,7 @@
                                               "filterDescriptor": {
                                                 "operationID": "Uv2sAs4kf6nGZS4sZ_43Hg",
                                                 "operationName": "Discriminator Filter",
-                                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                                 "inputTypeVIID": "zzojZTPF8W9-vTIlue16Gw",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                                 "outputTypeVIID": "1_O-kpoC7d6TCQWgdW5VzA",
@@ -1665,7 +1665,7 @@
                                                 "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
                                               ],
                                               "options": {
-                                                "action": "routeRequest"
+                                                "action": "getFilter"
                                               }
                                             }
                                           },
@@ -1674,7 +1674,7 @@
                                           }
                                         },
                                         "response": {
-                                          "error": "Filter [Uv2sAs4kf6nGZS4sZ_43Hg::Discriminator Filter] failed while performing main operation. Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
+                                          "error": "TransitionOperator request rejected by MDR phase 2 router. The selected TransitionOperator filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] rejected the request with error: Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
                                         }
                                       }
                                     ],

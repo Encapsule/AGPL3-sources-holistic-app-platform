@@ -55,7 +55,7 @@
                             "type": "APM",
                             "artifact": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "Q17NXcwn8ttcqDphEbPtFg",
+                              "vdid": "wMdKGGmfJUznN092sBj2xw",
                               "name": "Holistic Client App Runtime Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "process": {
@@ -111,9 +111,11 @@
                                               "cm": {
                                                 "actions": {
                                                   "cell": {
-                                                    "create": {
-                                                      "apmBindingPath": "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor",
-                                                      "ocdInitData": {}
+                                                    "process": {
+                                                      "create": {
+                                                        "apmBindingPath": "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor",
+                                                        "ocdInitData": {}
+                                                      }
                                                     }
                                                   }
                                                 }
@@ -22195,7 +22197,7 @@
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "Q17NXcwn8ttcqDphEbPtFg",
+                          "vdid": "wMdKGGmfJUznN092sBj2xw",
                           "name": "Holistic Client App Runtime Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                           "process": {
@@ -22251,9 +22253,11 @@
                                           "cm": {
                                             "actions": {
                                               "cell": {
-                                                "create": {
-                                                  "apmBindingPath": "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor",
-                                                  "ocdInitData": {}
+                                                "process": {
+                                                  "create": {
+                                                    "apmBindingPath": "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor",
+                                                    "ocdInitData": {}
+                                                  }
                                                 }
                                               }
                                             }
@@ -22612,13 +22616,13 @@
                         "type": "INDEX",
                         "ENENGxq1TkCa6Sk9YXaLlw": {
                           "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                          "vdid": "nfTsivZ_0ekJpBaleM33UA",
+                          "vdid": "hoWh0beDOirIOvukvyy0yA",
                           "name": "Holistic App Client Runtime",
                           "description": "Holistic client application core runtime.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "Q17NXcwn8ttcqDphEbPtFg",
+                            "vdid": "wMdKGGmfJUznN092sBj2xw",
                             "name": "Holistic Client App Runtime Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"

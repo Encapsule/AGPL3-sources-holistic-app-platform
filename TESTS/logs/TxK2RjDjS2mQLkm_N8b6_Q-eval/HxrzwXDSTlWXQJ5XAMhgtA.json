@@ -539,7 +539,7 @@
                       "filterDescriptor": {
                         "operationID": "CMvz9x30nfjuykt8A93fQA",
                         "operationName": "Discriminator Filter",
-                        "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                        "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                         "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                         "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
@@ -561,7 +561,7 @@
                         "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
                       ],
                       "options": {
-                        "action": "routeRequest"
+                        "action": "getFilter"
                       }
                     },
                     "transitionDispatcherFilterMap": {
@@ -1655,7 +1655,7 @@
                                               "filterDescriptor": {
                                                 "operationID": "CMvz9x30nfjuykt8A93fQA",
                                                 "operationName": "Discriminator Filter",
-                                                "operationDescription": "Routes the request to one of N subfilters based on request signature analysis.",
+                                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
                                                 "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                                                 "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
@@ -1677,7 +1677,7 @@
                                                 "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
                                               ],
                                               "options": {
-                                                "action": "routeRequest"
+                                                "action": "getFilter"
                                               }
                                             }
                                           },
@@ -1698,7 +1698,7 @@
                                           "noneSuchControllerAction": true
                                         },
                                         "response": {
-                                          "error": "Error dispatching controller action filter. Skipping any further evaluation. Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins."
+                                          "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
                                         }
                                       }
                                     ],
