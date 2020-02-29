@@ -7,8 +7,8 @@ module.exports = {
     packageType: "library",
     packageEnvironments: [ "node" ],
     packageManifestOverrides: {
-        description: "This package contains the ObservableProcessController (OPC), ObservableProcessModel (OPM), ObservableControllerData (OCD), TransitionOperator (TOP), and ControllerAction (ACT) ES6 classes that are used to define and execute hierarchical asynchronous system models. Used to build complex reactive data-driven UX. And, back-end process orchestration data workflows.",
-        keywords: [ "Encapsule", "holistic", "holarchy", "holarchy-sml", "software model", "software library", "SML", "reuse", "re-use", "ObservableProcessController", "ObservableProcessModel", "ObservableControllerData", "TransitionOperator", "ControllerAction" ],
+        description: "Cellular process modeling and runtime engine for Node.js and browser.",
+        keywords: [ "Encapsule", "holistic", "holarchy", "CellModel", "CellProcessor", "streaming", "filtering", "mind-fuck" ],
         license: "MIT",
         main: "index.js",
         peerDependencies: {
