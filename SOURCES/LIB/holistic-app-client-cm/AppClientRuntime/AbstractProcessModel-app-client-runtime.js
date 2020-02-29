@@ -68,7 +68,7 @@ module.exports = {
             description: "Start core client app kernel subsystems.",
             actions: {
                 enter: [
-                    // { holistic: { app: { client: { runtime: { private: { actions: { startKernel: true } } } } } } }
+                    { holarchy: { cm: { actions: { cell: { process: { create: { apmBindingPath: "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor", ocdInitData: {} } } } } } } }
                 ]
             },
             transitions: [
