@@ -56,7 +56,7 @@ module.exports = {
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.actionRequest.holistic.client.cm.HolisticAppRuntime.actions.subprocessCreate;
+            const message = request_.actionRequest.holarchy.cm.actions.cell.process.create;
 
             const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 dataPath: message.apmBindingPath,
@@ -71,23 +71,25 @@ module.exports = {
 
             let ocdResponse = request_.context.ocdi.getNamespaceSpec(targetProcessPath);
             if (ocdResponse.error) {
-                errors.push("Target APM binding address does not exist in the OCD filter spec.");
+                errors.push(`Cannot create a new cell process at APM binding path '${targetProcessPath}' because we cannot access this namespace's definition in the OCD runtime filter spec.`);
                 errors.push(ocdResponse.error);
                 break;
             }
 
             let targetProcessNamespaceSpec = ocdResponse.result;
-            if (!targetProcessNamespaceSpec.____types ||
-                !(targetProcessNamespaceSpec.____types === "jsObject") ||
-                !targetProcessNamespaceSpec.____appdsl ||
-                !targetProcessNamespaceSpec.____appdsl.apm
-               ) {
-                errors.push("Target APM binding address specifies an OCD namespace that has no APM binding annotation in its filter spec.");
+
+            // Here we rely on OPC to ensure the APM binding in the runtime filter spec appdsl annotations
+            // means that the target is a cell without requiring any further redundant inspection of the
+            // namespace filter spec declaration (this is OPC's job).
+
+            if (!targetProcessNamespaceSpec.____appdsl || !targetProcessNamespaceSpec.____appdsl.apm) {
+                errors.push(`Cannot create a new cell process at APM binding path '${targetProcessPath}' because this namespace was not declared with an APM binding identifier.`);
                 break;
             }
 
             ocdResponse = request_.context.ocdi.writeNamespace(targetProcessPath, message.ocdInitData);
             if (ocdResponse.error) {
+                errors.push(`Cannot create a new cell process at APM binding path '${targetProcessPath}' due to error writing into the OCD namepsace:`);
                 error.push(ocdResponse.error);
             }
 

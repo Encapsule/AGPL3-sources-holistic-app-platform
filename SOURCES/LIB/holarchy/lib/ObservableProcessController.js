@@ -176,6 +176,7 @@ class ObservableProcessController {
                     break;
                 }
 
+                // TODO: Turn this into an actual method filter; this implementation uses two filters when one is sufficient?
                 let filterResponse = actInputFilter.request(request_);
                 if (filterResponse.error) {
                     errors.push("Bad request:");
@@ -213,7 +214,14 @@ class ObservableProcessController {
                     opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                            evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "body",
-                    message: `Task: ${request.actorTaskDescription}`
+                    message: `ACTOR: ${request.actorName}`
+                });
+
+                logger.request({
+                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
+                           evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
+                    subsystem: "opc", method: "act", phase: "body",
+                    message: `WANTS TO: ${request.actorTaskDescription}`
                 });
 
                 // Dispatch the action on behalf of the actor.
@@ -223,7 +231,7 @@ class ObservableProcessController {
                     actionResponse = this._private.actionDispatcher.request(controllerActionRequest);
                     if (actionResponse.error) {
                         actionResponse = {
-                            error: "Unrecognized controller action request format. Check message data syntax against registered ControllerAction plug-ins.",
+                            error: "ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered.",
                             result: actionResponse.error
                         };
                     } else {
@@ -233,13 +241,13 @@ class ObservableProcessController {
                             opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                                    evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                             subsystem: "opc", method: "act", phase: "body",
-                            message: `Dispatching action filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]...`
+                            message: `Dispatching ControllerAction filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]...`
                         });
 
                         actionResponse = actionFilter.request(controllerActionRequest);
                         if (actionResponse.error) {
                             actionResponse = {
-                                error: `It looks like this action request was intended for [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]. But, the controller action plug-in rejected the request.`,
+                                error: `ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}] rejected the request with error: ${actionResponse.error}`,
                                 result: actionResponse.error
                             };
                         }
@@ -279,7 +287,7 @@ class ObservableProcessController {
                         opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                                evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                         subsystem: "opc", method: "act", phase: "body",
-                        message: "SEQUENCE..."
+                        message: "WAITING ON CELLS..."
                     });
 
                     // Evaluate is an actor too. It adds itself to the OPC actor stack.
@@ -316,7 +324,7 @@ class ObservableProcessController {
                 opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
                        evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
                 subsystem: "opc", method: "act", phase: "epilogue",
-                message: `COMPLETE in ${timings.totalMilliseconds} ms`
+                message: `ACTION COMPLETE in ${timings.totalMilliseconds} ms`
             });
 
         } else {

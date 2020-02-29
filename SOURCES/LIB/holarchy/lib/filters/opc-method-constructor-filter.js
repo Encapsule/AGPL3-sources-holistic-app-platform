@@ -351,7 +351,7 @@ const factoryResponse = arccore.filter.create({
                     // add another layer of detail to the evaluation algorithm. (we would like to know the ID of the
                     // transition operator filters that are called and we otherwise do not know this because it's
                     // not encoded obviously in a transition operator's request.
-                    options: { action: "routeRequest" }, // TODO: consider flipping this to getFilter and caching the entries in the APM instance?
+                    options: { action: "getFilter" },
                     filters: transitionOperatorFilters
                 });
                 if (filterResponse.error) {

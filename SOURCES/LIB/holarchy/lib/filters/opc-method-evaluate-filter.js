@@ -365,6 +365,20 @@ const factoryResponse = arccore.filter.create({
 
                         try {
                             transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
+                            if (transitionResponse.error) {
+                                transitionResponse = {
+                                    error: `TransitionOperator request rejected by MDR phase 1 discriminator. Bad request format; this request cannot be processed by any of the TransitionOperator's registered.`,
+                                    result: transitionResponse.error
+                                };
+                            } else {
+                                let topFilter = transitionResponse.result;
+                                transitionResponse = topFilter.request(operatorRequest);
+                                if (transitionResponse.error) {
+                                    transitionResponse = {
+                                        error: `TransitionOperator request rejected by MDR phase 2 router. The selected TransitionOperator filter [${topFilter.filterDescriptor.operationID}::${topFilter.filterDescriptor.operationName}] rejected the request with error: ${transitionResponse.error}`
+                                    };
+                                }
+                            }
                         } catch (topException_) {
                             transitionResponse = {
                                 error: `TransitionOperator threw an illegal exception that was handled by OPC: ${topException_.message}`
