@@ -28,6 +28,14 @@ const packageNameSplit = program.packageName.split("/");
 const packageOrg = packageNameSplit[0];
 const packageNameTerse = packageNameSplit[1];
 
+function sortObjectKeys(input_) {
+    let result = {};
+    Object.keys(input_).sort().forEach(function(key_) {
+	result[key_] = input_[key_];
+    });
+    return result;
+}
+
 // ================================================================
 // package.json generation
 
@@ -38,7 +46,8 @@ var manifest = {
     buildID: repoBuild.buildID,
     buildTime: repoBuild.buildTime,
     buildSource: repoBuild.buildSource,
-    
+    engines: { node: ">=12.16.1 <13" },
+
     repository: {
         type: "git",
         url: "git+https://github.com/Encapsule/holistic.git"
@@ -58,4 +67,4 @@ for (var key in packageData.packageManifestOverrides) {
 }
 
 // Serialize the manifest to stdout.
-console.log(JSON.stringify(manifest, undefined, 4));
+console.log(JSON.stringify(sortObjectKeys(manifest), undefined, 4));

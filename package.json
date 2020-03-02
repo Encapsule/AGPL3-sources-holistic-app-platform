@@ -1,7 +1,7 @@
 {
     "name": "holistic-master",
     "version": "0.0.38",
-    "codename": "calvert-rc1",
+    "codename": "calvert-rc2",
     "description": "Holistic app platform: A system of runtime libraries, tools, and developer process for building Node.js services and stateful HTML5 applications with React and re-usable, testable, composable, remixable plug-and-play software models.",
     "author": "Encapsule",
     "contributors": [
@@ -11,6 +11,9 @@
             "url": "https://github.com/ChrisRus"
         }
     ],
+    "engines": {
+        "node": ">=12.16.1 <13"
+    },
     "license": "AGPLv3",
     "private": true,
     "devDependencies": {
