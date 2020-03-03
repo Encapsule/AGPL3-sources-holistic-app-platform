@@ -70,7 +70,12 @@ const factoryResponse = arccore.filter.create({
                 const testSet = request_.testRequestSets[setNumber];
                 // Inner set of test vectors...
                 for (let testNumber = 0 ; testNumber < testSet.length ; testNumber++) {
-                    const testRequest = testSet[testNumber];
+                    const testRequest = {
+                        ...testSet[testNumber],
+                        harnessDispatcher: harnessDispatcher,
+                        harnessRunner: holisticTestRunner,
+                        logsRootDir: request_.logsRootDir
+                    };
 
                     // Process runner options vector exclusions.
                     if (request_.testRunnerOptions.onlyExecuteVectors /*null by default or array if true*/) {
@@ -111,6 +116,12 @@ const factoryResponse = arccore.filter.create({
                     // without having to specifiy and maintain very fine-grained analysis scripts, and large
                     // amounts of hand-maintained "expected results" data.
                     const testEvalDescriptor = {};
+
+                    // Delete non-idempotent and not really interesting information from the request sent to the holodeck harness proxy.
+                    delete testRequest.harnessDispatcher;
+                    delete testRequest.harnessRunner;
+                    delete testRequest.logsRootDir;
+
                     testEvalDescriptor[idHolodeckRunnerEvalReport] = {};
                     const harnessFilterId = harnessFilter?harnessFilter.filterDescriptor.operationID:"000000000000000000";
                     testEvalDescriptor[idHolodeckRunnerEvalReport][harnessFilterId] = {};
