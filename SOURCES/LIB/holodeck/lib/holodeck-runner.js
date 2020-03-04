@@ -149,16 +149,17 @@ const factoryResponse = arccore.filter.create({
 
                     // See discussion on git diff: https://github.com/git/git/blob/master/Documentation/diff-format.txt
 
-                    const diffCommand = `git diff -p --unified=${gitDiffUnified} --numstat --dirstat=lines --word-diff=plain ${harnessEvalFilename}`;
+                    const diffCommand = `git diff -p --unified=${gitDiffUnified} --numstat --dirstat=lines --word-diff=plain ${harnessEvalFilename} > ${harnessEvalDiffFilename}`;
                     // console.log("$ " + diffCommand);
 
-                    const gitDiffResponse = helpers.syncExec({
+                    const gitDiffResponse = helpers.syncExecKeepConsole({
                         command: diffCommand,
                         cwd: helpers.getLogEvalDir(request_.logsRootDir, request_.id)
                     });
 
+                    gitDiffResponse = fs.readFileSync(harnessEvalDiffFilename).toString("utf8");
+
                     if (gitDiffResponse.length) {
-                        fs.writeFileSync(harnessEvalDiffFilename, `${gitDiffResponse}\n`);
 
                         const gitDiffResponseLines = gitDiffResponse.split("\n");
 
@@ -243,6 +244,8 @@ const runnerFascade = { // fake filter
         const analysis = {};
 
         if (!runnerResponse.error) {
+            console.log("..... runner returned a response.result. Analyzing...");
+
             const resultPayload = runnerResponse.result[idHolodeckRunner];
             console.log(`Runner '${runnerRequest_.id}' summary:`);
 
@@ -267,17 +270,16 @@ const runnerFascade = { // fake filter
             return runnerResponse;
         }
 
-        console.log("..... runner returned a response result. Analyzing...");
+        const runnerEvalLogsDir = helpers.getLogEvalDir(runnerRequest_.logsRootDir, runnerRequest_.id);
+        const runnerInducedGitDiffsFilename = helpers.getRunnerInducedGitDiffsFilename(runnerRequest_.logsRootDir, runnerRequest_.id);
 
         const gitDiffTreeResponse = helpers.syncExec({
-            command: `git diff --unified=0 ${helpers.getLogEvalDir(runnerRequest_.logsRootDir, runnerRequest_.id)}`,
-            cwd: helpers.getLogEvalDir(runnerRequest_.logsRootDir, runnerRequest_.id)
+            command: `git diff --unified=0 ${runnerEvalLogsDir} > ${runnerInducedGitDiffsFilename}`,
+            cwd: runnerEvalLogsDir
         });
 
-        const gitDiffTreeOutput = (gitDiffTreeResponse && gitDiffTreeResponse.length)?gitDiffTreeResponse.split("\n"):null;
 
         fs.writeFileSync(helpers.getRunnerEvalSummaryFilename(runnerRequest_.logsRootDir, runnerRequest_.id), `${JSON.stringify(analysis, undefined, 2)}\n`);
-        fs.writeFileSync(helpers.getRunnerInducedGitDiffsFilename(runnerRequest_.logsRootDir, runnerRequest_.id), `${JSON.stringify(gitDiffTreeOutput, undefined, 2)}\n`);
         fs.writeFileSync(helpers.getRunnerResponseFilename(runnerRequest_.logsRootDir, runnerRequest_.id), `${JSON.stringify(runnerResponse, undefined, 2)}\n`);
 
         return runnerResponse;
