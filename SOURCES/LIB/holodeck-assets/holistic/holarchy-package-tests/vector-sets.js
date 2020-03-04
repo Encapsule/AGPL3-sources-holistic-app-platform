@@ -11,8 +11,8 @@ module.exports = [
     require("./vector-set-opc-evaluate-p2-exit-actions"),
     require("./vector-set-opc-evaluate-p3-enter-actions"),
 
-    // Low-level ObservableProcessModel ES6 class tests.
-    require("./vector-set-opm-constructor"),
+    // Low-level AbstractProcessModel ES6 class tests.
+    require("./vector-set-apm-constructor"),
 
     // Low-level ControllerAction ES6 class tests.
     require("./vector-set-act-constructor"),
@@ -20,7 +20,13 @@ module.exports = [
     // Low-level TransitionOperator ES6 class tests.
     require("./vector-set-top-constructor"),
 
-    require("./vector-set-scm-constructor"),
-    require("./vector-set-scp-constructor")
+    // Low-level CellModel ES6 class tests.
+    require("./vector-set-cm-constructor"),
+
+    // Low-level CellProcessor ES6 class tests.
+    require("./vector-set-cp-constructor")
+
+    // TOOD: Add harness and vector set for ObservableControllerData
+    // Probably end up renaming to ObservableCellData to keep OCD acronym.
 
 ];

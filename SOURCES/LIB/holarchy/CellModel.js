@@ -59,7 +59,17 @@ module.exports = class CellModel {
 
     // If isValid then serializable object. Otherwise, constructor error string.
     toJSON() {
-        return (this.isValid()?this._private:this._private.constructorError);
+        if (!this.isValid()) {
+            return this._private.constructorError;
+        }
+        const response = {
+            id: this.getID(),
+            vdid: this.getVDID(),
+            name: this.getName(),
+            description: this.getDescription(),
+            cmat: this.getCMConfig({ type: "CMAT" })
+        };
+        return (response);
     }
 
     // If isValid() then IRUT string. Otherwise, constructor error string.

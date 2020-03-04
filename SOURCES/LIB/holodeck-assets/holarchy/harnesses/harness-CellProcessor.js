@@ -40,11 +40,18 @@ const factoryResponse = holodeck.harnessFactory.request({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
             const messageBody = vectorRequest_.vectorRequest.holistic.holarchy.CellProcessor;
-            const scpInstance = (messageBody.constructorRequest instanceof holarchy.CellProcessor)?messageBody.constructorRequest:new holarchy.CellProcessor(messageBody.constructorRequest);
+            const cpInstance = (messageBody.constructorRequest instanceof holarchy.CellProcessor)?messageBody.constructorRequest:new holarchy.CellProcessor(messageBody.constructorRequest);
+
+            
+
+
+
+
             response.result = {
-                isValid: scpInstance.isValid(),
-                toJSON: scpInstance.toJSON()
+                isValid: cpInstance.isValid(),
+                toJSON: cpInstance.toJSON()
             };
             break;
         }

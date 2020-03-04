@@ -33,7 +33,7 @@ const factoryResponse = arccore.filter.create({
             ____accept: "jsString"
         },
 
-        cellModel: {
+        cellmodel: {
             ____label: "App/Service Cell Model",
             ____description: "Either a CM descriptor or equivalent CellModel ES6 class instance.",
             ____accept: "jsObject" // further processed in bodyFunction
@@ -55,14 +55,14 @@ const factoryResponse = arccore.filter.create({
         while(!inBreakScope) {
             inBreakScope = true;
 
-            const cellModel = (request_.cellModel instanceof CellModel)?request_.cellModel:new CellModel(request_.cellModel);
-            if (!cellModel.isValid()) {
-                errors.push("Invalid CellModel specified for constructor request path ~.cellModel:");
-                errors.push(cellModel.toJSON());
+            const cellmodel = (request_.cellmodel instanceof CellModel)?request_.cellmodel:new CellModel(request_.cellmodel);
+            if (!cellmodel.isValid()) {
+                errors.push("Invalid CellModel specified for constructor request path ~.cellmodel:");
+                errors.push(cellmodel.toJSON());
                 break;
             }
 
-            let configResponse = cellModel.getCMConfig({ type: "APM" });
+            let configResponse = cellmodel.getCMConfig({ type: "APM" });
             if (configResponse.error) {
                 errors.push("Unexpected internal error querying APM configuration of specified CellModel. Please report this error:");
                 errors.push(configResponse.error);
@@ -71,7 +71,7 @@ const factoryResponse = arccore.filter.create({
 
             let apmVariantFilterSpec = {
                 ____label: "Cell Variant Descriptor",
-                ____description: `Defines a single descriptor object that defines optional subnames for all registered APM's registered in CM [${cellModel.getID()}::${cellModel.getName()}].`,
+                ____description: `Defines a single descriptor object that defines optional subnames for all registered APM's registered in CM [${cellmodel.getID()}::${cellmodel.getName()}].`,
                 ____types: "jsObject",
                 ____defaultValue: {}
             };
@@ -94,15 +94,108 @@ const factoryResponse = arccore.filter.create({
                 };
             }
 
+            const cellProcessDigraphName = `[$cellmodel.getID()}::${cellmodel.getName()}] Cell Process Digraph`;
 
-            response.result = apmVariantFilterSpec;
+            const cellProcessDigraphDescriptorSpec = {
+                ____label: cellProcessDigraphName,
+                ____description: "Observable digraph tracking parent/child relationships across cellular processes.",
+                ____types: "jsObject",
+                ____defaultValue: {},
 
+                name: {
+                    ____label: "App/Service Name",
+                    ____accept: "jsString",
+                    ____defaultValue: cellProcessDigraphName
+                },
+                description: {
+                    ____label: "App/Service Description",
+                    ____accept: "jsString",
+                    ____defaultValue: "No description specified."
+                },
 
+                vlist: {
+                    ____label: "Process List",
+                    ____description: "An array of @encapsule/arccore.graph DirectedGraph vertex descriptor objects.",
+                    ____types: "jsArray",
+                    ____defaultValue: [],
+                    cellProcessDescriptor: {
+                        ____label: "Cell Process Descriptor",
+                        ____types: "jsObject",
+                        u: {
+                            ____label: "Cell Process ID",
+                            ____description: "The unique IRUT ID of the cell process.",
+                            ____accept: "jsString"
+                        },
+                        p: {
+                            ____label: "Cell Process Properties Descriptor",
+                            ____description: "Describes various facets of a cellular process instance.",
+                            ____types: "jsObject",
+                            cellProcess: apmVariantFilterSpec // the actual proces runtime memory runtime bound to an APM
+                        }
+                    }
+                },
 
+                elist: {
+                    ____label: "Process Relationships",
+                    ____description: "An array of parent/child process/sub-process relationships.",
+                    ____types: "jsArray",
+                    ____defaultValue: [],
+                    cellProcessRelationshipDescriptor: {
+                        ____label: "Cell Process Relationship Descriptor",
+                        ____description: "Tracks a specified parent cell process to child cell process relationship.",
+                        ____types: "jsObject",
+                        e: {
+                            ____label: "Process ID Pair",
+                            ____description: "A pair of cell process ID's where u is the parent and v is child cell process.",
+                            ____types: "jsObject",
+                            u: {
+                                ____label: "Parent Cell Process ID",
+                                ____description: "The unique IRUT ID of the parent cell process.",
+                                ____accept: "jsString"
+                            },
+                            v: {
+                                ____label: "Child Cell Process ID",
+                                ____description:" The unique IRUT ID of the child cell process.",
+                                ____accept: "jsString"
+                            }
+                        },
+                        p: {
+                            ____label: "Relationship Metadata",
+                            ____description: "A currently unused edge property.",
+                            ____types: "jsObject",
+                            ____defaultValue: {}
+                        }
+                    }
+                }
 
+            };
 
+            const mcpID = arccore.identifier.irut.fromReference("Cell Process CellModel" + request_.id).result;
+            const mcpAPMID = arccore.identifier.irut.fromReference("Cell Process AbstractProcessModel" + request_.id).result;
 
+            const MCP = new CellModel({
+                id: mcpID,
+                name: request_.name,
+                description: request_.description,
+
+                apm: {
+                    id: mcpAPMID,
+                    name: "Master Cell Process (MCP)",
+                    description: "Manages aynchronous cellular processes executing within a CellProcessor instance.",
+                    ocdDataSpec: cellProcessDigraphDescriptorSpec
+                },
+                subcells: [ cellmodel ]
+            });
+
+            if (!MCP.isValid()) {
+                errors.push("Unable to contruct the MasterCellProcess CellModel due to error:");
+                errors.push(MCP.toJSON());
+                break;
+            }
+
+            response.result = MCP;
             break;
+
         }
         if (errors.length) {
             errors.unshift("Cannot construct CellProcessor due to error:");

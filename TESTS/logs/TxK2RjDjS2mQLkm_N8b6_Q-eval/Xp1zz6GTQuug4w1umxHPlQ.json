@@ -58,7 +58,7 @@
                         "type": "INDEX",
                         "Xp1zz6GTQuug4w1umxHPlQ": {
                           "id": "Xp1zz6GTQuug4w1umxHPlQ",
-                          "vdid": "HZb9kJsQO5yaDUvTvWX8YA",
+                          "vdid": "qXTO-ucg1tTMyJB7BPMj6w",
                           "name": "CellModel Constructor Error #2",
                           "description": "Construct CellModel w/bad APM registration to test error handling. Should fail.",
                           "type": "CM"

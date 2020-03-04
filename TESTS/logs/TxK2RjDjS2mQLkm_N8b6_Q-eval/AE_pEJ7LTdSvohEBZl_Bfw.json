@@ -75,7 +75,7 @@
                         "type": "INDEX",
                         "AE_pEJ7LTdSvohEBZl_Bfw": {
                           "id": "AE_pEJ7LTdSvohEBZl_Bfw",
-                          "vdid": "92uJ7BmABplGH6VOg7RHZg",
+                          "vdid": "x-wOKiCD4KDNNZl626iLHA",
                           "name": "CellModel Constructor #3",
                           "description": "Try to construct a minimally configured CellModel with a single TransitionOperator plug-in.",
                           "type": "CM",

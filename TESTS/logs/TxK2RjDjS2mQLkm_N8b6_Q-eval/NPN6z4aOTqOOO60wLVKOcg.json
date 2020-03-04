@@ -1,0 +1,107 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "T-BP4MgzyDOa-pr65Zrlmg": {
+      "NPN6z4aOTqOOO60wLVKOcg": {
+        "harnessRequest": {
+          "id": "NPN6z4aOTqOOO60wLVKOcg",
+          "name": "CellProcessor Constructor #2",
+          "description": "A minamally-configured CellProcessor instance.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellProcessor": {
+                  "constructorRequest": {
+                    "id": "NPN6z4aOTqOOO60wLVKOcg",
+                    "name": "CellProcessor Constructor #2",
+                    "description": "A minamally-configured CellProcessor instance.",
+                    "cellmodel": {
+                      "id": "cJQGRL5sTSqk02JiEaM06g",
+                      "name": "Test CM",
+                      "description": "Test CellModel",
+                      "apm": {
+                        "id": "6OPnhgR9QWyEFaBpaZNb1A",
+                        "name": "Test CM APM",
+                        "description": "Test AbstractProcessModel",
+                        "ocdDataSpec": {
+                          "____label": "Test APM Root",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "testProperty": {
+                            "____label": "Test Property",
+                            "____accept": [
+                              "jsNull",
+                              "jsString"
+                            ],
+                            "____defaultValue": null
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "UBSclp3gSqCCmSvoG3W4tw": {
+                "NPN6z4aOTqOOO60wLVKOcg": {
+                  "isValid": true,
+                  "toJSON": {
+                    "id": "IJQglDq2OrbGhsaGbtRu1A",
+                    "vdid": "wrdir0YyuwtW4936BUvegA",
+                    "name": "CellProcessor Constructor #2",
+                    "description": "A minamally-configured CellProcessor instance.",
+                    "cmat": {
+                      "error": null,
+                      "result": {
+                        "INDEX_CM": {
+                          "type": "INDEX",
+                          "IJQglDq2OrbGhsaGbtRu1A": {
+                            "id": "IJQglDq2OrbGhsaGbtRu1A",
+                            "vdid": "wrdir0YyuwtW4936BUvegA",
+                            "name": "CellProcessor Constructor #2",
+                            "description": "A minamally-configured CellProcessor instance.",
+                            "type": "CM",
+                            "yGcR7lZWsQI7KGjccTNpvw": {
+                              "id": "yGcR7lZWsQI7KGjccTNpvw",
+                              "vdid": "xKVXEB16Tlm_KININ4NmfQ",
+                              "name": "Master Cell Process (MCP)",
+                              "description": "Manages aynchronous cellular processes executing within a CellProcessor instance.",
+                              "type": "APM"
+                            },
+                            "cJQGRL5sTSqk02JiEaM06g": {
+                              "id": "cJQGRL5sTSqk02JiEaM06g",
+                              "vdid": "DOPqQtXbViK9cNXI6Tu7Pw",
+                              "name": "Test CM",
+                              "description": "Test CellModel",
+                              "type": "CM",
+                              "6OPnhgR9QWyEFaBpaZNb1A": {
+                                "id": "6OPnhgR9QWyEFaBpaZNb1A",
+                                "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
+                                "name": "Test CM APM",
+                                "description": "Test AbstractProcessModel",
+                                "type": "APM"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
