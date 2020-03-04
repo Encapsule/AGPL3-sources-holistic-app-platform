@@ -4,7 +4,7 @@
 
 Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.
 
-# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.0.38 calvert-rc4
+# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.0.39 petrinets-test
 
 ## &#x25F0; Runtime library: @encapsule/holism-services
 
@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 This package contains re-usable service filter plug-ins for use with the @encapsule/holism app server package.
 
 ```
-Package: @encapsule/holism-services v0.0.38 "calvert-rc4" build ID "xVMelTFpRSmMS7faXh6MWQ"
-Sources: Encapsule/holistic-master#9aeb4b84798f9e67c9e6513e6890fa354a4fb6db
-Created: 2020-03-02T23:03:21.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/holism-services v0.0.39 "petrinets-test" build ID "SIrYERB8Q0qmpsqBT6CphA"
+Sources: Encapsule/holistic-master#d78b43e258380adfb596c6f3255f09ac0767b0a7
+Created: 2020-03-04T17:35:59.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
