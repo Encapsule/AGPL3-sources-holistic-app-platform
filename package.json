@@ -12,7 +12,8 @@
         }
     ],
     "engines": {
-        "node": ">=12.16.1 <13"
+        "node": ">=12.16.1 <13",
+        "yarn": "1.22.0"
     },
     "license": "AGPLv3",
     "private": true,
