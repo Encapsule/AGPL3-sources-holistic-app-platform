@@ -46,7 +46,7 @@ var manifest = {
     buildID: repoBuild.buildID,
     buildTime: repoBuild.buildTime,
     buildSource: repoBuild.buildSource,
-    engines: { node: ">=12.16.1 <13" },
+    engines: { node: ">=12.16.1 <13", yarn: "1.22.0" },
 
     repository: {
         type: "git",

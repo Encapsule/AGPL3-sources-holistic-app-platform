@@ -204,11 +204,20 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     markdown.push("- [GNU Make](https://www.gnu.org/software/make/)");
     markdown.push("- [git](https://git-scm.com/)");
-    markdown.push("- [Node.js](https://nodejs.org)");
-    markdown.push("- [yarn](https://yarnpkg.com) (depends on Node.js)");
+    markdown.push("- [Node.js](https://nodejs.org) - **WE ARE CURRENTLY STANDARDIZED ON NODE v12.16.1 LTS**");
+    markdown.push("- [yarn](https://yarnpkg.com) (depends on Node.js) - **WE ARE CURRENTLY STANDARDIZED ON YARN v1.22.0**");
 
-    markdown.push("Most of you will likely already have all of these tool installed.");
-    markdown.push("If not, then they are readily available for all major platforms at the links above.");
+    markdown.push("```shell");
+    markdown.push("root@holarchy:~# node --version");
+    markdown.push("v12.16.1");
+    markdown.push("root@holarchy:~# npm --version");
+    markdown.push("6.14.2");
+    markdown.push("root@holarchy:~# yarn --version");
+    markdown.push("1.22.0");
+    markdown.push("```");
+
+    markdown.push("**IMPORTANT**");
+    markdown.push("Once you have configured these baseline tools dependencies, then all other concerns related to tools and libraries dependencies are managed directly or indirectly under developer control via `appgen`.");
 
     markdown.push("### Clone");
     markdown.push("Execute `git clone` to obtain a copy of the @encapsule/holistic package repo from [@Encapsule](https://github.com/Encapsule) GitHub organization.");
