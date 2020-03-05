@@ -33,14 +33,6 @@ const factoryResponse = holodeck.harnessFactory.request({
                 "jsObject" // valid instance data
             ]
         },
-        /*
-        toJSON: {
-            ____accept: [
-                "jsString", // invalid instance constructor error
-                "jsObject",  // valid instance data
-            ]
-        },
-        */
         opcConfig: {
             ____accept: [ "jsString", "jsObject" ]
         },
@@ -73,6 +65,8 @@ const factoryResponse = holodeck.harnessFactory.request({
                 };
 
             } // if cell.isValid()
+
+            
 
             response.result = {
                 isValid: cell.isValid(),

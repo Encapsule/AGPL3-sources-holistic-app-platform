@@ -1,5 +1,7 @@
 
 module.exports = {
+    ____label: "Holodeck Runner Output Spec",
+    ____description: "Defined the output format for a @encapsule/holodeck runner filter response.result.",
     ____types: "jsObject",
     ____asMap: true,
     holodeckRunnerId: {
@@ -14,6 +16,12 @@ module.exports = {
                 errors: { ____types: "jsArray", evalIndex: { ____types: "jsString" } }
             },
             runnerEval: {
+                // TODO: These are placeholders for some TBD analysis stage to be added
+                // as a CI/CD quality gate. Minimally, this should check for diffs in
+                // idempotent function vector eval logs and reject the build. But, it
+                // could actually get quite a lot more sophisticated than that depending
+                // on project requirements. Anyway, manual inspection of diffs is holding
+                // up pretty well so far. And, this will be simpler to automate later.
                 ____types: "jsObject",
                 neutral: { ____types: "jsArray", evalIndex: { ____types: "jsString" } },
                 pass: {
@@ -42,7 +50,7 @@ module.exports = {
                         vectorId: {
                             ____types: "jsObject",
                             harnessRequest: {
-                                ____accept: "jsObject" // TODO: I think we rely on the harness dispatcher to discriminate this? Yea - I think that the harness factory provides strong gaurantees. Confirm, and remove this todo.
+                                ____accept: "jsObject" // This has already been filtered through the harness filter's output stage
                             },
                             harnessResponse: {
                                 ____types: "jsObject",

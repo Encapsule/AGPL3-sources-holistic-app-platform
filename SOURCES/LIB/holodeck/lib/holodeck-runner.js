@@ -1,3 +1,9 @@
+// holodeck-runner.js
+//
+// Holodeck runner is an arccore.filter whose request method executes a caller-defined sequence of
+// holodeck harness filter calls using a variant of the recursive Message-Discriminated-Routing
+// pattern (see: https://github.com/arcspace/dmr-hello-world).
+
 
 // good const gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --stat --numstat -p --dirstat=lines --word-diff=plain";
 const gitDiffCommand_testVectorEvalJSON = "git diff --word-diff=plain"; // --unified=<dynamic> better
