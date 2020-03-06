@@ -6,6 +6,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+// holodeck-runner.js
+//
+// Holodeck runner is an arccore.filter whose request method executes a caller-defined sequence of
+// holodeck harness filter calls using a variant of the recursive Message-Discriminated-Routing
+// pattern (see: https://github.com/arcspace/dmr-hello-world).
 // good const gitDiffCommand_testVectorEvalJSON = "git diff --unified=0 --stat --numstat -p --dirstat=lines --word-diff=plain";
 var gitDiffCommand_testVectorEvalJSON = "git diff --word-diff=plain"; // --unified=<dynamic> better
 
