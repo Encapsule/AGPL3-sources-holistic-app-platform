@@ -1,0 +1,46 @@
+{
+    "author": "Encapsule",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holistic/issues"
+    },
+    "buildID": "upHG_GkqQRWrYR-QyS3khQ",
+    "buildSource": "a2063f36211e4b1c02581257966a55cabfa13f8a",
+    "buildTime": 1583463927,
+    "codename": "hakai-rc6",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "description": "This package contains re-usable test runners, harnesses, and vectors for use in conjunction with @encapsule/holodeck test infrastructure package.",
+    "engines": {
+        "node": ">=12.16.1 <13",
+        "yarn": "1.22.0"
+    },
+    "homepage": "https://github.com/Encapsule",
+    "keywords": [
+        "Encapsule",
+        "holistic",
+        "holodeck",
+        "holodeck-assets",
+        "test",
+        "runner",
+        "harness",
+        "vector"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@encapsule/holodeck-assets",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.9",
+        "@encapsule/holodeck": "0.0.39",
+        "@encapsule/holarchy": "0.0.39"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holistic.git"
+    },
+    "version": "0.0.39"
+}

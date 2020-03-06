@@ -1,0 +1,38 @@
+{
+    "author": "Encapsule",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holistic/issues"
+    },
+    "buildID": "upHG_GkqQRWrYR-QyS3khQ",
+    "buildSource": "a2063f36211e4b1c02581257966a55cabfa13f8a",
+    "buildTime": 1583463927,
+    "codename": "hakai-rc6",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "description": "This package contains a minimal client-side hash router implementation that is designed to be integrated into higher-level abstractions. For example, a re-usable ObservableProcessModel (OPM).",
+    "engines": {
+        "node": ">=12.16.1 <13",
+        "yarn": "1.22.0"
+    },
+    "homepage": "https://github.com/Encapsule",
+    "keywords": [
+        "HTML5",
+        "browser",
+        "client",
+        "hash",
+        "router"
+    ],
+    "license": "MIT",
+    "main": "minimal-hash-router.js",
+    "name": "@encapsule/hash-router",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holistic.git"
+    },
+    "version": "0.0.39"
+}

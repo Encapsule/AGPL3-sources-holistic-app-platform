@@ -1,0 +1,41 @@
+{
+    "author": "Encapsule",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holistic/issues"
+    },
+    "buildID": "upHG_GkqQRWrYR-QyS3khQ",
+    "buildSource": "a2063f36211e4b1c02581257966a55cabfa13f8a",
+    "buildTime": 1583463927,
+    "codename": "hakai-rc6",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "description": "This package contains an extensible framework for defining application-specific metadata - i.e. data about your app. It is intended for use in derived apps/services and is typically used in conjunction with @encapsule/holism integration plug-in filters to satisfy queries re: publishing organization, application, page, route, hashroute, resource, operation...",
+    "engines": {
+        "node": ">=12.16.1 <13",
+        "yarn": "1.22.0"
+    },
+    "homepage": "https://github.com/Encapsule",
+    "keywords": [
+        "Encapsule",
+        "holism",
+        "http",
+        "metadata",
+        "integration"
+    ],
+    "license": "MIT",
+    "main": "metadata-store-constructor-factory.js",
+    "name": "@encapsule/holism-metadata",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.9"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holistic.git"
+    },
+    "version": "0.0.39"
+}

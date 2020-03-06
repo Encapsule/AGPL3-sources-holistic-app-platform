@@ -1,0 +1,44 @@
+{
+    "author": "Encapsule",
+    "bugs": {
+        "url": "https://github.com/Encapsule/holistic/issues"
+    },
+    "buildID": "upHG_GkqQRWrYR-QyS3khQ",
+    "buildSource": "a2063f36211e4b1c02581257966a55cabfa13f8a",
+    "buildTime": 1583463927,
+    "codename": "hakai-rc6",
+    "contributors": [
+        {
+            "name": "Christopher D. Russell",
+            "email": "cdr@encapsule.io",
+            "url": "https://github.com/ChrisRus"
+        }
+    ],
+    "description": "Cellular process modeling and runtime engine for Node.js and browser.",
+    "engines": {
+        "node": ">=12.16.1 <13",
+        "yarn": "1.22.0"
+    },
+    "homepage": "https://github.com/Encapsule",
+    "keywords": [
+        "Encapsule",
+        "holistic",
+        "holarchy",
+        "CellModel",
+        "CellProcessor",
+        "streaming",
+        "filtering",
+        "mind-fuck"
+    ],
+    "license": "MIT",
+    "main": "index.js",
+    "name": "@encapsule/holarchy",
+    "peerDependencies": {
+        "@encapsule/arccore": "0.1.9"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Encapsule/holistic.git"
+    },
+    "version": "0.0.39"
+}
