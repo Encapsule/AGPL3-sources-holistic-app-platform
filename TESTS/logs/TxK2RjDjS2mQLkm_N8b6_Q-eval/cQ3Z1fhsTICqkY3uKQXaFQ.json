@@ -4,7 +4,7 @@
       "cQ3Z1fhsTICqkY3uKQXaFQ": {
         "harnessRequest": {
           "id": "cQ3Z1fhsTICqkY3uKQXaFQ",
-          "name": "Call test harness #3 (complete message signalling force error)",
+          "name": "Call test harness #3A (complete message signalling force error)",
           "description": "Attempt to call harness-filter-3 signalling that its implementation should return a response.error.",
           "vectorRequest": {
             "testMessage3": {

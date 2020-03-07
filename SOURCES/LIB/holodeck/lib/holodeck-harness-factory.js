@@ -35,6 +35,7 @@ const factoryResponse = arccore.filter.create({
                 harnessDispatcher: { ____accept: "jsObject" }, // MDR chaining to retrieve another harness from within a harness
                 harnessRunner: { ____accept: "jsObject" }, // MDR chaining to another holodeck runner instance (separate eval logs)
                 logsRootDir: { ____accept: "jsString" }, // The calling holodeck runner's logsRootDir (needed if you MDR chain to a separate runner in your harness)
+                logsCurrentDir: { ____accept: "jsString" } // The calling holodeck runner's log eval directory below logsRootDir
             };
 
             let innerResponse = arccore.filter.create({

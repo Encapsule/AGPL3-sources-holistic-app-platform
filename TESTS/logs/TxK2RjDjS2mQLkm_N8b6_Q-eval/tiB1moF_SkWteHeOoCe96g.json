@@ -1,0 +1,80 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "zwXafDUZ8sI7qTaRy-pjLg": {
+      "tiB1moF_SkWteHeOoCe96g": {
+        "harnessRequest": {
+          "id": "tiB1moF_SkWteHeOoCe96g",
+          "name": "Call test harness #5",
+          "description": "Call test harness #5 that splits its incoming request into two subrequests that it dispatches via MDR to test harness #6 and test harness #7",
+          "vectorRequest": {
+            "testMessage5": {
+              "subVectorRequestA": {
+                "id": "QXyfBDzTQ4Gi53b9x0Fd7w",
+                "name": "Subvector Request A",
+                "description": "A request made to another holodeck harness from within a harness via MDR pattern.",
+                "vectorRequest": {
+                  "testMessage5A": {
+                    "message": "Hello, this ia a test of subVectorRequestA dispathc via MDR that we expect to get routed to test harness #5A."
+                  }
+                }
+              },
+              "subVectorRequestB": {
+                "id": "CRssCOzbQD2luB1gAq_k8w",
+                "name": "Subvector Request B",
+                "description": "A request made to another holodeck harness from within a harness via MDR pattern.",
+                "vectorRequest": {
+                  "testMessage5B": {
+                    "message": "hello, this is a test of subVectorRequestB dispatch via MDR that we expect to get routed to test harness #5B."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": false,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "TLUZ3YPUTXK8fXhh6t3-Ew": {
+                "tiB1moF_SkWteHeOoCe96g": {
+                  "responseA": {
+                    "error": null,
+                    "result": {
+                      "harnessOptions": {
+                        "idempotent": false,
+                        "gitDiffHunkSize": 0
+                      },
+                      "harnessDispatch": {
+                        "fEMk__iaS36GdSTX-2VE7A": {
+                          "QXyfBDzTQ4Gi53b9x0Fd7w": "Hello, this ia a test of subVectorRequestA dispathc via MDR that we expect to get routed to test harness #5A."
+                        }
+                      }
+                    }
+                  },
+                  "responseB": {
+                    "error": null,
+                    "result": {
+                      "harnessOptions": {
+                        "idempotent": false,
+                        "gitDiffHunkSize": 0
+                      },
+                      "harnessDispatch": {
+                        "SP1HKRvJTNaq7-r-XhPYMg": {
+                          "CRssCOzbQD2luB1gAq_k8w": "hello, this is a test of subVectorRequestB dispatch via MDR that we expect to get routed to test harness #5B."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@
       "LC56jkxeQJ2mgWfwGklLEQ": {
         "harnessRequest": {
           "id": "LC56jkxeQJ2mgWfwGklLEQ",
-          "name": "Call test harness #3 (valid message)",
+          "name": "Call test harness #3B (valid message)",
           "description": "Attempt to call harness-filter-3 with a valid message.",
           "vectorRequest": {
             "testMessage3": {

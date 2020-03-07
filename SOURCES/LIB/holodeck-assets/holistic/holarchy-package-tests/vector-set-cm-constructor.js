@@ -2,7 +2,7 @@
 module.exports = [
 
     // ================================================================
-    // CASES WE EXPECT TO NOT WORK CONSISTENTLY (IMPORTANT)
+    // CASES WE EXPECT TO NOT WORK. CONSISTENTLY (I.E. WE EXPECT FAILURE AND WE GET FAILURE)
 
     {
         id: "VcFs1BSZTLCb8nlIwW3Pmg",
@@ -228,20 +228,20 @@ module.exports = [
 
     {
         id: "QE3J6XhJSHqelGnpFMawzA",
-        name: "CellModel Constructor Error #12",
-        description: "Construct CellModel w/bad duplicate TOP registrations that do not deep compare to test error handling. Should fail.",
+        name: "TODO: CellModel Constructor Error #12",
+        description: "TODO: Construct CellModel w/bad duplicate TOP registrations that do not deep compare to test error handling. Should fail.",
     },
 
     {
         id: "130L3KaTS3uFybwDdVlWwg",
-        name: "CellModel Constructor Error #13",
-        description: "Construct CellModel w/bad duplicate ACT registrations that do not deep compare to test error handling. Should fail.",
+        name: "TODO: CellModel Constructor Error #13",
+        description: "TODO: Construct CellModel w/bad duplicate ACT registrations that do not deep compare to test error handling. Should fail.",
     },
 
     {
         id: "HPaNXEH9SYmOZTLlD5jUXg",
-        name: "CellModel Constructor Error #14",
-        description: "Construct CellModel w/bad duplicate submodel registrations that do not deep compare to test error handling. Should fail."
+        name: "TODO: CellModel Constructor Error #14",
+        description: "TODO: Construct CellModel w/bad duplicate submodel registrations that do not deep compare to test error handling. Should fail."
     },
 
     // ================================================================
@@ -273,8 +273,8 @@ module.exports = [
 
     {
         id: "7pAVXoWbTSeZSF4SzLrlxg",
-        name:" CellModel Constructor #2",
-        description: "Construct CellModel w/single APM registration specified using pre-constructed AbstractProcessModel ES6 class instance.",
+        name:" TODO: CellModel Constructor #2",
+        description: "TODO: Construct CellModel w/single APM registration specified using pre-constructed AbstractProcessModel ES6 class instance.",
     },
 
     {
@@ -307,8 +307,8 @@ module.exports = [
 
     {
         id: "5aJ-FcXOSYqqF_ha651qQA",
-        name: "CellModel Constructor #4",
-        description: "Construct CellModel w/single TOP registration specified using pre-constructed TransitionOperator ES6 class instance.",
+        name: "TODO: CellModel Constructor #4",
+        description: "TODO: Construct CellModel w/single TOP registration specified using pre-constructed TransitionOperator ES6 class instance.",
     },
 
 
@@ -343,8 +343,8 @@ module.exports = [
 
     {
         id: "zMnQxFBZQuaeu7buQH_qkw",
-        name: "CellModel Constructor #6",
-        description: "Construct CellModel w/single ACT registration specified using a pre-constructed ControllerAction ES6 class instance.",
+        name: "TODO: CellModel Constructor #6",
+        description: "TODO: Construct CellModel w/single ACT registration specified using a pre-constructed ControllerAction ES6 class instance.",
     },
 
 
