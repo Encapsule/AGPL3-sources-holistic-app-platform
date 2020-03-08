@@ -6,7 +6,7 @@ const process = require("process");
 
 ////
 // v--- MOCKERY TRICKS
-require("./holistic-mock-runner");
+require("./holistic-platform-mockery");
 
 const holodeckAssets = require("@encapsule/holodeck-assets");
 

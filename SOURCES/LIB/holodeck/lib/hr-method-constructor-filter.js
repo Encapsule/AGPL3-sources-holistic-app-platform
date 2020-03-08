@@ -24,17 +24,6 @@ const factoryResponse = arccore.filter.create({
 
             response.result = {};
 
-            innerResponse = arccore.discriminator.create({
-                options: { action: "getFilter" }, // arccore.discriminator will return a reference to the only filter that might accept your request
-                filters: request_.testHarnessFilters
-            });
-            if (innerResponse.error) {
-                errors.push(innerResponse.error);
-                break;
-            }
-
-            // This is the arccore.discriminator instance that knows how to route a holodeck test vector request to a holodeck harness plug-in.
-            response.result.harnessDispatcher = factoryResponse.result;
 
             break;
         }

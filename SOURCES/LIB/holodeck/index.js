@@ -73,7 +73,6 @@ module.exports = {
     harnessFactory: require("./lib/holodeck-harness-factory"),
 
     // v2
-
-    HolodeckRunner: require("./HolodeckRunner")
+    Holodeck: require("./Holodeck"),
 
 };
