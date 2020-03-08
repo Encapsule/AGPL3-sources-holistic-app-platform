@@ -4,7 +4,7 @@ const arccore = require("@encapsule/arccore");
 
 const factoryResponse = arccore.filter.create({
     operationID: "1WWlhU6aQ4WtF9puW3ujfg",
-    operationName: "Holodeck Instance Constructor Filter",
+    operationName: "Holodeck::constructor Method Filter",
     operationDescription: "Intializes the internal state of a new Holodeck class instance.",
     inputFilterSpec: require("./iospecs/holodeck-method-constructor-input-spec"),
     outputFilterSpec: require("./iospecs/holodeck-method-constructor-output-spec"),
@@ -14,6 +14,10 @@ const factoryResponse = arccore.filter.create({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
+            // Add intrinsic holodeck harness filters.
+
+
             let innerResponse = arccore.discriminator.create({
                 options: { action: "getFilter" }, // arccore.discriminator will return a reference to the only filter that might accept your request
                 filters: constructorRequest_.holodeckHarnesses

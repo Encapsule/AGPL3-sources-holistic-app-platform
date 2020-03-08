@@ -4,8 +4,6 @@
 const path = require("path");
 const process = require("process");
 
-////
-// v--- MOCKERY TRICKS
 require("./holistic-platform-mockery");
 
 const holodeckAssets = require("@encapsule/holodeck-assets");

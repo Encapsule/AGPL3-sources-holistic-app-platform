@@ -74,5 +74,6 @@ module.exports = {
 
     // v2
     Holodeck: require("./Holodeck"),
+    HolodeckHarness: require("./HolodeckHarness")
 
 };

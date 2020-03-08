@@ -1,0 +1,41 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "z8o7ETWrb-47aDkBy1I9wQ": {
+      "veo_BAhrQxuNhyL4mF66IA": {
+        "harnessRequest": {
+          "id": "veo_BAhrQxuNhyL4mF66IA",
+          "name": "Call test harness #6",
+          "description": "Call test harness #6 that executes two subvector requests in a separate holodec runner.",
+          "vectorRequest": {
+            "testMessage6": {
+              "subRunnerID": "3OKNkkrBTY6NmUXwjeLUDg",
+              "subVectorRequestA": {
+                "id": "QXyfBDzTQ4Gi53b9x0Fd7w",
+                "name": "Subvector Request A",
+                "description": "A request made to another holodeck harness from within a harness via MDR pattern.",
+                "vectorRequest": {
+                  "testMessage5A": {
+                    "message": "Hello, this ia a test of subVectorRequestA dispathc via MDR that we expect to get routed to test harness #5A."
+                  }
+                }
+              },
+              "subVectorRequestB": {
+                "id": "CRssCOzbQD2luB1gAq_k8w",
+                "name": "Subvector Request B",
+                "description": "A request made to another holodeck harness from within a harness via MDR pattern.",
+                "vectorRequest": {
+                  "testMessage5B": {
+                    "message": "hello, this is a test of subVectorRequestB dispatch via MDR that we expect to get routed to test harness #5B."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": "The harness filter registered to handle this message type rejected your request with an error: Filter [z8o7ETWrb-47aDkBy1I9wQ::Harness Proxy::<OLdqtYwjToetbonB-pSRyw::Holodeck Runner Test #6>] failed while performing main operation. Error attempting to dispatch plug-in harness filter [OLdqtYwjToetbonB-pSRyw::Holodeck Runner Test #6]: Filter [OLdqtYwjToetbonB-pSRyw::Holodeck Runner Test #6] failed while performing main operation. Filter [XkT3fzhYT0izLU_P2WF54Q::Holodeck Test Runner] failed while performing main operation. Filter [5A8uDJunQUm1w-HcBPQ6Gw::Request Discriminator Filter Factory] failed while performing main operation. Invalid request. You must specify an array of two or more Filter objects to construct a Discriminator Filter."
+        }
+      }
+    }
+  }
+}
