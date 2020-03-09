@@ -1,11 +1,14 @@
-// holistic-platform-mockery.js
+// mock-platform.js
 /*
+  ----------------------------------------------------------------
   This module is used only inside the @encapsule/holistic-master repo.
+  ----------------------------------------------------------------
   Loads the latest build of the holistic platform RTL's using the mockery package.
   This allows us to call through tested holistic platfrom RTL's in order to perform
   tests, generate documentation, etc. This script is not used outside of this
   repo where it is presumed that developers will obtain the holistic platform RTL's
   either via @encapsule/holistic appgen. Or, via a package repository TBD.
+  ----------------------------------------------------------------
 */
 
 const mockery = require("mockery");

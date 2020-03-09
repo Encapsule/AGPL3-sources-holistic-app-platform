@@ -1,6 +1,7 @@
 // holodeck-harness-method-constructor-config-harness-filter.js
 
 const arccore = require("@encapsule/arccore");
+const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
 
 const factoryResponse = arccore.filter.create({
     operationID: "TTKPNaovTSCFN8T-K3oYEA",
@@ -24,9 +25,12 @@ const factoryResponse = arccore.filter.create({
 
             const innerFactoryResponse = arccore.filter.create({
                 operationID: message.id,
-                operationName: message.name,
+                operationName: `Config Harness: ${message.name}`,
                 operationDescription: message.description,
-                // TODO: specs THESE ARE SYNTHESIZED
+                inputFilterSpec: {
+                    ...harnessFilterBaseInputSpec,
+                    ...message.configRequestInputRequest
+                },
                 bodyFunction: message.harnessBodyFunction
             });
             if (innerFactoryResponse.error) {

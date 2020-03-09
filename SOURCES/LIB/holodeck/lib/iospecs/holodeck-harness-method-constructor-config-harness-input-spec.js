@@ -4,6 +4,7 @@ module.exports = {
     ____types: "jsObject",
     createConfigHarness: {
         ____types: "jsObject",
+
         id: { ____accept: "jsString" },
         name: { ____accept: "jsString" },
         description: { ____accept: "jsString" },
@@ -11,12 +12,13 @@ module.exports = {
         configRequestInputSpec: {
             ____label: "Config Harness Request Spec",
             ____description: "Developer-defined request filter spec for the holodeck plug-in harness filter.",
-            ____accept: "jsObject"
+            ____accept: "jsObject" // this is a filter specification
         },
+
         configResultOutputSpec: {
             ____label: "Config Harness Result Spec",
             ____description: "Developer-defined response.result filter spec for the holodeck plug-in harness filter.",
-            ____accept: "jsObject"
+            ____accept: "jsObject" // this is a filter specification
         },
 
         harnessBodyFunction: {

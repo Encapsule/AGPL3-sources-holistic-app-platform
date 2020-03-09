@@ -42,7 +42,7 @@ factoryResponse = arccore.filter.create({
 
             innerResponse = harnessFilter.request(constructorRequest_);
             if (innerResponse.error) {
-                errors.push(`We routed your harness constructor request through MDR to [${harnessFilter.filterDescriptor.operationID}::${harnessFilter.filterDescriptor.operationName}]. But, the factory refused to take your order:`);
+                errors.push(`We routed your harness constructor request to [${harnessFilter.filterDescriptor.operationID}::${harnessFilter.filterDescriptor.operationName}]. But, the factory refused to take your order:`);
                 errors.push(innerResponse.error);
                 break;
             }

@@ -1,17 +1,17 @@
-// holodeck-intrinsic-config-harness-vector-set.js
+// holodeck-intrinsic-config-subsystem-set.js
 
 const HolodeckHarness = require("../../HolodeckHarness");
 
 const configHarnessVectorSet = new HolodeckHarness({
     createConfigHarness: {
 
-        id: "acKR_j0ARJq2oy0SyoADpg",
-        name: "Vector Set Config Harness",
-        description: "Defines a named set of holodeck program request(s) to be evaluated in the order specified.",
+        id: "fg0ohNe8Qx-sbc4mcPgcoA",
+        name: "Subsystem Config Harness",
+        description: "Defines a named application/service subsystem.",
 
         configRequestInputSpec: {
             ____types: "jsObject",
-            vectorSet: {
+            subsystem: {
                 ____types: "jsObject"
             }
         },
@@ -23,8 +23,6 @@ const configHarnessVectorSet = new HolodeckHarness({
         harnessBodyFunction: (harnessRequest_) => {
 
         }
-
-
     }
 });
 
