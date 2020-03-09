@@ -6,7 +6,7 @@
 //
 
 // Mock the platform build so we can execute the tests.
-require("./holistic-platform-mockery");
+require("./mock-platform");
 
 const holodeck = require("@encapsule/holodeck");
 const holodeckAssets = require("@encapsule/holodeck-assets");
@@ -17,6 +17,17 @@ let errors = [];
 let inBreakScope = false;
 while (!inBreakScope) {
     inBreakScope = true;
+
+    /* DISABLE - WE'RE TESTING OUT INTRINSIC HARNESSES RIGHT NOW.
+       ----------------------------------------------------------------
+       const holodeckHarnessInstance = new holodeck.HolodeckHarness({
+       });
+
+       if (!holodeckHarnessInstance.isValid()) {
+       errors.push("Unable to construct HolodeckHarness instance due to error: " + holodeckHarnessInstance.toJSON());
+       }
+       ----------------------------------------------------------------
+    */
 
     const holodeckInstance = new holodeck.Holodeck({
         id: "ohHmx_oJTTSnmTCgQD788g",
@@ -29,13 +40,6 @@ while (!inBreakScope) {
 
     if (!holodeckInstance.isValid()) {
         errors.push("Unable to construct Holodeck class instance due to error: " +  holodeckInstance.toJSON());
-    }
-
-    const holodeckHarnessInstance = new holodeck.HolodeckHarness({
-    });
-
-    if (!holodeckHarnessInstance.isValid()) {
-        errors.push("Unable to construct HolodeckHarness instance due to error: " + holodeckHarnessInstance.toJSON());
     }
 
     break;
@@ -52,7 +56,7 @@ if (response.error) {
     console.log(response.result);
 }
 
-console.log("Process exit with code " + response.processExit);
+console.log("rt2.js PROCESS EXIT CODE: " + response.processExit);
 process.exit(response.processExit);
 
 

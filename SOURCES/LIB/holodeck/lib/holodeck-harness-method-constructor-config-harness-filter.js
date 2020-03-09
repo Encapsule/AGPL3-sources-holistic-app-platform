@@ -8,21 +8,21 @@ const factoryResponse = arccore.filter.create({
     operationDescription: "A filter that constructs a HolodeckHarness filter for modifying the configuration of a subsequently evaluated harnesses in the MDR-pattern dispatch chain.",
 
     inputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-config-harness-input-spec"),
-    outputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-config-harness-output-spec"),
+    outputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-output-spec"), // normalized for all harness types
 
-    bodyFunction: (configHarnessCreateRequest_) => {
+    bodyFunction: (harnessCreateRequest_) => {
         let response = { error: null };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = configHarnessCreateReuqest_.createConfigHarness;
+            const message = harnessCreateRequest_.createConfigHarness;
 
             // TODO: All constructed harness filters have some common I/O responsibilities imposed by holodeck.
             // Need to get this straight and nailed into the mix from the outset...
 
-            const innerFactorResponse = arccore.filter.create({
+            const innerFactoryResponse = arccore.filter.create({
                 operationID: message.id,
                 operationName: message.name,
                 operationDescription: message.description,
@@ -34,7 +34,10 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
-
+            response.result = {
+                harnessType: "test-config-harness",
+                harnessFilter: innerFactoryResponse.result
+            };
 
             break;
         }

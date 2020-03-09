@@ -8,7 +8,7 @@ const factoryResponse = arccore.filter.create({
     operationDescription: "A filter that constructs a HolodeckHarness filter for executing a specific class of holodeck test vector.",
 
     inputFilterSpec:  require("./iospecs/holodeck-harness-method-constructor-test-harness-input-spec"),
-    outputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-test-harness-output-spec"),
+    outputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-output-spec"), // normalized for all harness types
 
     bodyFunction: (testHarnessCreateRequest_) => {
 

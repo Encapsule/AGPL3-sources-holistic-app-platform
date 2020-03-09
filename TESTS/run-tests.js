@@ -4,7 +4,7 @@
 const path = require("path");
 const process = require("process");
 
-require("./holistic-platform-mockery");
+require("./mock-platform");
 
 const holodeckAssets = require("@encapsule/holodeck-assets");
 

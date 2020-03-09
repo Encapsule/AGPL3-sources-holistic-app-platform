@@ -2,6 +2,8 @@
 
 const arccore = require("@encapsule/arccore");
 
+const configHarnessVectorSet = require("./intrinsic-harnesses/holodeck-intrinsic-config-harness-vector-set");
+
 const factoryResponse = arccore.filter.create({
     operationID: "1WWlhU6aQ4WtF9puW3ujfg",
     operationName: "Holodeck::constructor Method Filter",
@@ -15,12 +17,28 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            // Add intrinsic holodeck harness filters.
+            let harnessFilters = [];
+            for (let i = 0 ; i < constructorRequest_.holodeckHarnesses.length ; i++) {
+                let harnessInstance = constructorRequest_.holodeckHarnesses[i];
+                if (!harnessInstance.isValid()) {
+                    errors.push(`Invalid HolodeckHarness instance specified for ~.holodeckHarnesses[${i}]: ${harnessInstance.toJSON()}`);
+                    continue; // check them all at once and accumlate the errors - it's simpler for developers than one at a time I think.
+                }
+                harnessFilters.push(harnessInstance.getHarnessFilter());
+            } // end for
 
+            // Add intrinsic holodeck harness filters.
+            harnessFilters.push(configHarnessVectorSet.getHarnessFilter());
+
+            harnessFilters.sort((a_, b_) => {
+                const aName = a_.getName();
+                const bName = b_.getName();
+                return ((aName < bName)?-1:(aName_ > bName)?1:0);
+            });
 
             let innerResponse = arccore.discriminator.create({
                 options: { action: "getFilter" }, // arccore.discriminator will return a reference to the only filter that might accept your request
-                filters: constructorRequest_.holodeckHarnesses
+                filters: harnessFilters
             });
             if (innerResponse.error) {
                 errors.push(innerResponse.error);

@@ -42,13 +42,12 @@ factoryResponse = arccore.filter.create({
 
             innerResponse = harnessFilter.request(constructorRequest_);
             if (innerResponse.error) {
-                errors.push(`Sorry, it seems you intend to construct a holodeck harness via [${harnessFilter.filterDescriptor.operationID}::${harnessFilter.filterDescriptor.operationName}].`);
-                errors.push("However, the harness factory has rejected your constructor request with error:");
+                errors.push(`We routed your harness constructor request through MDR to [${harnessFilter.filterDescriptor.operationID}::${harnessFilter.filterDescriptor.operationName}]. But, the factory refused to take your order:`);
                 errors.push(innerResponse.error);
                 break;
             }
 
-            response.result = { harnessFilter: innerResponse.result }
+            response.result = innerResponse.result;
 
             break;
         }

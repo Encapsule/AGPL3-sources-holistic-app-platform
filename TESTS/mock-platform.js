@@ -9,10 +9,17 @@
 */
 
 const mockery = require("mockery");
-console.log("================================================================");
-console.log("================================================================");
-console.log("@encapusle/holistic-master repo platform RTL packages loading...");
-console.log("================================================================");
+
+console.log("\n");
+console.log("****************************************************************");
+console.log("****************************************************************");
+console.log("@encapusle/holistic-master platform RTL evironment setup starting...");
+console.log("O       o O       o O       o");
+console.log("| O   o | | O   o | | O   o |");
+console.log("| | O | | | | O | | | | O | |");
+console.log("| o   O | | o   O | | o   O |");
+console.log("o       O o       O o       O");
+
 
 console.log("> Enabling mockery... many warnings that can generally be ignored will follow...");
 mockery.enable();
@@ -93,10 +100,20 @@ const local_holodeckAssets = require("../PACKAGES/holodeck-assets");
 console.log("> Registering mock for @encapsule/holodeck-assets");
 mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
 
-console.log("================================================================");
-console.log("@encapusle/holistic-master mock environment setup complete.");
-console.log("================================================================");
-console.log("================================================================");
+console.log("\n");
+console.log("****************************************************************");
+console.log("****************************************************************");
+console.log("@encapusle/holistic-master platform RTL environment setup complete.");
+console.log("This Node.js environment will now resolve @encapsule/holistic platform");
+console.log("RTL require/imports from staged build holistic-master/PACKAGES/");
+console.log("****************************************************************");
+console.log("****************************************************************");
+console.log("O       o O       o O       o");
+console.log("| O   o | | O   o | | O   o |");
+console.log("| | O | | | | O | | | | O | |");
+console.log("| o   O | | o   O | | o   O |");
+console.log("o       O o       O o       O");
+console.log("\n");
 
 module.exports = {
     buildManifest: holisticBuildManifest,
