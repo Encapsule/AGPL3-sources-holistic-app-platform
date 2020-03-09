@@ -1,36 +1,32 @@
-// holodeck-method-constructor-test-harness-filter.js
+// holodeck-harness-method-constructor-config-harness-filter.js
 
 const arccore = require("@encapsule/arccore");
 
 const factoryResponse = arccore.filter.create({
-    operationID: "M054odK1Ti-YSkoYv5OzSA",
-    operationName: "HolodeckHarness::constructor Test Harness Factory",
-    operationDescription: "A filter that constructs a HolodeckHarness filter for executing a specific class of holodeck test vector.",
+    operationID: "TTKPNaovTSCFN8T-K3oYEA",
+    operationName: "HolodeckHarness::constructor Config Harness Factory",
+    operationDescription: "A filter that constructs a HolodeckHarness filter for modifying the configuration of a subsequently evaluated harnesses in the MDR-pattern dispatch chain.",
 
-    inputFilterSpec:  require("./iospecs/holodeck-harness-method-constructor-test-harness-input-spec"),
-    outputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-test-harness-output-spec"),
+    inputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-config-harness-input-spec"),
+    outputFilterSpec: require("./iospecs/holodeck-harness-method-constructor-config-harness-output-spec"),
 
-    bodyFunction: (testHarnessCreateRequest_) => {
-
+    bodyFunction: (configHarnessCreateRequest_) => {
         let response = { error: null };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = testHarnessCreateRequest_.createTestHarness;
-
-            const harnessFilterContext = {
-                ...message.harnessOptions
-            };
+            const message = configHarnessCreateReuqest_.createConfigHarness;
 
             // TODO: All constructed harness filters have some common I/O responsibilities imposed by holodeck.
             // Need to get this straight and nailed into the mix from the outset...
+
             const innerFactorResponse = arccore.filter.create({
                 operationID: message.id,
                 operationName: message.name,
                 operationDescription: message.description,
-                // TODO: specs - THESE ARE SYNTHESIZED
+                // TODO: specs THESE ARE SYNTHESIZED
                 bodyFunction: message.harnessBodyFunction
             });
             if (innerFactoryResponse.error) {
@@ -43,7 +39,7 @@ const factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            response.error = errors.join(" ");
+            reponse.error = errors.join(" ");
         }
         return response;
     }
@@ -51,7 +47,7 @@ const factoryResponse = arccore.filter.create({
 });
 
 if (factoryResponse.error) {
-    throw new Error(factoryResponse.error);
+    throw new Error(factoryReponse.error);
 }
 
 module.exports = factoryResponse.result;

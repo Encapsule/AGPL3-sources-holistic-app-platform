@@ -9,12 +9,12 @@ module.exports = {
         name: { ____accept: "jsString" }, // the name of the harness
         description: { ____accept: "jsString" }, // the description of the harness
         testVectorRequestInputSpec: {
-            ____label: "Harness Request (Vector) Request Spec",
+            ____label: "Test Harness Request (Vector) Request Spec",
             ____description: "Developer-defined request filter spec for the holodeck plug-in harness filter.",
             ____accept: "jsObject"
         }, // request signature of generated harness filter
         testVectorResultOutputSpec: {
-            ____label: "Harness Result Spec",
+            ____label: "Test Harness Result Spec",
             ____description: "Developer-defined response.result filter spec for the holodeck plug-in harness filter.",
             ____accept: "jsObject"
         }, // spec constrains a portion of the harness output
@@ -32,7 +32,7 @@ module.exports = {
             }
         },
         harnessBodyFunction: {
-            ____label: "Harness Plug-In Function",
+            ____label: "Test Harness Plug-In Filter bodyFunction",
             ____description: "Developer-defined bodyFunction used to contruct a holodeck plug-in harness filter capable of processing test vectors through a holodeck runner filter instance.",
             ____accept: "jsFunction"
         }
