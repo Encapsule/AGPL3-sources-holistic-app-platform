@@ -1,17 +1,17 @@
-// holodeck-intrinsic-config-harness-vector-set.js
+// holodeck-intrinsic-config-harness-test-set.js
 
 const HolodeckHarness = require("../../HolodeckHarness");
 
-const configHarnessVectorSet = new HolodeckHarness({
+const configHarnessTestSet = new HolodeckHarness({
     createConfigHarness: {
 
         id: "acKR_j0ARJq2oy0SyoADpg",
-        name: "Vector Set Config Harness",
-        description: "Defines a named set of holodeck program request(s) to be evaluated in the order specified.",
+        name: "Test Set",
+        description: "Configures a set of holodeck test requests.",
 
         configRequestInputSpec: {
             ____types: "jsObject",
-            vectorSet: {
+            testSet: {
                 ____types: "jsObject"
             }
         },
@@ -29,9 +29,9 @@ const configHarnessVectorSet = new HolodeckHarness({
 });
 
 //  This is an intrinsic config harness. It has to be valid.
-if (!configHarnessVectorSet.isValid()) {
-    throw new Error(configHarnessVectorSet.toJSON());
+if (!configHarnessTestSet.isValid()) {
+    throw new Error(configHarnessTestSet.toJSON());
 }
 
-module.exports = configHarnessVectorSet;
+module.exports = configHarnessTestSet;
 

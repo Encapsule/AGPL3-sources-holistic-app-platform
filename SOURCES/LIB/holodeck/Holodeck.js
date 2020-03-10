@@ -17,6 +17,7 @@ module.exports = class Holodeck {
             this._private.constructorResponse = constructorResponse;
             return;
         }
+        this._private = constructorResponse.result;
 
     }
 

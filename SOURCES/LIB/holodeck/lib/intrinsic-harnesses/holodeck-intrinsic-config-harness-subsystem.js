@@ -6,8 +6,8 @@ const configHarnessVectorSet = new HolodeckHarness({
     createConfigHarness: {
 
         id: "fg0ohNe8Qx-sbc4mcPgcoA",
-        name: "Subsystem Config Harness",
-        description: "Defines a named application/service subsystem.",
+        name: "Subsystem",
+        description: "Configures a named application/service subsystem.",
 
         configRequestInputSpec: {
             ____types: "jsObject",

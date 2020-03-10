@@ -19,8 +19,10 @@ const factoryResponse = arccore.filter.create({
             inBreakScope = true;
 
             const holodeckInstance = runProgramRequest_.HolodeckInstance;
-            
-            runProgramRequest_.
+
+            // TODO: We need to pass a reference to holodeck environment down through MDR to enable recursion.
+            // So... this is just a temporary shim
+            response = holodeckInstance._private.holodeckHarnessDispatcher.request(runProgramRequest_)
 
 
             break;

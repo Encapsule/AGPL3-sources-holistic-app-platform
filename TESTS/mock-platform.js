@@ -23,79 +23,98 @@ console.log("| | O | | | | O | | | | O | |");
 console.log("| o   O | | o   O | | o   O |");
 console.log("o       O o       O o       O");
 
-
-console.log("> Enabling mockery... many warnings that can generally be ignored will follow...");
-mockery.enable();
-
-console.log("> Loading the holistic platform build manifest JSON");
-const holisticBuildManifest = require("../PACKAGES/holistic.json");
-
-console.log("> Loading holistic platform RTL packages manifest JSON");
-const holisticBuildPackages = require("../PACKAGES/holistic-rtl-packages.json");
+let holisticBuildManifest = "<NOT SET>";
+let holisticBuildPackages = "<NOT SET>";
 
 
-console.log("> Loading repo-local copy of @encapsule/holodeck");
-const local_holodeck = require("../PACKAGES/holodeck");
+try {
 
-console.log("> Loading repo-local copy of @encapsule/holarchy");
-const local_holarchy = require("../PACKAGES/holarchy");
+    console.log("> Enabling mockery... many warnings that can generally be ignored will follow...");
+    mockery.enable();
 
-console.log("> Registering mock for @encapsule/holodeck");
-mockery.registerMock("@encapsule/holodeck", local_holodeck);
+    console.log("> Loading the holistic platform build manifest JSON");
+    holisticBuildManifest = require("../PACKAGES/holistic.json");
+    console.log([
+        "..... processing ",
+        holisticBuildManifest.name,
+        "v" + holisticBuildManifest.version,
+        holisticBuildManifest.codename,
+        holisticBuildManifest.buildID,
+        holisticBuildManifest.buildSource
+    ].join(" "));
 
-console.log("> Registering mock for @encapsule/holarchy");
-mockery.registerMock("@encapsule/holarchy", local_holarchy);
+    console.log("> Loading holistic platform RTL packages manifest JSON");
+    holisticBuildPackages = require("../PACKAGES/holistic-rtl-packages.json");
 
-/*
-  WE ALLOW THESE WARNINGS. THEY ARE HARMLESS. AND, VERY USEFUL
-  WHEN THIS SCRIPT CRASHES DUE TO ONE OR ANOTHER OF THE PLATFORM
-  RTL'S NOT BEING BUILT. OR, THROWING ON IMPORT DUE TO PRECONDITION/
-  CONTRUCTION ERROR.
+    console.log("> Loading repo-local copy of @encapsule/holodeck");
+    const local_holodeck = require("../PACKAGES/holodeck");
 
-mockery.registerAllowables([
-    "@encapsule/arccore",
-    // etc..
-]);
-*/
+    console.log("> Loading repo-local copy of @encapsule/holarchy");
+    const local_holarchy = require("../PACKAGES/holarchy");
 
-console.log("> Loading repo-local copy of @encapsule/holarchy-cm");
-const local_holarchyCM = require("../PACKAGES/holarchy-cm");
+    console.log("> Registering mock for @encapsule/holodeck");
+    mockery.registerMock("@encapsule/holodeck", local_holodeck);
 
-console.log("> Registering mock for @encapsule/holarchy-cm");
-mockery.registerMock("@encapsule/holarchy-cm", local_holarchyCM);
+    console.log("> Registering mock for @encapsule/holarchy");
+    mockery.registerMock("@encapsule/holarchy", local_holarchy);
 
-console.log("> Loading repo-local copy of @encapsule/holistic-app-client-cm");
-const local_holisticAppClientCM = require("../PACKAGES/holistic-app-client-cm");
+    /*
+      WE ALLOW THESE WARNINGS. THEY ARE HARMLESS. AND, VERY USEFUL
+      WHEN THIS SCRIPT CRASHES DUE TO ONE OR ANOTHER OF THE PLATFORM
+      RTL'S NOT BEING BUILT. OR, THROWING ON IMPORT DUE TO PRECONDITION/
+      CONTRUCTION ERROR.
 
-console.log("> Registering mock for @encapsule/holistic-app-client-cm");
-mockery.registerMock("@encapsule/holistic-app-client-cm", local_holisticAppClientCM);
+      mockery.registerAllowables([
+      "@encapsule/arccore",
+      // etc..
+      ]);
+    */
 
-console.log("> Locating repo-local copy of @encapsule/holistic-app-server-cm");
-const local_holisticAppServerCM = require("../PACKAGES/holistic-app-server-cm");
+    console.log("> Loading repo-local copy of @encapsule/holarchy-cm");
+    const local_holarchyCM = require("../PACKAGES/holarchy-cm");
 
-console.log("> Registering mock for @encapsule/holistic-app-server-cm");
-mockery.registerMock("@encapsule/holistic-app-server-cm", local_holisticAppServerCM);
+    console.log("> Registering mock for @encapsule/holarchy-cm");
+    mockery.registerMock("@encapsule/holarchy-cm", local_holarchyCM);
 
-console.log("> Loading repo-local copy of @encapsule/holodeck-assets");
-const local_holodeckAssets = require("../PACKAGES/holodeck-assets");
+    console.log("> Loading repo-local copy of @encapsule/holistic-app-client-cm");
+    const local_holisticAppClientCM = require("../PACKAGES/holistic-app-client-cm");
 
-console.log("> Registering mock for @encapsule/holodeck-assets");
-mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
+    console.log("> Registering mock for @encapsule/holistic-app-client-cm");
+    mockery.registerMock("@encapsule/holistic-app-client-cm", local_holisticAppClientCM);
 
-console.log("\n");
-console.log("****************************************************************");
-console.log("****************************************************************");
-console.log("@encapusle/holistic-master platform RTL environment setup complete.");
-console.log("This Node.js environment will now resolve @encapsule/holistic platform");
-console.log("RTL require/imports from staged build holistic-master/PACKAGES/");
-console.log("****************************************************************");
-console.log("****************************************************************");
-console.log("O       o O       o O       o");
-console.log("| O   o | | O   o | | O   o |");
-console.log("| | O | | | | O | | | | O | |");
-console.log("| o   O | | o   O | | o   O |");
-console.log("o       O o       O o       O");
-console.log("\n");
+    console.log("> Locating repo-local copy of @encapsule/holistic-app-server-cm");
+    const local_holisticAppServerCM = require("../PACKAGES/holistic-app-server-cm");
+
+    console.log("> Registering mock for @encapsule/holistic-app-server-cm");
+    mockery.registerMock("@encapsule/holistic-app-server-cm", local_holisticAppServerCM);
+
+    console.log("> Loading repo-local copy of @encapsule/holodeck-assets");
+    const local_holodeckAssets = require("../PACKAGES/holodeck-assets");
+
+    console.log("> Registering mock for @encapsule/holodeck-assets");
+    mockery.registerMock("@encapsule/holodeck-assets", local_holodeckAssets);
+
+    console.log("\n");
+    console.log("****************************************************************");
+    console.log("****************************************************************");
+    console.log("@encapusle/holistic-master platform RTL environment setup complete.");
+    console.log("This Node.js environment will now resolve @encapsule/holistic platform");
+    console.log("RTL require/imports from staged build holistic-master/PACKAGES/");
+    console.log("****************************************************************");
+    console.log("****************************************************************");
+    console.log("O       o O       o O       o");
+    console.log("| O   o | | O   o | | O   o |");
+    console.log("| | O | | | | O | | | | O | |");
+    console.log("| o   O | | o   O | | o   O |");
+    console.log("o       O o       O o       O");
+    console.log("\n");
+
+} catch (loadException_) {
+    console.log("Oh no... It looks as though it's impossible to load this specific @encapsule/holistic");
+    console.log("platform build as expected. This is due to prior build errors. Or, developer running");
+    console.log("Makefile targets in some custom unexpected order that invalidates the /PACKAGES directory.");
+    throw loadException_;
+}
 
 module.exports = {
     buildManifest: holisticBuildManifest,

@@ -2,8 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 
-const configHarnessVectorSet = require("./intrinsic-harnesses/holodeck-intrinsic-config-harness-vector-set");
-const configHarnessSubsystem = require("./intrinsic-harnesses/holodeck-intrinsic-config-harness-subsystem");
+const intrinsicHarnesses = require("./intrinsic-harnesses");
 
 const factoryResponse = arccore.filter.create({
     operationID: "1WWlhU6aQ4WtF9puW3ujfg",
@@ -18,7 +17,7 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            let harnessFilters = [];
+            let harnessFilters = [ ...intrinsicHarnesses ];
             for (let i = 0 ; i < constructorRequest_.holodeckHarnesses.length ; i++) {
                 let harnessInstance = constructorRequest_.holodeckHarnesses[i];
                 if (!harnessInstance.isValid()) {
@@ -32,10 +31,6 @@ const factoryResponse = arccore.filter.create({
                 errors.unshift("Unable to process HolodeckHarness registration(s):");
                 break;
             }
-
-            // Add intrinsic holodeck harness filters (known valid because intrinsic harness filter modules throw on import/require of invalid).
-            harnessFilters.push(configHarnessVectorSet.getHarnessFilter());
-            harnessFilters.push(configHarnessSubsystem.getHarnessFilter());
 
             harnessFilters.sort((a_, b_) => {
                 const aName = a_.filterDescriptor.operationName;
