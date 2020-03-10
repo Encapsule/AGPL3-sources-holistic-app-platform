@@ -4,15 +4,10 @@
 
 
 module.exports = {
-    ____label: "Holodeck Program Request",
-    ____description: "A root or branch of a \"holodeck program\" - a tree of HolodeckHarness request objects.",
     ____types: "jsObject",
+
     id: { ____accept: "jsString" },
     name: { ____accept: "jsString" },
     description: { ____accept: "jsString" },
-
-    programRequest: {
-        ____accept: "jsObject"
-    }
 
 };

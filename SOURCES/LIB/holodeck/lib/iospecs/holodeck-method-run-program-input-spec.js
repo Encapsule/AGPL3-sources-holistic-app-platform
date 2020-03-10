@@ -11,14 +11,9 @@ module.exports = {
         ____opaque: true
     },
 
-    programVectors: {
-        ____label: "Holodeck Vectors",
-        ____description: "An array of holodeck vectors (object descriptor trees that are evaluated via recursive MDR-pattern via holodeck harness plug-in filters.",
-        ____accept: [
-            // In both cases below we ____accept w/out further verification because it would be redundant; MDR-pattern will sort it out and do the right thing or explain why not.
-            "jsArray",  // If an array value is specified, it's assumed to be an array of holodeck vector request object descriptors.
-            "jsObject", // If an object value is specified, it's assumed to be a holodeck vector request object descriptor.
-        ]
+    runProgramRequest: {
+        ____label: "Holodeck Program Request",
+        ____opaque: true // we don't care what they send, we're going to route it through RMDR.
     }
 
 };

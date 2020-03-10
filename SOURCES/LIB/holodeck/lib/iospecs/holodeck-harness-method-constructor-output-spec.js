@@ -5,8 +5,8 @@ module.exports = {
     harnessType: {
         ____accept: "jsString",
         ____inValueSet: [
-            "test-config-harness",
-            "test-evaluation-harness"
+            "config-harness",
+            "test-harness"
         ]
     },
     harnessFilter: {

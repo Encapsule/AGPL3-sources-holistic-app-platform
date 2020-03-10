@@ -47,35 +47,14 @@ console.log("> Registering mock for @encapsule/holarchy");
 mockery.registerMock("@encapsule/holarchy", local_holarchy);
 
 /*
-// DISABLE - THESE WARNINGS ARE HARMLESS I THINK.
+  WE ALLOW THESE WARNINGS. THEY ARE HARMLESS. AND, VERY USEFUL
+  WHEN THIS SCRIPT CRASHES DUE TO ONE OR ANOTHER OF THE PLATFORM
+  RTL'S NOT BEING BUILT. OR, THROWING ON IMPORT DUE TO PRECONDITION/
+  CONTRUCTION ERROR.
 
 mockery.registerAllowables([
-
     "@encapsule/arccore",
-    "./holodeck-package-tests/harnesses",
-    "./holodeck-package-tests/vector-sets",
-    "./harnesses/harness-test-1",
-    "./harnesses/harness-test-2",
-    "./harnesses/harness-test-3",
-    "./harnesses/harness-test-4",
-    "./harnesses/harness-test-5",
-
-    "./holarchy-package-tests/harnesses",
-    "./holarchy-package-tests/vector-sets",
-    "./harnesses/harness-ObservableProcessController",
-    "./vector-sets-opc/vector-set-opc-constructor",
-    "./vector-sets-opc/vector-set-opc-constructor-bindings",
-    "./fixture-opm-examples",
-
-    "../PACKAGES/holodeck-assets",
-    "./holodeck",
-    "./harnesses",
-    "./harness-test-1",
-    "./harness-test-2",
-    "./harness-test-3",
-    "./harness-test-4",
-    "./harness-test-5"
-
+    // etc..
 ]);
 */
 

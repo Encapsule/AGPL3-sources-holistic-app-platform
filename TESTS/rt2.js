@@ -6,7 +6,8 @@
 //
 
 // Mock the platform build so we can execute the tests.
-require("./mock-platform");
+const platformInfo = require("./mock-platform");
+console.log(platformInfo);
 
 const holodeck = require("@encapsule/holodeck");
 const holodeckAssets = require("@encapsule/holodeck-assets");
@@ -29,17 +30,27 @@ while (!inBreakScope) {
        ----------------------------------------------------------------
     */
 
-    const holodeckInstance = new holodeck.Holodeck({
+    const platformHolodeck = new holodeck.Holodeck({
         id: "ohHmx_oJTTSnmTCgQD788g",
-        name: "Holistic Platform Test Envirionment",
+        name: "Holistic Platform Holodeck Test Envirionment",
         description: "Defines holodeck instance we use to perform testing on the holistic platform RTL's.",
         logRootDir: __dirname,
         holodeckHarnesses: [
         ]
     });
 
-    if (!holodeckInstance.isValid()) {
+    if (!platformHolodeck.isValid()) {
         errors.push("Unable to construct Holodeck class instance due to error: " +  holodeckInstance.toJSON());
+        break;
+    }
+
+    const programResponse = platformHolodeck.runProgram({
+
+    });
+
+    if (programResponse.error) {
+        errors.push("Unable to execute holodeck program due to error: " + programResponse.error);
+        break;
     }
 
     break;
@@ -50,10 +61,19 @@ if (errors.length) {
     response.processExit = 1;
 }
 
+
+
+
+// ================================================================
+// We now have a valid Holodeck to play with.
+
+
+
+
+
+
 if (response.error) {
     console.error(response.error);
-} else {
-    console.log(response.result);
 }
 
 console.log("rt2.js PROCESS EXIT CODE: " + response.processExit);

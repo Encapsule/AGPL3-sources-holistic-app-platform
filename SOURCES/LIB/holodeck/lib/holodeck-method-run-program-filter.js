@@ -6,7 +6,7 @@ const arccore = require("@encapsule/arccore");
 const factoryResponse = arccore.filter.create({
     operationID: "F_vVdpzhSIaV9D4HgqUfPA",
     operationName: "Holodeck::runProgram Method Filter",
-    operationDescription: "Execute the specified holodeck program (a collection of holodeck vector request descriptor objects) through the registered holodeck harnesses.",
+    operationDescription: "Execute the specified holodeck program via RMDR-pattern.",
 
     inputFilterSpec: require("./iospecs/holodeck-method-run-program-input-spec"),
     outputFilterSpec: require("./iospecs/holodeck-method-run-program-output-spec"),
@@ -17,6 +17,12 @@ const factoryResponse = arccore.filter.create({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
+            const holodeckInstance = runProgramRequest_.HolodeckInstance;
+            
+            runProgramRequest_.
+
+
             break;
         }
         if (errors.length) {

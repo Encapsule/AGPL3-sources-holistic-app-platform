@@ -24,6 +24,7 @@ module.exports = {
         ____label: "Holodeck Harness Filters",
         ____description: "An array of previously-constructed holodeck harness filters (minimum of two required).",
         ____types: "jsArray",
+        ____defaultValue: [],
         holdeckHarness: {
             ____label: "HolodeckHarness Instance",
             ____description: "A reference to a previously-constructed HolodeckHarness class instance.",

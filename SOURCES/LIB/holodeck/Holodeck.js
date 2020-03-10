@@ -29,7 +29,10 @@ module.exports = class Holodeck {
     }
 
     runProgram (runProgramRequest_) {
-        return runProgramFilter.request(runProgramRequest_);
+        return runProgramFilter.request({
+            HolodeckInstance: this,
+            runProgramRequest: runProgramRequest_
+        });
     }
 
 };

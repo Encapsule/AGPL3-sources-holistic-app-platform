@@ -2,6 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
+const harnessType = "test-harness";
 
 const factoryResponse = arccore.filter.create({
     operationID: "M054odK1Ti-YSkoYv5OzSA",
@@ -32,8 +33,11 @@ const factoryResponse = arccore.filter.create({
                 operationName: `Test Harness: ${message.name}`,
                 operationDescription: message.description,
                 inputFilterSpec: {
-                    ...harnessFilterBaseInputSpec,
-                    ...message.testVectorRequestInputSpec
+                    ____label: `Test Harness ${message.name} Request`,
+                    ...message.testVectorRequestInputSpec,
+                    test: {
+                        ...harnessFilterBaseInputSpec
+                    }
                 },
                 bodyFunction: message.harnessBodyFunction
             });
@@ -42,6 +46,10 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            response.result = {
+                harnessType,
+                harnessFilter: innerFactoryResponse.result
+            };
 
 
             break;
