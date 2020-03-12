@@ -9,14 +9,14 @@ const configHarnessTestSet = new HolodeckHarness({
         name: "Test Set",
         description: "Configures a set of holodeck test requests.",
 
-        configRequestInputSpec: {
+        programRequestSpec: {
             ____types: "jsObject",
             testSet: {
                 ____types: "jsObject"
             }
         },
 
-        configResultOutputSpec: {
+        programResultSpec: {
             ____types: "jsObject"
         },
 

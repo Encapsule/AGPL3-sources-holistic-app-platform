@@ -9,14 +9,14 @@ const configHarnessVectorSet = new HolodeckHarness({
         name: "Subsystem",
         description: "Configures a named application/service subsystem.",
 
-        configRequestInputSpec: {
+        programRequestSpec: {
             ____types: "jsObject",
             subsystem: {
                 ____types: "jsObject"
             }
         },
 
-        configResultOutputSpec: {
+        programResultSpec: {
             ____types: "jsObject"
         },
 

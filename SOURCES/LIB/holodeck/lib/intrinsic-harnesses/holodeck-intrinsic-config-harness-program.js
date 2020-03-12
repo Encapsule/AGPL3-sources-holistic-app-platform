@@ -8,7 +8,7 @@ const configHarnessProgram = new HolodeckHarness({
         name: "Holodeck Program Logger",
         description: "Configures logging options for a holodeck program.",
 
-        configRequestInputSpec: {
+        programRequestSpec: {
             ____types: "jsObject",
             programLogger: {
                 ____types: "jsObject",
@@ -20,7 +20,7 @@ const configHarnessProgram = new HolodeckHarness({
             }
         },
 
-        configResultOutputSpec: {
+        programResultSpec: {
             ____types: "jsObject"
         },
 

@@ -3,7 +3,7 @@
 const arccore = require("@encapsule/arccore");
 
 const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
-const harnessType = "emuerator-harness";
+const harnessType = "enumerator-harness";
 
 const factoryResponse = arccore.filter.create({
     operationID: "5y7MRoUlQA2lI1875eWdIg",
@@ -13,10 +13,11 @@ const factoryResponse = arccore.filter.create({
     inputFilterSpec: {
         ____types: "jsObject",
         createEnumeratorHarness: {
-            ____types: "jsObject"
             // We only support arrays. So there's only one enumerator harness, array enumerator that's part of the intrinsic harness set
             // It's confusing because this is non-standard. If we weren't creating a singleton (in a standard way so as to play nicely
             // with other harness filters of different types and different variants).
+            ____accept: "jsBoolean",
+            ____inValueSet: [ true ]
         }
     },
 
@@ -38,7 +39,7 @@ const factoryResponse = arccore.filter.create({
                     ...harnessFilterBaseInputSpec,
                     programData: { ____accept: "jsArray" }
                 },
-                bodyFunction: (harnessRequest_) {
+                bodyFunction: (harnessRequest_) => {
                     let response = { error: null };
                     let errors = [];
                     let inBreakScope = false;

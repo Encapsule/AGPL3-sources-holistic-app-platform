@@ -7,7 +7,7 @@ const configHarnessClass = new HolodeckHarness({
         name: "Package",
         description: "Configures program for testing a specific npm/yarn package.",
 
-        configRequestInputSpec: {
+        programRequestSpec: {
             ____types: "jsObject",
             class: {
                 ____types: "jsObject",
@@ -16,7 +16,7 @@ const configHarnessClass = new HolodeckHarness({
             }
         },
 
-        configResultOutputSpec: {
+        programResultSpec: {
             ____types: "jsObject"
         },
 

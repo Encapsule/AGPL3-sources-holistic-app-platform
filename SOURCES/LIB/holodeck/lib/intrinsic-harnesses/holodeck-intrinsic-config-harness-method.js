@@ -8,7 +8,7 @@ const configHarnessMethod = new HolodeckHarness({
         name: "Method",
         description: "Configures program for testing a specific class method.",
 
-        configRequestInputSpec: {
+        programRequestSpec: {
             ____types: "jsObject",
             method: {
                 ____types: "jsObject",
@@ -17,7 +17,7 @@ const configHarnessMethod = new HolodeckHarness({
             }
         },
 
-        configResultOutputSpec: {
+        programResultSpec: {
             ____types: "jsObject"
         },
 

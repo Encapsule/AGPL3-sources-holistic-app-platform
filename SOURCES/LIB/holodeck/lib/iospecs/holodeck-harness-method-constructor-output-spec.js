@@ -5,6 +5,7 @@ module.exports = {
     harnessType: {
         ____accept: "jsString",
         ____inValueSet: [
+            "enumerator-harness",
             "config-harness",
             "test-harness"
         ]

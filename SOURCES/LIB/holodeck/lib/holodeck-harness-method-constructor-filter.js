@@ -5,6 +5,7 @@ const arccore = require("@encapsule/arccore");
 let factoryResponse = arccore.discriminator.create({
     options: { action: "getFilter" },
     filters: [
+        require("./holodeck-harness-method-constructor-enumerator-harness-filter"),
         require("./holodeck-harness-method-constructor-config-harness-filter"),
         require("./holodeck-harness-method-constructor-test-harness-filter")
     ]
