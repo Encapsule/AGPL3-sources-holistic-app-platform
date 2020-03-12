@@ -11,9 +11,10 @@ module.exports = {
         ____opaque: true
     },
 
-    runProgramRequest: {
+    programRequest: {
         ____label: "Holodeck Program Request",
-        ____opaque: true // we don't care what they send, we're going to route it through RMDR.
+        ____description: "This is a reference to the programRequest value passed to Holodeck::runProgram.",
+        ____opaque: true // this is parsed inside the run filter's bodyFunction
     }
 
 };

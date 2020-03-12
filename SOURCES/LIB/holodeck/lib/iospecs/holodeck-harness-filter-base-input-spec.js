@@ -6,8 +6,20 @@
 module.exports = {
     ____types: "jsObject",
 
-    id: { ____accept: "jsString" },
-    name: { ____accept: "jsString" },
-    description: { ____accept: "jsString" },
+    context: {
+        ____types: "jsObject",
+        holodeck: {
+            ____accept: "jsObject" // TODO: lock this down
+        },
+        program: {
+            ____accept: "jsObject" // TODO lock this down
+        }
+    },
+
+    /*
+    programRequest: {
+        ____opaque: true; // replaced by every specialization of harness.
+    }
+    */
 
 };

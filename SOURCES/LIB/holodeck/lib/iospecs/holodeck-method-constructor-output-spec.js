@@ -12,5 +12,19 @@ module.exports = {
         filterDescriptor: { ____accept: "jsObject" },
         request: { ____accept: "jsFunction" },
         supportedFilters: { ____types: "jsArray", filterName: { ____accept: "jsString" } }
+    },
+    holodeckHarnessFilters: {
+        ____label: "Holodeck Harness Filters",
+        ____description: "A sorted array of HolodeckHarness filters registered for use in this Holodeck instance. This includes both holodeck-intrinsic and developer-registered harnesses.",
+        ____types: "jsArray",
+        harnessFilter: {
+            ____label: "Holodeck Harness Filter",
+            ____description: "A filter object obtained from a registered HolodeckHarness instance.",
+            ____types: "jsObject",
+            filterDescriptor: { ____accept: "jsObject" },
+            request: { ____accept: "jsFunction" }
+        }
     }
+
+
 };

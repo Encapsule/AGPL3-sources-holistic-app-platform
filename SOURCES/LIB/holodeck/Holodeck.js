@@ -13,28 +13,22 @@ module.exports = class Holodeck {
 
         const constructorResponse = constructorFilter.request(constructorRequest_);
         if (constructorResponse.error) {
-            this._private.constructorError = `Holodeck::constructor failed: ${constructorResponse.error}`;
-            this._private.constructorResponse = constructorResponse;
+            this._private.constructorError = constructorResponse.error;
             return;
         }
         this._private = constructorResponse.result;
-
     }
 
-    isValid() {
-        return (!this._private.constructorError);
+    isValid() { return (!this._private.constructorError); }
+
+    toJSON() { return (this._private.constructorError)?this._private.constructorError:this._private; }
+
+    runProgram (programRequest_) {
+        if (!this.isValid()) { return { error: this._private.constructorError }; }
+        return runProgramFilter.request({ HolodeckInstance: this, programRequest: programRequest_ });
     }
 
-    toJSON() {
-        return (this._private.constructorError)?this._private.constructorError:this._private;
-    }
-
-    runProgram (runProgramRequest_) {
-        return runProgramFilter.request({
-            HolodeckInstance: this,
-            runProgramRequest: runProgramRequest_
-        });
-    }
+    _getHarnessDiscriminator
 
 };
 

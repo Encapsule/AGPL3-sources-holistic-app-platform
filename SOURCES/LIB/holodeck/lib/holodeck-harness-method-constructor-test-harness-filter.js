@@ -1,6 +1,7 @@
 // holodeck-method-constructor-test-harness-filter.js
 
 const arccore = require("@encapsule/arccore");
+
 const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
 const harnessType = "test-harness";
 
