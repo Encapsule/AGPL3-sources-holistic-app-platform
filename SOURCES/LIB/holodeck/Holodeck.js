@@ -29,13 +29,10 @@ module.exports = class Holodeck {
         return runProgramFilter.request({ HolodeckInstance: this, programRequest: programRequest_ });
     }
 
-    // Private method used by plug-in harnesses to obtain an reference to the harness discriminator filter
-    // that it uses to affect RMDR-pattern dispatch of a programRequest.
+    // Private method used by plug-in harnesses to obtain an reference to the harness discriminator filter.
     _getHarnessDiscriminator() {
-        if (!this.isValid()) {
-            return { error: this.toJSON() };
-        }
-        return { error: null, result: this._private.holodeckHarnessDispatcher };
+        if (!this.isValid()) { return { error: this.toJSON() }; }
+        return { error: null, result: this._private.harnessDiscriminator };
     }
 
 };

@@ -64,11 +64,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
-            response.result = {
-                ...constructorRequest_,
-                holodeckHarnessDispatcher: innerResponse.result,
-                holodeckHarnessFilters: harnessFilters
-            };
+            response.result = { ...constructorRequest_, harnessFilters, harnessDiscriminator: innerResponse.result };
 
             break;
         }

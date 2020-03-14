@@ -23,23 +23,22 @@ const factoryResponse = arccore.filter.create({
 
             const message = testHarnessCreateRequest_.createTestHarness;
 
-            const harnessFilterContext = {
-                ...message.harnessOptions
-            };
-
-            // TODO: All constructed harness filters have some common I/O responsibilities imposed by holodeck.
-            // Need to get this straight and nailed into the mix from the outset...
+            // CREATE THE TEST HARNESS FILTER
             const innerFactorResponse = arccore.filter.create({
+
                 operationID: message.id,
                 operationName: `Test Harness: ${message.name}`,
                 operationDescription: message.description,
+
                 inputFilterSpec: {
                     ____label: `Test Harness ${message.name} Request`,
-                    ...message.testVectorRequestInputSpec,
-                    test: {
-                        ...harnessFilterBaseInputSpec
-                    }
+                    ...harnessFilterBaseInputSpec,
+                    programRequest: { ...message.programRequestSpec }
                 },
+
+                outputFilterSpec: { ____opaque: true }, // TODO
+
+                // TODO: We will want to implement our own bodyFunction and then delegate internally to harnessBodyFunction in order to affect logging
                 bodyFunction: message.harnessBodyFunction
             });
             if (innerFactoryResponse.error) {

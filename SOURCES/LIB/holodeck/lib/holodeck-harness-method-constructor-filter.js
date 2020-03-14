@@ -5,7 +5,8 @@ const arccore = require("@encapsule/arccore");
 let factoryResponse = arccore.discriminator.create({
     options: { action: "getFilter" },
     filters: [
-        require("./holodeck-harness-method-constructor-enumerator-harness-filter"),
+        // These filters define the different types of harness plug-ins that may
+        // be constructed to extend the holodeck program object grammar.
         require("./holodeck-harness-method-constructor-config-harness-filter"),
         require("./holodeck-harness-method-constructor-test-harness-filter")
     ]
@@ -39,16 +40,16 @@ factoryResponse = arccore.filter.create({
                 break;
             }
 
-            const harnessFilter = innerResponse.result;
+            const harnessFactoryFilter = innerResponse.result;
 
-            innerResponse = harnessFilter.request(constructorRequest_);
+            innerResponse = harnessFactoryFilter.request(constructorRequest_);
             if (innerResponse.error) {
-                errors.push(`We routed your harness constructor request to [${harnessFilter.filterDescriptor.operationID}::${harnessFilter.filterDescriptor.operationName}]. But, the factory refused to take your order:`);
+                errors.push(`We routed your harness constructor request to [${harnessFactoryFilter.filterDescriptor.operationID}::${harnessFactoryFilter.filterDescriptor.operationName}]. But, the factory refused to take your order:`);
                 errors.push(innerResponse.error);
                 break;
             }
 
-            response.result = innerResponse.result;
+            response.result = innerResponse.result; // harness filter specialized by type, and (for config and test) by developer-specified filter specs and harnessBodyFunction
 
             break;
         }

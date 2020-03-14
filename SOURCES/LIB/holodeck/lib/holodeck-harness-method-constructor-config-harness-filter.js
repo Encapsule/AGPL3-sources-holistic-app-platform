@@ -6,6 +6,7 @@ const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-ba
 const harnessType = "config-harness";
 
 const factoryResponse = arccore.filter.create({
+
     operationID: "TTKPNaovTSCFN8T-K3oYEA",
     operationName: "Config Harness Factory",
     operationDescription: "Constructs a holodeck harness plug-in filter specialized for configuration programData.",
@@ -22,21 +23,22 @@ const factoryResponse = arccore.filter.create({
 
             const message = harnessCreateRequest_.createConfigHarness;
 
-
+            // CREATE THE CONFIG HARNESS FILTER
             const innerFactoryResponse = arccore.filter.create({
+
                 operationID: message.id,
                 operationName: `Config Harness: ${message.name}`,
                 operationDescription: message.description,
 
-                // TODO: NO OUTPUT SPEC?
                 inputFilterSpec: {
                     ____label: `Config Harness ${message.name} Request`,
                     ...harnessFilterBaseInputSpec,
-                    programData: {
-                        ...message.programRequestSpec
-                    }
+                    programRequest: { ...message.programRequestSpec }
                 },
 
+                outputFilterSpec: { ____opaque: true }, // TODO- maybe config harnesses have no say in their output spec?
+
+                // TODO: We will want to implement our own bodyFunction here and delegate to harnessBodyFunction in order to affect 
                 bodyFunction: message.harnessBodyFunction
 
             });
