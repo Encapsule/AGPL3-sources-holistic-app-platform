@@ -1,5 +1,6 @@
 
-module.exports =  []; /*
+module.exports =  [
+
     {
         id: "iyZKjcvmR7OsORGfvAZtPQ",
         name: "Holodeck Package Tests",
@@ -7,13 +8,13 @@ module.exports =  []; /*
         config: {
             package: {
                 packageName: "@encapsule/holodeck",
-                program: {
+                programq: {
                     id: "k2NqyrK1TA-t7LrZGewUhg",
                     name: "Holodeck RTL Tests",
                     description: "Base-level regression tests for @encapsule/holodeck RTL package",
                     config: {
                         testSet: {
-                            program: [
+                            programRequest: [
                                 {
                                     id: "9uAsdIezSSWUKs9yDExkdg",
                                     name: "Test #1",
@@ -42,7 +43,7 @@ module.exports =  []; /*
         config: {
             package: {
                 packageName: "@encapsule/holarchy",
-                program: [
+                programRequest:[
                     {
                         id: "J0aFcS-fR1azIjp_A2J76g",
                         name: "ControllerAction Class",
@@ -50,7 +51,7 @@ module.exports =  []; /*
                         config: {
                             class: {
                                 className: "ControllerAction",
-                                program: {
+                                programRequest:{
                                 }
                             }
                         }
@@ -65,8 +66,8 @@ module.exports =  []; /*
         description: "@encapsule/holarchy-cm RTL package tests.",
         config: {
             package: {
-                pacakgeName: "@encapsule/holarchy-cm",
-                program: [
+                packageName: "@encapsule/holarchy-cm",
+                programRequest:[
                 ]
             }
         }
@@ -78,7 +79,7 @@ module.exports =  []; /*
         config: {
             package: {
                 packageName: "@encapsule/holistic-app-client-cm",
-                program: [
+                programRequest:[
                 ]
             }
         }
@@ -90,10 +91,10 @@ module.exports =  []; /*
         config: {
             package: {
                 packageName: "@encapsule/holistic-app-server-cm",
-                program: [
+                programRequest:[
                 ]
             }
         }
     }
 ];
-*/
+
