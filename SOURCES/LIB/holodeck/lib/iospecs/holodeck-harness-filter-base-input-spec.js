@@ -8,25 +8,16 @@ module.exports = {
 
     context: {
         ____types: "jsObject",
-        holodeck: {
-            ____label: "Holodeck Runtime Context",
+        logRootDir: { ____accept: "jsString" },
+        logCurrentDirPath: { ____types: "jsArray", ____defaultValue: [], directoryName: { ____accept: "jsString" }},
+        programRequestPath: { ____types: "jsArray", ____defaultValue: [], requestPathToken: { ____accept: "jsString" }},
+        config: {
             ____types: "jsObject",
+            ____asMap: true,
             ____defaultValue: {},
-            harnessDiscriminator: {
-                ____label: "Holodeck Harness Discriminator",
-                ____description: "Routes a holodeck program request to 1:N registered harness filters during holodeck program evaluation.",
-                ____types: "jsObject",
-                filterDescriptor: { ____accept: "jsObject" },
-                request: { ____accept: "jsFunction" },
-                supportedFilters: { ____types: "jsArray", element: { ____accept: "jsString" } }
-            }
-        },
-        program: {
-            ____label: "Holodeck Program Context",
-            ____accept: "jsObject", // TODO lock this down
-            ____defaultValue: {}
+            configName: { ____accept: "jsObject" /* TODO */ }
         }
-    },
+    }
 
     /*
     programRequest: {

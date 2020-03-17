@@ -5,6 +5,8 @@
 // Based on v2 @encapsule/holodeck
 //
 
+// HACK (we will remove these from any real test program and rely on harnesses for logging
+const fs = require("fs");
 const path = require("path");
 
 // Mock the platform build so we can execute the tests.
@@ -16,76 +18,91 @@ const holodeckAssets = require("@encapsule/holodeck-assets");
 
 const hd2Program = require("./hd2-program");
 
-let response = { error: null, processExit: 0, result: null };
-let errors = [];
-let inBreakScope = false;
-while (!inBreakScope) {
-    inBreakScope = true;
+(function() {
 
-    /* DISABLE - WE'RE TESTING OUT INTRINSIC HARNESSES RIGHT NOW.
-       ----------------------------------------------------------------
-       const holodeckHarnessInstance = new holodeck.HolodeckHarness({
-       });
+    let response = { error: null, processExit: 0 };
+    let errors = [];
+    let inBreakScope = false;
+    while (!inBreakScope) {
+        inBreakScope = true;
 
-       if (!holodeckHarnessInstance.isValid()) {
-       errors.push("Unable to construct HolodeckHarness instance due to error: " + holodeckHarnessInstance.toJSON());
-       }
-       ----------------------------------------------------------------
-    */
+        /* DISABLE - WE'RE TESTING OUT INTRINSIC HARNESSES RIGHT NOW.
+           ----------------------------------------------------------------
+           const holodeckHarnessInstance = new holodeck.HolodeckHarness({
+           });
 
-    const platformHolodeck = new holodeck.Holodeck({
-        id: "ohHmx_oJTTSnmTCgQD788g",
-        name: "Holistic Platform Holodeck Test Envirionment",
-        description: "Defines holodeck instance we use to perform testing on the holistic platform RTL's.",
-        logRootDir: path.join(__dirname, "hd2-logs"),
-        holodeckHarnesses: [
-        ]
-    });
+           if (!holodeckHarnessInstance.isValid()) {
+           errors.push("Unable to construct HolodeckHarness instance due to error: " + holodeckHarnessInstance.toJSON());
+           }
+           ----------------------------------------------------------------
+        */
 
-    if (!platformHolodeck.isValid()) {
-        errors.push("Unable to construct Holodeck class instance due to error: " +  platformHolodeck.toJSON());
+        const platformHolodeck = new holodeck.Holodeck({
+            id: "ohHmx_oJTTSnmTCgQD788g",
+            name: "Holistic Platform Holodeck Test Envirionment",
+            description: "Defines holodeck instance we use to perform testing on the holistic platform RTL's.",
+            logRootDir: path.join(__dirname, "hd2-logs"),
+            holodeckHarnesses: []
+        });
+
+        if (!platformHolodeck.isValid()) {
+            errors.push("Unable to construct Holodeck class instance due to error: " +  platformHolodeck.toJSON());
+            break;
+        }
+
+
+        // TELL HOLODECK TO EXECUTE AN INTROSPECTION PROGRAM AND LOG THE DETAILS OF
+        // IT'S INTERNAL STRUCTURE (E.G. HARNESS FACTORIES, HARNESS FILTERS, API METHOD FILTERS..)
+
+
+        const harnessFilters = platformHolodeck._private.harnessFilters;
+
+        harnessFilters.forEach((harnessFilter_) => {
+
+            const filterDescriptor = harnessFilter_.filterDescriptor;
+            const id = filterDescriptor.operationID;
+            const name = filterDescriptor.operationName;
+            const description = filterDescriptor.operationDescription;
+
+            const filename = path.join(platformHolodeck._private.logRootDir, `filter_${id}_${name}.md`);
+            const markdownResponse = holodeck.generateFilterMarkdownString({ filter: harnessFilter_ });
+            if (markdownResponse.error) {
+                errors.push(markdownResponse.error);
+                console.error(markdownResponse.error);
+            } else {
+                fs.writeFileSync(filename, markdownResponse.result);
+            }
+
+        });
+
+
+        // WHAT SHOULD A HOLODECK PROGRAM LOOK LIKE IDEALLY? LET'S PLAY WHAT-IF AND THEN MAKE IT WORK THAT WAY...
+        // ----------------------------------------------------------------
+        const programResponse = platformHolodeck.runProgram(hd2Program);
+
+        if (programResponse.error) {
+            errors.push("rt2.js runner failed w/error: " +  programResponse.error);
+            break;
+        }
+        // ----------------------------------------------------------------
+
+        response.result = programResponse.result;
+
         break;
+
+    } // while (!inBreakScope)
+
+    // Set the response.error string if there are any error(s) reported via arrays string array.
+    if (errors.length) {
+        response.error = errors.join(" ");
+        response.processExit = 1;
     }
 
-    // WHAT SHOULD A HOLODECK PROGRAM LOOK LIKE IDEALLY? LET'S PLAY WHAT-IF AND THEN MAKE IT WORK THAT WAY...
-    // ----------------------------------------------------------------
-    const programResponse = platformHolodeck.runProgram({
-        id: "GP5a-D-cRtibO5UsglJRwA",
-        name: "Holistic App Platform Holodeck Program",
-        description: "Test coverage for holistic app platform RTL's and tools.",
-        program: hd2Program
-    });
-    if (programResponse.error) {
-        errors.push("rt2.js runner failed w/error: " +  programResponse.error);
-        break;
-    }
-    // ----------------------------------------------------------------
-
-    break;
-
-}
-if (errors.length) {
-    response.error = errors.join(" ");
-    response.processExit = 1;
-}
+    const serializedResponse = JSON.stringify(response, undefined, 4);
+    console.log(serializedResponse);
 
 
+    console.log("rt2.js PROCESS EXIT CODE: " + response.processExit);
+    process.exit(response.processExit);
 
-
-// ================================================================
-// We now have a valid Holodeck to play with.
-
-
-
-
-
-
-if (response.error) {
-    console.error(response.error);
-}
-
-console.log("rt2.js PROCESS EXIT CODE: " + response.processExit);
-process.exit(response.processExit);
-
-
-
+})();

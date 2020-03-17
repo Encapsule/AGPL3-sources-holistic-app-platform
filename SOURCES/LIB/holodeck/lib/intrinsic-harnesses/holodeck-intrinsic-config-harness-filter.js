@@ -5,24 +5,30 @@ const configHarnessFilter = new HolodeckHarness({
     createConfigHarness: {
         id: "ytwqXMfeQEu0E9wsObpfDg",
 
-        name: "Package",
-        description: "Configures program for testing a specific npm/yarn package.",
+        name: "Filter",
+        description: "Configures program for testing a specific arccore.filter instance.",
 
         programRequestSpec: {
             ____types: "jsObject",
-            filter: {
+            config: {
                 ____types: "jsObject",
-                filterName: { ____accept: "jsString" },
-                program: { ____opaque: true } // evaluated via RMDR
+                filter: {
+                    ____types: "jsObject",
+                    filterName: { ____accept: "jsString" },
+                    programRequest: {
+                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                        ____defaultValue: null // missing sub-programRequest
+                    }
+                }
             }
         },
 
         programResultSpec: {
-            ____types: "jsObject"
+            ____accept: "jsObject"
         },
 
         harnessBodyFunction: (harnessRequest_) => {
-
+            return { error: "Not implemented." };
         }
     }
 });

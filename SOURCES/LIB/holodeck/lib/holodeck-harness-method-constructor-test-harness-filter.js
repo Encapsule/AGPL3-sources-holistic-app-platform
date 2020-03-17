@@ -3,9 +3,12 @@
 const arccore = require("@encapsule/arccore");
 
 const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
+const harnessFilterBaseOutputSpec = require("./iospecs/holodeck-harness-filter-base-output-spec");
+
 const harnessType = "test-harness";
 
 const factoryResponse = arccore.filter.create({
+
     operationID: "M054odK1Ti-YSkoYv5OzSA",
     operationName: "HolodeckHarness::constructor Test Harness Factory",
     operationDescription: "A filter that constructs a HolodeckHarness filter for executing a specific class of holodeck test vector.",
@@ -23,6 +26,7 @@ const factoryResponse = arccore.filter.create({
 
             const message = testHarnessCreateRequest_.createTestHarness;
 
+            // ----------------------------------------------------------------
             // CREATE THE TEST HARNESS FILTER
             const innerFactorResponse = arccore.filter.create({
 
@@ -36,11 +40,28 @@ const factoryResponse = arccore.filter.create({
                     programRequest: { ...message.programRequestSpec }
                 },
 
-                outputFilterSpec: { ____opaque: true }, // TODO
+                outputFilterSpec: harnessFilterBaseOutputSpec,
 
-                // TODO: We will want to implement our own bodyFunction and then delegate internally to harnessBodyFunction in order to affect logging
-                bodyFunction: message.harnessBodyFunction
+                bodyFunction: (harnessRequest_) => {
+                    let response = { error: null };
+                    let errors = [];
+                    let inBreakScope = false;
+                    while (!inBreakScope) {
+                        inBreakScope = true;
+
+                        // message.harnessBodyFunction
+
+                        break;
+                    }
+                    if (errors.length) {
+                        response.error = errors.join(" ");
+                    }
+                    return response;
+
+                } // end bodyFunction
+
             });
+
             if (innerFactoryResponse.error) {
                 errors.push(innerFactoryResponse.error);
                 break;

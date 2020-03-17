@@ -1,5 +1,4 @@
 
-
 const HolodeckHarness = require("../../HolodeckHarness");
 
 const configHarnessMethod = new HolodeckHarness({
@@ -10,19 +9,25 @@ const configHarnessMethod = new HolodeckHarness({
 
         programRequestSpec: {
             ____types: "jsObject",
-            method: {
+            config: {
                 ____types: "jsObject",
-                filterName: { ____accept: "jsString" },
-                program: { ____opaque: true } // evaluated via RMDR
+                method: {
+                    ____types: "jsObject",
+                    filterName: { ____accept: "jsString" },
+                    programRequest: {
+                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                        ____defaultValue: null // missing sub-programRequest
+                    }
+                }
             }
         },
 
         programResultSpec: {
-            ____types: "jsObject"
+            ____accept: "jsObject"
         },
 
         harnessBodyFunction: (harnessRequest_) => {
-
+            return { error: "Not implemented." };
         }
     }
 });

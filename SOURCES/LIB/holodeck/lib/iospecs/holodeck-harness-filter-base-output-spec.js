@@ -6,8 +6,15 @@
 const holodeckHarnessFilterBaseInputSpec = require("./holodeck-harness-filter-base-input-spec");
 
 module.exports = {
+
     ...holodeckHarnessFilterBaseInputSpec,
+
     /* harnessResult */
-    programRequest: { ____opaque: true }
+
+    programRequest: {
+        ____accept: [ "jsArray", "jsObject", "jsNull" ],
+        ____defaultValue: null
+    }
+
 };
 

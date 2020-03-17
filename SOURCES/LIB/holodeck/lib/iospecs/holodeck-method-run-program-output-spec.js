@@ -2,6 +2,11 @@
 
 module.exports = {
     ____label: "Holodeck::runProgram Result",
-    ____types: "jsObject"
-
+    ____types: "jsObject",
+    ____asMap: true,
+    ____defaultValue: {},
+    responseNumber: {
+        // TODO
+        ____opaque: true
+    }
 };

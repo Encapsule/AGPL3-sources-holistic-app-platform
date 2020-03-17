@@ -3,6 +3,8 @@
 const arccore = require("@encapsule/arccore");
 
 const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
+const harnessFilterBaseOutputSpec = require("./iospecs/holodeck-harness-filter-base-output-spec");
+
 const harnessType = "config-harness";
 
 const factoryResponse = arccore.filter.create({
@@ -23,6 +25,7 @@ const factoryResponse = arccore.filter.create({
 
             const message = harnessCreateRequest_.createConfigHarness;
 
+            // ----------------------------------------------------------------
             // CREATE THE CONFIG HARNESS FILTER
             const innerFactoryResponse = arccore.filter.create({
 
@@ -36,12 +39,28 @@ const factoryResponse = arccore.filter.create({
                     programRequest: { ...message.programRequestSpec }
                 },
 
-                outputFilterSpec: { ____opaque: true }, // TODO- maybe config harnesses have no say in their output spec?
+                outputFilterSpec: harnessFilterBaseOutputSpec,
 
-                // TODO: We will want to implement our own bodyFunction here and delegate to harnessBodyFunction in order to affect 
-                bodyFunction: message.harnessBodyFunction
+                bodyFunction: (harnessRequest_) => {
+                    let response = { error: null };
+                    let errors = [];
+                    let inBreakScope = false;
+                    while (!inBreakScope) {
+                        inBreakScope = true;
+
+                        // message.harnessBodyFunction
+
+                        break;
+                    }
+                    if (errors.length) {
+                        response.error = errors.join(" ");
+                    }
+                    return response;
+
+                } // end bodyFunction
 
             });
+
             if (innerFactoryResponse.error) {
                 errors.push(innerFactoryResponse.error);
                 break;
@@ -55,7 +74,7 @@ const factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            reponse.error = errors.join(" ");
+            response.error = errors.join(" ");
         }
         return response;
     }
@@ -63,7 +82,7 @@ const factoryResponse = arccore.filter.create({
 });
 
 if (factoryResponse.error) {
-    throw new Error(factoryReponse.error);
+    throw new Error(factoryResponse.error);
 }
 
 module.exports = factoryResponse.result;

@@ -5,27 +5,52 @@ const HolodeckHarness = require("../../HolodeckHarness");
 
 const configHarnessPackage = new HolodeckHarness({
     createConfigHarness: {
+
         id: "rGvH1YMLTxawuZtJwMD_eg",
         name: "Package",
         description: "Configures program for testing a specific npm/yarn package.",
 
         programRequestSpec: {
             ____types: "jsObject",
-            package: {
+            config: {
                 ____types: "jsObject",
-                packageName: { ____accept: "jsString" },
-                program: { ____opaque: true } // evaluated via RMDR
+                package: {
+                    ____types: "jsObject",
+                    packageName: { ____accept: "jsString" },
+                    programRequest: {
+                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                        ____defaultValue: null // missing sub-programRequest
+                    }
+                }
             }
         },
 
         programResultSpec: {
-            ____types: "jsObject"
+            ____accept: "jsObject"
         },
 
         harnessBodyFunction: (harnessRequest_) => {
+            let response = { error: null };
+            let errors = [];
+            let inBreakScope = false;
+            while (!inBreakScope) {
+                inBreakScope = true;
 
-        }
-    }
+                const message = harnessRequest_.programRequest.config.package;
+
+
+
+
+                break;
+            }
+            if (errors.length) {
+                response.error = errors.join(" ");
+            }
+            return response;
+        } // harnessBodyFunction
+
+    } // createConfigHarness
+
 });
 
 if (!configHarnessPackage.isValid()) {

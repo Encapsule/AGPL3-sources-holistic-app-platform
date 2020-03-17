@@ -3,28 +3,36 @@
 const HolodeckHarness = require("../../HolodeckHarness");
 
 const configHarnessProgram = new HolodeckHarness({
+
     createConfigHarness: {
         id: "FDCaCMlJSLaBGeOlcbODIw",
-        name: "Holodeck Program Logger",
-        description: "Configures logging options for a holodeck program.",
+        name: "Logger",
+        description: "Configures logging options for a holodeck subprogram.",
 
         programRequestSpec: {
             ____types: "jsObject",
-            programLogger: {
+            config: {
                 ____types: "jsObject",
-                options: {
-                    ____types: "jsObject", // TODO: extend definition as required
-                    ____defaultValue: {}
-                },
-                program: { ____opaque: true } // evaluated via RMDR
+                logger: {
+                    ____types: "jsObject",
+                    options: {
+                        ____types: "jsObject", // TODO: extend definition as required
+                        ____defaultValue: {}
+                    },
+                    programRequest: {
+                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                        ____defaultValue: null
+                    }
+                }
             }
         },
 
         programResultSpec: {
-            ____types: "jsObject"
+            ____accept: "jsObject"
         },
 
         harnessBodyFunction: (harnessRequest_) => {
+            return { error: "Not implemented." };
         }
     }
 });

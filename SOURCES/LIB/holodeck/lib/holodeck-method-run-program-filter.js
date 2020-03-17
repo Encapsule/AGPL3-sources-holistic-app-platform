@@ -12,7 +12,7 @@ const factoryResponse = arccore.filter.create({
     outputFilterSpec: require("./iospecs/holodeck-method-run-program-output-spec"),
 
     bodyFunction: (runProgramRequest_) => {
-        let response = { error: null };
+        let response = { error: null, result: {} };
         let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
@@ -33,6 +33,7 @@ const factoryResponse = arccore.filter.create({
 
             innerResponse = holodeckInstance._getHarnessDiscriminator();
             if (innerResponse.error) {
+                errors.push("Internal error. Please file a bug.");
                 errors.push(innerResponse.error);
                 break;
             }
@@ -50,9 +51,10 @@ const factoryResponse = arccore.filter.create({
 
                 { // Seed the harnessRequestQueue with a harnessRequest derived from the caller's programRequest.
                     context: {
-                        logsRootDir: holodeckInstance._private.logsRootDir,
-                        logsCurrentDirPath: [],
-                        programRequestPath: [ "~" ]
+                        logRootDir: holodeckInstance._private.logRootDir,
+                        logCurrentDirPath: [],
+                        programRequestPath: [ "~" ],
+                        result: response.result
                     },
                     programRequest
                 }
@@ -81,47 +83,69 @@ const factoryResponse = arccore.filter.create({
                 // ----------------------------------------------------------------
                 // Process all the programRequests in the harnessRequestWorkingQueue...
 
+                let index = 0;
+
                 while (harnessRequestWorkingQueue.length) {
 
                     let harnessRequest = harnessRequestWorkingQueue.shift();
+
+                    const programRequestPath = `${harnessRequest.context.programRequestPath.join(".")}[${index}]`;
 
                     // ----------------------------------------------------------------
                     // Select a harness to process the harnessRequest (if one seems plausible vs the others and given the request data presented).
 
                     const harnessDiscriminatorResponse = harnessDiscriminator.request(harnessRequest);
                     if (harnessDiscriminatorResponse.error) {
-                        // TODO: This error message isn't usable by developers unless it also includes the DL-path of the programRequest namespace that's in error.
-                        errors.push("Unable to resolve a harness filter to process this harness request.");
-                        errors.push(harnessDiscriminatorResponse.error);
-                        break;
-                    }
+                        const errorMessage = `At programRequest path '${programRequestPath}': Specified programRequest is not expressed in a format that we recognize or support.`;
+                        harnessRequest.context.result[index] = { error: errorMessage };
+                        // errors.push(harnessDiscriminatorResponse.error); // <- in practice, not useful - just clutters the output
+                    } else {
 
-                    // ----------------------------------------------------------------
-                    // We're using the "getFilter" variant of arccore.discriminator. So, this is the filter discriminator believes should process the harnessRequest.
-                    const harnessFilter = harnessDiscriminatorResponse.result;
+                        // ----------------------------------------------------------------
+                        // We're using the "getFilter" variant of arccore.discriminator. So, this is the filter discriminator believes should process the harnessRequest.
+                        const harnessFilter = harnessDiscriminatorResponse.result;
 
-                    // ----------------------------------------------------------------
-                    // Call the selected harness filter with the harnessRequest. Note that this may be rejected by the selected filter for any number of reasons.
-                    const harnessResponse = harnessFilter.request(harnessRequest);
+                        // ----------------------------------------------------------------
+                        // Call the selected harness filter with the harnessRequest. Note that this may be rejected by the selected filter for any number of reasons.
 
-                    if (harnessResponse.error) {
-                        // Harnesses should only report a response.error under dire circumstances (e.g. unrecognized program). Otherwise, they're to
-                        // write their significant errors and/or results to the filesystem for developer analysis.
-                        errors.push(harnessResponse.error);
-                        break; // aborts the harnessRequestQueue while loop w/error; something is seriously screwed up and we shouldn't even evaluate the program further.
-                    }
+                        console.info(`> Holodeck::runProgram programRequest path='${programRequestPath}' harness=[${harnessFilter.filterDescriptor.operationID}::${harnessFilter.filterDescriptor.operationName}]`);
 
-                    // ----------------------------------------------------------------
-                    // Process the harness filter's response.
-                    response.result = harnessResponse.result;
+                        const harnessResponse = harnessFilter.request(harnessRequest);
+
+                        if (harnessResponse.error) {
+                            const errorMessage = `At programRequest path '${programRequestPath}: Selected harness plug-in rejected programRequest with error: ${harnessResponse.error}`;
+                            harnessRequest.context.result[index] = { error: errorMessage };
+                        } else {
+
+                            // ----------------------------------------------------------------
+                            // Process the harness filter's response.
+                            harnessRequest.context.result[index] = { error: null, result: harnessResponse.result }
+
+                            // Queue the subprogram
+                            const subprogramRequest = harnessResponse.result.programRequest;
+                            if (subprogramRequest) {
+                                harnessRequestQueue.push({
+                                    context: {
+                                        logRootDir: holodeckInstance._private.logRootDir,
+                                        logCurrentDirPath: [],
+                                        programRequestPath: programRequestPath.split("."),
+                                    },
+                                    programRequest: subprogramRequest
+                                });
+
+                            } // end if subprogramRequest
+
+                        } // else if the harness filter returned a response.result
+
+                    } // end else we were able to select a harness filter
+
+                    index++;
 
                 } // end while harnessRequestWorkingQueue.length
 
             } // end while harnessRequestQueue.length
 
-
         } // end while(!inBreakScope)
-
 
         if (errors.length) {
             response.error = errors.join(" ");
