@@ -1,5 +1,5 @@
 
-const HolodeckHarness = require("../../HolodeckHarness");
+const HolodeckHarness = require("../HolodeckHarness");
 
 const configHarnessClass = new HolodeckHarness({
     createConfigHarness: {

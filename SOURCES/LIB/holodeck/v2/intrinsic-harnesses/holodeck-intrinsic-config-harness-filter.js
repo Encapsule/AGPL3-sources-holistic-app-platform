@@ -1,22 +1,20 @@
-// holodeck-intrinsic-config-harness-test-set.js
 
-const HolodeckHarness = require("../../HolodeckHarness");
+const HolodeckHarness = require("../HolodeckHarness");
 
-const configHarnessTestSet = new HolodeckHarness({
-
+const configHarnessFilter = new HolodeckHarness({
     createConfigHarness: {
+        id: "ytwqXMfeQEu0E9wsObpfDg",
 
-        id: "acKR_j0ARJq2oy0SyoADpg",
-        name: "Test Set",
-        description: "Define a set of related programRequests (typically test harness request(s)).",
+        name: "Filter",
+        description: "Configures program for testing a specific arccore.filter instance.",
 
         programRequestSpec: {
             ____types: "jsObject",
             config: {
                 ____types: "jsObject",
-                testSet: {
+                filter: {
                     ____types: "jsObject",
-                    testSetName: { ____accept: "jsString" },
+                    filterName: { ____accept: "jsString" },
                     programRequest: {
                         ____accept: [ "jsObject", "jsArray", "jsNull" ],
                         ____defaultValue: null // missing sub-programRequest
@@ -32,15 +30,12 @@ const configHarnessTestSet = new HolodeckHarness({
         harnessBodyFunction: (harnessRequest_) => {
             return { error: "Not implemented." };
         }
-
-
     }
 });
 
-//  This is an intrinsic config harness. It has to be valid.
-if (!configHarnessTestSet.isValid()) {
-    throw new Error(configHarnessTestSet.toJSON());
+if (!configHarnessFilter.isValid()) {
+    throw new Error(configHarnessFilter.toJSON());
 }
 
-module.exports = configHarnessTestSet;
+module.exports = configHarnessFilter;
 

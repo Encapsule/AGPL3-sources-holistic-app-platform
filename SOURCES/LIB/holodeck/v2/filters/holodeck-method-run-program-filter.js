@@ -41,11 +41,12 @@ const factoryResponse = arccore.filter.create({
 
             // ----------------------------------------------------------------
             // A holodeck program is defined recursively as a forest of one or more trees
-            // of subprogram requests. Branches are indicated in any specific programRequest
-            // tree by arrays. There is no prescribed stacking; e.g. a holodeck program may
-            // be a single programRequest descriptor object w/no subprogram specification.
+            // of subprogram requests. Branches in the tree are indicated by an array of
+            // programRequest objects and so on...
+            // There is no prescribed stacking; e.g. a holodeck program may be a single
+            // programRequest descriptor object w/no subprogram specification.
             // Or, it may be an array of subprogram request objects each of which specify
-            // complex subprograms... Or, any other variation on this pattern.
+            // complex subprograms with many branches.
 
             const harnessRequestQueue = [
 
@@ -71,12 +72,14 @@ const factoryResponse = arccore.filter.create({
                 // If the request at the head of the harnessRequestQueue's programRequest is an array...
                 if (Array.isArray(harnessRequest.programRequest)) {
                     harnessRequest.programRequest.forEach((subProgramRequest_) => {
+                        // Effectively split the array to create a new array of harness requests each of which uses the same context but unique programRequest
                         harnessRequestWorkingQueue.push({
                             context: { ...harnessRequest.context },
                             programRequest: subProgramRequest_
                         });
                     });
                 } else {
+                    // We now know that the programRequest is an object. So, we just add the harness request w/out modification to the working queue.
                     harnessRequestWorkingQueue.push(harnessRequest);
                 }
 
@@ -96,7 +99,7 @@ const factoryResponse = arccore.filter.create({
 
                     const harnessDiscriminatorResponse = harnessDiscriminator.request(harnessRequest);
                     if (harnessDiscriminatorResponse.error) {
-                        const errorMessage = `At programRequest path '${programRequestPath}': Specified programRequest is not expressed in a format that we recognize or support.`;
+                        const errorMessage = `Holodeck::runProgram failed at programRequest path '${programRequestPath}': The programRequest cannot be parsed. Please check the request format against registered plug-in harness filters in this holodeck environment.`;
                         harnessRequest.context.result[index] = { error: errorMessage };
                         // errors.push(harnessDiscriminatorResponse.error); // <- in practice, not useful - just clutters the output
                     } else {
@@ -113,7 +116,7 @@ const factoryResponse = arccore.filter.create({
                         const harnessResponse = harnessFilter.request(harnessRequest);
 
                         if (harnessResponse.error) {
-                            const errorMessage = `At programRequest path '${programRequestPath}: Selected harness plug-in rejected programRequest with error: ${harnessResponse.error}`;
+                            const errorMessage = `Holodeck::runProgram failed at programRequest path '${programRequestPath}'. The plug-in harness filter selected to perform this operation rejected the request with error: ${harnessResponse.error}`;
                             harnessRequest.context.result[index] = { error: errorMessage };
                         } else {
 

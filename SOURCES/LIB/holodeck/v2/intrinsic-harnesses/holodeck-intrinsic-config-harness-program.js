@@ -1,6 +1,6 @@
 // holodeck-intrinsic-config-harness-program.js
 
-const HolodeckHarness = require("../../HolodeckHarness");
+const HolodeckHarness = require("../HolodeckHarness");
 
 const configHarnessProgram = new HolodeckHarness({
 

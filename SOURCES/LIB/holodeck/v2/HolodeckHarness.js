@@ -1,6 +1,6 @@
 // HolodeckHarness.js (v2)
 
-const constructorFilter = require("./lib/holodeck-harness-method-constructor-filter");
+const constructorFilter = require("./filters/holodeck-harness-method-constructor-filter");
 
 
 module.exports = class HolodeckHarness {

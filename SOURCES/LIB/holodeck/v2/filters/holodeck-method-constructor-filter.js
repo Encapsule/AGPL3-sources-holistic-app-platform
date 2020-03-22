@@ -2,11 +2,11 @@
 
 const arccore = require("@encapsule/arccore");
 
-const intrinsicHarnesses = require("./intrinsic-harnesses");
+const intrinsicHarnesses = require("../intrinsic-harnesses");
 
 const fs = require("fs");
 const path = require("path");
-const helperGenerateFilterMarkdown = require("./helpers/helper-generate-filter-markdown-string");
+const helperGenerateFilterMarkdown = require("../../lib/helpers/helper-generate-filter-markdown-string");
 const mkdirp = require("mkdirp");
 
 

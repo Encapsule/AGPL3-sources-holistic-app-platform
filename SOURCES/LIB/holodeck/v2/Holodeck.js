@@ -1,7 +1,7 @@
 // Holodeck.js (v2)
 
-const constructorFilter = require("./lib/holodeck-method-constructor-filter");
-const runProgramFilter = require("./lib/holodeck-method-run-program-filter");
+const constructorFilter = require("./filters/holodeck-method-constructor-filter");
+const runProgramFilter = require("./filters/holodeck-method-run-program-filter");
 
 module.exports = class Holodeck {
 

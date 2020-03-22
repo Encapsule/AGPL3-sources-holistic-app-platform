@@ -73,8 +73,8 @@ module.exports = {
     harnessFactory: require("./lib/holodeck-harness-factory"),
 
     // v2
-    Holodeck: require("./Holodeck"),
-    HolodeckHarness: require("./HolodeckHarness"),
+    Holodeck: require("./v2/Holodeck"),
+    HolodeckHarness: require("./v2/HolodeckHarness"),
 
     // v2 hack (temporary)
     generateFilterMarkdownString: require("./lib/helpers/helper-generate-filter-markdown-string")
