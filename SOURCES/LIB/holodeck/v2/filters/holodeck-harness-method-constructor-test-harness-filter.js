@@ -2,8 +2,8 @@
 
 const arccore = require("@encapsule/arccore");
 
-const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
-const harnessFilterBaseOutputSpec = require("./iospecs/holodeck-harness-filter-base-output-spec");
+const harnessFilterBaseInputSpecGenerator = require("./iospecs/holodeck-harness-filter-input-spec-generator");
+const harnessFilterBaseOutputSpecGenerator = require("./iospecs/holodeck-harness-filter-output-spec-generator");
 
 const harnessType = "test-harness";
 
@@ -34,13 +34,8 @@ const factoryResponse = arccore.filter.create({
                 operationName: `Test Harness: ${message.name}`,
                 operationDescription: message.description,
 
-                inputFilterSpec: {
-                    ____label: `Test Harness ${message.name} Request`,
-                    ...harnessFilterBaseInputSpec,
-                    programRequest: { ...message.programRequestSpec }
-                },
-
-                outputFilterSpec: harnessFilterBaseOutputSpec,
+                inputFilterSpec: harnessFilterInputSpecGenerator({ test: { ____types: "jsObject", ...message.testRequestSpec }}),
+                outputFilterSpec: harnessFilterOutputSpecGenerator(message.testResultSpec),
 
                 bodyFunction: (harnessRequest_) => {
                     let response = { error: null };
@@ -49,7 +44,12 @@ const factoryResponse = arccore.filter.create({
                     while (!inBreakScope) {
                         inBreakScope = true;
 
-                        // message.harnessBodyFunction
+                        try {
+                            let innerResponse = message.testBodyFunction
+
+                        } catch (exception_) {
+
+                        }
 
                         break;
                     }

@@ -9,26 +9,19 @@ const configHarnessVectorSet = new HolodeckHarness({
         name: "Subsystem",
         description: "Configures a named application/service subsystem.",
 
-        programRequestSpec: {
+        configCommandSpec: {
             ____types: "jsObject",
-            config: {
+            subsystem: {
                 ____types: "jsObject",
-                subsystem: {
-                    ____types: "jsObject",
-                    subsystemName: { ____accept: "jsString" },
-                    programRequest: {
-                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
-                        ____defaultValue: null
-                    }
+                subsystemName: { ____accept: "jsString" },
+                programRequest: {
+                    ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                    ____defaultValue: null
                 }
             }
         },
 
-        programResultSpec: {
-            ____accept: "jsObject"
-        },
-
-        harnessBodyFunction: (harnessRequest_) => {
+        configPluginBodyFunction: (harnessRequest_) => {
             return { error: "Not implemented." };
         }
     }

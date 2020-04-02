@@ -10,26 +10,19 @@ const configHarnessTestSet = new HolodeckHarness({
         name: "Test Set",
         description: "Define a set of related programRequests (typically test harness request(s)).",
 
-        programRequestSpec: {
+        configCommandSpec: {
             ____types: "jsObject",
-            config: {
+            testSet: {
                 ____types: "jsObject",
-                testSet: {
-                    ____types: "jsObject",
-                    testSetName: { ____accept: "jsString" },
-                    programRequest: {
-                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
-                        ____defaultValue: null // missing sub-programRequest
-                    }
+                testSetName: { ____accept: "jsString" },
+                programRequest: {
+                    ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                    ____defaultValue: null // missing sub-programRequest
                 }
             }
         },
 
-        programResultSpec: {
-            ____accept: "jsObject"
-        },
-
-        harnessBodyFunction: (harnessRequest_) => {
+        configPluginBodyFunction: (harnessRequest_) => {
             return { error: "Not implemented." };
         }
 

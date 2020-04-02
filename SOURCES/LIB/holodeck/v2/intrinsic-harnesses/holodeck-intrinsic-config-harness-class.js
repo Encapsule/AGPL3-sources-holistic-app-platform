@@ -7,28 +7,22 @@ const configHarnessClass = new HolodeckHarness({
         name: "Class",
         description: "Configures program for testing a specific class.",
 
-        programRequestSpec: {
+        configCommandSpec: {
             ____types: "jsObject",
-            config: {
+            class: {
                 ____types: "jsObject",
-                class: {
-                    ____types: "jsObject",
-                    className: { ____accept: "jsString" },
-                    programRequest: {
-                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
-                        ____defaultValue: null // missing sub-programRequest
-                    }
+                className: { ____accept: "jsString" },
+                programRequest: {
+                    ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                    ____defaultValue: null // missing sub-programRequest
                 }
             }
         },
 
-        programResultSpec: {
-            ____accept: "jsObject" // TODO: review this for all harness instances in the intrinsic set
-        },
-
-        harnessBodyFunction: (harnessRequest_) => {
+        configPluginBodyFunction: (harnessRequest_) => {
             return { error: "Not implemented." };
         }
+
     }
 });
 

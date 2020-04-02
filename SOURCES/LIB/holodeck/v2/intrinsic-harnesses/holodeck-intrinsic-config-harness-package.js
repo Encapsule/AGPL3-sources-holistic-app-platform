@@ -9,26 +9,19 @@ const configHarnessPackage = new HolodeckHarness({
         name: "Package",
         description: "Configures program for testing a specific npm/yarn package.",
 
-        programRequestSpec: {
+        configCommandSpec: {
             ____types: "jsObject",
-            config: {
+            package: {
                 ____types: "jsObject",
-                package: {
-                    ____types: "jsObject",
-                    packageName: { ____accept: "jsString" },
-                    programRequest: {
-                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
-                        ____defaultValue: null // missing sub-programRequest
-                    }
+                packageName: { ____accept: "jsString" },
+                programRequest: {
+                    ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                    ____defaultValue: null // missing sub-programRequest
                 }
             }
         },
 
-        programResultSpec: {
-            ____accept: "jsObject"
-        },
-
-        harnessBodyFunction: (harnessRequest_) => {
+        configPluginBodyFunction: (harnessRequest_) => {
             let response = { error: null };
             let errors = [];
             let inBreakScope = false;
@@ -37,8 +30,14 @@ const configHarnessPackage = new HolodeckHarness({
 
                 const message = harnessRequest_.programRequest.config.package;
 
+                harnessRequest_.context.programRequestPath.push(harnessRequest_.programRequest.id);
+                harnessRequest_.context.config.packageName = message.packageName;
 
-
+                response.result = {
+                    context: { ...harnessRequest_.context },
+                    harnessResult: { test: "This should work fine because this object is declared ____accept." },
+                    programRequest: message.programRequest
+                }
 
                 break;
             }
@@ -46,6 +45,7 @@ const configHarnessPackage = new HolodeckHarness({
                 response.error = errors.join(" ");
             }
             return response;
+
         } // harnessBodyFunction
 
     } // createConfigHarness

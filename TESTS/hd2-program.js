@@ -8,7 +8,7 @@ module.exports =  [
         config: {
             package: {
                 packageName: "@encapsule/holodeck",
-                programq: {
+                programRequest: {
                     id: "k2NqyrK1TA-t7LrZGewUhg",
                     name: "Holodeck RTL Tests",
                     description: "Base-level regression tests for @encapsule/holodeck RTL package",
@@ -35,6 +35,8 @@ module.exports =  [
             }
         }
     },
+
+    /*
 
     {
         id: "CgS0a4bPT7u4998vzQmn9Q",
@@ -96,5 +98,8 @@ module.exports =  [
             }
         }
     }
+
+
+    */
 ];
 

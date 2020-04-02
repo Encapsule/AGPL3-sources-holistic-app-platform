@@ -9,29 +9,22 @@ const configHarnessProgram = new HolodeckHarness({
         name: "Logger",
         description: "Configures logging options for a holodeck subprogram.",
 
-        programRequestSpec: {
+        configCommandSpec: {
             ____types: "jsObject",
-            config: {
+            logger: {
                 ____types: "jsObject",
-                logger: {
-                    ____types: "jsObject",
-                    options: {
-                        ____types: "jsObject", // TODO: extend definition as required
-                        ____defaultValue: {}
-                    },
-                    programRequest: {
-                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
-                        ____defaultValue: null
-                    }
+                options: {
+                    ____types: "jsObject", // TODO: extend definition as required
+                    ____defaultValue: {}
+                },
+                programRequest: {
+                    ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                    ____defaultValue: null
                 }
             }
         },
 
-        programResultSpec: {
-            ____accept: "jsObject"
-        },
-
-        harnessBodyFunction: (harnessRequest_) => {
+        configPluginBodyFunction: (harnessRequest_) => {
             return { error: "Not implemented." };
         }
     }

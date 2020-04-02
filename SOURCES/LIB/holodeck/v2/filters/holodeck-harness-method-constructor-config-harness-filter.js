@@ -2,8 +2,8 @@
 
 const arccore = require("@encapsule/arccore");
 
-const harnessFilterBaseInputSpec = require("./iospecs/holodeck-harness-filter-base-input-spec");
-const harnessFilterBaseOutputSpec = require("./iospecs/holodeck-harness-filter-base-output-spec");
+const harnessFilterInputSpecGenerator = require("./iospecs/holodeck-harness-filter-input-spec-generator");
+const harnessFilterOutputSpecGenerator = require("./iospecs/holodeck-harness-filter-output-spec-generator");
 
 const harnessType = "config-harness";
 
@@ -33,13 +33,8 @@ const factoryResponse = arccore.filter.create({
                 operationName: `Config Harness: ${message.name}`,
                 operationDescription: message.description,
 
-                inputFilterSpec: {
-                    ____label: `Config Harness ${message.name} Request`,
-                    ...harnessFilterBaseInputSpec,
-                    programRequest: { ...message.programRequestSpec }
-                },
-
-                outputFilterSpec: harnessFilterBaseOutputSpec,
+                inputFilterSpec: harnessFilterInputSpecGenerator({ config: { ____types: "jsObject", ...message.configCommandSpec }}),
+                outputFilterSpec: harnessFilterOutputSpecGenerator(message.configPluginResultSpec),
 
                 bodyFunction: (harnessRequest_) => {
                     let response = { error: null };
@@ -48,7 +43,18 @@ const factoryResponse = arccore.filter.create({
                     while (!inBreakScope) {
                         inBreakScope = true;
 
-                        // message.harnessBodyFunction
+                        try {
+                            let innerResponse = message.configBodyFunction(harnessRequest_);
+                            if (innerResponse.error) {
+                                errors.push(innerResponse.error);
+                                break;
+                            }
+                            response.result = innerResponse.result;
+
+                        } catch (exception_) {
+                            errors.push("Unhandled exception in config harness plug-in:");
+                            errors.push(exception_.message);
+                        }
 
                         break;
                     }

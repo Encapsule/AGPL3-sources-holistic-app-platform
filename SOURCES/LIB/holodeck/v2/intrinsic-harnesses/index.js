@@ -1,4 +1,4 @@
-
+// Intrinisic holodeck v2 plug-in harness filters are included in every holodeck v2 environment instance automatically.
 
 module.exports = [
     require("./holodeck-intrinsic-config-harness-class"), // handles programRequest to configure tests for a specific class

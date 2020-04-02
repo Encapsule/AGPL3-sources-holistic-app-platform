@@ -3,31 +3,24 @@ const HolodeckHarness = require("../HolodeckHarness");
 
 const configHarnessFilter = new HolodeckHarness({
     createConfigHarness: {
-        id: "ytwqXMfeQEu0E9wsObpfDg",
 
+        id: "ytwqXMfeQEu0E9wsObpfDg",
         name: "Filter",
         description: "Configures program for testing a specific arccore.filter instance.",
 
-        programRequestSpec: {
+        configCommandSpec: {
             ____types: "jsObject",
-            config: {
+            filter: {
                 ____types: "jsObject",
-                filter: {
-                    ____types: "jsObject",
-                    filterName: { ____accept: "jsString" },
-                    programRequest: {
-                        ____accept: [ "jsObject", "jsArray", "jsNull" ],
-                        ____defaultValue: null // missing sub-programRequest
-                    }
+                filterName: { ____accept: "jsString" },
+                programRequest: {
+                    ____accept: [ "jsObject", "jsArray", "jsNull" ],
+                    ____defaultValue: null // missing sub-programRequest
                 }
             }
         },
 
-        programResultSpec: {
-            ____accept: "jsObject"
-        },
-
-        harnessBodyFunction: (harnessRequest_) => {
+        configPluginBodyFunction: (harnessRequest_) => {
             return { error: "Not implemented." };
         }
     }

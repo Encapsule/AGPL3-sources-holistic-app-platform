@@ -122,21 +122,17 @@ const factoryResponse = arccore.filter.create({
 
                             // ----------------------------------------------------------------
                             // Process the harness filter's response.
-                            harnessRequest.context.result[index] = { error: null, result: harnessResponse.result }
+                            harnessRequest.context.result[index] = { error: null, result: harnessResponse.result.harnessResult }
 
                             // Queue the subprogram
-                            const subprogramRequest = harnessResponse.result.programRequest;
-                            if (subprogramRequest) {
+                            if (harnessResponse.result.programRequest) {
+
                                 harnessRequestQueue.push({
-                                    context: {
-                                        logRootDir: holodeckInstance._private.logRootDir,
-                                        logCurrentDirPath: [],
-                                        programRequestPath: programRequestPath.split("."),
-                                    },
-                                    programRequest: subprogramRequest
+                                    context: harnessResponse.result.context,
+                                    programRequest: harnessResponse.result.programRequest
                                 });
 
-                            } // end if subprogramRequest
+                            } // end if
 
                         } // else if the harness filter returned a response.result
 
