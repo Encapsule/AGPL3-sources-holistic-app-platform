@@ -7,7 +7,7 @@
 
 // HACK (we will remove these from any real test program and rely on harnesses for logging
 const fs = require("fs");
-const path = require("path");
+const path = require("path"); // need this for root log root dir
 
 // Mock the platform build so we can execute the tests.
 const platformInfo = require("./mock-platform");
@@ -26,16 +26,8 @@ const hd2Program = require("./hd2-program");
     while (!inBreakScope) {
         inBreakScope = true;
 
-        /* DISABLE - WE'RE TESTING OUT INTRINSIC HARNESSES RIGHT NOW.
-           ----------------------------------------------------------------
-           const holodeckHarnessInstance = new holodeck.HolodeckHarness({
-           });
-
-           if (!holodeckHarnessInstance.isValid()) {
-           errors.push("Unable to construct HolodeckHarness instance due to error: " + holodeckHarnessInstance.toJSON());
-           }
-           ----------------------------------------------------------------
-        */
+        // Construct the hd2 "environment" which pre-loads intrinsic harnesses, merges w/your custom harnesses, and subsequently
+        // provides execution of an hd2 program defined as a tree or forest of harness plug-in command requests.
 
         const platformHolodeck = new holodeck.Holodeck({
             id: "ohHmx_oJTTSnmTCgQD788g",
@@ -50,21 +42,15 @@ const hd2Program = require("./hd2-program");
             break;
         }
 
-
         // TELL HOLODECK TO EXECUTE AN INTROSPECTION PROGRAM AND LOG THE DETAILS OF
         // IT'S INTERNAL STRUCTURE (E.G. HARNESS FACTORIES, HARNESS FILTERS, API METHOD FILTERS..)
-
-
         const harnessFilters = platformHolodeck._private.harnessFilters;
-
         harnessFilters.forEach((harnessFilter_) => {
-
             const filterDescriptor = harnessFilter_.filterDescriptor;
             const id = filterDescriptor.operationID;
             const name = filterDescriptor.operationName;
             const description = filterDescriptor.operationDescription;
-
-            const filename = path.join(platformHolodeck._private.logRootDir, `filter_${id}_${name}.md`);
+            const filename = path.join(platformHolodeck._private.logRootDir, `[${id}::${name}].md` );
             const markdownResponse = holodeck.generateFilterMarkdownString({ filter: harnessFilter_ });
             if (markdownResponse.error) {
                 errors.push(markdownResponse.error);
@@ -72,7 +58,6 @@ const hd2Program = require("./hd2-program");
             } else {
                 fs.writeFileSync(filename, markdownResponse.result);
             }
-
         });
 
 

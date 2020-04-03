@@ -44,7 +44,7 @@ const factoryResponse = arccore.filter.create({
                         inBreakScope = true;
 
                         try {
-                            let innerResponse = message.configBodyFunction(harnessRequest_);
+                            let innerResponse = message.configPluginBodyFunction(harnessRequest_);
                             if (innerResponse.error) {
                                 errors.push(innerResponse.error);
                                 break;

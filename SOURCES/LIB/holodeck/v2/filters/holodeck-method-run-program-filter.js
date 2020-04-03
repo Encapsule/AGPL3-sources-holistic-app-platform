@@ -39,6 +39,18 @@ const factoryResponse = arccore.filter.create({
             }
             const harnessDiscriminator = innerResponse.result;
 
+            // Instantiate an empty DirectedGraph container that gets populated during program evaluation. And, that is returned via response.result.
+            innerResponse = arccore.graph.directed.create({
+                name: `Holodeck Environment ${holodeckInstance._getID().result}::${holodeckInstance._getName().result} Response Digraph`,
+                description: `Response digraph captures high-level information about holodeck v2 program evaluation in environment description: ${holodeckInstance._getDescription().result}`
+            });
+            if (innerResponse.error) {
+                errors.push("Intern error. Please file a bug.");
+                errors.push(innerResponse);
+                break;
+            }
+            const runnerResponseDigraph = innerResponse.result;
+
             // ----------------------------------------------------------------
             // A holodeck program is defined recursively as a forest of one or more trees
             // of subprogram requests. Branches in the tree are indicated by an array of
@@ -49,13 +61,11 @@ const factoryResponse = arccore.filter.create({
             // complex subprograms with many branches.
 
             const harnessRequestQueue = [
-
                 { // Seed the harnessRequestQueue with a harnessRequest derived from the caller's programRequest.
                     context: {
                         logRootDir: holodeckInstance._private.logRootDir,
                         logCurrentDirPath: [],
                         programRequestPath: [ "~" ],
-                        result: response.result
                     },
                     programRequest
                 }
@@ -63,6 +73,8 @@ const factoryResponse = arccore.filter.create({
 
             // ----------------------------------------------------------------
             // Implement a low-level breadth-first traversal of the programRequest specified by the the caller.
+
+            let programStep = 0;
 
             while (harnessRequestQueue.length) {
 
@@ -92,7 +104,15 @@ const factoryResponse = arccore.filter.create({
 
                     let harnessRequest = harnessRequestWorkingQueue.shift();
 
+                    const programParentRequestPath = `${harnessRequest.context.programRequestPath.slice(0,-1).join(".")}`;
+                    const programParentRequestPathVertexID = programParentRequestPath.length?arccore.identifier.irut.fromReference(programParentRequestPath).result:null;
+
                     const programRequestPath = `${harnessRequest.context.programRequestPath.join(".")}[${index}]`;
+                    const programRequestPathVertexID = arccore.identifier.irut.fromReference(programRequestPath).result;
+
+                    if (programParentRequestPathVertexID) {
+                        runnerResponseDigraph.addEdge({ e: { u: programParentRequestPathVertexID, v: programRequestPathVertexID } });
+                    }
 
                     // ----------------------------------------------------------------
                     // Select a harness to process the harnessRequest (if one seems plausible vs the others and given the request data presented).
@@ -110,23 +130,22 @@ const factoryResponse = arccore.filter.create({
 
                         // ----------------------------------------------------------------
                         // Call the selected harness filter with the harnessRequest. Note that this may be rejected by the selected filter for any number of reasons.
-
                         console.info(`> Holodeck::runProgram programRequest path='${programRequestPath}' harness=[${harnessFilter.filterDescriptor.operationID}::${harnessFilter.filterDescriptor.operationName}]`);
-
                         const harnessResponse = harnessFilter.request(harnessRequest);
 
                         if (harnessResponse.error) {
                             const errorMessage = `Holodeck::runProgram failed at programRequest path '${programRequestPath}'. The plug-in harness filter selected to perform this operation rejected the request with error: ${harnessResponse.error}`;
-                            harnessRequest.context.result[index] = { error: errorMessage };
+                            runnerResponseDigraph.setVertexProperty({ u: programRequestPathVertexID, p: { programStep, programRequestPath, error: errorMessage } });
                         } else {
 
                             // ----------------------------------------------------------------
                             // Process the harness filter's response.
-                            harnessRequest.context.result[index] = { error: null, result: harnessResponse.result.harnessResult }
+                            // TODO: We want to extract a summary report from the harness filter reponse and log that to the filesystem here intead of maintaining this stupid structure like this...
 
-                            // Queue the subprogram
+                            runnerResponseDigraph.setVertexProperty({ u: programRequestPathVertexID, p: { programStep, programRequestPath, result: harnessResponse.result.pluginResult }});
+
+                            // Queue the subprogram - this is the recursive part of RMDR (Recursive Message-Discriminated Routing) as we've implemented here to avoid overuse of the stack.
                             if (harnessResponse.result.programRequest) {
-
                                 harnessRequestQueue.push({
                                     context: harnessResponse.result.context,
                                     programRequest: harnessResponse.result.programRequest
@@ -142,7 +161,11 @@ const factoryResponse = arccore.filter.create({
 
                 } // end while harnessRequestWorkingQueue.length
 
+                programStep++;
+
             } // end while harnessRequestQueue.length
+
+            response.result = runnerResponseDigraph;
 
         } // end while(!inBreakScope)
 

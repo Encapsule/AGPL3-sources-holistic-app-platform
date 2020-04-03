@@ -15,7 +15,7 @@ module.exports = function(pluginResultSpec_) {
 
         pluginResult: { ...pluginResultSpec_ },
 
-        subprogramRequest: {
+        programRequest: {
             ____label: "Holodeck Subprogram Request",
             ____description: "Evaluation of a holodeck plug-in harness filter may produce a subprogram to be evaluated by holodeck environment using the environment context specified by //.context.",
             ____accept: [ "jsArray", "jsObject", "jsNull" ], // Holodeck will auto-flatten arrays into N harness requests w/shared context. And, then send the request(s) through RDMR to some specific tree of harness filter plug-ins for evaluation. So, no detailed spec needed here.

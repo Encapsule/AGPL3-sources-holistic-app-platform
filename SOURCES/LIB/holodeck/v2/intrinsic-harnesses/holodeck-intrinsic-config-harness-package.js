@@ -36,7 +36,7 @@ const configHarnessPackage = new HolodeckHarness({
                 response.result = {
                     context: { ...harnessRequest_.context },
                     harnessResult: { test: "This should work fine because this object is declared ____accept." },
-                    programRequest: message.programRequest
+                    programRequest: message.programRequest // this gets executed by the holodeck environment run method using the context above
                 }
 
                 break;

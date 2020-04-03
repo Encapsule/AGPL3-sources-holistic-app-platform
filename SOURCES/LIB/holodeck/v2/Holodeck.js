@@ -11,6 +11,9 @@ module.exports = class Holodeck {
         this.toJSON = this.toJSON.bind(this);
         this.runProgram = this.runProgram.bind(this);
         this._getHarnessDiscriminator = this._getHarnessDiscriminator.bind(this);
+        this._getID = this._getID.bind(this);
+        this._getName = this._getName.bind(this);
+        this._getDescription = this._getDescription.bind(this);
 
         const constructorResponse = constructorFilter.request(constructorRequest_);
         if (constructorResponse.error) {
@@ -33,6 +36,21 @@ module.exports = class Holodeck {
     _getHarnessDiscriminator() {
         if (!this.isValid()) { return { error: this.toJSON() }; }
         return { error: null, result: this._private.harnessDiscriminator };
+    }
+
+    _getID() {
+        if (!this.isValid()) { return { error: this.toJSON() }; }
+        return { error: null, result: this._private.id };
+    }
+
+    _getName() {
+        if (!this.isValid()) { return { error: this.toJSON() }; }
+        return { error: null, result: this._private.name };
+    }
+
+    _getDescription() {
+        if (!this.isValid()) { return { error: this.toJSON() }; }
+        return { error: null, result: this._private.description };
     }
 
 };
