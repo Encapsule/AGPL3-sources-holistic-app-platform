@@ -281,6 +281,8 @@ class ObservableProcessController {
                 // filter delegations. And, this propogates the net effects of
                 // the controller action as observed in the contained ocdi according
 
+                let evaluateResponse = null;
+
                 if (this._private.opcActorStack.length === 1) {
 
                     logger.request({
@@ -293,17 +295,21 @@ class ObservableProcessController {
                     // Evaluate is an actor too. It adds itself to the OPC actor stack.
                     // And is responsible itself for ensuring that it cleans up after
                     // itself no matter how it may fail.
-                    let evaluateResponse = this._evaluate();
+                    evaluateResponse = this._evaluate();
                     if (evaluateResponse.error) {
                         errors.push("Unable to evaluate OPC state after executing controller action due to error:");
                         errors.push(evaluateResponse.error);
                         break;
                     }
+                }
+
+                if (actionResponse.result || evaluateResponse) {
                     response.result = {
                         actionResult: actionResponse.result,
-                        lastEvaluation: evaluateResponse.result
+                        lastEvaluation: evaluateResponse?evaluateResponse.result:undefined
                     }
                 }
+
                 break;
 
             } // while (!inBreakScope)

@@ -13,12 +13,12 @@
                   "constructorRequest": {
                     "id": "mm9htD2iSuyVAPm9SFv-qw",
                     "name": "OPC.act dispatch #2",
-                    "description": "Dispathc an OPC.act method with a valid request and no registered controller actions."
+                    "description": "Dispatch an OPC.act method with a valid request and no registered controller actions."
                   },
                   "actRequests": [
                     {
                       "actorName": "Test Vector mm9htD2iSuyVAPm9SFv-qw",
-                      "actionDescription": "See what happens when I call OPC.act method with a valid request signature and no controller action plug-ins registered.",
+                      "actorTaskDescription": "See what happens when I call OPC.act method with a valid request signature and no controller action plug-ins registered.",
                       "actionRequest": {
                         "bogus": "Still a bogus message. But, that doesn't matter because this isn't going to get dispatched in this example."
                       }
@@ -42,7 +42,7 @@
                   "opcToJSON": {
                     "id": "mm9htD2iSuyVAPm9SFv-qw",
                     "name": "OPC.act dispatch #2",
-                    "description": "Dispathc an OPC.act method with a valid request and no registered controller actions.",
+                    "description": "Dispatch an OPC.act method with a valid request and no registered controller actions.",
                     "options": {
                       "evaluate": {
                         "maxFrames": 16,
@@ -233,7 +233,7 @@
                     {
                       "actRequest": {
                         "actorName": "Test Vector mm9htD2iSuyVAPm9SFv-qw",
-                        "actionDescription": "See what happens when I call OPC.act method with a valid request signature and no controller action plug-ins registered.",
+                        "actorTaskDescription": "See what happens when I call OPC.act method with a valid request signature and no controller action plug-ins registered.",
                         "actionRequest": {
                           "bogus": "Still a bogus message. But, that doesn't matter because this isn't going to get dispatched in this example."
                         }

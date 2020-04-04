@@ -1,26 +1,32 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "V4rhwuR97Sdl5q9h1CIHTg": {
-      "stn1B2JRSkOkFxuyejzGjQ": {
+      "PfsBYWSrQwSQCVQgaR1rPQ": {
         "harnessRequest": {
-          "id": "stn1B2JRSkOkFxuyejzGjQ",
-          "name": "ControllerAction constructor #2",
-          "description": "Test ControllerAction class constructor #2 (minimal constructor request)",
+          "id": "PfsBYWSrQwSQCVQgaR1rPQ",
+          "name": "ControllerAction constructor #3",
+          "description": "Test ControllerAction class constructor #3 (specifies a result spec)",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "ControllerAction": {
                   "constructorRequest": {
-                    "id": "stn1B2JRSkOkFxuyejzGjQ",
-                    "name": "ControllAction Test #2",
-                    "description": "A test ControllerAction plug-in filter.",
+                    "id": "PfsBYWSrQwSQCVQgaR1rPQ",
+                    "name": "ControllerAction constructor #3",
+                    "description": "Test ControllerAction class constructor #3 (specifies a result spec)",
                     "actionRequestSpec": {
                       "____types": "jsObject",
                       "test": {
                         "____types": "jsObject",
-                        "action1": {
+                        "action2": {
                           "____accept": "jsObject"
                         }
+                      }
+                    },
+                    "actionResultSpec": {
+                      "____types": "jsObject",
+                      "CONSIPICUOUS_LABEL": {
+                        "____accept": "jsObject"
                       }
                     }
                   }
@@ -38,21 +44,21 @@
             },
             "harnessDispatch": {
               "0xHlX_WKQ3y-3CFQ0DDx1w": {
-                "stn1B2JRSkOkFxuyejzGjQ": {
+                "PfsBYWSrQwSQCVQgaR1rPQ": {
                   "isValid": true,
                   "toJSON": {
-                    "id": "stn1B2JRSkOkFxuyejzGjQ",
-                    "vdid": "LAdD6cApRoqhdKLs2HfCuw",
-                    "name": "ControllAction Test #2",
-                    "description": "A test ControllerAction plug-in filter."
+                    "id": "PfsBYWSrQwSQCVQgaR1rPQ",
+                    "vdid": "BeaU4BbqVFiJPrZ1T78iww",
+                    "name": "ControllerAction constructor #3",
+                    "description": "Test ControllerAction class constructor #3 (specifies a result spec)"
                   },
                   "_private": {
                     "filterDescriptor": {
-                      "operationID": "stn1B2JRSkOkFxuyejzGjQ",
-                      "operationName": "ControllAction Test #2",
-                      "operationDescription": "A test ControllerAction plug-in filter.",
+                      "operationID": "PfsBYWSrQwSQCVQgaR1rPQ",
+                      "operationName": "ControllerAction constructor #3",
+                      "operationDescription": "Test ControllerAction class constructor #3 (specifies a result spec)",
                       "inputFilterSpec": {
-                        "____label": "ControllAction Test #2 Request",
+                        "____label": "ControllerAction constructor #3 Request",
                         "____types": "jsObject",
                         "context": {
                           "____label": "OPC Context Descriptor",
@@ -78,22 +84,23 @@
                           "____types": "jsObject",
                           "test": {
                             "____types": "jsObject",
-                            "action1": {
+                            "action2": {
                               "____accept": "jsObject"
                             }
                           }
                         }
                       },
                       "outputFilterSpec": {
-                        "____label": "No Result (Default)",
-                        "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                        "____accept": "jsUndefined"
+                        "____types": "jsObject",
+                        "CONSIPICUOUS_LABEL": {
+                          "____accept": "jsObject"
+                        }
                       },
-                      "inputTypeVIID": "Atx8FjZfYUxmrFTQQW7XvQ",
-                      "inputTypeVDID": "1JLrqmNa7gddxW45vhX3Rw",
-                      "outputTypeVIID": "2Ct2ZVLNFcvpNEjSjPhVcA",
-                      "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                      "operationVDID": "yVoMedtmbdbFFlik70zMBw"
+                      "inputTypeVIID": "xh8VNZ_1hWGQE4jFw0Mx-w",
+                      "inputTypeVDID": "re0c8nr_OpJb7Zm2wRCVhw",
+                      "outputTypeVIID": "08FUozIsKwJT367_cBz9tA",
+                      "outputTypeVDID": "7DRxubZwAVyqn16J5EV5Vg",
+                      "operationVDID": "k3xpiEziUAP6lrNmqPzkog"
                     }
                   }
                 }

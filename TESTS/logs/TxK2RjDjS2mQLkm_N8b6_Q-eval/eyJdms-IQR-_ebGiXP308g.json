@@ -1,25 +1,19 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "bvj2u51Uw5_SD1TRZNpwXA": {
-      "fNpBNE0uQ2GJWunuKe3_lA": {
+      "eyJdms-IQR-_ebGiXP308g": {
         "harnessRequest": {
-          "id": "fNpBNE0uQ2GJWunuKe3_lA",
-          "name": "Test OPC options #4",
-          "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+          "id": "eyJdms-IQR-_ebGiXP308g",
+          "name": "OPC.act dispatch #4",
+          "description": "Dispatch OPC.act method with a valid request that invokes a ControllerAction that returns a result value.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "ObservableProcessController": {
                   "constructorRequest": {
-                    "id": "fNpBNE0uQ2GJWunuKe3_lA",
-                    "name": "Test OPC options #4",
-                    "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
-                    "options": {
-                      "evaluate": {
-                        "maxFrames": 0,
-                        "firstEvaluation": "action"
-                      }
-                    },
+                    "id": "eyJdms-IQR-_ebGiXP308g",
+                    "name": "OPC.act dispatch #4",
+                    "description": "Dispatch OPC.act method with a valid request that invokes a ControllerAction that returns a result value.",
                     "controllerActionSets": [
                       [
                         "ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction].",
@@ -52,9 +46,12 @@
                   },
                   "actRequests": [
                     {
-                      "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
+                      "actorName": "Test Vector eyJdms-IQR-_ebGiXP308g",
+                      "actorTaskDescription": "Attempt to call NOOP Controller Action #4 xhOHH7qqQCira4Cz3ZVG_Q",
                       "actionRequest": {
-                        "noop1": true
+                        "noop3": {
+                          "CONSPICUOUS_VALUE_PASSED_BY_ACTOR": "Hello, this is an actor-supplied value to be returned via the response.result by the ControllerAction."
+                        }
                       }
                     }
                   ]
@@ -72,15 +69,15 @@
             },
             "harnessDispatch": {
               "54MiSgQdSiukMX4fIZJimg": {
-                "fNpBNE0uQ2GJWunuKe3_lA": {
+                "eyJdms-IQR-_ebGiXP308g": {
                   "opcToJSON": {
-                    "id": "fNpBNE0uQ2GJWunuKe3_lA",
-                    "name": "Test OPC options #4",
-                    "description": "Construct an OPC instance specifying a zero max frame limit AND action evaluate #4 (fail on first call to OPC.act).",
+                    "id": "eyJdms-IQR-_ebGiXP308g",
+                    "name": "OPC.act dispatch #4",
+                    "description": "Dispatch OPC.act method with a valid request that invokes a ControllerAction that returns a result value.",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 0,
-                        "firstEvaluation": "action"
+                        "maxFrames": 16,
+                        "firstEvaluation": "constructor"
                       }
                     },
                     "apmMap": {},
@@ -89,8 +86,8 @@
                       "____types": "jsObject"
                     },
                     "ocdRuntimeSpec": {
-                      "____label": "OPC [fNpBNE0uQ2GJWunuKe3_lA::Test OPC options #4] Observable Controller Data Store",
-                      "____description": "OPC [fNpBNE0uQ2GJWunuKe3_lA::Test OPC options #4] system process runtime state data managed by OPC instance.",
+                      "____label": "OPC [eyJdms-IQR-_ebGiXP308g::OPC.act dispatch #4] Observable Controller Data Store",
+                      "____description": "OPC [eyJdms-IQR-_ebGiXP308g::OPC.act dispatch #4] system process runtime state data managed by OPC instance.",
                       "____types": "jsObject",
                       "____defaultValue": {}
                     },
@@ -424,8 +421,37 @@
                       }
                     },
                     "opcActorStack": [],
-                    "evalCount": 0,
-                    "lastEvalResponse": null,
+                    "evalCount": 1,
+                    "lastEvalResponse": {
+                      "error": null,
+                      "result": {
+                        "evalNumber": 0,
+                        "summary": {
+                          "counts": {
+                            "bindings": 0,
+                            "frames": 1,
+                            "errors": 0,
+                            "transitions": 0
+                          }
+                        },
+                        "evalFrames": [
+                          {
+                            "summary": {
+                              "counts": {
+                                "bindings": 0,
+                                "transitions": 0,
+                                "errors": 0
+                              },
+                              "reports": {
+                                "transitions": [],
+                                "errors": []
+                              }
+                            },
+                            "bindings": {}
+                          }
+                        ]
+                      }
+                    },
                     "constructionWarnings": [
                       "WARNING: No AbstractProcessModel class instances registered!",
                       "WARNING: No TransitionOperator class instances have been registered!",
@@ -435,13 +461,50 @@
                   "actionEvaluations": [
                     {
                       "actRequest": {
-                        "actorName": "fNpBNE0uQ2GJWunuKe3_lA",
+                        "actorName": "Test Vector eyJdms-IQR-_ebGiXP308g",
+                        "actorTaskDescription": "Attempt to call NOOP Controller Action #4 xhOHH7qqQCira4Cz3ZVG_Q",
                         "actionRequest": {
-                          "noop1": true
+                          "noop3": {
+                            "CONSPICUOUS_VALUE_PASSED_BY_ACTOR": "Hello, this is an actor-supplied value to be returned via the response.result by the ControllerAction."
+                          }
                         }
                       },
                       "actResponse": {
-                        "error": "Unable to evaluate OPC state after executing controller action due to error: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
+                        "error": null,
+                        "result": {
+                          "actionResult": {
+                            "CONSPICUOUS_TEST_LABEL": {
+                              "CONSPICUOUS_VALUE_PASSED_BY_ACTOR": "Hello, this is an actor-supplied value to be returned via the response.result by the ControllerAction."
+                            }
+                          },
+                          "lastEvaluation": {
+                            "evalNumber": 1,
+                            "summary": {
+                              "counts": {
+                                "bindings": 0,
+                                "frames": 1,
+                                "errors": 0,
+                                "transitions": 0
+                              }
+                            },
+                            "evalFrames": [
+                              {
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 0,
+                                    "transitions": 0,
+                                    "errors": 0
+                                  },
+                                  "reports": {
+                                    "transitions": [],
+                                    "errors": []
+                                  }
+                                },
+                                "bindings": {}
+                              }
+                            ]
+                          }
+                        }
                       }
                     }
                   ]

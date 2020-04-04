@@ -4,7 +4,7 @@
       "pUxcxo9STsG3OMWWrREHoQ": {
         "harnessRequest": {
           "id": "pUxcxo9STsG3OMWWrREHoQ",
-          "name": "OPC.arc dispatch #3",
+          "name": "OPC.act dispatch #3",
           "description": "Dispatch on OPC.act method with valid request signature and registered test controller actions.",
           "vectorRequest": {
             "holistic": {
@@ -28,6 +28,18 @@
                           "vdid": "DTEravcHs42gN8ZPGBhE3A",
                           "name": "NOOP Controller Test Action #3",
                           "description": "Do nothing nothing test controller action plug-in filter #3."
+                        },
+                        {
+                          "id": "xhOHH7qqQCira4Cz3ZVG_Q",
+                          "vdid": "a_x-fJkOER7imRS5Q68NXQ",
+                          "name": "NOOP Controller Action #4 (w/result)",
+                          "description": "Do nothing test controller action plug-in filter #4 returns a result."
+                        },
+                        {
+                          "id": "Zll03EOdQ-G6Q7UEEuAycg",
+                          "vdid": "k4YwBdpweV5exTRfWBFZPQ",
+                          "name": "Chain Action Call #1",
+                          "description": "A simple ControllerAction that calls another ControllerAction to ensure that nested calls to OPC.act correctly return results."
                         }
                       ]
                     ]
@@ -35,7 +47,7 @@
                   "actRequests": [
                     {
                       "actorName": "Test Vector pUxcxo9STsG3OMWWrREHoQ",
-                      "actionDescription": "Attempt to call into a registered ControllerAction plug-in.",
+                      "actorTaskDescription": "Attempt to call into a registered ControllerAction plug-in.",
                       "actionRequest": {
                         "noop1": true
                       }
@@ -82,20 +94,22 @@
                     "transitionDispatcherFilterMap": {},
                     "actionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "39IqfZxMgJVwbOr-1NDKJA",
+                        "operationID": "LlqzWeZjvfPUDWyQsgwdbg",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "kVyKpltP-r1iPJ0oocIaCA",
+                        "inputTypeVIID": "u24-dFiMkOkzMM8T8Te3gw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "dt3GnQRu4pc-5yFpmz_vig",
+                        "outputTypeVIID": "W0_H5xABO_sMZIGvFSLxUg",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "na70ExouNVfsX47tsDoUtA"
+                        "operationVDID": "R1D0E_zqNVfQ-47tvrQUtA"
                       },
                       "supportedFilters": [
                         "[93_stDeORb-9W_0d69fswg::NOOP Controller Test Action #2]",
                         "[BO184bcvSzmr9oF4KJynSA::NOOP Controller Test Action #3]",
                         "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
-                        "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
+                        "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]",
+                        "[Zll03EOdQ-G6Q7UEEuAycg::Chain Action Call #1]",
+                        "[xhOHH7qqQCira4Cz3ZVG_Q::NOOP Controller Action #4 (w/result)]"
                       ],
                       "options": {
                         "action": "getFilter"
@@ -200,6 +214,99 @@
                           "outputTypeVIID": "lzZ25Vwzg8KsNwEwfqOZmA",
                           "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
                           "operationVDID": "O80MedV-MtZRXGKk6vMjBw"
+                        }
+                      },
+                      "xhOHH7qqQCira4Cz3ZVG_Q": {
+                        "filterDescriptor": {
+                          "operationID": "xhOHH7qqQCira4Cz3ZVG_Q",
+                          "operationName": "NOOP Controller Action #4 (w/result)",
+                          "operationDescription": "Do nothing test controller action plug-in filter #4 returns a result.",
+                          "inputFilterSpec": {
+                            "____label": "NOOP Controller Action #4 (w/result) Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "noop3": {
+                                "____accept": "jsObject"
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____types": "jsObject",
+                            "CONSPICUOUS_TEST_LABEL": {
+                              "____accept": "jsObject"
+                            }
+                          },
+                          "inputTypeVIID": "lZG21fJ7b-4P1U0jGj4PdQ",
+                          "inputTypeVDID": "4Xnvod7NcZFmhKSCMEqZ5g",
+                          "outputTypeVIID": "-pC_KCLLnNo0zkX_GmeExQ",
+                          "outputTypeVDID": "YueraIRFWIDosalGmQ2nYA",
+                          "operationVDID": "AxxGdB95O5-Bz7tQiOKymg"
+                        }
+                      },
+                      "Zll03EOdQ-G6Q7UEEuAycg": {
+                        "filterDescriptor": {
+                          "operationID": "Zll03EOdQ-G6Q7UEEuAycg",
+                          "operationName": "Chain Action Call #1",
+                          "operationDescription": "A simple ControllerAction that calls another ControllerAction to ensure that nested calls to OPC.act correctly return results.",
+                          "inputFilterSpec": {
+                            "____label": "Chain Action Call #1 Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "chainer1": {
+                                "____accept": "jsBoolean"
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsObject"
+                          },
+                          "inputTypeVIID": "SHFy4eJvJ7sjdoUUIqKv5g",
+                          "inputTypeVDID": "iBH-coDFXQWfyY9bLP6Ojg",
+                          "outputTypeVIID": "Wp-1lxC0QNuwtb2YnjAbtg",
+                          "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
+                          "operationVDID": "AbNfT3KXBxrW4U2IZ35AWA"
                         }
                       },
                       "KX0V_aQ3RzG01tzBS24MGw": {
@@ -353,7 +460,7 @@
                     {
                       "actRequest": {
                         "actorName": "Test Vector pUxcxo9STsG3OMWWrREHoQ",
-                        "actionDescription": "Attempt to call into a registered ControllerAction plug-in.",
+                        "actorTaskDescription": "Attempt to call into a registered ControllerAction plug-in.",
                         "actionRequest": {
                           "noop1": true
                         }
