@@ -1697,7 +1697,7 @@
                                           "badControllerActionThrowError": true
                                         },
                                         "response": {
-                                          "error": "Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
+                                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
                                         }
                                       }
                                     ],

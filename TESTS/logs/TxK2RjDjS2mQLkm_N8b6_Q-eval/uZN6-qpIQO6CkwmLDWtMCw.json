@@ -2061,7 +2061,8 @@
                                           }
                                         },
                                         "response": {
-                                          "error": null
+                                          "error": null,
+                                          "result": {}
                                         }
                                       }
                                     ],
@@ -2295,7 +2296,8 @@
                                           }
                                         },
                                         "response": {
-                                          "error": null
+                                          "error": null,
+                                          "result": {}
                                         }
                                       }
                                     ],
@@ -3014,7 +3016,8 @@
                                               }
                                             },
                                             "response": {
-                                              "error": null
+                                              "error": null,
+                                              "result": {}
                                             }
                                           }
                                         ],

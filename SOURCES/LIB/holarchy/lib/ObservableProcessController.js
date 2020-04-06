@@ -13,11 +13,10 @@
 const arccore = require("@encapsule/arccore");
 const SimpleStopwatch = require("./util/SimpleStopwatch");
 const constructorFilter = require("./filters/opc-method-constructor-filter");
-const actInputFilter = require("./filters/opc-method-act-input-filter");
-const actOutputFilter = require("./filters/opc-method-act-output-filter");
+
+const actFilter = require("./filters/opc-method-act-filter");
 const evaluateFilter = require("./filters/opc-method-evaluate-filter");
 
-const consoleStyles = require("./util/console-colors-lut");
 const logger = require("./util/holarchy-logger-filter");
 
 class ObservableProcessController {
@@ -155,210 +154,24 @@ class ObservableProcessController {
     } // toJSON method
 
     // ================================================================
+    // Call a ControllerAction plug-in and evaluate all cell processes. Returns a filter response object.
     act(request_) {
-
-        let response = { error: null };
-        let errors = [];
-        let inBreakScope = false;
-        let initialActorStackDepth = 0; // default
-
-        let stopwatch = new SimpleStopwatch("OPC::act");
-
         try {
-
-            while (!inBreakScope) {
-                inBreakScope = true;
-
-                if (!this.isValid()) {
-                    // Retrieve just the error string, not the entire response.
-                    errors.push("Zombie instance:");
-                    errors.push(this.toJSON().error);
-                    break;
-                }
-
-                // TODO: Turn this into an actual method filter; this implementation uses two filters when one is sufficient?
-                let filterResponse = actInputFilter.request(request_);
-                if (filterResponse.error) {
-                    errors.push("Bad request:");
-                    errors.push(filterResponse.error);
-                    break;
-                }
-                const request = filterResponse.result;
-
-                // Prepare the controller action plug-in filter request descriptor object.
-                const controllerActionRequest = {
-                    context: {
-                        apmBindingPath: request.apmBindingPath,
-                        ocdi: this._private.ocdi,
-                        act: this.act
-                    },
-                    actionRequest: request.actionRequest
-                };
-
-                // Push the actor stack.
-                initialActorStackDepth = this._private.opcActorStack.length; // save the initial stack depth
-                this._private.opcActorStack.push({
-                    actorName: request.actorName,
-                    actorTaskDescription: request.actorTaskDescription
-                });
-
-                // Log the start of the action.
-                logger.request({
-                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                           evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                    subsystem: "opc", method: "act", phase: "prologue",
-                    message: "START ACTION..."
-                });
-
-                logger.request({
-                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                           evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                    subsystem: "opc", method: "act", phase: "body",
-                    message: `ACTOR: ${request.actorName}`
-                });
-
-                logger.request({
-                    opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                           evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                    subsystem: "opc", method: "act", phase: "body",
-                    message: `WANTS TO: ${request.actorTaskDescription}`
-                });
-
-                // Dispatch the action on behalf of the actor.
-                let actionResponse = null;
-                try {
-                    // Dispatch the actor's requested action.
-                    actionResponse = this._private.actionDispatcher.request(controllerActionRequest);
-                    if (actionResponse.error) {
-                        actionResponse = {
-                            error: "ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered.",
-                            result: actionResponse.error
-                        };
-                    } else {
-                        let actionFilter = actionResponse.result;
-
-                        logger.request({
-                            opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                                   evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                            subsystem: "opc", method: "act", phase: "body",
-                            message: `Dispatching ControllerAction filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]...`
-                        });
-
-                        actionResponse = actionFilter.request(controllerActionRequest);
-                        if (actionResponse.error) {
-                            actionResponse = {
-                                error: `ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}] rejected the request with error: ${actionResponse.error}`,
-                                result: actionResponse.error
-                            };
-                        }
-                    }
-
-                } catch (actionCallException_) {
-                    errors.push("Handled exception during controller action dispatch: " + actionCallException_.message);
-                    break;
-                }
-
-                // If a transport error occurred dispatching the controller action,
-                // skip any futher processing (including a possible evaluation)
-                // and return. Transport errors represent serious flaws in a derived
-                // app/service that must be corrected. We skip possible evaluation
-                // that would normally occur to make it simpler for developers to diagnose
-                // the transport error.
-
-                if (actionResponse.error) {
-                    errors.push("Error dispatching controller action filter. Skipping any further evaluation.");
-                    errors.push(actionResponse.error);
-                    break;
-                }
-
-                // If no errors have occurred then there's by definition at least
-                // one pending action on the actor stack. This is so because
-                // controller actions may delegate to other controller actions via
-                // re-entrant calls to ObservableProcessController.act method.
-                // Such delegations are non-observable, i.e. they are atomic
-                // with respect to OPC evaluation. So, we only re-evaluate when
-                // we have finished the last of >= 1 controller action plug-in
-                // filter delegations. And, this propogates the net effects of
-                // the controller action as observed in the contained ocdi according
-
-                let evaluateResponse = null;
-
-                if (this._private.opcActorStack.length === 1) {
-
-                    logger.request({
-                        opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                               evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                        subsystem: "opc", method: "act", phase: "body",
-                        message: "WAITING ON CELLS..."
-                    });
-
-                    // Evaluate is an actor too. It adds itself to the OPC actor stack.
-                    // And is responsible itself for ensuring that it cleans up after
-                    // itself no matter how it may fail.
-                    evaluateResponse = this._evaluate();
-                    if (evaluateResponse.error) {
-                        errors.push("Unable to evaluate OPC state after executing controller action due to error:");
-                        errors.push(evaluateResponse.error);
-                        break;
-                    }
-                }
-
-                if (actionResponse.result || evaluateResponse) {
-                    response.result = {
-                        actionResult: actionResponse.result,
-                        lastEvaluation: evaluateResponse?evaluateResponse.result:undefined
-                    }
-                }
-
-                break;
-
-            } // while (!inBreakScope)
-
-            if (errors.length) {
-                response.error = errors.join(" ");
+            // #### sourceTag: i7SBVHM6Tt-AmRRuufzh9g
+            if (!this.isValid) {
+                return this.toJSON();
             }
 
-        } catch (exception_) {
-            response.error = `ObservableProcessController.act (no-throw) caught an unexpected exception: ${exception_.message}`;
+            const actFilterResponse = actFilter.request({ opcRef: this, ...request_ });
+
+            return actFilterResponse;
+
+        } catch (actException_) {
+            const message = [ "ObservableProcessController::act (no-throw) caught an unexpected runtime expection: ", actException_.message ].join(" ");
+            console.error(message);
+            console.error(actException_.stack);
+            return { error: message };
         }
-
-        const timings = stopwatch.stop();
-
-        if (!response.error) {
-
-            logger.request({
-                opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                       evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                subsystem: "opc", method: "act", phase: "epilogue",
-                message: `ACTION COMPLETE in ${timings.totalMilliseconds} ms`
-            });
-
-        } else {
-
-            logger.request({
-                logLevel: "error",
-                opc: { id: this._private.id, iid: this._private.iid, name: this._private.name,
-                       evalCount: this._private.evalCount, frameCount: 0, actorStack: this._private.opcActorStack },
-                subsystem: "opc", method: "act", phase: "epilogue",
-                message: `ERROR in ${timings.totalMilliseconds} ms: ${response.error}`
-            });
-
-        }
-
-        // Check and maintain the OPC actor stack.
-        if (this.isValid()) {
-            if (initialActorStackDepth !== this._private.opcActorStack.length) {
-                // Check and maintain the OPC actor stack.
-                if ((initialActorStackDepth + 1) !== this._private.opcActorStack.length) {
-                    response.error = `Invariant assertion error: OPC.act actor stack depth off by ${this._private.opcActorStack.length - initialActorStackDepth - 1}.`; // Nope
-                } else {
-                    this._private.opcActorStack.pop();
-                }
-            }
-        }
-
-        return response;
-
     } // act method
 
     // ================================================================
@@ -368,12 +181,13 @@ class ObservableProcessController {
     //
 
     // ================================================================
+    // Evaluate all cell processes. Returns a filter response object.
     _evaluate() {
         try {
             // #### sourceTag: A7QjQ3FbSBaBmkjk_F8AMw
             // Deletegate to the evaluation filter.
             if (!this.isValid()) {
-                return { error: this.toJSON().error };
+                return toJSON();
             }
             if (this._private.opcActorStack.length !== 1) {
                 return {
@@ -390,16 +204,14 @@ class ObservableProcessController {
             this._private.opcActorStack.pop();
             return evalFilterResponse;
         } catch (evaluateException_) {
-            const message = [ "ObservableProcessController:_evaluate (no-throw) caught an unexpected runtime exception: ", evaluateException_.message ].join(" ");
+            const message = [ "ObservableProcessController::_evaluate (no-throw) caught an unexpected runtime exception: ", evaluateException_.message ].join(" ");
             // TODO: Send through the logger
             console.error(message);
             console.error(evaluateException_.stack);
             this._private.opcActorStack.pop();
             return { error: message };
         }
-
     } // _evaluate method
-
 } // ObservableProcessController
 
 module.exports = ObservableProcessController;

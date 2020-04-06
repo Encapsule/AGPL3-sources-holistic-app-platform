@@ -42,7 +42,20 @@ var factoryResponse = arccore.filter.create({
         break;
       }
 
-      var harnessDiscriminator = innerResponse.result; // ----------------------------------------------------------------
+      var harnessDiscriminator = innerResponse.result; // Instantiate an empty DirectedGraph container that gets populated during program evaluation. And, that is returned via response.result.
+
+      innerResponse = arccore.graph.directed.create({
+        name: "Holodeck Environment ".concat(holodeckInstance._getID().result, "::").concat(holodeckInstance._getName().result, " Response Digraph"),
+        description: "Response digraph captures high-level information about holodeck v2 program evaluation in environment description: ".concat(holodeckInstance._getDescription().result)
+      });
+
+      if (innerResponse.error) {
+        errors.push("Intern error. Please file a bug.");
+        errors.push(innerResponse);
+        break;
+      }
+
+      var runnerResponseDigraph = innerResponse.result; // ----------------------------------------------------------------
       // A holodeck program is defined recursively as a forest of one or more trees
       // of subprogram requests. Branches in the tree are indicated by an array of
       // programRequest objects and so on...
@@ -56,12 +69,13 @@ var factoryResponse = arccore.filter.create({
         context: {
           logRootDir: holodeckInstance._private.logRootDir,
           logCurrentDirPath: [],
-          programRequestPath: ["~"],
-          result: response.result
+          programRequestPath: ["~"]
         },
         programRequest: programRequest
       }]; // ----------------------------------------------------------------
       // Implement a low-level breadth-first traversal of the programRequest specified by the the caller.
+
+      var programStep = 0;
 
       var _loop = function _loop() {
         var harnessRequest = harnessRequestQueue.shift();
@@ -87,8 +101,21 @@ var factoryResponse = arccore.filter.create({
         while (harnessRequestWorkingQueue.length) {
           var _harnessRequest = harnessRequestWorkingQueue.shift();
 
-          var programRequestPath = "".concat(_harnessRequest.context.programRequestPath.join("."), "[").concat(index, "]"); // ----------------------------------------------------------------
+          var programParentRequestPath = "".concat(_harnessRequest.context.programRequestPath.slice(0, -1).join("."));
+          var programParentRequestPathVertexID = programParentRequestPath.length ? arccore.identifier.irut.fromReference(programParentRequestPath).result : null;
+          var programRequestPath = "".concat(_harnessRequest.context.programRequestPath.join("."), "[").concat(index, "]");
+          var programRequestPathVertexID = arccore.identifier.irut.fromReference(programRequestPath).result;
+
+          if (programParentRequestPathVertexID) {
+            runnerResponseDigraph.addEdge({
+              e: {
+                u: programParentRequestPathVertexID,
+                v: programRequestPathVertexID
+              }
+            });
+          } // ----------------------------------------------------------------
           // Select a harness to process the harnessRequest (if one seems plausible vs the others and given the request data presented).
+
 
           var harnessDiscriminatorResponse = harnessDiscriminator.request(_harnessRequest);
 
@@ -109,16 +136,26 @@ var factoryResponse = arccore.filter.create({
             if (harnessResponse.error) {
               var _errorMessage = "Holodeck::runProgram failed at programRequest path '".concat(programRequestPath, "'. The plug-in harness filter selected to perform this operation rejected the request with error: ").concat(harnessResponse.error);
 
-              _harnessRequest.context.result[index] = {
-                error: _errorMessage
-              };
+              runnerResponseDigraph.setVertexProperty({
+                u: programRequestPathVertexID,
+                p: {
+                  programStep: programStep,
+                  programRequestPath: programRequestPath,
+                  error: _errorMessage
+                }
+              });
             } else {
               // ----------------------------------------------------------------
               // Process the harness filter's response.
-              _harnessRequest.context.result[index] = {
-                error: null,
-                result: harnessResponse.result.harnessResult
-              }; // Queue the subprogram
+              // TODO: We want to extract a summary report from the harness filter reponse and log that to the filesystem here intead of maintaining this stupid structure like this...
+              runnerResponseDigraph.setVertexProperty({
+                u: programRequestPathVertexID,
+                p: {
+                  programStep: programStep,
+                  programRequestPath: programRequestPath,
+                  result: harnessResponse.result.pluginResult
+                }
+              }); // Queue the subprogram - this is the recursive part of RMDR (Recursive Message-Discriminated Routing) as we've implemented here to avoid overuse of the stack.
 
               if (harnessResponse.result.programRequest) {
                 harnessRequestQueue.push({
@@ -135,12 +172,16 @@ var factoryResponse = arccore.filter.create({
           index++;
         } // end while harnessRequestWorkingQueue.length
 
+
+        programStep++;
       };
 
       while (harnessRequestQueue.length) {
         _loop();
       } // end while harnessRequestQueue.length
 
+
+      response.result = runnerResponseDigraph;
     } // end while(!inBreakScope)
 
 

@@ -231,7 +231,7 @@
                         "bogus": "Our OPCi has no registered actions. So, by definition this request will result in an error."
                       },
                       "actResponse": {
-                        "error": "Bad request: Filter [HcpOJr6nRYWCu4_J1v7wIw::OPC.act Input Stage Filter] failed while normalizing request input. Error at path '~.actorName': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while normalizing request input. Error at path '~.actorName': Value of type 'jsUndefined' not in allowed type set [jsString]."
                       }
                     }
                   ]

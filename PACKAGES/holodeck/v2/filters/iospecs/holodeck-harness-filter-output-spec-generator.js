@@ -16,7 +16,7 @@ module.exports = function (pluginResultSpec_) {
     ____types: "jsObject",
     context: _objectSpread({}, holodeckHarnessFilterContextSpec),
     pluginResult: _objectSpread({}, pluginResultSpec_),
-    subprogramRequest: {
+    programRequest: {
       ____label: "Holodeck Subprogram Request",
       ____description: "Evaluation of a holodeck plug-in harness filter may produce a subprogram to be evaluated by holodeck environment using the environment context specified by //.context.",
       ____accept: ["jsArray", "jsObject", "jsNull"],

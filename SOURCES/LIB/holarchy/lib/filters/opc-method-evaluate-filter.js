@@ -16,8 +16,6 @@ const logger = require("../util/holarchy-logger-filter");
 const opcMethodEvaluateInputSpec = require("./iospecs/opc-method-evaluate-input-spec");
 const opcMethodEvaluateOutputSpec = require("./iospecs/opc-method-evaluate-output-spec");
 
-const consoleStyles = require("../util/console-colors-lut");
-
 const factoryResponse = arccore.filter.create({
 
     operationID: "T7PiatEGTo2dbdy8jOMHQg",

@@ -4040,7 +4040,7 @@
                       "54MiSgQdSiukMX4fIZJimg": {
                         "d7uW2Me4RjqeX3a2NjOodQ": {
                           "opcToJSON": {
-                            "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Unable to evaluate OPC state after executing controller action due to error: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
+                            "error": "ObservableProcessController::constructor for [d7uW2Me4RjqeX3a2NjOodQ::Test OPC options #2] failed yielding a zombie instance. Failed while executing the first post-construction system evaluation: Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Unable to evaluate OPC state after executing controller action due to error: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
                           },
                           "actionEvaluations": []
                         }
@@ -4704,7 +4704,7 @@
                                 }
                               },
                               "actResponse": {
-                                "error": "Unable to evaluate OPC state after executing controller action due to error: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
+                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Unable to evaluate OPC state after executing controller action due to error: Filter [T7PiatEGTo2dbdy8jOMHQg::OPC Evaluation Filter] failed while performing main operation. Max evaluation frame limit of 0 was reached before evaluation completed."
                               }
                             }
                           ]
@@ -5484,7 +5484,7 @@
                                 "bogus": "Our OPCi has no registered actions. So, by definition this request will result in an error."
                               },
                               "actResponse": {
-                                "error": "Bad request: Filter [HcpOJr6nRYWCu4_J1v7wIw::OPC.act Input Stage Filter] failed while normalizing request input. Error at path '~.actorName': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while normalizing request input. Error at path '~.actorName': Value of type 'jsUndefined' not in allowed type set [jsString]."
                               }
                             }
                           ]
@@ -5738,7 +5738,7 @@
                                 }
                               },
                               "actResponse": {
-                                "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
+                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
                               }
                             }
                           ]
@@ -14612,7 +14612,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
                                                 }
                                               }
                                             ],
@@ -16344,7 +16344,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
                                                 }
                                               }
                                             ],
@@ -18076,7 +18076,7 @@
                                                   "badControllerActionResponseError": true
                                                 },
                                                 "response": {
-                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] rejected the request with error: Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] rejected the request with error: Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
                                                 }
                                               }
                                             ],
@@ -19808,7 +19808,7 @@
                                                   "badControllerActionThrowError": true
                                                 },
                                                 "response": {
-                                                  "error": "Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
                                                 }
                                               }
                                             ],
@@ -21424,7 +21424,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
                                                 }
                                               }
                                             ],
@@ -23156,7 +23156,7 @@
                                                   "noneSuchControllerAction": true
                                                 },
                                                 "response": {
-                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered."
                                                 }
                                               }
                                             ],
@@ -24888,7 +24888,7 @@
                                                   "badControllerActionResponseError": true
                                                 },
                                                 "response": {
-                                                  "error": "Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] rejected the request with error: Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] rejected the request with error: Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
                                                 }
                                               }
                                             ],
@@ -26620,7 +26620,7 @@
                                                   "badControllerActionThrowError": true
                                                 },
                                                 "response": {
-                                                  "error": "Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
+                                                  "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
                                                 }
                                               }
                                             ],
@@ -31037,7 +31037,8 @@
                                                   }
                                                 },
                                                 "response": {
-                                                  "error": null
+                                                  "error": null,
+                                                  "result": {}
                                                 }
                                               }
                                             ],
@@ -31271,7 +31272,8 @@
                                                   }
                                                 },
                                                 "response": {
-                                                  "error": null
+                                                  "error": null,
+                                                  "result": {}
                                                 }
                                               }
                                             ],
@@ -31990,7 +31992,8 @@
                                                       }
                                                     },
                                                     "response": {
-                                                      "error": null
+                                                      "error": null,
+                                                      "result": {}
                                                     }
                                                   }
                                                 ],
@@ -37733,7 +37736,8 @@
                                                   }
                                                 },
                                                 "response": {
-                                                  "error": null
+                                                  "error": null,
+                                                  "result": {}
                                                 }
                                               }
                                             ],
@@ -38441,7 +38445,8 @@
                                                   }
                                                 },
                                                 "response": {
-                                                  "error": null
+                                                  "error": null,
+                                                  "result": {}
                                                 }
                                               }
                                             ],
