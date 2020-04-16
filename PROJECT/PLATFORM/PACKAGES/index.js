@@ -3,7 +3,6 @@
 // Metadata declarations indexed by full package name used to build holistic platform runtime packages.
 
 const packages = {
-    "@encapsule/hash-router": require("./hash-router"),
     "@encapsule/holarchy": require("./holarchy"),
     "@encapsule/holarchy-cm": require("./holarchy-cm"),
     "@encapsule/holism": require("./holism"),
@@ -12,6 +11,7 @@ const packages = {
     "@encapsule/holistic": require("./holistic"),
     "@encapsule/holistic-app-client-cm": require("./holistic-app-client-cm"),
     "@encapsule/holistic-app-server-cm": require("./holistic-app-server-cm"),
+    "@encapsule/holistic-app-common-cm": require("./holistic-app-common-cm"),
     "@encapsule/holodeck": require("./holodeck"),
     "@encapsule/holodeck-assets": require("./holodeck-assets"),
     "@encapsule/hrequest": require("./hrequest"),

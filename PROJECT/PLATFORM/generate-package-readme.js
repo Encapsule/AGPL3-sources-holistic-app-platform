@@ -235,7 +235,6 @@ if (targetManifest.name === "@encapsule/holistic") {
 
     markdown.push("The `" + targetManifest.name + "` RTL package is installed in derived app/service projects by running [appgen](../../README#appgen-utility \"Jump to appgen documentation...\").");
 
-    
     markdown.push("#### Detail");
 
     markdown.push("The " + targetManifest.name + " package is a runtime library (RTL) distributed in the @encapsule/holistic package:");
@@ -245,12 +244,12 @@ if (targetManifest.name === "@encapsule/holistic") {
     markdown.push("```\n@AcmeCo/SampleApp/HOLISTIC/PACKAGES/" + packageNameTerse + "\n```");
 
     markdown.push("... and modify its `package.json` file to include the following package registration:");
-    markdown.push("```\n\"devDependencies\": {\n    \"" + targetManifest.name + "\": \"./HOLISTIC/PACKAGES/" + packageNameTerse + "\"\n}\n```");
+    markdown.push("```\n\"devDependencies\": {\n    \"" + targetManifest.name + "\": \"file:./HOLISTIC/PACKAGES/" + packageNameTerse + "\"\n}\n```");
 
 }
 
 if (targetManifest.name === "@encapsule/holistic") {
-    
+
     // PACKAGE INSTALLATION HEADING 2
     insertHeader(2, "Installation");
 

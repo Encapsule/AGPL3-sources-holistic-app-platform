@@ -36,22 +36,7 @@ So the user clicks the "Add Task" button and this calls a ControllerAction that 
 
 What should happen then?
 
-Well the definition of truth in the data layer has changed. This means that depending on a whole lot of stuff we do not and cannot know that some/all of the view may need to be updated (maybe re-layout, maybe update data, maybe both). 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Well the definition of truth in the data layer has changed. This means that depending on a whole lot of stuff we do not and cannot know that some/all of the view may need to be updated (maybe re-layout, maybe update data, maybe both).
 
 ## Some Interesting URLS's
 

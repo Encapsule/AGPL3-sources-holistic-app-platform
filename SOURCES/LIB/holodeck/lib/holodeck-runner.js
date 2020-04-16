@@ -275,10 +275,10 @@ const runnerFascade = { // fake filter
             console.log(`> total dispatched vectors ... ${analysis.totalDispatchedVectors}`);
 
             analysis.totalHarnessResults = resultPayload.summary.runnerStats.dispatched.length - resultPayload.summary.runnerStats.errors.length;
-            console.log(`> total harness results .,.... ${analysis.totalHarnessResults}`);
+            console.log(`> total harness results ...... ${analysis.totalHarnessResults}`);
 
             analysis.totalHarnessErrors = resultPayload.summary.runnerStats.errors.length;
-            console.log(`> total harness errors ...,... ${analysis.totalHarnessErrors}`);
+            console.log(`> total harness errors ....... ${analysis.totalHarnessErrors}`);
 
             analysis.totalRejectedVectors = resultPayload.summary.runnerStats.rejected.length;
             console.log(`> total rejected vectors ..... ${analysis.totalRejectedVectors}`);
