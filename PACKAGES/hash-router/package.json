@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "fGshHNnzRkGa1_wPGHW_OA",
-    "buildSource": "b83c25e8f98d51eb994575320ed9444fff75dbae",
-    "buildTime": 1586208908,
-    "codename": "nalau",
+    "buildID": "rsZvXoVeR1OyX67XEVJs0Q",
+    "buildSource": "f076a109ac5fbc88d8132d656edb98046e15e2fd",
+    "buildTime": 1586998142,
+    "codename": "addenbroke",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -34,5 +34,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.40"
+    "version": "0.0.41"
 }

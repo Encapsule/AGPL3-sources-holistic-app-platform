@@ -4,18 +4,18 @@
 
 Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.
 
-# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.0.40 nalau
+# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;[Holistic App Platform](../../README.md#encapsule-project "Back to the Holistic App Platform README...") v0.0.41 addenbroke
 
 ## &#x25F0; Runtime library: @encapsule/hash-router
 
-> [**RTL index**](../../README.md#holistic-platform-runtime "Jump back to the RTL index..."): [d2r2](../d2r2/README.md#encapsule-project "Jump to d2r2 README...") &bull; [d2r2-components](../d2r2-components/README.md#encapsule-project "Jump to d2r2-components README...") &bull; &#x25F0; **hash-router** &bull; [holarchy](../holarchy/README.md#encapsule-project "Jump to holarchy README...") &bull; [holarchy-cm](../holarchy-cm/README.md#encapsule-project "Jump to holarchy-cm README...") &bull; [holism](../holism/README.md#encapsule-project "Jump to holism README...") &bull; [holism-metadata](../holism-metadata/README.md#encapsule-project "Jump to holism-metadata README...") &bull; [holism-services](../holism-services/README.md#encapsule-project "Jump to holism-services README...") &bull; [holistic-app-client-cm](../holistic-app-client-cm/README.md#encapsule-project "Jump to holistic-app-client-cm README...") &bull; [holistic-app-server-cm](../holistic-app-server-cm/README.md#encapsule-project "Jump to holistic-app-server-cm README...") &bull; [holodeck](../holodeck/README.md#encapsule-project "Jump to holodeck README...") &bull; [holodeck-assets](../holodeck-assets/README.md#encapsule-project "Jump to holodeck-assets README...") &bull; [hrequest](../hrequest/README.md#encapsule-project "Jump to hrequest README...")
+> [**RTL index**](../../README.md#holistic-platform-runtime "Jump back to the RTL index..."): [d2r2](../d2r2/README.md#encapsule-project "Jump to d2r2 README...") &bull; [d2r2-components](../d2r2-components/README.md#encapsule-project "Jump to d2r2-components README...") &bull; &#x25F0; **hash-router** &bull; [holarchy](../holarchy/README.md#encapsule-project "Jump to holarchy README...") &bull; [holarchy-cm](../holarchy-cm/README.md#encapsule-project "Jump to holarchy-cm README...") &bull; [holism](../holism/README.md#encapsule-project "Jump to holism README...") &bull; [holism-metadata](../holism-metadata/README.md#encapsule-project "Jump to holism-metadata README...") &bull; [holism-services](../holism-services/README.md#encapsule-project "Jump to holism-services README...") &bull; [holistic-app-client-cm](../holistic-app-client-cm/README.md#encapsule-project "Jump to holistic-app-client-cm README...") &bull; [holistic-app-common-cm](../holistic-app-common-cm/README.md#encapsule-project "Jump to holistic-app-common-cm README...") &bull; [holistic-app-server-cm](../holistic-app-server-cm/README.md#encapsule-project "Jump to holistic-app-server-cm README...") &bull; [holodeck](../holodeck/README.md#encapsule-project "Jump to holodeck README...") &bull; [holodeck-assets](../holodeck-assets/README.md#encapsule-project "Jump to holodeck-assets README...") &bull; [hrequest](../hrequest/README.md#encapsule-project "Jump to hrequest README...")
 
 This package contains a minimal client-side hash router implementation that is designed to be integrated into higher-level abstractions. For example, a re-usable ObservableProcessModel (OPM).
 
 ```
-Package: @encapsule/hash-router v0.0.40 "nalau" build ID "fGshHNnzRkGa1_wPGHW_OA"
-Sources: Encapsule/holistic-master#b83c25e8f98d51eb994575320ed9444fff75dbae
-Created: 2020-04-06T21:35:08.000Z Purpose: library (Node.js) License: MIT
+Package: @encapsule/hash-router v0.0.41 "addenbroke" build ID "rsZvXoVeR1OyX67XEVJs0Q"
+Sources: Encapsule/holistic-master#f076a109ac5fbc88d8132d656edb98046e15e2fd
+Created: 2020-04-16T00:49:02.000Z Purpose: library (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview

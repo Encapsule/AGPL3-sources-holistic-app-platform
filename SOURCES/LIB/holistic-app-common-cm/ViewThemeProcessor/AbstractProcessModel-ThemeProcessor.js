@@ -19,17 +19,9 @@ module.exports = {
             ____defaultValue: {},
             revision: {
                 ____accept: "jsNumber",
-                ____defaultValue: -1
+                ____defaultValue: 0
             },
-            themeInputs: themeSettingsSpec
-        },
-        _private: {
-            ____types: "jsObject",
-            ____defaultValue: {},
-            updating: {
-                ____accept: "jsBoolean",
-                ____defaultValue: false
-            }
+            themeSettings: themeSettingsSpec
         },
         outputs: {
             ____types: "jsObject",
@@ -38,7 +30,7 @@ module.exports = {
                 ____accept: "jsNumber",
                 ____defaultValue: -1
             },
-            themeOutputs: themeObjectSpecs.holisticAppThemeSpec
+            holisticAppTheme: themeObjectSpecs.holisticAppThemeSpec
         }
     }
 };

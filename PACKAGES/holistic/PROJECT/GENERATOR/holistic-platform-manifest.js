@@ -44,13 +44,13 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@encapsule/arctools": arccore.__meta.version,
         "@encapsule/d2r2": "file:./HOLISTIC/PACKAGES/d2r2",
         "@encapsule/d2r2-components": "file:./HOLISTIC/PACKAGES/d2r2-components",
-        "@encapsule/hash-router": "file:./HOLISTIC/PACKAGES/hash-router",
         "@encapsule/holarchy": "file:./HOLISTIC/PACKAGES/holarchy",
         "@encapsule/holarchy-cm": "file:./HOLISTIC/PACKAGES/holarchy-cm",
         "@encapsule/holism": "file:./HOLISTIC/PACKAGES/holism",
         "@encapsule/holism-metadata": "file:./HOLISTIC/PACKAGES/holism-metadata",
         "@encapsule/holism-services": "file:./HOLISTIC/PACKAGES/holism-services",
         "@encapsule/holistic-app-client-cm": "file:./HOLISTIC/PACKAGES/holistic-app-client-cm",
+        "@encapsule/holistic-app-common-cm": "file:./HOLISTIC/PACKAGES/holistic-app-common-cm",
         "@encapsule/holistic-app-server-cm": "file:./HOLISTIC/PACKAGES/holistic-app-server-cm",
         "@encapsule/holodeck": "file:./HOLISTIC/PACKAGES/holodeck",
         "@encapsule/holodeck-assets": "file:./HOLISTIC/PACKAGES/holodeck-assets",
@@ -58,6 +58,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
 
         // Third-party runtime library dependencies.
         "color": "^3.1.0",
+        "color-string": "^1.5.3",
         "commander": "^2.19.0",
         "query-string": "^6.2.0",
         "mkdirp": "^0.5.1",
