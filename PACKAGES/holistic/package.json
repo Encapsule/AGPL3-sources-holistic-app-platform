@@ -6,9 +6,9 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "2jwmJEqUTKW1Cn7rEiDrnA",
-    "buildSource": "a1417e3d86a8a39a51961fb0ee7d9942f25373dd",
-    "buildTime": 1587145734,
+    "buildID": "bPQWjwHRSRyW5kIBVDsC-Q",
+    "buildSource": "99fabf7c9ddfd4eff00da56a0c18d58e362dba24",
+    "buildTime": 1587228896,
     "codename": "addenbroke",
     "contributors": [
         {
@@ -20,13 +20,13 @@
     "dependencies": {
         "@encapsule/arccore": "0.1.9",
         "@encapsule/arctools": "0.1.9",
-        "mkdirp": "^0.5.1",
+        "mkdirp": "^1.0.4",
         "semver": "^5.6.0"
     },
     "description": "Full-stack component engineering platform for building complex stateful webs apps and services with software models.",
     "engines": {
         "node": ">=12.16.1 <13",
-        "yarn": "1.22.0"
+        "yarn": "1.22.4"
     },
     "homepage": "https://github.com/Encapsule",
     "keywords": [

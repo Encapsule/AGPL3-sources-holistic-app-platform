@@ -6,7 +6,7 @@ const holisticAppPlatformManifestFilter = require('./LIB/holistic-platform-manif
 const filterResponse = holisticAppPlatformManifestFilter.request({
 
     applicationPackageManifest: {
-        engines: { node: ">=12.16.1 <13", yarn: "1.22.0" },
+        engines: { node: ">=12.16.1 <13", yarn: "1.22.4" },
 
         scripts: {
             install: "# Installation complete. Enjoy the holistic platform 8>",
@@ -37,7 +37,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "webpack-cli": "3.3.11",
         "css-loader": "3.0.0",
         "style-loader": "0.23.1",
-        "handlebars": "^4.0.12",
+        "handlebars": "^4.7.6",
 
         // Holistic platform runtime library dependencies.
         "@encapsule/arccore": arccore.__meta.version,
@@ -61,7 +61,7 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "color-string": "^1.5.3",
         "commander": "^2.19.0",
         "query-string": "^6.2.0",
-        "mkdirp": "^0.5.1",
+        "mkdirp": "^1.0.4",
         "query-string": "^6.2.0",
         "react": "16.12.0",
         "react-dom": "16.12.0",
