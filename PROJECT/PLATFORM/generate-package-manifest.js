@@ -4,6 +4,8 @@ const arctools = require("@encapsule/arctools");
 const repoBuild = require("../../BUILD/holistic");
 const packageDB = require("./PACKAGES/");
 
+const holisticPlatformManifest = require("../GENERATOR/holistic-platform-manifest");
+
 const program = arctools.commander;
 program
     .name('generate_package_manifest')
@@ -46,7 +48,7 @@ var manifest = {
     buildID: repoBuild.buildID,
     buildTime: repoBuild.buildTime,
     buildSource: repoBuild.buildSource,
-    engines: { node: ">=12.16.1 <13", yarn: "1.22.0" },
+    engines: holisticPlatformManifest.applicationPackageManifest.engines,
 
     repository: {
         type: "git",
