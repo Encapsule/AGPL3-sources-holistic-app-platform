@@ -37,7 +37,6 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
-
             let fqPath = null;
             switch (Object.prototype.toString.call(request_.path)) {
             case "[object String]":
