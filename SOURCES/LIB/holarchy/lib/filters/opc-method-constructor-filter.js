@@ -306,17 +306,14 @@ const factoryResponse = arccore.filter.create({
 
             // ================================================================
             // Construct the contained Observable Controller Data that the OPC instance uses to manage the state associated with APM instances.
-            // TODO: OCD constructor function still throws. We're hiding that here. Convert it over to report construction errors on method access
-            // just like OPC.
-            try {
-                // TODO: ObservableControllerData to no throw implementation consistent w/everything else.
-                // Holding off until we 100% deprecate the use of ApplicationDataStore class in derived apps.
-                result.ocdi = new ObservableControllerData({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
-            } catch (exception_) {
+
+            let ocdInstance = new ObservableControllerData({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
+            if (!ocdInstance.isValid()) {
                 errors.push("Unable to initialize the OPC instance's shared OCD store due to constructor failure:");
-                errors.push(exception_.message);
+                errors.push(ocdInstance.toJSON());
                 break;
             }
+            result.ocdi = ocdInstance;
 
             // ================================================================
             // Build an arccore.discriminator filter instance to route transition
