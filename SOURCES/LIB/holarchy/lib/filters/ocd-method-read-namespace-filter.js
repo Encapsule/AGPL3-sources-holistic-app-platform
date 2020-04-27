@@ -12,6 +12,11 @@ const factoryResponse = arccore.filter.create({
     inputFilterSpec: {
         ____label: "OCD Read Namespace Request",
         ____types: "jsObject",
+        ocdClass: {
+            ____label: "OCD Class Reference",
+            ____description: "A reference to the OCD class constructor so that this filter can call static methods defined on the class prototype.",
+            ____opaque: true
+        },
         ocdReference: {
             ____label: "OCD Instance Reference",
             ____description: "A reference to the calling OCD class instance.",
@@ -37,7 +42,7 @@ const factoryResponse = arccore.filter.create({
                 fqPath = request_.path;
                 break;
             case "[object Object]":
-                let rpResponse = request_.ocdReference.dataPathResolve({ apmBindingPath: request_.path.apmBindingPath, dataPath: request_.path.dataPath });
+                let rpResponse = request_.ocdClass.dataPathResolve({ apmBindingPath: request_.path.apmBindingPath, dataPath: request_.path.dataPath });
                 if (rpResponse.error) {
                     errors.push(rpResponse.error);
                 } else {

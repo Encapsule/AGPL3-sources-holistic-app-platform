@@ -17,7 +17,7 @@ module.exports = {
         inputs: {
             ____types: "jsObject",
             ____defaultValue: {},
-            revision: {
+            version: {
                 ____accept: "jsNumber",
                 ____defaultValue: 0
             },
@@ -26,7 +26,7 @@ module.exports = {
         outputs: {
             ____types: "jsObject",
             ____defaultValue: {},
-            revision: {
+            version: {
                 ____accept: "jsNumber",
                 ____defaultValue: -1
             },

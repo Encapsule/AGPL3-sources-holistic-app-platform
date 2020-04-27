@@ -1,47 +1,33 @@
 const holarchy = require("@encapsule/holarchy");
 const { ControllerAction } = holarchy;
 
-const themeConfigSpec = JSON.parse(JSON.stringify(require("./iospecs/ThemeProcessor-ocd-input-spec")));
-
-// Delete default values. If one of these is updated, then all the namespace keys needs to be supplied in the request or defaults
-// will get applied for any namespaces not provided. This is needed so we can update specific sections of the style tree separately.
-delete themeConfigSpec.____defaultValue;
-for(let key in themeConfigSpec) {
-    if(themeConfigSpec[key].hasOwnProperty("____defaultValue")) {
-        if(themeConfigSpec[key].____types) {
-            if(themeConfigSpec[key].____types instanceof Array ) {
-                themeConfigSpec[key].____types.push("jsUndefined");
-            }
-            const type = themeConfigSpec[key].____types + "";
-            themeConfigSpec[key].____types = [ type, "jsUndefined" ];
-        } else {
-            if(themeConfigSpec[key].____accept instanceof Array ) {
-                themeConfigSpec[key].____accept.push("jsUndefined");
-            }
-            const type = themeConfigSpec[key].____accept + "";
-            themeConfigSpec[key].____accept = [ type, "jsUndefined" ];
-        }
-        delete themeConfigSpec[key].____defaultValue;
-    }
-}
-
 module.exports = new ControllerAction({
 
     id: "UK08qja3QiaHFGhl99fbmg",
-    name: "Configure Theme Processor",
-    description: "Writes theme configuration data to Theme Processor input namespace.",
+    name: "ViewThemeProcessor::Write Settings",
+    description: "Update the whole or part of the ViewThemeProcessor model's input theme settings document.",
 
     actionRequestSpec: {
         ____types: "jsObject",
-        vp5: {
+        holistic: {
             ____types: "jsObject",
             view: {
                 ____types: "jsObject",
-                styles: {
+                theme: {
                     ____types: "jsObject",
-                    themeProcessor: {
+                    write: {
                         ____types: "jsObject",
-                        config: themeConfigSpec
+                        path: {
+                            ____label: "Settings Path",
+                            ____description: "An optional filter-style dot-delimited path into the themeSettings inputs document.",
+                            ____accept: "jsString",
+                            ____defaultValue: "~" // i.e. data is the entire settings document
+                        },
+                        data: {
+                            ____label: "Settings Data",
+                            ____description: "Settings data to write. Either the entire settings document (iff path is ~), or the subtree indicated by path.",
+                            ____opaque: true
+                        }
                     }
                 }
             }
@@ -49,49 +35,60 @@ module.exports = new ControllerAction({
     },
 
     actionResultSpec: {
+        ____label: "Normalized Theme Settings",
+        ____description: "A reference to a normalized copy of the current theme settings input data.",
         ____accept: "jsObject"
     },
 
     bodyFunction: function(request_) {
+
         const response = {
             error: null,
             result: {}
         };
+
         const errors = [];
         let inBreakScope = false;
 
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const themeData = request_.actionRequest.vp5.view.styles.themeProcessor.config;
+            const message = request_.actionRequest.holistic.view.theme.write;
 
-            const rpResponse = holarchy.ObservableControllerData.dataPathResolve({
-                apmBindingPath: request_.context.apmBindingPath,
-                dataPath: "#.inputs"
-            });
-
-            let ocdResponse = request_.context.ocdi.readNamespace(rpResponse.result);
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
-            }
-
-            const themeInputs = JSON.parse(JSON.stringify(ocdResponse.result.themeInputs));
-            for (let key in themeData) {
-                themeInputs[key] = themeData[key];
-            }
-
-            const inputData = {
-                revision: ocdResponse.result.revision + 1,
-                themeInputs
-            };
-
-            ocdResponse = request_.context.ocdi.writeNamespace(rpResponse.result, inputData);
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
-            }
-
+            // We resolve the fully-qualified path of #.inputs.version manually because we re-use the resolved address to read then write the same namespace.
+            let rpResponse = holarchy.ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.inputs.version" });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
+                break;
+            }
+            const settingsVersionPath = rpResponse.result;
+
+            // Read the current theme settings version number.
+            let ocdResponse = request_.context.ocdi.readNamespace(settingsVersionPath);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+            let settingsVersion = ocdResponse.result;
+
+            // Write the new theme settings data.
+            ocdResponse = request_.context.ocdi.writeNamespace(
+                {
+                    apmBindingPath: request_.context.apmBindingPath,
+                    dataPath:  [ "#", "inputs", "themeSettings", ...message.path.split(".").slice(1) ].join(".")
+                },
+                message.data
+            );
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+            response.result = ocdResponse.result; // normalized copy of the theme settings
+
+            // Increment the theme settings version.
+            ocdResponse = request_.context.ocdi.writeNamespace(settingsVersionPath, settingsVersion + 1);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
                 break;
             }
         }

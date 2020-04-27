@@ -24,11 +24,11 @@ module.exports = class ObservableControllerData {
 
     toJSON() { return (this.isValid()?this._private.storeData:this._private.constructorError); }
 
-    readNamespace(path_) { return (this.isValid()?methodFilterReadNamespace.request({ ocdReference: this, path: path_ }):{ error: this.toJSON() }); }
+    readNamespace(path_) { return (this.isValid()?methodFilterReadNamespace.request({ ocdClass: ObservableControllerData, ocdReference: this, path: path_ }):{ error: this.toJSON() }); }
 
-    writeNamespace(path_, data_) { return (this.isValid()?methodFilterWriteNamespace.request({ ocdReference: this, path: path_, data: data_ }):{ error: this.toJSON() }); }
+    writeNamespace(path_, data_) { return (this.isValid()?methodFilterWriteNamespace.request({ ocdClass: ObservableControllerData, ocdReference: this, path: path_, data: data_ }):{ error: this.toJSON() }); }
 
-    getNamespaceSpec(path_) { return (this.isValid()?methodFilterGetNamespaceSpec.request({ ocdReference: this, path: path_ }):{ error: this.toJSON() }); }
+    getNamespaceSpec(path_) { return (this.isValid()?methodFilterGetNamespaceSpec.request({ ocdClass: ObservableControllerData, ocdReference: this, path: path_ }):{ error: this.toJSON() }); }
 
 } // class ObservableControllerData
 

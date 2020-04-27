@@ -12,6 +12,7 @@ const holarchyCMPackageVectorSets = require("./holarchy-cm-package-tests/vector-
 
 const holisticAppClientCMVectorSets = require("./holistic-app-client-cm-package-tests/vector-sets");
 const holisticAppServerCMVectorSets = require("./holistic-app-server-cm-package-tests/vector-sets");
+const holisticAppCommonCMVectorSets = require("./holistic-app-common-cm-package-tests/vector-sets");
 
 const factoryResponse = arccore.filter.create({
     operationID: "Ga_AZ-2HSHuB0uJ9l6n3Uw",
@@ -67,7 +68,8 @@ const factoryResponse = arccore.filter.create({
                     ...holarchyPackageVectorSets,
                     ...holarchyCMPackageVectorSets,
                     ...holisticAppClientCMVectorSets,
-                    ...holisticAppServerCMVectorSets
+                    ...holisticAppServerCMVectorSets,
+                    ...holisticAppCommonCMVectorSets
                 ]
             });
             if (runnerResponse.error) {

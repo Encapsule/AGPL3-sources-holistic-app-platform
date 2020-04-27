@@ -29,6 +29,63 @@ const typographyHeadingSettings = {
     }
 };
 
+const regionSpacingSettingsSpec = {
+    ____types: "jsObject", ____defaultValue: {},
+    margin: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px" }
+    },
+    padding: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px" }
+    }
+};
+
+const regionShapeSettingsSpec = {
+    ____types: "jsObject", ____defaultValue: {},
+    radius: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px" }
+    },
+    size: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px" }
+    },
+    style: { ____accept: "jsString", ____inValueSet: [ "none", "solid", "dotted", "dashed" ], ____defaultValue: "none" }
+}; // regionShapeSettingsSpec
+
+const regionShadowSettingsSpec = {
+    ____types: "jsObject", ____defaultValue: {},
+    ____defaultValue: {},
+    enabled: { ____accept: "jsBoolean", ____defaultValue: false },
+    hOffset: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px" }
+    },
+    vOffset: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px" }
+    },
+    blur: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px"    }
+    },
+    spread: {
+        ____types: "jsObject", ____defaultValue: {},
+        value: { ____accept: "jsNumber", ____defaultValue: 0 },
+        units: { ____accept: "jsString", ____inValueSet: [ "px", "em", "pt" ], ____defaultValue: "px"    }
+    },
+    xset: { ____accept: "jsString", ____inValueSet: [ "outset", "inset" ], ____defaultValue: "outset" },
+}; // regionShadowSettingsSoec
+
+
 
 module.exports = {
 
@@ -40,6 +97,12 @@ module.exports = {
     color: {
         ____types: "jsObject",
         ____defaultValue: {},
+
+        page: {
+            ____types: "jsObject",
+            ____defaultValue: { backgroundColor: "#FFFFFF", foregroundColor: "#000000" },
+            ...holisticThemeSpecs.holisticAppThemeSpec.page.color
+        },
 
         text: {
             ____types: "jsObject",
@@ -89,38 +152,176 @@ module.exports = {
             },
 
         }
-    },
 
-    // Page styles are conventionally applied to BODY HTML tag. We seek to minimize any/all stylings at this level
-    // relying instead on browser defaults as much as possible. In cases where these defaults do not generally align
-    // w/how we wish to render our page views, we override the default browser styles for BODY. There are a limited
-    // number of these cases w/global impact on the entire page. These values are specified directly via theme settings
-    // and reflected w/out transformation in the theme document's page style values.
+    }, // ~.color
 
-    page: {
-        ...holisticThemeSpecs.holisticAppThemeSpec.page,
-        ____defaultValue: {
-            color: { backgroundColor: "#FFFFFF", foregroundColor: "#000000" },
-            spacing: { margin: "0px", padding: "0px" }
-        }
-    }, // ~.page
-
-    panel: {
-        ____label: "Common Panel Styles",
+    spacing: {
         ____types: "jsObject",
-        ____defaultValue: {
-            spacing: { margin: "0px", padding: "1em" },
-            shape: { border: "1px solid rgba(0,0,0,0.2)", borderRadius: "0.33em" },
-            shadow: "1px 1px 0px 0px rgba(0,0,0,0.2)"
-        },
-        spacing: { ...holisticThemeSpecs.regionStylesSpec.spacing },
-        shape: { ...holisticThemeSpecs.regionStylesSpec.shape },
-        shadow: { ...holisticThemeSpecs.regionStylesSpec.shadow }
+        ____defaultValue: {},
+        page: { ...regionSpacingSettingsSpec },
+        panel: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            navigation: {
+                ...regionSpacingSettingsSpec
+            },
+            application: {
+                ...regionSpacingSettingsSpec
+            },
+            notification: {
+                ...regionSpacingSettingsSpec
+            },
+            tools: {
+                ...regionSpacingSettingsSpec
+            },
+            help: {
+                ...regionSpacingSettingsSpec
+            },
+            menu: {
+                ...regionSpacingSettingsSpec
+            }
+        }, // ~.spacing.panel
+        window: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            modal: {
+                ...regionSpacingSettingsSpec
+            },
+            popup: {
+                ...regionSpacingSettingsSpec
+            },
+            tooltip: {
+                ...regionSpacingSettingsSpec
+            },
+            tool: {
+                ...regionSpacingSettingsSpec
+            },
+            content: {
+                ...regionSpacingSettingsSpec
+            }
+        }, // ~.spacing.window
+        control: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            button: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                standard: {
+                    ____types: "jsObject",
+                    ____defaultValue: {}
+                },
+                tool: {
+                    ____types: "jsObject",
+                    ____defaultValue: {}
+                }
+            } // ~.spacing.control.button
+        } // ~.spacing.control
+    }, // ~.spacing
 
-    }, // ~.panel
+    shape: {
+        ____types: "jsObject",
+        ____defaultValue: {},
+        panel: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            navigation: {
+                ...regionShapeSettingsSpec,
+                ____defaultValue: { radius: { size: 0.33, units: "em" }, size: { value: 1, units: "px" }, style: "solid" }
+            },
+            application: {
+                ...regionShapeSettingsSpec,
+            },
+            notification: {
+                ...regionShapeSettingsSpec,
+            },
+            tools: {
+                ...regionShapeSettingsSpec,
+            },
+            help: {
+                ...regionShapeSettingsSpec,
+            },
+            menu: {
+                ...regionShapeSettingsSpec,
+            }
+        }, // ~.shape.panel
+        window: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            modal: {
+                ...regionShapeSettingsSpec,
+            },
+            popup: {
+                ...regionShapeSettingsSpec,
+            },
+            tooltip: {
+                ...regionShapeSettingsSpec,
+            },
+            tool: {
+                ...regionShapeSettingsSpec,
+            },
+            content: {
+                ...regionShapeSettingsSpec,
+            }
+        }, // ~.shape.window
+        control: {
+            ____types: "jsObject",
+            ____defaultValue: {}
+        } // ~.shape.control
+    }, // ~.shape
+
+    shadow: {
+        ____types: "jsObject",
+        ____defaultValue: {},
+        panel: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            navigation: {
+                ...regionShadowSettingsSpec
+            },
+            application: {
+                ...regionShadowSettingsSpec
+            },
+            notification: {
+                ...regionShadowSettingsSpec
+            },
+            tools: {
+                ...regionShadowSettingsSpec
+            },
+            help: {
+                ...regionShadowSettingsSpec
+            },
+            menu: {
+                ...regionShadowSettingsSpec
+            }
+        }, // ~.shadow.panel
+        window: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            modal: {
+                ...regionShadowSettingsSpec
+            },
+            popup: {
+                ...regionShadowSettingsSpec
+            },
+            tooltip: {
+                ...regionShadowSettingsSpec
+            },
+            tool: {
+                ...regionShadowSettingsSpec
+            },
+            content: {
+                ...regionShadowSettingsSpec
+            }
+        }, // ~.shadow.window
+        control: {
+            ____types: "jsObject",
+            ____defaultValue: {}
+        } // ~.shadow.control
+    }, // ~.shadow
+
+
 
     typograph: {
-
         ____label: "Typography Style Settings",
         ____description: "Typography settings control the basic typeface and font style settings applied to a holistic app theme.",
         ____types: "jsObject",
@@ -132,7 +333,6 @@ module.exports = {
             control: { fontFamily: "Play", fontWeight: "normal", fontStyle: "none", sizes: { smallest: "8pt", smaller: "9pt", normal: "10pt", larger: "12pt", largest: "14pt" } },
             menu: { fontFamily: "Play", fontWeight: "normal", fontStyle: "none", sizes: { smallest: "8pt", smaller: "9pt", normal: "10pt", larger: "12pt", largest: "14pt" } }
         },
-
         content: typographyBaseSettings,
         monospace: typographyBaseSettings,
         heading: typographyHeadingSettings,

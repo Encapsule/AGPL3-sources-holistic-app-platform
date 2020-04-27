@@ -11,9 +11,8 @@ const cellModel = new holarchy.CellModel({
     apm: require("./AbstractProcessModel-ThemeProcessor"),
 
     actions: [
-        // require("./ControllerAction-update-theme-palette"),
-        // require("./ControllerAction-update-theme-config"),
-        // require("./ControllerAction-get-theme-palette")
+        require("./ControllerAction-read-theme"),
+        require("./ControllerAction-write-theme-settings")
     ],
 
     subcells: [

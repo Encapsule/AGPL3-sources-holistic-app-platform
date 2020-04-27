@@ -15,61 +15,39 @@ module.exports = function(themeSettings_) {
 
         let theme = {
 
+            settings: themeSettings_,
+
             page: themeSettings_.page,
             panel: {
                 navigation: {
                     color: {
                     },
-                    spacing: {
-                    },
-                    shape: {
-                    },
-                    shadow: ""
+                    ...themeSettings_.panel
                 },
                 application: {
                     color: {
                     },
-                    spacing: {
-                    },
-                    shape: {
-                    },
-                    shadow: ""
+                    ...themeSettings_.panel
                 },
                 notification: {
                     color: {
                     },
-                    spacing: {
-                    },
-                    shape: {
-                    },
-                    shadow: ""
+                    ...themeSettings_.panel
                 },
                 tools: {
                     color: {
                     },
-                    spacing: {
-                    },
-                    shape: {
-                    },
-                    shadow: ""
+                    ...themeSettings_.panel
                 },
                 help: {
                     color: {
                     },
-                    spacing: {
-                    },
-                    shape: {
-                    },
-                    shadow: ""
+                    ...themeSettings_.panel
                 },
                 menu: {
                     color: {
                     },
-                    spacing: {
-                    },
-                    shape: {
-                    },
-                    shadow: ""
+                    ...themeSettings_.panel
                 }
             }, // ~.panel
 
