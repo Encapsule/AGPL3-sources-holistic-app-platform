@@ -142,7 +142,8 @@ env_reinitialize: env_clean_cache env_initialize
 
 env_clean:
 	@echo env_clean target starting...
-	echo rm -rf $(DIR_MODULES)
+	@echo Removing $(DIR_MODULES)
+	rm -rf $(DIR_MODULES)
 	@echo env_clean target complete.
 
 env_clean_cache: env_clean
