@@ -26,10 +26,10 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
     platformDependencies: {
 
         // Holistic platform build and test library dependencies.
-        "@babel/cli": "^7.8.4",
-        "@babel/core": "^7.8.7",
-        "@babel/plugin-transform-react-jsx": "^7.8.3",
-        "@babel/preset-env": "^7.8.7",
+        "@babel/cli": "7.10.3",
+        "@babel/core": "7.10.3",
+        "@babel/plugin-transform-react-jsx": "7.10.3",
+        "@babel/preset-env": "7.10.3",
         "chai": "^4.2.0",
         "eslint": "^5.10.0",
         "mockery": "^2.1.0",
