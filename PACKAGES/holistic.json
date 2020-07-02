@@ -1,8 +1,8 @@
 {
     "name": "holistic",
     "description": "Holistic app platform: A system of runtime libraries, tools, and developer process for building Node.js services and stateful HTML5 applications with React and re-usable, testable, composable, remixable plug-and-play software models.",
-    "version": "0.0.42",
-    "codename": "fifer",
+    "version": "0.0.43",
+    "codename": "gitnadoiks",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "4TdUnG9oRMWxzoCBdYt5kA",
-    "buildSource": "e097c663ec8bf04f4287bdb62c6c4bcbc4a59475",
-    "buildTime": 1588463624,
-    "buildDateISO": "2020-05-02T23:53:44.000Z"
+    "buildID": "lz1_KPKdTl2irFhhjvMM3g",
+    "buildSource": "4382fabf427ee884db9662d203ac153afb3c1ecc",
+    "buildTime": 1593723944,
+    "buildDateISO": "2020-07-02T21:05:44.000Z"
 }
