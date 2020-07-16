@@ -31,13 +31,13 @@ const filterResponse = holisticAppPlatformManifestFilter.request({
         "@babel/plugin-transform-react-jsx": "7.10.3",
         "@babel/preset-env": "7.10.3",
         "chai": "^4.2.0",
-        "eslint": "^5.10.0",
+        "eslint": "^6.8.0",
         "mockery": "^2.1.0",
         "webpack": "4.42.0",
         "webpack-cli": "3.3.11",
         "css-loader": "3.0.0",
         "style-loader": "0.23.1",
-        "handlebars": "^4.7.6",
+        "handlebars": "^4.7.6", // TODO: exorcise this codebase of handlebars
 
         // Holistic platform runtime library dependencies.
         "@encapsule/arccore": arccore.__meta.version,
