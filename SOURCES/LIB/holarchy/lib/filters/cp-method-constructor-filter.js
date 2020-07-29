@@ -57,7 +57,9 @@ const factoryResponse = arccore.filter.create({
         while(!inBreakScope) {
             inBreakScope = true;
 
-            // We do not support non-JSON types w/filter so we have to verify the type of request_.cellmodel manually.
+            const cpName = `[${request_.id}::${request_.name}]`;
+
+            // Dereference the input CellModel.
             const cellmodel = (request_.cellmodel instanceof CellModel)?request_.cellmodel:new CellModel(request_.cellmodel);
             if (!cellmodel.isValid()) {
                 errors.push("Invalid CellModel specified for constructor request path ~.cellmodel:");
@@ -65,8 +67,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
-            // The input CellModel instance is a roll-up container (actually it's a Digraph of Digraphs) but the point is you can query it.
-            // Here we ask the input CellModel instance to give us a flat list of all the Abstract Process Models that it rolls up.
+            // Extract a list of the AbstractProcessModel's registered in this CellModel.
             let configResponse = cellmodel.getCMConfig({ type: "APM" });
             if (configResponse.error) {
                 errors.push("Unexpected internal error querying APM configuration of specified CellModel. Please report this error:");
@@ -74,10 +75,8 @@ const factoryResponse = arccore.filter.create({
             }
             const apmConfig = configResponse.result;
 
-            // Let's define a shared memory definition for the CellProcessor itself. Or, more specifically shared memory for
-            // CellProcessor's Cell Process Manager (the root cell process of all cell processes that is tied implicity w/the
-            // anonymous ObservableCellData (OCD) namespace ~).
-            
+            // Synthesize the Cell Process Manager OCD filter specification.
+
             let cpmSpec = { ____types: "jsObject" };
             cpmSpec[cpmNamespace] = {
                 ____label: "Cell Process Manager",
@@ -115,9 +114,8 @@ const factoryResponse = arccore.filter.create({
                 cpmSpec[cpmNamespace].processData[pmapNamespace] = {
                     ____label: `${apmFilterName} Cell Process Map`,
                     ____description: `A map of ${apmFilterName} process instances by process ID that are managed by the CellProcessor (~) runtime host.`,
-                    ____types: "jsObject",
+                    ____types: [ "jsUndefined", "jsObject" ],
                     ____asMap: true,
-                    ____defaultValue: {},
                     cellProcessID: {
                         ____label: `${apmFilterName} Cell Process Instance`,
                         ____description: apmDescription,
@@ -128,13 +126,32 @@ const factoryResponse = arccore.filter.create({
 
             } // end for apmConfig.length
 
-            
-            // NO - I am not actually complete w/this constructor filter!
-            // Just returning this so that I can look at easily.
-            response.result = cpmSpec;
+
+            // Now create a new CellModel for the Cell Process Managager.
+
+            const cpmCellModel = new CellModel({
+                id: arccore.identifier.irut.fromReference(`${request_.id}_CellProcessManager_CM`).result,
+                name: `${cpName} Cell Process Manager`,
+                description: `Manages the lifespan of cell processes executing in CellProcessor ${cpName} runtime host instance.`,
+                apm: {
+                    id: arccore.identifier.irut.fromReference(`${request_.id}_CellProcessManager_APM`).result,
+                    name: `${cpName} Cell Process Manager`,
+                    description: `Defines shared memory and stateful behaviors for ${cpName} CellProcessor runtime host instance cell process lifespan management.`,
+                    ocdDataSpec: cpmSpec
+                    // steps <- yes, but not quite yet
+                },
+                subcells: [ request_.cellmodel ]
+            });
+
+            if (!cpmCellModel.isValid()) {
+                errors.push(cpmCellModel.toJSON());
+                break;
+            }
+
+            response.result = cpmCellModel;
 
             /* MORE MAGICS */
-            
+
             break;
 
         } // end while
