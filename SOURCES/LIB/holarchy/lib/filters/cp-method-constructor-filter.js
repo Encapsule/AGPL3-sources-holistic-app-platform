@@ -5,6 +5,14 @@ const CellModel = require("../../CellModel");
 
 const cpmNamespace = "LCP3-7RTSPO_V0ptQ24uOw_CellProcessManager";
 
+caCPM = [
+    require("../intrinsics/ControllerAction-cpm-initialize"),
+    require("../intrinsics/ControllerAction-cpm-process-create"),
+    require("../intrinsics/ControllerAction-cpm-process-delete"),
+    require("../intrinsics/ControllerAction-cpm-process-query"),
+    require("../intrinsics/ControllerAction-cpm-query")
+];
+
 const factoryResponse = arccore.filter.create({
 
     operationID: "7tYVAis3TJGjaEe-6DiKHw",
@@ -140,6 +148,7 @@ const factoryResponse = arccore.filter.create({
                     ocdDataSpec: cpmSpec
                     // steps <- yes, but not quite yet
                 },
+                actions: caCPM,
                 subcells: [ request_.cellmodel ]
             });
 
