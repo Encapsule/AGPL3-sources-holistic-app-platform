@@ -55,44 +55,40 @@
                 "NPN6z4aOTqOOO60wLVKOcg": {
                   "isValid": true,
                   "toJSON": {
-                    "id": "IJQglDq2OrbGhsaGbtRu1A",
-                    "vdid": "wrdir0YyuwtW4936BUvegA",
-                    "name": "CellProcessor Constructor #2",
-                    "description": "A minamally-configured CellProcessor instance.",
-                    "cmat": {
-                      "error": null,
-                      "result": {
-                        "INDEX_CM": {
-                          "type": "INDEX",
-                          "IJQglDq2OrbGhsaGbtRu1A": {
-                            "id": "IJQglDq2OrbGhsaGbtRu1A",
-                            "vdid": "wrdir0YyuwtW4936BUvegA",
-                            "name": "CellProcessor Constructor #2",
-                            "description": "A minamally-configured CellProcessor instance.",
-                            "type": "CM",
-                            "yGcR7lZWsQI7KGjccTNpvw": {
-                              "id": "yGcR7lZWsQI7KGjccTNpvw",
-                              "vdid": "xKVXEB16Tlm_KININ4NmfQ",
-                              "name": "Master Cell Process (MCP)",
-                              "description": "Manages aynchronous cellular processes executing within a CellProcessor instance.",
-                              "type": "APM"
-                            },
-                            "cJQGRL5sTSqk02JiEaM06g": {
-                              "id": "cJQGRL5sTSqk02JiEaM06g",
-                              "vdid": "DOPqQtXbViK9cNXI6Tu7Pw",
-                              "name": "Test CM",
-                              "description": "Test CellModel",
-                              "type": "CM",
-                              "6OPnhgR9QWyEFaBpaZNb1A": {
-                                "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                                "name": "Test CM APM",
-                                "description": "Test AbstractProcessModel",
-                                "type": "APM"
-                              }
+                    "____types": "jsObject",
+                    "LCP3-7RTSPO_V0ptQ24uOw_CellProcessManager": {
+                      "____label": "Cell Process Manager",
+                      "____description": "CellProcessor's primary job is to manage the creation, deletion, and connection of cell processes.",
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "processData": {
+                        "____label": "Cell Process Data",
+                        "____description": "Memory allocation for all cell processes that could possibly be created by this CellProcessor instance.",
+                        "____types": "jsObject",
+                        "____defaultValue": {},
+                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Map",
+                          "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host.",
+                          "____types": "jsObject",
+                          "____asMap": true,
+                          "____defaultValue": {},
+                          "cellProcessID": {
+                            "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Instance",
+                            "____description": "Test AbstractProcessModel",
+                            "____types": "jsObject",
+                            "____appdsl": {
+                              "apm": "6OPnhgR9QWyEFaBpaZNb1A"
                             }
                           }
                         }
+                      },
+                      "processDigraph": {
+                        "____label": "Cell Process Relationship Digraph",
+                        "____accept": [
+                          "jsNull",
+                          "jsObject"
+                        ],
+                        "____defaultValue": null
                       }
                     }
                   }

@@ -3,6 +3,8 @@
 const arccore = require("@encapsule/arccore");
 const CellModel = require("../../CellModel");
 
+const cpmNamespace = "LCP3-7RTSPO_V0ptQ24uOw_CellProcessManager";
+
 const factoryResponse = arccore.filter.create({
 
     operationID: "7tYVAis3TJGjaEe-6DiKHw",
@@ -55,6 +57,7 @@ const factoryResponse = arccore.filter.create({
         while(!inBreakScope) {
             inBreakScope = true;
 
+            // We do not support non-JSON types w/filter so we have to verify the type of request_.cellmodel manually.
             const cellmodel = (request_.cellmodel instanceof CellModel)?request_.cellmodel:new CellModel(request_.cellmodel);
             if (!cellmodel.isValid()) {
                 errors.push("Invalid CellModel specified for constructor request path ~.cellmodel:");
@@ -62,6 +65,8 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
+            // The input CellModel instance is a roll-up container (actually it's a Digraph of Digraphs) but the point is you can query it.
+            // Here we ask the input CellModel instance to give us a flat list of all the Abstract Process Models that it rolls up.
             let configResponse = cellmodel.getCMConfig({ type: "APM" });
             if (configResponse.error) {
                 errors.push("Unexpected internal error querying APM configuration of specified CellModel. Please report this error:");
@@ -69,134 +74,71 @@ const factoryResponse = arccore.filter.create({
             }
             const apmConfig = configResponse.result;
 
-            let apmVariantFilterSpec = {
-                ____label: "Cell Variant Descriptor",
-                ____description: `Defines a single descriptor object that defines optional subnames for all registered APM's registered in CM [${cellmodel.getID()}::${cellmodel.getName()}].`,
+            // Let's define a shared memory definition for the CellProcessor itself. Or, more specifically shared memory for
+            // CellProcessor's Cell Process Manager (the root cell process of all cell processes that is tied implicity w/the
+            // anonymous ObservableCellData (OCD) namespace ~).
+            
+            let cpmSpec = { ____types: "jsObject" };
+            cpmSpec[cpmNamespace] = {
+                ____label: "Cell Process Manager",
+                ____description: "CellProcessor's primary job is to manage the creation, deletion, and connection of cell processes.",
                 ____types: "jsObject",
-                ____defaultValue: {}
-            };
+                ____defaultValue: {},
+                processData: {
+                    ____label: "Cell Process Data",
+                    ____description: "Memory allocation for all cell processes that could possibly be created by this CellProcessor instance.",
+                    ____types: "jsObject",
+                    ____defaultValue: {}
+                    // The top-level properties of this descriptor object are added programmatically below;
+                    // one for each APM discovered in the input CellModel.
+                },
+                // TODO: Track this as it evolves. And, lock it down as appropriate here as it stabilizes.
+                // NOTE: This placeholder isn't read or written yet; just a null placeholder for now.
+                processDigraph: {
+                    ____label: "Cell Process Relationship Digraph",
+                    ____accept: [ "jsNull", "jsObject" ],
+                    ____defaultValue: null
+                }
+            }
+
+            // The Cell Process Manager manages some number of subcell processes.
+            // Here we allocate a prescriptively-named map of process instances for each Abstract Process Model (APM)
+            // discovered in the in the input CellModel instance.
 
             for (let i = 0 ; i < apmConfig.length ; i++) {
                 const apm = apmConfig[i];
                 const apmID = apm.getID();
                 const apmName = apm.getName();
+                const apmDescription = apm.getDescription();
                 const apmFilterName = `[${apmID}::${apmName}]`;
-
-                apmVariantFilterSpec[apm.getID()] = {
-                    ____label: `${apmFilterName} Wrapper`,
-                    ____description: `Optional wrapper descriptor for CM ${apmFilterName}.`,
-                    ____types: [ "jsUndefined", "jsObject" ],
-                    cell: {
-                        ____label: `${apmFilterName} Instance`,
+                const pmapNamespace = `${apmID}_CellProcesses`;
+                cpmSpec[cpmNamespace].processData[pmapNamespace] = {
+                    ____label: `${apmFilterName} Cell Process Map`,
+                    ____description: `A map of ${apmFilterName} process instances by process ID that are managed by the CellProcessor (~) runtime host.`,
+                    ____types: "jsObject",
+                    ____asMap: true,
+                    ____defaultValue: {},
+                    cellProcessID: {
+                        ____label: `${apmFilterName} Cell Process Instance`,
+                        ____description: apmDescription,
                         ____types: "jsObject",
-                        ____appdsl: { apm: apmID } // I love this means of composition...
+                        ____appdsl: { apm: apmID } // <3 <3 <3
                     }
                 };
-            }
 
-            const cellProcessDigraphName = `[$cellmodel.getID()}::${cellmodel.getName()}] Cell Process Digraph`;
+            } // end for apmConfig.length
 
-            const cellProcessDigraphDescriptorSpec = {
-                ____label: cellProcessDigraphName,
-                ____description: "Observable digraph tracking parent/child relationships across cellular processes.",
-                ____types: "jsObject",
-                ____defaultValue: {},
+            
+            // NO - I am not actually complete w/this constructor filter!
+            // Just returning this so that I can look at easily.
+            response.result = cpmSpec;
 
-                name: {
-                    ____label: "App/Service Name",
-                    ____accept: "jsString",
-                    ____defaultValue: cellProcessDigraphName
-                },
-                description: {
-                    ____label: "App/Service Description",
-                    ____accept: "jsString",
-                    ____defaultValue: "No description specified."
-                },
-
-                vlist: {
-                    ____label: "Process List",
-                    ____description: "An array of @encapsule/arccore.graph DirectedGraph vertex descriptor objects.",
-                    ____types: "jsArray",
-                    ____defaultValue: [],
-                    cellProcessDescriptor: {
-                        ____label: "Cell Process Descriptor",
-                        ____types: "jsObject",
-                        u: {
-                            ____label: "Cell Process ID",
-                            ____description: "The unique IRUT ID of the cell process.",
-                            ____accept: "jsString"
-                        },
-                        p: {
-                            ____label: "Cell Process Properties Descriptor",
-                            ____description: "Describes various facets of a cellular process instance.",
-                            ____types: "jsObject",
-                            cellProcess: apmVariantFilterSpec // the actual proces runtime memory runtime bound to an APM
-                        }
-                    }
-                },
-
-                elist: {
-                    ____label: "Process Relationships",
-                    ____description: "An array of parent/child process/sub-process relationships.",
-                    ____types: "jsArray",
-                    ____defaultValue: [],
-                    cellProcessRelationshipDescriptor: {
-                        ____label: "Cell Process Relationship Descriptor",
-                        ____description: "Tracks a specified parent cell process to child cell process relationship.",
-                        ____types: "jsObject",
-                        e: {
-                            ____label: "Process ID Pair",
-                            ____description: "A pair of cell process ID's where u is the parent and v is child cell process.",
-                            ____types: "jsObject",
-                            u: {
-                                ____label: "Parent Cell Process ID",
-                                ____description: "The unique IRUT ID of the parent cell process.",
-                                ____accept: "jsString"
-                            },
-                            v: {
-                                ____label: "Child Cell Process ID",
-                                ____description:" The unique IRUT ID of the child cell process.",
-                                ____accept: "jsString"
-                            }
-                        },
-                        p: {
-                            ____label: "Relationship Metadata",
-                            ____description: "A currently unused edge property.",
-                            ____types: "jsObject",
-                            ____defaultValue: {}
-                        }
-                    }
-                }
-
-            };
-
-            const mcpID = arccore.identifier.irut.fromReference("Cell Process CellModel" + request_.id).result;
-            const mcpAPMID = arccore.identifier.irut.fromReference("Cell Process AbstractProcessModel" + request_.id).result;
-
-            const MCP = new CellModel({
-                id: mcpID,
-                name: request_.name,
-                description: request_.description,
-
-                apm: {
-                    id: mcpAPMID,
-                    name: "Master Cell Process (MCP)",
-                    description: "Manages aynchronous cellular processes executing within a CellProcessor instance.",
-                    ocdDataSpec: cellProcessDigraphDescriptorSpec
-                },
-                subcells: [ cellmodel ]
-            });
-
-            if (!MCP.isValid()) {
-                errors.push("Unable to contruct the MasterCellProcess CellModel due to error:");
-                errors.push(MCP.toJSON());
-                break;
-            }
-
-            response.result = MCP;
+            /* MORE MAGICS */
+            
             break;
 
-        }
+        } // end while
+
         if (errors.length) {
             errors.unshift("Cannot construct CellProcessor due to error:");
             response.error = errors.join(" ");
