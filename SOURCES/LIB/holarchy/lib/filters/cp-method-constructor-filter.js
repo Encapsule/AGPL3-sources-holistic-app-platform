@@ -5,7 +5,7 @@ const CellModel = require("../../CellModel");
 
 const cpmNamespace = "LCP3-7RTSPO_V0ptQ24uOw_CellProcessManager";
 
-caCPM = [
+const caCPM = [
     require("../intrinsics/ControllerAction-cpm-initialize"),
     require("../intrinsics/ControllerAction-cpm-process-create"),
     require("../intrinsics/ControllerAction-cpm-process-delete"),
@@ -103,8 +103,7 @@ const factoryResponse = arccore.filter.create({
                 // NOTE: This placeholder isn't read or written yet; just a null placeholder for now.
                 processDigraph: {
                     ____label: "Cell Process Relationship Digraph",
-                    ____accept: [ "jsNull", "jsObject" ],
-                    ____defaultValue: null
+                    ____accept: [ "jsUndefined", "jsObject" ],
                 }
             }
 

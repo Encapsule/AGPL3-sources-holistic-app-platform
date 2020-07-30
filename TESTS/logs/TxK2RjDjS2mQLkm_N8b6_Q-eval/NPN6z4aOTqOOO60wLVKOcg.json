@@ -55,40 +55,79 @@
                 "NPN6z4aOTqOOO60wLVKOcg": {
                   "isValid": true,
                   "toJSON": {
-                    "____types": "jsObject",
-                    "LCP3-7RTSPO_V0ptQ24uOw_CellProcessManager": {
-                      "____label": "Cell Process Manager",
-                      "____description": "CellProcessor's primary job is to manage the creation, deletion, and connection of cell processes.",
-                      "____types": "jsObject",
-                      "____defaultValue": {},
-                      "processData": {
-                        "____label": "Cell Process Data",
-                        "____description": "Memory allocation for all cell processes that could possibly be created by this CellProcessor instance.",
-                        "____types": "jsObject",
-                        "____defaultValue": {},
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Map",
-                          "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host.",
-                          "____types": "jsObject",
-                          "____asMap": true,
-                          "____defaultValue": {},
-                          "cellProcessID": {
-                            "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Instance",
-                            "____description": "Test AbstractProcessModel",
-                            "____types": "jsObject",
-                            "____appdsl": {
-                              "apm": "6OPnhgR9QWyEFaBpaZNb1A"
+                    "id": "lDeUN7bUttSG7Ibs1MLUwg",
+                    "vdid": "J8EXvFqXcRbg2gOj8Sya8g",
+                    "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                    "description": "Manages the lifespan of cell processes executing in CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] runtime host instance.",
+                    "cmat": {
+                      "error": null,
+                      "result": {
+                        "INDEX_CM": {
+                          "type": "INDEX",
+                          "lDeUN7bUttSG7Ibs1MLUwg": {
+                            "id": "lDeUN7bUttSG7Ibs1MLUwg",
+                            "vdid": "J8EXvFqXcRbg2gOj8Sya8g",
+                            "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                            "description": "Manages the lifespan of cell processes executing in CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] runtime host instance.",
+                            "type": "CM",
+                            "ZUng3fXc4yhG0sithJ6MPw": {
+                              "id": "ZUng3fXc4yhG0sithJ6MPw",
+                              "vdid": "9a_6oar4rH-5vK0JGeAn3g",
+                              "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                              "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance cell process lifespan management.",
+                              "type": "APM"
+                            },
+                            "VNaA0AMsTXawb32xLaNGTA": {
+                              "id": "VNaA0AMsTXawb32xLaNGTA",
+                              "vdid": "V4GPOwexeEfFbNqLhwpiCg",
+                              "name": "Cell Process Manager: Initialize",
+                              "description": "Performs initialization of Cell Process Manager cell process (the root and parent process of all cell processes executing in a CellProcess runtime host instance).",
+                              "type": "ACT"
+                            },
+                            "SdL0-5kmTuiNrWNu7zGZhg": {
+                              "id": "SdL0-5kmTuiNrWNu7zGZhg",
+                              "vdid": "y9q8vUZ4orLs_0BKHmo5_Q",
+                              "name": "Cell Process Manager: Process Create",
+                              "description": "Requests that the Cell Process Manager create a new cell process inside the CellProcessor runtime host instance.",
+                              "type": "ACT"
+                            },
+                            "4s_DUfKnQ4aS-xRjewAfUQ": {
+                              "id": "4s_DUfKnQ4aS-xRjewAfUQ",
+                              "vdid": "WSIu-TgzIwiFASUUD38HHw",
+                              "name": "Cell Process Manager: Process Delete",
+                              "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
+                              "type": "ACT"
+                            },
+                            "r-JgxABoS_a-mSE2c1nvKA": {
+                              "id": "r-JgxABoS_a-mSE2c1nvKA",
+                              "vdid": "SY4UjmKkB8foKDcy3JTnYw",
+                              "name": "Cell Process Manager: Process Query",
+                              "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
+                              "type": "ACT"
+                            },
+                            "L2mTv5LvT12WIYb0cYOsLA": {
+                              "id": "L2mTv5LvT12WIYb0cYOsLA",
+                              "vdid": "rHooJ4JihjGIqTPt88_QKw",
+                              "name": "Cell Process Manager Query",
+                              "description": "Performs a synchronous query of the Cell Process Manager's process digraph.",
+                              "type": "ACT"
+                            },
+                            "cJQGRL5sTSqk02JiEaM06g": {
+                              "id": "cJQGRL5sTSqk02JiEaM06g",
+                              "vdid": "DOPqQtXbViK9cNXI6Tu7Pw",
+                              "name": "Test CM",
+                              "description": "Test CellModel",
+                              "type": "CM",
+                              "6OPnhgR9QWyEFaBpaZNb1A": {
+                                "id": "6OPnhgR9QWyEFaBpaZNb1A",
+                                "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
+                                "name": "Test CM APM",
+                                "description": "Test AbstractProcessModel",
+                                "type": "APM"
+                              }
                             }
                           }
                         }
-                      },
-                      "processDigraph": {
-                        "____label": "Cell Process Relationship Digraph",
-                        "____accept": [
-                          "jsNull",
-                          "jsObject"
-                        ],
-                        "____defaultValue": null
                       }
                     }
                   }
