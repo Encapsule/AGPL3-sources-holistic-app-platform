@@ -4,9 +4,6 @@ const arccore = require("@encapsule/arccore");
 const CellModel = require("../../CellModel");
 const ObservableProcessController = require("../../lib/ObservableProcessController");
 
-
-
-
 const caCP = [
     require("../intrinsics/ControllerAction-cpm-initialize"),
     require("../intrinsics/ControllerAction-cpm-process-create"),
@@ -61,6 +58,7 @@ const factoryResponse = arccore.filter.create({
     },
 
     bodyFunction: (request_) => {
+
         let response = { error: null };
         let errors = [];
         let inBreakScope = false;
@@ -73,7 +71,7 @@ const factoryResponse = arccore.filter.create({
             const cellmodel = (request_.cellmodel instanceof CellModel)?request_.cellmodel:new CellModel(request_.cellmodel);
             if (!cellmodel.isValid()) {
                 errors.push("Invalid CellModel specified for constructor request path ~.cellmodel:");
-                errors.push(cellmodel.toJSON());
+                errors.push(JSON.stringify(cellmodel));
                 break;
             }
 
@@ -87,11 +85,8 @@ const factoryResponse = arccore.filter.create({
 
             // Synthesize the Cell Process Manager OCD filter specification.
 
-            let cpSpec = {
-                ____label: "Cell Processor",
-                ____description: "CellProcessor runtime host instance manager process.",
+            let ocdTemplateSpec = {
                 ____types: "jsObject",
-                ____defaultValue: {},
                 "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                     ____types: "jsObject",
                     ____defaultValue: {},
@@ -115,7 +110,7 @@ const factoryResponse = arccore.filter.create({
                 const apmFilterName = `[${apmID}::${apmName}]`;
                 const apmProcessesNamespace = `${apmID}_CellProcesses`;
 
-                cpSpec[apmProcessesNamespace] = {
+                ocdTemplateSpec[apmProcessesNamespace] = {
                     ____label: `${apmFilterName} Cell Processes Map`,
                     ____description: `A map of ${apmFilterName} process instances by process ID that are managed by the CellProcessor (~) runtime host instance.`,
                     ____types: [ "jsUndefined", "jsObject" ], // We do not necessarily have active cell process(es) of this type at all times.
@@ -130,30 +125,36 @@ const factoryResponse = arccore.filter.create({
 
             } // end for apmConfig.length
 
-
             // Now create a new CellModel for the Cell Process Managager.
 
             const cpCMID = arccore.identifier.irut.fromReference(`${request_.id}_CellProcessor_CellModel`).result;
+            const cpAPMID =  arccore.identifier.irut.fromReference(`${request_.id}_CellProcess_AbstractProcessModel`).result;
 
             const cpCM = new CellModel({
                 id: cpCMID,
                 name: `${cpName} Cell Processor`,
                 description: `Manages the lifespan of cell processes executing in the ${cpName} CellProcessor runtime host instance.`,
                 apm: {
-                    id: arccore.identifier.irut.fromReference(`${request_.id}_CellProcess_AbstractProcessModel`).result,
+                    id: cpAPMID,
                     name: `${cpName} Cell Process Manager`,
                     description: `Defines shared memory and stateful behaviors for ${cpName} CellProcessor runtime host instance.`,
-                    ocdDataSpec: cpSpec
-                    // steps <- yes, but not quite yet
+                    // data? <- probably, but not quite sure yet
+                    // steps? <- yes, but not quite sure yet
                 },
                 actions: caCP,
                 subcells: [ request_.cellmodel ]
             });
 
             if (!cpCM.isValid()) {
-                errors.push(cpCM.toJSON());
+                errors.push(JSON.stringify(cpCM));
                 break;
             }
+
+            ocdTemplateSpec[ "x7pM9bwcReupSRh0fcYTgw_CellProcessor" ] = {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { apm: cpAPMID }
+            };
 
             // Now instantiate an ObservableProcessController runtime host instance using configuration derived from the Cell Processor's model.
 
@@ -161,17 +162,14 @@ const factoryResponse = arccore.filter.create({
                 id: arccore.identifier.irut.fromReference(`${request_.id}_CellProcessor_ObservableProcessController`).result,
                 name: `${cpName} Observable Process Controller`,
                 description: `Provides shared memory and runtime automata process orchestration for ${cpName} CellProcessor-resident cell processes.`,
-                ocdTemplateSpec: {
-                    ____types: "jsObject",
-                    ____appdsl: { apm: cpCMID }
-                },
+                ocdTemplateSpec,
                 abstractProcessModelSets: [ cpCM.getCMConfig({ type: "APM" }).result ],
                 transitionOperatorSets: [ cpCM.getCMConfig({ type: "TOP" }).result ],
                 constrollerActionSets: [ cpCM.getCMConfig({ type: "ACT" }).result ]
             });
 
             if (!cpOPC.isValid()) {
-                errors.push(cpOPC.toJSON());
+                errors.push(JSON.stringify(cpOPC));
                 break;
             }
 
