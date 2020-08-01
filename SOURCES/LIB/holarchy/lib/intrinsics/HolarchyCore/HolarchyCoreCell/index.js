@@ -1,7 +1,7 @@
 
 // This module exports an @encapsule/holarchy Cell Model definition object.
 
-const holarchy = require("@encapsule/holarchy");
+const CellModel = require("../../../../CellModel");
 
 module.exports = new holarchy.CellModel({
     id: "orTbEFR_Q-u-qqEqP8OUBA",

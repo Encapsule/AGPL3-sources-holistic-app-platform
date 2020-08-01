@@ -11,8 +11,6 @@ module.exports = {
         require("./ControllerAction-ocd-write-frame-latch")
     ],
 
-    subcells: [
-        require("../../HolarchyCore")
-    ]
+    subcells: []
 };
 

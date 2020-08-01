@@ -1,9 +1,9 @@
-"use strict";
 
 // ControllerAction-ocd-read-namespace-indirect.js
-var holarchy = require("@encapsule/holarchy");
 
-module.exports = new holarchy.ControllerAction({
+const ControllerAction = require("../../../ControllerAction");
+
+module.exports = new ControllerAction({
   id: "Ve_kEFkGSMSgOqUWu9Yo_w",
   name: "OCD Read Namespace Indirect",
   description: "Reads and returns the value of OCD namespace via path indirection.",

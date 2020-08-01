@@ -1,8 +1,7 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
+const TransitionOperator = require("../../../TransitionOperator");
 
-module.exports = new holarchy.TransitionOperator({
+module.exports = new TransitionOperator({
   id: "oaF3-dXwQkusjD3I2o9-8g",
   name: "OCD Array Length Equal to Value",
   description: "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect).",

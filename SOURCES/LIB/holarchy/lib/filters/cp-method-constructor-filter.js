@@ -12,6 +12,8 @@ const caCP = [
     require("../intrinsics/ControllerAction-cpm-query")
 ];
 
+const holarchyCoreCellModel = require("../intrinsics/HolarchyCore");
+
 const factoryResponse = arccore.filter.create({
 
     operationID: "7tYVAis3TJGjaEe-6DiKHw",
@@ -88,13 +90,6 @@ const factoryResponse = arccore.filter.create({
             let ocdTemplateSpec = {
                 ____types: "jsObject",
                 "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                    ____types: "jsObject",
-                    ____defaultValue: {},
-                    cellProcessDigraph: {
-                        ____types: "jsObject",
-                        api: { ____accept: [ "jsUndefined", "jsObject" ] },
-                        serialized: { ____accept: [ "jsUndefined", "jsObject" ] }
-                    }
                 }
             }
 
@@ -138,11 +133,44 @@ const factoryResponse = arccore.filter.create({
                     id: cpAPMID,
                     name: `${cpName} Cell Process Manager`,
                     description: `Defines shared memory and stateful behaviors for ${cpName} CellProcessor runtime host instance.`,
-                    // data? <- probably, but not quite sure yet
-                    // steps? <- yes, but not quite sure yet
+                    ocdDataSpec: {
+                        ____types: "jsObject",
+                        ____defaultValue: {},
+                        cellProcessDigraph: {
+                            ____types: "jsObject",
+                            ____defaultValue: {},
+                            api: { ____accept: [ "jsUndefined", "jsObject" ] },
+                            serialized: { ____accept: [ "jsUndefined", "jsObject" ] }
+                        }
+                    },
+                    steps: {
+                        uninitialized: {
+                            description: "Default starting step of a cell process.",
+                            transitions: [
+                                { transitionIf: { always: true }, nextStep: "initializing" }
+                            ]
+                        },
+                        initializing: {
+                            description: "CellProcessor manager process is initializing.",
+                            transitions: [
+                                { transitionIf: { always: true }, nextStep: "ready" }
+                            ],
+                            actions: {
+                                enter: [
+                                    { holarchy: { CellProcessor: { initialize: { options: {} } } } }
+                                ]
+                            }
+                        },
+                        ready: {
+                            description: "CellProcessor manager process is ready to accept commands and queries."
+                        }
+                    }
                 },
                 actions: caCP,
-                subcells: [ request_.cellmodel ]
+                subcells: [
+                    holarchyCoreCellModel,
+                    request_.cellmodel
+                ]
             });
 
             if (!cpCM.isValid()) {

@@ -1,8 +1,7 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
+const TransitionOperator = require("../../../TransitionOperator");
 
-module.exports = new holarchy.TransitionOperator({
+module.exports = new TransitionOperator({
   id: "ggsavKiARsq7rjwn-lxdfA",
   name: "OCD Namespace Is Greater Than Value",
   description: "Returns Boolean true iff the indicated OCD namespace is greater than the indicated value. Limited to number and string value comparisons only.",

@@ -1,12 +1,12 @@
-"use strict";
 
-// ControllerAction-set-boolean-flag.js
-var holarchy = require("@encapsule/holarchy");
+// ControllerAction-clear-boolean-flag.js
 
-module.exports = new holarchy.ControllerAction({
-  id: "5rFEDGLYRSiZCeChMnkCHQ",
-  name: "OCD Boolean Flag Set",
-  description: "Set the Boolean-type OCD namespace specified by path to value true.",
+const ControllerAction = require("../../../ControllerAction");
+
+module.exports = new ControllerAction({
+  id: "_yxWfFLnTqqN-UxRdd7W5w",
+  name: "OCD Boolean Flag Clear",
+  description: "Set the Boolean-type OCD namespace specified by path to value false.",
   actionRequestSpec: {
     ____types: "jsObject",
     holarchy: {
@@ -17,7 +17,7 @@ module.exports = new holarchy.ControllerAction({
           ____types: "jsObject",
           ocd: {
             ____types: "jsObject",
-            setBooleanFlag: {
+            clearBooleanFlag: {
               ____types: "jsObject",
               path: {
                 ____accept: "jsString"
@@ -41,7 +41,7 @@ module.exports = new holarchy.ControllerAction({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.actionRequest.holarchy.cm.actions.ocd.setBooleanFlag;
+      var message = request_.actionRequest.holarchy.cm.actions.ocd.clearBooleanFlag;
       var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
@@ -52,7 +52,7 @@ module.exports = new holarchy.ControllerAction({
         break;
       }
 
-      var ocdResponse = request_.context.ocdi.writeNamespace(rpResponse.result, true);
+      var ocdResponse = request_.context.ocdi.writeNamespace(rpResponse.result, false);
 
       if (ocdResponse.error) {
         errors.push(ocdResponse.error);

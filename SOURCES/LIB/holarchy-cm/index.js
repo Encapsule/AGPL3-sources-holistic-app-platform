@@ -20,7 +20,6 @@ module.exports = {
         name: "Holarchy CML",
         description: "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
         subcells: [
-            require("./HolarchyCore"),
             require("./HolarchyBase")
         ]
     })

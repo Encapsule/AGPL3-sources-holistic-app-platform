@@ -1,8 +1,8 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
 
-module.exports = new holarchy.TransitionOperator({
+const TransitionOperator = require("../../../TransitionOperator");
+
+module.exports = new TransitionOperator({
     id: "YgABX95wR86GCYrYaDLISA",
     name: "AND Transition Expression Operator",
     description: "Returns Boolean true iff all suboperations return true.",

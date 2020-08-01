@@ -1,11 +1,10 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
+const TransitionOperator = require("../../../TransitionOperator");
 
-module.exports = new holarchy.TransitionOperator({
-  id: "UeLs9PcASwuC7KR190eYhA",
-  name: "OCD Boolean Flag Is Set",
-  description: "Returns Boolean true iff the indicated Boolean flag namespace is true.",
+module.exports = new TransitionOperator({
+  id: "kD1PcgqYQlm7fJatNG2ZsA",
+  name: "OCD Namespace Is Truthy",
+  description: "Returns Boolean true iff the indicated OCD namespace is truthy.",
   operatorRequestSpec: {
     ____types: "jsObject",
     holarchy: {
@@ -16,7 +15,7 @@ module.exports = new holarchy.TransitionOperator({
           ____types: "jsObject",
           ocd: {
             ____types: "jsObject",
-            isBooleanFlagSet: {
+            isNamespaceTruthy: {
               ____types: "jsObject",
               path: {
                 ____accept: "jsString"
@@ -37,7 +36,7 @@ module.exports = new holarchy.TransitionOperator({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.operatorRequest.holarchy.cm.operators.ocd.isBooleanFlagSet;
+      var message = request_.operatorRequest.holarchy.cm.operators.ocd.isNamespaceTruthy;
       var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
@@ -55,11 +54,14 @@ module.exports = new holarchy.TransitionOperator({
         break;
       }
 
-      response.result = filterResponse.result === true;
+      response.result = filterResponse.result ? true : false;
       break;
     }
 
-    if (errors.length) response.error = errors.join(" ");
+    if (errors.length) {
+      response.error = errors.join(" ");
+    }
+
     return response;
   }
 });

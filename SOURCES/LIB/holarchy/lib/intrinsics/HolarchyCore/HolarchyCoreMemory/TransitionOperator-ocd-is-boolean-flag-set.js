@@ -1,11 +1,11 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
 
-module.exports = new holarchy.TransitionOperator({
-  id: "XxX_a1sQS1OlJbWAYfx6tQ",
-  name: "OCD Namespace Is Less Than Value",
-  description: "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
+const TransitionOperator = require("../../../TransitionOperator");
+
+module.exports = new TransitionOperator({
+  id: "UeLs9PcASwuC7KR190eYhA",
+  name: "OCD Boolean Flag Is Set",
+  description: "Returns Boolean true iff the indicated Boolean flag namespace is true.",
   operatorRequestSpec: {
     ____types: "jsObject",
     holarchy: {
@@ -16,13 +16,10 @@ module.exports = new holarchy.TransitionOperator({
           ____types: "jsObject",
           ocd: {
             ____types: "jsObject",
-            isNamespaceLessThanValue: {
+            isBooleanFlagSet: {
               ____types: "jsObject",
               path: {
                 ____accept: "jsString"
-              },
-              value: {
-                ____accept: ["jsString", "jsNumber"]
               }
             }
           }
@@ -40,7 +37,7 @@ module.exports = new holarchy.TransitionOperator({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var message = request_.operatorRequest.holarchy.cm.operators.ocd.isNamespaceLessThanValue;
+      var message = request_.operatorRequest.holarchy.cm.operators.ocd.isBooleanFlagSet;
       var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
@@ -56,17 +53,13 @@ module.exports = new holarchy.TransitionOperator({
       if (filterResponse.error) {
         errors.push(filterResponse.error);
         break;
-      } // TODO: It would be better to also confirm that both values are the same type.
+      }
 
-
-      response.result = filterResponse.result < message.value;
+      response.result = filterResponse.result === true;
       break;
     }
 
-    if (errors.length) {
-      response.error = errors.join(" ");
-    }
-
+    if (errors.length) response.error = errors.join(" ");
     return response;
   }
 });

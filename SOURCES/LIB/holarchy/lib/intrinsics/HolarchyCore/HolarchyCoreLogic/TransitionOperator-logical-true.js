@@ -1,9 +1,10 @@
 "use strict";
 
 // transition-operator-always-filter.js
-var holarchy = require("@encapsule/holarchy");
 
-module.exports = new holarchy.TransitionOperator({
+const TransitionOperator = require("../../../TransitionOperator");
+
+module.exports = new TransitionOperator({
   id: "e89cwnP4Qd6MocAhzdOJgw",
   name: "Always returns Boolean true unconditionally.",
   description: "Always returns true.",

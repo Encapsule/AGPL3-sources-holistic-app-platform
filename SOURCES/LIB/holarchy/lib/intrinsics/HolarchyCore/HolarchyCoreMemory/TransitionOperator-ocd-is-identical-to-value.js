@@ -1,8 +1,7 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
+const TransitionOperator = require("../../../TransitionOperator");
 
-module.exports = new holarchy.TransitionOperator({
+module.exports = new TransitionOperator({
   id: "k7THIKKDQMKOac1Rxh9tEQ",
   name: "OCD Namespace Is Identical To Value",
   description: "Returns Boolean true iff the indicated OCD namespace is identical (i.e. strictly equal (===)) to the indicated value. Limited to number and string value comparisons only.",

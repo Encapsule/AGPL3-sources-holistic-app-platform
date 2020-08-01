@@ -1,8 +1,7 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
+const TransitionOperator = require("../../../TransitionOperator");
 
-module.exports = new holarchy.TransitionOperator({
+module.exports = new TransitionOperator({
   id: "2w7n6KxdR8mdIliePJesLQ",
   name: "OCD Compare Values",
   description: "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
