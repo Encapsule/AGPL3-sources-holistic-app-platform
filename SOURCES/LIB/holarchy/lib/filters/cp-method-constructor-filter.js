@@ -157,7 +157,7 @@ const factoryResponse = arccore.filter.create({
                             ],
                             actions: {
                                 enter: [
-                                    { holarchy: { CellProcessor: { initialize: { options: {} } } } }
+                                    { holarchy: { CellProcessor: { initialize: { }}}}
                                 ]
                             }
                         },
@@ -186,14 +186,37 @@ const factoryResponse = arccore.filter.create({
 
             // Now instantiate an ObservableProcessController runtime host instance using configuration derived from the Cell Processor's model.
 
+            let innerResponse;
+
+            innerResponse = cpCM.getCMConfig({ type: "APM" });
+            if (innerResponse.error) {
+                errors.push(InnerResponse.errror);
+                break;
+            }
+            const cpFinalAPM = innerResponse.result;
+
+            innerResponse = cpCM.getCMConfig({ type: "TOP" });
+            if (innerResponse.error) {
+                errors.push(InnerResponse.errror);
+                break;
+            }
+            const cpFinalTOP = innerResponse.result;
+
+            innerResponse = cpCM.getCMConfig({ type: "ACT" });
+            if (innerResponse.error) {
+                errors.push(innerResponse.error);
+                break;
+            }
+            const cpFinalACT = innerResponse.result;
+
             const cpOPC = new ObservableProcessController({
                 id: arccore.identifier.irut.fromReference(`${request_.id}_CellProcessor_ObservableProcessController`).result,
                 name: `${cpName} Observable Process Controller`,
                 description: `Provides shared memory and runtime automata process orchestration for ${cpName} CellProcessor-resident cell processes.`,
                 ocdTemplateSpec,
-                abstractProcessModelSets: [ cpCM.getCMConfig({ type: "APM" }).result ],
-                transitionOperatorSets: [ cpCM.getCMConfig({ type: "TOP" }).result ],
-                constrollerActionSets: [ cpCM.getCMConfig({ type: "ACT" }).result ]
+                abstractProcessModelSets: [ cpFinalAPM ],
+                transitionOperatorSets: [ cpFinalTOP ],
+                controllerActionSets: [ cpFinalACT ]
             });
 
             if (!cpOPC.isValid()) {

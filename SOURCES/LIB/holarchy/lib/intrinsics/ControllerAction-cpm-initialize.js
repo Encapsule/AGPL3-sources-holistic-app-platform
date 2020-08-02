@@ -38,7 +38,6 @@ const controllerAction = new ControllerAction({
         return response;
     } // bodyFunction
 
-    
 });
 
 if (!controllerAction.isValid()) {

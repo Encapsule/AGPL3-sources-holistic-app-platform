@@ -6,7 +6,7 @@ module.exports = new CellModel({
     name: "Holarchy Core",
     description: "Holarchy core operations and actions for building derived CellModels.",
     subcells: [
-        // require("./HolarchyCoreCell"),
+        require("./HolarchyCoreCell"),
         require("./HolarchyCoreLogic"),
         require("./HolarchyCoreMemory")
     ]

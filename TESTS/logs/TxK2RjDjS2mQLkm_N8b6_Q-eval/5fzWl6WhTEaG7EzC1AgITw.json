@@ -193,12 +193,6 @@
                           "description": "Always returns true."
                         },
                         {
-                          "id": "9tNY7o5GTUGH_xda2GhP-w",
-                          "vdid": "zmPeG6lSvXidCjr_XyENrQ",
-                          "name": "Cell Process In Step Operator",
-                          "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
-                        },
-                        {
                           "id": "TLSHkl73SO-utuzM7dyN2g",
                           "vdid": "MLN5p6fYf0FFTMRIix5okQ",
                           "name": "NOT Transition Expression Operator",
@@ -537,19 +531,18 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "CMvz9x30nfjuykt8A93fQA",
+                        "operationID": "wyGdIp9OizDOAFMAFde26A",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                        "inputTypeVIID": "99C7nYaB6oq5jOJcYZtzLA",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                        "outputTypeVIID": "pRUd8bpRGjvxDw_YURwhcw",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                        "operationVDID": "Y0D0E2OhNVdL2I7tnnMUtA"
                       },
                       "supportedFilters": [
                         "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                         "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
-                        "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                         "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                         "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                         "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
@@ -659,69 +652,6 @@
                           "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "7hv8ROZTdZP8DZ-c1OtJcg"
-                        }
-                      },
-                      "9tNY7o5GTUGH_xda2GhP-w": {
-                        "filterDescriptor": {
-                          "operationID": "9tNY7o5GTUGH_xda2GhP-w",
-                          "operationName": "Cell Process In Step Operator",
-                          "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
-                          "inputFilterSpec": {
-                            "____label": "Cell Process In Step Operator Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "holarchy": {
-                                "____types": "jsObject",
-                                "cm": {
-                                  "____types": "jsObject",
-                                  "operators": {
-                                    "____types": "jsObject",
-                                    "cell": {
-                                      "____types": "jsObject",
-                                      "atStep": {
-                                        "____types": "jsObject",
-                                        "path": {
-                                          "____accept": "jsString"
-                                        },
-                                        "step": {
-                                          "____accept": "jsString"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                          "inputTypeVDID": "q9TocAv3KDWF1D8TwFOj0A",
-                          "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
                         }
                       },
                       "TLSHkl73SO-utuzM7dyN2g": {
@@ -1653,19 +1583,18 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "CMvz9x30nfjuykt8A93fQA",
+                                                "operationID": "wyGdIp9OizDOAFMAFde26A",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                                                "inputTypeVIID": "99C7nYaB6oq5jOJcYZtzLA",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                                                "outputTypeVIID": "pRUd8bpRGjvxDw_YURwhcw",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                                                "operationVDID": "Y0D0E2OhNVdL2I7tnnMUtA"
                                               },
                                               "supportedFilters": [
                                                 "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
                                                 "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
-                                                "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                 "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
                                                 "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                 "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",

@@ -2,6 +2,7 @@
 // @encapsule/holarchy-cm package exports:
 
 const holarchy = require("@encapsule/holarchy");
+
 const packageMeta = require("./package");
 
 module.exports = {
@@ -20,7 +21,8 @@ module.exports = {
         name: "Holarchy CML",
         description: "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
         subcells: [
-            require("./HolarchyBase")
+            require("./HolarchyBase"),
+            holarchy.HolarchyCore
         ]
     })
 };

@@ -1,8 +1,7 @@
-"use strict";
 
-var holarchy = require("@encapsule/holarchy");
+const TransitionOperator = require("../../../../lib/TransitionOperator");
 
-module.exports = new holarchy.TransitionOperator({
+module.exports = new TransitionOperator({
   id: "9tNY7o5GTUGH_xda2GhP-w",
   name: "Cell Process In Step Operator",
   description: "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
