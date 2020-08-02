@@ -1,5 +1,6 @@
 
-const TransitionOperator = require("../../../TransitionOperator");
+const TransitionOperator = require("../../../../lib/TransitionOperator");
+const ObservableControllerData = require("../../../../lib/ObservableControllerData");
 
 module.exports = new TransitionOperator({
   id: "2w7n6KxdR8mdIliePJesLQ",
@@ -83,7 +84,7 @@ module.exports = new TransitionOperator({
       if (!message.a.path) {
         operandA = message.a.value;
       } else {
-        rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+        rpResponse = ObservableControllerData.dataPathResolve({
           apmBindingPath: request_.context.apmBindingPath,
           dataPath: message.a.path
         });
@@ -109,7 +110,7 @@ module.exports = new TransitionOperator({
       if (!message.b.path) {
         operandB = message.b.value;
       } else {
-        rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+        rpResponse = ObservableControllerData.dataPathResolve({
           apmBindingPath: request_.context.apmBindingPath,
           dataPath: message.b.path
         });

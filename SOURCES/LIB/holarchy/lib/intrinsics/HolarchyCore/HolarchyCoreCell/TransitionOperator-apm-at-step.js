@@ -1,5 +1,6 @@
 
 const TransitionOperator = require("../../../../lib/TransitionOperator");
+const ObservableCellData = require("../../../../lib/ObservableControllerData");
 
 module.exports = new TransitionOperator({
   id: "9tNY7o5GTUGH_xda2GhP-w",
@@ -40,7 +41,7 @@ module.exports = new TransitionOperator({
     while (!inBreakScope) {
       inBreakScope = true;
       var message = request_.operatorRequest.holarchy.cm.operators.cell.atStep;
-      var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+      var rpResponse = ObservableCellData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
       });

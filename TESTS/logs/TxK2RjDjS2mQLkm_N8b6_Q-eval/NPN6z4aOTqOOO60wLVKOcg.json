@@ -55,80 +55,2468 @@
                 "NPN6z4aOTqOOO60wLVKOcg": {
                   "isValid": true,
                   "toJSON": {
-                    "id": "lDeUN7bUttSG7Ibs1MLUwg",
-                    "vdid": "J8EXvFqXcRbg2gOj8Sya8g",
-                    "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
-                    "description": "Manages the lifespan of cell processes executing in CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] runtime host instance.",
-                    "cmat": {
-                      "error": null,
-                      "result": {
-                        "INDEX_CM": {
-                          "type": "INDEX",
-                          "lDeUN7bUttSG7Ibs1MLUwg": {
-                            "id": "lDeUN7bUttSG7Ibs1MLUwg",
-                            "vdid": "J8EXvFqXcRbg2gOj8Sya8g",
-                            "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
-                            "description": "Manages the lifespan of cell processes executing in CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] runtime host instance.",
-                            "type": "CM",
-                            "ZUng3fXc4yhG0sithJ6MPw": {
-                              "id": "ZUng3fXc4yhG0sithJ6MPw",
-                              "vdid": "9a_6oar4rH-5vK0JGeAn3g",
-                              "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
-                              "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance cell process lifespan management.",
-                              "type": "APM"
-                            },
-                            "VNaA0AMsTXawb32xLaNGTA": {
-                              "id": "VNaA0AMsTXawb32xLaNGTA",
-                              "vdid": "V4GPOwexeEfFbNqLhwpiCg",
-                              "name": "Cell Process Manager: Initialize",
-                              "description": "Performs initialization of Cell Process Manager cell process (the root and parent process of all cell processes executing in a CellProcess runtime host instance).",
-                              "type": "ACT"
-                            },
-                            "SdL0-5kmTuiNrWNu7zGZhg": {
-                              "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                              "vdid": "y9q8vUZ4orLs_0BKHmo5_Q",
-                              "name": "Cell Process Manager: Process Create",
-                              "description": "Requests that the Cell Process Manager create a new cell process inside the CellProcessor runtime host instance.",
-                              "type": "ACT"
-                            },
-                            "4s_DUfKnQ4aS-xRjewAfUQ": {
-                              "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                              "vdid": "WSIu-TgzIwiFASUUD38HHw",
-                              "name": "Cell Process Manager: Process Delete",
-                              "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
-                              "type": "ACT"
-                            },
-                            "r-JgxABoS_a-mSE2c1nvKA": {
-                              "id": "r-JgxABoS_a-mSE2c1nvKA",
-                              "vdid": "SY4UjmKkB8foKDcy3JTnYw",
-                              "name": "Cell Process Manager: Process Query",
-                              "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
-                              "type": "ACT"
-                            },
-                            "L2mTv5LvT12WIYb0cYOsLA": {
-                              "id": "L2mTv5LvT12WIYb0cYOsLA",
-                              "vdid": "rHooJ4JihjGIqTPt88_QKw",
-                              "name": "Cell Process Manager Query",
-                              "description": "Performs a synchronous query of the Cell Process Manager's process digraph.",
-                              "type": "ACT"
-                            },
-                            "cJQGRL5sTSqk02JiEaM06g": {
-                              "id": "cJQGRL5sTSqk02JiEaM06g",
-                              "vdid": "DOPqQtXbViK9cNXI6Tu7Pw",
-                              "name": "Test CM",
-                              "description": "Test CellModel",
+                    "cm": {
+                      "id": "ZfVl9fVw9XBGHkYehCKEIg",
+                      "vdid": "ejXcuMzbkvSbm4jGabOhWA",
+                      "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Processor",
+                      "description": "Manages the lifespan of cell processes executing in the [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                      "cmat": {
+                        "error": null,
+                        "result": {
+                          "INDEX_CM": {
+                            "type": "INDEX",
+                            "ZfVl9fVw9XBGHkYehCKEIg": {
+                              "id": "ZfVl9fVw9XBGHkYehCKEIg",
+                              "vdid": "ejXcuMzbkvSbm4jGabOhWA",
+                              "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Processor",
+                              "description": "Manages the lifespan of cell processes executing in the [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
                               "type": "CM",
-                              "6OPnhgR9QWyEFaBpaZNb1A": {
-                                "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                                "name": "Test CM APM",
-                                "description": "Test AbstractProcessModel",
+                              "3M28sc9PL4B_c1v5qwFC5Q": {
+                                "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                                "vdid": "Mp1fYbpPjqHSoIEbYUKeiw",
+                                "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                                "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
                                 "type": "APM"
+                              },
+                              "VNaA0AMsTXawb32xLaNGTA": {
+                                "id": "VNaA0AMsTXawb32xLaNGTA",
+                                "vdid": "V4GPOwexeEfFbNqLhwpiCg",
+                                "name": "Cell Process Manager: Initialize",
+                                "description": "Performs initialization of Cell Process Manager cell process (the root and parent process of all cell processes executing in a CellProcess runtime host instance).",
+                                "type": "ACT"
+                              },
+                              "SdL0-5kmTuiNrWNu7zGZhg": {
+                                "id": "SdL0-5kmTuiNrWNu7zGZhg",
+                                "vdid": "y9q8vUZ4orLs_0BKHmo5_Q",
+                                "name": "Cell Process Manager: Process Create",
+                                "description": "Requests that the Cell Process Manager create a new cell process inside the CellProcessor runtime host instance.",
+                                "type": "ACT"
+                              },
+                              "4s_DUfKnQ4aS-xRjewAfUQ": {
+                                "id": "4s_DUfKnQ4aS-xRjewAfUQ",
+                                "vdid": "WSIu-TgzIwiFASUUD38HHw",
+                                "name": "Cell Process Manager: Process Delete",
+                                "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
+                                "type": "ACT"
+                              },
+                              "r-JgxABoS_a-mSE2c1nvKA": {
+                                "id": "r-JgxABoS_a-mSE2c1nvKA",
+                                "vdid": "SY4UjmKkB8foKDcy3JTnYw",
+                                "name": "Cell Process Manager: Process Query",
+                                "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
+                                "type": "ACT"
+                              },
+                              "L2mTv5LvT12WIYb0cYOsLA": {
+                                "id": "L2mTv5LvT12WIYb0cYOsLA",
+                                "vdid": "rHooJ4JihjGIqTPt88_QKw",
+                                "name": "Cell Process Manager Query",
+                                "description": "Performs a synchronous query of the Cell Process Manager's process digraph.",
+                                "type": "ACT"
+                              },
+                              "MDVBKW89TvO9T62Ge7GmNg": {
+                                "id": "MDVBKW89TvO9T62Ge7GmNg",
+                                "vdid": "wJyuMcTmaKG3-ZQ7oJJUrQ",
+                                "name": "Holarchy Core",
+                                "description": "Holarchy core operations and actions for building derived CellModels.",
+                                "type": "CM",
+                                "orTbEFR_Q-u-qqEqP8OUBA": {
+                                  "id": "orTbEFR_Q-u-qqEqP8OUBA",
+                                  "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                  "name": "Holarchy Core Cell",
+                                  "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
+                                  "type": "CM",
+                                  "9tNY7o5GTUGH_xda2GhP-w": {
+                                    "id": "9tNY7o5GTUGH_xda2GhP-w",
+                                    "vdid": "zmPeG6lSvXidCjr_XyENrQ",
+                                    "name": "Cell Process In Step Operator",
+                                    "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
+                                    "type": "TOP"
+                                  }
+                                },
+                                "RW8Y2O-kRNSv87yXT962wQ": {
+                                  "id": "RW8Y2O-kRNSv87yXT962wQ",
+                                  "vdid": "mlLkUyUw6k6a4xH_0jOWJw",
+                                  "name": "Holarchy Core Logic",
+                                  "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
+                                  "type": "CM",
+                                  "YgABX95wR86GCYrYaDLISA": {
+                                    "id": "YgABX95wR86GCYrYaDLISA",
+                                    "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
+                                    "name": "AND Transition Expression Operator",
+                                    "description": "Returns Boolean true iff all suboperations return true.",
+                                    "type": "TOP"
+                                  },
+                                  "0JIva4IFSm6Xm7i38g8uUA": {
+                                    "id": "0JIva4IFSm6Xm7i38g8uUA",
+                                    "vdid": "HyCocPERRAAEOSzTOspyaw",
+                                    "name": "OR Transition Expression Operator",
+                                    "description": "Returns Boolean true iff any suboperations return true.",
+                                    "type": "TOP"
+                                  },
+                                  "TLSHkl73SO-utuzM7dyN2g": {
+                                    "id": "TLSHkl73SO-utuzM7dyN2g",
+                                    "vdid": "MLN5p6fYf0FFTMRIix5okQ",
+                                    "name": "NOT Transition Expression Operator",
+                                    "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
+                                    "type": "TOP"
+                                  },
+                                  "e89cwnP4Qd6MocAhzdOJgw": {
+                                    "id": "e89cwnP4Qd6MocAhzdOJgw",
+                                    "vdid": "Kusn29BqLDgEihAN7rnt-w",
+                                    "name": "Always returns Boolean true unconditionally.",
+                                    "description": "Always returns true.",
+                                    "type": "TOP"
+                                  }
+                                },
+                                "jQxlhOe-RDilxY0sNIierQ": {
+                                  "id": "jQxlhOe-RDilxY0sNIierQ",
+                                  "vdid": "DBtb1VQvd9xXX2QbPHHsow",
+                                  "name": "Holarchy Core Memory Operators",
+                                  "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
+                                  "type": "CM",
+                                  "oaF3-dXwQkusjD3I2o9-8g": {
+                                    "id": "oaF3-dXwQkusjD3I2o9-8g",
+                                    "vdid": "rR6j6vgEL4edaMFT9p0Kug",
+                                    "name": "OCD Array Length Equal to Value",
+                                    "description": "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect).",
+                                    "type": "TOP"
+                                  },
+                                  "2w7n6KxdR8mdIliePJesLQ": {
+                                    "id": "2w7n6KxdR8mdIliePJesLQ",
+                                    "vdid": "tljozSCr53fX-AmzURPyEg",
+                                    "name": "OCD Compare Values",
+                                    "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                                    "type": "TOP"
+                                  },
+                                  "UeLs9PcASwuC7KR190eYhA": {
+                                    "id": "UeLs9PcASwuC7KR190eYhA",
+                                    "vdid": "AvEsDNEdHzM-EAtRzKGrbg",
+                                    "name": "OCD Boolean Flag Is Set",
+                                    "description": "Returns Boolean true iff the indicated Boolean flag namespace is true.",
+                                    "type": "TOP"
+                                  },
+                                  "ggsavKiARsq7rjwn-lxdfA": {
+                                    "id": "ggsavKiARsq7rjwn-lxdfA",
+                                    "vdid": "zo88N4oEjk34PxGoXmyTUA",
+                                    "name": "OCD Namespace Is Greater Than Value",
+                                    "description": "Returns Boolean true iff the indicated OCD namespace is greater than the indicated value. Limited to number and string value comparisons only.",
+                                    "type": "TOP"
+                                  },
+                                  "k7THIKKDQMKOac1Rxh9tEQ": {
+                                    "id": "k7THIKKDQMKOac1Rxh9tEQ",
+                                    "vdid": "uinvGdItUIySJ4gEw7c2uQ",
+                                    "name": "OCD Namespace Is Identical To Value",
+                                    "description": "Returns Boolean true iff the indicated OCD namespace is identical (i.e. strictly equal (===)) to the indicated value. Limited to number and string value comparisons only.",
+                                    "type": "TOP"
+                                  },
+                                  "XxX_a1sQS1OlJbWAYfx6tQ": {
+                                    "id": "XxX_a1sQS1OlJbWAYfx6tQ",
+                                    "vdid": "6DCD8gfsCpkJ1sJ50kP1xg",
+                                    "name": "OCD Namespace Is Less Than Value",
+                                    "description": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
+                                    "type": "TOP"
+                                  },
+                                  "kD1PcgqYQlm7fJatNG2ZsA": {
+                                    "id": "kD1PcgqYQlm7fJatNG2ZsA",
+                                    "vdid": "cNihhVrtDPl_5j7cSfcRug",
+                                    "name": "OCD Namespace Is Truthy",
+                                    "description": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                                    "type": "TOP"
+                                  },
+                                  "Ve_kEFkGSMSgOqUWu9Yo_w": {
+                                    "id": "Ve_kEFkGSMSgOqUWu9Yo_w",
+                                    "vdid": "DPKyvFjaLnWwv-4AP4IYQw",
+                                    "name": "OCD Read Namespace Indirect",
+                                    "description": "Reads and returns the value of OCD namespace via path indirection.",
+                                    "type": "ACT"
+                                  },
+                                  "5rFEDGLYRSiZCeChMnkCHQ": {
+                                    "id": "5rFEDGLYRSiZCeChMnkCHQ",
+                                    "vdid": "fVjcSINW5Ps8rS2jRnBhLQ",
+                                    "name": "OCD Boolean Flag Set",
+                                    "description": "Set the Boolean-type OCD namespace specified by path to value true.",
+                                    "type": "ACT"
+                                  },
+                                  "_yxWfFLnTqqN-UxRdd7W5w": {
+                                    "id": "_yxWfFLnTqqN-UxRdd7W5w",
+                                    "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
+                                    "name": "OCD Boolean Flag Clear",
+                                    "description": "Set the Boolean-type OCD namespace specified by path to value false.",
+                                    "type": "ACT"
+                                  }
+                                }
+                              },
+                              "cJQGRL5sTSqk02JiEaM06g": {
+                                "id": "cJQGRL5sTSqk02JiEaM06g",
+                                "vdid": "DOPqQtXbViK9cNXI6Tu7Pw",
+                                "name": "Test CM",
+                                "description": "Test CellModel",
+                                "type": "CM",
+                                "6OPnhgR9QWyEFaBpaZNb1A": {
+                                  "id": "6OPnhgR9QWyEFaBpaZNb1A",
+                                  "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
+                                  "name": "Test CM APM",
+                                  "description": "Test AbstractProcessModel",
+                                  "type": "APM"
+                                }
                               }
                             }
                           }
                         }
                       }
+                    },
+                    "opc": {
+                      "id": "O7jKS-rSpT-eQUFuRaSPrw",
+                      "iid": "bdWT4ItOSLOnikccefIuEA",
+                      "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller",
+                      "description": "Provides shared memory and runtime automata process orchestration for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor-resident cell processes.",
+                      "options": {
+                        "evaluate": {
+                          "maxFrames": 16,
+                          "firstEvaluation": "constructor"
+                        }
+                      },
+                      "apmMap": {
+                        "6OPnhgR9QWyEFaBpaZNb1A": {
+                          "id": "6OPnhgR9QWyEFaBpaZNb1A",
+                          "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
+                          "name": "Test CM APM",
+                          "description": "Test AbstractProcessModel",
+                          "process": {
+                            "name": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] APM Digraph",
+                            "description": "Test AbstractProcessModel",
+                            "vlist": [],
+                            "elist": []
+                          }
+                        },
+                        "3M28sc9PL4B_c1v5qwFC5Q": {
+                          "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                          "vdid": "Mp1fYbpPjqHSoIEbYUKeiw",
+                          "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                          "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                          "process": {
+                            "name": "[3M28sc9PL4B_c1v5qwFC5Q::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager] APM Digraph",
+                            "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                            "vlist": [
+                              {
+                                "u": "uninitialized",
+                                "p": {
+                                  "description": "Default starting step of a cell process.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "initializing",
+                                "p": {
+                                  "description": "CellProcessor manager process is initializing.",
+                                  "actions": {
+                                    "enter": [
+                                      {
+                                        "holarchy": {
+                                          "CellProcessor": {
+                                            "initialize": {}
+                                          }
+                                        }
+                                      }
+                                    ],
+                                    "exit": []
+                                  }
+                                }
+                              },
+                              {
+                                "u": "ready",
+                                "p": {
+                                  "description": "CellProcessor manager process is ready to accept commands and queries.",
+                                  "actions": {
+                                    "enter": [],
+                                    "exit": []
+                                  }
+                                }
+                              }
+                            ],
+                            "elist": [
+                              {
+                                "e": {
+                                  "u": "uninitialized",
+                                  "v": "initializing"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "initializing",
+                                  "v": "ready"
+                                },
+                                "p": {
+                                  "priority": 0,
+                                  "operator": {
+                                    "always": true
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "opmiSpecPaths": [
+                        {
+                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                          "opmiRef": {
+                            "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                            "vdid": "Mp1fYbpPjqHSoIEbYUKeiw",
+                            "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                            "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                            "process": {
+                              "name": "[3M28sc9PL4B_c1v5qwFC5Q::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager] APM Digraph",
+                              "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                              "vlist": [
+                                {
+                                  "u": "uninitialized",
+                                  "p": {
+                                    "description": "Default starting step of a cell process.",
+                                    "actions": {
+                                      "enter": [],
+                                      "exit": []
+                                    }
+                                  }
+                                },
+                                {
+                                  "u": "initializing",
+                                  "p": {
+                                    "description": "CellProcessor manager process is initializing.",
+                                    "actions": {
+                                      "enter": [
+                                        {
+                                          "holarchy": {
+                                            "CellProcessor": {
+                                              "initialize": {}
+                                            }
+                                          }
+                                        }
+                                      ],
+                                      "exit": []
+                                    }
+                                  }
+                                },
+                                {
+                                  "u": "ready",
+                                  "p": {
+                                    "description": "CellProcessor manager process is ready to accept commands and queries.",
+                                    "actions": {
+                                      "enter": [],
+                                      "exit": []
+                                    }
+                                  }
+                                }
+                              ],
+                              "elist": [
+                                {
+                                  "e": {
+                                    "u": "uninitialized",
+                                    "v": "initializing"
+                                  },
+                                  "p": {
+                                    "priority": 0,
+                                    "operator": {
+                                      "always": true
+                                    }
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "initializing",
+                                    "v": "ready"
+                                  },
+                                  "p": {
+                                    "priority": 0,
+                                    "operator": {
+                                      "always": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "specPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessID",
+                          "opmiRef": {
+                            "id": "6OPnhgR9QWyEFaBpaZNb1A",
+                            "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
+                            "name": "Test CM APM",
+                            "description": "Test AbstractProcessModel",
+                            "process": {
+                              "name": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] APM Digraph",
+                              "description": "Test AbstractProcessModel",
+                              "vlist": [],
+                              "elist": []
+                            }
+                          }
+                        }
+                      ],
+                      "ocdTemplateSpec": {
+                        "____types": "jsObject",
+                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "____appdsl": {
+                            "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                          }
+                        },
+                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Processes Map",
+                          "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                          "____types": [
+                            "jsUndefined",
+                            "jsObject"
+                          ],
+                          "____asMap": true,
+                          "cellProcessID": {
+                            "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Instance",
+                            "____description": "Cell process instance memory for [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM]: Test AbstractProcessModel",
+                            "____types": "jsObject",
+                            "____appdsl": {
+                              "apm": "6OPnhgR9QWyEFaBpaZNb1A"
+                            }
+                          }
+                        }
+                      },
+                      "ocdRuntimeSpec": {
+                        "____label": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] Observable Controller Data Store",
+                        "____description": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                        "____types": "jsObject",
+                        "____defaultValue": {},
+                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "____appdsl": {
+                            "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                          },
+                          "cellProcessDigraph": {
+                            "____types": "jsObject",
+                            "____defaultValue": {},
+                            "api": {
+                              "____accept": [
+                                "jsUndefined",
+                                "jsObject"
+                              ]
+                            },
+                            "serialized": {
+                              "____accept": [
+                                "jsUndefined",
+                                "jsObject"
+                              ]
+                            }
+                          },
+                          "__apmiStep": {
+                            "____accept": "jsString",
+                            "____defaultValue": "uninitialized"
+                          }
+                        },
+                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Processes Map",
+                          "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                          "____types": [
+                            "jsUndefined",
+                            "jsObject"
+                          ],
+                          "____asMap": true,
+                          "cellProcessID": {
+                            "____label": "Test APM Root",
+                            "____description": "Cell process instance memory for [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM]: Test AbstractProcessModel",
+                            "____types": "jsObject",
+                            "____appdsl": {
+                              "apm": "6OPnhgR9QWyEFaBpaZNb1A"
+                            },
+                            "____defaultValue": {},
+                            "testProperty": {
+                              "____label": "Test Property",
+                              "____accept": [
+                                "jsNull",
+                                "jsString"
+                              ],
+                              "____defaultValue": null
+                            },
+                            "__apmiStep": {
+                              "____accept": "jsString",
+                              "____defaultValue": "uninitialized"
+                            }
+                          }
+                        }
+                      },
+                      "ocdi": {
+                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                          "cellProcessDigraph": {},
+                          "__apmiStep": "ready"
+                        }
+                      },
+                      "transitionDispatcher": {
+                        "filterDescriptor": {
+                          "operationID": "CMvz9x30nfjuykt8A93fQA",
+                          "operationName": "Discriminator Filter",
+                          "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
+                          "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                          "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                          "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                          "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                          "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                        },
+                        "supportedFilters": [
+                          "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                          "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
+                          "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
+                          "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                          "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                          "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                          "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                          "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                          "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                          "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                          "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
+                          "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                        ],
+                        "options": {
+                          "action": "getFilter"
+                        }
+                      },
+                      "transitionDispatcherFilterMap": {
+                        "YgABX95wR86GCYrYaDLISA": {
+                          "filterDescriptor": {
+                            "operationID": "YgABX95wR86GCYrYaDLISA",
+                            "operationName": "AND Transition Expression Operator",
+                            "operationDescription": "Returns Boolean true iff all suboperations return true.",
+                            "inputFilterSpec": {
+                              "____label": "AND Transition Expression Operator Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "and": {
+                                  "____types": "jsArray",
+                                  "operandOperatorVariant": {
+                                    "____accept": "jsObject"
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
+                            "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
+                            "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
+                          }
+                        },
+                        "e89cwnP4Qd6MocAhzdOJgw": {
+                          "filterDescriptor": {
+                            "operationID": "e89cwnP4Qd6MocAhzdOJgw",
+                            "operationName": "Always returns Boolean true unconditionally.",
+                            "operationDescription": "Always returns true.",
+                            "inputFilterSpec": {
+                              "____label": "Always returns Boolean true unconditionally. Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "always": {
+                                  "____accept": "jsBoolean",
+                                  "____inValueSet": [
+                                    true
+                                  ]
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
+                            "inputTypeVDID": "0EB7_Y3i7dHCIqSTVQf8bQ",
+                            "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "7hv8ROZTdZP8DZ-c1OtJcg"
+                          }
+                        },
+                        "9tNY7o5GTUGH_xda2GhP-w": {
+                          "filterDescriptor": {
+                            "operationID": "9tNY7o5GTUGH_xda2GhP-w",
+                            "operationName": "Cell Process In Step Operator",
+                            "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process In Step Operator Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "cell": {
+                                        "____types": "jsObject",
+                                        "atStep": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          },
+                                          "step": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
+                            "inputTypeVDID": "q9TocAv3KDWF1D8TwFOj0A",
+                            "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
+                          }
+                        },
+                        "TLSHkl73SO-utuzM7dyN2g": {
+                          "filterDescriptor": {
+                            "operationID": "TLSHkl73SO-utuzM7dyN2g",
+                            "operationName": "NOT Transition Expression Operator",
+                            "operationDescription": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
+                            "inputFilterSpec": {
+                              "____label": "NOT Transition Expression Operator Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "not": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "VqL0404urku_v3ZjcOkZTg",
+                            "inputTypeVDID": "KhdBS4FFA46JYJ246QpDXQ",
+                            "outputTypeVIID": "V-JP28o44DYdLwju7U90ag",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "MXgNRHS4xJPIEuycBGZEcg"
+                          }
+                        },
+                        "oaF3-dXwQkusjD3I2o9-8g": {
+                          "filterDescriptor": {
+                            "operationID": "oaF3-dXwQkusjD3I2o9-8g",
+                            "operationName": "OCD Array Length Equal to Value",
+                            "operationDescription": "Returns Boolean true iff the length of the array stored at OCD path equals the specified numerical value (direct or indirect).",
+                            "inputFilterSpec": {
+                              "____label": "OCD Array Length Equal to Value Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "array": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          },
+                                          "length": {
+                                            "____types": "jsObject",
+                                            "equalToValue": {
+                                              "____accept": [
+                                                "jsNumber",
+                                                "jsString"
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "1w1jkkL88zPbGh1huUa66A",
+                            "inputTypeVDID": "mlQwgyCDl-ST91MGpgC1VQ",
+                            "outputTypeVIID": "ll5aBQHmBVx07i4pBJMThw",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "yhC0RNrN1ZMX5F-ckUIncg"
+                          }
+                        },
+                        "UeLs9PcASwuC7KR190eYhA": {
+                          "filterDescriptor": {
+                            "operationID": "UeLs9PcASwuC7KR190eYhA",
+                            "operationName": "OCD Boolean Flag Is Set",
+                            "operationDescription": "Returns Boolean true iff the indicated Boolean flag namespace is true.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Boolean Flag Is Set Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "isBooleanFlagSet": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "l0QuhcthqVCst39xt0A_SA",
+                            "inputTypeVDID": "XaY0xWS0bd69voTSU_w3aA",
+                            "outputTypeVIID": "IV0lvKVpYiaD4deX05nL1g",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "6eZxRIQnF5PpgaiccabWcg"
+                          }
+                        },
+                        "2w7n6KxdR8mdIliePJesLQ": {
+                          "filterDescriptor": {
+                            "operationID": "2w7n6KxdR8mdIliePJesLQ",
+                            "operationName": "OCD Compare Values",
+                            "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Compare Values Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "compare": {
+                                          "____types": "jsObject",
+                                          "values": {
+                                            "____types": "jsObject",
+                                            "a": {
+                                              "____label": "Operand A",
+                                              "____description": "Operand A for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                              "____types": "jsObject",
+                                              "value": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsNull",
+                                                  "jsString",
+                                                  "jsNumber",
+                                                  "jsBoolean"
+                                                ]
+                                              },
+                                              "path": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsString"
+                                                ]
+                                              }
+                                            },
+                                            "b": {
+                                              "____label": "Operand B",
+                                              "____description": "Operand B for identical operator comparison. Specifiy either value (direct) XOR path (indirect).",
+                                              "____types": "jsObject",
+                                              "value": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsNull",
+                                                  "jsString",
+                                                  "jsNumber",
+                                                  "jsBoolean"
+                                                ]
+                                              },
+                                              "path": {
+                                                "____accept": [
+                                                  "jsUndefined",
+                                                  "jsString"
+                                                ]
+                                              }
+                                            },
+                                            "operator": {
+                                              "____label": "Comparison Operator",
+                                              "____description": "A string enum indicating the comparison operator to use.",
+                                              "____accept": "jsString",
+                                              "____inValueSet": [
+                                                "===",
+                                                "==",
+                                                "<",
+                                                "<=",
+                                                ">",
+                                                ">="
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
+                            "inputTypeVDID": "uXfDAJlX200_coTaw1pLtg",
+                            "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "l5iBRNf6zpMr3-CcKjAWcg"
+                          }
+                        },
+                        "ggsavKiARsq7rjwn-lxdfA": {
+                          "filterDescriptor": {
+                            "operationID": "ggsavKiARsq7rjwn-lxdfA",
+                            "operationName": "OCD Namespace Is Greater Than Value",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is greater than the indicated value. Limited to number and string value comparisons only.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Namespace Is Greater Than Value Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "isNamespaceGreaterThanValue": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          },
+                                          "value": {
+                                            "____accept": [
+                                              "jsString",
+                                              "jsNumber"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "CF-H4WojwJ7B1YyWvKlnMQ",
+                            "inputTypeVDID": "LRU9vcBpToNeHesuiIxokw",
+                            "outputTypeVIID": "vevJRLqsD_7D5r52vqsYNg",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "soEGROP6ipOrHwqcgR0Icg"
+                          }
+                        },
+                        "k7THIKKDQMKOac1Rxh9tEQ": {
+                          "filterDescriptor": {
+                            "operationID": "k7THIKKDQMKOac1Rxh9tEQ",
+                            "operationName": "OCD Namespace Is Identical To Value",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is identical (i.e. strictly equal (===)) to the indicated value. Limited to number and string value comparisons only.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Namespace Is Identical To Value Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "isNamespaceIdenticalToValue": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          },
+                                          "value": {
+                                            "____accept": [
+                                              "jsString",
+                                              "jsNumber"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "2lapAiv6Y2wX3rSyYd_aXA",
+                            "inputTypeVDID": "9RU9alRpThHQHeu-ZIxoLg",
+                            "outputTypeVIID": "a4e-UB9BqYvz755bPVZ4AA",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "aCc3RHCjwpMQ7XKc0o4mcg"
+                          }
+                        },
+                        "XxX_a1sQS1OlJbWAYfx6tQ": {
+                          "filterDescriptor": {
+                            "operationID": "XxX_a1sQS1OlJbWAYfx6tQ",
+                            "operationName": "OCD Namespace Is Less Than Value",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Namespace Is Less Than Value Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "isNamespaceLessThanValue": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          },
+                                          "value": {
+                                            "____accept": [
+                                              "jsString",
+                                              "jsNumber"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "SdjtRCNawPzfg3fuyxpeog",
+                            "inputTypeVDID": "ZuD2TKtYUqU87dkAt67RVA",
+                            "outputTypeVIID": "C3a0V2HEKW7fH5xudFSe2Q",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "l9RzRDh_y5NJEa-c2o72cg"
+                          }
+                        },
+                        "kD1PcgqYQlm7fJatNG2ZsA": {
+                          "filterDescriptor": {
+                            "operationID": "kD1PcgqYQlm7fJatNG2ZsA",
+                            "operationName": "OCD Namespace Is Truthy",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Namespace Is Truthy Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "isNamespaceTruthy": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "SPYSm6CWX2bR_YovYBc5vA",
+                            "inputTypeVDID": "IqY0aMK0bZrZvoSd7_w3IQ",
+                            "outputTypeVIID": "XJAeGf11HNVoWr_Aw6IxpQ",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "vqWEROJwL5P3HeKc3FBvcg"
+                          }
+                        },
+                        "0JIva4IFSm6Xm7i38g8uUA": {
+                          "filterDescriptor": {
+                            "operationID": "0JIva4IFSm6Xm7i38g8uUA",
+                            "operationName": "OR Transition Expression Operator",
+                            "operationDescription": "Returns Boolean true iff any suboperations return true.",
+                            "inputFilterSpec": {
+                              "____label": "OR Transition Expression Operator Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "or": {
+                                  "____types": "jsArray",
+                                  "operandOperatorVariant": {
+                                    "____accept": "jsObject"
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
+                            "inputTypeVDID": "0Xe392MJsGr0KO6YF3c80A",
+                            "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "4ImARIUqM5NmuBqcOBs-cg"
+                          }
+                        }
+                      },
+                      "actionDispatcher": {
+                        "filterDescriptor": {
+                          "operationID": "ALeIrktvvB8kz9SsAVGLMg",
+                          "operationName": "Discriminator Filter",
+                          "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
+                          "inputTypeVIID": "vLJ7P-bMe8zT7uSIQh4jCA",
+                          "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                          "outputTypeVIID": "O-kcgv8pLa_GJOPV9-uOTQ",
+                          "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                          "operationVDID": "Mxn0EzP7NVdRXI7tP6wUtA"
+                        },
+                        "supportedFilters": [
+                          "[4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete]",
+                          "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
+                          "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
+                          "[L2mTv5LvT12WIYb0cYOsLA::Cell Process Manager Query]",
+                          "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]",
+                          "[SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]",
+                          "[VNaA0AMsTXawb32xLaNGTA::Cell Process Manager: Initialize]",
+                          "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
+                          "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
+                          "[r-JgxABoS_a-mSE2c1nvKA::Cell Process Manager: Process Query]"
+                        ],
+                        "options": {
+                          "action": "getFilter"
+                        }
+                      },
+                      "actionDispatcherFilterMap": {
+                        "L2mTv5LvT12WIYb0cYOsLA": {
+                          "filterDescriptor": {
+                            "operationID": "L2mTv5LvT12WIYb0cYOsLA",
+                            "operationName": "Cell Process Manager Query",
+                            "operationDescription": "Performs a synchronous query of the Cell Process Manager's process digraph.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager Query Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "query": {
+                                      "____types": "jsObject"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____types": "jsObject"
+                            },
+                            "inputTypeVIID": "WP59HegrS284Hth_iKlJ5Q",
+                            "inputTypeVDID": "bi6e9RAkFYZW_yb4DKgFjQ",
+                            "outputTypeVIID": "AmMOqx93V_LELH5sA5S39Q",
+                            "outputTypeVDID": "7NzfCLYAdEOqnYzn5N59fA",
+                            "operationVDID": "Gp-yxFYU075lLbpc-mx1hg"
+                          }
+                        },
+                        "VNaA0AMsTXawb32xLaNGTA": {
+                          "filterDescriptor": {
+                            "operationID": "VNaA0AMsTXawb32xLaNGTA",
+                            "operationName": "Cell Process Manager: Initialize",
+                            "operationDescription": "Performs initialization of Cell Process Manager cell process (the root and parent process of all cell processes executing in a CellProcess runtime host instance).",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Initialize Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "initialize": {
+                                      "____types": "jsObject",
+                                      "options": {
+                                        "____accept": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsUndefined"
+                            },
+                            "inputTypeVIID": "9Z4DiWZgE5FZWn8BWGELxQ",
+                            "inputTypeVDID": "x-u1EofawpIc4T7FPkAGYQ",
+                            "outputTypeVIID": "lMKXDxhWJyUadol-UoiO1w",
+                            "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                            "operationVDID": "329Gkp9dLDHMBCEweD_BSA"
+                          }
+                        },
+                        "SdL0-5kmTuiNrWNu7zGZhg": {
+                          "filterDescriptor": {
+                            "operationID": "SdL0-5kmTuiNrWNu7zGZhg",
+                            "operationName": "Cell Process Manager: Process Create",
+                            "operationDescription": "Requests that the Cell Process Manager create a new cell process inside the CellProcessor runtime host instance.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Process Create Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "process": {
+                                      "____types": "jsObject",
+                                      "create": {
+                                        "____types": "jsObject",
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "initData": {
+                                          "____opaque": true
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____accept": "jsString"
+                              },
+                              "cellProcessID": {
+                                "____accept": "jsString"
+                              }
+                            },
+                            "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
+                            "inputTypeVDID": "mCieXtSWhp10CyVdCoIR5w",
+                            "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
+                            "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
+                            "operationVDID": "ZzBcCbsFepRHUk70eSvjrg"
+                          }
+                        },
+                        "4s_DUfKnQ4aS-xRjewAfUQ": {
+                          "filterDescriptor": {
+                            "operationID": "4s_DUfKnQ4aS-xRjewAfUQ",
+                            "operationName": "Cell Process Manager: Process Delete",
+                            "operationDescription": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Process Delete Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "process": {
+                                      "____types": "jsObject",
+                                      "delete": {
+                                        "____types": "jsObject",
+                                        "apmBindingPath": {
+                                          "____accept": [
+                                            "jsUndefined",
+                                            "jsString"
+                                          ]
+                                        },
+                                        "cellProcessID": {
+                                          "____accept": [
+                                            "jsUndefined",
+                                            "jsString"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____accept": "jsString"
+                              },
+                              "cellProcessID": {
+                                "____accept": "jsString"
+                              }
+                            },
+                            "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
+                            "inputTypeVDID": "bb8aYb-STQ5V_fSmWNfbUg",
+                            "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
+                            "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
+                            "operationVDID": "j4znCQ_THZRKiWz0PWwZrg"
+                          }
+                        },
+                        "r-JgxABoS_a-mSE2c1nvKA": {
+                          "filterDescriptor": {
+                            "operationID": "r-JgxABoS_a-mSE2c1nvKA",
+                            "operationName": "Cell Process Manager: Process Query",
+                            "operationDescription": "Performs a query on a specific cell process managed by the Cell Process Manager.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Process Query Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "process": {
+                                      "____types": "jsObject",
+                                      "query": {
+                                        "____types": "jsObject"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____types": "jsObject"
+                            },
+                            "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
+                            "inputTypeVDID": "wDyOBWm67hVqpnP8dx4ZiQ",
+                            "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
+                            "outputTypeVDID": "7NzfCLYAdEOqnYzn5N59fA",
+                            "operationVDID": "1n9JxF5k176pT0pcaYdahg"
+                          }
+                        },
+                        "_yxWfFLnTqqN-UxRdd7W5w": {
+                          "filterDescriptor": {
+                            "operationID": "_yxWfFLnTqqN-UxRdd7W5w",
+                            "operationName": "OCD Boolean Flag Clear",
+                            "operationDescription": "Set the Boolean-type OCD namespace specified by path to value false.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Boolean Flag Clear Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "actions": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "clearBooleanFlag": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsUndefined"
+                            },
+                            "inputTypeVIID": "Q26xScNwSEHmeE4xjO_vtg",
+                            "inputTypeVDID": "9JJ6pBweTCwI2oO98eA5jA",
+                            "outputTypeVIID": "_Jrf_S2nEWwsSx89q6ealg",
+                            "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                            "operationVDID": "22s0kmR4PDHNH1MwaETpSA"
+                          }
+                        },
+                        "5rFEDGLYRSiZCeChMnkCHQ": {
+                          "filterDescriptor": {
+                            "operationID": "5rFEDGLYRSiZCeChMnkCHQ",
+                            "operationName": "OCD Boolean Flag Set",
+                            "operationDescription": "Set the Boolean-type OCD namespace specified by path to value true.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Boolean Flag Set Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "actions": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "setBooleanFlag": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsUndefined"
+                            },
+                            "inputTypeVIID": "YJSR1JZOriuhfXfKbnMV4Q",
+                            "inputTypeVDID": "0SvJjLbCiM4zgfkcsCtG9w",
+                            "outputTypeVIID": "kyxCxyo_W507HuHlFVvwIQ",
+                            "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
+                            "operationVDID": "bCv1ksN_4DF7HKQweU68SA"
+                          }
+                        },
+                        "Ve_kEFkGSMSgOqUWu9Yo_w": {
+                          "filterDescriptor": {
+                            "operationID": "Ve_kEFkGSMSgOqUWu9Yo_w",
+                            "operationName": "OCD Read Namespace Indirect",
+                            "operationDescription": "Reads and returns the value of OCD namespace via path indirection.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Read Namespace Indirect Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "actions": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "readNamespaceIndirect": {
+                                          "____types": "jsObject",
+                                          "path2": {
+                                            "____label": "Target Path Namespace Path",
+                                            "____description": "The OCD path of the string namespace containing the OCD path of the target namespace to read.",
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____opaque": true
+                            },
+                            "inputTypeVIID": "r0nWow8E0BIohA7UDujmMw",
+                            "inputTypeVDID": "IOgWXFaAcQ5ZA6pPH8_2xg",
+                            "outputTypeVIID": "QKKFgPFZL00DATFNfFLfiQ",
+                            "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                            "operationVDID": "0IU7E_qFb1e52MDt_6IqtA"
+                          }
+                        },
+                        "KX0V_aQ3RzG01tzBS24MGw": {
+                          "filterDescriptor": {
+                            "operationID": "KX0V_aQ3RzG01tzBS24MGw",
+                            "operationName": "OPC Intrinsic NOOP Action",
+                            "operationDescription": "OPC-intrinsic performs no operation (noop). When invoked via OPC.act, the effect is to perform no read/write operations on OPC-instanced shared memory. And, then perform an evaluation.",
+                            "inputFilterSpec": {
+                              "____label": "OPC Intrinsic NOOP Action Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "opc": {
+                                    "____types": "jsObject",
+                                    "noop": {
+                                      "____accept": "jsBoolean",
+                                      "____inValueSet": [
+                                        true
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____opaque": true
+                            },
+                            "inputTypeVIID": "txJFSr26_WFausq9BG5NZg",
+                            "inputTypeVDID": "BiObVoNbI4_uMMaTBVkFXQ",
+                            "outputTypeVIID": "kuQ7tcKRU28cS2Qj0GX17A",
+                            "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                            "operationVDID": "x0rQE0TkE1dfHMftLnWXtA"
+                          }
+                        },
+                        "S1GqYjTtSQazSxkIL9vtpA": {
+                          "filterDescriptor": {
+                            "operationID": "S1GqYjTtSQazSxkIL9vtpA",
+                            "operationName": "OPC Intrinsic Status Action",
+                            "operationDescription": "OPC-intrinsic performs a retrieval of transitive OPC instance status.",
+                            "inputFilterSpec": {
+                              "____label": "OPC Intrinsic Status Action Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "opc": {
+                                    "____types": "jsObject",
+                                    "status": {
+                                      "____accept": "jsBoolean",
+                                      "____inValueSet": [
+                                        true
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____opaque": true
+                            },
+                            "inputTypeVIID": "vncGN9bjl9Mmy3r-EUnmKg",
+                            "inputTypeVDID": "es2e3G-BC0wtoR59QSPlgg",
+                            "outputTypeVIID": "A0mnQJBJD4gdX6rrM6Txtw",
+                            "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                            "operationVDID": "LolDE0qGUVe0PlPtvVfktA"
+                          }
+                        }
+                      },
+                      "opcActorStack": [],
+                      "evalCount": 1,
+                      "lastEvalResponse": {
+                        "error": null,
+                        "result": {
+                          "evalNumber": 0,
+                          "summary": {
+                            "evalStopwatch": {
+                              "marks": [
+                                {
+                                  "label": "START: OPC evaluation #0 stopwatch",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 0
+                                },
+                                {
+                                  "label": "frame 0 start APM instance binding",
+                                  "ellapsedDelta": 1,
+                                  "ellapsedTotal": 1
+                                },
+                                {
+                                  "label": "frame 0 end APM instance binding / start APM instance evaluation",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 1
+                                },
+                                {
+                                  "label": "frame 0 end APM instance evaluation",
+                                  "ellapsedDelta": 2,
+                                  "ellapsedTotal": 3
+                                },
+                                {
+                                  "label": "frame 1 start APM instance binding",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 3
+                                },
+                                {
+                                  "label": "frame 1 end APM instance binding / start APM instance evaluation",
+                                  "ellapsedDelta": 1,
+                                  "ellapsedTotal": 4
+                                },
+                                {
+                                  "label": "frame 1 end APM instance evaluation",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 4
+                                },
+                                {
+                                  "label": "frame 2 start APM instance binding",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 4
+                                },
+                                {
+                                  "label": "frame 2 end APM instance binding / start APM instance evaluation",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 4
+                                },
+                                {
+                                  "label": "frame 2 end APM instance evaluation",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 4
+                                },
+                                {
+                                  "label": "STOP: OPC evaluation #0 stopwatch",
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 4
+                                }
+                              ],
+                              "name": "OPC evaluation #0 stopwatch",
+                              "timeStart": 1596400563054,
+                              "timeStop": 1596400563058,
+                              "totalMilliseconds": 4
+                            },
+                            "counts": {
+                              "bindings": 3,
+                              "frames": 3,
+                              "errors": 0,
+                              "transitions": 2
+                            }
+                          },
+                          "evalFrames": [
+                            {
+                              "summary": {
+                                "counts": {
+                                  "bindings": 1,
+                                  "transitions": 1,
+                                  "errors": 0
+                                },
+                                "reports": {
+                                  "transitions": [
+                                    "YI9gj9oX2hdfEV8RmbuZuw"
+                                  ],
+                                  "errors": []
+                                }
+                              },
+                              "bindings": {
+                                "YI9gj9oX2hdfEV8RmbuZuw": {
+                                  "evalRequest": {
+                                    "dataBinding": {
+                                      "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                      "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                    },
+                                    "initialStep": "uninitialized",
+                                    "apmRef": {
+                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                                      "vdid": "Mp1fYbpPjqHSoIEbYUKeiw",
+                                      "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                                      "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                                      "process": {
+                                        "name": "[3M28sc9PL4B_c1v5qwFC5Q::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager] APM Digraph",
+                                        "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                                        "vlist": [
+                                          {
+                                            "u": "uninitialized",
+                                            "p": {
+                                              "description": "Default starting step of a cell process.",
+                                              "actions": {
+                                                "enter": [],
+                                                "exit": []
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "u": "initializing",
+                                            "p": {
+                                              "description": "CellProcessor manager process is initializing.",
+                                              "actions": {
+                                                "enter": [
+                                                  {
+                                                    "holarchy": {
+                                                      "CellProcessor": {
+                                                        "initialize": {}
+                                                      }
+                                                    }
+                                                  }
+                                                ],
+                                                "exit": []
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "u": "ready",
+                                            "p": {
+                                              "description": "CellProcessor manager process is ready to accept commands and queries.",
+                                              "actions": {
+                                                "enter": [],
+                                                "exit": []
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "elist": [
+                                          {
+                                            "e": {
+                                              "u": "uninitialized",
+                                              "v": "initializing"
+                                            },
+                                            "p": {
+                                              "priority": 0,
+                                              "operator": {
+                                                "always": true
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "e": {
+                                              "u": "initializing",
+                                              "v": "ready"
+                                            },
+                                            "p": {
+                                              "priority": 0,
+                                              "operator": {
+                                                "always": true
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "evalResponse": {
+                                    "status": "transitioned",
+                                    "finishStep": "initializing",
+                                    "phases": {
+                                      "p1_toperator": [
+                                        {
+                                          "request": {
+                                            "context": {
+                                              "apmBindingPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                              "ocdi": {
+                                                "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                                                  "cellProcessDigraph": {},
+                                                  "__apmiStep": "ready"
+                                                }
+                                              },
+                                              "transitionDispatcher": {
+                                                "filterDescriptor": {
+                                                  "operationID": "CMvz9x30nfjuykt8A93fQA",
+                                                  "operationName": "Discriminator Filter",
+                                                  "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
+                                                  "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                                                  "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                  "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                                                  "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                  "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                                                },
+                                                "supportedFilters": [
+                                                  "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                  "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
+                                                  "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
+                                                  "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                  "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                  "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                                                  "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                  "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                  "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                  "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                                                  "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
+                                                  "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                ],
+                                                "options": {
+                                                  "action": "getFilter"
+                                                }
+                                              }
+                                            },
+                                            "operatorRequest": {
+                                              "always": true
+                                            }
+                                          },
+                                          "response": {
+                                            "error": null,
+                                            "result": true
+                                          }
+                                        }
+                                      ],
+                                      "p2_exit": [],
+                                      "p3_enter": [
+                                        {
+                                          "request": {
+                                            "holarchy": {
+                                              "CellProcessor": {
+                                                "initialize": {}
+                                              }
+                                            }
+                                          },
+                                          "response": {
+                                            "error": null,
+                                            "result": {}
+                                          }
+                                        }
+                                      ],
+                                      "p4_finalize": {
+                                        "error": null,
+                                        "result": "initializing"
+                                      }
+                                    },
+                                    "errors": {
+                                      "p1_toperator": 0,
+                                      "p2_exit": 0,
+                                      "p3_enter": 0,
+                                      "p4_finalize": 0,
+                                      "total": 0
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "summary": {
+                                "counts": {
+                                  "bindings": 1,
+                                  "transitions": 1,
+                                  "errors": 0
+                                },
+                                "reports": {
+                                  "transitions": [
+                                    "YI9gj9oX2hdfEV8RmbuZuw"
+                                  ],
+                                  "errors": []
+                                }
+                              },
+                              "bindings": {
+                                "YI9gj9oX2hdfEV8RmbuZuw": {
+                                  "evalRequest": {
+                                    "dataBinding": {
+                                      "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                      "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                    },
+                                    "initialStep": "initializing",
+                                    "apmRef": {
+                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                                      "vdid": "Mp1fYbpPjqHSoIEbYUKeiw",
+                                      "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                                      "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                                      "process": {
+                                        "name": "[3M28sc9PL4B_c1v5qwFC5Q::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager] APM Digraph",
+                                        "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                                        "vlist": [
+                                          {
+                                            "u": "uninitialized",
+                                            "p": {
+                                              "description": "Default starting step of a cell process.",
+                                              "actions": {
+                                                "enter": [],
+                                                "exit": []
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "u": "initializing",
+                                            "p": {
+                                              "description": "CellProcessor manager process is initializing.",
+                                              "actions": {
+                                                "enter": [
+                                                  {
+                                                    "holarchy": {
+                                                      "CellProcessor": {
+                                                        "initialize": {}
+                                                      }
+                                                    }
+                                                  }
+                                                ],
+                                                "exit": []
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "u": "ready",
+                                            "p": {
+                                              "description": "CellProcessor manager process is ready to accept commands and queries.",
+                                              "actions": {
+                                                "enter": [],
+                                                "exit": []
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "elist": [
+                                          {
+                                            "e": {
+                                              "u": "uninitialized",
+                                              "v": "initializing"
+                                            },
+                                            "p": {
+                                              "priority": 0,
+                                              "operator": {
+                                                "always": true
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "e": {
+                                              "u": "initializing",
+                                              "v": "ready"
+                                            },
+                                            "p": {
+                                              "priority": 0,
+                                              "operator": {
+                                                "always": true
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "evalResponse": {
+                                    "status": "transitioned",
+                                    "finishStep": "ready",
+                                    "phases": {
+                                      "p1_toperator": [
+                                        {
+                                          "request": {
+                                            "context": {
+                                              "apmBindingPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                              "ocdi": {
+                                                "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                                                  "cellProcessDigraph": {},
+                                                  "__apmiStep": "ready"
+                                                }
+                                              },
+                                              "transitionDispatcher": {
+                                                "filterDescriptor": {
+                                                  "operationID": "CMvz9x30nfjuykt8A93fQA",
+                                                  "operationName": "Discriminator Filter",
+                                                  "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
+                                                  "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                                                  "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                  "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                                                  "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                  "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                                                },
+                                                "supportedFilters": [
+                                                  "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                  "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
+                                                  "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
+                                                  "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                  "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                  "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                                                  "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                  "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                  "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                  "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                                                  "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
+                                                  "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                ],
+                                                "options": {
+                                                  "action": "getFilter"
+                                                }
+                                              }
+                                            },
+                                            "operatorRequest": {
+                                              "always": true
+                                            }
+                                          },
+                                          "response": {
+                                            "error": null,
+                                            "result": true
+                                          }
+                                        }
+                                      ],
+                                      "p2_exit": [],
+                                      "p3_enter": [],
+                                      "p4_finalize": {
+                                        "error": null,
+                                        "result": "ready"
+                                      }
+                                    },
+                                    "errors": {
+                                      "p1_toperator": 0,
+                                      "p2_exit": 0,
+                                      "p3_enter": 0,
+                                      "p4_finalize": 0,
+                                      "total": 0
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "summary": {
+                                "counts": {
+                                  "bindings": 1,
+                                  "transitions": 0,
+                                  "errors": 0
+                                },
+                                "reports": {
+                                  "transitions": [],
+                                  "errors": []
+                                }
+                              },
+                              "bindings": {
+                                "YI9gj9oX2hdfEV8RmbuZuw": {
+                                  "evalRequest": {
+                                    "dataBinding": {
+                                      "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                      "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                    },
+                                    "initialStep": "ready",
+                                    "apmRef": {
+                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                                      "vdid": "Mp1fYbpPjqHSoIEbYUKeiw",
+                                      "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager",
+                                      "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                                      "process": {
+                                        "name": "[3M28sc9PL4B_c1v5qwFC5Q::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Cell Process Manager] APM Digraph",
+                                        "description": "Defines shared memory and stateful behaviors for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor runtime host instance.",
+                                        "vlist": [
+                                          {
+                                            "u": "uninitialized",
+                                            "p": {
+                                              "description": "Default starting step of a cell process.",
+                                              "actions": {
+                                                "enter": [],
+                                                "exit": []
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "u": "initializing",
+                                            "p": {
+                                              "description": "CellProcessor manager process is initializing.",
+                                              "actions": {
+                                                "enter": [
+                                                  {
+                                                    "holarchy": {
+                                                      "CellProcessor": {
+                                                        "initialize": {}
+                                                      }
+                                                    }
+                                                  }
+                                                ],
+                                                "exit": []
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "u": "ready",
+                                            "p": {
+                                              "description": "CellProcessor manager process is ready to accept commands and queries.",
+                                              "actions": {
+                                                "enter": [],
+                                                "exit": []
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "elist": [
+                                          {
+                                            "e": {
+                                              "u": "uninitialized",
+                                              "v": "initializing"
+                                            },
+                                            "p": {
+                                              "priority": 0,
+                                              "operator": {
+                                                "always": true
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "e": {
+                                              "u": "initializing",
+                                              "v": "ready"
+                                            },
+                                            "p": {
+                                              "priority": 0,
+                                              "operator": {
+                                                "always": true
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "evalResponse": {
+                                    "status": "noop",
+                                    "finishStep": "ready",
+                                    "phases": {
+                                      "p1_toperator": [],
+                                      "p2_exit": [],
+                                      "p3_enter": [],
+                                      "p4_finalize": null
+                                    },
+                                    "errors": {
+                                      "p1_toperator": 0,
+                                      "p2_exit": 0,
+                                      "p3_enter": 0,
+                                      "p4_finalize": 0,
+                                      "total": 0
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "constructionWarnings": []
                     }
                   }
                 }

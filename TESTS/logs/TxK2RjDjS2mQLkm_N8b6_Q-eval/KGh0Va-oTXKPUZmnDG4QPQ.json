@@ -188,9 +188,9 @@
                         },
                         {
                           "id": "e89cwnP4Qd6MocAhzdOJgw",
-                          "vdid": "Kusn29BqLDgEihAN7rnt-w",
+                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
                           "name": "Always returns Boolean true unconditionally.",
-                          "description": "Always returns true."
+                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
                         },
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
@@ -613,7 +613,7 @@
                         "filterDescriptor": {
                           "operationID": "e89cwnP4Qd6MocAhzdOJgw",
                           "operationName": "Always returns Boolean true unconditionally.",
-                          "operationDescription": "Always returns true.",
+                          "operationDescription": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                           "inputFilterSpec": {
                             "____label": "Always returns Boolean true unconditionally. Request",
                             "____types": "jsObject",

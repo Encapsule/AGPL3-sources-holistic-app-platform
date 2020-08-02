@@ -1,13 +1,12 @@
-"use strict";
 
 // transition-operator-always-filter.js
 
-const TransitionOperator = require("../../../TransitionOperator");
+const TransitionOperator = require("../../../../lib/TransitionOperator");
 
 module.exports = new TransitionOperator({
   id: "e89cwnP4Qd6MocAhzdOJgw",
   name: "Always returns Boolean true unconditionally.",
-  description: "Always returns true.",
+  description: "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
   operatorRequestSpec: {
     ____types: "jsObject",
     always: {

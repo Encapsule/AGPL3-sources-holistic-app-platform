@@ -1,7 +1,8 @@
 
 // ControllerAction-ocd-read-namespace-indirect.js
 
-const ControllerAction = require("../../../ControllerAction");
+const ControllerAction = require("../../../../lib/ControllerAction");
+const ObservableControllerData = require("../../../../lib/ObservableControllerData");
 
 module.exports = new ControllerAction({
   id: "Ve_kEFkGSMSgOqUWu9Yo_w",
@@ -44,7 +45,7 @@ module.exports = new ControllerAction({
     while (!inBreakScope) {
       inBreakScope = true;
       var message = request_.actionRequest.holarchy.cm.actions.ocd.readNamespaceIndirect;
-      var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+      var rpResponse = ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path2
       });

@@ -1,5 +1,6 @@
 
-const TransitionOperator = require("../../../TransitionOperator");
+const TransitionOperator = require("../../../../lib/TransitionOperator");
+const ObservableControllerData = require("../../../../lib/ObservableControllerData");
 
 module.exports = new TransitionOperator({
   id: "ggsavKiARsq7rjwn-lxdfA",
@@ -40,7 +41,7 @@ module.exports = new TransitionOperator({
     while (!inBreakScope) {
       inBreakScope = true;
       var message = request_.operatorRequest.holarchy.cm.operators.ocd.isNamespaceGreaterThanValue;
-      var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+      var rpResponse = ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
       });

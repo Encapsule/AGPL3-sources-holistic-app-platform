@@ -1,7 +1,8 @@
 
 // ControllerAction-set-boolean-flag.js
 
-const ControllerAction = require("../../../ControllerAction");
+const ControllerAction = require("../../../../lib/ControllerAction");
+const ObservableControllerData = require("../../../../lib/ObservableControllerData");
 
 module.exports = new ControllerAction({
   id: "5rFEDGLYRSiZCeChMnkCHQ",
@@ -42,7 +43,7 @@ module.exports = new ControllerAction({
     while (!inBreakScope) {
       inBreakScope = true;
       var message = request_.actionRequest.holarchy.cm.actions.ocd.setBooleanFlag;
-      var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+      var rpResponse = ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
       });

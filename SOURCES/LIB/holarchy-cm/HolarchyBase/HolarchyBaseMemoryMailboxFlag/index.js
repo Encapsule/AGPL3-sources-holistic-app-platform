@@ -1,4 +1,6 @@
 
+const holarchy = require("@encapsule/holarchy");
+
 module.exports = {
 
     id: "U5iIpgd8SHCk7pvaciVLTQ",
@@ -11,6 +13,6 @@ module.exports = {
         require("./ControllerAction-ocd-write-frame-latch")
     ],
 
-    subcells: []
+    subcells: [ holarchy.HolarchyCore ]
 };
 

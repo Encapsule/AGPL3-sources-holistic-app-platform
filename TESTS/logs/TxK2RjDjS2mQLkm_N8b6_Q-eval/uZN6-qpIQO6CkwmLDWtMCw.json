@@ -159,9 +159,9 @@
                         },
                         {
                           "id": "e89cwnP4Qd6MocAhzdOJgw",
-                          "vdid": "Kusn29BqLDgEihAN7rnt-w",
+                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
                           "name": "Always returns Boolean true unconditionally.",
-                          "description": "Always returns true."
+                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
                         },
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
@@ -232,12 +232,6 @@
                           "vdid": "Mm1h1iJOaeH77h6HYA9wxg",
                           "name": "Frame Latch: Write",
                           "description": "Writes the value made observable by frame latch APM instance."
-                        },
-                        {
-                          "id": "DNAoE5L3R-mY6jLAF2S95A",
-                          "vdid": "wEdiiwOhWCBVJKi8E838yg",
-                          "name": "Holistic App Client Runtime Subprocess Action",
-                          "description": "Creates a cellular subprocess."
                         },
                         {
                           "id": "_yxWfFLnTqqN-UxRdd7W5w",
@@ -676,7 +670,7 @@
                         "filterDescriptor": {
                           "operationID": "e89cwnP4Qd6MocAhzdOJgw",
                           "operationName": "Always returns Boolean true unconditionally.",
-                          "operationDescription": "Always returns true.",
+                          "operationDescription": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                           "inputFilterSpec": {
                             "____label": "Always returns Boolean true unconditionally. Request",
                             "____types": "jsObject",
@@ -1379,18 +1373,17 @@
                     },
                     "actionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "YDUzyHsW9WTwMQq9C_3eww",
+                        "operationID": "3G6W5-BeMEabR9naG8i6hQ",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "5fnad9ugimEO4YVOdbt3ow",
+                        "inputTypeVIID": "2KVxqPlUWI3qhd-oo6hCdg",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "sUE6VG4yBJqa8LtWWOANRw",
+                        "outputTypeVIID": "Y1CKbks9QnB7SHQx86DP0g",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "1Cf0E2DANVdsIo7tKVYUtA"
+                        "operationVDID": "E8L0E9zKNVdKSI7tNcIUtA"
                       },
                       "supportedFilters": [
                         "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
-                        "[DNAoE5L3R-mY6jLAF2S95A::Holistic App Client Runtime Subprocess Action]",
                         "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
                         "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]",
                         "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
@@ -1467,79 +1460,6 @@
                           "outputTypeVIID": "LPeeiMV42LNeAhthe2myDQ",
                           "outputTypeVDID": "8-d-OpyoAkX4G5bt5_5T_Q",
                           "operationVDID": "E7NA-ISmB6dh6uB3b1wMSw"
-                        }
-                      },
-                      "DNAoE5L3R-mY6jLAF2S95A": {
-                        "filterDescriptor": {
-                          "operationID": "DNAoE5L3R-mY6jLAF2S95A",
-                          "operationName": "Holistic App Client Runtime Subprocess Action",
-                          "operationDescription": "Creates a cellular subprocess.",
-                          "inputFilterSpec": {
-                            "____label": "Holistic App Client Runtime Subprocess Action Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "act": {
-                                "____label": "OPC.act Method",
-                                "____description": "A reference to ObservableProcessController.act method.",
-                                "____accept": "jsFunction"
-                              }
-                            },
-                            "actionRequest": {
-                              "____types": "jsObject",
-                              "holarchy": {
-                                "____types": "jsObject",
-                                "cm": {
-                                  "____types": "jsObject",
-                                  "actions": {
-                                    "____types": "jsObject",
-                                    "cell": {
-                                      "____types": "jsObject",
-                                      "process": {
-                                        "____types": "jsObject",
-                                        "create": {
-                                          "____types": "jsObject",
-                                          "apmBindingPath": {
-                                            "____accept": "jsString"
-                                          },
-                                          "ocdInitData": {
-                                            "____accept": "jsObject",
-                                            "____defaultValue": {}
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____types": "jsObject",
-                            "apmBindingPath": {
-                              "____accept": "jsString"
-                            },
-                            "processID": {
-                              "____accept": "jsString"
-                            }
-                          },
-                          "inputTypeVIID": "0cct1u09r0aOFKgpIMxVQg",
-                          "inputTypeVDID": "wignRGwP30We8f90DNa5Nw",
-                          "outputTypeVIID": "T_Gb_5QUX2zxjS-xY9wvCQ",
-                          "outputTypeVDID": "x1YL5_hRGHfO54xljPnY3g",
-                          "operationVDID": "1HnEbWLPE1ARGRnlL6LLYw"
                         }
                       },
                       "_yxWfFLnTqqN-UxRdd7W5w": {

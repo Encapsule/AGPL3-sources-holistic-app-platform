@@ -1,7 +1,9 @@
 
 // ControllerAction-clear-boolean-flag.js
 
-const ControllerAction = require("../../../ControllerAction");
+const ControllerAction = require("../../../../lib/ControllerAction");
+const ObservableControllerData = require("../../../../lib/ObservableControllerData");
+
 
 module.exports = new ControllerAction({
   id: "_yxWfFLnTqqN-UxRdd7W5w",
@@ -42,7 +44,7 @@ module.exports = new ControllerAction({
     while (!inBreakScope) {
       inBreakScope = true;
       var message = request_.actionRequest.holarchy.cm.actions.ocd.clearBooleanFlag;
-      var rpResponse = holarchy.ObservableControllerData.dataPathResolve({
+      var rpResponse = ObservableControllerData.dataPathResolve({
         apmBindingPath: request_.context.apmBindingPath,
         dataPath: message.path
       });
