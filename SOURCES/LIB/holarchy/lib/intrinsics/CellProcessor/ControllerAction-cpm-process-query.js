@@ -1,11 +1,11 @@
-// SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-query.js
+// SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-process-query.js
 
-const ControllerAction = require("../ControllerAction");
+const ControllerAction = require("../../ControllerAction");
 
 const controllerAction = new ControllerAction({
-    id: "L2mTv5LvT12WIYb0cYOsLA",
-    name: "Cell Process Manager Query",
-    description: "Performs a synchronous query of the Cell Process Manager's process digraph.",
+    id: "r-JgxABoS_a-mSE2c1nvKA",
+    name: "Cell Process Manager: Process Query",
+    description: "Performs a query on a specific cell process managed by the Cell Process Manager.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -13,9 +13,12 @@ const controllerAction = new ControllerAction({
             ____types: "jsObject",
             CellProcessor: {
                 ____types: "jsObject",
-                query: {
+                process: {
                     ____types: "jsObject",
-                    // TODO:
+                    query: {
+                        ____types: "jsObject",
+                        // TODO:
+                    }
                 }
             }
         }
@@ -23,7 +26,7 @@ const controllerAction = new ControllerAction({
 
     actionResultSpec: {
         ____types: "jsObject",
-        // TODO
+        // TODO:
     },
 
     bodyFunction: function(request_) {
@@ -32,7 +35,7 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            console.log("Cell Process Manager query...");
+            console.log("Cell Process Manager process query...");
             break;
         }
         if (errors.length) {

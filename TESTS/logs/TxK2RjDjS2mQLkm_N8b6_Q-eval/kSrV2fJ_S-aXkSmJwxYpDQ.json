@@ -17,7 +17,7 @@
                     "subcells": [
                       {
                         "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                        "vdid": "h6bzRdaALlRjOYuwM3XfNA",
+                        "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
                         "name": "Holarchy CML",
                         "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                         "cmat": {
@@ -27,19 +27,19 @@
                               "type": "INDEX",
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "h6bzRdaALlRjOYuwM3XfNA",
+                                "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "Ubv9rWk0sPeegQvp5g5KKg",
+                                  "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "Re1j_QO1tUGwzHAfwBwFnA",
+                                    "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -59,9 +59,9 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "i7SdqJ-HAhU9KxBPXqns4A",
+                                      "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
                                       "name": "Holarchy Core",
-                                      "description": "Holarchy core operations and actions for building derived CellModels.",
+                                      "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                       "type": "CM",
                                       "orTbEFR_Q-u-qqEqP8OUBA": {
                                         "id": "orTbEFR_Q-u-qqEqP8OUBA",
@@ -459,25 +459,25 @@
                         "type": "INDEX",
                         "kSrV2fJ_S-aXkSmJwxYpDQ": {
                           "id": "kSrV2fJ_S-aXkSmJwxYpDQ",
-                          "vdid": "g-vRgsq-T6SGPbaA3dBTow",
+                          "vdid": "Af5seYLEdj4LHTahl25n0Q",
                           "name": "@encapsule/holarchy-cm CellModel Export Test",
                           "description": "Attempt to instantiate the exported CML using the CellModel harness.",
                           "type": "CM",
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "h6bzRdaALlRjOYuwM3XfNA",
+                            "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "Ubv9rWk0sPeegQvp5g5KKg",
+                              "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "Re1j_QO1tUGwzHAfwBwFnA",
+                                "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -497,9 +497,9 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "i7SdqJ-HAhU9KxBPXqns4A",
+                                  "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
                                   "name": "Holarchy Core",
-                                  "description": "Holarchy core operations and actions for building derived CellModels.",
+                                  "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                   "type": "CM",
                                   "orTbEFR_Q-u-qqEqP8OUBA": {
                                     "id": "orTbEFR_Q-u-qqEqP8OUBA",

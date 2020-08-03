@@ -1,6 +1,6 @@
 
 
-const TransitionOperator = require("../../../../lib/TransitionOperator");
+const TransitionOperator = require("../../../TransitionOperator");
 
 module.exports = new TransitionOperator({
     id: "YgABX95wR86GCYrYaDLISA",

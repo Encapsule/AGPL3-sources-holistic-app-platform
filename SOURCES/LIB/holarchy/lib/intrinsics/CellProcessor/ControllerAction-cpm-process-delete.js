@@ -1,7 +1,6 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-process-delete.js
 
-
-const ControllerAction = require("../ControllerAction");
+const ControllerAction = require("../../ControllerAction");
 
 const controllerAction = new ControllerAction({
     id: "4s_DUfKnQ4aS-xRjewAfUQ",
@@ -47,7 +46,7 @@ const controllerAction = new ControllerAction({
             response.error = errors.join(" ");
         }
         return response;
-    }    
+    }
 
 });
 

@@ -1,12 +1,11 @@
-// SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-process-query.js
+// SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-process-create.js
 
-
-const ControllerAction = require("../ControllerAction");
+const ControllerAction = require("../../ControllerAction");
 
 const controllerAction = new ControllerAction({
-    id: "r-JgxABoS_a-mSE2c1nvKA",
-    name: "Cell Process Manager: Process Query",
-    description: "Performs a query on a specific cell process managed by the Cell Process Manager.",
+    id: "SdL0-5kmTuiNrWNu7zGZhg",
+    name: "Cell Process Manager: Process Create",
+    description: "Requests that the Cell Process Manager create a new cell process inside the CellProcessor runtime host instance.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -16,9 +15,10 @@ const controllerAction = new ControllerAction({
                 ____types: "jsObject",
                 process: {
                     ____types: "jsObject",
-                    query: {
+                    create: {
                         ____types: "jsObject",
-                        // TODO:
+                        apmID: { ____accept: "jsString" },
+                        initData: { ____opaque: true }
                     }
                 }
             }
@@ -27,7 +27,8 @@ const controllerAction = new ControllerAction({
 
     actionResultSpec: {
         ____types: "jsObject",
-        // TODO:
+        apmBindingPath: { ____accept: "jsString" }, // this is the OCD path of the new process
+        cellProcessID: { ____accept: "jsString" } // this is an IRUT-format hash of the apmBindingPath
     },
 
     bodyFunction: function(request_) {
@@ -36,7 +37,7 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            console.log("Cell Process Manager process query...");
+            console.log("Cell Process Manager process create...");
             break;
         }
         if (errors.length) {
@@ -44,6 +45,7 @@ const controllerAction = new ControllerAction({
         }
         return response;
     }
+
 });
 
 if (!controllerAction.isValid()) {

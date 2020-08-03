@@ -2,17 +2,9 @@
 
 const arccore = require("@encapsule/arccore");
 const CellModel = require("../../CellModel");
+const CellProcessorIntrinsics = require("../intrinsics/CellProcessor");
+const HolarchyCore = require("../intrinsics/HolarchyCore");
 const ObservableProcessController = require("../../lib/ObservableProcessController");
-
-const caCP = [
-    require("../intrinsics/ControllerAction-cpm-initialize"),
-    require("../intrinsics/ControllerAction-cpm-process-create"),
-    require("../intrinsics/ControllerAction-cpm-process-delete"),
-    require("../intrinsics/ControllerAction-cpm-process-query"),
-    require("../intrinsics/ControllerAction-cpm-query")
-];
-
-const holarchyCoreCellModel = require("../intrinsics/HolarchyCore");
 
 const factoryResponse = arccore.filter.create({
 
@@ -166,9 +158,9 @@ const factoryResponse = arccore.filter.create({
                         }
                     }
                 },
-                actions: caCP,
+                actions: CellProcessorIntrinsics.actions,
                 subcells: [
-                    holarchyCoreCellModel,
+                    HolarchyCore,
                     request_.cellmodel
                 ]
             });

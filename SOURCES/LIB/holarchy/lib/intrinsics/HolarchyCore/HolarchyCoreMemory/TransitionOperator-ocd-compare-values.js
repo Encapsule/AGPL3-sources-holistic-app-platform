@@ -1,6 +1,6 @@
 
-const TransitionOperator = require("../../../../lib/TransitionOperator");
-const ObservableControllerData = require("../../../../lib/ObservableControllerData");
+const TransitionOperator = require("../../../TransitionOperator");
+const ObservableControllerData = require("../../../ObservableControllerData");
 
 module.exports = new TransitionOperator({
   id: "2w7n6KxdR8mdIliePJesLQ",

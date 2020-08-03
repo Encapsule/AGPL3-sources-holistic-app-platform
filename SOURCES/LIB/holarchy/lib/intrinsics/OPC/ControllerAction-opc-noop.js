@@ -1,19 +1,17 @@
 
-const holarchy = {
-    ControllerAction: require("../ControllerAction")
-};
+const ControllerAction = require("../../ControllerAction");
 
-module.exports = new holarchy.ControllerAction({
-    id: "S1GqYjTtSQazSxkIL9vtpA",
-    name: "OPC Intrinsic Status Action",
-    description: "OPC-intrinsic performs a retrieval of transitive OPC instance status.",
+module.exports = new ControllerAction({
+    id: "KX0V_aQ3RzG01tzBS24MGw",
+    name: "OPC Intrinsic NOOP Action",
+    description: "OPC-intrinsic performs no operation (noop). When invoked via OPC.act, the effect is to perform no read/write operations on OPC-instanced shared memory. And, then perform an evaluation.",
     actionRequestSpec: {
         ____types: "jsObject",
         holarchy: {
             ____types: "jsObject",
             opc: {
                 ____types: "jsObject",
-                status: {
+                noop: {
                     ____accept: "jsBoolean",
                     ____inValueSet: [ true ]
                 }
@@ -21,8 +19,6 @@ module.exports = new holarchy.ControllerAction({
         }
     },
     actionResultSpec: { ____opaque: true }, // always returns response.result === undefined
-    // TODO: Implement this.
-    // The real reason why I've added this is that I need a minimum of two intrinsic actions.
     bodyFunction: (request_) => { return { error: null }; } // no operation and no error
 });
 

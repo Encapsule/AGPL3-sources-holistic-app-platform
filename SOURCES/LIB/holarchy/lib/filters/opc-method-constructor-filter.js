@@ -17,7 +17,7 @@ const ocdRuntimeSpecAspects = require("./iospecs/ocd-runtime-spec-aspects");
 const opcMethodConstructorInputSpec = require("./iospecs/opc-method-constructor-input-spec");
 const opcMethodConstructorOutputSpec = require("./iospecs/opc-method-constructor-output-spec");
 
-const intrinsics = require("../intrinsics");
+const intrinsics = require("../intrinsics/OPC");
 
 const factoryResponse = arccore.filter.create({
     operationID: "XXile9azSHO39alE6mMKsg",
