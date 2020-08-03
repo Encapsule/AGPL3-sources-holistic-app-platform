@@ -5,6 +5,7 @@ const CellModel = require("../../CellModel");
 const CellProcessorIntrinsics = require("../intrinsics/CellProcessor");
 const HolarchyCore = require("../intrinsics/HolarchyCore");
 const ObservableProcessController = require("../../lib/ObservableProcessController");
+const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
 
 const factoryResponse = arccore.filter.create({
 
@@ -79,11 +80,8 @@ const factoryResponse = arccore.filter.create({
 
             // Synthesize the Cell Process Manager OCD filter specification.
 
-            let ocdTemplateSpec = {
-                ____types: "jsObject",
-                "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                }
-            }
+            let ocdTemplateSpec = {  ____types: "jsObject" };
+            ocdTemplateSpec[cpmMountingNamespaceName] = {};
 
             // The Cell Process Manager manages some number of subcell processes.
             // Here we allocate a prescriptively-named map of process instances for each Abstract Process Model (APM)
@@ -131,7 +129,7 @@ const factoryResponse = arccore.filter.create({
                         cellProcessDigraph: {
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            api: { ____accept: [ "jsUndefined", "jsObject" ] },
+                            runtime: { ____accept: [ "jsUndefined", "jsObject" ] },
                             serialized: { ____accept: [ "jsUndefined", "jsObject" ] }
                         }
                     },
