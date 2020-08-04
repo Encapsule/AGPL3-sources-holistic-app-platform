@@ -86,7 +86,7 @@ const factoryResponse = holodeck.harnessFactory.request({
             response.result = {
                 isValid: cpInstance.isValid(),
                 cpJSON: cpToJSON,
-                actResponse: []
+                actionEvaluations: []
             };
 
             messageBody.actRequests.forEach((actRequest_) => {

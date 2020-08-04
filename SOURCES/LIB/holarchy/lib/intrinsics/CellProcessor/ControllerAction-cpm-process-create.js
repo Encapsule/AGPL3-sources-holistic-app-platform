@@ -43,10 +43,13 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log("Cell Process Manager process create...");
 
+            // Dereference the body of the action request.
             const message = request_.actionRequest.holarchy.CellProcessor.process.create;
 
+            // This is closely coupled w/the CellProcessor constructor filter.
             const apmProcessesNamespace = `~.${message.apmID}_CellProcesses`;
 
+            // Query the ObservableCellData instance (ocdi) to determine if the apmID value passed by the caller is legitimate.
             let ocdResponse = request_.context.ocdi.getNamespaceSpec(apmProcessesNamespace);
             if (ocdResponse.error) {
                 errors.push(`Invalid apmID value '${message.apmID}' specified. No CellModel registered in this CellProcessor based on this AbstractProcessModel.`);
@@ -54,7 +57,7 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            // Calculate the IRUT-format hash of the caller's specified cellProcessUniqueName. Or, if not specified use a IRUT-format v4 UUID instead.
+            // Derive the IRUT-format hash of the caller's specified cellProcessUniqueName. Or, if not specified use a IRUT-format v4 UUID instead.
             // The implication here is test vector log stability in holodeck primarily:
             // So, I recommend but do not require that derived apps / services always specifiy cellProcessUniqueName value.
 
@@ -65,24 +68,50 @@ const controllerAction = new ControllerAction({
                  arccore.identifier.irut.fromEther().result
                 );
 
-
+            // ... from which we can now derive the absolute OCD path of the new cell process (proposed).
             const apmBindingPath = `${apmProcessesNamespace}.${apmProcessInstanceID}`;
-            const newCellProcessID = arccore.identifier.irut.fromReference(apmBindingPath).result;
 
-            ocdResponse = request_.context.ocdi.getNamespaceSpec(apmBindingPath);
-            if (!ocdResponse.error) {
+            // ... from which we can now derive the new cell process ID (proposed).
+            const cellProcessID = arccore.identifier.irut.fromReference(apmBindingPath).result;
+
+            // ... And, while we're at it we'll need the ID of the proposed parent cell process as well.
+            const parentCellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
+
+            // Now we have to dereference the cell process manager's process digraph (always a single-rooted tree).
+            const cellProcessDigraphPath = `~.${cpmMountingNamespaceName}.cellProcessDigraph`;
+
+            ocdResponse = request_.context.ocdi.readNamespace(cellProcessDigraphPath);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+            const processDigraph = ocdResponse.result;
+
+            // Query the process digraph to determine the new cell process' ID slot has already been allocated.
+            if (processDigraph.runtime.isVertex(cellProcessID)) {
                 errors.push(`Invalid cellProcessUniqueName value '${message.cellProcessUniqueName}' is not unique; cell process already exists.`);
                 break;
             }
 
-            ocdResponse.writeNamespace(apmBindingPath, message.cellProcessInitData);
+            // Query the process digraph to determine if the parent cell process ID exists.
+            if (!processDigraph.runtime.isVertex(parentCellProcessID)) {
+                errors.push(`Invalid parent cell process specified for this new cell process. No such process ID '${parentCellProcessID}' found at OCD path '${request_.context.apmBindingPath}'.`);
+                break;
+            }
+
+            // Attempt to initialize the new cell process' shared memory.
+            ocdResponse = request_.context.ocdi.writeNamespace(apmBindingPath, message.cellProcessInitData);
             if (ocdResponse.error) {
                 errors.push(`Failed to create cell process at OCD path '${newProcessNamespace}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);
             }
 
-            response.result = { apmBindingPath: newProcessNamespace, cellProcessID };
+            // Record the new cell process in the cell process manager's digraph.
+            processDigraph.runtime.addVertex({ u: cellProcessID, p: { apmBindingPath }});
+            processDigraph.runtime.addEdge({ e: { u: parentCellProcessID, v: cellProcessID }});
 
+            // Response back to the caller w/information about the newly-created cell process.
+            response.result = { apmBindingPath, cellProcessID };
             break;
         }
         if (errors.length) {

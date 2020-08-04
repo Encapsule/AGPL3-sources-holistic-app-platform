@@ -27,20 +27,14 @@ module.exports = class CellProcessor {
         }
     }
 
-    isValid() {
-        return (!this._private.constructorError);
-    }
+    isValid() { return (!this._private.constructorError); }
 
     // This method will undergo some considerable transformation in the future.
     // It's not nearly done yet. But, done enough to use CellProcessor for many
     // jobs...Just not yet jobs that require that we save/restore the contents
     // of a CellProcessor and or specific subgraphs of the process digraph.
-    toJSON() {
-        return (this.isValid()?this._private:this._private.constructorError);
-    }
+    toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
 
-    act(request_) {
-        return isValid()?this._private.opc.act(request_):{ error: this.toJSON() };
-    }
+    act(request_) { return (this.isValid()?this._private.opc.act(request_):{ error: this.toJSON() }); }
 
 } // class CellProcessor

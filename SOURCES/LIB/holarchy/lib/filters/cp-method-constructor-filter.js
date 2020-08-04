@@ -62,8 +62,9 @@ const factoryResponse = arccore.filter.create({
                 ocdTemplateSpec[apmProcessesNamespace] = {
                     ____label: `${apmFilterName} Cell Processes Map`,
                     ____description: `A map of ${apmFilterName} process instances by process ID that are managed by the CellProcessor (~) runtime host instance.`,
-                    ____types: [ "jsUndefined", "jsObject" ], // We do not necessarily have active cell process(es) of this type at all times.
+                    ____types: "jsObject",
                     ____asMap: true,
+                    ____defaultValue: {},
                     cellProcessID: {
                         ____label: `${apmFilterName} Cell Process Instance`,
                         ____description: `Cell process instance memory for ${apmFilterName}: ${apmDescription}`,
@@ -94,7 +95,7 @@ const factoryResponse = arccore.filter.create({
                             ____types: "jsObject",
                             ____defaultValue: {},
                             runtime: { ____accept: [ "jsUndefined", "jsObject" ] },
-                            serialized: { ____accept: [ "jsUndefined", "jsObject" ] }
+                            serialized: { ____accept: [ "jsUndefined", "jsObject" ] },
                         }
                     },
                     steps: {
