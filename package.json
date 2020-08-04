@@ -1,5 +1,5 @@
 {
-    "name": "holistic-master",
+    "name": "holistic-dev",
     "version": "0.0.44",
     "codename": "jasper",
     "description": "Holistic app platform: A system of runtime libraries, tools, and developer process for building Node.js services and stateful HTML5 applications with React and re-usable, testable, composable, remixable plug-and-play software models.",
