@@ -10,8 +10,8 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
 const factoryResponse = arccore.filter.create({
 
     operationID: "7tYVAis3TJGjaEe-6DiKHw",
-    operationName: "SoftwareCellProcessor::constructor Filter",
-    operationDescription: "Filters request descriptor passed to SoftwareCellProcessor::constructor function.",
+    operationName: "CellProcessor::constructor Filter",
+    operationDescription: "Encapsulates the construction-time operations required to initialize a CellProcessor cellular process runtime host environment.",
 
     inputFilterSpec: require("./iospecs/cp-method-constructor-input-spec"),
     outputFilterSpec: require("./iospecs/cp-method-constructor-output-spec"),
