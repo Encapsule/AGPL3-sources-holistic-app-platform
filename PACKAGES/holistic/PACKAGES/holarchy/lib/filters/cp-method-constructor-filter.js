@@ -11,43 +11,14 @@ var HolarchyCore = require("../intrinsics/HolarchyCore");
 
 var ObservableProcessController = require("../../lib/ObservableProcessController");
 
+var cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
+
 var factoryResponse = arccore.filter.create({
   operationID: "7tYVAis3TJGjaEe-6DiKHw",
-  operationName: "SoftwareCellProcessor::constructor Filter",
-  operationDescription: "Filters request descriptor passed to SoftwareCellProcessor::constructor function.",
-  inputFilterSpec: {
-    ____label: "Software Cell Processor Descriptor",
-    ____description: "A request object passed to the SoftwareCellProcessor ES6 class constructor function.",
-    ____types: "jsObject",
-    id: {
-      ____label: "Processor ID",
-      ____description: "A unique version-independent IRUT identifier used to identify this SoftwareModel.",
-      ____accept: "jsString" // must be an IRUT
-
-    },
-    name: {
-      ____label: "Processor Name",
-      ____description: "A short name used to refer to this SoftwareCellProcessor.",
-      ____accept: "jsString"
-    },
-    description: {
-      ____label: "Processor Description",
-      ____description: "A short description of this SoftwareCellProcessor's purpose and/or function.",
-      ____accept: "jsString"
-    },
-    cellmodel: {
-      ____label: "App/Service Cell Model",
-      ____description: "Either a CM descriptor or equivalent CellModel ES6 class instance.",
-      ____accept: "jsObject" // further processed in bodyFunction
-
-    },
-    options: {
-      ____label: "Options",
-      ____description: "Optional behavioral overrides and runtime settings.",
-      ____types: "jsObject",
-      ____defaultValue: {}
-    }
-  },
+  operationName: "CellProcessor::constructor Filter",
+  operationDescription: "Encapsulates the construction-time operations required to initialize a CellProcessor cellular process runtime host environment.",
+  inputFilterSpec: require("./iospecs/cp-method-constructor-input-spec"),
+  outputFilterSpec: require("./iospecs/cp-method-constructor-output-spec"),
   bodyFunction: function bodyFunction(request_) {
     var response = {
       error: null
@@ -80,9 +51,9 @@ var factoryResponse = arccore.filter.create({
       var apmConfig = configResponse.result; // Synthesize the Cell Process Manager OCD filter specification.
 
       var ocdTemplateSpec = {
-        ____types: "jsObject",
-        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {}
-      }; // The Cell Process Manager manages some number of subcell processes.
+        ____types: "jsObject"
+      };
+      ocdTemplateSpec[cpmMountingNamespaceName] = {}; // The Cell Process Manager manages some number of subcell processes.
       // Here we allocate a prescriptively-named map of process instances for each Abstract Process Model (APM)
       // discovered in the in the input CellModel instance.
 
@@ -96,9 +67,9 @@ var factoryResponse = arccore.filter.create({
         ocdTemplateSpec[apmProcessesNamespace] = {
           ____label: "".concat(apmFilterName, " Cell Processes Map"),
           ____description: "A map of ".concat(apmFilterName, " process instances by process ID that are managed by the CellProcessor (~) runtime host instance."),
-          ____types: ["jsUndefined", "jsObject"],
-          // We do not necessarily have active cell process(es) of this type at all times.
+          ____types: "jsObject",
           ____asMap: true,
+          ____defaultValue: {},
           cellProcessID: {
             ____label: "".concat(apmFilterName, " Cell Process Instance"),
             ____description: "Cell process instance memory for ".concat(apmFilterName, ": ").concat(apmDescription),
@@ -129,7 +100,7 @@ var factoryResponse = arccore.filter.create({
             cellProcessDigraph: {
               ____types: "jsObject",
               ____defaultValue: {},
-              api: {
+              runtime: {
                 ____accept: ["jsUndefined", "jsObject"]
               },
               serialized: {

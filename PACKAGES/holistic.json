@@ -2,7 +2,7 @@
     "name": "holistic",
     "description": "Holistic app platform: A system of runtime libraries, tools, and developer process for building Node.js services and stateful HTML5 applications with React and re-usable, testable, composable, remixable plug-and-play software models.",
     "version": "0.0.44",
-    "codename": "jasper",
+    "codename": "jasper-tr1-wip",
     "author": "Encapsule",
     "copyright": {
         "holder": "Christopher D. Russell",
@@ -16,8 +16,8 @@
         }
     ],
     "license": "MIT",
-    "buildID": "NbweL008S-2GQLeNS_3uCw",
-    "buildSource": "7b26bb382bb45523d35e79869ad37ef61d903f70",
-    "buildTime": 1596466886,
-    "buildDateISO": "2020-08-03T15:01:26.000Z"
+    "buildID": "FSgF49nlRbuUNPmq98G-8A",
+    "buildSource": "35c6963aaf085b58717b31be42d2b9d1cb468d65",
+    "buildTime": 1596534810,
+    "buildDateISO": "2020-08-04T09:53:30.000Z"
 }

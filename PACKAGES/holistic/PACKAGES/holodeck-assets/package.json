@@ -3,10 +3,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "NbweL008S-2GQLeNS_3uCw",
-    "buildSource": "7b26bb382bb45523d35e79869ad37ef61d903f70",
-    "buildTime": 1596466886,
-    "codename": "jasper",
+    "buildID": "FSgF49nlRbuUNPmq98G-8A",
+    "buildSource": "35c6963aaf085b58717b31be42d2b9d1cb468d65",
+    "buildTime": 1596534810,
+    "codename": "jasper-tr1-wip",
     "contributors": [
         {
             "name": "Christopher D. Russell",
