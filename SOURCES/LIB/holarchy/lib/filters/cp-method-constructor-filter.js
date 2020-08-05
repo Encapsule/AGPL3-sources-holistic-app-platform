@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const CellModel = require("../../CellModel");
-const CellProcessorIntrinsics = require("../intrinsics/CellProcessor");
+const CellProcessManager = require("../intrinsics/CellProcessManager");
 const HolarchyCore = require("../intrinsics/HolarchyCore");
 const ObservableProcessController = require("../../lib/ObservableProcessController");
 const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
@@ -42,10 +42,8 @@ const factoryResponse = arccore.filter.create({
             }
             const apmConfig = configResponse.result;
 
-            // Synthesize the Cell Process Manager OCD filter specification.
-
+            // Synthesize the filter specification to be used to configure the ObservableProcessController's shared memory ObservableControllerData store for this CellProcess instance.
             let ocdTemplateSpec = {  ____types: "jsObject" };
-            ocdTemplateSpec[cpmMountingNamespaceName] = {};
 
             // The Cell Process Manager manages some number of subcell processes.
             // Here we allocate a prescriptively-named map of process instances for each Abstract Process Model (APM)
@@ -82,12 +80,12 @@ const factoryResponse = arccore.filter.create({
 
             const cpCM = new CellModel({
                 id: cpCMID,
-                name: `${cpName} Cell Processor`,
-                description: `Manages the lifespan of cell processes executing in the ${cpName} CellProcessor runtime host instance.`,
+                name: `Cell Process Manager ${cpName}`,
+                description: `Cell process manager root process for CellProcessor ${cpName}.`,
                 apm: {
                     id: cpAPMID,
-                    name: `${cpName} Cell Process Manager`,
-                    description: `Defines shared memory and stateful behaviors for ${cpName} CellProcessor runtime host instance.`,
+                    name: `Cell Process Manager ${cpName}`,
+                    description: `Cell process manager root process for CellProcessor ${cpName}.`,
                     ocdDataSpec: {
                         ____types: "jsObject",
                         ____defaultValue: {},
@@ -121,7 +119,7 @@ const factoryResponse = arccore.filter.create({
                         }
                     }
                 },
-                actions: CellProcessorIntrinsics.actions,
+                actions: CellProcessManager.actions,
                 subcells: [
                     HolarchyCore,
                     request_.cellmodel
@@ -133,45 +131,36 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
 
-            ocdTemplateSpec[ "x7pM9bwcReupSRh0fcYTgw_CellProcessor" ] = {
+            // Define the CellProcessor process manager process namespace in shared memory and bound our APM.
+            // Note that we specifiy a default value here ensuring that the process manager cell process is
+            // always started automatically whenever a CellProcess instance is constructed.
+            ocdTemplateSpec[cpmMountingNamespaceName] = {
                 ____types: "jsObject",
                 ____defaultValue: {},
                 ____appdsl: { apm: cpAPMID }
             };
 
+            // Extract all the flattened artifact registrations from the synthesized Cell Process Manager CellModel
+            // that are required to configure an ObservableProcessController runtime host instance to actually
+            // execute all the cell processes created from all the CellModel APM's...
+
+            configResponse = cpCM.getCMConfig();
+            if (configResponse.error) {
+                errors.push(configResponse.error);
+                break;
+            }
+
+            const opcConfig = configResponse.result;
+
             // Now instantiate an ObservableProcessController runtime host instance using configuration derived from the Cell Processor's model.
-
-            let innerResponse;
-
-            innerResponse = cpCM.getCMConfig({ type: "APM" });
-            if (innerResponse.error) {
-                errors.push(InnerResponse.errror);
-                break;
-            }
-            const cpFinalAPM = innerResponse.result;
-
-            innerResponse = cpCM.getCMConfig({ type: "TOP" });
-            if (innerResponse.error) {
-                errors.push(InnerResponse.errror);
-                break;
-            }
-            const cpFinalTOP = innerResponse.result;
-
-            innerResponse = cpCM.getCMConfig({ type: "ACT" });
-            if (innerResponse.error) {
-                errors.push(innerResponse.error);
-                break;
-            }
-            const cpFinalACT = innerResponse.result;
-
             const cpOPC = new ObservableProcessController({
                 id: arccore.identifier.irut.fromReference(`${request_.id}_CellProcessor_ObservableProcessController`).result,
                 name: `${cpName} Observable Process Controller`,
                 description: `Provides shared memory and runtime automata process orchestration for ${cpName} CellProcessor-resident cell processes.`,
                 ocdTemplateSpec,
-                abstractProcessModelSets: [ cpFinalAPM ],
-                transitionOperatorSets: [ cpFinalTOP ],
-                controllerActionSets: [ cpFinalACT ]
+                abstractProcessModelSets: [ opcConfig.apm ],
+                transitionOperatorSets: [ opcConfig.top ],
+                controllerActionSets: [ opcConfig.act ]
             });
 
             if (!cpOPC.isValid()) {

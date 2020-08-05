@@ -1,6 +1,8 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-process-delete.js
 
+const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
+const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 
 const controllerAction = new ControllerAction({
     id: "4s_DUfKnQ4aS-xRjewAfUQ",
@@ -30,7 +32,7 @@ const controllerAction = new ControllerAction({
     actionResultSpec: {
         ____types: "jsObject",
         apmBindingPath: { ____accept: "jsString" }, // this is the OCD path of deleted process' parent process
-        cellProcessID: { ____accept: "jsString" } // this is an IRUT-format hash of the apmBindingPath
+        cellProcessID: { ____accept: "jsString" } // this is an IRUT-format hash of parent process' apmBindingPath
     },
 
     bodyFunction: function(request_) {
@@ -40,6 +42,37 @@ const controllerAction = new ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
             console.log("Cell Process Manager process delete...");
+
+            // Dereference the body of the action request.
+            const message = request_.actionRequest.holarchy.CellProcessor.process.delete;
+
+            if (!message.apmBindingPath && !message.cellProcessID) {
+                errors.push("You need to specify either the apmBindingPath or the cellProcessID of the cell process to delete.");
+                break;
+            }
+
+            let cellProcessID = message.cellProcessID?message.cellProcessID:arccore.identifier.irut.fromReference(message.apmBindingPath).result;
+
+            // Now we have to dereference the cell process manager's process digraph (always a single-rooted tree).
+            const cellProcessDigraphPath = `~.${cpmMountingNamespaceName}.cellProcessDigraph`;
+
+            let ocdResponse = request_.context.ocdi.readNamespace(cellProcessDigraphPath);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+            const processDigraph = ocdResponse.result;
+
+            if (!processDigraph.runtime.isVertex(cellProcessID)) {
+                errors.push(`Invalid cell process apmBindingPath or cellProcessID specified in cell process delete. No such cell process '${cellProcessID}'.`);
+                break;
+            }
+
+            if (processDigraph.runtime.inDegree(cellProcessID)
+
+
+
+
             break;
         }
         if (errors.length) {
