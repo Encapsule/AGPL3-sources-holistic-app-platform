@@ -69,7 +69,7 @@ const controllerAction = new ControllerAction({
                 );
 
             // ... from which we can now derive the absolute OCD path of the new cell process (proposed).
-            const apmBindingPath = `${apmProcessesNamespace}.${apmProcessInstanceID}`;
+            const apmBindingPath = `${apmProcessesNamespace}.cellProcessMap.${apmProcessInstanceID}`;
 
             // ... from which we can now derive the new cell process ID (proposed).
             const cellProcessID = arccore.identifier.irut.fromReference(apmBindingPath).result;
@@ -110,7 +110,29 @@ const controllerAction = new ControllerAction({
             processDigraph.runtime.addVertex({ u: cellProcessID, p: { apmBindingPath }});
             processDigraph.runtime.addEdge({ e: { u: parentCellProcessID, v: cellProcessID }});
 
-            // Response back to the caller w/information about the newly-created cell process.
+            ocdResponse = request_.context.ocdi.writeNamespace(`${cellProcessDigraphPath}.revision`, processDigraph.revision + 1);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+
+            const apmProcessesRevisionNamespace = `${apmProcessesNamespace}.revision`;
+
+            ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+
+            const apmProcessesRevision = ocdResponse.result;
+
+            ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesRevisionNamespace, apmProcessesRevision + 1);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+
+            // Respond back to the caller w/information about the newly-created cell process.
             response.result = { apmBindingPath, cellProcessID };
             break;
         }

@@ -53,7 +53,7 @@ const controllerAction = new ControllerAction({
                         name: "Cell Process Digraph Model",
                         description: "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
                         vlist: [
-                            { u: arccore.identifier.irut.fromReference("~").result, p: { name: "Cell Process Manager" } }
+                            { u: arccore.identifier.irut.fromReference("~").result, p: { apmBindingPath: "~", name: "Cell Process Manager" } }
                         ]
                     }
             );

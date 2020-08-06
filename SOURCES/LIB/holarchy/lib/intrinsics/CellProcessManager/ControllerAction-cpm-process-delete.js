@@ -19,10 +19,16 @@ const controllerAction = new ControllerAction({
                     ____types: "jsObject",
                     delete: {
                         ____types: "jsObject",
-                        // Either...
-                        apmBindingPath: { ____accept: [ "jsUndefined", "jsString" ] },
+                        // Either of
+                        cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] }, // Preferred
                         // ... or
-                        cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] }
+                        apmBindingPath: { ____accept: [ "jsUndefined", "jsString" ] }, // Equivalent, but less efficient
+                        // ... or
+                        cellProcessNamespace: {
+                            ____types: [ "jsUndefined", "jsObject" ],
+                            apmID: { ____accept: "jsString" },
+                            cellProcessUniqueName: { ____accept: [ "jsUndefined", "jsString" ] }
+                        }
                     }
                 }
             }
@@ -46,12 +52,14 @@ const controllerAction = new ControllerAction({
             // Dereference the body of the action request.
             const message = request_.actionRequest.holarchy.CellProcessor.process.delete;
 
-            if (!message.apmBindingPath && !message.cellProcessID) {
-                errors.push("You need to specify either the apmBindingPath or the cellProcessID of the cell process to delete.");
+            if (!message.cellProcessID && !message.apmBindingPath && !message.cellProcessNamespace) {
+                errors.push("You need to specify cellProcessID. Or eiter apmBindingPath or cellProcessNamespace so that cellProcessID can be calculated.");
                 break;
             }
 
-            let cellProcessID = message.cellProcessID?message.cellProcessID:arccore.identifier.irut.fromReference(message.apmBindingPath).result;
+            let cellProcessID = message.cellProcessID?message.cellProcessID:
+                message.apmBindingPath?arccore.identifier.irut.fromReference(message.apmBindingPath).result:
+                arccore.identifier.irut.fromReference(`~.${message.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.cellProcessNamespace.cellProcessUniqueName).result}`).result;
 
             // Now we have to dereference the cell process manager's process digraph (always a single-rooted tree).
             const cellProcessDigraphPath = `~.${cpmMountingNamespaceName}.cellProcessDigraph`;
@@ -63,15 +71,101 @@ const controllerAction = new ControllerAction({
             }
             const processDigraph = ocdResponse.result;
 
-            if (!processDigraph.runtime.isVertex(cellProcessID)) {
+            const inDegree = processDigraph.runtime.inDegree(cellProcessID);
+
+            switch (inDegree) {
+            case -1:
                 errors.push(`Invalid cell process apmBindingPath or cellProcessID specified in cell process delete. No such cell process '${cellProcessID}'.`);
+                break;
+            case 0:
+                errors.push("You cannot delete the root cell process manager process using this mechanism! Delete the CellProcessor instance if that's what you really want to do.");
+                break;
+            case 1:
+                // As expected...
+                break;
+            default:
+                errors.push(`Internal validation error inspecting the cell process digraph model. '${cellProcessID}' has inDegree === ${inDegree}? That should not be possible!`);
+                break;
+            }
+            if (errors.length) {
                 break;
             }
 
-            if (processDigraph.runtime.inDegree(cellProcessID)
+            const parentProcessID = processDigraph.runtime.inEdges(cellProcessID)[0].u;
+
+            let processesToDelete = [];
+
+            let digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
+                digraph: processDigraph.runtime,
+                options: { startVector: [ cellProcessID ] },
+                visitor: {
+                    finishVertex: function(request_) {
+                        processesToDelete.push(request_.u);
+                        return true;
+                    }
+                }
+            });
+
+            if (digraphTraversalResponse.error) {
+                errors.push(digraphTraversalResponse.error);
+                break;
+            }
+
+            if (digraphTraversalResponse.result.searchStatus !== "completed") {
+                errors.push(`Internal validation error performing breadth-first visit of cell process digraph from cellProcessID = '${cellProcessID}'. Search did not complete?!`);
+                break;
+            }
+
+            for (let i = 0 ; processesToDelete.length > i ; i++) {
+
+                const cellProcessID = processesToDelete[i];
+                const processDescriptor = processDigraph.runtime.getVertexProperty(cellProcessID);
+                const apmBindingPath = processDescriptor.apmBindingPath;
+                const apmBindingPathTokens = apmBindingPath.split(".");
+                const apmProcessesNamespace = apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 1).join(".");
+                const apmProcessesRevisionNamespace = [ ...apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 2), "revision" ].join(".");
+                ocdResponse = request_.context.ocdi.readNamespace(apmProcessesNamespace);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                let processesMemory = ocdResponse.result;
+                delete processesMemory[apmBindingPathTokens[apmBindingPathTokens.length - 1]];
+                ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesNamespace, processesMemory);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error)
+                    break;
+                }
+                ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                const apmProcessesRevision = ocdResponse.result;
+                ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesRevisionNamespace, apmProcessesRevision + 1);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                
+                processDigraph.runtime.removeVertex(cellProcessID);
+
+            }
+            if (errors.length) {
+                break;
+            }
 
 
+            ocdResponse = request_.context.ocdi.writeNamespace(`${cellProcessDigraphPath}.revision`, processDigraph.revision + 1);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
 
+            response.result = {
+                apmBindingPath: processDigraph.runtime.getVertexProperty(parentProcessID).apmBindingPath,
+                cellProcessID: parentProcessID
+            };
 
             break;
         }

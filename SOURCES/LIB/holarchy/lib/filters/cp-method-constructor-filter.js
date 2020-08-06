@@ -58,25 +58,42 @@ const factoryResponse = arccore.filter.create({
                 const apmProcessesNamespace = `${apmID}_CellProcesses`;
 
                 ocdTemplateSpec[apmProcessesNamespace] = {
-                    ____label: `${apmFilterName} Cell Processes Map`,
-                    ____description: `A map of ${apmFilterName} process instances by process ID that are managed by the CellProcessor (~) runtime host instance.`,
+                    ____label: `${apmFilterName} Cell Processes Memory`,
+                    ____description: `Shared cell process memory for cell processes bound to AbstractProcessModel ${apmFilterName}.`,
                     ____types: "jsObject",
-                    ____asMap: true,
                     ____defaultValue: {},
-                    cellProcessID: {
-                        ____label: `${apmFilterName} Cell Process Instance`,
-                        ____description: `Cell process instance memory for ${apmFilterName}: ${apmDescription}`,
+                    cellProcessMap: {
+                        ____label: `${apmFilterName} Cell Process Map`,
+                        ____description: `A map of ${apmFilterName} process instances by process ID that are managed by the CellProcessor (~) runtime host instance.`,
                         ____types: "jsObject",
-                        ____appdsl: { apm: apmID } // <3 <3 <3
-                    }
+                        ____asMap: true,
+                        ____defaultValue: {},
+                        cellProcessID: {
+                            ____label: `${apmFilterName} Cell Process Instance`,
+                            ____description: `Cell process instance memory for ${apmFilterName}: ${apmDescription}`,
+                            ____types: "jsObject",
+                            ____appdsl: { apm: apmID } // <3 <3 <3
+                        }
+                    },
+                    revision: { ____accept: "jsNumber", ____defaultValue: 0 }
                 };
 
             } // end for apmConfig.length
 
+            const cpAPMID =  arccore.identifier.irut.fromReference(`${request_.id}_CellProcess_AbstractProcessModel`).result;
+
+            // Define the CellProcessor process manager process namespace in shared memory and bound our APM.
+            // Note that we specifiy a default value here ensuring that the process manager cell process is
+            // always started automatically whenever a CellProcess instance is constructed.
+            ocdTemplateSpec[cpmMountingNamespaceName] = {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { apm: cpAPMID }
+            };
+
             // Now create a new CellModel for the Cell Process Managager.
 
             const cpCMID = arccore.identifier.irut.fromReference(`${request_.id}_CellProcessor_CellModel`).result;
-            const cpAPMID =  arccore.identifier.irut.fromReference(`${request_.id}_CellProcess_AbstractProcessModel`).result;
 
             const cpCM = new CellModel({
                 id: cpCMID,
@@ -92,6 +109,7 @@ const factoryResponse = arccore.filter.create({
                         cellProcessDigraph: {
                             ____types: "jsObject",
                             ____defaultValue: {},
+                            revision: { ____accept: "jsNumber", ____defaultValue: 0 },
                             runtime: { ____accept: [ "jsUndefined", "jsObject" ] },
                             serialized: { ____accept: [ "jsUndefined", "jsObject" ] },
                         }
@@ -110,7 +128,7 @@ const factoryResponse = arccore.filter.create({
                             ],
                             actions: {
                                 enter: [
-                                    { holarchy: { CellProcessor: { initialize: { }}}}
+                                    { holarchy: { CellProcessor: { initialize: {} } } }
                                 ]
                             }
                         },
@@ -130,15 +148,6 @@ const factoryResponse = arccore.filter.create({
                 errors.push(JSON.stringify(cpCM));
                 break;
             }
-
-            // Define the CellProcessor process manager process namespace in shared memory and bound our APM.
-            // Note that we specifiy a default value here ensuring that the process manager cell process is
-            // always started automatically whenever a CellProcess instance is constructed.
-            ocdTemplateSpec[cpmMountingNamespaceName] = {
-                ____types: "jsObject",
-                ____defaultValue: {},
-                ____appdsl: { apm: cpAPMID }
-            };
 
             // Extract all the flattened artifact registrations from the synthesized Cell Process Manager CellModel
             // that are required to configure an ObservableProcessController runtime host instance to actually
