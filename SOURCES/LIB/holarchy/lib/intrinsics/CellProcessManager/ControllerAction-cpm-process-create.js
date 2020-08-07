@@ -102,7 +102,7 @@ const controllerAction = new ControllerAction({
             // Attempt to initialize the new cell process' shared memory.
             ocdResponse = request_.context.ocdi.writeNamespace(apmBindingPath, message.cellProcessInitData);
             if (ocdResponse.error) {
-                errors.push(`Failed to create cell process at OCD path '${newProcessNamespace}' due to problems with the process initialization data specified.`);
+                errors.push(`Failed to create cell process at OCD path '${apmBindingPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);
             }
 
