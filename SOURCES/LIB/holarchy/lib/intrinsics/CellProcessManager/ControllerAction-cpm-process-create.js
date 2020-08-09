@@ -32,7 +32,7 @@ const controllerAction = new ControllerAction({
     actionResultSpec: {
         ____types: "jsObject",
         apmBindingPath: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }, // this is the OCD path of the new process
-        cellProcessID: { ____accept: [ "jsNull", "jsString"], ____defaultValue: null } // This is an IRUT-format per-CellProcessor-instance-unique ID
+        cellProcessID: { ____accept: [ "jsNull", "jsString"], ____defaultValue: null } // This is an IRUT-format cell process ID
     },
 
     bodyFunction: function(request_) {
