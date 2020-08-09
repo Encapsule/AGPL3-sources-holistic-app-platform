@@ -62,16 +62,16 @@ const controllerAction = new ControllerAction({
                 arccore.identifier.irut.fromReference(`~.${message.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.cellProcessNamespace.cellProcessUniqueName).result}`).result;
 
             // Now we have to dereference the cell process manager's process digraph (always a single-rooted tree).
-            const cellProcessDigraphPath = `~.${cpmMountingNamespaceName}.cellProcessDigraph`;
+            const cellProcessTreePath = `~.${cpmMountingNamespaceName}.cellProcessTree`;
 
-            let ocdResponse = request_.context.ocdi.readNamespace(cellProcessDigraphPath);
+            let ocdResponse = request_.context.ocdi.readNamespace(cellProcessTreePath);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
-            const processDigraph = ocdResponse.result;
+            const cellProcessTreeData = ocdResponse.result;
 
-            const inDegree = processDigraph.runtime.inDegree(cellProcessID);
+            const inDegree = cellProcessTreeData.digraph.inDegree(cellProcessID);
 
             switch (inDegree) {
             case -1:
@@ -91,12 +91,12 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            const parentProcessID = processDigraph.runtime.inEdges(cellProcessID)[0].u;
+            const parentProcessID = cellProcessTreeData.digraph.inEdges(cellProcessID)[0].u;
 
             let processesToDelete = [];
 
             let digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
-                digraph: processDigraph.runtime,
+                digraph: cellProcessTreeData.digraph,
                 options: { startVector: [ cellProcessID ] },
                 visitor: {
                     finishVertex: function(request_) {
@@ -119,7 +119,7 @@ const controllerAction = new ControllerAction({
             for (let i = 0 ; processesToDelete.length > i ; i++) {
 
                 const cellProcessID = processesToDelete[i];
-                const processDescriptor = processDigraph.runtime.getVertexProperty(cellProcessID);
+                const processDescriptor = cellProcessTreeData.digraph.getVertexProperty(cellProcessID);
                 const apmBindingPath = processDescriptor.apmBindingPath;
                 const apmBindingPathTokens = apmBindingPath.split(".");
                 const apmProcessesNamespace = apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 1).join(".");
@@ -147,8 +147,8 @@ const controllerAction = new ControllerAction({
                     errors.push(ocdResponse.error);
                     break;
                 }
-                
-                processDigraph.runtime.removeVertex(cellProcessID);
+
+                cellProcessTreeData.digraph.removeVertex(cellProcessID);
 
             }
             if (errors.length) {
@@ -156,14 +156,14 @@ const controllerAction = new ControllerAction({
             }
 
 
-            ocdResponse = request_.context.ocdi.writeNamespace(`${cellProcessDigraphPath}.revision`, processDigraph.revision + 1);
+            ocdResponse = request_.context.ocdi.writeNamespace(`${cellProcessTreePath}.revision`, cellProcessTreeData.revision + 1);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
 
             response.result = {
-                apmBindingPath: processDigraph.runtime.getVertexProperty(parentProcessID).apmBindingPath,
+                apmBindingPath: cellProcessTreeData.digraph.getVertexProperty(parentProcessID).apmBindingPath,
                 cellProcessID: parentProcessID
             };
 
