@@ -17,7 +17,7 @@
                     "subcells": [
                       {
                         "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                        "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                        "vdid": "Fz_Ip9fcGHuT7DW1K65JHg",
                         "name": "Holarchy CML",
                         "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                         "cmat": {
@@ -27,19 +27,19 @@
                               "type": "INDEX",
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                                "vdid": "Fz_Ip9fcGHuT7DW1K65JHg",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                                  "vdid": "sotvDU4eDvyLvfetjzt9tQ",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                    "vdid": "ahcWvYmR3ZsKVxvXfsuypw",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -59,7 +59,7 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                      "vdid": "jcGqERNFy3KCAP8hQsD0iA",
                                       "name": "Holarchy Core",
                                       "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                       "type": "CM",
@@ -114,8 +114,8 @@
                                       },
                                       "jQxlhOe-RDilxY0sNIierQ": {
                                         "id": "jQxlhOe-RDilxY0sNIierQ",
-                                        "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                        "name": "Holarchy Core Memory Operators",
+                                        "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                        "name": "Holarchy Core Memory Actions & Operators",
                                         "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                         "type": "CM",
                                         "oaF3-dXwQkusjD3I2o9-8g": {
@@ -187,6 +187,13 @@
                                           "name": "OCD Boolean Flag Clear",
                                           "description": "Set the Boolean-type OCD namespace specified by path to value false.",
                                           "type": "ACT"
+                                        },
+                                        "aXju3wSBQnufe0r51Y04wg": {
+                                          "id": "aXju3wSBQnufe0r51Y04wg",
+                                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                          "name": "Write Sub-Action Response",
+                                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                                          "type": "ACT"
                                         }
                                       }
                                     }
@@ -217,13 +224,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 29,
-                      "edges": 49,
+                      "vertices": 30,
+                      "edges": 51,
                       "artifacts": {
                         "cm": 8,
                         "apm": 1,
                         "top": 12,
-                        "act": 4
+                        "act": 5
                       }
                     }
                   },
@@ -235,119 +242,7 @@
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
                           "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                           "name": "Abstract Frame Latch",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "process": {
-                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "updated",
-                                "p": {
-                                  "description": "The value managed by the frame latch has been written.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "waiting",
-                                "p": {
-                                  "description": "Frame latch value has not changed since last signalled update.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "updated",
-                                  "v": "waiting"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "waiting",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         }
                       ],
                       "top": [
@@ -448,6 +343,12 @@
                           "vdid": "DPKyvFjaLnWwv-4AP4IYQw",
                           "name": "OCD Read Namespace Indirect",
                           "description": "Reads and returns the value of OCD namespace via path indirection."
+                        },
+                        {
+                          "id": "aXju3wSBQnufe0r51Y04wg",
+                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                          "name": "Write Sub-Action Response",
+                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         }
                       ]
                     }
@@ -459,25 +360,25 @@
                         "type": "INDEX",
                         "kSrV2fJ_S-aXkSmJwxYpDQ": {
                           "id": "kSrV2fJ_S-aXkSmJwxYpDQ",
-                          "vdid": "Af5seYLEdj4LHTahl25n0Q",
+                          "vdid": "UUZADlouCz4pqdnb2HFXvg",
                           "name": "@encapsule/holarchy-cm CellModel Export Test",
                           "description": "Attempt to instantiate the exported CML using the CellModel harness.",
                           "type": "CM",
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                            "vdid": "Fz_Ip9fcGHuT7DW1K65JHg",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                              "vdid": "sotvDU4eDvyLvfetjzt9tQ",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                "vdid": "ahcWvYmR3ZsKVxvXfsuypw",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -497,7 +398,7 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                  "vdid": "jcGqERNFy3KCAP8hQsD0iA",
                                   "name": "Holarchy Core",
                                   "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                   "type": "CM",
@@ -552,8 +453,8 @@
                                   },
                                   "jQxlhOe-RDilxY0sNIierQ": {
                                     "id": "jQxlhOe-RDilxY0sNIierQ",
-                                    "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                    "name": "Holarchy Core Memory Operators",
+                                    "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                    "name": "Holarchy Core Memory Actions & Operators",
                                     "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                     "type": "CM",
                                     "oaF3-dXwQkusjD3I2o9-8g": {
@@ -624,6 +525,13 @@
                                       "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
                                       "name": "OCD Boolean Flag Clear",
                                       "description": "Set the Boolean-type OCD namespace specified by path to value false.",
+                                      "type": "ACT"
+                                    },
+                                    "aXju3wSBQnufe0r51Y04wg": {
+                                      "id": "aXju3wSBQnufe0r51Y04wg",
+                                      "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                      "name": "Write Sub-Action Response",
+                                      "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                       "type": "ACT"
                                     }
                                   }

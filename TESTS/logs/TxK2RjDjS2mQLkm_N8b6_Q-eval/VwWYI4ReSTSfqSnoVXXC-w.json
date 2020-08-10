@@ -35,13 +35,7 @@
                     "id": "VwWYI4ReSTSfqSnoVXXC-w",
                     "vdid": "VL0ntNHTsevSETUoEu45hA",
                     "name": "APM #2",
-                    "description": "APM instance test #2 (minimal constructor request)",
-                    "process": {
-                      "name": "[VwWYI4ReSTSfqSnoVXXC-w::APM #2] APM Digraph",
-                      "description": "APM instance test #2 (minimal constructor request)",
-                      "vlist": [],
-                      "elist": []
-                    }
+                    "description": "APM instance test #2 (minimal constructor request)"
                   },
                   "getID": "VwWYI4ReSTSfqSnoVXXC-w",
                   "getName": "APM #2",

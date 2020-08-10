@@ -30,131 +30,13 @@
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
                           "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                           "name": "Abstract Frame Latch",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "process": {
-                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "updated",
-                                "p": {
-                                  "description": "The value managed by the frame latch has been written.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "waiting",
-                                "p": {
-                                  "description": "Frame latch value has not changed since last signalled update.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "updated",
-                                  "v": "waiting"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "waiting",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
                           "id": "zzvzLbm2RTyQN1lWFcjpVA",
                           "vdid": "DxngxWcSscYXnIUgZbZb7g",
                           "name": "Theme Processor Model",
-                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                          "process": {
-                            "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                            "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                         }
                       ]
                     ],
@@ -271,6 +153,12 @@
                           "vdid": "yGTtQ-FAv_UvOMc7W65VGw",
                           "name": "ViewThemeProcessor::Write Settings",
                           "description": "Update the whole or part of the ViewThemeProcessor model's input theme settings document."
+                        },
+                        {
+                          "id": "aXju3wSBQnufe0r51Y04wg",
+                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                          "name": "Write Sub-Action Response",
+                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         }
                       ]
                     ]
@@ -321,131 +209,13 @@
                         "id": "z_mTe02hSWmaM1iRO1pBeA",
                         "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                         "name": "Abstract Frame Latch",
-                        "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                        "process": {
-                          "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": [
-                                    {
-                                      "holarchy": {
-                                        "cm": {
-                                          "actions": {
-                                            "ocd": {
-                                              "setBooleanFlag": {
-                                                "path": "#.clock"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "u": "updated",
-                              "p": {
-                                "description": "The value managed by the frame latch has been written.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": [
-                                    {
-                                      "holarchy": {
-                                        "cm": {
-                                          "actions": {
-                                            "ocd": {
-                                              "clearBooleanFlag": {
-                                                "path": "#.clock"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "u": "waiting",
-                              "p": {
-                                "description": "Frame latch value has not changed since last signalled update.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "updated"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            },
-                            {
-                              "e": {
-                                "u": "updated",
-                                "v": "waiting"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            },
-                            {
-                              "e": {
-                                "u": "waiting",
-                                "v": "updated"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "holarchy": {
-                                    "cm": {
-                                      "operators": {
-                                        "ocd": {
-                                          "isBooleanFlagSet": {
-                                            "path": "#.clock"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                       },
                       "zzvzLbm2RTyQN1lWFcjpVA": {
                         "id": "zzvzLbm2RTyQN1lWFcjpVA",
                         "vdid": "DxngxWcSscYXnIUgZbZb7g",
                         "name": "Theme Processor Model",
-                        "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                        "process": {
-                          "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                          "vlist": [],
-                          "elist": []
-                        }
+                        "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                       }
                     },
                     "opmiSpecPaths": [
@@ -455,13 +225,7 @@
                           "id": "zzvzLbm2RTyQN1lWFcjpVA",
                           "vdid": "DxngxWcSscYXnIUgZbZb7g",
                           "name": "Theme Processor Model",
-                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                          "process": {
-                            "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                            "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                         }
                       }
                     ],
@@ -22844,14 +22608,14 @@
                     },
                     "actionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "gqh82hOtL_WcG6qHURRpOw",
+                        "operationID": "YncPCwQQ5Ta8VBNy8QNVqQ",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "eowWJ-DqnKNUcC8hL_wzEA",
+                        "inputTypeVIID": "dhoBMr0LXIKfz66eTz8lwg",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "lYeceX1O2xgp4eg2S89YMw",
+                        "outputTypeVIID": "wZ9oH-QVT1ZYaxsl8aieWg",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "33H0E8FSNVc4fI7tec0UtA"
+                        "operationVDID": "oiz0E8p4NVftA47tSZcUtA"
                       },
                       "supportedFilters": [
                         "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
@@ -22860,6 +22624,7 @@
                         "[UK08qja3QiaHFGhl99fbmg::ViewThemeProcessor::Write Settings]",
                         "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
                         "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
+                        "[aXju3wSBQnufe0r51Y04wg::Write Sub-Action Response]",
                         "[e2kGs2nLRwW7RtFDPi8REg::Read Theme Palette]",
                         "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]"
                       ],
@@ -41852,6 +41617,69 @@
                           "operationVDID": "BEysJQSENK3CB-PWSTYklA"
                         }
                       },
+                      "aXju3wSBQnufe0r51Y04wg": {
+                        "filterDescriptor": {
+                          "operationID": "aXju3wSBQnufe0r51Y04wg",
+                          "operationName": "Write Sub-Action Response",
+                          "operationDescription": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                          "inputFilterSpec": {
+                            "____label": "Write Sub-Action Response Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "core": {
+                                  "____types": "jsObject",
+                                  "writeSubactionResponse": {
+                                    "____types": "jsObject",
+                                    "subactionRequest": {
+                                      "____label": "Sub-Action Request",
+                                      "____description": "Some caller-specified action request that we're to dispatch on their behalf so that we can save the response in shared memory.",
+                                      "____accept": "jsObject"
+                                    },
+                                    "writeResponsePath": {
+                                      "____label": "Write Response Path",
+                                      "____description": "Absolute (begins in ~), cell-relative (begins in #), OCD path to write the subaction response. Note that relative paths are also supported here.",
+                                      "____accept": "jsString"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____label": "No Result (Default)",
+                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                            "____accept": "jsUndefined"
+                          },
+                          "inputTypeVIID": "HiwULbPvbF4NiFgugv_ZSg",
+                          "inputTypeVDID": "nUNjRm6k756h54bBy4S8Eg",
+                          "outputTypeVIID": "YXPCMgl_OxPwupnLbcirow",
+                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                          "operationVDID": "CHvoeVRpOtYpgVSkh0mYBw"
+                        }
+                      },
                       "KX0V_aQ3RzG01tzBS24MGw": {
                         "filterDescriptor": {
                           "operationID": "KX0V_aQ3RzG01tzBS24MGw",
@@ -42000,13 +41828,7 @@
                                     "id": "zzvzLbm2RTyQN1lWFcjpVA",
                                     "vdid": "DxngxWcSscYXnIUgZbZb7g",
                                     "name": "Theme Processor Model",
-                                    "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                                    "process": {
-                                      "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                                      "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                                      "vlist": [],
-                                      "elist": []
-                                    }
+                                    "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                                   }
                                 },
                                 "evalResponse": {

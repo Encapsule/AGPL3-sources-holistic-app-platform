@@ -56,13 +56,7 @@
                           "id": "cJSBP90NTcu1bJMhCOjbQg",
                           "vdid": "_SRJKsujaRmRsNghPb6X5w",
                           "name": "Placeholder APM",
-                          "description": "A minimally-configured placeholder.",
-                          "process": {
-                            "name": "[cJSBP90NTcu1bJMhCOjbQg::Placeholder APM] APM Digraph",
-                            "description": "A minimally-configured placeholder.",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "A minimally-configured placeholder."
                         }
                       ],
                       "top": [],
@@ -76,7 +70,7 @@
                         "type": "INDEX",
                         "vzmMGynKTy2uu6W8R-1rvQ": {
                           "id": "vzmMGynKTy2uu6W8R-1rvQ",
-                          "vdid": "6oW_kQMtTIW_4g7n6CeMpQ",
+                          "vdid": "WagyknJCf6_XFuPrJswFCg",
                           "name": "CellModel Constructor #2",
                           "description": "Try to construct a minimally configured CellModel with a mimimally-defined OPM association.",
                           "type": "CM",

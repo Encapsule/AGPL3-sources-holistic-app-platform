@@ -93,13 +93,7 @@
                           "id": "gA3KJMtcS6K8o5cV4plg3w",
                           "vdid": "YvrXnNHfNkAK7w7uvd2XtA",
                           "name": "Test Subcell #1 APM",
-                          "description": "Just a test",
-                          "process": {
-                            "name": "[gA3KJMtcS6K8o5cV4plg3w::Test Subcell #1 APM] APM Digraph",
-                            "description": "Just a test",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "Just a test"
                         }
                       ],
                       "top": [
@@ -127,13 +121,13 @@
                         "type": "INDEX",
                         "rShJ0riLSiOxLt0OpFJLJA": {
                           "id": "rShJ0riLSiOxLt0OpFJLJA",
-                          "vdid": "0Zr0pacA7fx0d0zRWIBh0g",
+                          "vdid": "0M31CLoQhWVI4Ea75-ycEQ",
                           "name": "SoftewareCellModel Constructor #5",
                           "description": "Try to construct a full (but-ultimately fake) CellModel including subcell definitions.",
                           "type": "CM",
                           "HbLgO6RMRRacUTjXqv2Rrw": {
                             "id": "HbLgO6RMRRacUTjXqv2Rrw",
-                            "vdid": "t1D1VQnSHIlEB6u0n3rpVA",
+                            "vdid": "jWwp9TQJvBoLWQLwn_0e3g",
                             "name": "Test Subcell #1",
                             "description": "Test subcell #1 defines an APM.",
                             "type": "CM",

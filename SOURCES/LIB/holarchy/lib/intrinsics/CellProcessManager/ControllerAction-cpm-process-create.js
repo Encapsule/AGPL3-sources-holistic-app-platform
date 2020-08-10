@@ -151,4 +151,3 @@ if (!controllerAction.isValid()) {
 }
 
 module.exports = controllerAction;
-

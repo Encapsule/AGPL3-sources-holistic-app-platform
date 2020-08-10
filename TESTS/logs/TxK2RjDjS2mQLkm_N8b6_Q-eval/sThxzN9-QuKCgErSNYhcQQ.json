@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                    "vdid": "6ptgafBjH-BgA2kyzxKMGQ",
+                    "vdid": "Y9cOTPvllb9tGE4DXh0ADQ",
                     "name": "Holistic App Client Runtime",
                     "description": "Holistic client application core runtime.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "ENENGxq1TkCa6Sk9YXaLlw": {
                             "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                            "vdid": "6ptgafBjH-BgA2kyzxKMGQ",
+                            "vdid": "Y9cOTPvllb9tGE4DXh0ADQ",
                             "name": "Holistic App Client Runtime",
                             "description": "Holistic client application core runtime.",
                             "type": "CM",
@@ -49,19 +49,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                              "vdid": "Fz_Ip9fcGHuT7DW1K65JHg",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                                "vdid": "sotvDU4eDvyLvfetjzt9tQ",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                  "vdid": "ahcWvYmR3ZsKVxvXfsuypw",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -81,7 +81,7 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                    "vdid": "jcGqERNFy3KCAP8hQsD0iA",
                                     "name": "Holarchy Core",
                                     "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                     "type": "CM",
@@ -136,8 +136,8 @@
                                     },
                                     "jQxlhOe-RDilxY0sNIierQ": {
                                       "id": "jQxlhOe-RDilxY0sNIierQ",
-                                      "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                      "name": "Holarchy Core Memory Operators",
+                                      "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                      "name": "Holarchy Core Memory Actions & Operators",
                                       "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                       "type": "CM",
                                       "oaF3-dXwQkusjD3I2o9-8g": {
@@ -209,6 +209,13 @@
                                         "name": "OCD Boolean Flag Clear",
                                         "description": "Set the Boolean-type OCD namespace specified by path to value false.",
                                         "type": "ACT"
+                                      },
+                                      "aXju3wSBQnufe0r51Y04wg": {
+                                        "id": "aXju3wSBQnufe0r51Y04wg",
+                                        "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                        "name": "Write Sub-Action Response",
+                                        "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                                        "type": "ACT"
                                       }
                                     }
                                   }
@@ -238,13 +245,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 32,
-                      "edges": 55,
+                      "vertices": 33,
+                      "edges": 57,
                       "artifacts": {
                         "cm": 8,
                         "apm": 2,
                         "top": 12,
-                        "act": 6
+                        "act": 7
                       }
                     }
                   },
@@ -256,412 +263,13 @@
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
                           "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                           "name": "Abstract Frame Latch",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "process": {
-                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "updated",
-                                "p": {
-                                  "description": "The value managed by the frame latch has been written.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "waiting",
-                                "p": {
-                                  "description": "Frame latch value has not changed since last signalled update.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "updated",
-                                  "v": "waiting"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "waiting",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
                           "vdid": "wMdKGGmfJUznN092sBj2xw",
                           "name": "Holistic Client App Runtime Kernel",
-                          "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                          "process": {
-                            "name": "[PPL45jw5RDWSMNsB97WIWg::Holistic Client App Runtime Kernel] APM Digraph",
-                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot0_hook_events",
-                                "p": {
-                                  "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "HolisticAppRuntime": {
-                                                  "actions": {
-                                                    "_private": {
-                                                      "hookEvents": true
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot1_start_kernel",
-                                "p": {
-                                  "description": "Start core client app kernel subsystems.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "cell": {
-                                                "process": {
-                                                  "create": {
-                                                    "apmBindingPath": "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor",
-                                                    "ocdInitData": {}
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot2_query_derived",
-                                "p": {
-                                  "description": "Query the derived client app for information required to initialize the core client app runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot3_wait_kernel",
-                                "p": {
-                                  "description": "Wait for the core client app kernel subsystems to become available.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot4_config_derived",
-                                "p": {
-                                  "description": "Configure the derived application runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot5_wait_browser",
-                                "p": {
-                                  "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot6_deserialize_app",
-                                "p": {
-                                  "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot7_load_app_memory",
-                                "p": {
-                                  "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot8_init_app_view",
-                                "p": {
-                                  "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot9_start_app",
-                                "p": {
-                                  "description": "Start the client application runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "running",
-                                "p": {
-                                  "description": "The client application is online and awaiting input from external actors.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "error_process_boot_failure",
-                                "p": {
-                                  "description": "Client application process boot failed due to unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "error_process_resume_failure",
-                                "p": {
-                                  "description": "Client application process resume failured due to unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "error_process_runtime_failure",
-                                "p": {
-                                  "description": "Client application process crashed at runtime due to unexpected and unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "boot0_hook_events"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot0_hook_events",
-                                  "v": "boot1_start_kernel"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot1_start_kernel",
-                                  "v": "boot2_query_derived"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot2_query_derived",
-                                  "v": "boot3_wait_kernel"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot3_wait_kernel",
-                                  "v": "boot4_config_derived"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot4_config_derived",
-                                  "v": "boot5_wait_browser"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot5_wait_browser",
-                                  "v": "boot6_deserialize_app"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         }
                       ],
                       "top": [
@@ -774,6 +382,12 @@
                           "vdid": "DPKyvFjaLnWwv-4AP4IYQw",
                           "name": "OCD Read Namespace Indirect",
                           "description": "Reads and returns the value of OCD namespace via path indirection."
+                        },
+                        {
+                          "id": "aXju3wSBQnufe0r51Y04wg",
+                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                          "name": "Write Sub-Action Response",
+                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         }
                       ]
                     }
@@ -785,7 +399,7 @@
                         "type": "INDEX",
                         "ENENGxq1TkCa6Sk9YXaLlw": {
                           "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                          "vdid": "6ptgafBjH-BgA2kyzxKMGQ",
+                          "vdid": "Y9cOTPvllb9tGE4DXh0ADQ",
                           "name": "Holistic App Client Runtime",
                           "description": "Holistic client application core runtime.",
                           "type": "CM",
@@ -812,19 +426,19 @@
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                            "vdid": "Fz_Ip9fcGHuT7DW1K65JHg",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                              "vdid": "sotvDU4eDvyLvfetjzt9tQ",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                "vdid": "ahcWvYmR3ZsKVxvXfsuypw",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -844,7 +458,7 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                  "vdid": "jcGqERNFy3KCAP8hQsD0iA",
                                   "name": "Holarchy Core",
                                   "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                   "type": "CM",
@@ -899,8 +513,8 @@
                                   },
                                   "jQxlhOe-RDilxY0sNIierQ": {
                                     "id": "jQxlhOe-RDilxY0sNIierQ",
-                                    "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                    "name": "Holarchy Core Memory Operators",
+                                    "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                    "name": "Holarchy Core Memory Actions & Operators",
                                     "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                     "type": "CM",
                                     "oaF3-dXwQkusjD3I2o9-8g": {
@@ -971,6 +585,13 @@
                                       "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
                                       "name": "OCD Boolean Flag Clear",
                                       "description": "Set the Boolean-type OCD namespace specified by path to value false.",
+                                      "type": "ACT"
+                                    },
+                                    "aXju3wSBQnufe0r51Y04wg": {
+                                      "id": "aXju3wSBQnufe0r51Y04wg",
+                                      "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                      "name": "Write Sub-Action Response",
+                                      "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                       "type": "ACT"
                                     }
                                   }

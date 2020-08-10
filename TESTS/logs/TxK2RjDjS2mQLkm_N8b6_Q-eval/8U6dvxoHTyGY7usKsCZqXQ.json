@@ -1,38 +1,85 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "T-BP4MgzyDOa-pr65Zrlmg": {
-      "NPN6z4aOTqOOO60wLVKOcg": {
+      "8U6dvxoHTyGY7usKsCZqXQ": {
         "harnessRequest": {
-          "id": "NPN6z4aOTqOOO60wLVKOcg",
-          "name": "CellProcessor Constructor Test #2",
-          "description": "A minamally-configured CellProcessor instance. Should succeed to create and delete a trivial cell process.",
+          "id": "8U6dvxoHTyGY7usKsCZqXQ",
+          "name": "CellProcessor Constructur Test #3",
+          "description": "Uses the test fixture model to exercise a more complex process create and delete scenario involving deeper nesting of subprocesses.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "CellProcessor": {
                   "constructorRequest": {
-                    "id": "NPN6z4aOTqOOO60wLVKOcg",
-                    "name": "CellProcessor Constructor #2",
-                    "description": "A minamally-configured CellProcessor instance.",
+                    "id": "8U6dvxoHTyGY7usKsCZqXQ",
+                    "name": "CellProcessor Constructur Test #3",
+                    "description": "Uses the test fixture model to exercise a more complex process create and delete scenario involving deeper nesting of subprocesses.",
                     "cellmodel": {
-                      "id": "cJQGRL5sTSqk02JiEaM06g",
-                      "name": "Test CM",
-                      "description": "Test CellModel",
-                      "apm": {
-                        "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                        "name": "Test CM APM",
-                        "description": "Test AbstractProcessModel",
-                        "ocdDataSpec": {
-                          "____label": "Test APM Root",
-                          "____types": "jsObject",
-                          "____defaultValue": {},
-                          "testProperty": {
-                            "____label": "Test Property",
-                            "____accept": [
-                              "jsNull",
-                              "jsString"
-                            ],
-                            "____defaultValue": null
+                      "id": "6GaLWSE-RDi87oMnsTpXow",
+                      "vdid": "7mvSgpMbgbDcP8V_jjzwTw",
+                      "name": "Cell Process Test Fixture Model",
+                      "description": "Used to test cell processor.",
+                      "cmat": {
+                        "error": null,
+                        "result": {
+                          "INDEX_CM": {
+                            "type": "INDEX",
+                            "6GaLWSE-RDi87oMnsTpXow": {
+                              "id": "6GaLWSE-RDi87oMnsTpXow",
+                              "vdid": "7mvSgpMbgbDcP8V_jjzwTw",
+                              "name": "Cell Process Test Fixture Model",
+                              "description": "Used to test cell processor.",
+                              "type": "CM",
+                              "itgXQ5RWS66fcdsuZim8AQ": {
+                                "id": "itgXQ5RWS66fcdsuZim8AQ",
+                                "vdid": "5peuGmHjb-dymLskgDpueA",
+                                "name": "Cell Process Test Fixture Model",
+                                "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions.",
+                                "type": "APM"
+                              },
+                              "5pHyXwfbSbmywdCLxAGpVA": {
+                                "id": "5pHyXwfbSbmywdCLxAGpVA",
+                                "vdid": "e1uqJXxax05HLBbmjRRLFg",
+                                "name": "Test Model #1",
+                                "description": "Test model #1.",
+                                "type": "CM",
+                                "Q15zOx5FT-2vt1jSKIIOLQ": {
+                                  "id": "Q15zOx5FT-2vt1jSKIIOLQ",
+                                  "vdid": "YLnHlYA9PZbmqb48TQHU4g",
+                                  "name": "Test Model #1 Process",
+                                  "description": "A simple test APM.",
+                                  "type": "APM"
+                                }
+                              },
+                              "InBPBIpDRW6XTf8XvH93dw": {
+                                "id": "InBPBIpDRW6XTf8XvH93dw",
+                                "vdid": "ceQJFyQ-hmXjWd8kbKCBNw",
+                                "name": "Test Model #2",
+                                "description": "Test model #2.",
+                                "type": "CM",
+                                "CW2q-O_CQ0CObmLa1PWb3g": {
+                                  "id": "CW2q-O_CQ0CObmLa1PWb3g",
+                                  "vdid": "OAQBlQxPhpYVT7M8WCwO4g",
+                                  "name": "Test Model #2 Process",
+                                  "description": "A simple test APM.",
+                                  "type": "APM"
+                                }
+                              },
+                              "1OnxzbEeTEiANHWD1bcD-w": {
+                                "id": "1OnxzbEeTEiANHWD1bcD-w",
+                                "vdid": "0FooAFRRPgPhwiBQg8FXTg",
+                                "name": "Test Model #3",
+                                "description": "Test model #3.",
+                                "type": "CM",
+                                "l_CypcNERjOcr7SxzIGt8A": {
+                                  "id": "l_CypcNERjOcr7SxzIGt8A",
+                                  "vdid": "9L9ZDRqm5wI6pDov4HPPag",
+                                  "name": "Test Model #3",
+                                  "description": "A simple test APM.",
+                                  "type": "APM"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -40,14 +87,15 @@
                   },
                   "actRequests": [
                     {
-                      "actorName": "CP constructor test #2",
+                      "actorName": "CP constructor test #3",
+                      "actorTaskDescription": "Construct an instance of the Process Test Fixture Model that is declared to create three child processes via self-similar mechanism.",
                       "actionRequest": {
                         "holarchy": {
                           "CellProcessor": {
                             "process": {
                               "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
+                                "apmID": "itgXQ5RWS66fcdsuZim8AQ",
+                                "cellProcessUniqueName": "test3"
                               }
                             }
                           }
@@ -55,30 +103,16 @@
                       }
                     },
                     {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CP constructor test #2",
+                      "actorName": "CP constructor test #3",
+                      "actorTaskDescription": "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
                       "actionRequest": {
                         "holarchy": {
                           "CellProcessor": {
                             "process": {
                               "delete": {
                                 "cellProcessNamespace": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
+                                  "apmID": "itgXQ5RWS66fcdsuZim8AQ",
+                                  "cellProcessUniqueName": "test3"
                                 }
                               }
                             }
@@ -101,30 +135,30 @@
             },
             "harnessDispatch": {
               "UBSclp3gSqCCmSvoG3W4tw": {
-                "NPN6z4aOTqOOO60wLVKOcg": {
+                "8U6dvxoHTyGY7usKsCZqXQ": {
                   "isValid": true,
                   "cpJSON": {
                     "cm": {
-                      "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                      "vdid": "mGu_KfG_SeEmEyCz0Zy8Sw",
-                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
-                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                      "id": "DPUM9XpwenDTHtMepiKmIg",
+                      "vdid": "vUIwe9ew_9fe4CUJ7h459A",
+                      "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
+                      "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                       "cmat": {
                         "error": null,
                         "result": {
                           "INDEX_CM": {
                             "type": "INDEX",
-                            "ZfVl9fVw9XBGHkYehCKEIg": {
-                              "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                              "vdid": "mGu_KfG_SeEmEyCz0Zy8Sw",
-                              "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
-                              "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                            "DPUM9XpwenDTHtMepiKmIg": {
+                              "id": "DPUM9XpwenDTHtMepiKmIg",
+                              "vdid": "vUIwe9ew_9fe4CUJ7h459A",
+                              "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
+                              "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                               "type": "CM",
-                              "3M28sc9PL4B_c1v5qwFC5Q": {
-                                "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                                "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                              "MEbYsSZHdoADWwD5kjfu5Q": {
+                                "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                "vdid": "l3vXin741si3mrtG74byzQ",
+                                "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                                 "type": "APM"
                               },
                               "VNaA0AMsTXawb32xLaNGTA": {
@@ -302,18 +336,60 @@
                                   }
                                 }
                               },
-                              "cJQGRL5sTSqk02JiEaM06g": {
-                                "id": "cJQGRL5sTSqk02JiEaM06g",
-                                "vdid": "c1m4sdZvtR4e32NkI3mX-Q",
-                                "name": "Test CM",
-                                "description": "Test CellModel",
+                              "6GaLWSE-RDi87oMnsTpXow": {
+                                "id": "6GaLWSE-RDi87oMnsTpXow",
+                                "vdid": "7mvSgpMbgbDcP8V_jjzwTw",
+                                "name": "Cell Process Test Fixture Model",
+                                "description": "Used to test cell processor.",
                                 "type": "CM",
-                                "6OPnhgR9QWyEFaBpaZNb1A": {
-                                  "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                                  "name": "Test CM APM",
-                                  "description": "Test AbstractProcessModel",
+                                "itgXQ5RWS66fcdsuZim8AQ": {
+                                  "id": "itgXQ5RWS66fcdsuZim8AQ",
+                                  "vdid": "5peuGmHjb-dymLskgDpueA",
+                                  "name": "Cell Process Test Fixture Model",
+                                  "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions.",
                                   "type": "APM"
+                                },
+                                "5pHyXwfbSbmywdCLxAGpVA": {
+                                  "id": "5pHyXwfbSbmywdCLxAGpVA",
+                                  "vdid": "e1uqJXxax05HLBbmjRRLFg",
+                                  "name": "Test Model #1",
+                                  "description": "Test model #1.",
+                                  "type": "CM",
+                                  "Q15zOx5FT-2vt1jSKIIOLQ": {
+                                    "id": "Q15zOx5FT-2vt1jSKIIOLQ",
+                                    "vdid": "YLnHlYA9PZbmqb48TQHU4g",
+                                    "name": "Test Model #1 Process",
+                                    "description": "A simple test APM.",
+                                    "type": "APM"
+                                  }
+                                },
+                                "InBPBIpDRW6XTf8XvH93dw": {
+                                  "id": "InBPBIpDRW6XTf8XvH93dw",
+                                  "vdid": "ceQJFyQ-hmXjWd8kbKCBNw",
+                                  "name": "Test Model #2",
+                                  "description": "Test model #2.",
+                                  "type": "CM",
+                                  "CW2q-O_CQ0CObmLa1PWb3g": {
+                                    "id": "CW2q-O_CQ0CObmLa1PWb3g",
+                                    "vdid": "OAQBlQxPhpYVT7M8WCwO4g",
+                                    "name": "Test Model #2 Process",
+                                    "description": "A simple test APM.",
+                                    "type": "APM"
+                                  }
+                                },
+                                "1OnxzbEeTEiANHWD1bcD-w": {
+                                  "id": "1OnxzbEeTEiANHWD1bcD-w",
+                                  "vdid": "0FooAFRRPgPhwiBQg8FXTg",
+                                  "name": "Test Model #3",
+                                  "description": "Test model #3.",
+                                  "type": "CM",
+                                  "l_CypcNERjOcr7SxzIGt8A": {
+                                    "id": "l_CypcNERjOcr7SxzIGt8A",
+                                    "vdid": "9L9ZDRqm5wI6pDov4HPPag",
+                                    "name": "Test Model #3",
+                                    "description": "A simple test APM.",
+                                    "type": "APM"
+                                  }
                                 }
                               }
                             }
@@ -322,10 +398,10 @@
                       }
                     },
                     "opc": {
-                      "id": "O7jKS-rSpT-eQUFuRaSPrw",
-                      "iid": "nqRSGdknQkqCnCANcWOS3A",
-                      "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller",
-                      "description": "Provides shared memory and runtime automata process orchestration for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor-resident cell processes.",
+                      "id": "9IzKS8ngpT8tiUFuo-mPrw",
+                      "iid": "11TCi7ASQ6qe1gMWqWekUA",
+                      "name": "[8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Observable Process Controller",
+                      "description": "Provides shared memory and runtime automata process orchestration for [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] CellProcessor-resident cell processes.",
                       "options": {
                         "evaluate": {
                           "maxFrames": 16,
@@ -333,58 +409,178 @@
                         }
                       },
                       "apmMap": {
-                        "3M28sc9PL4B_c1v5qwFC5Q": {
-                          "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                          "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                          "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                          "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                        "MEbYsSZHdoADWwD5kjfu5Q": {
+                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                          "vdid": "l3vXin741si3mrtG74byzQ",
+                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
                         },
-                        "6OPnhgR9QWyEFaBpaZNb1A": {
-                          "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                          "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                          "name": "Test CM APM",
-                          "description": "Test AbstractProcessModel"
+                        "itgXQ5RWS66fcdsuZim8AQ": {
+                          "id": "itgXQ5RWS66fcdsuZim8AQ",
+                          "vdid": "5peuGmHjb-dymLskgDpueA",
+                          "name": "Cell Process Test Fixture Model",
+                          "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
+                        },
+                        "Q15zOx5FT-2vt1jSKIIOLQ": {
+                          "id": "Q15zOx5FT-2vt1jSKIIOLQ",
+                          "vdid": "YLnHlYA9PZbmqb48TQHU4g",
+                          "name": "Test Model #1 Process",
+                          "description": "A simple test APM."
+                        },
+                        "CW2q-O_CQ0CObmLa1PWb3g": {
+                          "id": "CW2q-O_CQ0CObmLa1PWb3g",
+                          "vdid": "OAQBlQxPhpYVT7M8WCwO4g",
+                          "name": "Test Model #2 Process",
+                          "description": "A simple test APM."
+                        },
+                        "l_CypcNERjOcr7SxzIGt8A": {
+                          "id": "l_CypcNERjOcr7SxzIGt8A",
+                          "vdid": "9L9ZDRqm5wI6pDov4HPPag",
+                          "name": "Test Model #3",
+                          "description": "A simple test APM."
                         }
                       },
                       "opmiSpecPaths": [
                         {
                           "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                           "opmiRef": {
-                            "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                            "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                            "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                            "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                            "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                            "vdid": "l3vXin741si3mrtG74byzQ",
+                            "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                            "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
                           }
                         },
                         {
-                          "specPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.cellProcessID",
+                          "specPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
-                            "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                            "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                            "name": "Test CM APM",
-                            "description": "Test AbstractProcessModel"
+                            "id": "itgXQ5RWS66fcdsuZim8AQ",
+                            "vdid": "5peuGmHjb-dymLskgDpueA",
+                            "name": "Cell Process Test Fixture Model",
+                            "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
+                          }
+                        },
+                        {
+                          "specPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.cellProcessID",
+                          "opmiRef": {
+                            "id": "Q15zOx5FT-2vt1jSKIIOLQ",
+                            "vdid": "YLnHlYA9PZbmqb48TQHU4g",
+                            "name": "Test Model #1 Process",
+                            "description": "A simple test APM."
+                          }
+                        },
+                        {
+                          "specPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.cellProcessID",
+                          "opmiRef": {
+                            "id": "CW2q-O_CQ0CObmLa1PWb3g",
+                            "vdid": "OAQBlQxPhpYVT7M8WCwO4g",
+                            "name": "Test Model #2 Process",
+                            "description": "A simple test APM."
+                          }
+                        },
+                        {
+                          "specPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.cellProcessID",
+                          "opmiRef": {
+                            "id": "l_CypcNERjOcr7SxzIGt8A",
+                            "vdid": "9L9ZDRqm5wI6pDov4HPPag",
+                            "name": "Test Model #3",
+                            "description": "A simple test APM."
                           }
                         }
                       ],
                       "ocdTemplateSpec": {
                         "____types": "jsObject",
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Processes Memory",
-                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM].",
+                        "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                          "____label": "[itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model].",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "cellProcessMap": {
-                            "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Map",
-                            "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____label": "[itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] Cell Process Map",
+                            "____description": "A map of [itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
                             "____types": "jsObject",
                             "____asMap": true,
                             "____defaultValue": {},
                             "cellProcessID": {
-                              "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Instance",
-                              "____description": "Cell process instance memory for [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM]: Test AbstractProcessModel",
+                              "____label": "[itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] Cell Process Instance",
+                              "____description": "Cell process instance memory for [itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model]: A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions.",
                               "____types": "jsObject",
                               "____appdsl": {
-                                "apm": "6OPnhgR9QWyEFaBpaZNb1A"
+                                "apm": "itgXQ5RWS66fcdsuZim8AQ"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                          "____label": "[Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] Cell Process Map",
+                            "____description": "A map of [Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process]: A simple test APM.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "Q15zOx5FT-2vt1jSKIIOLQ"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                          "____label": "[CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] Cell Process Map",
+                            "____description": "A map of [CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process]: A simple test APM.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "CW2q-O_CQ0CObmLa1PWb3g"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
+                          "____label": "[l_CypcNERjOcr7SxzIGt8A::Test Model #3] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [l_CypcNERjOcr7SxzIGt8A::Test Model #3].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[l_CypcNERjOcr7SxzIGt8A::Test Model #3] Cell Process Map",
+                            "____description": "A map of [l_CypcNERjOcr7SxzIGt8A::Test Model #3] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[l_CypcNERjOcr7SxzIGt8A::Test Model #3] Cell Process Instance",
+                              "____description": "Cell process instance memory for [l_CypcNERjOcr7SxzIGt8A::Test Model #3]: A simple test APM.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "l_CypcNERjOcr7SxzIGt8A"
                               }
                             }
                           },
@@ -397,41 +593,119 @@
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "____appdsl": {
-                            "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                            "apm": "MEbYsSZHdoADWwD5kjfu5Q"
                           }
                         }
                       },
                       "ocdRuntimeSpec": {
-                        "____label": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] Observable Controller Data Store",
-                        "____description": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                        "____label": "OPC [9IzKS8ngpT8tiUFuo-mPrw::[8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Observable Process Controller] Observable Controller Data Store",
+                        "____description": "OPC [9IzKS8ngpT8tiUFuo-mPrw::[8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Observable Process Controller] system process runtime state data managed by OPC instance.",
                         "____types": "jsObject",
                         "____defaultValue": {},
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Processes Memory",
-                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM].",
+                        "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                          "____label": "[itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model].",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "cellProcessMap": {
-                            "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Map",
-                            "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____label": "[itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] Cell Process Map",
+                            "____description": "A map of [itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
                             "____types": "jsObject",
                             "____asMap": true,
                             "____defaultValue": {},
                             "cellProcessID": {
-                              "____label": "Test APM Root",
-                              "____description": "Cell process instance memory for [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM]: Test AbstractProcessModel",
+                              "____label": "[itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model] Cell Process Instance",
+                              "____description": "Cell process instance memory for [itgXQ5RWS66fcdsuZim8AQ::Cell Process Test Fixture Model]: A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions.",
                               "____types": "jsObject",
                               "____appdsl": {
-                                "apm": "6OPnhgR9QWyEFaBpaZNb1A"
+                                "apm": "itgXQ5RWS66fcdsuZim8AQ"
                               },
-                              "____defaultValue": {},
-                              "testProperty": {
-                                "____label": "Test Property",
-                                "____accept": [
-                                  "jsNull",
-                                  "jsString"
-                                ],
-                                "____defaultValue": null
+                              "__apmiStep": {
+                                "____accept": "jsString",
+                                "____defaultValue": "uninitialized"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                          "____label": "[Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] Cell Process Map",
+                            "____description": "A map of [Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [Q15zOx5FT-2vt1jSKIIOLQ::Test Model #1 Process]: A simple test APM.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "Q15zOx5FT-2vt1jSKIIOLQ"
+                              },
+                              "__apmiStep": {
+                                "____accept": "jsString",
+                                "____defaultValue": "uninitialized"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                          "____label": "[CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] Cell Process Map",
+                            "____description": "A map of [CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [CW2q-O_CQ0CObmLa1PWb3g::Test Model #2 Process]: A simple test APM.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "CW2q-O_CQ0CObmLa1PWb3g"
+                              },
+                              "__apmiStep": {
+                                "____accept": "jsString",
+                                "____defaultValue": "uninitialized"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
+                          "____label": "[l_CypcNERjOcr7SxzIGt8A::Test Model #3] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [l_CypcNERjOcr7SxzIGt8A::Test Model #3].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[l_CypcNERjOcr7SxzIGt8A::Test Model #3] Cell Process Map",
+                            "____description": "A map of [l_CypcNERjOcr7SxzIGt8A::Test Model #3] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[l_CypcNERjOcr7SxzIGt8A::Test Model #3] Cell Process Instance",
+                              "____description": "Cell process instance memory for [l_CypcNERjOcr7SxzIGt8A::Test Model #3]: A simple test APM.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "l_CypcNERjOcr7SxzIGt8A"
                               },
                               "__apmiStep": {
                                 "____accept": "jsString",
@@ -448,7 +722,7 @@
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "____appdsl": {
-                            "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                            "apm": "MEbYsSZHdoADWwD5kjfu5Q"
                           },
                           "____label": "Cell Process Manager",
                           "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -479,7 +753,19 @@
                         }
                       },
                       "ocdi": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                        "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 0
+                        },
+                        "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 0
+                        },
+                        "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 0
+                        },
+                        "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
                           "cellProcessMap": {},
                           "revision": 0
                         },
@@ -2016,59 +2302,59 @@
                                 },
                                 {
                                   "label": "frame 0 start APM instance binding",
-                                  "ellapsedDelta": 0,
-                                  "ellapsedTotal": 0
+                                  "ellapsedDelta": 1,
+                                  "ellapsedTotal": 1
                                 },
                                 {
                                   "label": "frame 0 end APM instance binding / start APM instance evaluation",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 0
+                                  "ellapsedTotal": 1
                                 },
                                 {
                                   "label": "frame 0 end APM instance evaluation",
                                   "ellapsedDelta": 3,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 4
                                 },
                                 {
                                   "label": "frame 1 start APM instance binding",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 4
                                 },
                                 {
                                   "label": "frame 1 end APM instance binding / start APM instance evaluation",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 4
                                 },
                                 {
                                   "label": "frame 1 end APM instance evaluation",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 4
                                 },
                                 {
                                   "label": "frame 2 start APM instance binding",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 4
                                 },
                                 {
                                   "label": "frame 2 end APM instance binding / start APM instance evaluation",
                                   "ellapsedDelta": 1,
-                                  "ellapsedTotal": 4
+                                  "ellapsedTotal": 5
                                 },
                                 {
                                   "label": "frame 2 end APM instance evaluation",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 4
+                                  "ellapsedTotal": 5
                                 },
                                 {
                                   "label": "STOP: OPC evaluation #0 stopwatch",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 4
+                                  "ellapsedTotal": 5
                                 }
                               ],
                               "name": "OPC evaluation #0 stopwatch",
-                              "timeStart": 1597020219135,
-                              "timeStop": 1597020219139,
-                              "totalMilliseconds": 4
+                              "timeStart": 1597020219185,
+                              "timeStop": 1597020219190,
+                              "totalMilliseconds": 5
                             },
                             "counts": {
                               "bindings": 3,
@@ -2101,10 +2387,10 @@
                                     },
                                     "initialStep": "uninitialized",
                                     "apmRef": {
-                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                      "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                      "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                      "vdid": "l3vXin741si3mrtG74byzQ",
+                                      "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                      "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
                                     }
                                   },
                                   "evalResponse": {
@@ -2117,7 +2403,19 @@
                                             "context": {
                                               "apmBindingPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                                               "ocdi": {
-                                                "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                                                "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                                                  "cellProcessMap": {},
+                                                  "revision": 0
+                                                },
+                                                "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                                                  "cellProcessMap": {},
+                                                  "revision": 0
+                                                },
+                                                "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                                                  "cellProcessMap": {},
+                                                  "revision": 0
+                                                },
+                                                "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
                                                   "cellProcessMap": {},
                                                   "revision": 0
                                                 },
@@ -2237,10 +2535,10 @@
                                     },
                                     "initialStep": "initializing",
                                     "apmRef": {
-                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                      "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                      "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                      "vdid": "l3vXin741si3mrtG74byzQ",
+                                      "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                      "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
                                     }
                                   },
                                   "evalResponse": {
@@ -2253,7 +2551,19 @@
                                             "context": {
                                               "apmBindingPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                                               "ocdi": {
-                                                "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                                                "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                                                  "cellProcessMap": {},
+                                                  "revision": 0
+                                                },
+                                                "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                                                  "cellProcessMap": {},
+                                                  "revision": 0
+                                                },
+                                                "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                                                  "cellProcessMap": {},
+                                                  "revision": 0
+                                                },
+                                                "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
                                                   "cellProcessMap": {},
                                                   "revision": 0
                                                 },
@@ -2357,10 +2667,10 @@
                                     },
                                     "initialStep": "ready",
                                     "apmRef": {
-                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                      "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                      "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                      "vdid": "l3vXin741si3mrtG74byzQ",
+                                      "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                      "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
                                     }
                                   },
                                   "evalResponse": {
@@ -2392,14 +2702,15 @@
                   "actionEvaluations": [
                     {
                       "actRequest": {
-                        "actorName": "CP constructor test #2",
+                        "actorName": "CP constructor test #3",
+                        "actorTaskDescription": "Construct an instance of the Process Test Fixture Model that is declared to create three child processes via self-similar mechanism.",
                         "actionRequest": {
                           "holarchy": {
                             "CellProcessor": {
                               "process": {
                                 "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
+                                  "apmID": "itgXQ5RWS66fcdsuZim8AQ",
+                                  "cellProcessUniqueName": "test3"
                                 }
                               }
                             }
@@ -2410,8 +2721,8 @@
                         "error": null,
                         "result": {
                           "actionResult": {
-                            "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
-                            "cellProcessID": "GnZD29qpnZdyarMnoUPHEg"
+                            "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                            "cellProcessID": "_hWb8Lg7SgAgKhF9d1FO5g"
                           },
                           "lastEvaluation": {
                             "evalNumber": 1,
@@ -2425,35 +2736,65 @@
                                   },
                                   {
                                     "label": "frame 0 start APM instance binding",
+                                    "ellapsedDelta": 0,
+                                    "ellapsedTotal": 0
+                                  },
+                                  {
+                                    "label": "frame 0 end APM instance binding / start APM instance evaluation",
                                     "ellapsedDelta": 1,
                                     "ellapsedTotal": 1
                                   },
                                   {
-                                    "label": "frame 0 end APM instance binding / start APM instance evaluation",
-                                    "ellapsedDelta": 0,
-                                    "ellapsedTotal": 1
+                                    "label": "frame 0 end APM instance evaluation",
+                                    "ellapsedDelta": 4,
+                                    "ellapsedTotal": 5
                                   },
                                   {
-                                    "label": "frame 0 end APM instance evaluation",
+                                    "label": "frame 1 start APM instance binding",
                                     "ellapsedDelta": 0,
-                                    "ellapsedTotal": 1
+                                    "ellapsedTotal": 5
+                                  },
+                                  {
+                                    "label": "frame 1 end APM instance binding / start APM instance evaluation",
+                                    "ellapsedDelta": 1,
+                                    "ellapsedTotal": 6
+                                  },
+                                  {
+                                    "label": "frame 1 end APM instance evaluation",
+                                    "ellapsedDelta": 0,
+                                    "ellapsedTotal": 6
+                                  },
+                                  {
+                                    "label": "frame 2 start APM instance binding",
+                                    "ellapsedDelta": 0,
+                                    "ellapsedTotal": 6
+                                  },
+                                  {
+                                    "label": "frame 2 end APM instance binding / start APM instance evaluation",
+                                    "ellapsedDelta": 1,
+                                    "ellapsedTotal": 7
+                                  },
+                                  {
+                                    "label": "frame 2 end APM instance evaluation",
+                                    "ellapsedDelta": 0,
+                                    "ellapsedTotal": 7
                                   },
                                   {
                                     "label": "STOP: OPC evaluation #1 stopwatch",
                                     "ellapsedDelta": 0,
-                                    "ellapsedTotal": 1
+                                    "ellapsedTotal": 7
                                   }
                                 ],
                                 "name": "OPC evaluation #1 stopwatch",
-                                "timeStart": 1597020219146,
-                                "timeStop": 1597020219147,
-                                "totalMilliseconds": 1
+                                "timeStart": 1597020219196,
+                                "timeStop": 1597020219203,
+                                "totalMilliseconds": 7
                               },
                               "counts": {
-                                "bindings": 2,
-                                "frames": 1,
+                                "bindings": 12,
+                                "frames": 3,
                                 "errors": 0,
-                                "transitions": 0
+                                "transitions": 2
                               }
                             },
                             "evalFrames": [
@@ -2461,11 +2802,13 @@
                                 "summary": {
                                   "counts": {
                                     "bindings": 2,
-                                    "transitions": 0,
+                                    "transitions": 1,
                                     "errors": 0
                                   },
                                   "reports": {
-                                    "transitions": [],
+                                    "transitions": [
+                                      "_hWb8Lg7SgAgKhF9d1FO5g"
+                                    ],
                                     "errors": []
                                   }
                                 },
@@ -2478,10 +2821,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                        "vdid": "l3vXin741si3mrtG74byzQ",
+                                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
                                       }
                                     },
                                     "evalResponse": {
@@ -2502,18 +2845,610 @@
                                       }
                                     }
                                   },
-                                  "GnZD29qpnZdyarMnoUPHEg": {
+                                  "_hWb8Lg7SgAgKhF9d1FO5g": {
                                     "evalRequest": {
                                       "dataBinding": {
-                                        "dataPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
-                                        "specPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.cellProcessID"
+                                        "dataPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                        "specPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.cellProcessID"
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                                        "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                                        "name": "Test CM APM",
-                                        "description": "Test AbstractProcessModel"
+                                        "id": "itgXQ5RWS66fcdsuZim8AQ",
+                                        "vdid": "5peuGmHjb-dymLskgDpueA",
+                                        "name": "Cell Process Test Fixture Model",
+                                        "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "transitioned",
+                                      "finishStep": "create_child_processes",
+                                      "phases": {
+                                        "p1_toperator": [
+                                          {
+                                            "request": {
+                                              "context": {
+                                                "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                                "ocdi": {
+                                                  "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                                                    "cellProcessTree": {
+                                                      "revision": 5,
+                                                      "digraph": {
+                                                        "name": "Cell Process Tree Digraph Model",
+                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                        "vlist": [
+                                                          {
+                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                            "p": {
+                                                              "apmBindingPath": "~",
+                                                              "name": "Cell Process Manager"
+                                                            }
+                                                          }
+                                                        ],
+                                                        "elist": []
+                                                      }
+                                                    },
+                                                    "__apmiStep": "ready"
+                                                  }
+                                                },
+                                                "transitionDispatcher": {
+                                                  "filterDescriptor": {
+                                                    "operationID": "CMvz9x30nfjuykt8A93fQA",
+                                                    "operationName": "Discriminator Filter",
+                                                    "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
+                                                    "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                                                    "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                                                    "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                                                  },
+                                                  "supportedFilters": [
+                                                    "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                    "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
+                                                    "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
+                                                    "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                    "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                    "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                                                    "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                    "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                    "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                    "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                                                    "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
+                                                    "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                  ],
+                                                  "options": {
+                                                    "action": "getFilter"
+                                                  }
+                                                }
+                                              },
+                                              "operatorRequest": {
+                                                "always": true
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": true
+                                            }
+                                          }
+                                        ],
+                                        "p2_exit": [],
+                                        "p3_enter": [
+                                          {
+                                            "request": {
+                                              "holarchy": {
+                                                "CellProcessor": {
+                                                  "process": {
+                                                    "create": {
+                                                      "apmID": "Q15zOx5FT-2vt1jSKIIOLQ",
+                                                      "cellProcessUniqueName": "Child Process #1"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": {
+                                                "actionResult": {
+                                                  "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                                  "cellProcessID": "ftyuSnSqgtr2FcHKRPmx9g"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "request": {
+                                              "holarchy": {
+                                                "CellProcessor": {
+                                                  "process": {
+                                                    "create": {
+                                                      "apmID": "CW2q-O_CQ0CObmLa1PWb3g",
+                                                      "cellProcessUniqueName": "Child Process #2"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": {
+                                                "actionResult": {
+                                                  "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                                  "cellProcessID": "VsSmPicBXAh73PdonbKo9Q"
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "request": {
+                                              "holarchy": {
+                                                "CellProcessor": {
+                                                  "process": {
+                                                    "create": {
+                                                      "apmID": "l_CypcNERjOcr7SxzIGt8A",
+                                                      "cellProcessUniqueName": "Child Process #3"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": {
+                                                "actionResult": {
+                                                  "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                                  "cellProcessID": "d-vsHMlM0I7KK1NJ6gT_Tw"
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "p4_finalize": {
+                                          "error": null,
+                                          "result": "create_child_processes"
+                                        }
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 5,
+                                    "transitions": 1,
+                                    "errors": 0
+                                  },
+                                  "reports": {
+                                    "transitions": [
+                                      "_hWb8Lg7SgAgKhF9d1FO5g"
+                                    ],
+                                    "errors": []
+                                  }
+                                },
+                                "bindings": {
+                                  "YI9gj9oX2hdfEV8RmbuZuw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                      },
+                                      "initialStep": "ready",
+                                      "apmRef": {
+                                        "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                        "vdid": "l3vXin741si3mrtG74byzQ",
+                                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "ready",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "_hWb8Lg7SgAgKhF9d1FO5g": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                        "specPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "create_child_processes",
+                                      "apmRef": {
+                                        "id": "itgXQ5RWS66fcdsuZim8AQ",
+                                        "vdid": "5peuGmHjb-dymLskgDpueA",
+                                        "name": "Cell Process Test Fixture Model",
+                                        "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "transitioned",
+                                      "finishStep": "ready",
+                                      "phases": {
+                                        "p1_toperator": [
+                                          {
+                                            "request": {
+                                              "context": {
+                                                "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                                "ocdi": {
+                                                  "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
+                                                    "cellProcessMap": {},
+                                                    "revision": 2
+                                                  },
+                                                  "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                                                    "cellProcessTree": {
+                                                      "revision": 5,
+                                                      "digraph": {
+                                                        "name": "Cell Process Tree Digraph Model",
+                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                        "vlist": [
+                                                          {
+                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                            "p": {
+                                                              "apmBindingPath": "~",
+                                                              "name": "Cell Process Manager"
+                                                            }
+                                                          }
+                                                        ],
+                                                        "elist": []
+                                                      }
+                                                    },
+                                                    "__apmiStep": "ready"
+                                                  }
+                                                },
+                                                "transitionDispatcher": {
+                                                  "filterDescriptor": {
+                                                    "operationID": "CMvz9x30nfjuykt8A93fQA",
+                                                    "operationName": "Discriminator Filter",
+                                                    "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
+                                                    "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                                                    "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                                                    "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                                                    "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                                                  },
+                                                  "supportedFilters": [
+                                                    "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                    "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
+                                                    "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
+                                                    "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                    "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
+                                                    "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
+                                                    "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
+                                                    "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                    "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                    "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
+                                                    "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
+                                                    "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                  ],
+                                                  "options": {
+                                                    "action": "getFilter"
+                                                  }
+                                                }
+                                              },
+                                              "operatorRequest": {
+                                                "always": true
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": true
+                                            }
+                                          }
+                                        ],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": {
+                                          "error": null,
+                                          "result": "ready"
+                                        }
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "ftyuSnSqgtr2FcHKRPmx9g": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                        "specPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "Q15zOx5FT-2vt1jSKIIOLQ",
+                                        "vdid": "YLnHlYA9PZbmqb48TQHU4g",
+                                        "name": "Test Model #1 Process",
+                                        "description": "A simple test APM."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "VsSmPicBXAh73PdonbKo9Q": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                        "specPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "CW2q-O_CQ0CObmLa1PWb3g",
+                                        "vdid": "OAQBlQxPhpYVT7M8WCwO4g",
+                                        "name": "Test Model #2 Process",
+                                        "description": "A simple test APM."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "d-vsHMlM0I7KK1NJ6gT_Tw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                        "specPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "l_CypcNERjOcr7SxzIGt8A",
+                                        "vdid": "9L9ZDRqm5wI6pDov4HPPag",
+                                        "name": "Test Model #3",
+                                        "description": "A simple test APM."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 5,
+                                    "transitions": 0,
+                                    "errors": 0
+                                  },
+                                  "reports": {
+                                    "transitions": [],
+                                    "errors": []
+                                  }
+                                },
+                                "bindings": {
+                                  "YI9gj9oX2hdfEV8RmbuZuw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                      },
+                                      "initialStep": "ready",
+                                      "apmRef": {
+                                        "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                        "vdid": "l3vXin741si3mrtG74byzQ",
+                                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "ready",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "_hWb8Lg7SgAgKhF9d1FO5g": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                        "specPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "ready",
+                                      "apmRef": {
+                                        "id": "itgXQ5RWS66fcdsuZim8AQ",
+                                        "vdid": "5peuGmHjb-dymLskgDpueA",
+                                        "name": "Cell Process Test Fixture Model",
+                                        "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "ready",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "ftyuSnSqgtr2FcHKRPmx9g": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                        "specPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "Q15zOx5FT-2vt1jSKIIOLQ",
+                                        "vdid": "YLnHlYA9PZbmqb48TQHU4g",
+                                        "name": "Test Model #1 Process",
+                                        "description": "A simple test APM."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "VsSmPicBXAh73PdonbKo9Q": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                        "specPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "CW2q-O_CQ0CObmLa1PWb3g",
+                                        "vdid": "OAQBlQxPhpYVT7M8WCwO4g",
+                                        "name": "Test Model #2 Process",
+                                        "description": "A simple test APM."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "d-vsHMlM0I7KK1NJ6gT_Tw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                        "specPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "l_CypcNERjOcr7SxzIGt8A",
+                                        "vdid": "9L9ZDRqm5wI6pDov4HPPag",
+                                        "name": "Test Model #3",
+                                        "description": "A simple test APM."
                                       }
                                     },
                                     "evalResponse": {
@@ -2541,10 +3476,33 @@
                         }
                       },
                       "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                        "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
                           "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
+                            "QOXIG2H4wYN1ZSpgO7KBSQ": {
+                              "__apmiStep": "ready"
+                            }
+                          },
+                          "revision": 1
+                        },
+                        "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                          "cellProcessMap": {
+                            "d3d3dxAQEBB0dHR0jIyMjA": {
+                              "__apmiStep": "uninitialized"
+                            }
+                          },
+                          "revision": 1
+                        },
+                        "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                          "cellProcessMap": {
+                            "GhoaGpSUlJTR0dHRj4-Pjw": {
+                              "__apmiStep": "uninitialized"
+                            }
+                          },
+                          "revision": 1
+                        },
+                        "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
+                          "cellProcessMap": {
+                            "KioqKra2trZzc3Nz4-Pj4w": {
                               "__apmiStep": "uninitialized"
                             }
                           },
@@ -2552,7 +3510,7 @@
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "cellProcessTree": {
-                            "revision": 1,
+                            "revision": 4,
                             "digraph": {
                               "name": "Cell Process Tree Digraph Model",
                               "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -2565,73 +3523,27 @@
                                   }
                                 },
                                 {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
+                                  "u": "_hWb8Lg7SgAgKhF9d1FO5g",
                                   "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
-                      },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
-                              "__apmiStep": "uninitialized"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "cellProcessTree": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Cell Process Tree Digraph Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
+                                    "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ"
                                   }
                                 },
                                 {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
+                                  "u": "ftyuSnSqgtr2FcHKRPmx9g",
                                   "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
+                                    "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA"
+                                  }
+                                },
+                                {
+                                  "u": "VsSmPicBXAh73PdonbKo9Q",
+                                  "p": {
+                                    "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw"
+                                  }
+                                },
+                                {
+                                  "u": "d-vsHMlM0I7KK1NJ6gT_Tw",
+                                  "p": {
+                                    "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w"
                                   }
                                 }
                               ],
@@ -2639,7 +3551,25 @@
                                 {
                                   "e": {
                                     "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
+                                    "v": "_hWb8Lg7SgAgKhF9d1FO5g"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "_hWb8Lg7SgAgKhF9d1FO5g",
+                                    "v": "ftyuSnSqgtr2FcHKRPmx9g"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "_hWb8Lg7SgAgKhF9d1FO5g",
+                                    "v": "VsSmPicBXAh73PdonbKo9Q"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "_hWb8Lg7SgAgKhF9d1FO5g",
+                                    "v": "d-vsHMlM0I7KK1NJ6gT_Tw"
                                   }
                                 }
                               ]
@@ -2651,15 +3581,16 @@
                     },
                     {
                       "actRequest": {
-                        "actorName": "CP constructor test #2",
+                        "actorName": "CP constructor test #3",
+                        "actorTaskDescription": "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
                         "actionRequest": {
                           "holarchy": {
                             "CellProcessor": {
                               "process": {
                                 "delete": {
                                   "cellProcessNamespace": {
-                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                    "cellProcessUniqueName": "test-process-1"
+                                    "apmID": "itgXQ5RWS66fcdsuZim8AQ",
+                                    "cellProcessUniqueName": "test3"
                                   }
                                 }
                               }
@@ -2696,19 +3627,19 @@
                                   },
                                   {
                                     "label": "frame 0 end APM instance evaluation",
-                                    "ellapsedDelta": 1,
-                                    "ellapsedTotal": 1
+                                    "ellapsedDelta": 0,
+                                    "ellapsedTotal": 0
                                   },
                                   {
                                     "label": "STOP: OPC evaluation #2 stopwatch",
                                     "ellapsedDelta": 0,
-                                    "ellapsedTotal": 1
+                                    "ellapsedTotal": 0
                                   }
                                 ],
                                 "name": "OPC evaluation #2 stopwatch",
-                                "timeStart": 1597020219156,
-                                "timeStop": 1597020219157,
-                                "totalMilliseconds": 1
+                                "timeStart": 1597020219208,
+                                "timeStop": 1597020219208,
+                                "totalMilliseconds": 0
                               },
                               "counts": {
                                 "bindings": 1,
@@ -2739,10 +3670,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "eAkxOtsm69a82ysiKZ4-vg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        "id": "MEbYsSZHdoADWwD5kjfu5Q",
+                                        "vdid": "l3vXin741si3mrtG74byzQ",
+                                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
+                                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
                                       }
                                     },
                                     "evalResponse": {
@@ -2770,13 +3701,25 @@
                         }
                       },
                       "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                        "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 2
+                        },
+                        "Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 2
+                        },
+                        "CW2q-O_CQ0CObmLa1PWb3g_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 2
+                        },
+                        "l_CypcNERjOcr7SxzIGt8A_CellProcesses": {
                           "cellProcessMap": {},
                           "revision": 2
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "cellProcessTree": {
-                            "revision": 2,
+                            "revision": 5,
                             "digraph": {
                               "name": "Cell Process Tree Digraph Model",
                               "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",

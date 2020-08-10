@@ -30,151 +30,19 @@
                           "id": "I3ja3B00Rj-PIXnDrzQzNg",
                           "vdid": "82SjiUHO887DFsmv0J6xug",
                           "name": "OPM Eval P3 Test #1",
-                          "description": "A simple OPM (force controller action enter error - bad message)",
-                          "process": {
-                            "name": "[I3ja3B00Rj-PIXnDrzQzNg::OPM Eval P3 Test #1] APM Digraph",
-                            "description": "A simple OPM (force controller action enter error - bad message)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "noneSuchControllerAction": true
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple OPM (force controller action enter error - bad message)"
                         },
                         {
                           "id": "71VGW5zbRLiDf7E_2tFJ3g",
                           "vdid": "IkmTmGwOUIJHFf3d3Q4RRA",
                           "name": "OPM Eval P3 Test #2",
-                          "description": "A simple OPM (force controller action enter error - action transport error)",
-                          "process": {
-                            "name": "[71VGW5zbRLiDf7E_2tFJ3g::OPM Eval P3 Test #2] APM Digraph",
-                            "description": "A simple OPM (force controller action enter error - action transport error)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "badControllerActionResponseError": true
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple OPM (force controller action enter error - action transport error)"
                         },
                         {
                           "id": "maPNVFgWTduQ5vMiDU2sEw",
                           "vdid": "hNWOl5AgYwdbs2nQpDU_0Q",
                           "name": "OPM Eval P3 Test #3",
-                          "description": "A simple OPM (force controller action enter error - action exception)",
-                          "process": {
-                            "name": "[maPNVFgWTduQ5vMiDU2sEw::OPM Eval P3 Test #3] APM Digraph",
-                            "description": "A simple OPM (force controller action enter error - action exception)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "badControllerActionThrowError": true
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple OPM (force controller action enter error - action exception)"
                         }
                       ]
                     ],
@@ -301,151 +169,19 @@
                         "id": "I3ja3B00Rj-PIXnDrzQzNg",
                         "vdid": "82SjiUHO887DFsmv0J6xug",
                         "name": "OPM Eval P3 Test #1",
-                        "description": "A simple OPM (force controller action enter error - bad message)",
-                        "process": {
-                          "name": "[I3ja3B00Rj-PIXnDrzQzNg::OPM Eval P3 Test #1] APM Digraph",
-                          "description": "A simple OPM (force controller action enter error - bad message)",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            },
-                            {
-                              "u": "goal",
-                              "p": {
-                                "description": "Test goal step.",
-                                "actions": {
-                                  "enter": [
-                                    {
-                                      "noneSuchControllerAction": true
-                                    }
-                                  ],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "goal"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "A simple OPM (force controller action enter error - bad message)"
                       },
                       "71VGW5zbRLiDf7E_2tFJ3g": {
                         "id": "71VGW5zbRLiDf7E_2tFJ3g",
                         "vdid": "IkmTmGwOUIJHFf3d3Q4RRA",
                         "name": "OPM Eval P3 Test #2",
-                        "description": "A simple OPM (force controller action enter error - action transport error)",
-                        "process": {
-                          "name": "[71VGW5zbRLiDf7E_2tFJ3g::OPM Eval P3 Test #2] APM Digraph",
-                          "description": "A simple OPM (force controller action enter error - action transport error)",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            },
-                            {
-                              "u": "goal",
-                              "p": {
-                                "description": "Test goal step.",
-                                "actions": {
-                                  "enter": [
-                                    {
-                                      "badControllerActionResponseError": true
-                                    }
-                                  ],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "goal"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "A simple OPM (force controller action enter error - action transport error)"
                       },
                       "maPNVFgWTduQ5vMiDU2sEw": {
                         "id": "maPNVFgWTduQ5vMiDU2sEw",
                         "vdid": "hNWOl5AgYwdbs2nQpDU_0Q",
                         "name": "OPM Eval P3 Test #3",
-                        "description": "A simple OPM (force controller action enter error - action exception)",
-                        "process": {
-                          "name": "[maPNVFgWTduQ5vMiDU2sEw::OPM Eval P3 Test #3] APM Digraph",
-                          "description": "A simple OPM (force controller action enter error - action exception)",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            },
-                            {
-                              "u": "goal",
-                              "p": {
-                                "description": "Test goal step.",
-                                "actions": {
-                                  "enter": [
-                                    {
-                                      "badControllerActionThrowError": true
-                                    }
-                                  ],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "goal"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "A simple OPM (force controller action enter error - action exception)"
                       }
                     },
                     "opmiSpecPaths": [
@@ -455,51 +191,7 @@
                           "id": "I3ja3B00Rj-PIXnDrzQzNg",
                           "vdid": "82SjiUHO887DFsmv0J6xug",
                           "name": "OPM Eval P3 Test #1",
-                          "description": "A simple OPM (force controller action enter error - bad message)",
-                          "process": {
-                            "name": "[I3ja3B00Rj-PIXnDrzQzNg::OPM Eval P3 Test #1] APM Digraph",
-                            "description": "A simple OPM (force controller action enter error - bad message)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "noneSuchControllerAction": true
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple OPM (force controller action enter error - bad message)"
                         }
                       }
                     ],
@@ -1590,51 +1282,7 @@
                                     "id": "I3ja3B00Rj-PIXnDrzQzNg",
                                     "vdid": "82SjiUHO887DFsmv0J6xug",
                                     "name": "OPM Eval P3 Test #1",
-                                    "description": "A simple OPM (force controller action enter error - bad message)",
-                                    "process": {
-                                      "name": "[I3ja3B00Rj-PIXnDrzQzNg::OPM Eval P3 Test #1] APM Digraph",
-                                      "description": "A simple OPM (force controller action enter error - bad message)",
-                                      "vlist": [
-                                        {
-                                          "u": "uninitialized",
-                                          "p": {
-                                            "description": "Default starting process step.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": []
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "u": "goal",
-                                          "p": {
-                                            "description": "Test goal step.",
-                                            "actions": {
-                                              "enter": [
-                                                {
-                                                  "noneSuchControllerAction": true
-                                                }
-                                              ],
-                                              "exit": []
-                                            }
-                                          }
-                                        }
-                                      ],
-                                      "elist": [
-                                        {
-                                          "e": {
-                                            "u": "uninitialized",
-                                            "v": "goal"
-                                          },
-                                          "p": {
-                                            "priority": 0,
-                                            "operator": {
-                                              "always": true
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
+                                    "description": "A simple OPM (force controller action enter error - bad message)"
                                   }
                                 },
                                 "evalResponse": {
