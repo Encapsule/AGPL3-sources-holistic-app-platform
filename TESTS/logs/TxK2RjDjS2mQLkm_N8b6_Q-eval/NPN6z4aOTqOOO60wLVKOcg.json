@@ -323,7 +323,7 @@
                     },
                     "opc": {
                       "id": "O7jKS-rSpT-eQUFuRaSPrw",
-                      "iid": "nqRSGdknQkqCnCANcWOS3A",
+                      "iid": "I_4WH42GRAW3LJLnEatPyA",
                       "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller",
                       "description": "Provides shared memory and runtime automata process orchestration for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor-resident cell processes.",
                       "options": {
@@ -2016,59 +2016,59 @@
                                 },
                                 {
                                   "label": "frame 0 start APM instance binding",
-                                  "ellapsedDelta": 0,
-                                  "ellapsedTotal": 0
+                                  "ellapsedDelta": 1,
+                                  "ellapsedTotal": 1
                                 },
                                 {
                                   "label": "frame 0 end APM instance binding / start APM instance evaluation",
-                                  "ellapsedDelta": 0,
-                                  "ellapsedTotal": 0
+                                  "ellapsedDelta": 1,
+                                  "ellapsedTotal": 2
                                 },
                                 {
                                   "label": "frame 0 end APM instance evaluation",
-                                  "ellapsedDelta": 3,
-                                  "ellapsedTotal": 3
+                                  "ellapsedDelta": 7,
+                                  "ellapsedTotal": 9
                                 },
                                 {
                                   "label": "frame 1 start APM instance binding",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 9
                                 },
                                 {
                                   "label": "frame 1 end APM instance binding / start APM instance evaluation",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 9
                                 },
                                 {
                                   "label": "frame 1 end APM instance evaluation",
-                                  "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedDelta": 1,
+                                  "ellapsedTotal": 10
                                 },
                                 {
                                   "label": "frame 2 start APM instance binding",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 3
+                                  "ellapsedTotal": 10
                                 },
                                 {
                                   "label": "frame 2 end APM instance binding / start APM instance evaluation",
-                                  "ellapsedDelta": 1,
-                                  "ellapsedTotal": 4
+                                  "ellapsedDelta": 0,
+                                  "ellapsedTotal": 10
                                 },
                                 {
                                   "label": "frame 2 end APM instance evaluation",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 4
+                                  "ellapsedTotal": 10
                                 },
                                 {
                                   "label": "STOP: OPC evaluation #0 stopwatch",
                                   "ellapsedDelta": 0,
-                                  "ellapsedTotal": 4
+                                  "ellapsedTotal": 10
                                 }
                               ],
                               "name": "OPC evaluation #0 stopwatch",
-                              "timeStart": 1597020219135,
-                              "timeStop": 1597020219139,
-                              "totalMilliseconds": 4
+                              "timeStart": 1597130007196,
+                              "timeStop": 1597130007206,
+                              "totalMilliseconds": 10
                             },
                             "counts": {
                               "bindings": 3,
@@ -2445,8 +2445,8 @@
                                   }
                                 ],
                                 "name": "OPC evaluation #1 stopwatch",
-                                "timeStart": 1597020219146,
-                                "timeStop": 1597020219147,
+                                "timeStart": 1597130007216,
+                                "timeStop": 1597130007217,
                                 "totalMilliseconds": 1
                               },
                               "counts": {
@@ -2696,19 +2696,19 @@
                                   },
                                   {
                                     "label": "frame 0 end APM instance evaluation",
-                                    "ellapsedDelta": 1,
-                                    "ellapsedTotal": 1
+                                    "ellapsedDelta": 0,
+                                    "ellapsedTotal": 0
                                   },
                                   {
                                     "label": "STOP: OPC evaluation #2 stopwatch",
                                     "ellapsedDelta": 0,
-                                    "ellapsedTotal": 1
+                                    "ellapsedTotal": 0
                                   }
                                 ],
                                 "name": "OPC evaluation #2 stopwatch",
-                                "timeStart": 1597020219156,
-                                "timeStop": 1597020219157,
-                                "totalMilliseconds": 1
+                                "timeStart": 1597130007232,
+                                "timeStop": 1597130007232,
+                                "totalMilliseconds": 0
                               },
                               "counts": {
                                 "bindings": 1,

@@ -6,10 +6,10 @@
     "bugs": {
         "url": "https://github.com/Encapsule/holistic/issues"
     },
-    "buildID": "IDBSja7OR_OtLelNdLr6Og",
-    "buildSource": "adea6b76a9a2e2eceea03ed96bbac8e83039fcab",
-    "buildTime": 1596694500,
-    "codename": "jasper-tr2-wip",
+    "buildID": "t4KquTStTJmyQyNV5fPsFA",
+    "buildSource": "d04fcd40b5d34d97987639210cbdc54f9101904d",
+    "buildTime": 1597129981,
+    "codename": "trinity",
     "contributors": [
         {
             "name": "Christopher D. Russell",
@@ -40,5 +40,5 @@
         "type": "git",
         "url": "git+https://github.com/Encapsule/holistic.git"
     },
-    "version": "0.0.44"
+    "version": "0.0.45"
 }
