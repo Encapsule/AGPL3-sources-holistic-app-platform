@@ -106,7 +106,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                      "vdid": "mGu_KfG_SeEmEyCz0Zy8Sw",
+                      "vdid": "52u_KR-_SeEzEyCzi5y8Sw",
                       "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
                       "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
                       "cmat": {
@@ -116,7 +116,7 @@
                             "type": "INDEX",
                             "ZfVl9fVw9XBGHkYehCKEIg": {
                               "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                              "vdid": "mGu_KfG_SeEmEyCz0Zy8Sw",
+                              "vdid": "52u_KR-_SeEzEyCzi5y8Sw",
                               "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
                               "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
                               "type": "CM",
@@ -150,14 +150,14 @@
                               },
                               "r-JgxABoS_a-mSE2c1nvKA": {
                                 "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                "vdid": "SY4UjmKkB8foKDcy3JTnYw",
+                                "vdid": "079dO4olRnRR81FkqtCOPQ",
                                 "name": "Cell Process Manager: Process Query",
                                 "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                 "type": "ACT"
                               },
                               "L2mTv5LvT12WIYb0cYOsLA": {
                                 "id": "L2mTv5LvT12WIYb0cYOsLA",
-                                "vdid": "rHooJ4JihjGIqTPt88_QKw",
+                                "vdid": "yxXRAM9LbuW-seGzhWYG9g",
                                 "name": "Cell Process Manager Query",
                                 "description": "Performs a synchronous query of the Cell Process Manager's process digraph.",
                                 "type": "ACT"
@@ -1349,8 +1349,11 @@
                                   "____types": "jsObject",
                                   "CellProcessor": {
                                     "____types": "jsObject",
-                                    "query": {
-                                      "____types": "jsObject"
+                                    "processes": {
+                                      "____types": "jsObject",
+                                      "query": {
+                                        "____types": "jsObject"
+                                      }
                                     }
                                   }
                                 }
@@ -1360,10 +1363,10 @@
                               "____types": "jsObject"
                             },
                             "inputTypeVIID": "WP59HegrS284Hth_iKlJ5Q",
-                            "inputTypeVDID": "bi6e9RAkFYZW_yb4DKgFjQ",
+                            "inputTypeVDID": "jdyEhdD9D2LFtUiUq1yiOw",
                             "outputTypeVIID": "AmMOqx93V_LELH5sA5S39Q",
                             "outputTypeVDID": "7NzfCLYAdEOqnYzn5N59fA",
-                            "operationVDID": "Gp-yxFYU075lLbpc-mx1hg"
+                            "operationVDID": "Gi7HxFZx6b5lC8Jc-ugzhg"
                           }
                         },
                         "VNaA0AMsTXawb32xLaNGTA": {
@@ -1628,7 +1631,67 @@
                                     "process": {
                                       "____types": "jsObject",
                                       "query": {
-                                        "____types": "jsObject"
+                                        "____types": "jsObject",
+                                        "resultSets": {
+                                          "____types": "jsObject",
+                                          "____defaultValue": {
+                                            "parent": true,
+                                            "ancestors": true,
+                                            "children": true,
+                                            "descendants": true
+                                          },
+                                          "parent": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "ancestors": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "children": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "descendants": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          }
+                                        },
+                                        "queryCellProcess": {
+                                          "____label": "Query Cell Process Override",
+                                          "____description": "Allows the caller to optionally override that default action behavior to specify the cell process ID to query.",
+                                          "____types": [
+                                            "jsUndefined",
+                                            "jsObject"
+                                          ],
+                                          "cellProcessID": {
+                                            "____accept": [
+                                              "jsUndefined",
+                                              "jsString"
+                                            ]
+                                          },
+                                          "apmBindingPath": {
+                                            "____accept": [
+                                              "jsUndefined",
+                                              "jsString"
+                                            ]
+                                          },
+                                          "cellProcessNamespace": {
+                                            "____types": [
+                                              "jsUndefined",
+                                              "jsObject"
+                                            ],
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            },
+                                            "cellProcessUniqueName": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString"
+                                              ]
+                                            }
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -1636,13 +1699,120 @@
                               }
                             },
                             "outputFilterSpec": {
-                              "____types": "jsObject"
+                              "____label": "Query Cell Process Action Result",
+                              "____description": "A descriptor object returned by act call to Cell Process Manager cell process query via response.result.actionResult.",
+                              "____types": "jsObject",
+                              "query": {
+                                "____label": "Query Cell Process",
+                                "____description": "The cell process ID and apmBindingPath of the queried cell process.",
+                                "____types": "jsObject",
+                                "cellProcessID": {
+                                  "____accept": "jsString"
+                                },
+                                "apmBindingPath": {
+                                  "____accept": "jsString"
+                                },
+                                "resultSets": {
+                                  "____types": "jsObject",
+                                  "parent": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "ancestors": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "children": {
+                                    "____accept": "jsBoolean"
+                                  },
+                                  "descendants": {
+                                    "____accept": "jsBoolean"
+                                  }
+                                }
+                              },
+                              "parent": {
+                                "____label": "Parent Cell Process",
+                                "____description": "The cell process ID and apmBindingPath of the queried cell process' parent cell process.",
+                                "____types": [
+                                  "jsUndefined",
+                                  "jsObject"
+                                ],
+                                "cellProcessID": {
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsString"
+                                  ],
+                                  "____defaultValue": null
+                                },
+                                "apmBindingPath": {
+                                  "____accept": [
+                                    "jsNull",
+                                    "jsString"
+                                  ],
+                                  "____defaultValue": null
+                                }
+                              },
+                              "ancestors": {
+                                "____label": "Ancestor Cell Processes",
+                                "____description": "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' parent, it's parent...",
+                                "____types": [
+                                  "jsUndefined",
+                                  "jsArray"
+                                ],
+                                "element": {
+                                  "____label": "Ancestor Cell Process",
+                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' ancestor cell process.",
+                                  "____types": "jsObject",
+                                  "cellProcessID": {
+                                    "____accept": "jsString"
+                                  },
+                                  "apmBindingPath": {
+                                    "____accept": "jsString"
+                                  }
+                                }
+                              },
+                              "children": {
+                                "____label": "Child Cell Processes",
+                                "____description": "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' child processes.",
+                                "____types": [
+                                  "jsUndefined",
+                                  "jsArray"
+                                ],
+                                "element": {
+                                  "____label": "Child Cell Process",
+                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' child cell process(es).",
+                                  "____types": "jsObject",
+                                  "cellProcessID": {
+                                    "____accept": "jsString"
+                                  },
+                                  "apmBindingPath": {
+                                    "____accept": "jsString"
+                                  }
+                                }
+                              },
+                              "descendants": {
+                                "____label": "Descendant Cell Processes",
+                                "____description": "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' children, their children...",
+                                "____types": [
+                                  "jsUndefined",
+                                  "jsArray"
+                                ],
+                                "element": {
+                                  "____label": "Descendant Cell Process",
+                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' descendant cell process(es).",
+                                  "____types": "jsObject",
+                                  "cellProcessID": {
+                                    "____accept": "jsString"
+                                  },
+                                  "apmBindingPath": {
+                                    "____accept": "jsString"
+                                  }
+                                }
+                              }
                             },
                             "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
-                            "inputTypeVDID": "wDyOBWm67hVqpnP8dx4ZiQ",
+                            "inputTypeVDID": "whGv9nk1haRt9Oui1IEETw",
                             "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
-                            "outputTypeVDID": "7NzfCLYAdEOqnYzn5N59fA",
-                            "operationVDID": "1n9JxF5k176pT0pcaYdahg"
+                            "outputTypeVDID": "3tZXFg8_2hUlErwRa-GaWA",
+                            "operationVDID": "1uP73F72zdmp1UG_aYz-tw"
                           }
                         },
                         "_yxWfFLnTqqN-UxRdd7W5w": {
