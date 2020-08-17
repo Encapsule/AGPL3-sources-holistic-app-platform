@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "UX7JquBhSZO0QyEk7u9-sw",
-                    "vdid": "0KpwghyX00lRo8iBiU5omw",
+                    "vdid": "STOMkr9A-SQ_zk5yGaRtHA",
                     "name": "Holistic App Client Display Adapter",
                     "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
-                            "vdid": "0KpwghyX00lRo8iBiU5omw",
+                            "vdid": "STOMkr9A-SQ_zk5yGaRtHA",
                             "name": "Holistic App Client Display Adapter",
                             "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                             "type": "CM",
@@ -42,19 +42,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "Fz_Ip9fcGHuT7DW1K65JHg",
+                              "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "sotvDU4eDvyLvfetjzt9tQ",
+                                "vdid": "6-po-sADr7GVFbymhU9U_g",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "ahcWvYmR3ZsKVxvXfsuypw",
+                                  "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -74,7 +74,7 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "jcGqERNFy3KCAP8hQsD0iA",
+                                    "vdid": "euUNcasvs_3dms9bB55wFA",
                                     "name": "Holarchy Core",
                                     "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                     "type": "CM",
@@ -94,35 +94,35 @@
                                     },
                                     "RW8Y2O-kRNSv87yXT962wQ": {
                                       "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                      "vdid": "UXq8KRbzlBlMNZKG9T1l7Q",
+                                      "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
                                       "name": "Holarchy Core Logic",
                                       "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                       "type": "CM",
                                       "YgABX95wR86GCYrYaDLISA": {
                                         "id": "YgABX95wR86GCYrYaDLISA",
-                                        "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                                        "name": "AND Transition Expression Operator",
+                                        "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                                        "name": "Logical AND",
                                         "description": "Returns Boolean true iff all suboperations return true.",
                                         "type": "TOP"
                                       },
                                       "0JIva4IFSm6Xm7i38g8uUA": {
                                         "id": "0JIva4IFSm6Xm7i38g8uUA",
-                                        "vdid": "HyCocPERRAAEOSzTOspyaw",
-                                        "name": "OR Transition Expression Operator",
+                                        "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                                        "name": "Logical OR",
                                         "description": "Returns Boolean true iff any suboperations return true.",
                                         "type": "TOP"
                                       },
                                       "TLSHkl73SO-utuzM7dyN2g": {
                                         "id": "TLSHkl73SO-utuzM7dyN2g",
-                                        "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                                        "name": "NOT Transition Expression Operator",
+                                        "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                                        "name": "Logical NOT",
                                         "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                                         "type": "TOP"
                                       },
                                       "e89cwnP4Qd6MocAhzdOJgw": {
                                         "id": "e89cwnP4Qd6MocAhzdOJgw",
-                                        "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                                        "name": "Always returns Boolean true unconditionally.",
+                                        "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                                        "name": "Logical TRUE",
                                         "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                                         "type": "TOP"
                                       }
@@ -267,28 +267,34 @@
                       ],
                       "top": [
                         {
-                          "id": "YgABX95wR86GCYrYaDLISA",
-                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                          "name": "AND Transition Expression Operator",
-                          "description": "Returns Boolean true iff all suboperations return true."
-                        },
-                        {
-                          "id": "e89cwnP4Qd6MocAhzdOJgw",
-                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                          "name": "Always returns Boolean true unconditionally.",
-                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
-                        },
-                        {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
                           "vdid": "zmPeG6lSvXidCjr_XyENrQ",
                           "name": "Cell Process In Step Operator",
                           "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                         },
                         {
+                          "id": "YgABX95wR86GCYrYaDLISA",
+                          "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                          "name": "Logical AND",
+                          "description": "Returns Boolean true iff all suboperations return true."
+                        },
+                        {
                           "id": "TLSHkl73SO-utuzM7dyN2g",
-                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                          "name": "NOT Transition Expression Operator",
+                          "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                          "name": "Logical NOT",
                           "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to)."
+                        },
+                        {
+                          "id": "0JIva4IFSm6Xm7i38g8uUA",
+                          "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                          "name": "Logical OR",
+                          "description": "Returns Boolean true iff any suboperations return true."
+                        },
+                        {
+                          "id": "e89cwnP4Qd6MocAhzdOJgw",
+                          "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                          "name": "Logical TRUE",
+                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
                         },
                         {
                           "id": "oaF3-dXwQkusjD3I2o9-8g",
@@ -331,12 +337,6 @@
                           "vdid": "cNihhVrtDPl_5j7cSfcRug",
                           "name": "OCD Namespace Is Truthy",
                           "description": "Returns Boolean true iff the indicated OCD namespace is truthy."
-                        },
-                        {
-                          "id": "0JIva4IFSm6Xm7i38g8uUA",
-                          "vdid": "HyCocPERRAAEOSzTOspyaw",
-                          "name": "OR Transition Expression Operator",
-                          "description": "Returns Boolean true iff any suboperations return true."
                         }
                       ],
                       "act": [
@@ -386,7 +386,7 @@
                         "type": "INDEX",
                         "UX7JquBhSZO0QyEk7u9-sw": {
                           "id": "UX7JquBhSZO0QyEk7u9-sw",
-                          "vdid": "0KpwghyX00lRo8iBiU5omw",
+                          "vdid": "STOMkr9A-SQ_zk5yGaRtHA",
                           "name": "Holistic App Client Display Adapter",
                           "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                           "type": "CM",
@@ -406,19 +406,19 @@
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "Fz_Ip9fcGHuT7DW1K65JHg",
+                            "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "sotvDU4eDvyLvfetjzt9tQ",
+                              "vdid": "6-po-sADr7GVFbymhU9U_g",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "ahcWvYmR3ZsKVxvXfsuypw",
+                                "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -438,7 +438,7 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "jcGqERNFy3KCAP8hQsD0iA",
+                                  "vdid": "euUNcasvs_3dms9bB55wFA",
                                   "name": "Holarchy Core",
                                   "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                   "type": "CM",
@@ -458,35 +458,35 @@
                                   },
                                   "RW8Y2O-kRNSv87yXT962wQ": {
                                     "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                    "vdid": "UXq8KRbzlBlMNZKG9T1l7Q",
+                                    "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
                                     "name": "Holarchy Core Logic",
                                     "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                     "type": "CM",
                                     "YgABX95wR86GCYrYaDLISA": {
                                       "id": "YgABX95wR86GCYrYaDLISA",
-                                      "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                                      "name": "AND Transition Expression Operator",
+                                      "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                                      "name": "Logical AND",
                                       "description": "Returns Boolean true iff all suboperations return true.",
                                       "type": "TOP"
                                     },
                                     "0JIva4IFSm6Xm7i38g8uUA": {
                                       "id": "0JIva4IFSm6Xm7i38g8uUA",
-                                      "vdid": "HyCocPERRAAEOSzTOspyaw",
-                                      "name": "OR Transition Expression Operator",
+                                      "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                                      "name": "Logical OR",
                                       "description": "Returns Boolean true iff any suboperations return true.",
                                       "type": "TOP"
                                     },
                                     "TLSHkl73SO-utuzM7dyN2g": {
                                       "id": "TLSHkl73SO-utuzM7dyN2g",
-                                      "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                                      "name": "NOT Transition Expression Operator",
+                                      "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                                      "name": "Logical NOT",
                                       "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                                       "type": "TOP"
                                     },
                                     "e89cwnP4Qd6MocAhzdOJgw": {
                                       "id": "e89cwnP4Qd6MocAhzdOJgw",
-                                      "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                                      "name": "Always returns Boolean true unconditionally.",
+                                      "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                                      "name": "Logical TRUE",
                                       "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                                       "type": "TOP"
                                     }
