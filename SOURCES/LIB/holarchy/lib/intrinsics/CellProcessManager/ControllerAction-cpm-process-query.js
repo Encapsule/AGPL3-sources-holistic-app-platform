@@ -2,7 +2,9 @@
 
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
-const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
+const cpmLib = require("./lib");
+
+// const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 
 const controllerAction = new ControllerAction({
     id: "r-JgxABoS_a-mSE2c1nvKA",
@@ -144,27 +146,25 @@ const controllerAction = new ControllerAction({
                 cellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
             }
 
-            // Now we have to dereference the cell process manager's process digraph (always a single-rooted tree).
-            const cellProcessTreePath = `~.${cpmMountingNamespaceName}.cellProcessTree`;
-
-            let ocdResponse = request_.context.ocdi.readNamespace(cellProcessTreePath);
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
+            // Get a reference to the Cell Process Manager's process tree descriptor object.
+            let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
-            const cellProcessTreeData = ocdResponse.result;
+            const cellProcessTreeData = cpmLibResponse.result;
 
-            if (!cellProcessTreeData.digraph.isVertex(cellProcessID)) {
-                errors.push(`Invalid cell process apmBindingPath or cellProcessID specified in cell process query. No such cell process '${cellProcessID}'.`);
+            // Get a reference to this cell process' descriptor.
+            cpmLibResponse = cpmLib.getProcessDescriptor({ cellProcessID, treeData: cellProcessTreeData });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
-
-            const cellProcessProps = cellProcessTreeData.digraph.getVertexProperty(cellProcessID);
+            const cellProcessDescriptor = cpmLibResponse.result;
 
             response.result = {
                 query: {
-                    cellProcessID,
-                    apmBindingPath: cellProcessProps.apmBindingPath,
+                    ...cellProcessDescriptor,
                     resultSets: message.resultSets
                 }
             };
@@ -183,7 +183,7 @@ const controllerAction = new ControllerAction({
                 }
             }
 
-            // parent and it's parent...
+            // anscestors; parent and it's parent...
             if (message.resultSets.ancestors) {
                 response.result.ancestors = [];
                 let currentCellProcessID = cellProcessID;
@@ -205,7 +205,7 @@ const controllerAction = new ControllerAction({
                 }
             }
 
-            // descendants
+            // descendants; children and their children...
             if (message.resultSets.descendants) {
                 response.result.descendants = [];
                 const digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
