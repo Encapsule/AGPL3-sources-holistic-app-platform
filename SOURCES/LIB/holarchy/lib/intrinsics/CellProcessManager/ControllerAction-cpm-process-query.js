@@ -169,9 +169,8 @@ const controllerAction = new ControllerAction({
                 }
             };
 
-            const cellProcessInDegree = cellProcessTreeData.digraph.inDegree(cellProcessID);
-
             if (message.resultSets.parent) {
+                const cellProcessInDegree = cellProcessTreeData.digraph.inDegree(cellProcessID);
                 if (!cellProcessInDegree) {
                     response.result.parent = {};
                 } else {
