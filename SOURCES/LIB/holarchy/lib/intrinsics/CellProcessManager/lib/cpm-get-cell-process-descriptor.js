@@ -20,7 +20,7 @@ module.exports = function(request_) {
     while (!inBreakScope) {
         inBreakScope = true;
         if (!request_.treeData.digraph.isVertex(request_.cellProcessID)) {
-            errors.push(`Invalid cell process apmBindingPath or cellProcessID specified in cell process query. No such cell process '${request_.cellProcessID}'.`);
+            errors.push(`Invalid cellProcessID specified. No active cell process with ID '${request_.cellProcessID}'.`);
             break;
         }
         const cellProcessProps = request_.treeData.digraph.getVertexProperty(request_.cellProcessID);

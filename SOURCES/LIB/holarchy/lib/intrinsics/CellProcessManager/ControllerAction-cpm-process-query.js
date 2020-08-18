@@ -170,69 +170,42 @@ const controllerAction = new ControllerAction({
             };
 
             if (message.resultSets.parent) {
-                const cellProcessInDegree = cellProcessTreeData.digraph.inDegree(cellProcessID);
-                if (!cellProcessInDegree) {
-                    response.result.parent = {};
-                } else {
-                    const parentCellProcessID = cellProcessTreeData.digraph.inEdges(cellProcessID)[0].u;
-                    const parentCellProcessProps = cellProcessTreeData.digraph.getVertexProperty(parentCellProcessID);
-                    response.result.parent = {
-                        apmBindingPath: parentCellProcessProps.apmBindingPath,
-                        cellProcessID: parentCellProcessID
-                    }
+                cpmLibResponse = cpmLib.getProcessParentDescriptor({ cellProcessID, treeData: cellProcessTreeData });
+                if (cpmLibResponse.error) {
+                    errors.push(cpmLibResponse.error);
+                    break;
                 }
+                response.result.parent = cpmLibResponse.result;
             }
 
             // anscestors; parent and it's parent...
             if (message.resultSets.ancestors) {
-                response.result.ancestors = [];
-                let currentCellProcessID = cellProcessID;
-                while (cellProcessTreeData.digraph.inDegree(currentCellProcessID)) {
-                    currentCellProcessID = cellProcessTreeData.digraph.inEdges(currentCellProcessID)[0].u;
-                    const currentCellProcessProperties = cellProcessTreeData.digraph.getVertexProperty(currentCellProcessID);
-                    response.result.ancestors.push({ cellProcessID: currentCellProcessID, apmBindingPath: currentCellProcessProperties.apmBindingPath });
+                cpmLibResponse = cpmLib.getProcessAncestorDescriptors({ cellProcessID, treeData: cellProcessTreeData });
+                if (cpmLibResponse.error) {
+                    errors.push(cpmLibResponse.error);
+                    break;
                 }
+                response.result.ancestors = cpmLibResponse.result;
             }
 
             // children
             if (message.resultSets.children) {
-                response.result.children = [];
-                const outEdges = cellProcessTreeData.digraph.outEdges(cellProcessID);
-                for (let index in outEdges) {
-                    const childCellProcessID = outEdges[index].v;
-                    const childCellProcessProperties = cellProcessTreeData.digraph.getVertexProperty(childCellProcessID);
-                    response.result.children.push({ cellProcessID: childCellProcessID, apmBindingPath: childCellProcessProperties.apmBindingPath });
+                cpmLibResponse = cpmLib.getProcessChildrenDescriptors({ cellProcessID, treeData: cellProcessTreeData });
+                if (cpmLibResponse.error) {
+                    errors.push(cpmLibResponse.error);
+                    break;
                 }
+                response.result.children = cpmLibResponse.result;
             }
 
             // descendants; children and their children...
             if (message.resultSets.descendants) {
-                response.result.descendants = [];
-                const digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
-                    digraph: cellProcessTreeData.digraph,
-                    options: { startVector: [ cellProcessID ] },
-                    visitor: {
-                        discoverVertex: function(visitorRequest_) {
-                            if (visitorRequest_.u === cellProcessID) {
-                                // exclude the query cell process
-                                return true;
-                            }
-                            const descendantCellProcessID = visitorRequest_.u;
-                            const descendantCellProcessProperties = visitorRequest_.g.getVertexProperty(descendantCellProcessID);
-                            response.result.descendants.push({ cellProcessID: descendantCellProcessID, apmBindingPath: descendantCellProcessProperties.apmBindingPath });
-                            return true;
-                        }
-                    }
-                });
-                if (digraphTraversalResponse.error) {
-                    errors.push(digraphTraversalResponse.error);
+                cpmLibResponse = cpmLib.getProcessDescendantDescriptors({ cellProcessID, treeData: cellProcessTreeData });
+                if (cpmLibResponse.error) {
+                    errors.push(cpmLibResponse.error);
                     break;
                 }
-
-                if (digraphTraversalResponse.result.searchStatus !== "completed") {
-                    errors.push(`Internal validation error performing breadth-first visit of cell process digraph from cellProcessID = '${cellProcessID}'. Search did not complete?!`);
-                    break;
-                }
+                response.result.descendants = cpmLibResponse.result;
             }
             break;
         }

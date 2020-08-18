@@ -8,6 +8,11 @@
 module.exports = {
 
     getProcessTreeData: require("./cpm-get-cell-process-tree-data"),
-    getProcessDescriptor: require("./cpm-get-cell-process-descriptor")
+    getProcessDescriptor: require("./cpm-get-cell-process-descriptor"),
+    getProcessParentDescriptor: require("./cpm-get-cell-process-parent-descriptor"),
+    getProcessAncestorDescriptors: require("./cpm-get-cell-process-ancestor-descriptors"),
+    getProcessChildrenDescriptors: require("./cpm-get-cell-process-children-descriptors"),
+    getProcessDescendantDescriptors: require("./cpm-get-cell-process-descendant-descriptors")
 
-}
+};
+
