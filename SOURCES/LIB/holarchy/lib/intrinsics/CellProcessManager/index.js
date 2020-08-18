@@ -9,6 +9,8 @@ module.exports = {
         require("./ControllerAction-cpm-process-query"),
         require("./ControllerAction-cpm-query")
     ],
-    operators: [],
+    operators: [
+        require("./TransitionOperator-cpm-child-processes-active")
+    ],
     models: []
 };
