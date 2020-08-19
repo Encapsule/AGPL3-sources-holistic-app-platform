@@ -150,7 +150,7 @@ const factoryResponse = arccore.filter.create({
                     }
                 },
                 actions: CellProcessManager.actions,
-                transitions: CellProcessManager.transitions,
+                operators: CellProcessManager.operators,
                 subcells: [
                     HolarchyCore,
                     request_.cellmodel

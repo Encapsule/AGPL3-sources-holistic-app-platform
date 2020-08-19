@@ -186,7 +186,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "DPUM9XpwenDTHtMepiKmIg",
-                      "vdid": "WEovhcBoExscwgD2JkBpng",
+                      "vdid": "J9bEFGxSFdoSFAiCMHX9hg",
                       "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                       "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                       "cmat": {
@@ -196,7 +196,7 @@
                             "type": "INDEX",
                             "DPUM9XpwenDTHtMepiKmIg": {
                               "id": "DPUM9XpwenDTHtMepiKmIg",
-                              "vdid": "WEovhcBoExscwgD2JkBpng",
+                              "vdid": "J9bEFGxSFdoSFAiCMHX9hg",
                               "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                               "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                               "type": "CM",
@@ -206,6 +206,13 @@
                                 "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
                                 "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                                 "type": "APM"
+                              },
+                              "xIRhBHueTRGO0xq63UUbyQ": {
+                                "id": "xIRhBHueTRGO0xq63UUbyQ",
+                                "vdid": "cT_fCJmZJexRZccVvL74_A",
+                                "name": "Cell Process Manager: Child Processes Active",
+                                "description": "Returns Boolean true iff the specified apmBindingAddress is a registered cell process that has active child cell processes.",
+                                "type": "TOP"
                               },
                               "VNaA0AMsTXawb32xLaNGTA": {
                                 "id": "VNaA0AMsTXawb32xLaNGTA",
@@ -837,14 +844,14 @@
                       },
                       "transitionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "25km7hdVdZbvUQMVNrDrxQ",
+                          "operationID": "WyjsaKDxx5dGBodNbMBb8w",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
+                          "inputTypeVIID": "RhwOuuOBcEROXABgtK9ztQ",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
+                          "outputTypeVIID": "V58RYhjvIDi9AmWd_xSRSQ",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
+                          "operationVDID": "qD30E_fONVeCMo7t89IUtA"
                         },
                         "supportedFilters": [
                           "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -858,7 +865,8 @@
                           "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                           "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                           "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
-                          "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                          "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
+                          "[xIRhBHueTRGO0xq63UUbyQ::Cell Process Manager: Child Processes Active]"
                         ],
                         "options": {
                           "action": "getFilter"
@@ -926,6 +934,57 @@
                             "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                             "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
+                          }
+                        },
+                        "xIRhBHueTRGO0xq63UUbyQ": {
+                          "filterDescriptor": {
+                            "operationID": "xIRhBHueTRGO0xq63UUbyQ",
+                            "operationName": "Cell Process Manager: Child Processes Active",
+                            "operationDescription": "Returns Boolean true iff the specified apmBindingAddress is a registered cell process that has active child cell processes.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Child Processes Active Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "childProcessesActive": {
+                                      "____types": "jsObject"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "4UQ1MuswyqVTGQqxY3GkxQ",
+                            "inputTypeVDID": "1PVrPlH2HVbCSK25wGN4JQ",
+                            "outputTypeVIID": "IlcDahOM8PmLJGCSc8LYWA",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "RX7CRKRS1JNesQqcUhvZcg"
                           }
                         },
                         "YgABX95wR86GCYrYaDLISA": {
@@ -2594,14 +2653,14 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "25km7hdVdZbvUQMVNrDrxQ",
+                                                  "operationID": "WyjsaKDxx5dGBodNbMBb8w",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
+                                                  "inputTypeVIID": "RhwOuuOBcEROXABgtK9ztQ",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
+                                                  "outputTypeVIID": "V58RYhjvIDi9AmWd_xSRSQ",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
+                                                  "operationVDID": "qD30E_fONVeCMo7t89IUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -2615,7 +2674,8 @@
                                                   "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                                                   "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                                                   "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
-                                                  "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                  "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
+                                                  "[xIRhBHueTRGO0xq63UUbyQ::Cell Process Manager: Child Processes Active]"
                                                 ],
                                                 "options": {
                                                   "action": "getFilter"
@@ -2742,14 +2802,14 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "25km7hdVdZbvUQMVNrDrxQ",
+                                                  "operationID": "WyjsaKDxx5dGBodNbMBb8w",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
+                                                  "inputTypeVIID": "RhwOuuOBcEROXABgtK9ztQ",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
+                                                  "outputTypeVIID": "V58RYhjvIDi9AmWd_xSRSQ",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
+                                                  "operationVDID": "qD30E_fONVeCMo7t89IUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -2763,7 +2823,8 @@
                                                   "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                                                   "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                                                   "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
-                                                  "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                  "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
+                                                  "[xIRhBHueTRGO0xq63UUbyQ::Cell Process Manager: Child Processes Active]"
                                                 ],
                                                 "options": {
                                                   "action": "getFilter"
@@ -3134,14 +3195,14 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "25km7hdVdZbvUQMVNrDrxQ",
+                                                    "operationID": "WyjsaKDxx5dGBodNbMBb8w",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
+                                                    "inputTypeVIID": "RhwOuuOBcEROXABgtK9ztQ",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
+                                                    "outputTypeVIID": "V58RYhjvIDi9AmWd_xSRSQ",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
+                                                    "operationVDID": "qD30E_fONVeCMo7t89IUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -3155,7 +3216,8 @@
                                                     "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                                                     "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                                                     "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
-                                                    "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                    "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
+                                                    "[xIRhBHueTRGO0xq63UUbyQ::Cell Process Manager: Child Processes Active]"
                                                   ],
                                                   "options": {
                                                     "action": "getFilter"
@@ -3370,14 +3432,14 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "25km7hdVdZbvUQMVNrDrxQ",
+                                                    "operationID": "WyjsaKDxx5dGBodNbMBb8w",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
+                                                    "inputTypeVIID": "RhwOuuOBcEROXABgtK9ztQ",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
+                                                    "outputTypeVIID": "V58RYhjvIDi9AmWd_xSRSQ",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
+                                                    "operationVDID": "qD30E_fONVeCMo7t89IUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -3391,7 +3453,8 @@
                                                     "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                                                     "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                                                     "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
-                                                    "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
+                                                    "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
+                                                    "[xIRhBHueTRGO0xq63UUbyQ::Cell Process Manager: Child Processes Active]"
                                                   ],
                                                   "options": {
                                                     "action": "getFilter"

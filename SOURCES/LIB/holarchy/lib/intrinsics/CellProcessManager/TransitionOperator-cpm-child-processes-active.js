@@ -9,7 +9,7 @@ module.exports = new TransitionOperator({
     name: "Cell Process Manager: Child Processes Active",
     description: "Returns Boolean true iff the specified apmBindingAddress is a registered cell process that has active child cell processes.",
 
-    operationRequestSpec: {
+    operatorRequestSpec: {
         ____types: "jsObject",
         holarchy: {
             ____types: "jsObject",
