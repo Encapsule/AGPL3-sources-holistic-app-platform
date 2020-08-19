@@ -22,7 +22,22 @@ const controllerAction = new ControllerAction({
                         ____types: "jsObject",
                         apmID: { ____accept: "jsString" },
                         cellProcessUniqueName: { ____accept: [ "jsUndefined", "jsString" ] },
-                        cellProcessInitData: { ____accept: "jsObject", ____defaultValue: {} }
+                        cellProcessInitData: { ____accept: "jsObject", ____defaultValue: {} },
+                        parentCellProcess: {
+                            ____label: "Parent Cell Process Override",
+                            ____description: "Explicitly overrides default action behavior of using #, the action's outer apmBindingPath value, as the parent cell process for the new cell process.",
+                            ____types: [ "jsUndefined", "jsObject" ],
+                            // Either of
+                            cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] }, // Preferred
+                            // ... or
+                            apmBindingPath: { ____accept: [ "jsUndefined", "jsString" ] }, // Equivalent, but less efficient
+                            // ... or
+                            cellProcessNamespace: {
+                                ____types: [ "jsUndefined", "jsObject" ],
+                                apmID: { ____accept: "jsString" },
+                                cellProcessUniqueName: { ____accept: [ "jsUndefined", "jsString" ] }
+                            }
+                        }
                     }
                 }
             }
