@@ -58,7 +58,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                         ____opaque: true
                     }
                 },
-                ocdJSON: { ____accept: "jsObject" }
+                ocdJSON: { ____accept: [ "jsUndefined", "jsObject" ] }
             }
         }
     },
@@ -100,8 +100,6 @@ const factoryResponse = holodeck.harnessFactory.request({
 
             messageBody.actRequests.forEach((actRequest_) => {
 
-                delete cpInstance._private.opc._private.lastEvaluationResponse; // why? I got this from OPC test harness. Need to look into this...
-
                 if (!cpInstance.isValid()) {
                     response.result.actionEvaluations.push({
                         actRequest: actRequest_,
@@ -109,6 +107,8 @@ const factoryResponse = holodeck.harnessFactory.request({
                     });
                     return;
                 }
+
+                delete cpInstance._private.opc._private.lastEvaluationResponse; // why? I got this from OPC test harness. Need to look into this...
 
                 let actResponse = cpInstance.act(actRequest_);
 

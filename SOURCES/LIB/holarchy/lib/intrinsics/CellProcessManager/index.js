@@ -1,5 +1,12 @@
 
 
+// These are considered inputs to the CellProcess::constructor filter that constructs the core
+// the Cell Process Manager CellModel using synthesized ObservableCellData spec + these reusable
+// core operator and action plug-ins (i.e. these are declared as part of Cell Process Manager's
+// CellModel. Or, you can think of it as a partial specification of the Cell Process Manager model;
+// the app/service-independent parts only are specified and the rest is only knowable at CellProcessor
+// construction time via analysis of the CellModel passed in to start the show...
+
 module.exports = {
 
     actions: [
@@ -10,7 +17,14 @@ module.exports = {
         require("./ControllerAction-cpm-query")
     ],
     operators: [
-        require("./TransitionOperator-cpm-child-processes-active")
+        require("./TransitionOperator-cpm-child-processes-active"),
+        require("./TransitionOperator-cpm-child-processes-all-in-step"),
+        require("./TransitionOperator-cpm-child-processes-any-in-step"),
+        require("./TransitionOperator-cpm-descendant-processes-any-in-step"),
+        require("./TransitionOperator-cpm-descendant-processes-active"),
+        require("./TransitionOperator-cpm-descendant-processes-all-in-step"),
+        require("./TransitionOperator-cpm-parent-process-in-step")
+        
     ],
     models: []
 };

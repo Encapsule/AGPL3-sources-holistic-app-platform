@@ -64,7 +64,7 @@ const controllerAction = new ControllerAction({
             // This is closely coupled w/the CellProcessor constructor filter.
             const apmProcessesNamespace = `~.${message.apmID}_CellProcesses`;
 
-            // Query the ObservableCellData instance (ocdi) to determine if the apmID value passed by the caller is legitimate.
+            // Query the ObservableCellData instance (ocdi) to determine if the apmID value passed by the caller induces an apmProcessNamespace value that's been pre-defined by the CellProcessor constructor.
             let ocdResponse = request_.context.ocdi.getNamespaceSpec(apmProcessesNamespace);
             if (ocdResponse.error) {
                 errors.push(`Invalid apmID value '${message.apmID}' specified. No CellModel registered in this CellProcessor based on this AbstractProcessModel.`);
@@ -89,9 +89,37 @@ const controllerAction = new ControllerAction({
             // ... from which we can now derive the new cell process ID (proposed).
             const cellProcessID = arccore.identifier.irut.fromReference(apmBindingPath).result;
 
-            // ... And, while we're at it we'll need the ID of the proposed parent cell process as well.
-            const parentCellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
+            // Now we need to determine the actual cellProcessID of cell process that is to be assigned as the parent of the new child cell process.
+            // NOTE: The CPM's cell process tree structure is used for managing the lifespan of cell processes; deleting a cell process via delete
+            // process action will delete that cell process and all its decendants.
 
+            let parentCellProcessID;
+
+            if (!message.parentCellProcess) {
+                parentCellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
+            } else {
+
+            }
+
+            parentCellProcessID = (
+                !message.parentCellProcess? // if no override...
+                    (arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result) // ... IRUT hash the outer context.apmBindingPath (aka #)
+                    :
+                    ( // else if override
+                        message.parentCellProcess.cellProcessID? // ... If the override specifies a cellProcessID ...
+                            (message.parentCellProcess.cellProcessID) // ... use it
+                            :
+                            ( // else
+                                message.apmBindingPath? // ... If the override specifies an apmBindingPath ...
+                                    (arccore.identifier.irut.fromReference(message.parentCellProcess.apmBindingPath).result) // ... use it
+                                    : // else
+                                    // ... deduce from apmID, cellProcessUniqueName and path conventions defined by CellProcess and CPM.
+                                    (arccore.identifier.irut.fromReference(`~.${message.parentCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.parentCellProcess.cellProcessNamespace.cellProcessUniqueName).result}`).result)
+                            )
+                    )
+            );
+
+            // TODO: Convert to cpmLib call.
             // Now we have to dereference the cell process manager's cell process tree digraph runtime model
             const cellProcessTreePath = `~.${cpmMountingNamespaceName}.cellProcessTree`;
 

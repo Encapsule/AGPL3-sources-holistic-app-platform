@@ -7,7 +7,7 @@ const TransitionOperator = require("../../TransitionOperator");
 module.exports = new TransitionOperator({
     id: "xIRhBHueTRGO0xq63UUbyQ",
     name: "Cell Process Manager: Child Processes Active",
-    description: "Returns Boolean true iff the specified apmBindingAddress is a registered cell process that has active child cell processes.",
+    description: "Returns Boolean true iff request.context.apmBindingPath is a cell process with one or more child cell processes.",
 
     operatorRequestSpec: {
         ____types: "jsObject",
@@ -34,7 +34,7 @@ module.exports = new TransitionOperator({
                 break;
             }
             const cellProcessTreeData = cpmLibResponse.result;
-            cpmLibResponse = cpmLib.getChildrenDescriptors({
+            cpmLibResponse = cpmLib.getProcessChildrenDescriptors({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
                 treeData: cellProcessTreeData
             });

@@ -23,7 +23,7 @@ module.exports = [
                                     name: "CPM Child Process Active Operator Test Process",
                                     description: "Test process",
                                     steps: {
-                                        unitialized: {
+                                        uninitialized: {
                                             description: "Default step",
                                             transitions: [
                                                 { transitionIf: { always: true }, nextStep: "wait" }
@@ -76,8 +76,15 @@ module.exports = [
                                         CellProcessor: {
                                             process: {
                                                 create: {
+                                                    // Optionally override the default parent process specification.
+                                                    parentCellProcess: {
+                                                        cellProcessNamespace: {
+                                                            apmID: "LVjhjYUcQXOYcbI_xbepJQ",
+                                                            cellProcessUniqueName: "Test Process A"
+                                                        }
+                                                    },
                                                     apmID: "LVjhjYUcQXOYcbI_xbepJQ",
-                                                    cellProcessUniqueName: "Test Process B"
+                                                    cellProcessUniqueName: "Test Process B",
                                                 }
                                             }
                                         }
