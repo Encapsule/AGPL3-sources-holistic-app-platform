@@ -5,7 +5,7 @@ const TransitionOperator = require("../../TransitionOperator");
 
 module.exports = new TransitionOperator({
     id: "5P2MHjL4TXCqScp_xNrJyA",
-    name: "Cell Proces Manager: Child Processes All In Step",
+    name: "Cell Process Manager: Child Processes All In Step",
     description: "Returns Boolean true request.context.apmBindingPath is a cell process whose child processes are all in the specified process step.",
     operatorRequestSpec: {
         ____types: "jsObject",
