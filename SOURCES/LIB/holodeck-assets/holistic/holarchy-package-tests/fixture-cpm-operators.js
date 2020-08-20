@@ -12,10 +12,15 @@ module.exports = { // CellModel declaration
             uninitialized: {
                 description: "Default step",
                 transitions: [
-                    { transitionIf: { always: true }, nextStep: "wait" }
+                    {
+                        transitionIf: {
+                            always: true
+                        },
+                        nextStep: "wait_for_child_processes"
+                    }
                 ]
             },
-            wait: {
+            wait_for_child_processes: {
                 description: "Wait for an active child process.",
                 transitions: [
                     {
@@ -26,12 +31,27 @@ module.exports = { // CellModel declaration
                                 }
                             }
                         },
-                        nextStep: "test_goal"
+                        nextStep: "has_child_processes_wait_descendant_processes"
                     }
                 ]
             },
-            test_goal: {
-                description: "The test passes if we reach this step."
+            has_child_processes_wait_descendant_processes: {
+                description: "The test cell process has one or more children cell processes.",
+                transitions: [
+                    {
+                        transitionIf: {
+                            holarchy: {
+                                CellProcessor: {
+                                    descendantProcessesActive: {}
+                                }
+                            }
+                        },
+                        nextStep: "has_descendant_processes"
+                    }
+                ]
+            },
+            has_descendant_processes: {
+                description: "The test cell process has at least one child cell process that has one or more children."
             }
         }
     }

@@ -1,5 +1,6 @@
 // TransitionOperator-cpm-descendant-processes-active.js
 
+const arccore = require("@encapsule/arccore");
 const cpmLib = require("./lib");
 const TransitionOperator = require("../../TransitionOperator");
 
