@@ -28,9 +28,7 @@ const cellModel = new holarchy.CellModel({
                 },
                 transitions: [
                     { transitionIf: { always: true }, nextStep: "ready" }
-                ],
-                
-
+                ]
             },
 
             ready: {

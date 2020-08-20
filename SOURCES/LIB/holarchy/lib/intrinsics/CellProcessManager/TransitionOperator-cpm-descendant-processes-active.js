@@ -23,7 +23,32 @@ module.exports = new TransitionOperator({
     },
 
     bodyFunction: function(request_) {
-        // Not implemented yet...
-        return { error: null, result: false };
+        let response = { error: null, result: false };
+        let errors = [];
+        let inBreakScope = false;
+        while (!inBreakScope) {
+            inBreakScope = true;
+            let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+            const cellProcessTreeData = cpmLibResponse.result;
+            cpmLibResponse = cpmLib.getProcessDescendantDescriptors({
+                cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
+                treeData: cellProcessTreeData
+            });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+            const descendantCellProcessDescriptors = cpmLibResponse.result;
+            response.result = descendantCellProcessDescriptors.length?true:false;
+            break;
+        }
+        if (errors.length) {
+            response.error = errors.join(" ");
+        }
+        return response;
     }
 });
