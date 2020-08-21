@@ -80,7 +80,7 @@ const controllerAction = new ControllerAction({
                 (message.cellProcessUniqueName?
                  arccore.identifier.irut.fromReference(message.cellProcessUniqueName).result
                  :
-                 arccore.identifier.irut.fromEther().result
+                 arccore.identifier.irut.fromEther()
                 );
 
             // ... from which we can now derive the absolute OCD path of the new cell process (proposed).
@@ -147,7 +147,7 @@ const controllerAction = new ControllerAction({
             // Attempt to initialize the new cell process' shared memory.
             ocdResponse = request_.context.ocdi.writeNamespace(apmBindingPath, message.cellProcessInitData);
             if (ocdResponse.error) {
-                errors.push(`Failed to create cell process at OCD path '${apmBindingPath}' due to problems with the process initialization data specified.`);
+                errors.push(`Failed to create cell process at path '${apmBindingPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);
             }
 

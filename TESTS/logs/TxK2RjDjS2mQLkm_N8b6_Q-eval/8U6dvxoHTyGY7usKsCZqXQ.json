@@ -186,7 +186,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "DPUM9XpwenDTHtMepiKmIg",
-                      "vdid": "t93pYXEGBy02JKk5NB7MjQ",
+                      "vdid": "LN3pYSYGBy2HJKk58h7MjQ",
                       "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                       "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                       "cmat": {
@@ -196,7 +196,7 @@
                             "type": "INDEX",
                             "DPUM9XpwenDTHtMepiKmIg": {
                               "id": "DPUM9XpwenDTHtMepiKmIg",
-                              "vdid": "t93pYXEGBy02JKk5NB7MjQ",
+                              "vdid": "LN3pYSYGBy2HJKk58h7MjQ",
                               "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                               "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                               "type": "CM",
@@ -216,7 +216,7 @@
                               },
                               "5P2MHjL4TXCqScp_xNrJyA": {
                                 "id": "5P2MHjL4TXCqScp_xNrJyA",
-                                "vdid": "E2EDRFIVSaxCRzYNdFO10Q",
+                                "vdid": "VNZVczSCgyC66HK2MNfGGw",
                                 "name": "Cell Process Manager: Child Processes All In Step",
                                 "description": "Returns Boolean true request.context.apmBindingPath is a cell process whose child processes are all in the specified process step.",
                                 "type": "TOP"
@@ -1072,7 +1072,13 @@
                                     "childProcessesAllInStep": {
                                       "____types": "jsObject",
                                       "apmStep": {
-                                        "____accept": "jsString"
+                                        "____types": [
+                                          "jsString",
+                                          "jsArray"
+                                        ],
+                                        "stepName": {
+                                          "____accept": "jsString"
+                                        }
                                       }
                                     }
                                   }
@@ -1083,10 +1089,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "CyItwqKglka3fL_yymT2Hw",
-                            "inputTypeVDID": "kENN31rCO2IDcX-AmBIx0Q",
+                            "inputTypeVDID": "aiNRLFKwUrh6U1vmeUILgA",
                             "outputTypeVIID": "2lRyd2mNBpsj8UUItbMgfA",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "x3GrRN7CDpNL3Secp7Rocg"
+                            "operationVDID": "x_U6RN40JZNLnrGcp4Vpcg"
                           }
                         },
                         "esuJGgmERrSV3AFvFOMyhw": {

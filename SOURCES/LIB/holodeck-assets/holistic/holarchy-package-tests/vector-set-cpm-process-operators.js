@@ -19,6 +19,7 @@ module.exports = [
                             cellmodel: testFixtureModel,
                         },
                         actRequests: [
+
                             {
                                 actorName: "CPM Child Processes Active Test",
                                 actorTaskDescription: "Start the first process instance. We will use this process as our test.",
@@ -35,6 +36,7 @@ module.exports = [
                                     }
                                 }
                             },
+
                             {
                                 actorName: "CPM Child Processes Active Test",
                                 actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
@@ -57,7 +59,27 @@ module.exports = [
                                         }
                                     }
                                 }
+                            },
+
+                            {
+                                actorName: "CPM Child Processes Active Test",
+                                actorTaskDescription: "Start an interval timer process for debugging purposes.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "vWteGvhLQZq5C_OXd4p7Ig",
+                                                    cellProcessUniqueName: "Interval Timer #1",
+                                                    cellProcessInitData: { construction: { timeoutMs: 5000 } }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
+
+
                         ]
                     }
                 }
