@@ -31,6 +31,23 @@ module.exports = { // CellModel declaration
                                 }
                             }
                         },
+                        nextStep: "wait_for_child_processes_all_in_step"
+                    }
+                ]
+            },
+            wait_for_child_processes_all_in_step: {
+                description: "Wait for all child processes to reach goal step.",
+                transitions: [
+                    {
+                        transitionIf: {
+                            holarchy: {
+                                CellProcessor: {
+                                    childProcessesAllInStep: {
+                                        apmStep: "NEVER_HAPPENS"
+                                    }
+                                }
+                            }
+                        },
                         nextStep: "has_child_processes_wait_descendant_processes"
                     }
                 ]
@@ -51,7 +68,7 @@ module.exports = { // CellModel declaration
                 ]
             },
             has_descendant_processes: {
-                description: "The test cell process has at least one child cell process that has one or more children."
+                description: "The test cell process has at least one child cell process that has one or more children.",
             }
         }
     }
