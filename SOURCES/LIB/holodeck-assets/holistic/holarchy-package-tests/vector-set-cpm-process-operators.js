@@ -1,6 +1,6 @@
 // vector-set-cpm-process-operators.js
 
-const testFixtureModel = require("./fixture-cpm-operators");
+const testFixtureModel = require("./fixture-cpm");
 
 module.exports = [
 
