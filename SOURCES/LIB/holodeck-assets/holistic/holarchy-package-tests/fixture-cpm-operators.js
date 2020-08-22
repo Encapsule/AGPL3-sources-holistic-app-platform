@@ -134,7 +134,10 @@ module.exports = { // CellModel declaration
 
                     // ----------------------------------------------------------------
                     wait_timeout_timer: {
-                        description: "Waiting for the timeout timer to complete."
+                        description: "Waiting for the timeout timer to complete.",
+                        transitions: [
+                            { transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.outputs.timeoutEllapsed" } } } } } }, nextStep: "timeout_timer_expired" }
+                        ]
                     }, // wait_timeout_timer
 
                     // ----------------------------------------------------------------
@@ -142,7 +145,6 @@ module.exports = { // CellModel declaration
                         description: "The specified timeout has ellapsed."
                     } // timeout_timer_expired
 
-                    
                 } // timeout timer steps
             }, // timeout timer apm
 
@@ -181,13 +183,28 @@ module.exports = { // CellModel declaration
                             const timeoutTimer = setTimeout(
                                 function() {
                                     console.log("YOOOOO!!!!");
+
+                                    const actionRequest = {
+                                        actorName: "External setTimeout Callback",
+                                        actorTaskDescription: "Process the timeout timer event.",
+                                        actionRequest: { completeTimeoutTimer: {} },
+                                        apmBindingPath: request_.context.apmBindingPath
+                                    };
+
+                                    let actionResponse = request_.context.act(actionRequest);
+                                    if (actionResponse.error) {
+                                        // TODO: We do not have any standard way of dealing with this sort of thing now.
+                                        throw new Error(actionResponse.error);
+                                    }
+
+                                    // and return to code we do not control
                                 },
                                 cellMemory.construction.timeoutMs
                             );
 
                             ocdResponse = OCD.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.private.timeoutTimer" });
                             if (ocdResponse.error) {
-                                clearTimeout(timerID);
+                                clearTimeout(timeoutTimer);
                                 errors.push(ocdResponse.error);
                                 break;
                             }
@@ -196,7 +213,7 @@ module.exports = { // CellModel declaration
 
                             ocdResponse = request_.context.ocdi.writeNamespace(pathTimeoutTimer, timeoutTimer);
                             if (ocdResponse.error) {
-                                clearTimeout(timerID);
+                                clearTimeout(timeoutTimer);
                                 errors.push(ocdResponse.error);
                                 break;
                             }
@@ -213,7 +230,7 @@ module.exports = { // CellModel declaration
 
                 {
                     id: "VHByX1LLQSuKIAQW4Ws0Aw",
-                    name: "Mark Timeout Timer Expired Action",
+                    name: "Complete Timeout Timer Expired Action",
                     description: "Inform the timeout timer cell process that the timeout timer has expired; the time timeout has ellapsed.",
 
                     actionRequestSpec: {
@@ -245,7 +262,7 @@ module.exports = { // CellModel declaration
                             }
                             let cellMemory = ocdResponse.result;
 
-                            cellMemory.private.timerID = null;
+                            cellMemory.private.timeoutTimer = null;
                             cellMemory.outputs.timeoutEllapsed = cellMemory.construction.timeoutMs;
 
                             ocdResponse = request_.context.ocdi.writeNamespace(request_.context.apmBindingPath, cellMemory);
@@ -267,11 +284,10 @@ module.exports = { // CellModel declaration
             ],
 
             subcells: [ holarchyCM ]
-            
+
         } // timeout timer cell
 
+    ] // CPM Child Process Active Operator Test Model subcells
 
-    ]
-               
 };
 
