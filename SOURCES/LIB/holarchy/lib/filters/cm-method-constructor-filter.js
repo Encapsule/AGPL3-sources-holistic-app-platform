@@ -126,6 +126,8 @@ const factoryResponse = arccore.filter.create({
                           evaluates...
                         */
                         // Ensure we haven't processed this IRUT previously as per above.
+                        // artifactID is the ID of the artifact that we are attempting to process
+                        // digraph is the CellModel artifact tree of the CellModel we're currently building
                         if (digraph.isVertex(artifactID)) {
                             // If the vertex already exists in the digraph, then this registration specifies a duplicate IRUT ID.
                             errors.push(`Bad ${pcmr_.type} registration: The ${pcmr_.type} instance specifies a duplicate IRUT id='${artifactID}' that is illegal in this context.`);
@@ -156,13 +158,14 @@ const factoryResponse = arccore.filter.create({
                         break;
 
                     case "CM":
-                        // A subcell is just a CellModel ES6 class instance.
+                        // We are attempting to register a subcell model as a dependency of a CellModel.
+                        // Here, artifact is reference to a CellModel instance.
                         const subcellVertices = artifact._private.digraph.getVertices();
                         for (let i = 0 ; i < subcellVertices.length ; i++) {
                             const subcellVertex = subcellVertices[i];
                             if (digraph.isVertex(subcellVertex)) {
-                                const aProps = digraph.getVertexProperty(subcellVertex);
-                                const bProps = artifact._private.digraph.getVertexProperty(subcellVertex);
+                                const aProps = digraph.getVertexProperty(subcellVertex); // The property descriptor of the artifact vertex in the CellModel we're building.
+                                const bProps = artifact._private.digraph.getVertexProperty(subcellVertex); // The property descriptor of the artifact vertex in the CellModel we're processing for merge
                                 if (aProps.type !== bProps.type) {
                                     errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
                                     errors.push(`CellModel id='${artifactID}' ${bProps.type} registration id='${bProps.artifact.getID()}' specifies illegal duplicate IRUT ID.`);
@@ -174,7 +177,10 @@ const factoryResponse = arccore.filter.create({
                                         errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
                                         errors.push(`CellModel id='${artifactID}' includes a prior definition of CellModel id='${request_.id}' that we're currently trying to define.`);
                                         continue;
-                                    } // if the developer is confused, sloppy w/cut-and-paste, or has just made a simple coding mistake w/require/import
+                                    } // if the developer is confused, sloppy w/cut-and-paste, or has just made a simple coding mistake w/require/import that introduces a definition cycle in the CellModel artifact tree
+                                    if (!bProps.artifact) {
+                                        bProps.artifact = artifact; // because a CellModel will always include a vertex for itself. But, will never link itself to the vertex props because causes the digraph to become non-serializable
+                                    }
                                     const aVDID = aProps.artifact.getVDID();
                                     const bVDID = bProps.artifact.getVDID();
                                     if (aVDID !== bVDID) {
