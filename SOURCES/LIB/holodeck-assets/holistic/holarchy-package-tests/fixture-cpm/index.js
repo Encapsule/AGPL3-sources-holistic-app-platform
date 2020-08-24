@@ -7,7 +7,7 @@ const cellModel = new holarchy.CellModel({ // CellModel declaration
     name: "@encapsule/holarchy CellProcessor Test Model",
     description: "A wrapper for other CellModels defined to facilitate testing of the CellProcessor's intrinsic Cell Process Manager cell process operators and actions.",
     subcells: [
-        require("./cpm-test-model-operator-childProcessesActive")
+        require("./cellmodel-cpm-test-operator-childProcessesActive")
     ] // CPM Child Process Active Operator Test Model subcells
 });
 
