@@ -4,6 +4,76 @@ const testFixtureModel = require("./fixture-cpm");
 
 module.exports = [
 
+    // CPM Ancestor Processes Active
+    {
+        id: "XyAdaaZ_S9OTkRuwBYe4Ew",
+        name: "CPM Ancestor Processes Active Test",
+        description: "Tests the CPM ancestor processes active operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "XyAdaaZ_S9OTkRuwBYe4Ew",
+                            name: "CPM Ancestor Processes Active Test",
+                            description: "Tests the CPM ancestor processes active operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Ancestor Processes All In Step
+    {
+        id: "vzOf_2LZTgG7PSWqr_JzgA",
+        name: "CPM Ancestor Processes All In Step Operator Test",
+        description: "Tests the CPM descendant processes all in step transition operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "vzOf_2LZTgG7PSWqr_JzgA",
+                            name: "CPM Ancestor Processes All In Step Operator Test",
+                            description: "Tests the CPM descendant processes all in step transition operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Ancestor Processes Any In Step
+    {
+        id: "FLusrxY-QpulvQ5jpazAgg",
+        name: "CPM Ancestor Processes Any In Step Operator Test",
+        description: "Tests the CPM ancestor processes any in step transition operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "FLusrxY-QpulvQ5jpazAgg",
+                            name: "CPM Ancestor Processes Any In Step Operator Test",
+                            description: "Tests the CPM ancestor processes any in step transition operator.", 
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Child Processes Active
     {
         id: "DhIrP3aDRQGrnmV63573iA",
         name: "CPM Child Processes Active Test",
@@ -28,8 +98,8 @@ module.exports = [
                                         CellProcessor: {
                                             process: {
                                                 create: {
-                                                    apmID: "LVjhjYUcQXOYcbI_xbepJQ",
-                                                    cellProcessUniqueName: "Test Process A"
+                                                    apmID: "LVjhjYUcQXOYcbI_xbepJQ", // CPM Child Processes Active Operator Test Process
+                                                    cellProcessUniqueName: "Test Process"
                                                 }
                                             }
                                         }
@@ -48,30 +118,12 @@ module.exports = [
                                                     // Optionally override the default parent process specification.
                                                     parentCellProcess: {
                                                         cellProcessNamespace: {
-                                                            apmID: "LVjhjYUcQXOYcbI_xbepJQ",
-                                                            cellProcessUniqueName: "Test Process A"
+                                                            apmID: "LVjhjYUcQXOYcbI_xbepJQ", // CPM Child Processes Active Operator Test Process
+                                                            cellProcessUniqueName: "Test Process"
                                                         }
                                                     },
-                                                    apmID: "LVjhjYUcQXOYcbI_xbepJQ",
-                                                    cellProcessUniqueName: "Test Process B",
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-
-                            {
-                                actorName: "CPM Child Processes Active Test",
-                                actorTaskDescription: "Start an interval timer process for debugging purposes.",
-                                actionRequest: {
-                                    holarchy: {
-                                        CellProcessor: {
-                                            process: {
-                                                create: {
-                                                    apmID: "vWteGvhLQZq5C_OXd4p7Ig",
-                                                    cellProcessUniqueName: "Interval Timer #1",
-                                                    cellProcessInitData: { construction: { timeoutMs: 5000 } }
+                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                    cellProcessUniqueName: "Child Process",
                                                 }
                                             }
                                         }
@@ -79,7 +131,167 @@ module.exports = [
                                 }
                             }
 
+                        ]
+                    }
+                }
+            }
+        }
+    },
 
+    // CPM Child Processes All In Step
+    {
+        id: "Jq9BQRTXQmmSznq40NvuiQ",
+        name: "CPM Child Processes All In Step Operator Test",
+        description: "Tests the CPM child processes all in step transition operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "Jq9BQRTXQmmSznq40NvuiQ",
+                            name: "CPM Child Processes All In Step Operator Test",
+                            description: "Tests the CPM child processes all in step transition operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Child Processes Any In Step
+    {
+        id: "BSXTNPAaRXKR5C5OrJzSwQ",
+        name: "CPM Child Processes Any In Step Operator Test",
+        description: "Tests the CPM child processes any in step transition operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "BSXTNPAaRXKR5C5OrJzSwQ",
+                            name: "CPM Child Processes Any In Step Operator Test",
+                            description: "Tests the CPM child processes any in step transition operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Descendant Processes Active
+    {
+        id: "frzhwqHrSCi1Ta9Mz1gQDg",
+        name: "CPM Descendant Processes Active Test",
+        description: "Tests the CPM descendant processes active operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "frzhwqHrSCi1Ta9Mz1gQDg", 
+                            name: "CPM Descendant Processes Active Test",
+                            description: "Tests the CPM descendant processes active transition operator implementation.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Descendant Processes All In Step
+    {
+        id: "tydUf2gSSgSjSmrrF8nkyw",
+        name: "CPM Descendant Processes All In Step Test",
+        description: "Tests the CPM descendant processes all in step transition operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "tydUf2gSSgSjSmrrF8nkyw",
+                            name: "CPM Descendant Processes All In Step Test",
+                            description: "Tests the CPM descendant processes all in step transition operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Descendant Processes Any In Step
+    {
+        id: "OFSWJDZdQVSnkUxpu0THsw",
+        name: "CPM Descendant Processes Any In Step Test",
+        description: "Tests the CPM descendant processes any in step transition operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "OFSWJDZdQVSnkUxpu0THsw",
+                            name: "CPM Descendant Processes Any In Step Test",
+                            description: "Tests the CPM descendant processes any in step transition operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Parent Process Active
+    {
+        id: "rdh8dW74RnO7lWGNlFR79A",
+        name: "CPM Parent Process Active Test",
+        description: "Tests the CPM parent process active operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "rdh8dW74RnO7lWGNlFR79A",
+                            name: "CPM Parent Process Active Test",
+                            description: "Tests the CPM parent process active operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    // CPM Parent Process In Step
+    {
+        id: "E4OfrQ0iS8yTV2DUaw7GGg",
+        name: "CPM Parent Process In Step Operator Test",
+        description: "Tests the CPM parent process in step transition operator.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: { 
+                            id: "E4OfrQ0iS8yTV2DUaw7GGg",
+                            name: "CPM Parent Process In Step Operator Test",
+                            description: "Tests the CPM parent process in step transition operator.",
+                            cellmodel: testFixtureModel,
+                        },
+                        actRequests: [
                         ]
                     }
                 }
