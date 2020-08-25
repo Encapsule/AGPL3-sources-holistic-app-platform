@@ -1,6 +1,4 @@
-//
-// cpm-operator-test-child-processes-active.js
-// Exports a CellModel.constructor request descriptor object.
+// cellmodel-cpm-test-operator-childProcessesActive.js
 
 const holarchy = require("@encapsule/holarchy");
 const holarchyCML = require("@encapsule/holarchy-cm").cml;
@@ -8,7 +6,7 @@ const holarchyCML = require("@encapsule/holarchy-cm").cml;
 const cellModel = new holarchy.CellModel({
     id: "rIA4ammlRHStLM9zMYuJ9Q",
     name: "CPM Child Processes Active Operator Test Model",
-    description: "A simple model to test the child processes active operator.",
+    description: "A model to test the child processes active operator.",
 
     apm: {
         id: "LVjhjYUcQXOYcbI_xbepJQ",
@@ -82,7 +80,7 @@ const cellModel = new holarchy.CellModel({
     subcells: [
         require("../cellmodel-dummy-A"),
         require("../cellmodel-dummy-B"),
-        require("../cellmodel-dummy-C"), 
+        require("../cellmodel-dummy-C"),
         require("../cellmodel-timeout-timer"),
         holarchyCML
     ]
