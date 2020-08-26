@@ -16,7 +16,7 @@
                     "description": "Tests the CPM descendant processes all in step transition operator.",
                     "cellmodel": {
                       "id": "1jSxHMrqS6i9eDiRvDmfeg",
-                      "vdid": "2etKp6vZupKVAtyShdyjWg",
+                      "vdid": "3TfVaVvyQ1fzvaiKmzUWdA",
                       "name": "@encapsule/holarchy CellProcessor Test Model",
                       "description": "A wrapper for other CellModels defined to facilitate testing of the CellProcessor's intrinsic Cell Process Manager cell process operators and actions.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "1jSxHMrqS6i9eDiRvDmfeg": {
                               "id": "1jSxHMrqS6i9eDiRvDmfeg",
-                              "vdid": "2etKp6vZupKVAtyShdyjWg",
+                              "vdid": "3TfVaVvyQ1fzvaiKmzUWdA",
                               "name": "@encapsule/holarchy CellProcessor Test Model",
                               "description": "A wrapper for other CellModels defined to facilitate testing of the CellProcessor's intrinsic Cell Process Manager cell process operators and actions.",
                               "type": "CM",
@@ -74,13 +74,13 @@
                               },
                               "rIA4ammlRHStLM9zMYuJ9Q": {
                                 "id": "rIA4ammlRHStLM9zMYuJ9Q",
-                                "vdid": "zvYEZmgYm9c9REhjTz1Ntw",
+                                "vdid": "KfYEZrAYm9d7REhjZD1Ntw",
                                 "name": "CPM Child Processes Active Operator Test Model",
                                 "description": "A model to test the child processes active operator.",
                                 "type": "CM",
                                 "LVjhjYUcQXOYcbI_xbepJQ": {
                                   "id": "LVjhjYUcQXOYcbI_xbepJQ",
-                                  "vdid": "p7CXzRGeoWQ2dQwp9UmwyQ",
+                                  "vdid": "aatjxaP8ukpyjexhqUqY2w",
                                   "name": "CPM Child Processes Active Operator Test Process",
                                   "description": "Test process",
                                   "type": "APM"
@@ -305,13 +305,13 @@
                               },
                               "L0L3o-vqTOOli8Lio96e8w": {
                                 "id": "L0L3o-vqTOOli8Lio96e8w",
-                                "vdid": "oNQfWFrVpLoWAAwaZttCBQ",
+                                "vdid": "WtQfWMvVpLo8AAwa6NtCBQ",
                                 "name": "CPM Descendant Processes Active Operator Test Model",
                                 "description": "A model to test the descendant processes active operator.",
                                 "type": "CM",
                                 "cYpoxyyZSwm19CqH3v7eLQ": {
                                   "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                  "vdid": "De43RCrwXUXpHXUWZISj3g",
+                                  "vdid": "dCUoyBGlbilHgqsDyiE7OA",
                                   "name": "CPM Descendant Processes Active Operator Test Process",
                                   "description": "A process to test the descendant processes active operator.",
                                   "type": "APM"
@@ -347,15 +347,15 @@
                               },
                               "mLTbOO97TtixSbKl8VB7gQ": {
                                 "id": "mLTbOO97TtixSbKl8VB7gQ",
-                                "vdid": "Qj7OcvxPqfmGxIVed3gsVA",
+                                "vdid": "H3ZAgIBd-7sh1mPQOr9tRw",
                                 "name": "CPM Parent Process Active Operator Test Model",
                                 "description": "A model to test CPM parent process active operator.",
                                 "type": "CM",
                                 "kAuEmZA9Qn24PEZLBygGyA": {
                                   "id": "kAuEmZA9Qn24PEZLBygGyA",
-                                  "vdid": "ruq26P_ZUKjxQC9BpmYpZw",
+                                  "vdid": "bNafAFFVrUOr0hrmR9PTyA",
                                   "name": "CPM Parent Process Active Operator Test Process",
-                                  "description": "A process to test CPM parent proces active operator.",
+                                  "description": "A process to test CPM parent process active operator.",
                                   "type": "APM"
                                 }
                               },
@@ -399,7 +399,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "HPUc9Ytwi3ArHise8SLxIg",
-                      "vdid": "WR81a9g4-aIwjYjuAaAQQQ",
+                      "vdid": "wri-_WUOLxKFLkfR7QR1Ig",
                       "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                       "cmat": {
@@ -409,7 +409,7 @@
                             "type": "INDEX",
                             "HPUc9Ytwi3ArHise8SLxIg": {
                               "id": "HPUc9Ytwi3ArHise8SLxIg",
-                              "vdid": "WR81a9g4-aIwjYjuAaAQQQ",
+                              "vdid": "wri-_WUOLxKFLkfR7QR1Ig",
                               "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                               "type": "CM",
@@ -460,6 +460,13 @@
                                 "vdid": "gToE7W7PJRKC4qqT9Ktmwg",
                                 "name": "Cell Process Manager: Descendant Processes All In Step",
                                 "description": "Returns Boolean true request.context.apmBindingPath is a cell process with all descendant cell processes in the specified process step.",
+                                "type": "TOP"
+                              },
+                              "9HNGDusyTtKpleXFae7O5A": {
+                                "id": "9HNGDusyTtKpleXFae7O5A",
+                                "vdid": "8crtRfRPr5HW80pWd1ZrAA",
+                                "name": "Cell Process Manager: Parent Process Active",
+                                "description": "Returns Boolean true iff request.context.apmBindingPath is a cell process with an active parent process.",
                                 "type": "TOP"
                               },
                               "PHPSWivjRyK80Gtymsp-pA": {
@@ -646,7 +653,7 @@
                               },
                               "1jSxHMrqS6i9eDiRvDmfeg": {
                                 "id": "1jSxHMrqS6i9eDiRvDmfeg",
-                                "vdid": "2etKp6vZupKVAtyShdyjWg",
+                                "vdid": "3TfVaVvyQ1fzvaiKmzUWdA",
                                 "name": "@encapsule/holarchy CellProcessor Test Model",
                                 "description": "A wrapper for other CellModels defined to facilitate testing of the CellProcessor's intrinsic Cell Process Manager cell process operators and actions.",
                                 "type": "CM",
@@ -694,13 +701,13 @@
                                 },
                                 "rIA4ammlRHStLM9zMYuJ9Q": {
                                   "id": "rIA4ammlRHStLM9zMYuJ9Q",
-                                  "vdid": "zvYEZmgYm9c9REhjTz1Ntw",
+                                  "vdid": "KfYEZrAYm9d7REhjZD1Ntw",
                                   "name": "CPM Child Processes Active Operator Test Model",
                                   "description": "A model to test the child processes active operator.",
                                   "type": "CM",
                                   "LVjhjYUcQXOYcbI_xbepJQ": {
                                     "id": "LVjhjYUcQXOYcbI_xbepJQ",
-                                    "vdid": "p7CXzRGeoWQ2dQwp9UmwyQ",
+                                    "vdid": "aatjxaP8ukpyjexhqUqY2w",
                                     "name": "CPM Child Processes Active Operator Test Process",
                                     "description": "Test process",
                                     "type": "APM"
@@ -785,13 +792,13 @@
                                 },
                                 "L0L3o-vqTOOli8Lio96e8w": {
                                   "id": "L0L3o-vqTOOli8Lio96e8w",
-                                  "vdid": "oNQfWFrVpLoWAAwaZttCBQ",
+                                  "vdid": "WtQfWMvVpLo8AAwa6NtCBQ",
                                   "name": "CPM Descendant Processes Active Operator Test Model",
                                   "description": "A model to test the descendant processes active operator.",
                                   "type": "CM",
                                   "cYpoxyyZSwm19CqH3v7eLQ": {
                                     "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                    "vdid": "De43RCrwXUXpHXUWZISj3g",
+                                    "vdid": "dCUoyBGlbilHgqsDyiE7OA",
                                     "name": "CPM Descendant Processes Active Operator Test Process",
                                     "description": "A process to test the descendant processes active operator.",
                                     "type": "APM"
@@ -827,15 +834,15 @@
                                 },
                                 "mLTbOO97TtixSbKl8VB7gQ": {
                                   "id": "mLTbOO97TtixSbKl8VB7gQ",
-                                  "vdid": "Qj7OcvxPqfmGxIVed3gsVA",
+                                  "vdid": "H3ZAgIBd-7sh1mPQOr9tRw",
                                   "name": "CPM Parent Process Active Operator Test Model",
                                   "description": "A model to test CPM parent process active operator.",
                                   "type": "CM",
                                   "kAuEmZA9Qn24PEZLBygGyA": {
                                     "id": "kAuEmZA9Qn24PEZLBygGyA",
-                                    "vdid": "ruq26P_ZUKjxQC9BpmYpZw",
+                                    "vdid": "bNafAFFVrUOr0hrmR9PTyA",
                                     "name": "CPM Parent Process Active Operator Test Process",
-                                    "description": "A process to test CPM parent proces active operator.",
+                                    "description": "A process to test CPM parent process active operator.",
                                     "type": "APM"
                                   }
                                 },
@@ -896,7 +903,7 @@
                         },
                         "LVjhjYUcQXOYcbI_xbepJQ": {
                           "id": "LVjhjYUcQXOYcbI_xbepJQ",
-                          "vdid": "p7CXzRGeoWQ2dQwp9UmwyQ",
+                          "vdid": "aatjxaP8ukpyjexhqUqY2w",
                           "name": "CPM Child Processes Active Operator Test Process",
                           "description": "Test process"
                         },
@@ -920,7 +927,7 @@
                         },
                         "cYpoxyyZSwm19CqH3v7eLQ": {
                           "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                          "vdid": "De43RCrwXUXpHXUWZISj3g",
+                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
                           "name": "CPM Descendant Processes Active Operator Test Process",
                           "description": "A process to test the descendant processes active operator."
                         },
@@ -932,9 +939,9 @@
                         },
                         "kAuEmZA9Qn24PEZLBygGyA": {
                           "id": "kAuEmZA9Qn24PEZLBygGyA",
-                          "vdid": "ruq26P_ZUKjxQC9BpmYpZw",
+                          "vdid": "bNafAFFVrUOr0hrmR9PTyA",
                           "name": "CPM Parent Process Active Operator Test Process",
-                          "description": "A process to test CPM parent proces active operator."
+                          "description": "A process to test CPM parent process active operator."
                         },
                         "UMlS451nSWq6yDZNwcUTaw": {
                           "id": "UMlS451nSWq6yDZNwcUTaw",
@@ -1005,7 +1012,7 @@
                           "specPath": "~.LVjhjYUcQXOYcbI_xbepJQ_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "LVjhjYUcQXOYcbI_xbepJQ",
-                            "vdid": "p7CXzRGeoWQ2dQwp9UmwyQ",
+                            "vdid": "aatjxaP8ukpyjexhqUqY2w",
                             "name": "CPM Child Processes Active Operator Test Process",
                             "description": "Test process"
                           }
@@ -1041,7 +1048,7 @@
                           "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                            "vdid": "De43RCrwXUXpHXUWZISj3g",
+                            "vdid": "dCUoyBGlbilHgqsDyiE7OA",
                             "name": "CPM Descendant Processes Active Operator Test Process",
                             "description": "A process to test the descendant processes active operator."
                           }
@@ -1059,9 +1066,9 @@
                           "specPath": "~.kAuEmZA9Qn24PEZLBygGyA_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "kAuEmZA9Qn24PEZLBygGyA",
-                            "vdid": "ruq26P_ZUKjxQC9BpmYpZw",
+                            "vdid": "bNafAFFVrUOr0hrmR9PTyA",
                             "name": "CPM Parent Process Active Operator Test Process",
-                            "description": "A process to test CPM parent proces active operator."
+                            "description": "A process to test CPM parent process active operator."
                           }
                         },
                         {
@@ -1348,7 +1355,7 @@
                             "____defaultValue": {},
                             "cellProcessID": {
                               "____label": "[kAuEmZA9Qn24PEZLBygGyA::CPM Parent Process Active Operator Test Process] Cell Process Instance",
-                              "____description": "Cell process instance memory for [kAuEmZA9Qn24PEZLBygGyA::CPM Parent Process Active Operator Test Process]: A process to test CPM parent proces active operator.",
+                              "____description": "Cell process instance memory for [kAuEmZA9Qn24PEZLBygGyA::CPM Parent Process Active Operator Test Process]: A process to test CPM parent process active operator.",
                               "____types": "jsObject",
                               "____appdsl": {
                                 "apm": "kAuEmZA9Qn24PEZLBygGyA"
@@ -1731,7 +1738,7 @@
                             "____defaultValue": {},
                             "cellProcessID": {
                               "____label": "[kAuEmZA9Qn24PEZLBygGyA::CPM Parent Process Active Operator Test Process] Cell Process Instance",
-                              "____description": "Cell process instance memory for [kAuEmZA9Qn24PEZLBygGyA::CPM Parent Process Active Operator Test Process]: A process to test CPM parent proces active operator.",
+                              "____description": "Cell process instance memory for [kAuEmZA9Qn24PEZLBygGyA::CPM Parent Process Active Operator Test Process]: A process to test CPM parent process active operator.",
                               "____types": "jsObject",
                               "____appdsl": {
                                 "apm": "kAuEmZA9Qn24PEZLBygGyA"
@@ -1915,19 +1922,20 @@
                       },
                       "transitionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "8IZ4cUmW7ZqwZepbmE5SXg",
+                          "operationID": "f4LyhL-dYUqd8F3ydZz_TQ",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "SLlCJ1VYjt5IerB3LKMlCA",
+                          "inputTypeVIID": "ceXAy0P77cZKzTfXdSR-aA",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "eBz4efM6jdpy5mt_A4w77Q",
+                          "outputTypeVIID": "YNsg5iqz2DcoGpep3H4E_Q",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "5mT0Ew7rNVeAsI7t6kQUtA"
+                          "operationVDID": "1Nn0E0JYNVcExY7thiYUtA"
                         },
                         "supportedFilters": [
                           "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                           "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                           "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
+                          "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
                           "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                           "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                           "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
@@ -2335,6 +2343,57 @@
                             "outputTypeVIID": "wgVg3qZpo0RYtr_G6szN5A",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                             "operationVDID": "8FANRANLlpOe4XicJggZcg"
+                          }
+                        },
+                        "9HNGDusyTtKpleXFae7O5A": {
+                          "filterDescriptor": {
+                            "operationID": "9HNGDusyTtKpleXFae7O5A",
+                            "operationName": "Cell Process Manager: Parent Process Active",
+                            "operationDescription": "Returns Boolean true iff request.context.apmBindingPath is a cell process with an active parent process.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Parent Process Active Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "parentProcessActive": {
+                                      "____types": "jsObject"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "58apLhwPX-DwA865eK8Njw",
+                            "inputTypeVDID": "puMvyoqeUJioh5kglo-MOQ",
+                            "outputTypeVIID": "sh_MqQTDccMxBIGxw7FQaw",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "L0OoRLyJ5JNXXzSctWqocg"
                           }
                         },
                         "PHPSWivjRyK80Gtymsp-pA": {
@@ -4196,19 +4255,20 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "8IZ4cUmW7ZqwZepbmE5SXg",
+                                                  "operationID": "f4LyhL-dYUqd8F3ydZz_TQ",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "SLlCJ1VYjt5IerB3LKMlCA",
+                                                  "inputTypeVIID": "ceXAy0P77cZKzTfXdSR-aA",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "eBz4efM6jdpy5mt_A4w77Q",
+                                                  "outputTypeVIID": "YNsg5iqz2DcoGpep3H4E_Q",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "5mT0Ew7rNVeAsI7t6kQUtA"
+                                                  "operationVDID": "1Nn0E0JYNVcExY7thiYUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                                                   "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                   "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
+                                                  "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
                                                   "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                   "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                   "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
@@ -4387,19 +4447,20 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "8IZ4cUmW7ZqwZepbmE5SXg",
+                                                  "operationID": "f4LyhL-dYUqd8F3ydZz_TQ",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "SLlCJ1VYjt5IerB3LKMlCA",
+                                                  "inputTypeVIID": "ceXAy0P77cZKzTfXdSR-aA",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "eBz4efM6jdpy5mt_A4w77Q",
+                                                  "outputTypeVIID": "YNsg5iqz2DcoGpep3H4E_Q",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "5mT0Ew7rNVeAsI7t6kQUtA"
+                                                  "operationVDID": "1Nn0E0JYNVcExY7thiYUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                                                   "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                   "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
+                                                  "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
                                                   "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                   "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                   "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",

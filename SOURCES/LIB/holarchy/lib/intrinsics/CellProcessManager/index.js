@@ -17,12 +17,14 @@ module.exports = {
         require("./ControllerAction-cpm-query")
     ],
     operators: [
+
         require("./TransitionOperator-cpm-child-processes-active"),
         require("./TransitionOperator-cpm-child-processes-all-in-step"),
         require("./TransitionOperator-cpm-child-processes-any-in-step"),
         require("./TransitionOperator-cpm-descendant-processes-any-in-step"),
         require("./TransitionOperator-cpm-descendant-processes-active"),
         require("./TransitionOperator-cpm-descendant-processes-all-in-step"),
+        require("./TransitionOperator-cpm-parent-process-active"),
         require("./TransitionOperator-cpm-parent-process-in-step")
 
     ],

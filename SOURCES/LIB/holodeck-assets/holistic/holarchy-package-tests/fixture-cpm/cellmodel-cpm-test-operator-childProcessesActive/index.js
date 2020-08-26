@@ -24,9 +24,9 @@ const cellModel = new holarchy.CellModel({
                     }
                 ]
             },
-            
+
             wait_for_child_processes_1: {
-                description: "Wait for active child process(es).",
+                description: "Wait for active child process(es) active.",
                 transitions: [
                     {
                         transitionIf: {
@@ -44,14 +44,16 @@ const cellModel = new holarchy.CellModel({
             test_pass_1: {
                 description: "The test process has detected one or more active child process(es)."
             }
-            
+
         }
+
     }, // apm
 
     subcells: [
         require("../cellmodel-dummy-A"),
         holarchyCML
     ]
+
 });
 
 if (!cellModel.isValid()) {

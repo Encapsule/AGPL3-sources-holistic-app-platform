@@ -86,7 +86,7 @@ module.exports = [
                             id: "DhIrP3aDRQGrnmV63573iA",
                             name: "CPM Child Processes Active Test",
                             description: "Tests the CPM child processes active transition operator implementation.",
-                            cellmodel: testFixtureModel,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id:  "rIA4ammlRHStLM9zMYuJ9Q" }).result,
                         },
                         actRequests: [
 
@@ -194,12 +194,51 @@ module.exports = [
                 holarchy: {
                     CellProcessor: {
                         constructorRequest: {
-                            id: "frzhwqHrSCi1Ta9Mz1gQDg", 
+                            id: "frzhwqHrSCi1Ta9Mz1gQDg",
                             name: "CPM Descendant Processes Active Test",
                             description: "Tests the CPM descendant processes active transition operator implementation.",
-                            cellmodel: testFixtureModel,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "L0L3o-vqTOOli8Lio96e8w" }).result,
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Descendnat Processes Active Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID:  "cYpoxyyZSwm19CqH3v7eLQ", // "CPM Descendant Processes Active Operator Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                actorName: "CPM Child Processes Active Test",
+                                actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    // Optionally override the default parent process specification.
+                                                    parentCellProcess: {
+                                                        cellProcessNamespace: {
+                                                            apmID:  "cYpoxyyZSwm19CqH3v7eLQ", // "CPM Descendant Processes Active Operator Test Process"
+                                                            cellProcessUniqueName: "Test Process"
+                                                        }
+                                                    },
+                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                    cellProcessUniqueName: "Child Process",
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         ]
                     }
                 }
@@ -266,9 +305,25 @@ module.exports = [
                             id: "rdh8dW74RnO7lWGNlFR79A",
                             name: "CPM Parent Process Active Test",
                             description: "Tests the CPM parent process active operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "mLTbOO97TtixSbKl8VB7gQ" }).result,
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Parent Processes Active Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "kAuEmZA9Qn24PEZLBygGyA", // "CPM Parent Process Active Operator Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         ]
                     }
                 }
