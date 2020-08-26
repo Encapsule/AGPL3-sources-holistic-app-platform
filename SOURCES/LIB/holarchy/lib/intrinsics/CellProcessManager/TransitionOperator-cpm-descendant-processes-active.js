@@ -9,7 +9,7 @@ const TransitionOperator = require("../../TransitionOperator");
 module.exports = new TransitionOperator({
     id: "Fs6tE76WR5yTOdbwQ_N_FQ",
     name: "Cell Process Manager: Descendant Processes Active",
-    description: "Returns Boolean true request.context.apmBindingPath is a cell process with active dependant cell processes.",
+    description: "Returns Boolean true if request.context.apmBindingPath is a cell process with active dependant cell processes.",
     operatorRequestSpec: {
         ____types: "jsObject",
         holarchy: {

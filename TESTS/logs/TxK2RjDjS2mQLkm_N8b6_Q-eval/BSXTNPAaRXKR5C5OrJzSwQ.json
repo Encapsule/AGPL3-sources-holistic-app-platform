@@ -399,7 +399,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "x_XH9WlwaXB8HnweTSJNIg",
-                      "vdid": "HRL09VdzmcLdCNrTPfMMhQ",
+                      "vdid": "-2oFDMsokIM1wq-1D-J1FQ",
                       "name": "Cell Process Manager [BSXTNPAaRXKR5C5OrJzSwQ::CPM Child Processes Any In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [BSXTNPAaRXKR5C5OrJzSwQ::CPM Child Processes Any In Step Operator Test].",
                       "cmat": {
@@ -409,7 +409,7 @@
                             "type": "INDEX",
                             "x_XH9WlwaXB8HnweTSJNIg": {
                               "id": "x_XH9WlwaXB8HnweTSJNIg",
-                              "vdid": "HRL09VdzmcLdCNrTPfMMhQ",
+                              "vdid": "-2oFDMsokIM1wq-1D-J1FQ",
                               "name": "Cell Process Manager [BSXTNPAaRXKR5C5OrJzSwQ::CPM Child Processes Any In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [BSXTNPAaRXKR5C5OrJzSwQ::CPM Child Processes Any In Step Operator Test].",
                               "type": "CM",
@@ -419,6 +419,27 @@
                                 "name": "Cell Process Manager [BSXTNPAaRXKR5C5OrJzSwQ::CPM Child Processes Any In Step Operator Test]",
                                 "description": "Cell process manager root process for CellProcessor [BSXTNPAaRXKR5C5OrJzSwQ::CPM Child Processes Any In Step Operator Test].",
                                 "type": "APM"
+                              },
+                              "gJnA-VJTTLa0g9TKFmjv1Q": {
+                                "id": "gJnA-VJTTLa0g9TKFmjv1Q",
+                                "vdid": "uxIdQlu6F6qh7wSf8fxRgg",
+                                "name": "Cell Process Manager: Ancestor Processes Active",
+                                "description": "Return Boolean true if request.context.apmBindingPath is a cell process with active ancestor processes.",
+                                "type": "TOP"
+                              },
+                              "6j5F3HmKTLG9Q8kD1-QWYA": {
+                                "id": "6j5F3HmKTLG9Q8kD1-QWYA",
+                                "vdid": "vnxSscAq54LDXq_lqMLKzA",
+                                "name": "Cell Process Manager: Ancestor Processes All In Step",
+                                "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) all in the specified process step(s).",
+                                "type": "TOP"
+                              },
+                              "jFxFmpHSSPaeWEFfLh8eWw": {
+                                "id": "jFxFmpHSSPaeWEFfLh8eWw",
+                                "vdid": "dvgbOfaZRWIye3cw_ggxSA",
+                                "name": "Cell Process Manager: Ancestor Processes Any In Step",
+                                "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) any of which are in the specified process step(s).",
+                                "type": "TOP"
                               },
                               "xIRhBHueTRGO0xq63UUbyQ": {
                                 "id": "xIRhBHueTRGO0xq63UUbyQ",
@@ -450,9 +471,9 @@
                               },
                               "Fs6tE76WR5yTOdbwQ_N_FQ": {
                                 "id": "Fs6tE76WR5yTOdbwQ_N_FQ",
-                                "vdid": "W-Pjn2Kwgtm8o79SGCpVjQ",
+                                "vdid": "gcB_K3kPmripzOCaHBfsZw",
                                 "name": "Cell Process Manager: Descendant Processes Active",
-                                "description": "Returns Boolean true request.context.apmBindingPath is a cell process with active dependant cell processes.",
+                                "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with active dependant cell processes.",
                                 "type": "TOP"
                               },
                               "DX5GfJcwRNq0xW20KzMSJQ": {
@@ -1922,19 +1943,20 @@
                       },
                       "transitionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "f4LyhL-dYUqd8F3ydZz_TQ",
+                          "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "ceXAy0P77cZKzTfXdSR-aA",
+                          "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "YNsg5iqz2DcoGpep3H4E_Q",
+                          "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "1Nn0E0JYNVcExY7thiYUtA"
+                          "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
                         },
                         "supportedFilters": [
                           "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                           "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                           "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
+                          "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
                           "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
                           "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                           "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
@@ -1947,7 +1969,9 @@
                           "[YgABX95wR86GCYrYaDLISA::Logical AND]",
                           "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                           "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
+                          "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
                           "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                          "[jFxFmpHSSPaeWEFfLh8eWw::Cell Process Manager: Ancestor Processes Any In Step]",
                           "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                           "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
                           "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
@@ -2019,6 +2043,159 @@
                             "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                             "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
+                          }
+                        },
+                        "gJnA-VJTTLa0g9TKFmjv1Q": {
+                          "filterDescriptor": {
+                            "operationID": "gJnA-VJTTLa0g9TKFmjv1Q",
+                            "operationName": "Cell Process Manager: Ancestor Processes Active",
+                            "operationDescription": "Return Boolean true if request.context.apmBindingPath is a cell process with active ancestor processes.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Ancestor Processes Active Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "ancestorProcessesActive": {
+                                      "____types": "jsObject"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "q31ohudaRnc-2yxFujIWLQ",
+                            "inputTypeVDID": "E846pC-YIDNZg0AISONg2A",
+                            "outputTypeVIID": "7rmmJsOAG_On-Qsu_aOLCw",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "yEcBRLFA05MPLz-cbmQ_cg"
+                          }
+                        },
+                        "6j5F3HmKTLG9Q8kD1-QWYA": {
+                          "filterDescriptor": {
+                            "operationID": "6j5F3HmKTLG9Q8kD1-QWYA",
+                            "operationName": "Cell Process Manager: Ancestor Processes All In Step",
+                            "operationDescription": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) all in the specified process step(s).",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Ancestor Processes All In Step Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "ancestorProcessesAllInStep": {
+                                      "____types": "jsObject"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "LCjyzgMewHLQtavsni6ugw",
+                            "inputTypeVDID": "BVFOp5Vp2MXU2VtJD7IW8g",
+                            "outputTypeVIID": "cPIdL7lhl0gnxyaDt0xclw",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "VzVeRHPDmpN7VZuc0KxXcg"
+                          }
+                        },
+                        "jFxFmpHSSPaeWEFfLh8eWw": {
+                          "filterDescriptor": {
+                            "operationID": "jFxFmpHSSPaeWEFfLh8eWw",
+                            "operationName": "Cell Process Manager: Ancestor Processes Any In Step",
+                            "operationDescription": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) any of which are in the specified process step(s).",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Manager: Ancestor Processes Any In Step Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "ancestorProcessesAnyInStep": {
+                                      "____types": "jsObject"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "qh7wt5MghqHkf8TA970Isg",
+                            "inputTypeVDID": "flFOBPdp2Px42VvEC7IWqA",
+                            "outputTypeVIID": "dVyh7xX7wxDVc-vzANMU_Q",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "ER03RLtKmZOSE6acigEScg"
                           }
                         },
                         "xIRhBHueTRGO0xq63UUbyQ": {
@@ -2190,7 +2367,7 @@
                           "filterDescriptor": {
                             "operationID": "Fs6tE76WR5yTOdbwQ_N_FQ",
                             "operationName": "Cell Process Manager: Descendant Processes Active",
-                            "operationDescription": "Returns Boolean true request.context.apmBindingPath is a cell process with active dependant cell processes.",
+                            "operationDescription": "Returns Boolean true if request.context.apmBindingPath is a cell process with active dependant cell processes.",
                             "inputFilterSpec": {
                               "____label": "Cell Process Manager: Descendant Processes Active Request",
                               "____types": "jsObject",
@@ -4255,19 +4432,20 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "f4LyhL-dYUqd8F3ydZz_TQ",
+                                                  "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "ceXAy0P77cZKzTfXdSR-aA",
+                                                  "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "YNsg5iqz2DcoGpep3H4E_Q",
+                                                  "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "1Nn0E0JYNVcExY7thiYUtA"
+                                                  "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                                                   "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                   "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
+                                                  "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
                                                   "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
                                                   "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                   "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
@@ -4280,7 +4458,9 @@
                                                   "[YgABX95wR86GCYrYaDLISA::Logical AND]",
                                                   "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                                                   "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
+                                                  "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
                                                   "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                  "[jFxFmpHSSPaeWEFfLh8eWw::Cell Process Manager: Ancestor Processes Any In Step]",
                                                   "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                                                   "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
                                                   "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
@@ -4447,19 +4627,20 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "f4LyhL-dYUqd8F3ydZz_TQ",
+                                                  "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "ceXAy0P77cZKzTfXdSR-aA",
+                                                  "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "YNsg5iqz2DcoGpep3H4E_Q",
+                                                  "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "1Nn0E0JYNVcExY7thiYUtA"
+                                                  "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                                                   "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                   "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
+                                                  "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
                                                   "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
                                                   "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                   "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
@@ -4472,7 +4653,9 @@
                                                   "[YgABX95wR86GCYrYaDLISA::Logical AND]",
                                                   "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                                                   "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
+                                                  "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
                                                   "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
+                                                  "[jFxFmpHSSPaeWEFfLh8eWw::Cell Process Manager: Ancestor Processes Any In Step]",
                                                   "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                                                   "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
                                                   "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",

@@ -14,17 +14,23 @@ module.exports = {
         require("./ControllerAction-cpm-process-create"),
         require("./ControllerAction-cpm-process-delete"),
         require("./ControllerAction-cpm-process-query"),
-        require("./ControllerAction-cpm-query")
+        require("./ControllerAction-cpm-query") // TODO: Disable this action until it's needed and restabilize the tests (on a clean branch).
     ],
     operators: [
 
-        require("./TransitionOperator-cpm-child-processes-active"),
+        require("./TransitionOperator-cpm-ancestor-processes-active"), // defined missing implementation
+        require("./TransitionOperator-cpm-ancestor-processes-all-in-step"), // defined missing implementation
+        require("./TransitionOperator-cpm-ancestor-processes-any-in-step"), // defined missing implementation
+
+        require("./TransitionOperator-cpm-child-processes-active"), // STAGE 1
         require("./TransitionOperator-cpm-child-processes-all-in-step"),
         require("./TransitionOperator-cpm-child-processes-any-in-step"),
+
         require("./TransitionOperator-cpm-descendant-processes-any-in-step"),
-        require("./TransitionOperator-cpm-descendant-processes-active"),
+        require("./TransitionOperator-cpm-descendant-processes-active"), // STAGE 1
         require("./TransitionOperator-cpm-descendant-processes-all-in-step"),
-        require("./TransitionOperator-cpm-parent-process-active"),
+
+        require("./TransitionOperator-cpm-parent-process-active"), // STAGE 1
         require("./TransitionOperator-cpm-parent-process-in-step")
 
     ],
