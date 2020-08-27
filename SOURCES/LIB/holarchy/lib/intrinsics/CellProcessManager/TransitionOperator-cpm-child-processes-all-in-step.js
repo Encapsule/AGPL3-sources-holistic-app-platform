@@ -113,7 +113,8 @@ module.exports = new TransitionOperator({
                 break;
             }
 
-            const delegateResponse = response = dispatchResponse.result.request(transitionRequest);
+            // Delegate.
+            response = dispatchResponse.result.request(transitionRequest);
             break;
         }
         if (errors.length) {

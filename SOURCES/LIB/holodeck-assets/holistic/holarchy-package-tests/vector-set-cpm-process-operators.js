@@ -360,9 +360,26 @@ module.exports = [
                             id: "E4OfrQ0iS8yTV2DUaw7GGg",
                             name: "CPM Parent Process In Step Operator Test",
                             description: "Tests the CPM parent process in step transition operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id:  "YasRidtOS-qeNNXio5CbVQ" }).result,
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Parent Process In Step Operator Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "UMlS451nSWq6yDZNwcUTaw", // "CPM Parent Process In Step Operator Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
                         ]
                     }
                 }
