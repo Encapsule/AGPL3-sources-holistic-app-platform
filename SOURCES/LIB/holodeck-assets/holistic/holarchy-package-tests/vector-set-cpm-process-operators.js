@@ -17,9 +17,25 @@ module.exports = [
                             id: "XyAdaaZ_S9OTkRuwBYe4Ew",
                             name: "CPM Ancestor Processes Active Test",
                             description: "Tests the CPM ancestor processes active operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "eu32xBRTSE2-B71HrwPFBg" }).result,
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Ancestor Processes Active Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "hybdu0VoQjWnOFs5vC3Tzw", //  "CPM Ancestor Processes Active Operator Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         ]
                     }
                 }
@@ -86,7 +102,7 @@ module.exports = [
                             id: "DhIrP3aDRQGrnmV63573iA",
                             name: "CPM Child Processes Active Test",
                             description: "Tests the CPM child processes active transition operator implementation.",
-                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id:  "rIA4ammlRHStLM9zMYuJ9Q" }).result,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "rIA4ammlRHStLM9zMYuJ9Q" }).result,
                         },
                         actRequests: [
 
@@ -309,7 +325,7 @@ module.exports = [
                         },
                         actRequests: [
                             {
-                                actorName: "CPM Parent Processes Active Test",
+                                actorName: "CPM Parent Process Active Test",
                                 actorTaskDescription: "Start the first process instance. We will use this process as our test.",
                                 actionRequest: {
                                     holarchy: {

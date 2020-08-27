@@ -1,5 +1,7 @@
 // TransitionOperator-cpm-ancestor-processes-active.js
 
+const arccore = require("@encapsule/arccore");
+const cpmLib = require("./lib");
 const TransitionOperator = require("../../TransitionOperator");
 
 const transitionOperator = new TransitionOperator({
@@ -26,6 +28,23 @@ const transitionOperator = new TransitionOperator({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+            let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+            const cellProcessTreeData = cpmLibResponse.result;
+
+            cpmLibResponse = cpmLib.getProcessAncestorDescriptors({
+                cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
+                treeData: cellProcessTreeData
+            });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+            const ancestorCellProcessDescriptors = cpmLibResponse.result;
+            response.result = ancestorCellProcessDescriptors.length?true:false;
             break;
         }
         if (errors.length) {
