@@ -24,7 +24,7 @@ var cellModel = new holarchy.CellModel({
         }]
       },
       wait_for_ancestor_processes_all_in_step_1: {
-        description: "Wait for ancestor processes to all be in process step.",
+        description: "Wait for all ancestor processes to all be in any of the specified process step(s).",
         transitions: [{
           transitionIf: {
             holarchy: {
@@ -40,7 +40,7 @@ var cellModel = new holarchy.CellModel({
         }]
       },
       test_pass_1: {
-        description: "All ancestor processes are all in one of the indicated process step(s)."
+        description: "All ancestor processes are at the expected process step."
       }
     }
   }

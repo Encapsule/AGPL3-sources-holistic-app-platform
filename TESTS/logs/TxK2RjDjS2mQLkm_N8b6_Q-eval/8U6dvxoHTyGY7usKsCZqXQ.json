@@ -186,7 +186,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "DPUM9XpwenDTHtMepiKmIg",
-                      "vdid": "z_Fl4XVUrNkfln-6UNEFLw",
+                      "vdid": "4_Fl4blUrNn_ln-6zNEFLw",
                       "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                       "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                       "cmat": {
@@ -196,7 +196,7 @@
                             "type": "INDEX",
                             "DPUM9XpwenDTHtMepiKmIg": {
                               "id": "DPUM9XpwenDTHtMepiKmIg",
-                              "vdid": "z_Fl4XVUrNkfln-6UNEFLw",
+                              "vdid": "4_Fl4blUrNn_ln-6zNEFLw",
                               "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                               "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                               "type": "CM",
@@ -223,7 +223,7 @@
                               },
                               "jFxFmpHSSPaeWEFfLh8eWw": {
                                 "id": "jFxFmpHSSPaeWEFfLh8eWw",
-                                "vdid": "dvgbOfaZRWIye3cw_ggxSA",
+                                "vdid": "d4zcWSUAIDduCgC6eZAR2A",
                                 "name": "Cell Process Manager: Ancestor Processes Any In Step",
                                 "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) any of which are in the specified process step(s).",
                                 "type": "TOP"
@@ -1168,7 +1168,22 @@
                                   "CellProcessor": {
                                     "____types": "jsObject",
                                     "ancestorProcessesAnyInStep": {
-                                      "____types": "jsObject"
+                                      "____types": "jsObject",
+                                      "apmStep": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsArray"
+                                        ],
+                                        "stepName": {
+                                          "____accept": "jsString"
+                                        }
+                                      },
+                                      "omitCellProcessor": {
+                                        "____label": "Omit CellProcessor",
+                                        "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
+                                        "____accept": "jsBoolean",
+                                        "____defaultValue": true
+                                      }
                                     }
                                   }
                                 }
@@ -1178,10 +1193,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "qh7wt5MghqHkf8TA970Isg",
-                            "inputTypeVDID": "flFOBPdp2Px42VvEC7IWqA",
+                            "inputTypeVDID": "hcRXP_rbLX6u_Etut6OAnA",
                             "outputTypeVIID": "dVyh7xX7wxDVc-vzANMU_Q",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "ER03RLtKmZOSE6acigEScg"
+                            "operationVDID": "EW3JRLtFT5OSfamcimz7cg"
                           }
                         },
                         "xIRhBHueTRGO0xq63UUbyQ": {

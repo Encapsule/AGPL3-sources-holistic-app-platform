@@ -24,33 +24,35 @@ const cellModel = new holarchy.CellModel({
                         nextStep: "wait_for_ancestor_processes_all_in_step_1"
                     }
                 ]
-                },
+            },
 
-                wait_for_ancestor_processes_all_in_step_1: {
-                    description: "Wait for ancestor processes to all be in process step.",
-                    transitions: [
-                        {
-                            transitionIf: {
-                                holarchy: {
-                                    CellProcessor: {
-                                        ancestorProcessesAllInStep: {
-                                            apmStep: "ready",
-                                            omitCellProcessor: false
-                                        }
+            wait_for_ancestor_processes_all_in_step_1: {
+                description: "Wait for all ancestor processes to all be in any of the specified process step(s).",
+                transitions: [
+                    {
+                        transitionIf: {
+                            holarchy: {
+                                CellProcessor: {
+                                    ancestorProcessesAllInStep: {
+                                        apmStep: "ready",
+                                        omitCellProcessor: false
                                     }
                                 }
-                            },
-                            nextStep: "test_pass_1"
-                        }
-                    ]
-                },
+                            }
+                        },
+                        nextStep: "test_pass_1"
+                    }
+                ]
+            },
 
-                test_pass_1: {
-                    description: "All ancestor processes are all in one of the indicated process step(s)."
-                }
+            test_pass_1: {
+                description: "All ancestor processes are at the expected process step."
+            }
 
         }
+        
     }
+    
 });
 
 if (!cellModel.isValid()) {

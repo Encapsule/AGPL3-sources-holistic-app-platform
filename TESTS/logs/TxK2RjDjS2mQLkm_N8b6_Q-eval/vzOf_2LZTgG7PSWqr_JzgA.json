@@ -16,7 +16,7 @@
                     "description": "Tests the CPM descendant processes all in step transition operator.",
                     "cellmodel": {
                       "id": "wjUvGFxOQu6H3lZeII0cbA",
-                      "vdid": "AGdLYhgOgO_FRltxRUwIzg",
+                      "vdid": "AGfJYhgOKu_FRj9xRUyUzg",
                       "name": "CPM Ancestor Processes All In Step Operator Test Model",
                       "description": "A model to test CPM ancestor processes all in step operator.",
                       "cmat": {
@@ -26,13 +26,13 @@
                             "type": "INDEX",
                             "wjUvGFxOQu6H3lZeII0cbA": {
                               "id": "wjUvGFxOQu6H3lZeII0cbA",
-                              "vdid": "AGdLYhgOgO_FRltxRUwIzg",
+                              "vdid": "AGfJYhgOKu_FRj9xRUyUzg",
                               "name": "CPM Ancestor Processes All In Step Operator Test Model",
                               "description": "A model to test CPM ancestor processes all in step operator.",
                               "type": "CM",
                               "c09ke74xRza4Q9u2Ly0NIA": {
                                 "id": "c09ke74xRza4Q9u2Ly0NIA",
-                                "vdid": "_KQiUthjosHxrC3R86QvbQ",
+                                "vdid": "35MHUnqH7vTdNGgl_ZY4DA",
                                 "name": "CPM Ancestor Processes All In Step Operator Test Process",
                                 "description": "A process to test CPM ancestor all in step operator.",
                                 "type": "APM"
@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "HPUc9Ytwi3ArHise8SLxIg",
-                      "vdid": "Bq9BtnTTEDge6W8mMDUwDA",
+                      "vdid": "Xa978w_T8aJl6ccmjzWixA",
                       "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "HPUc9Ytwi3ArHise8SLxIg": {
                               "id": "HPUc9Ytwi3ArHise8SLxIg",
-                              "vdid": "Bq9BtnTTEDge6W8mMDUwDA",
+                              "vdid": "Xa978w_T8aJl6ccmjzWixA",
                               "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                               "type": "CM",
@@ -117,7 +117,7 @@
                               },
                               "jFxFmpHSSPaeWEFfLh8eWw": {
                                 "id": "jFxFmpHSSPaeWEFfLh8eWw",
-                                "vdid": "dvgbOfaZRWIye3cw_ggxSA",
+                                "vdid": "d4zcWSUAIDduCgC6eZAR2A",
                                 "name": "Cell Process Manager: Ancestor Processes Any In Step",
                                 "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) any of which are in the specified process step(s).",
                                 "type": "TOP"
@@ -355,13 +355,13 @@
                               },
                               "wjUvGFxOQu6H3lZeII0cbA": {
                                 "id": "wjUvGFxOQu6H3lZeII0cbA",
-                                "vdid": "AGdLYhgOgO_FRltxRUwIzg",
+                                "vdid": "AGfJYhgOKu_FRj9xRUyUzg",
                                 "name": "CPM Ancestor Processes All In Step Operator Test Model",
                                 "description": "A model to test CPM ancestor processes all in step operator.",
                                 "type": "CM",
                                 "c09ke74xRza4Q9u2Ly0NIA": {
                                   "id": "c09ke74xRza4Q9u2Ly0NIA",
-                                  "vdid": "_KQiUthjosHxrC3R86QvbQ",
+                                  "vdid": "35MHUnqH7vTdNGgl_ZY4DA",
                                   "name": "CPM Ancestor Processes All In Step Operator Test Process",
                                   "description": "A process to test CPM ancestor all in step operator.",
                                   "type": "APM"
@@ -385,7 +385,7 @@
                       "apmMap": {
                         "c09ke74xRza4Q9u2Ly0NIA": {
                           "id": "c09ke74xRza4Q9u2Ly0NIA",
-                          "vdid": "_KQiUthjosHxrC3R86QvbQ",
+                          "vdid": "35MHUnqH7vTdNGgl_ZY4DA",
                           "name": "CPM Ancestor Processes All In Step Operator Test Process",
                           "description": "A process to test CPM ancestor all in step operator."
                         },
@@ -410,7 +410,7 @@
                           "specPath": "~.c09ke74xRza4Q9u2Ly0NIA_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "c09ke74xRza4Q9u2Ly0NIA",
-                            "vdid": "_KQiUthjosHxrC3R86QvbQ",
+                            "vdid": "35MHUnqH7vTdNGgl_ZY4DA",
                             "name": "CPM Ancestor Processes All In Step Operator Test Process",
                             "description": "A process to test CPM ancestor all in step operator."
                           }
@@ -801,7 +801,22 @@
                                   "CellProcessor": {
                                     "____types": "jsObject",
                                     "ancestorProcessesAnyInStep": {
-                                      "____types": "jsObject"
+                                      "____types": "jsObject",
+                                      "apmStep": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsArray"
+                                        ],
+                                        "stepName": {
+                                          "____accept": "jsString"
+                                        }
+                                      },
+                                      "omitCellProcessor": {
+                                        "____label": "Omit CellProcessor",
+                                        "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
+                                        "____accept": "jsBoolean",
+                                        "____defaultValue": true
+                                      }
                                     }
                                   }
                                 }
@@ -811,10 +826,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "qh7wt5MghqHkf8TA970Isg",
-                            "inputTypeVDID": "flFOBPdp2Px42VvEC7IWqA",
+                            "inputTypeVDID": "hcRXP_rbLX6u_Etut6OAnA",
                             "outputTypeVIID": "dVyh7xX7wxDVc-vzANMU_Q",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "ER03RLtKmZOSE6acigEScg"
+                            "operationVDID": "EW3JRLtFT5OSfamcimz7cg"
                           }
                         },
                         "xIRhBHueTRGO0xq63UUbyQ": {
@@ -3300,7 +3315,7 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "c09ke74xRza4Q9u2Ly0NIA",
-                                        "vdid": "_KQiUthjosHxrC3R86QvbQ",
+                                        "vdid": "35MHUnqH7vTdNGgl_ZY4DA",
                                         "name": "CPM Ancestor Processes All In Step Operator Test Process",
                                         "description": "A process to test CPM ancestor all in step operator."
                                       }
@@ -3482,7 +3497,7 @@
                                       "initialStep": "wait_for_ancestor_processes_all_in_step_1",
                                       "apmRef": {
                                         "id": "c09ke74xRza4Q9u2Ly0NIA",
-                                        "vdid": "_KQiUthjosHxrC3R86QvbQ",
+                                        "vdid": "35MHUnqH7vTdNGgl_ZY4DA",
                                         "name": "CPM Ancestor Processes All In Step Operator Test Process",
                                         "description": "A process to test CPM ancestor all in step operator."
                                       }
@@ -3669,7 +3684,7 @@
                                       "initialStep": "test_pass_1",
                                       "apmRef": {
                                         "id": "c09ke74xRza4Q9u2Ly0NIA",
-                                        "vdid": "_KQiUthjosHxrC3R86QvbQ",
+                                        "vdid": "35MHUnqH7vTdNGgl_ZY4DA",
                                         "name": "CPM Ancestor Processes All In Step Operator Test Process",
                                         "description": "A process to test CPM ancestor all in step operator."
                                       }

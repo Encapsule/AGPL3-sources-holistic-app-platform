@@ -53,7 +53,7 @@ var transitionOperator = new TransitionOperator({
       var message = request_.operatorRequest.holarchy.CellProcessor.ancestorProcessesAllInStep; // This is all we can ever be 100% sure about based on the apmBindingPath.
 
       if (request_.context.apmBindingPath === "~") {
-        return "break"; // resposne.result === false
+        return "break"; // response.result === false
       }
 
       var cpmLibResponse = cpmLib.getProcessTreeData({

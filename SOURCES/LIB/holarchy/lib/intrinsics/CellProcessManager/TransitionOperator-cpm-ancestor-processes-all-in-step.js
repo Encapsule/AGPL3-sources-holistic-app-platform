@@ -47,7 +47,7 @@ const transitionOperator = new TransitionOperator({
 
             // This is all we can ever be 100% sure about based on the apmBindingPath.
             if (request_.context.apmBindingPath === "~") {
-                break; // resposne.result === false
+                break; // response.result === false
             }
 
             let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });

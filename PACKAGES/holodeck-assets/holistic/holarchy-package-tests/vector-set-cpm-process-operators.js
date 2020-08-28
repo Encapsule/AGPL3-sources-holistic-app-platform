@@ -99,7 +99,23 @@ module.exports = [// CPM Ancestor Processes Active
               id: "4_rZ65rORrOEYJTCl5mOEQ"
             }).result
           },
-          actRequests: []
+          actRequests: [{
+            actorName: "CPM Ancestor Processes Any In Step Test",
+            actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      apmID: "we5IUb__Smqwkl4ghRl3Lw",
+                      // "CPM Ancestor Processes Any In Step Operator Test Process"
+                      cellProcessUniqueName: "Test Process"
+                    }
+                  }
+                }
+              }
+            }
+          }]
         }
       }
     }
