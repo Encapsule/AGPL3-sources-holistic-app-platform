@@ -42,6 +42,7 @@ module.exports = new TransitionOperator({
                 break;
             }
             const cellProcessTreeData = cpmLibResponse.result;
+
             cpmLibResponse = cpmLib.getProcessChildrenDescriptors({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
                 treeData: cellProcessTreeData

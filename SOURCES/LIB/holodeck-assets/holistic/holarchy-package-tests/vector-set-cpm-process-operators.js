@@ -59,6 +59,23 @@ module.exports = [
                             cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "wjUvGFxOQu6H3lZeII0cbA" }).result
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Ancestor Processes All In Step Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "c09ke74xRza4Q9u2Ly0NIA", // "CPM Ancestor Processes All In Step Operator Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
                         ]
                     }
                 }
