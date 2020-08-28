@@ -10,8 +10,8 @@ module.exports = {
   actions: [require("./ControllerAction-cpm-initialize"), require("./ControllerAction-cpm-process-create"), require("./ControllerAction-cpm-process-delete"), require("./ControllerAction-cpm-process-query"), require("./ControllerAction-cpm-query") // TODO: Disable this action until it's needed and restabilize the tests (on a clean branch).
   ],
   operators: [require("./TransitionOperator-cpm-ancestor-processes-active"), // STAGE 1 COMPLETE
-  require("./TransitionOperator-cpm-ancestor-processes-all-in-step"), // defined missing implementation
-  require("./TransitionOperator-cpm-ancestor-processes-any-in-step"), // defined missing implementation
+  require("./TransitionOperator-cpm-ancestor-processes-all-in-step"), // STAGE 1 COMPLETE
+  require("./TransitionOperator-cpm-ancestor-processes-any-in-step"), // STAGE 1 COMPLETE
   require("./TransitionOperator-cpm-child-processes-active"), // STAGE 1 COMPLETE
   require("./TransitionOperator-cpm-child-processes-all-in-step"), // defined missing implementation / tests
   require("./TransitionOperator-cpm-child-processes-any-in-step"), // defined missing implementation / tests
