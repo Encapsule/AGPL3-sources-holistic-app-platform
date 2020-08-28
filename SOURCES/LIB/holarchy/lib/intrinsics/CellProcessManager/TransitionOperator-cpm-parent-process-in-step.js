@@ -3,6 +3,8 @@
 const arccore = require("@encapsule/arccore");
 const cpmLib = require("./lib");
 const TransitionOperator = require("../../TransitionOperator");
+const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
+const cpmApmBindingPath = `~.${cpmMountingNamespaceName}`;
 
 module.exports = new TransitionOperator({
     id: "PHPSWivjRyK80Gtymsp-pA",
@@ -59,6 +61,11 @@ module.exports = new TransitionOperator({
                 break;
             }
             const parentCellProcessDescriptor = cpmLibResponse.result;
+
+            if (parentCellProcessDescriptor.apmBindingPath === "~") {
+                // Note that we make it appear that the CPM is bound to ~. But, it's not.
+                parentCellProcessDescriptor.apmBindingPath = cpmApmBindingPath;
+            }
 
             response.result = parentCellProcessDescriptor.apmBindingPath?true:false;
 
