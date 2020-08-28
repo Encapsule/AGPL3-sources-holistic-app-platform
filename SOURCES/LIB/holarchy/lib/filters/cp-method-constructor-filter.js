@@ -82,7 +82,7 @@ const factoryResponse = arccore.filter.create({
 
             const cpAPMID =  arccore.identifier.irut.fromReference(`${request_.id}_CellProcess_AbstractProcessModel`).result;
 
-            // Define the CellProcessor process manager process namespace in shared memory and bound our APM.
+            // Define the CellProcessor process manager process namespace in shared memory and bind our APM.
             // Note that we specifiy a default value here ensuring that the process manager cell process is
             // always started automatically whenever a CellProcess instance is constructed.
             ocdTemplateSpec[cpmMountingNamespaceName] = {
