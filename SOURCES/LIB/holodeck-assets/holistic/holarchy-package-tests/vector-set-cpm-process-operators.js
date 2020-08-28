@@ -17,7 +17,7 @@ module.exports = [
                             id: "XyAdaaZ_S9OTkRuwBYe4Ew",
                             name: "CPM Ancestor Processes Active Test",
                             description: "Tests the CPM ancestor processes active operator.",
-                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "eu32xBRTSE2-B71HrwPFBg" }).result,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "eu32xBRTSE2-B71HrwPFBg" }).result
                         },
                         actRequests: [
                             {
@@ -56,7 +56,7 @@ module.exports = [
                             id: "vzOf_2LZTgG7PSWqr_JzgA",
                             name: "CPM Ancestor Processes All In Step Operator Test",
                             description: "Tests the CPM descendant processes all in step transition operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "wjUvGFxOQu6H3lZeII0cbA" }).result
                         },
                         actRequests: [
                         ]
@@ -78,8 +78,8 @@ module.exports = [
                         constructorRequest: {
                             id: "FLusrxY-QpulvQ5jpazAgg",
                             name: "CPM Ancestor Processes Any In Step Operator Test",
-                            description: "Tests the CPM ancestor processes any in step transition operator.", 
-                            cellmodel: testFixtureModel,
+                            description: "Tests the CPM ancestor processes any in step transition operator.",
+                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "4_rZ65rORrOEYJTCl5mOEQ" }).result
                         },
                         actRequests: [
                         ]
@@ -167,7 +167,7 @@ module.exports = [
                             id: "Jq9BQRTXQmmSznq40NvuiQ",
                             name: "CPM Child Processes All In Step Operator Test",
                             description: "Tests the CPM child processes all in step transition operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "OfLkkeNgQDm3xLb7TJqNRg" }).result
                         },
                         actRequests: [
                         ]
@@ -190,7 +190,7 @@ module.exports = [
                             id: "BSXTNPAaRXKR5C5OrJzSwQ",
                             name: "CPM Child Processes Any In Step Operator Test",
                             description: "Tests the CPM child processes any in step transition operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "C_wxJlAoTHW_7TWmpCXL2g" }).result
                         },
                         actRequests: [
                         ]
@@ -213,7 +213,7 @@ module.exports = [
                             id: "frzhwqHrSCi1Ta9Mz1gQDg",
                             name: "CPM Descendant Processes Active Test",
                             description: "Tests the CPM descendant processes active transition operator implementation.",
-                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "L0L3o-vqTOOli8Lio96e8w" }).result,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "L0L3o-vqTOOli8Lio96e8w" }).result
                         },
                         actRequests: [
                             {
@@ -275,7 +275,7 @@ module.exports = [
                             id: "tydUf2gSSgSjSmrrF8nkyw",
                             name: "CPM Descendant Processes All In Step Test",
                             description: "Tests the CPM descendant processes all in step transition operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "DXfqoTLmRzi-IloxkIFbRQ" }).result
                         },
                         actRequests: [
                         ]
@@ -298,7 +298,7 @@ module.exports = [
                             id: "OFSWJDZdQVSnkUxpu0THsw",
                             name: "CPM Descendant Processes Any In Step Test",
                             description: "Tests the CPM descendant processes any in step transition operator.",
-                            cellmodel: testFixtureModel,
+                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id:  "xbaDltz5S2m7Wes94Kx2pQ" }).result
                         },
                         actRequests: [
                         ]
@@ -321,7 +321,7 @@ module.exports = [
                             id: "rdh8dW74RnO7lWGNlFR79A",
                             name: "CPM Parent Process Active Test",
                             description: "Tests the CPM parent process active operator.",
-                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "mLTbOO97TtixSbKl8VB7gQ" }).result,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "mLTbOO97TtixSbKl8VB7gQ" }).result
                         },
                         actRequests: [
                             {
@@ -360,7 +360,7 @@ module.exports = [
                             id: "E4OfrQ0iS8yTV2DUaw7GGg",
                             name: "CPM Parent Process In Step Operator Test",
                             description: "Tests the CPM parent process in step transition operator.",
-                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id:  "YasRidtOS-qeNNXio5CbVQ" }).result,
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id:  "YasRidtOS-qeNNXio5CbVQ" }).result
                         },
                         actRequests: [
                             {
