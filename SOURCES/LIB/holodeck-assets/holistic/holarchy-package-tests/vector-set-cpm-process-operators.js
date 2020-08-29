@@ -266,6 +266,45 @@ module.exports = [
                             cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "C_wxJlAoTHW_7TWmpCXL2g" }).result
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Child Processes All In Step Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "8LE0CnuHRMOKoGXn1kHdNA", // "CPM Child Processes Any In Step Operator Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                actorName: "CPM Child Processes All In Step Test",
+                                actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    // Optionally override the default parent process specification.
+                                                    parentCellProcess: {
+                                                        cellProcessNamespace: {
+                                                            apmID: "8LE0CnuHRMOKoGXn1kHdNA", // "CPM Child Processes Any In Step Operator Test Process"
+                                                            cellProcessUniqueName: "Test Process"
+                                                        }
+                                                    },
+                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                    cellProcessUniqueName: "Child Process",
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         ]
                     }
                 }
