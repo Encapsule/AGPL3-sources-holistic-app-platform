@@ -28,7 +28,7 @@ module.exports = {
 
         require("./TransitionOperator-cpm-descendant-processes-active"),        // STAGE 1 COMPLETE
         require("./TransitionOperator-cpm-descendant-processes-all-in-step"),   // STAGE 1 COMPLETE
-        require("./TransitionOperator-cpm-descendant-processes-any-in-step"),   // defined missing implementation / tests
+        require("./TransitionOperator-cpm-descendant-processes-any-in-step"),   // STAGE 1 COMPLETE
 
         require("./TransitionOperator-cpm-parent-process-active"),              // STAGE 1 COMPLETE
         require("./TransitionOperator-cpm-parent-process-in-step")              // STAGE 1 COMPLETE

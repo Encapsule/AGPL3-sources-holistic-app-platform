@@ -450,9 +450,49 @@ module.exports = [
                             id: "OFSWJDZdQVSnkUxpu0THsw",
                             name: "CPM Descendant Processes Any In Step Test",
                             description: "Tests the CPM descendant processes any in step transition operator.",
-                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id:  "xbaDltz5S2m7Wes94Kx2pQ" }).result
+                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "xbaDltz5S2m7Wes94Kx2pQ" }).result
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Descendant Processes All In Step Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "TR7suTjQSKOBK5bGKztIcg", //  "CPM Descendant Processes Any In Step Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                actorName: "CPM Descendant Processes All In Step Test",
+                                actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    // Optionally override the default parent process specification.
+                                                    parentCellProcess: {
+                                                        cellProcessNamespace: {
+                                                            apmID: "TR7suTjQSKOBK5bGKztIcg", //  "CPM Descendant Processes Any In Step Test Process"
+                                                            cellProcessUniqueName: "Test Process"
+                                                        }
+                                                    },
+                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                    cellProcessUniqueName: "Child Process",
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
                         ]
                     }
                 }
