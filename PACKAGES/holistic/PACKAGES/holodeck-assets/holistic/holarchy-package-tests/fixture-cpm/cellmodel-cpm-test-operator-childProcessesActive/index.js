@@ -42,7 +42,7 @@ var cellModel = new holarchy.CellModel({
     }
   },
   // apm
-  subcells: [require("../cellmodel-dummy-A"), holarchyCML]
+  subcells: [require("../cellmodel-dummy-A")]
 });
 
 if (!cellModel.isValid()) {

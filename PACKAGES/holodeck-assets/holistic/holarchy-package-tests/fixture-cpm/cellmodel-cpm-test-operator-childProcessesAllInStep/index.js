@@ -30,7 +30,7 @@ var cellModel = new holarchy.CellModel({
             holarchy: {
               CellProcessor: {
                 childProcessesAllInStep: {
-                  apmStep: "goal"
+                  apmStep: "ready"
                 }
               }
             }
@@ -43,7 +43,8 @@ var cellModel = new holarchy.CellModel({
         description: "All child processes have reached the desired step(s)."
       }
     }
-  }
+  },
+  subcells: [require("../cellmodel-dummy-A")]
 });
 
 if (!cellModel.isValid()) {

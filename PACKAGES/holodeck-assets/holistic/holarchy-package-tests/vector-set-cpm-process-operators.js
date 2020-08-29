@@ -201,7 +201,47 @@ module.exports = [// CPM Ancestor Processes Active
               id: "OfLkkeNgQDm3xLb7TJqNRg"
             }).result
           },
-          actRequests: []
+          actRequests: [{
+            actorName: "CPM Child Processes All In Step Test",
+            actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      apmID: "vjz7U4NWRE2_UlAvAjmS6g",
+                      // "CPM Child Processes All In Step Operator Test Process"
+                      cellProcessUniqueName: "Test Process"
+                    }
+                  }
+                }
+              }
+            }
+          }, {
+            actorName: "CPM Child Processes All In Step Test",
+            actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      // Optionally override the default parent process specification.
+                      parentCellProcess: {
+                        cellProcessNamespace: {
+                          apmID: "vjz7U4NWRE2_UlAvAjmS6g",
+                          // "CPM Child Processes All In Step Operator Test Process"
+                          cellProcessUniqueName: "Test Process"
+                        }
+                      },
+                      apmID: "3E27IH_CQeqBUFsGm4tIIA",
+                      // Dummy Process A Process
+                      cellProcessUniqueName: "Child Process"
+                    }
+                  }
+                }
+              }
+            }
+          }]
         }
       }
     }
@@ -224,7 +264,47 @@ module.exports = [// CPM Ancestor Processes Active
               id: "C_wxJlAoTHW_7TWmpCXL2g"
             }).result
           },
-          actRequests: []
+          actRequests: [{
+            actorName: "CPM Child Processes All In Step Test",
+            actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      apmID: "8LE0CnuHRMOKoGXn1kHdNA",
+                      // "CPM Child Processes Any In Step Operator Test Process"
+                      cellProcessUniqueName: "Test Process"
+                    }
+                  }
+                }
+              }
+            }
+          }, {
+            actorName: "CPM Child Processes All In Step Test",
+            actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      // Optionally override the default parent process specification.
+                      parentCellProcess: {
+                        cellProcessNamespace: {
+                          apmID: "8LE0CnuHRMOKoGXn1kHdNA",
+                          // "CPM Child Processes Any In Step Operator Test Process"
+                          cellProcessUniqueName: "Test Process"
+                        }
+                      },
+                      apmID: "3E27IH_CQeqBUFsGm4tIIA",
+                      // Dummy Process A Process
+                      cellProcessUniqueName: "Child Process"
+                    }
+                  }
+                }
+              }
+            }
+          }]
         }
       }
     }
@@ -248,7 +328,7 @@ module.exports = [// CPM Ancestor Processes Active
             }).result
           },
           actRequests: [{
-            actorName: "CPM Descendnat Processes Active Test",
+            actorName: "CPM Descendant Processes Active Test",
             actorTaskDescription: "Start the first process instance. We will use this process as our test.",
             actionRequest: {
               holarchy: {
@@ -310,7 +390,47 @@ module.exports = [// CPM Ancestor Processes Active
               id: "DXfqoTLmRzi-IloxkIFbRQ"
             }).result
           },
-          actRequests: []
+          actRequests: [{
+            actorName: "CPM Descendant Processes All In Step Test",
+            actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      apmID: "XzNJP6LyTCOnhGPKpJIjzg",
+                      // "CPM Descendant Processes ALl In Step Operator Test Process"
+                      cellProcessUniqueName: "Test Process"
+                    }
+                  }
+                }
+              }
+            }
+          }, {
+            actorName: "CPM Descendant Processes All In Step Test",
+            actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      // Optionally override the default parent process specification.
+                      parentCellProcess: {
+                        cellProcessNamespace: {
+                          apmID: "XzNJP6LyTCOnhGPKpJIjzg",
+                          // "CPM Descendant Processes ALl In Step Operator Test Process"
+                          cellProcessUniqueName: "Test Process"
+                        }
+                      },
+                      apmID: "3E27IH_CQeqBUFsGm4tIIA",
+                      // Dummy Process A Process
+                      cellProcessUniqueName: "Child Process"
+                    }
+                  }
+                }
+              }
+            }
+          }]
         }
       }
     }
@@ -333,7 +453,47 @@ module.exports = [// CPM Ancestor Processes Active
               id: "xbaDltz5S2m7Wes94Kx2pQ"
             }).result
           },
-          actRequests: []
+          actRequests: [{
+            actorName: "CPM Descendant Processes All In Step Test",
+            actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      apmID: "TR7suTjQSKOBK5bGKztIcg",
+                      //  "CPM Descendant Processes Any In Step Test Process"
+                      cellProcessUniqueName: "Test Process"
+                    }
+                  }
+                }
+              }
+            }
+          }, {
+            actorName: "CPM Descendant Processes All In Step Test",
+            actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    create: {
+                      // Optionally override the default parent process specification.
+                      parentCellProcess: {
+                        cellProcessNamespace: {
+                          apmID: "TR7suTjQSKOBK5bGKztIcg",
+                          //  "CPM Descendant Processes Any In Step Test Process"
+                          cellProcessUniqueName: "Test Process"
+                        }
+                      },
+                      apmID: "3E27IH_CQeqBUFsGm4tIIA",
+                      // Dummy Process A Process
+                      cellProcessUniqueName: "Child Process"
+                    }
+                  }
+                }
+              }
+            }
+          }]
         }
       }
     }
