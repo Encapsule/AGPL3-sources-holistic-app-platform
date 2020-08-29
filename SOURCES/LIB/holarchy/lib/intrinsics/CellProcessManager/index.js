@@ -23,7 +23,7 @@ module.exports = {
         require("./TransitionOperator-cpm-ancestor-processes-any-in-step"), // STAGE 1 COMPLETE
 
         require("./TransitionOperator-cpm-child-processes-active"), // STAGE 1 COMPLETE
-        require("./TransitionOperator-cpm-child-processes-all-in-step"), // defined missing implementation / tests
+        require("./TransitionOperator-cpm-child-processes-all-in-step"), // STAGE 1 COMPLETE
         require("./TransitionOperator-cpm-child-processes-any-in-step"), // defined missing implementation / tests
 
         require("./TransitionOperator-cpm-descendant-processes-active"), // STAGE 1 COMPLETE

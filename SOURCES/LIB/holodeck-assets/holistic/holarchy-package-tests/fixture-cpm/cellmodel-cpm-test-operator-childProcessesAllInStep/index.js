@@ -32,7 +32,7 @@ const cellModel = new holarchy.CellModel({
                             holarchy: {
                                 CellProcessor: {
                                     childProcessesAllInStep: {
-                                        apmStep: "goal"
+                                        apmStep: "ready"
                                     }
                                 }
                             }
@@ -47,7 +47,11 @@ const cellModel = new holarchy.CellModel({
             }
 
         }
-    }
+    },
+
+    subcells: [
+        require("../cellmodel-dummy-A")
+    ]
 });
 
 if (!cellModel.isValid()) {

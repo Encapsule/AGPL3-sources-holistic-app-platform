@@ -50,8 +50,7 @@ const cellModel = new holarchy.CellModel({
     }, // apm
 
     subcells: [
-        require("../cellmodel-dummy-A"),
-        holarchyCML
+        require("../cellmodel-dummy-A")
     ]
 
 });
