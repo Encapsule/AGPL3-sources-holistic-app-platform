@@ -54,7 +54,6 @@ module.exports = new TransitionOperator({
             const childCellProcessDescriptors = cpmLibResponse.result;
 
             if (!childCellProcessDescriptors.length) {
-                response.result = false;
                 break;
             }
 

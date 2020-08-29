@@ -329,14 +329,14 @@ module.exports = [
                         },
                         actRequests: [
                             {
-                                actorName: "CPM Descendnat Processes Active Test",
+                                actorName: "CPM Descendant Processes Active Test",
                                 actorTaskDescription: "Start the first process instance. We will use this process as our test.",
                                 actionRequest: {
                                     holarchy: {
                                         CellProcessor: {
                                             process: {
                                                 create: {
-                                                    apmID:  "cYpoxyyZSwm19CqH3v7eLQ", // "CPM Descendant Processes Active Operator Test Process"
+                                                    apmID: "cYpoxyyZSwm19CqH3v7eLQ", // "CPM Descendant Processes Active Operator Test Process"
                                                     cellProcessUniqueName: "Test Process"
                                                 }
                                             }
@@ -390,6 +390,46 @@ module.exports = [
                             cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "DXfqoTLmRzi-IloxkIFbRQ" }).result
                         },
                         actRequests: [
+                            {
+                                actorName: "CPM Descendant Processes All In Step Test",
+                                actorTaskDescription: "Start the first process instance. We will use this process as our test.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    apmID: "XzNJP6LyTCOnhGPKpJIjzg", // "CPM Descendant Processes ALl In Step Operator Test Process"
+                                                    cellProcessUniqueName: "Test Process"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                actorName: "CPM Descendant Processes All In Step Test",
+                                actorTaskDescription: "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+                                actionRequest: {
+                                    holarchy: {
+                                        CellProcessor: {
+                                            process: {
+                                                create: {
+                                                    // Optionally override the default parent process specification.
+                                                    parentCellProcess: {
+                                                        cellProcessNamespace: {
+                                                            apmID: "XzNJP6LyTCOnhGPKpJIjzg", // "CPM Descendant Processes ALl In Step Operator Test Process"
+                                                            cellProcessUniqueName: "Test Process"
+                                                        }
+                                                    },
+                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                    cellProcessUniqueName: "Child Process",
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
                         ]
                     }
                 }
