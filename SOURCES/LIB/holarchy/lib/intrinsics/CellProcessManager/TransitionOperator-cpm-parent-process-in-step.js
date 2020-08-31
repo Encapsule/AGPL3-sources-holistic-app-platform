@@ -5,6 +5,7 @@ const cpmLib = require("./lib");
 const TransitionOperator = require("../../TransitionOperator");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 const cpmApmBindingPath = `~.${cpmMountingNamespaceName}`;
+const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
 
 module.exports = new TransitionOperator({
     id: "PHPSWivjRyK80Gtymsp-pA",
@@ -23,7 +24,8 @@ module.exports = new TransitionOperator({
                         // If apmStep is an array of step names (strings), then all child cell processes must be in any of the indicated steps.
                         ____types: [ "jsString", "jsArray" ],
                         stepName: { ____accept: "jsString" }
-                    }
+                    },
+                    filterBy: cellProcessQueryRequestFilterBySpec
                 }
             }
         }
@@ -54,6 +56,8 @@ module.exports = new TransitionOperator({
             // Get the parent process descriptor.
             cpmLibResponse = cpmLib.getProcessParentDescriptor({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
+                filterBy: message.filterBy,
+                ocdi: request_.context.ocdi,
                 treeData: cellProcessTreeData
             });
             if (cpmLibResponse.error) {

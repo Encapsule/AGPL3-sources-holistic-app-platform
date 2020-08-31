@@ -5,6 +5,7 @@ const cpmLib = require("./lib");
 const TransitionOperator = require("../../TransitionOperator");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 const cpmApmBindingPath = `~.${cpmMountingNamespaceName}`;
+const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
 
 const transitionOperator = new TransitionOperator({
     id: "6j5F3HmKTLG9Q8kD1-QWYA",
@@ -25,6 +26,7 @@ const transitionOperator = new TransitionOperator({
                         ____types: [ "jsString", "jsArray" ],
                         stepName: { ____accept: "jsString" }
                     },
+                    filterBy: cellProcessQueryRequestFilterBySpec,
                     omitCellProcessor: {
                         ____label: "Omit CellProcessor",
                         ____description: "Exclude the CellProcessor's Cell Process Manger process step.",
@@ -57,8 +59,10 @@ const transitionOperator = new TransitionOperator({
             }
             const cellProcessTreeData = cpmLibResponse.result;
             
-            cpmLibResponse = cpmLib.getProcessAncestorDescriptors({
+            cpmLibResponse = cpmLib.getProcessAncestorDescriptors.request({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
+                filterBy: message.filterBy,
+                ocdi: request_.context.ocdi,
                 treeData: cellProcessTreeData
             });
             if (cpmLibResponse.error) {

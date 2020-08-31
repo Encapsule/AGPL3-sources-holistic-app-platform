@@ -3,6 +3,7 @@
 const arccore = require("@encapsule/arccore");
 const cpmLib = require("./lib");
 const TransitionOperator = require("../../TransitionOperator");
+const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
 
 module.exports = new TransitionOperator({
     id: "esuJGgmERrSV3AFvFOMyhw",
@@ -16,8 +17,9 @@ module.exports = new TransitionOperator({
                 ____types: "jsObject",
                 childProcessesAnyInStep: {
                     ____types: "jsObject",
-                    apmStep: { ____accept: "jsString" }
-                }
+                    apmStep: { ____accept: "jsString" },
+                },
+                filterBy: cellProcessQueryRequestFilterBySpec
             }
         }
     },
@@ -40,6 +42,8 @@ module.exports = new TransitionOperator({
 
             cpmLibResponse = cpmLib.getProcessChildrenDescriptors({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
+                filterBy: message.filterBy,
+                ocdi: request_.context.ocdi,
                 treeData: cellProcessTreeData
             });
             if (cpmLibResponse.error) {

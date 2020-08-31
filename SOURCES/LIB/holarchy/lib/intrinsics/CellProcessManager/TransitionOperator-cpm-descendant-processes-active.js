@@ -3,6 +3,7 @@
 const arccore = require("@encapsule/arccore");
 const cpmLib = require("./lib");
 const TransitionOperator = require("../../TransitionOperator");
+const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
 
 // TODO: Not sure we'll actually ever use this. But it's simple enough. Keep an eye. Maybe remove it later?
 
@@ -17,7 +18,8 @@ module.exports = new TransitionOperator({
             CellProcessor: {
                 ____types: "jsObject",
                 descendantProcessesActive: {
-                    ____types: "jsObject"
+                    ____types: "jsObject",
+                    filterBy: cellProcessQueryRequestFilterBySpec
                 }
             }
         }
@@ -29,6 +31,8 @@ module.exports = new TransitionOperator({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+            const message = request_.operatorRequest.holarchy.CellProcessor.descendantProcessesActive;
+
             let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
@@ -37,6 +41,8 @@ module.exports = new TransitionOperator({
             const cellProcessTreeData = cpmLibResponse.result;
             cpmLibResponse = cpmLib.getProcessDescendantDescriptors({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
+                filterBy: message.filterBy,
+                ocdi: request_.context.ocdi,
                 treeData: cellProcessTreeData
             });
             if (cpmLibResponse.error) {

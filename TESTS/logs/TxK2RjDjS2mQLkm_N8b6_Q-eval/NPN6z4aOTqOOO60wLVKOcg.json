@@ -106,7 +106,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                      "vdid": "7XCSyyCglD6OLTGtZpDr6g",
+                      "vdid": "9HCSy5-glD6QLTGtmZDr6g",
                       "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
                       "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
                       "cmat": {
@@ -116,7 +116,7 @@
                             "type": "INDEX",
                             "ZfVl9fVw9XBGHkYehCKEIg": {
                               "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                              "vdid": "7XCSyyCglD6OLTGtZpDr6g",
+                              "vdid": "9HCSy5-glD6QLTGtmZDr6g",
                               "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
                               "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
                               "type": "CM",
@@ -129,77 +129,77 @@
                               },
                               "gJnA-VJTTLa0g9TKFmjv1Q": {
                                 "id": "gJnA-VJTTLa0g9TKFmjv1Q",
-                                "vdid": "uxIdQlu6F6qh7wSf8fxRgg",
+                                "vdid": "y-xRl4DOL-gi2uIYjI2hww",
                                 "name": "Cell Process Manager: Ancestor Processes Active",
                                 "description": "Return Boolean true if request.context.apmBindingPath is a cell process with active ancestor processes.",
                                 "type": "TOP"
                               },
                               "6j5F3HmKTLG9Q8kD1-QWYA": {
                                 "id": "6j5F3HmKTLG9Q8kD1-QWYA",
-                                "vdid": "IDCYDiClLo56UqDV9M-ghg",
+                                "vdid": "aXbMEvEGPywjcXDoZ13SZg",
                                 "name": "Cell Process Manager: Ancestor Processes All In Step",
                                 "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) all in the specified process step(s).",
                                 "type": "TOP"
                               },
                               "jFxFmpHSSPaeWEFfLh8eWw": {
                                 "id": "jFxFmpHSSPaeWEFfLh8eWw",
-                                "vdid": "d4zcWSUAIDduCgC6eZAR2A",
+                                "vdid": "vz7gbmgfU5OK2pXFhM3A1g",
                                 "name": "Cell Process Manager: Ancestor Processes Any In Step",
                                 "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) any of which are in the specified process step(s).",
                                 "type": "TOP"
                               },
                               "xIRhBHueTRGO0xq63UUbyQ": {
                                 "id": "xIRhBHueTRGO0xq63UUbyQ",
-                                "vdid": "LOLedi7ipkbHDvCmLTCxmQ",
+                                "vdid": "OFzuXGR-DYNPAAi61oYiPg",
                                 "name": "Cell Process Manager: Child Processes Active",
                                 "description": "Returns Boolean true iff request.context.apmBindingPath is a cell process with one or more child cell processes.",
                                 "type": "TOP"
                               },
                               "5P2MHjL4TXCqScp_xNrJyA": {
                                 "id": "5P2MHjL4TXCqScp_xNrJyA",
-                                "vdid": "VNZVczSCgyC66HK2MNfGGw",
+                                "vdid": "6pGUpIQmzzdLlxVLO9hKwA",
                                 "name": "Cell Process Manager: Child Processes All In Step",
                                 "description": "Returns Boolean true request.context.apmBindingPath is a cell process whose child processes are all in the specified process step.",
                                 "type": "TOP"
                               },
                               "esuJGgmERrSV3AFvFOMyhw": {
                                 "id": "esuJGgmERrSV3AFvFOMyhw",
-                                "vdid": "EIXj4B4mIuLjCWaE3d19pw",
+                                "vdid": "rDk-xYKSEq5T0ahLSByvFg",
                                 "name": "Cell Process Manager: Child Processes Any In Step",
                                 "description": "Returns Boolean true request.context.apmBindingPath is a cell process with any child cell process in the specified process step.",
                                 "type": "TOP"
                               },
                               "Fs6tE76WR5yTOdbwQ_N_FQ": {
                                 "id": "Fs6tE76WR5yTOdbwQ_N_FQ",
-                                "vdid": "gcB_K3kPmripzOCaHBfsZw",
+                                "vdid": "DhLnD_0ZPsKdrbW2yP97Xw",
                                 "name": "Cell Process Manager: Descendant Processes Active",
                                 "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with active dependant cell processes.",
                                 "type": "TOP"
                               },
                               "DX5GfJcwRNq0xW20KzMSJQ": {
                                 "id": "DX5GfJcwRNq0xW20KzMSJQ",
-                                "vdid": "RtGLPIBH52bPMcHfqqs72g",
+                                "vdid": "Y3w780SgErIOMj9o-9lp5Q",
                                 "name": "Cell Process Manager: Descendant Processes All In Step",
                                 "description": "Returns Boolean true request.context.apmBindingPath is a cell process with all descendant cell processes in the specified process step.",
                                 "type": "TOP"
                               },
                               "DzlsRZBOReO03GSPsU3CIg": {
                                 "id": "DzlsRZBOReO03GSPsU3CIg",
-                                "vdid": "5TbAoGPTzn90HAV4cCTSMw",
+                                "vdid": "FE4VAXrfngpLBvAkksFkBw",
                                 "name": "Cell Process Manager: Descendant Processes Any In Step",
                                 "description": "Returns Boolean true request.context.apmBindingPath is a cell process whose descendant cell processes contain any cell process(es) in the specified process step.",
                                 "type": "TOP"
                               },
                               "9HNGDusyTtKpleXFae7O5A": {
                                 "id": "9HNGDusyTtKpleXFae7O5A",
-                                "vdid": "8crtRfRPr5HW80pWd1ZrAA",
+                                "vdid": "rpDuOEOIQYFwvxXLfXTr8A",
                                 "name": "Cell Process Manager: Parent Process Active",
                                 "description": "Returns Boolean true iff request.context.apmBindingPath is a cell process with an active parent process.",
                                 "type": "TOP"
                               },
                               "PHPSWivjRyK80Gtymsp-pA": {
                                 "id": "PHPSWivjRyK80Gtymsp-pA",
-                                "vdid": "NKqdeauzhzVQJ5AFvtmOQg",
+                                "vdid": "Ehoabii3vNoSVexq-eInNA",
                                 "name": "Cell Process Manager: Parent Process In Step",
                                 "description": "Returns Boolean true request.context.apmBindingPath is a cell process whose parent cell process is in the specified process step.",
                                 "type": "TOP"
@@ -227,7 +227,7 @@
                               },
                               "r-JgxABoS_a-mSE2c1nvKA": {
                                 "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                "vdid": "079dO4olRnRR81FkqtCOPQ",
+                                "vdid": "oqOWFSu4-UUQRcvGzHbVjw",
                                 "name": "Cell Process Manager: Process Query",
                                 "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                 "type": "ACT"
@@ -719,7 +719,24 @@
                                   "CellProcessor": {
                                     "____types": "jsObject",
                                     "ancestorProcessesActive": {
-                                      "____types": "jsObject"
+                                      "____types": "jsObject",
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -729,10 +746,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "q31ohudaRnc-2yxFujIWLQ",
-                            "inputTypeVDID": "E846pC-YIDNZg0AISONg2A",
+                            "inputTypeVDID": "WCawc_9fm1fn1P9rCKngdw",
                             "outputTypeVIID": "7rmmJsOAG_On-Qsu_aOLCw",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "yEcBRLFA05MPLz-cbmQ_cg"
+                            "operationVDID": "yJ8qRLEdOpMPhd-cbvDRcg"
                           }
                         },
                         "6j5F3HmKTLG9Q8kD1-QWYA": {
@@ -780,6 +797,23 @@
                                           "____accept": "jsString"
                                         }
                                       },
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      },
                                       "omitCellProcessor": {
                                         "____label": "Omit CellProcessor",
                                         "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
@@ -795,10 +829,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "LCjyzgMewHLQtavsni6ugw",
-                            "inputTypeVDID": "msRXEo7bLcBe_EvEGaOAtQ",
+                            "inputTypeVDID": "r_0n2X8GYuxqZ6iEaMu32A",
                             "outputTypeVIID": "cPIdL7lhl0gnxyaDt0xclw",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "V-MaRHNB3ZN7y8ec0KT7cg"
+                            "operationVDID": "Vwh1RHMhkJN7Bx6c0Ppjcg"
                           }
                         },
                         "jFxFmpHSSPaeWEFfLh8eWw": {
@@ -846,6 +880,23 @@
                                           "____accept": "jsString"
                                         }
                                       },
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      },
                                       "omitCellProcessor": {
                                         "____label": "Omit CellProcessor",
                                         "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
@@ -861,10 +912,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "qh7wt5MghqHkf8TA970Isg",
-                            "inputTypeVDID": "hcRXP_rbLX6u_Etut6OAnA",
+                            "inputTypeVDID": "X_1T2QwGxuw_Z7WE8csw2A",
                             "outputTypeVIID": "dVyh7xX7wxDVc-vzANMU_Q",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "EW3JRLtFT5OSfamcimz7cg"
+                            "operationVDID": "EVQTRLvQC5OSswWcim98cg"
                           }
                         },
                         "xIRhBHueTRGO0xq63UUbyQ": {
@@ -902,7 +953,24 @@
                                   "CellProcessor": {
                                     "____types": "jsObject",
                                     "childProcessesActive": {
-                                      "____types": "jsObject"
+                                      "____types": "jsObject",
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -912,10 +980,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "4UQ1MuswyqVTGQqxY3GkxQ",
-                            "inputTypeVDID": "1PVrPlH2HVbCSK25wGN4JQ",
+                            "inputTypeVDID": "LzKmQdZq-KaYhdhjDH2hvQ",
                             "outputTypeVIID": "IlcDahOM8PmLJGCSc8LYWA",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "RX7CRKRS1JNesQqcUhvZcg"
+                            "operationVDID": "RU58RKTsmpNeA1KcUtxRcg"
                           }
                         },
                         "5P2MHjL4TXCqScp_xNrJyA": {
@@ -962,6 +1030,23 @@
                                         "stepName": {
                                           "____accept": "jsString"
                                         }
+                                      },
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -972,10 +1057,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "CyItwqKglka3fL_yymT2Hw",
-                            "inputTypeVDID": "aiNRLFKwUrh6U1vmeUILgA",
+                            "inputTypeVDID": "Xl8ANNnAYEunlHcsVtaq7A",
                             "outputTypeVIID": "2lRyd2mNBpsj8UUItbMgfA",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "x_U6RN40JZNLnrGcp4Vpcg"
+                            "operationVDID": "xyQdRN4Wq5NLTEmcp4bVcg"
                           }
                         },
                         "esuJGgmERrSV3AFvFOMyhw": {
@@ -1017,6 +1102,23 @@
                                       "apmStep": {
                                         "____accept": "jsString"
                                       }
+                                    },
+                                    "filterBy": {
+                                      "____label": "Optional Filter-By APM Binding",
+                                      "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                      "____types": [
+                                        "jsUndefined",
+                                        "jsObject"
+                                      ],
+                                      "apmIDs": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsArray"
+                                        ],
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -1026,10 +1128,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "oZS-VRf4CsfWWzLjNiCBig",
-                            "inputTypeVDID": "ZUNN13bCO3TscX9lkBIxtQ",
+                            "inputTypeVDID": "0stdcRrNGivlQy2n2c6OjA",
                             "outputTypeVIID": "KBov9UbxYf95j29LOwQo_Q",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "qtDrRNa6sJNtXOmcMBx4cg"
+                            "operationVDID": "qqv_RNZqz5NtiS-cMFlMcg"
                           }
                         },
                         "Fs6tE76WR5yTOdbwQ_N_FQ": {
@@ -1067,7 +1169,24 @@
                                   "CellProcessor": {
                                     "____types": "jsObject",
                                     "descendantProcessesActive": {
-                                      "____types": "jsObject"
+                                      "____types": "jsObject",
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -1077,10 +1196,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "Vtu0SajLKSxee9YIxyp_gg",
-                            "inputTypeVDID": "zVAau5X9iZ5jSa50RLlbsw",
+                            "inputTypeVDID": "oZR4cY-IUWFcmPbU4DXozA",
                             "outputTypeVIID": "aIHtnWnyQJxHUdYGWTiOYw",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "wMUTRHTAJpPSrhOcffVEcg"
+                            "operationVDID": "wA3ZRHRHGpPSZ5ycfTY7cg"
                           }
                         },
                         "DX5GfJcwRNq0xW20KzMSJQ": {
@@ -1127,6 +1246,23 @@
                                         "stepName": {
                                           "____accept": "jsString"
                                         }
+                                      },
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -1137,10 +1273,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "G97lcJCcq1Rx4hW8oXkDLA",
-                            "inputTypeVDID": "FaqW-C-XVrH8l1IbMOp_lg",
+                            "inputTypeVDID": "1fFZORahrWSduYn5YxXxAQ",
                             "outputTypeVIID": "77mlDPUzGqgBoJa9TdESRg",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "havERC5cB5OuDaWcLBplcg"
+                            "operationVDID": "hcekRC6VhpOuovacLAQucg"
                           }
                         },
                         "DzlsRZBOReO03GSPsU3CIg": {
@@ -1187,6 +1323,23 @@
                                         "stepName": {
                                           "____accept": "jsString"
                                         }
+                                      },
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -1197,10 +1350,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "rMeX5xCbb1ya4Li0DCcFoQ",
-                            "inputTypeVDID": "5KqWiQeXVu1_l1LFaup_Xw",
+                            "inputTypeVDID": "2PF6Oa-hK2TauSf5UxW4AQ",
                             "outputTypeVIID": "wgVg3qZpo0RYtr_G6szN5A",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "8B7QRAN505OefcicJuarcg"
+                            "operationVDID": "8CNgRANUQJOe1dWcJokkcg"
                           }
                         },
                         "9HNGDusyTtKpleXFae7O5A": {
@@ -1238,7 +1391,24 @@
                                   "CellProcessor": {
                                     "____types": "jsObject",
                                     "parentProcessActive": {
-                                      "____types": "jsObject"
+                                      "____types": "jsObject",
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -1248,10 +1418,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "58apLhwPX-DwA865eK8Njw",
-                            "inputTypeVDID": "puMvyoqeUJioh5kglo-MOQ",
+                            "inputTypeVDID": "b47qZVNg6S1-CsEeVL4tMQ",
                             "outputTypeVIID": "sh_MqQTDccMxBIGxw7FQaw",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "L0OoRLyJ5JNXXzSctWqocg"
+                            "operationVDID": "L7CARLxwPJNX74qctR05cg"
                           }
                         },
                         "PHPSWivjRyK80Gtymsp-pA": {
@@ -1298,6 +1468,23 @@
                                         "stepName": {
                                           "____accept": "jsString"
                                         }
+                                      },
+                                      "filterBy": {
+                                        "____label": "Optional Filter-By APM Binding",
+                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                        "____types": [
+                                          "jsUndefined",
+                                          "jsObject"
+                                        ],
+                                        "apmIDs": {
+                                          "____types": [
+                                            "jsString",
+                                            "jsArray"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -1308,10 +1495,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "M2yeGPTmuArpYN5z5fWfGQ",
-                            "inputTypeVDID": "eru9xv8MQRtutdzLsBkXXA",
+                            "inputTypeVDID": "rRdrNBYv_0tBJScsyCeA7A",
                             "outputTypeVIID": "bvlMy4KaarvmQhlFw7HvKQ",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "oc7qRHeSNZOzmg2cgA3Gcg"
+                            "operationVDID": "oZJ6RHexkpOzBYmcgMUscg"
                           }
                         },
                         "YgABX95wR86GCYrYaDLISA": {
@@ -2385,29 +2572,21 @@
                                       "____types": "jsObject",
                                       "query": {
                                         "____types": "jsObject",
-                                        "resultSets": {
-                                          "____types": "jsObject",
-                                          "____defaultValue": {
-                                            "parent": true,
-                                            "ancestors": true,
-                                            "children": true,
-                                            "descendants": true
-                                          },
-                                          "parent": {
-                                            "____accept": "jsBoolean",
-                                            "____defaultValue": false
-                                          },
-                                          "ancestors": {
-                                            "____accept": "jsBoolean",
-                                            "____defaultValue": false
-                                          },
-                                          "children": {
-                                            "____accept": "jsBoolean",
-                                            "____defaultValue": false
-                                          },
-                                          "descendants": {
-                                            "____accept": "jsBoolean",
-                                            "____defaultValue": false
+                                        "filterBy": {
+                                          "____label": "Optional Filter-By APM Binding",
+                                          "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                          "____types": [
+                                            "jsUndefined",
+                                            "jsObject"
+                                          ],
+                                          "apmIDs": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            }
                                           }
                                         },
                                         "queryCellProcess": {
@@ -2443,6 +2622,31 @@
                                                 "jsString"
                                               ]
                                             }
+                                          }
+                                        },
+                                        "resultSets": {
+                                          "____types": "jsObject",
+                                          "____defaultValue": {
+                                            "parent": true,
+                                            "ancestors": true,
+                                            "children": true,
+                                            "descendants": true
+                                          },
+                                          "parent": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "ancestors": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "children": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "descendants": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
                                           }
                                         }
                                       }
@@ -2510,14 +2714,15 @@
                                   "jsUndefined",
                                   "jsArray"
                                 ],
-                                "element": {
-                                  "____label": "Ancestor Cell Process",
-                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' ancestor cell process.",
+                                "cellProcessDescriptor": {
                                   "____types": "jsObject",
                                   "cellProcessID": {
                                     "____accept": "jsString"
                                   },
                                   "apmBindingPath": {
+                                    "____accept": "jsString"
+                                  },
+                                  "apmID": {
                                     "____accept": "jsString"
                                   }
                                 }
@@ -2562,10 +2767,10 @@
                               }
                             },
                             "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
-                            "inputTypeVDID": "whGv9nk1haRt9Oui1IEETw",
+                            "inputTypeVDID": "poG7cuqYcoAhAPSDRf-xRw",
                             "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
-                            "outputTypeVDID": "3tZXFg8_2hUlErwRa-GaWA",
-                            "operationVDID": "1uP73F72zdmp1UG_aYz-tw"
+                            "outputTypeVDID": "lnt0FSyicr8gcUgqeFeyUQ",
+                            "operationVDID": "1t1hGV7Mc0qpiSr6acIlFA"
                           }
                         },
                         "_yxWfFLnTqqN-UxRdd7W5w": {

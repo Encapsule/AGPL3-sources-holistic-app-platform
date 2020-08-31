@@ -5,6 +5,7 @@ const ControllerAction = require("../../ControllerAction");
 const cpmLib = require("./lib");
 
 const cellProcessQueryResponseDescriptorSpec = require("./lib/iospecs/cell-process-query-response-descriptor-spec");
+const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
 
 const controllerAction = new ControllerAction({
     id: "r-JgxABoS_a-mSE2c1nvKA",
@@ -21,14 +22,7 @@ const controllerAction = new ControllerAction({
                     ____types: "jsObject",
                     query: {
                         ____types: "jsObject",
-                        resultSets: {
-                            ____types: "jsObject",
-                            ____defaultValue: { parent: true, ancestors: true, children: true, descendants: true },
-                            parent: { ____accept: "jsBoolean", ____defaultValue: false },
-                            ancestors: { ____accept: "jsBoolean", ____defaultValue: false },
-                            children: { ____accept: "jsBoolean", ____defaultValue: false },
-                            descendants: { ____accept: "jsBoolean", ____defaultValue: false }
-                        },
+                        filterBy: cellProcessQueryRequestFilterBySpec,
                         queryCellProcess: {
                             ____label: "Query Cell Process Override",
                             ____description: "Allows the caller to optionally override that default action behavior to specify the cell process ID to query.",
@@ -44,8 +38,16 @@ const controllerAction = new ControllerAction({
                                 apmID: { ____accept: "jsString" },
                                 cellProcessUniqueName: { ____accept: [ "jsUndefined", "jsString" ] }
                             }
-                        }
-                    }
+                        },
+                        resultSets: {
+                            ____types: "jsObject",
+                            ____defaultValue: { parent: true, ancestors: true, children: true, descendants: true },
+                            parent: { ____accept: "jsBoolean", ____defaultValue: false },
+                            ancestors: { ____accept: "jsBoolean", ____defaultValue: false },
+                            children: { ____accept: "jsBoolean", ____defaultValue: false },
+                            descendants: { ____accept: "jsBoolean", ____defaultValue: false }
+                        },
+                }
                 }
             }
         }
@@ -174,7 +176,12 @@ const controllerAction = new ControllerAction({
 
             // anscestors; parent and it's parent...
             if (message.resultSets.ancestors) {
-                cpmLibResponse = cpmLib.getProcessAncestorDescriptors.request({ cellProcessID, filerBy: request_.filterBy, ocdi: request_.context.ocdi, treeData: cellProcessTreeData });
+                cpmLibResponse = cpmLib.getProcessAncestorDescriptors.request({
+                    cellProcessID,
+                    filterBy: message.filterBy,
+                    ocdi: request_.context.ocdi,
+                    treeData: cellProcessTreeData
+                });
                 if (cpmLibResponse.error) {
                     errors.push(cpmLibResponse.error);
                     break;

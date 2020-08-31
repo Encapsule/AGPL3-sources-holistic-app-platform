@@ -3,6 +3,7 @@
 const arccore = require("@encapsule/arccore");
 
 const cellProcessQueryResponseDescriptorSpec = require("./iospecs/cell-process-query-response-descriptor-spec");
+const cellProcessQueryRequestFilterBySpec = require("./iospecs/cell-process-query-request-filterby-spec");
 
 const cpmMountingNamespaceName = require("../../../filters/cpm-mounting-namespace-name");
 const cpmPath = `~.${cpmMountingNamespaceName}`;
@@ -15,13 +16,7 @@ const factoryResponse = arccore.filter.create({
     inputFilterSpec: {
         ____types: "jsObject",
         cellProcessID: { ____accept: "jsString" },
-        filterBy: {
-            ____types: [ "jsUndefined", "jsObject" ],
-            apmIDs: {
-                ____types: [ "jsString", "jsArray" ],
-                apmID: { ____accept: "jsString" }
-            }
-        },
+        filterBy: cellProcessQueryRequestFilterBySpec,
         ocdi: { ____accept: "jsObject" },
         treeData: { ____accept: "jsObject" }
     },
