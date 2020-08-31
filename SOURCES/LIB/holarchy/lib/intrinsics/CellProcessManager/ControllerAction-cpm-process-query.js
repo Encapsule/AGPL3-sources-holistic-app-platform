@@ -4,7 +4,7 @@ const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
 const cpmLib = require("./lib");
 
-// const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
+const cellProcessQueryResponseDescriptorSpec = require("./lib/iospecs/cell-process-query-response-descriptor-spec");
 
 const controllerAction = new ControllerAction({
     id: "r-JgxABoS_a-mSE2c1nvKA",
@@ -80,13 +80,7 @@ const controllerAction = new ControllerAction({
             ____label: "Ancestor Cell Processes",
             ____description: "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' parent, it's parent...",
             ____types: [ "jsUndefined", "jsArray" ],
-            element: {
-                ____label: "Ancestor Cell Process",
-                ____description: "The cell process ID and apmBindingPath of one of the queried cell process' ancestor cell process.",
-                ____types: "jsObject",
-                cellProcessID: { ____accept: "jsString" },
-                apmBindingPath: { ____accept: "jsString" }
-            }
+            cellProcessDescriptor: cellProcessQueryResponseDescriptorSpec
         },
         children: {
             ____label: "Child Cell Processes",
@@ -180,7 +174,7 @@ const controllerAction = new ControllerAction({
 
             // anscestors; parent and it's parent...
             if (message.resultSets.ancestors) {
-                cpmLibResponse = cpmLib.getProcessAncestorDescriptors({ cellProcessID, treeData: cellProcessTreeData });
+                cpmLibResponse = cpmLib.getProcessAncestorDescriptors.request({ cellProcessID, filerBy: request_.filterBy, ocdi: request_.context.ocdi, treeData: cellProcessTreeData });
                 if (cpmLibResponse.error) {
                     errors.push(cpmLibResponse.error);
                     break;
