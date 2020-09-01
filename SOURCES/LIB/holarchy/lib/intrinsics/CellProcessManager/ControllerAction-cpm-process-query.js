@@ -47,7 +47,7 @@ const controllerAction = new ControllerAction({
                             children: { ____accept: "jsBoolean", ____defaultValue: false },
                             descendants: { ____accept: "jsBoolean", ____defaultValue: false }
                         },
-                }
+                    }
                 }
             }
         }
@@ -63,6 +63,7 @@ const controllerAction = new ControllerAction({
             ____types: "jsObject",
             cellProcessID: { ____accept: "jsString" },
             apmBindingPath: { ____accept: "jsString" },
+            apmID: { ____accept: "jsString" },
             resultSets: {
                 ____types: "jsObject",
                 parent: { ____accept: "jsBoolean" },
@@ -75,8 +76,7 @@ const controllerAction = new ControllerAction({
             ____label: "Parent Cell Process",
             ____description: "The cell process ID and apmBindingPath of the queried cell process' parent cell process.",
             ____types: [ "jsUndefined", "jsObject" ],
-            cellProcessID: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null },
-            apmBindingPath: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }
+            ...cellProcessQueryResponseDescriptorSpec
         },
         ancestors: {
             ____label: "Ancestor Cell Processes",
@@ -151,7 +151,7 @@ const controllerAction = new ControllerAction({
             const cellProcessTreeData = cpmLibResponse.result;
 
             // Get a reference to this cell process' descriptor.
-            cpmLibResponse = cpmLib.getProcessDescriptor({ cellProcessID, treeData: cellProcessTreeData });
+            cpmLibResponse = cpmLib.getProcessDescriptor.request({ cellProcessID, ocdi: request_.context.ocdi, treeData: cellProcessTreeData });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -166,7 +166,12 @@ const controllerAction = new ControllerAction({
             };
 
             if (message.resultSets.parent) {
-                cpmLibResponse = cpmLib.getProcessParentDescriptor({ cellProcessID, treeData: cellProcessTreeData });
+                cpmLibResponse = cpmLib.getProcessParentDescriptor.request({
+                    cellProcessID,
+                    filterBy: message.filterBy,
+                    ocdi: request_.context.ocdi,
+                    treeData: cellProcessTreeData
+                });
                 if (cpmLibResponse.error) {
                     errors.push(cpmLibResponse.error);
                     break;

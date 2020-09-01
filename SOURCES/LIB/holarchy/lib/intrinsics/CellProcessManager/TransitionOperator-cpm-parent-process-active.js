@@ -51,7 +51,7 @@ const transitionOperator = new TransitionOperator({
             const cellProcessTreeData = cpmLibResponse.result;
 
             // Get the parent process descriptor.
-            cpmLibResponse = cpmLib.getProcessParentDescriptor({
+            cpmLibResponse = cpmLib.getProcessParentDescriptor.request({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
                 filterBy: message.filterBy,
                 ocdi: request_.context.ocdi,

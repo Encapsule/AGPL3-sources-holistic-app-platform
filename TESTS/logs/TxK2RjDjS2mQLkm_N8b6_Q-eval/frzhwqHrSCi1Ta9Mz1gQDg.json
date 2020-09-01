@@ -291,7 +291,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                      "vdid": "9ANRTLLoPgZeGxCL7MaE3A",
+                      "vdid": "YgNRTHPoPgZyGxCLvMaE3A",
                       "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                       "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                       "cmat": {
@@ -301,7 +301,7 @@
                             "type": "INDEX",
                             "EPUQ9YpwinAcHhwe1iLWIg": {
                               "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                              "vdid": "9ANRTLLoPgZeGxCL7MaE3A",
+                              "vdid": "YgNRTHPoPgZyGxCLvMaE3A",
                               "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                               "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                               "type": "CM",
@@ -412,7 +412,7 @@
                               },
                               "r-JgxABoS_a-mSE2c1nvKA": {
                                 "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                "vdid": "oqOWFSu4-UUQRcvGzHbVjw",
+                                "vdid": "sAc8g6cth8EfP8nZd7DjAA",
                                 "name": "Cell Process Manager: Process Query",
                                 "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                 "type": "ACT"
@@ -3046,6 +3046,9 @@
                                 "apmBindingPath": {
                                   "____accept": "jsString"
                                 },
+                                "apmID": {
+                                  "____accept": "jsString"
+                                },
                                 "resultSets": {
                                   "____types": "jsObject",
                                   "parent": {
@@ -3065,21 +3068,26 @@
                               "parent": {
                                 "____label": "Parent Cell Process",
                                 "____description": "The cell process ID and apmBindingPath of the queried cell process' parent cell process.",
-                                "____types": [
-                                  "jsUndefined",
-                                  "jsObject"
-                                ],
+                                "____types": "jsObject",
+                                "____defaultValue": {},
                                 "cellProcessID": {
                                   "____accept": [
-                                    "jsNull",
-                                    "jsString"
+                                    "jsString",
+                                    "jsNull"
                                   ],
                                   "____defaultValue": null
                                 },
                                 "apmBindingPath": {
                                   "____accept": [
-                                    "jsNull",
-                                    "jsString"
+                                    "jsString",
+                                    "jsNull"
+                                  ],
+                                  "____defaultValue": null
+                                },
+                                "apmID": {
+                                  "____accept": [
+                                    "jsString",
+                                    "jsNull"
                                   ],
                                   "____defaultValue": null
                                 }
@@ -3093,14 +3101,27 @@
                                 ],
                                 "cellProcessDescriptor": {
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "cellProcessID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmBindingPath": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   }
                                 }
                               },
@@ -3146,8 +3167,8 @@
                             "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
                             "inputTypeVDID": "poG7cuqYcoAhAPSDRf-xRw",
                             "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
-                            "outputTypeVDID": "lnt0FSyicr8gcUgqeFeyUQ",
-                            "operationVDID": "1t1hGV7Mc0qpiSr6acIlFA"
+                            "outputTypeVDID": "KEIeUb1zLw3IEsDhBBSKGg",
+                            "operationVDID": "1t3Mjl7MLQ2piXFgacLXBQ"
                           }
                         },
                         "iyvk_9vhRn2qvrjOes5v7Q": {
