@@ -88,25 +88,13 @@ const controllerAction = new ControllerAction({
             ____label: "Child Cell Processes",
             ____description: "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' child processes.",
             ____types: [ "jsUndefined", "jsArray" ],
-            element: {
-                ____label: "Child Cell Process",
-                ____description: "The cell process ID and apmBindingPath of one of the queried cell process' child cell process(es).",
-                ____types: "jsObject",
-                cellProcessID: { ____accept: "jsString" },
-                apmBindingPath: { ____accept: "jsString" }
-            }
+            childProcessDescriptor: cellProcessQueryResponseDescriptorSpec
         },
         descendants: {
             ____label: "Descendant Cell Processes",
             ____description: "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' children, their children...",
             ____types: [ "jsUndefined", "jsArray" ],
-            element: {
-                ____label: "Descendant Cell Process",
-                ____description: "The cell process ID and apmBindingPath of one of the queried cell process' descendant cell process(es).",
-                ____types: "jsObject",
-                cellProcessID: { ____accept: "jsString" },
-                apmBindingPath: { ____accept: "jsString" }
-            }
+            descendantProcessDescriptor: cellProcessQueryResponseDescriptorSpec
         }
     },
 
@@ -196,7 +184,12 @@ const controllerAction = new ControllerAction({
 
             // children
             if (message.resultSets.children) {
-                cpmLibResponse = cpmLib.getProcessChildrenDescriptors({ cellProcessID, treeData: cellProcessTreeData });
+                cpmLibResponse = cpmLib.getProcessChildrenDescriptors.request({
+                    cellProcessID,
+                    filterBy: message.filterBy,
+                    ocdi: request_.context.ocdi,
+                    treeData: cellProcessTreeData
+                });
                 if (cpmLibResponse.error) {
                     errors.push(cpmLibResponse.error);
                     break;
@@ -206,7 +199,12 @@ const controllerAction = new ControllerAction({
 
             // descendants; children and their children...
             if (message.resultSets.descendants) {
-                cpmLibResponse = cpmLib.getProcessDescendantDescriptors({ cellProcessID, treeData: cellProcessTreeData });
+                cpmLibResponse = cpmLib.getProcessDescendantDescriptors.request({
+                    cellProcessID,
+                    filterBy: message.filterBy,
+                    ocdi: request_.context.ocdi,
+                    treeData: cellProcessTreeData
+                });
                 if (cpmLibResponse.error) {
                     errors.push(cpmLibResponse.error);
                     break;
