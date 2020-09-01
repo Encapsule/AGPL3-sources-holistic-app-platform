@@ -186,7 +186,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "DPUM9XpwenDTHtMepiKmIg",
-                      "vdid": "MPFl4RdUrNmfln-6H9EFLw",
+                      "vdid": "BfFl4eFUrNk-ln-6JNEFLw",
                       "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                       "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                       "cmat": {
@@ -196,7 +196,7 @@
                             "type": "INDEX",
                             "DPUM9XpwenDTHtMepiKmIg": {
                               "id": "DPUM9XpwenDTHtMepiKmIg",
-                              "vdid": "MPFl4RdUrNmfln-6H9EFLw",
+                              "vdid": "BfFl4eFUrNk-ln-6JNEFLw",
                               "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                               "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                               "type": "CM",
@@ -307,7 +307,7 @@
                               },
                               "r-JgxABoS_a-mSE2c1nvKA": {
                                 "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                "vdid": "oqOWFSu4-UUQRcvGzHbVjw",
+                                "vdid": "9ZHIKAz-t9uOUTeknD1tmA",
                                 "name": "Cell Process Manager: Process Query",
                                 "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                 "type": "ACT"
@@ -3001,6 +3001,9 @@
                                 "apmBindingPath": {
                                   "____accept": "jsString"
                                 },
+                                "apmID": {
+                                  "____accept": "jsString"
+                                },
                                 "resultSets": {
                                   "____types": "jsObject",
                                   "parent": {
@@ -3020,21 +3023,26 @@
                               "parent": {
                                 "____label": "Parent Cell Process",
                                 "____description": "The cell process ID and apmBindingPath of the queried cell process' parent cell process.",
-                                "____types": [
-                                  "jsUndefined",
-                                  "jsObject"
-                                ],
+                                "____types": "jsObject",
+                                "____defaultValue": {},
                                 "cellProcessID": {
                                   "____accept": [
-                                    "jsNull",
-                                    "jsString"
+                                    "jsString",
+                                    "jsNull"
                                   ],
                                   "____defaultValue": null
                                 },
                                 "apmBindingPath": {
                                   "____accept": [
-                                    "jsNull",
-                                    "jsString"
+                                    "jsString",
+                                    "jsNull"
+                                  ],
+                                  "____defaultValue": null
+                                },
+                                "apmID": {
+                                  "____accept": [
+                                    "jsString",
+                                    "jsNull"
                                   ],
                                   "____defaultValue": null
                                 }
@@ -3048,14 +3056,27 @@
                                 ],
                                 "cellProcessDescriptor": {
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "cellProcessID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmBindingPath": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   }
                                 }
                               },
@@ -3066,15 +3087,29 @@
                                   "jsUndefined",
                                   "jsArray"
                                 ],
-                                "element": {
-                                  "____label": "Child Cell Process",
-                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' child cell process(es).",
+                                "childProcessDescriptor": {
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "cellProcessID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmBindingPath": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "apmID": {
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   }
                                 }
                               },
@@ -3085,15 +3120,29 @@
                                   "jsUndefined",
                                   "jsArray"
                                 ],
-                                "element": {
-                                  "____label": "Descendant Cell Process",
-                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' descendant cell process(es).",
+                                "descendantProcessDescriptor": {
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "cellProcessID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmBindingPath": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "apmID": {
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   }
                                 }
                               }
@@ -3101,8 +3150,8 @@
                             "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
                             "inputTypeVDID": "poG7cuqYcoAhAPSDRf-xRw",
                             "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
-                            "outputTypeVDID": "lnt0FSyicr8gcUgqeFeyUQ",
-                            "operationVDID": "1t1hGV7Mc0qpiSr6acIlFA"
+                            "outputTypeVDID": "rRcfFnGcxrjgQ1q8bpA-Fg",
+                            "operationVDID": "1t0UyF7MpAypiTwFacLvBg"
                           }
                         },
                         "_yxWfFLnTqqN-UxRdd7W5w": {
@@ -3853,6 +3902,7 @@
                             "query": {
                               "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                               "apmBindingPath": "~",
+                              "apmID": "MEbYsSZHdoADWwD5kjfu5Q",
                               "resultSets": {
                                 "parent": true,
                                 "ancestors": true,
@@ -3862,7 +3912,8 @@
                             },
                             "parent": {
                               "cellProcessID": null,
-                              "apmBindingPath": null
+                              "apmBindingPath": null,
+                              "apmID": null
                             },
                             "ancestors": [],
                             "children": [],
@@ -4828,6 +4879,7 @@
                             "query": {
                               "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                               "apmBindingPath": "~",
+                              "apmID": "MEbYsSZHdoADWwD5kjfu5Q",
                               "resultSets": {
                                 "parent": true,
                                 "ancestors": true,
@@ -4837,31 +4889,37 @@
                             },
                             "parent": {
                               "cellProcessID": null,
-                              "apmBindingPath": null
+                              "apmBindingPath": null,
+                              "apmID": null
                             },
                             "ancestors": [],
                             "children": [
                               {
                                 "cellProcessID": "_hWb8Lg7SgAgKhF9d1FO5g",
-                                "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ"
+                                "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                "apmID": "itgXQ5RWS66fcdsuZim8AQ"
                               }
                             ],
                             "descendants": [
                               {
                                 "cellProcessID": "_hWb8Lg7SgAgKhF9d1FO5g",
-                                "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ"
+                                "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                "apmID": "itgXQ5RWS66fcdsuZim8AQ"
                               },
                               {
                                 "cellProcessID": "ftyuSnSqgtr2FcHKRPmx9g",
-                                "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA"
+                                "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                "apmID": "Q15zOx5FT-2vt1jSKIIOLQ"
                               },
                               {
                                 "cellProcessID": "VsSmPicBXAh73PdonbKo9Q",
-                                "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw"
+                                "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                "apmID": "CW2q-O_CQ0CObmLa1PWb3g"
                               },
                               {
                                 "cellProcessID": "d-vsHMlM0I7KK1NJ6gT_Tw",
-                                "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w"
+                                "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                "apmID": "l_CypcNERjOcr7SxzIGt8A"
                               }
                             ]
                           },
@@ -5187,6 +5245,7 @@
                             "query": {
                               "cellProcessID": "_hWb8Lg7SgAgKhF9d1FO5g",
                               "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                              "apmID": "itgXQ5RWS66fcdsuZim8AQ",
                               "resultSets": {
                                 "parent": true,
                                 "ancestors": true,
@@ -5196,7 +5255,8 @@
                             },
                             "parent": {
                               "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
-                              "apmBindingPath": "~"
+                              "apmBindingPath": "~",
+                              "apmID": "MEbYsSZHdoADWwD5kjfu5Q"
                             },
                             "ancestors": [
                               {
@@ -5208,29 +5268,35 @@
                             "children": [
                               {
                                 "cellProcessID": "ftyuSnSqgtr2FcHKRPmx9g",
-                                "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA"
+                                "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                "apmID": "Q15zOx5FT-2vt1jSKIIOLQ"
                               },
                               {
                                 "cellProcessID": "VsSmPicBXAh73PdonbKo9Q",
-                                "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw"
+                                "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                "apmID": "CW2q-O_CQ0CObmLa1PWb3g"
                               },
                               {
                                 "cellProcessID": "d-vsHMlM0I7KK1NJ6gT_Tw",
-                                "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w"
+                                "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                "apmID": "l_CypcNERjOcr7SxzIGt8A"
                               }
                             ],
                             "descendants": [
                               {
                                 "cellProcessID": "ftyuSnSqgtr2FcHKRPmx9g",
-                                "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA"
+                                "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                "apmID": "Q15zOx5FT-2vt1jSKIIOLQ"
                               },
                               {
                                 "cellProcessID": "VsSmPicBXAh73PdonbKo9Q",
-                                "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw"
+                                "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                "apmID": "CW2q-O_CQ0CObmLa1PWb3g"
                               },
                               {
                                 "cellProcessID": "d-vsHMlM0I7KK1NJ6gT_Tw",
-                                "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w"
+                                "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                "apmID": "l_CypcNERjOcr7SxzIGt8A"
                               }
                             ]
                           },

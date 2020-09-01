@@ -2,8 +2,9 @@
 
 module.exports = {
     ____types: "jsObject",
-    cellProcessID: { ____accept: "jsString" },
-    apmBindingPath: { ____accept: "jsString" },
-    apmID: { ____accept: "jsString" }
+    ____defaultValue: {},
+    cellProcessID: { ____accept: [ "jsString", "jsNull" ], ____defaultValue: null },
+    apmBindingPath: { ____accept: [ "jsString", "jsNull" ], ____defaultValue: null },
+    apmID: { ____accept: [ "jsString", "jsNull" ], ____defaultValue: null }
 };
 

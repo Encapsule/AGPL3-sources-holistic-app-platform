@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "HPUc9Ytwi3ArHise8SLxIg",
-                      "vdid": "GK9782XT8aL96ccmxzWixA",
+                      "vdid": "qK9782zT8aLU6ccm8jWixA",
                       "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "HPUc9Ytwi3ArHise8SLxIg": {
                               "id": "HPUc9Ytwi3ArHise8SLxIg",
-                              "vdid": "GK9782XT8aL96ccmxzWixA",
+                              "vdid": "qK9782zT8aLU6ccm8jWixA",
                               "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                               "type": "CM",
@@ -201,7 +201,7 @@
                               },
                               "r-JgxABoS_a-mSE2c1nvKA": {
                                 "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                "vdid": "oqOWFSu4-UUQRcvGzHbVjw",
+                                "vdid": "9ZHIKAz-t9uOUTeknD1tmA",
                                 "name": "Cell Process Manager: Process Query",
                                 "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                 "type": "ACT"
@@ -2634,6 +2634,9 @@
                                 "apmBindingPath": {
                                   "____accept": "jsString"
                                 },
+                                "apmID": {
+                                  "____accept": "jsString"
+                                },
                                 "resultSets": {
                                   "____types": "jsObject",
                                   "parent": {
@@ -2653,21 +2656,26 @@
                               "parent": {
                                 "____label": "Parent Cell Process",
                                 "____description": "The cell process ID and apmBindingPath of the queried cell process' parent cell process.",
-                                "____types": [
-                                  "jsUndefined",
-                                  "jsObject"
-                                ],
+                                "____types": "jsObject",
+                                "____defaultValue": {},
                                 "cellProcessID": {
                                   "____accept": [
-                                    "jsNull",
-                                    "jsString"
+                                    "jsString",
+                                    "jsNull"
                                   ],
                                   "____defaultValue": null
                                 },
                                 "apmBindingPath": {
                                   "____accept": [
-                                    "jsNull",
-                                    "jsString"
+                                    "jsString",
+                                    "jsNull"
+                                  ],
+                                  "____defaultValue": null
+                                },
+                                "apmID": {
+                                  "____accept": [
+                                    "jsString",
+                                    "jsNull"
                                   ],
                                   "____defaultValue": null
                                 }
@@ -2681,14 +2689,27 @@
                                 ],
                                 "cellProcessDescriptor": {
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "cellProcessID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmBindingPath": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   }
                                 }
                               },
@@ -2699,15 +2720,29 @@
                                   "jsUndefined",
                                   "jsArray"
                                 ],
-                                "element": {
-                                  "____label": "Child Cell Process",
-                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' child cell process(es).",
+                                "childProcessDescriptor": {
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "cellProcessID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmBindingPath": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "apmID": {
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   }
                                 }
                               },
@@ -2718,15 +2753,29 @@
                                   "jsUndefined",
                                   "jsArray"
                                 ],
-                                "element": {
-                                  "____label": "Descendant Cell Process",
-                                  "____description": "The cell process ID and apmBindingPath of one of the queried cell process' descendant cell process(es).",
+                                "descendantProcessDescriptor": {
                                   "____types": "jsObject",
+                                  "____defaultValue": {},
                                   "cellProcessID": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   },
                                   "apmBindingPath": {
-                                    "____accept": "jsString"
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
+                                  },
+                                  "apmID": {
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
                                   }
                                 }
                               }
@@ -2734,8 +2783,8 @@
                             "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
                             "inputTypeVDID": "poG7cuqYcoAhAPSDRf-xRw",
                             "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
-                            "outputTypeVDID": "lnt0FSyicr8gcUgqeFeyUQ",
-                            "operationVDID": "1t1hGV7Mc0qpiSr6acIlFA"
+                            "outputTypeVDID": "rRcfFnGcxrjgQ1q8bpA-Fg",
+                            "operationVDID": "1t0UyF7MpAypiTwFacLvBg"
                           }
                         },
                         "_yxWfFLnTqqN-UxRdd7W5w": {
