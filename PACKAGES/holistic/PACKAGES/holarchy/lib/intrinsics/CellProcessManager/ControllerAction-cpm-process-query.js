@@ -11,8 +11,11 @@ var arccore = require("@encapsule/arccore");
 
 var ControllerAction = require("../../ControllerAction");
 
-var cpmLib = require("./lib"); // const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
+var cpmLib = require("./lib");
 
+var cellProcessQueryResponseDescriptorSpec = require("./lib/iospecs/cell-process-query-response-descriptor-spec");
+
+var cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
 
 var controllerAction = new ControllerAction({
   id: "r-JgxABoS_a-mSE2c1nvKA",
@@ -28,31 +31,7 @@ var controllerAction = new ControllerAction({
           ____types: "jsObject",
           query: {
             ____types: "jsObject",
-            resultSets: {
-              ____types: "jsObject",
-              ____defaultValue: {
-                parent: true,
-                ancestors: true,
-                children: true,
-                descendants: true
-              },
-              parent: {
-                ____accept: "jsBoolean",
-                ____defaultValue: false
-              },
-              ancestors: {
-                ____accept: "jsBoolean",
-                ____defaultValue: false
-              },
-              children: {
-                ____accept: "jsBoolean",
-                ____defaultValue: false
-              },
-              descendants: {
-                ____accept: "jsBoolean",
-                ____defaultValue: false
-              }
-            },
+            filterBy: cellProcessQueryRequestFilterBySpec,
             queryCellProcess: {
               ____label: "Query Cell Process Override",
               ____description: "Allows the caller to optionally override that default action behavior to specify the cell process ID to query.",
@@ -77,6 +56,31 @@ var controllerAction = new ControllerAction({
                 cellProcessUniqueName: {
                   ____accept: ["jsUndefined", "jsString"]
                 }
+              }
+            },
+            resultSets: {
+              ____types: "jsObject",
+              ____defaultValue: {
+                parent: true,
+                ancestors: true,
+                children: true,
+                descendants: true
+              },
+              parent: {
+                ____accept: "jsBoolean",
+                ____defaultValue: false
+              },
+              ancestors: {
+                ____accept: "jsBoolean",
+                ____defaultValue: false
+              },
+              children: {
+                ____accept: "jsBoolean",
+                ____defaultValue: false
+              },
+              descendants: {
+                ____accept: "jsBoolean",
+                ____defaultValue: false
               }
             }
           }
@@ -131,17 +135,7 @@ var controllerAction = new ControllerAction({
       ____label: "Ancestor Cell Processes",
       ____description: "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' parent, it's parent...",
       ____types: ["jsUndefined", "jsArray"],
-      element: {
-        ____label: "Ancestor Cell Process",
-        ____description: "The cell process ID and apmBindingPath of one of the queried cell process' ancestor cell process.",
-        ____types: "jsObject",
-        cellProcessID: {
-          ____accept: "jsString"
-        },
-        apmBindingPath: {
-          ____accept: "jsString"
-        }
-      }
+      cellProcessDescriptor: cellProcessQueryResponseDescriptorSpec
     },
     children: {
       ____label: "Child Cell Processes",
@@ -251,8 +245,10 @@ var controllerAction = new ControllerAction({
 
 
       if (message.resultSets.ancestors) {
-        cpmLibResponse = cpmLib.getProcessAncestorDescriptors({
+        cpmLibResponse = cpmLib.getProcessAncestorDescriptors.request({
           cellProcessID: cellProcessID,
+          filterBy: message.filterBy,
+          ocdi: request_.context.ocdi,
           treeData: cellProcessTreeData
         });
 
