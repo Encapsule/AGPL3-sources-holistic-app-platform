@@ -102,6 +102,9 @@ var controllerAction = new ControllerAction({
       apmBindingPath: {
         ____accept: "jsString"
       },
+      apmID: {
+        ____accept: "jsString"
+      },
       resultSets: {
         ____types: "jsObject",
         parent: {
@@ -118,19 +121,11 @@ var controllerAction = new ControllerAction({
         }
       }
     },
-    parent: {
+    parent: _objectSpread({
       ____label: "Parent Cell Process",
       ____description: "The cell process ID and apmBindingPath of the queried cell process' parent cell process.",
-      ____types: ["jsUndefined", "jsObject"],
-      cellProcessID: {
-        ____accept: ["jsNull", "jsString"],
-        ____defaultValue: null
-      },
-      apmBindingPath: {
-        ____accept: ["jsNull", "jsString"],
-        ____defaultValue: null
-      }
-    },
+      ____types: ["jsUndefined", "jsObject"]
+    }, cellProcessQueryResponseDescriptorSpec),
     ancestors: {
       ____label: "Ancestor Cell Processes",
       ____description: "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' parent, it's parent...",
@@ -141,33 +136,13 @@ var controllerAction = new ControllerAction({
       ____label: "Child Cell Processes",
       ____description: "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' child processes.",
       ____types: ["jsUndefined", "jsArray"],
-      element: {
-        ____label: "Child Cell Process",
-        ____description: "The cell process ID and apmBindingPath of one of the queried cell process' child cell process(es).",
-        ____types: "jsObject",
-        cellProcessID: {
-          ____accept: "jsString"
-        },
-        apmBindingPath: {
-          ____accept: "jsString"
-        }
-      }
+      childProcessDescriptor: cellProcessQueryResponseDescriptorSpec
     },
     descendants: {
       ____label: "Descendant Cell Processes",
       ____description: "An array of cell process ID and apmBindingPath descriptor objects that include the queried cell process' children, their children...",
       ____types: ["jsUndefined", "jsArray"],
-      element: {
-        ____label: "Descendant Cell Process",
-        ____description: "The cell process ID and apmBindingPath of one of the queried cell process' descendant cell process(es).",
-        ____types: "jsObject",
-        cellProcessID: {
-          ____accept: "jsString"
-        },
-        apmBindingPath: {
-          ____accept: "jsString"
-        }
-      }
+      descendantProcessDescriptor: cellProcessQueryResponseDescriptorSpec
     }
   },
   bodyFunction: function bodyFunction(request_) {
@@ -212,8 +187,9 @@ var controllerAction = new ControllerAction({
 
       var cellProcessTreeData = cpmLibResponse.result; // Get a reference to this cell process' descriptor.
 
-      cpmLibResponse = cpmLib.getProcessDescriptor({
+      cpmLibResponse = cpmLib.getProcessDescriptor.request({
         cellProcessID: cellProcessID,
+        ocdi: request_.context.ocdi,
         treeData: cellProcessTreeData
       });
 
@@ -230,8 +206,10 @@ var controllerAction = new ControllerAction({
       };
 
       if (message.resultSets.parent) {
-        cpmLibResponse = cpmLib.getProcessParentDescriptor({
+        cpmLibResponse = cpmLib.getProcessParentDescriptor.request({
           cellProcessID: cellProcessID,
+          filterBy: message.filterBy,
+          ocdi: request_.context.ocdi,
           treeData: cellProcessTreeData
         });
 
@@ -262,8 +240,10 @@ var controllerAction = new ControllerAction({
 
 
       if (message.resultSets.children) {
-        cpmLibResponse = cpmLib.getProcessChildrenDescriptors({
+        cpmLibResponse = cpmLib.getProcessChildrenDescriptors.request({
           cellProcessID: cellProcessID,
+          filterBy: message.filterBy,
+          ocdi: request_.context.ocdi,
           treeData: cellProcessTreeData
         });
 
@@ -277,8 +257,10 @@ var controllerAction = new ControllerAction({
 
 
       if (message.resultSets.descendants) {
-        cpmLibResponse = cpmLib.getProcessDescendantDescriptors({
+        cpmLibResponse = cpmLib.getProcessDescendantDescriptors.request({
           cellProcessID: cellProcessID,
+          filterBy: message.filterBy,
+          ocdi: request_.context.ocdi,
           treeData: cellProcessTreeData
         });
 

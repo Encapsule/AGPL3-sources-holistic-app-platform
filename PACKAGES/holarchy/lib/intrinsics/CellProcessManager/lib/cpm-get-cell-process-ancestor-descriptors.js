@@ -13,7 +13,7 @@ var cpmPath = "~.".concat(cpmMountingNamespaceName);
 var factoryResponse = arccore.filter.create({
   operationID: "IAokn6EeTcug9ZZH2iqgvw",
   operationName: "cpmlib: Get Cell Process Ancestor Descriptors",
-  operationDescription: "Generates an array of cell process descriptor objects describing the ancestor cell process(es) of the specified cell process.",
+  operationDescription: "Generates an array of cell process descriptor objects describing the ancestor cell process(es) of the querying cell process.",
   inputFilterSpec: {
     ____types: "jsObject",
     cellProcessID: {
