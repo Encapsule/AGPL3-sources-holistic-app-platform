@@ -22,7 +22,6 @@ module.exports = {
         description: "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
         subcells: [
             require("./HolarchyBase"),
-            // holarchy.HolarchyCore
         ]
     })
 };
