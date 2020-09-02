@@ -75,6 +75,21 @@
                         "holarchy": {
                           "CellProcessor": {
                             "process": {
+                              "create": {
+                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                "cellProcessUniqueName": "test-process-1"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "actorName": "CP constructor test #2",
+                      "actionRequest": {
+                        "holarchy": {
+                          "CellProcessor": {
+                            "process": {
                               "delete": {
                                 "cellProcessNamespace": {
                                   "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
@@ -3641,6 +3656,70 @@
                             ]
                           }
                         }
+                      },
+                      "ocdJSON": {
+                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                          "cellProcessMap": {
+                            "ZDzHy574xd-FjPLB2rTCcQ": {
+                              "testProperty": null,
+                              "__apmiStep": "uninitialized"
+                            }
+                          },
+                          "revision": 1
+                        },
+                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                          "cellProcessTree": {
+                            "revision": 1,
+                            "digraph": {
+                              "name": "Cell Process Tree Digraph Model",
+                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                              "vlist": [
+                                {
+                                  "u": "U1NTU1paWlqwsLCwxMTExA",
+                                  "p": {
+                                    "apmBindingPath": "~",
+                                    "name": "Cell Process Manager"
+                                  }
+                                },
+                                {
+                                  "u": "GnZD29qpnZdyarMnoUPHEg",
+                                  "p": {
+                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
+                                  }
+                                }
+                              ],
+                              "elist": [
+                                {
+                                  "e": {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "v": "GnZD29qpnZdyarMnoUPHEg"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "__apmiStep": "ready"
+                        }
+                      }
+                    },
+                    {
+                      "actRequest": {
+                        "actorName": "CP constructor test #2",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "create": {
+                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                  "cellProcessUniqueName": "test-process-1"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "actResponse": {
+                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
                       },
                       "ocdJSON": {
                         "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
