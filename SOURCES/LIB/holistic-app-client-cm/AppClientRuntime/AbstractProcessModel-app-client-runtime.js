@@ -25,6 +25,7 @@ module.exports = {
                     ____accept: "jsBoolean",
                     ____defaultValue: false
                 },
+                /*
                 subprocesses: {
                     ____types: "jsObject",
                     ____defaultValue: {},
@@ -43,6 +44,7 @@ module.exports = {
                     },
 
                 }
+                */
             },
             outputs: {
                 ____types: "jsObject",
@@ -68,7 +70,10 @@ module.exports = {
             description: "Start core client app kernel subsystems.",
             actions: {
                 enter: [
-                    { holarchy: { cm: { actions: { cell: { process: { create: { apmBindingPath: "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor", ocdInitData: {} } } } } } } }
+                    { holarchy: { CellProcessor: { process: { create: {
+                        apmID: "Hsu-43zBRgqHItCPWPiBng", 
+                        cellProcessUniqueName: "Holistic Client App View Processor"
+                    }}}}}
                 ]
             },
             transitions: [
