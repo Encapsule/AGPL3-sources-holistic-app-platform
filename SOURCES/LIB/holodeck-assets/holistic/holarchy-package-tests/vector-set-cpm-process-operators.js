@@ -1,10 +1,28 @@
 // vector-set-cpm-process-operators.js
 
+/*
+  TODO: I have made a little table for each of CPM operators that
+  defines a minimum set of regression tests that should be written
+  to ensure these operators are working reliably.
+  Quick tally is 110 vectors or so...
+*/
+
+
 const testFixtureModel = require("./fixture-cpm");
 
 module.exports = [
 
+    // ----------------------------------------------------------------
     // CPM Ancestor Processes Active
+    /*
+      TEST | ANCESTORS | APM PREDICATE
+      1    | single    | none
+      2    | single    | single
+      3    | single    | multi
+      4    | multi     | none
+      5    | multi     | single
+      6    | multi     | multi
+    */
     {
         id: "XyAdaaZ_S9OTkRuwBYe4Ew",
         name: "CPM Ancestor Processes Active Test",
@@ -43,7 +61,25 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Ancestor Processes All In Step
+    /*
+      TEST | ANCESTORS | STEP PREDICATE | APM PREDICATE | VALID
+      1    | single    | none           | *             | NO
+      2    | single    | single         | none          |
+      3    | single    | single         | single        |
+      4    | single    | single         | multi         |
+      5    | single    | multi          | none
+      6    | single    | multi          | single
+      7    | single    | multi          | multi
+      8    | multi     | single         | none
+      9    | multi     | single         | single
+      10    | multi     | single         | multi
+      11   | multi     | multi          | none
+      12   | multi     | multi          | single
+      13   | multi     | multi          | multi
+    */
+
     {
         id: "vzOf_2LZTgG7PSWqr_JzgA",
         name: "CPM Ancestor Processes All In Step Operator Test",
@@ -56,7 +92,7 @@ module.exports = [
                             id: "vzOf_2LZTgG7PSWqr_JzgA",
                             name: "CPM Ancestor Processes All In Step Operator Test",
                             description: "Tests the CPM descendant processes all in step transition operator.",
-                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "wjUvGFxOQu6H3lZeII0cbA" }).result
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "wjUvGFxOQu6H3lZeII0cbA" }).result
                         },
                         actRequests: [
                             {
@@ -82,7 +118,23 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Ancestor Processes Any In Step
+    /*
+      1    | single    | none           | *             | NO
+      2    | single    | single         | none          |
+      3    | single    | single         | single        |
+      4    | single    | single         | multi         |
+      5    | single    | multi          | none
+      6    | single    | multi          | single
+      7    | single    | multi          | multi
+      8    | multi     | single         | none
+      9    | multi     | single         | single
+      10    | multi     | single         | multi
+      11   | multi     | multi          | none
+      12   | multi     | multi          | single
+      13   | multi     | multi          | multi
+    */
     {
         id: "FLusrxY-QpulvQ5jpazAgg",
         name: "CPM Ancestor Processes Any In Step Operator Test",
@@ -95,7 +147,7 @@ module.exports = [
                             id: "FLusrxY-QpulvQ5jpazAgg",
                             name: "CPM Ancestor Processes Any In Step Operator Test",
                             description: "Tests the CPM ancestor processes any in step transition operator.",
-                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "4_rZ65rORrOEYJTCl5mOEQ" }).result
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "4_rZ65rORrOEYJTCl5mOEQ" }).result
                         },
                         actRequests: [
                             {
@@ -121,7 +173,18 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Child Processes Active
+    /*
+      TEST | CHILDREN | APM PREDICATE
+      1    | none     | *
+      2    | single   | none
+      3    | single   | single
+      4    | single   | multi
+      5    | multi    | none
+      6    | multi    | single
+      7    | multi    | multi
+    */
     {
         id: "DhIrP3aDRQGrnmV63573iA",
         name: "CPM Child Processes Active Test",
@@ -187,6 +250,23 @@ module.exports = [
     },
 
     // CPM Child Processes All In Step
+    /*
+      TEST | CHILDREN | STEP PREDICATE | APM PREDICATE | VALID
+      1    | *        | none           | *             | NO
+      2    | none     | single         | *             | YES
+      2    | single   | single         | none
+      3    | single   | single         | single
+      4    | single   | single         | multi
+      5    | single   | multi          | none
+      6    | single   | multi          | single
+      7    | single   | multi          | multi
+      8    | multi    | single         | none
+      9    | multi    | single         | single
+      10   | multi    | single         | multi
+      11   | multi    | multi          | none
+      12   | multi    | multi          | single
+      13   | multi    | multi          | multi
+    */
     {
         id: "Jq9BQRTXQmmSznq40NvuiQ",
         name: "CPM Child Processes All In Step Operator Test",
@@ -250,7 +330,25 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Child Processes Any In Step
+    /*
+      TEST | CHILDREN | STEP PREDICATE | APM PREDICATE | VALID
+      1    | *        | none           | *             | NO
+      2    | none     | single         | *             | YES
+      2    | single   | single         | none
+      3    | single   | single         | single
+      4    | single   | single         | multi
+      5    | single   | multi          | none
+      6    | single   | multi          | single
+      7    | single   | multi          | multi
+      8    | multi    | single         | none
+      9    | multi    | single         | single
+      10   | multi    | single         | multi
+      11   | multi    | multi          | none
+      12   | multi    | multi          | single
+      13   | multi    | multi          | multi
+    */
     {
         id: "BSXTNPAaRXKR5C5OrJzSwQ",
         name: "CPM Child Processes Any In Step Operator Test",
@@ -263,7 +361,7 @@ module.exports = [
                             id: "BSXTNPAaRXKR5C5OrJzSwQ",
                             name: "CPM Child Processes Any In Step Operator Test",
                             description: "Tests the CPM child processes any in step transition operator.",
-                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "C_wxJlAoTHW_7TWmpCXL2g" }).result
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "C_wxJlAoTHW_7TWmpCXL2g" }).result
                         },
                         actRequests: [
                             {
@@ -312,7 +410,18 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Descendant Processes Active
+    /*
+      TEST | DESCENDANTS | APM PREDICATE
+      1    | none        | *
+      2    | single      | none
+      3    | single      | single
+      4    | single      | multi
+      5    | multi       | none
+      6    | multi       | single
+      7    | multi       | multi
+    */
     {
         id: "frzhwqHrSCi1Ta9Mz1gQDg",
         name: "CPM Descendant Processes Active Test",
@@ -374,7 +483,25 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Descendant Processes All In Step
+    /*
+      TEST | DESCENDANTS | STEP PREDICATE | APM PREDICATE | VALID
+      1    | *           | none           | *             | NO
+      2    | none        | single         | *             | YES
+      3    | single      | single         | none
+      4    | single      | single         | single
+      5    | single      | single         | multi
+      6    | single      | multi          | none
+      7    | single      | multi          | single
+      8    | single      | multi          | multi
+      9    | multi       | single         | none
+      10   | multi       | single         | single
+      11   | multi       | single         | multi
+      12   | multi       | multi          | none
+      13   | multi       | multi          | single
+      14   | multi       | multi          | multi
+    */
     {
         id: "tydUf2gSSgSjSmrrF8nkyw",
         name: "CPM Descendant Processes All In Step Test",
@@ -387,7 +514,7 @@ module.exports = [
                             id: "tydUf2gSSgSjSmrrF8nkyw",
                             name: "CPM Descendant Processes All In Step Test",
                             description: "Tests the CPM descendant processes all in step transition operator.",
-                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "DXfqoTLmRzi-IloxkIFbRQ" }).result
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "DXfqoTLmRzi-IloxkIFbRQ" }).result
                         },
                         actRequests: [
                             {
@@ -437,7 +564,25 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Descendant Processes Any In Step
+    /*
+      TEST | DESCENDANTS | STEP PREDICATE | APM PREDICATE | VALID
+      1    | *           | none           | *             | NO
+      2    | none        | single         | *             | YES
+      3    | single      | single         | none
+      4    | single      | single         | single
+      5    | single      | single         | multi
+      6    | single      | multi          | none
+      7    | single      | multi          | single
+      8    | single      | multi          | multi
+      9    | multi       | single         | none
+      10   | multi       | single         | single
+      11   | multi       | single         | multi
+      12   | multi       | multi          | none
+      13   | multi       | multi          | single
+      14   | multi       | multi          | multi
+    */
     {
         id: "OFSWJDZdQVSnkUxpu0THsw",
         name: "CPM Descendant Processes Any In Step Test",
@@ -450,7 +595,7 @@ module.exports = [
                             id: "OFSWJDZdQVSnkUxpu0THsw",
                             name: "CPM Descendant Processes Any In Step Test",
                             description: "Tests the CPM descendant processes any in step transition operator.",
-                            cellmodel:  testFixtureModel.getArtifact({ type: "CM", id: "xbaDltz5S2m7Wes94Kx2pQ" }).result
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "xbaDltz5S2m7Wes94Kx2pQ" }).result
                         },
                         actRequests: [
                             {
@@ -500,7 +645,14 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Parent Process Active
+    /*
+      TEST | PARENT | APM PREDICATE
+      1    | single | none
+      2    | single | single
+      3    | single | multi
+    */
     {
         id: "rdh8dW74RnO7lWGNlFR79A",
         name: "CPM Parent Process Active Test",
@@ -539,7 +691,20 @@ module.exports = [
         }
     },
 
+    // ----------------------------------------------------------------
     // CPM Parent Process In Step
+    /*
+      TEST | PARENT | STEP PREDICATE | APM PREDICATE | VALID
+      1    | single | none           | *             | NO
+      2    | single | single         | none
+      3    | single | single         | single
+      4    | single | single         | multi
+      5    | single | multi          | none
+      6    | single | multi          | single
+      7    | single | multi          | multi
+    */
+
+
     {
         id: "E4OfrQ0iS8yTV2DUaw7GGg",
         name: "CPM Parent Process In Step Operator Test",
@@ -548,7 +713,7 @@ module.exports = [
             holistic: {
                 holarchy: {
                     CellProcessor: {
-                        constructorRequest: { 
+                        constructorRequest: {
                             id: "E4OfrQ0iS8yTV2DUaw7GGg",
                             name: "CPM Parent Process In Step Operator Test",
                             description: "Tests the CPM parent process in step transition operator.",
