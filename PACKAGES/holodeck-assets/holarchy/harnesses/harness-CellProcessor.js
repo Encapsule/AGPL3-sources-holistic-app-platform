@@ -65,7 +65,7 @@ var factoryResponse = holodeck.harnessFactory.request({
           }
         },
         ocdJSON: {
-          ____accept: "jsObject"
+          ____accept: ["jsUndefined", "jsObject"]
         }
       }
     }
@@ -84,16 +84,22 @@ var factoryResponse = holodeck.harnessFactory.request({
       };
       var messageBody = vectorRequest_.vectorRequest.holistic.holarchy.CellProcessor;
       var cpInstance = messageBody.constructorRequest instanceof holarchy.CellProcessor ? messageBody.constructorRequest : new holarchy.CellProcessor(messageBody.constructorRequest);
-      var cpToJSON = JSON.parse(JSON.stringify(cpInstance)); // TODO: Filter non-idempotent info out of the cpToJSON payload written to holdeck 1 eval logs.
+      var serialized = JSON.parse(JSON.stringify(cpInstance)); // Remove non-idempotent information from the serialized OPC object.
+
+      if (cpInstance.isValid()) {
+        delete serialized.opc.iid;
+
+        if (serialized.opc.lastEvalResponse && serialized.opc.lastEvalResponse.result) {
+          delete serialized.opc.lastEvalResponse.result.summary.evalStopwatch;
+        }
+      }
 
       response.result = {
         isValid: cpInstance.isValid(),
-        cpJSON: cpToJSON,
+        cpJSON: serialized,
         actionEvaluations: []
       };
       messageBody.actRequests.forEach(function (actRequest_) {
-        delete cpInstance._private.opc._private.lastEvaluationResponse; // why? I got this from OPC test harness. Need to look into this...
-
         if (!cpInstance.isValid()) {
           response.result.actionEvaluations.push({
             actRequest: actRequest_,
@@ -104,7 +110,14 @@ var factoryResponse = holodeck.harnessFactory.request({
           return;
         }
 
-        var actResponse = cpInstance.act(actRequest_);
+        delete cpInstance._private.opc._private.lastEvaluationResponse; // why? I got this from OPC test harness. Need to look into this...
+
+        var actResponse = cpInstance.act(actRequest_); // Filter non-idempotent information out of the actResponse object.
+
+        if (!actResponse.error) {
+          delete actResponse.result.lastEvaluation.summary.evalStopwatch;
+        }
+
         response.result.actionEvaluations.push({
           actRequest: actRequest_,
           actResponse: actResponse,

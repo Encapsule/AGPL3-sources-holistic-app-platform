@@ -69,6 +69,12 @@ var controllerAction = new ControllerAction({
     } // this is an IRUT-format hash of parent process' apmBindingPath
 
   },
+  // NOTE: Unlike most ControllerAction bodyFunctions, process delete action DOES NOT consider
+  // request_.context.apmBindingPath at all!
+  //
+  // The process namespace of the cell process to delete is determined from the cell process tree digraph
+  // using cellProcessID that is either specified directly. Or, that is calculated from from apmBindingPath
+  // or cellProcessNamespace.
   bodyFunction: function bodyFunction(request_) {
     var response = {
       error: null
@@ -85,20 +91,21 @@ var controllerAction = new ControllerAction({
       if (!message.cellProcessID && !message.apmBindingPath && !message.cellProcessNamespace) {
         errors.push("You need to specify cellProcessID. Or eiter apmBindingPath or cellProcessNamespace so that cellProcessID can be calculated.");
         return "break";
-      }
+      } // TODO: This should be converted to a cpmLib call
+
 
       var cellProcessID = message.cellProcessID ? message.cellProcessID : message.apmBindingPath ? arccore.identifier.irut.fromReference(message.apmBindingPath).result : arccore.identifier.irut.fromReference("~.".concat(message.cellProcessNamespace.apmID, "_CellProcesses.cellProcessMap.").concat(arccore.identifier.irut.fromReference(message.cellProcessNamespace.cellProcessUniqueName).result)).result; // Now we have to dereference the cell process manager's process digraph (always a single-rooted tree).
 
-      var cellProcessDigraphPath = "~.".concat(cpmMountingNamespaceName, ".cellProcessDigraph");
-      var ocdResponse = request_.context.ocdi.readNamespace(cellProcessDigraphPath);
+      var cellProcessTreePath = "~.".concat(cpmMountingNamespaceName, ".cellProcessTree");
+      var ocdResponse = request_.context.ocdi.readNamespace(cellProcessTreePath);
 
       if (ocdResponse.error) {
         errors.push(ocdResponse.error);
         return "break";
       }
 
-      var processDigraph = ocdResponse.result;
-      var inDegree = processDigraph.runtime.inDegree(cellProcessID);
+      var cellProcessTreeData = ocdResponse.result;
+      var inDegree = cellProcessTreeData.digraph.inDegree(cellProcessID);
 
       switch (inDegree) {
         case -1:
@@ -122,10 +129,10 @@ var controllerAction = new ControllerAction({
         return "break";
       }
 
-      var parentProcessID = processDigraph.runtime.inEdges(cellProcessID)[0].u;
+      var parentProcessID = cellProcessTreeData.digraph.inEdges(cellProcessID)[0].u;
       var processesToDelete = [];
       var digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
-        digraph: processDigraph.runtime,
+        digraph: cellProcessTreeData.digraph,
         options: {
           startVector: [cellProcessID]
         },
@@ -149,7 +156,7 @@ var controllerAction = new ControllerAction({
 
       for (var i = 0; processesToDelete.length > i; i++) {
         var _cellProcessID = processesToDelete[i];
-        var processDescriptor = processDigraph.runtime.getVertexProperty(_cellProcessID);
+        var processDescriptor = cellProcessTreeData.digraph.getVertexProperty(_cellProcessID);
         var apmBindingPath = processDescriptor.apmBindingPath;
         var apmBindingPathTokens = apmBindingPath.split(".");
         var apmProcessesNamespace = apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 1).join(".");
@@ -185,14 +192,14 @@ var controllerAction = new ControllerAction({
           break;
         }
 
-        processDigraph.runtime.removeVertex(_cellProcessID);
+        cellProcessTreeData.digraph.removeVertex(_cellProcessID);
       }
 
       if (errors.length) {
         return "break";
       }
 
-      ocdResponse = request_.context.ocdi.writeNamespace("".concat(cellProcessDigraphPath, ".revision"), processDigraph.revision + 1);
+      ocdResponse = request_.context.ocdi.writeNamespace("".concat(cellProcessTreePath, ".revision"), cellProcessTreeData.revision + 1);
 
       if (ocdResponse.error) {
         errors.push(ocdResponse.error);
@@ -200,7 +207,7 @@ var controllerAction = new ControllerAction({
       }
 
       response.result = {
-        apmBindingPath: processDigraph.runtime.getVertexProperty(parentProcessID).apmBindingPath,
+        apmBindingPath: cellProcessTreeData.digraph.getVertexProperty(parentProcessID).apmBindingPath,
         cellProcessID: parentProcessID
       };
       return "break";

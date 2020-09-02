@@ -33,18 +33,18 @@ const factoryResponse = holodeck.harnessFactory.request({
     harnessBodyFunction: function(request_) {
 
         const messageBody = request_.vectorRequest.holistic.holarchy.AbstractProcessModel;
-        const observableProcessModel = (messageBody.constructorRequest instanceof holarchy.AbstractProcessModel)?messageBody.constructorRequest:new holarchy.AbstractProcessModel(messageBody.constructorRequest);
+        const abstractProcessModel = (messageBody.constructorRequest instanceof holarchy.AbstractProcessModel)?messageBody.constructorRequest:new holarchy.AbstractProcessModel(messageBody.constructorRequest);
 
         const response = {
             error: null,
             result: {
-                isValid: observableProcessModel.isValid(),
-                toJSON: observableProcessModel.toJSON(),
-                getID: observableProcessModel.getID(),
-                getName: observableProcessModel.getName(),
-                getDescription: observableProcessModel.getDescription(),
-                getDataSpec: observableProcessModel.getDataSpec(),
-                getDigraph: observableProcessModel.getDigraph()
+                isValid: abstractProcessModel.isValid(),
+                toJSON: abstractProcessModel.toJSON(),
+                getID: abstractProcessModel.getID(),
+                getName: abstractProcessModel.getName(),
+                getDescription: abstractProcessModel.getDescription(),
+                getDataSpec: abstractProcessModel.getDataSpec(),
+                getDigraph: abstractProcessModel.getDigraph()
             }
         };
 

@@ -4,7 +4,7 @@ const TransitionOperator = require("../../../TransitionOperator");
 
 module.exports = new TransitionOperator({
     id: "YgABX95wR86GCYrYaDLISA",
-    name: "AND Transition Expression Operator",
+    name: "Logical AND",
     description: "Returns Boolean true iff all suboperations return true.",
     operatorRequestSpec: {
         ____types: "jsObject",

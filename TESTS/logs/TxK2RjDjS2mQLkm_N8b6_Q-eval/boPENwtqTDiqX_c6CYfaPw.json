@@ -30,168 +30,24 @@
                           "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
                           "vdid": "Lte55YHGfv8kU5AKzCcJZg",
                           "name": "OPM Eval P2 Test #1",
-                          "description": "A simple test OPM (force controller action exit error - bad message)",
-                          "process": {
-                            "name": "[Rgt3dz-6Ra-zqpbnpBrJDg::OPM Eval P2 Test #1] APM Digraph",
-                            "description": "A simple test OPM (force controller action exit error - bad message)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "noneSuchControllerAction": true
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step (never reached).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple test OPM (force controller action exit error - bad message)"
                         },
                         {
                           "id": "P-uhpNlrTseMNDG3D9ahRA",
                           "vdid": "lF0qmMWw9_OkL7T3Q7SfVw",
                           "name": "OPM Eval P2 Test #2",
-                          "description": "A simple test OPM (force controller action exit error - action transport error)",
-                          "process": {
-                            "name": "[P-uhpNlrTseMNDG3D9ahRA::OPM Eval P2 Test #2] APM Digraph",
-                            "description": "A simple test OPM (force controller action exit error - action transport error)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "badControllerActionResponseError": true
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step (never reached).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple test OPM (force controller action exit error - action transport error)"
                         },
                         {
                           "id": "alBMdhnYSbijGj64jxm92g",
                           "vdid": "vUv8n4l2FAS3b74v6iSk9Q",
                           "name": "OPM Eval P2 Test #3",
-                          "description": "A simple test OPM (force controller action exit - action exception)",
-                          "process": {
-                            "name": "[alBMdhnYSbijGj64jxm92g::OPM Eval P2 Test #3] APM Digraph",
-                            "description": "A simple test OPM (force controller action exit - action exception)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "badControllerActionThrowError": true
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step (never reached).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple test OPM (force controller action exit - action exception)"
                         }
                       ]
                     ],
                     "transitionOperatorSets": [
                       [
-                        {
-                          "id": "YgABX95wR86GCYrYaDLISA",
-                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                          "name": "AND Transition Expression Operator",
-                          "description": "Returns Boolean true iff all suboperations return true."
-                        },
-                        {
-                          "id": "e89cwnP4Qd6MocAhzdOJgw",
-                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                          "name": "Always returns Boolean true unconditionally.",
-                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
-                        },
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
                           "vdid": "zmPeG6lSvXidCjr_XyENrQ",
@@ -199,10 +55,28 @@
                           "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                         },
                         {
+                          "id": "YgABX95wR86GCYrYaDLISA",
+                          "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                          "name": "Logical AND",
+                          "description": "Returns Boolean true iff all suboperations return true."
+                        },
+                        {
                           "id": "TLSHkl73SO-utuzM7dyN2g",
-                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                          "name": "NOT Transition Expression Operator",
+                          "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                          "name": "Logical NOT",
                           "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to)."
+                        },
+                        {
+                          "id": "0JIva4IFSm6Xm7i38g8uUA",
+                          "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                          "name": "Logical OR",
+                          "description": "Returns Boolean true iff any suboperations return true."
+                        },
+                        {
+                          "id": "e89cwnP4Qd6MocAhzdOJgw",
+                          "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                          "name": "Logical TRUE",
+                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
                         },
                         {
                           "id": "oaF3-dXwQkusjD3I2o9-8g",
@@ -245,12 +119,6 @@
                           "vdid": "cNihhVrtDPl_5j7cSfcRug",
                           "name": "OCD Namespace Is Truthy",
                           "description": "Returns Boolean true iff the indicated OCD namespace is truthy."
-                        },
-                        {
-                          "id": "0JIva4IFSm6Xm7i38g8uUA",
-                          "vdid": "HyCocPERRAAEOSzTOspyaw",
-                          "name": "OR Transition Expression Operator",
-                          "description": "Returns Boolean true iff any suboperations return true."
                         }
                       ]
                     ],
@@ -301,151 +169,19 @@
                         "id": "Rgt3dz-6Ra-zqpbnpBrJDg",
                         "vdid": "Lte55YHGfv8kU5AKzCcJZg",
                         "name": "OPM Eval P2 Test #1",
-                        "description": "A simple test OPM (force controller action exit error - bad message)",
-                        "process": {
-                          "name": "[Rgt3dz-6Ra-zqpbnpBrJDg::OPM Eval P2 Test #1] APM Digraph",
-                          "description": "A simple test OPM (force controller action exit error - bad message)",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": [
-                                    {
-                                      "noneSuchControllerAction": true
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "u": "goal",
-                              "p": {
-                                "description": "Test goal step (never reached).",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "goal"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "A simple test OPM (force controller action exit error - bad message)"
                       },
                       "P-uhpNlrTseMNDG3D9ahRA": {
                         "id": "P-uhpNlrTseMNDG3D9ahRA",
                         "vdid": "lF0qmMWw9_OkL7T3Q7SfVw",
                         "name": "OPM Eval P2 Test #2",
-                        "description": "A simple test OPM (force controller action exit error - action transport error)",
-                        "process": {
-                          "name": "[P-uhpNlrTseMNDG3D9ahRA::OPM Eval P2 Test #2] APM Digraph",
-                          "description": "A simple test OPM (force controller action exit error - action transport error)",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": [
-                                    {
-                                      "badControllerActionResponseError": true
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "u": "goal",
-                              "p": {
-                                "description": "Test goal step (never reached).",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "goal"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "A simple test OPM (force controller action exit error - action transport error)"
                       },
                       "alBMdhnYSbijGj64jxm92g": {
                         "id": "alBMdhnYSbijGj64jxm92g",
                         "vdid": "vUv8n4l2FAS3b74v6iSk9Q",
                         "name": "OPM Eval P2 Test #3",
-                        "description": "A simple test OPM (force controller action exit - action exception)",
-                        "process": {
-                          "name": "[alBMdhnYSbijGj64jxm92g::OPM Eval P2 Test #3] APM Digraph",
-                          "description": "A simple test OPM (force controller action exit - action exception)",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": [
-                                    {
-                                      "badControllerActionThrowError": true
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "u": "goal",
-                              "p": {
-                                "description": "Test goal step (never reached).",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "goal"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "A simple test OPM (force controller action exit - action exception)"
                       }
                     },
                     "opmiSpecPaths": [
@@ -455,51 +191,7 @@
                           "id": "P-uhpNlrTseMNDG3D9ahRA",
                           "vdid": "lF0qmMWw9_OkL7T3Q7SfVw",
                           "name": "OPM Eval P2 Test #2",
-                          "description": "A simple test OPM (force controller action exit error - action transport error)",
-                          "process": {
-                            "name": "[P-uhpNlrTseMNDG3D9ahRA::OPM Eval P2 Test #2] APM Digraph",
-                            "description": "A simple test OPM (force controller action exit error - action transport error)",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "badControllerActionResponseError": true
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "goal",
-                                "p": {
-                                  "description": "Test goal step (never reached).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "goal"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "A simple test OPM (force controller action exit error - action transport error)"
                         }
                       }
                     ],
@@ -537,24 +229,24 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "CMvz9x30nfjuykt8A93fQA",
+                        "operationID": "25km7hdVdZbvUQMVNrDrxQ",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                        "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                        "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                        "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
                       },
                       "supportedFilters": [
-                        "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                        "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                         "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                         "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
-                        "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                        "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
                         "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                         "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
-                        "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                        "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                        "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                        "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                         "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                         "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                         "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
@@ -565,102 +257,6 @@
                       }
                     },
                     "transitionDispatcherFilterMap": {
-                      "YgABX95wR86GCYrYaDLISA": {
-                        "filterDescriptor": {
-                          "operationID": "YgABX95wR86GCYrYaDLISA",
-                          "operationName": "AND Transition Expression Operator",
-                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
-                          "inputFilterSpec": {
-                            "____label": "AND Transition Expression Operator Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "and": {
-                                "____types": "jsArray",
-                                "operandOperatorVariant": {
-                                  "____accept": "jsObject"
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
-                          "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
-                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
-                        }
-                      },
-                      "e89cwnP4Qd6MocAhzdOJgw": {
-                        "filterDescriptor": {
-                          "operationID": "e89cwnP4Qd6MocAhzdOJgw",
-                          "operationName": "Always returns Boolean true unconditionally.",
-                          "operationDescription": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
-                          "inputFilterSpec": {
-                            "____label": "Always returns Boolean true unconditionally. Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "always": {
-                                "____accept": "jsBoolean",
-                                "____inValueSet": [
-                                  true
-                                ]
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
-                          "inputTypeVDID": "0EB7_Y3i7dHCIqSTVQf8bQ",
-                          "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "7hv8ROZTdZP8DZ-c1OtJcg"
-                        }
-                      },
                       "9tNY7o5GTUGH_xda2GhP-w": {
                         "filterDescriptor": {
                           "operationID": "9tNY7o5GTUGH_xda2GhP-w",
@@ -724,13 +320,61 @@
                           "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
                         }
                       },
+                      "YgABX95wR86GCYrYaDLISA": {
+                        "filterDescriptor": {
+                          "operationID": "YgABX95wR86GCYrYaDLISA",
+                          "operationName": "Logical AND",
+                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
+                          "inputFilterSpec": {
+                            "____label": "Logical AND Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "and": {
+                                "____types": "jsArray",
+                                "operandOperatorVariant": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
+                          "inputTypeVDID": "aZ0313jYspKqFYbxLUobFA",
+                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "9jcTRLaZgJMBefycqJ3Wcg"
+                        }
+                      },
                       "TLSHkl73SO-utuzM7dyN2g": {
                         "filterDescriptor": {
                           "operationID": "TLSHkl73SO-utuzM7dyN2g",
-                          "operationName": "NOT Transition Expression Operator",
+                          "operationName": "Logical NOT",
                           "operationDescription": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                           "inputFilterSpec": {
-                            "____label": "NOT Transition Expression Operator Request",
+                            "____label": "Logical NOT Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -763,10 +407,106 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "VqL0404urku_v3ZjcOkZTg",
-                          "inputTypeVDID": "KhdBS4FFA46JYJ246QpDXQ",
+                          "inputTypeVDID": "b3mPoTvLTsPNNEE5vSl4Ig",
                           "outputTypeVIID": "V-JP28o44DYdLwju7U90ag",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "MXgNRHS4xJPIEuycBGZEcg"
+                          "operationVDID": "MSNYRHRjqZPIbkKcBH-Scg"
+                        }
+                      },
+                      "0JIva4IFSm6Xm7i38g8uUA": {
+                        "filterDescriptor": {
+                          "operationID": "0JIva4IFSm6Xm7i38g8uUA",
+                          "operationName": "Logical OR",
+                          "operationDescription": "Returns Boolean true iff any suboperations return true.",
+                          "inputFilterSpec": {
+                            "____label": "Logical OR Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "or": {
+                                "____types": "jsArray",
+                                "operandOperatorVariant": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
+                          "inputTypeVDID": "-JaOoCpSpMXUBcCaKY9fVw",
+                          "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "4CecRIW4PJNmp1qcOG6ncg"
+                        }
+                      },
+                      "e89cwnP4Qd6MocAhzdOJgw": {
+                        "filterDescriptor": {
+                          "operationID": "e89cwnP4Qd6MocAhzdOJgw",
+                          "operationName": "Logical TRUE",
+                          "operationDescription": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
+                          "inputFilterSpec": {
+                            "____label": "Logical TRUE Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "always": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
+                          "inputTypeVDID": "C5XIeECWu2mxDmCCOEFunQ",
+                          "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "7g4dROZHqpP8SX2c1AJhcg"
                         }
                       },
                       "oaF3-dXwQkusjD3I2o9-8g": {
@@ -1268,54 +1008,6 @@
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "vqWEROJwL5P3HeKc3FBvcg"
                         }
-                      },
-                      "0JIva4IFSm6Xm7i38g8uUA": {
-                        "filterDescriptor": {
-                          "operationID": "0JIva4IFSm6Xm7i38g8uUA",
-                          "operationName": "OR Transition Expression Operator",
-                          "operationDescription": "Returns Boolean true iff any suboperations return true.",
-                          "inputFilterSpec": {
-                            "____label": "OR Transition Expression Operator Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "or": {
-                                "____types": "jsArray",
-                                "operandOperatorVariant": {
-                                  "____accept": "jsObject"
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
-                          "inputTypeVDID": "0Xe392MJsGr0KO6YF3c80A",
-                          "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "4ImARIUqM5NmuBqcOBs-cg"
-                        }
                       }
                     },
                     "actionDispatcher": {
@@ -1590,51 +1282,7 @@
                                     "id": "P-uhpNlrTseMNDG3D9ahRA",
                                     "vdid": "lF0qmMWw9_OkL7T3Q7SfVw",
                                     "name": "OPM Eval P2 Test #2",
-                                    "description": "A simple test OPM (force controller action exit error - action transport error)",
-                                    "process": {
-                                      "name": "[P-uhpNlrTseMNDG3D9ahRA::OPM Eval P2 Test #2] APM Digraph",
-                                      "description": "A simple test OPM (force controller action exit error - action transport error)",
-                                      "vlist": [
-                                        {
-                                          "u": "uninitialized",
-                                          "p": {
-                                            "description": "Default starting process step.",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": [
-                                                {
-                                                  "badControllerActionResponseError": true
-                                                }
-                                              ]
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "u": "goal",
-                                          "p": {
-                                            "description": "Test goal step (never reached).",
-                                            "actions": {
-                                              "enter": [],
-                                              "exit": []
-                                            }
-                                          }
-                                        }
-                                      ],
-                                      "elist": [
-                                        {
-                                          "e": {
-                                            "u": "uninitialized",
-                                            "v": "goal"
-                                          },
-                                          "p": {
-                                            "priority": 0,
-                                            "operator": {
-                                              "always": true
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
+                                    "description": "A simple test OPM (force controller action exit error - action transport error)"
                                   }
                                 },
                                 "evalResponse": {
@@ -1653,24 +1301,24 @@
                                             },
                                             "transitionDispatcher": {
                                               "filterDescriptor": {
-                                                "operationID": "CMvz9x30nfjuykt8A93fQA",
+                                                "operationID": "25km7hdVdZbvUQMVNrDrxQ",
                                                 "operationName": "Discriminator Filter",
                                                 "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                                                "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
                                                 "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                                                "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
                                                 "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                                                "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
                                               },
                                               "supportedFilters": [
-                                                "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                                                "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                                                 "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                 "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
-                                                "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                                                "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
                                                 "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                 "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
-                                                "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                                                "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                                                "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                                                "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                                                 "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                                                 "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                                                 "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",

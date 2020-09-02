@@ -13,9 +13,11 @@ const controllerAction = new ControllerAction({
             ____types: "jsObject",
             CellProcessor: {
                 ____types: "jsObject",
-                query: {
+                processes: {
                     ____types: "jsObject",
-                    // TODO:
+                    query: {
+                        ____types: "jsObject",
+                    }
                 }
             }
         }

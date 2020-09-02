@@ -53,8 +53,6 @@ class AbstractProcessModel {
             vdid: this.getVDID(),
             name: this.getName(),
             description: this.getDescription(),
-            ocdDataSpec: this._private.ocdDataSpec,
-            process: this._private.digraph
         };
     }
 

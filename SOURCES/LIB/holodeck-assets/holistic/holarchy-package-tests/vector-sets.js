@@ -24,7 +24,9 @@ module.exports = [
     require("./vector-set-cm-constructor"),
 
     // Low-level CellProcessor ES6 class tests.
-    require("./vector-set-cp-constructor")
+    require("./vector-set-cp-constructor"),
+
+    require("./vector-set-cpm-process-operators")
 
     // TOOD: Add harness and vector set for ObservableControllerData
     // Probably end up renaming to ObservableCellData to keep OCD acronym.

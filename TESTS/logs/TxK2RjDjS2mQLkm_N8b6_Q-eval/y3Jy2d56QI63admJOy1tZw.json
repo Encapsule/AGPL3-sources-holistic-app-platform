@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "qzMWhMstQ4Ki06O75y5hMA",
-                    "vdid": "5KgmEtSELse_1hsaBloOdw",
+                    "vdid": "ogdpIC3Us0S_UxbAmcRN-w",
                     "name": "DOM Location Processor",
                     "description": "Abstracts monitoring and setting the window.location and hashroute.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "5KgmEtSELse_1hsaBloOdw",
+                            "vdid": "ogdpIC3Us0S_UxbAmcRN-w",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
@@ -49,19 +49,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                              "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                                "vdid": "6-po-sADr7GVFbymhU9U_g",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                  "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -81,7 +81,7 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                    "vdid": "euUNcasvs_3dms9bB55wFA",
                                     "name": "Holarchy Core",
                                     "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                     "type": "CM",
@@ -101,43 +101,43 @@
                                     },
                                     "RW8Y2O-kRNSv87yXT962wQ": {
                                       "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                      "vdid": "UXq8KRbzlBlMNZKG9T1l7Q",
+                                      "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
                                       "name": "Holarchy Core Logic",
                                       "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                       "type": "CM",
                                       "YgABX95wR86GCYrYaDLISA": {
                                         "id": "YgABX95wR86GCYrYaDLISA",
-                                        "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                                        "name": "AND Transition Expression Operator",
+                                        "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                                        "name": "Logical AND",
                                         "description": "Returns Boolean true iff all suboperations return true.",
                                         "type": "TOP"
                                       },
                                       "0JIva4IFSm6Xm7i38g8uUA": {
                                         "id": "0JIva4IFSm6Xm7i38g8uUA",
-                                        "vdid": "HyCocPERRAAEOSzTOspyaw",
-                                        "name": "OR Transition Expression Operator",
+                                        "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                                        "name": "Logical OR",
                                         "description": "Returns Boolean true iff any suboperations return true.",
                                         "type": "TOP"
                                       },
                                       "TLSHkl73SO-utuzM7dyN2g": {
                                         "id": "TLSHkl73SO-utuzM7dyN2g",
-                                        "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                                        "name": "NOT Transition Expression Operator",
+                                        "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                                        "name": "Logical NOT",
                                         "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                                         "type": "TOP"
                                       },
                                       "e89cwnP4Qd6MocAhzdOJgw": {
                                         "id": "e89cwnP4Qd6MocAhzdOJgw",
-                                        "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                                        "name": "Always returns Boolean true unconditionally.",
+                                        "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                                        "name": "Logical TRUE",
                                         "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                                         "type": "TOP"
                                       }
                                     },
                                     "jQxlhOe-RDilxY0sNIierQ": {
                                       "id": "jQxlhOe-RDilxY0sNIierQ",
-                                      "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                      "name": "Holarchy Core Memory Operators",
+                                      "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                      "name": "Holarchy Core Memory Actions & Operators",
                                       "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                       "type": "CM",
                                       "oaF3-dXwQkusjD3I2o9-8g": {
@@ -209,6 +209,13 @@
                                         "name": "OCD Boolean Flag Clear",
                                         "description": "Set the Boolean-type OCD namespace specified by path to value false.",
                                         "type": "ACT"
+                                      },
+                                      "aXju3wSBQnufe0r51Y04wg": {
+                                        "id": "aXju3wSBQnufe0r51Y04wg",
+                                        "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                        "name": "Write Sub-Action Response",
+                                        "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                                        "type": "ACT"
                                       }
                                     }
                                   }
@@ -238,13 +245,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 32,
-                      "edges": 55,
+                      "vertices": 33,
+                      "edges": 57,
                       "artifacts": {
                         "cm": 8,
                         "apm": 2,
                         "top": 12,
-                        "act": 6
+                        "act": 7
                       }
                     }
                   },
@@ -256,305 +263,16 @@
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
                           "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                           "name": "Abstract Frame Latch",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "process": {
-                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "updated",
-                                "p": {
-                                  "description": "The value managed by the frame latch has been written.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "waiting",
-                                "p": {
-                                  "description": "Frame latch value has not changed since last signalled update.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "updated",
-                                  "v": "waiting"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "waiting",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
                           "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
                           "vdid": "dhd1UlVDm9EWryeg4T_FJw",
                           "name": "DOM Location Processor",
-                          "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
-                          "process": {
-                            "name": "[-1Ptaq_zTUa8Gfv_3ODtDg::DOM Location Processor] APM Digraph",
-                            "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "initialize",
-                                "p": {
-                                  "description": "Registering hashchange DOM event callback.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "actions": {
-                                                  "DOMLocationProcessor": {
-                                                    "initialize": true
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "actions": {
-                                                  "DOMLocationProcessor": {
-                                                    "notifyEvent": {
-                                                      "hashchange": true
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait",
-                                "p": {
-                                  "description": "Waiting for DOM hashchange event.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "update",
-                                "p": {
-                                  "description": "The observable browser location has been updated. Information about the current location, and who set it is available in this model's output namespace.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#._private.updateObservers"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "initialize"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "cell": {
-                                            "atStep": {
-                                              "path": "#.//.//.//.//",
-                                              "step": "boot1_start_kernel"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "initialize",
-                                  "v": "wait"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "wait",
-                                  "v": "update"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#._private.updateObservers"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "update",
-                                  "v": "wait"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location."
                         }
                       ],
                       "top": [
-                        {
-                          "id": "YgABX95wR86GCYrYaDLISA",
-                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                          "name": "AND Transition Expression Operator",
-                          "description": "Returns Boolean true iff all suboperations return true."
-                        },
-                        {
-                          "id": "e89cwnP4Qd6MocAhzdOJgw",
-                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                          "name": "Always returns Boolean true unconditionally.",
-                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
-                        },
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
                           "vdid": "zmPeG6lSvXidCjr_XyENrQ",
@@ -562,10 +280,28 @@
                           "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                         },
                         {
+                          "id": "YgABX95wR86GCYrYaDLISA",
+                          "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                          "name": "Logical AND",
+                          "description": "Returns Boolean true iff all suboperations return true."
+                        },
+                        {
                           "id": "TLSHkl73SO-utuzM7dyN2g",
-                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                          "name": "NOT Transition Expression Operator",
+                          "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                          "name": "Logical NOT",
                           "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to)."
+                        },
+                        {
+                          "id": "0JIva4IFSm6Xm7i38g8uUA",
+                          "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                          "name": "Logical OR",
+                          "description": "Returns Boolean true iff any suboperations return true."
+                        },
+                        {
+                          "id": "e89cwnP4Qd6MocAhzdOJgw",
+                          "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                          "name": "Logical TRUE",
+                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
                         },
                         {
                           "id": "oaF3-dXwQkusjD3I2o9-8g",
@@ -608,12 +344,6 @@
                           "vdid": "cNihhVrtDPl_5j7cSfcRug",
                           "name": "OCD Namespace Is Truthy",
                           "description": "Returns Boolean true iff the indicated OCD namespace is truthy."
-                        },
-                        {
-                          "id": "0JIva4IFSm6Xm7i38g8uUA",
-                          "vdid": "HyCocPERRAAEOSzTOspyaw",
-                          "name": "OR Transition Expression Operator",
-                          "description": "Returns Boolean true iff any suboperations return true."
                         }
                       ],
                       "act": [
@@ -652,6 +382,12 @@
                           "vdid": "DPKyvFjaLnWwv-4AP4IYQw",
                           "name": "OCD Read Namespace Indirect",
                           "description": "Reads and returns the value of OCD namespace via path indirection."
+                        },
+                        {
+                          "id": "aXju3wSBQnufe0r51Y04wg",
+                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                          "name": "Write Sub-Action Response",
+                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         }
                       ]
                     }
@@ -663,7 +399,7 @@
                         "type": "INDEX",
                         "qzMWhMstQ4Ki06O75y5hMA": {
                           "id": "qzMWhMstQ4Ki06O75y5hMA",
-                          "vdid": "5KgmEtSELse_1hsaBloOdw",
+                          "vdid": "ogdpIC3Us0S_UxbAmcRN-w",
                           "name": "DOM Location Processor",
                           "description": "Abstracts monitoring and setting the window.location and hashroute.",
                           "type": "CM",
@@ -690,19 +426,19 @@
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                            "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                              "vdid": "6-po-sADr7GVFbymhU9U_g",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -722,7 +458,7 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                  "vdid": "euUNcasvs_3dms9bB55wFA",
                                   "name": "Holarchy Core",
                                   "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                   "type": "CM",
@@ -742,43 +478,43 @@
                                   },
                                   "RW8Y2O-kRNSv87yXT962wQ": {
                                     "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                    "vdid": "UXq8KRbzlBlMNZKG9T1l7Q",
+                                    "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
                                     "name": "Holarchy Core Logic",
                                     "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                     "type": "CM",
                                     "YgABX95wR86GCYrYaDLISA": {
                                       "id": "YgABX95wR86GCYrYaDLISA",
-                                      "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                                      "name": "AND Transition Expression Operator",
+                                      "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                                      "name": "Logical AND",
                                       "description": "Returns Boolean true iff all suboperations return true.",
                                       "type": "TOP"
                                     },
                                     "0JIva4IFSm6Xm7i38g8uUA": {
                                       "id": "0JIva4IFSm6Xm7i38g8uUA",
-                                      "vdid": "HyCocPERRAAEOSzTOspyaw",
-                                      "name": "OR Transition Expression Operator",
+                                      "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                                      "name": "Logical OR",
                                       "description": "Returns Boolean true iff any suboperations return true.",
                                       "type": "TOP"
                                     },
                                     "TLSHkl73SO-utuzM7dyN2g": {
                                       "id": "TLSHkl73SO-utuzM7dyN2g",
-                                      "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                                      "name": "NOT Transition Expression Operator",
+                                      "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                                      "name": "Logical NOT",
                                       "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                                       "type": "TOP"
                                     },
                                     "e89cwnP4Qd6MocAhzdOJgw": {
                                       "id": "e89cwnP4Qd6MocAhzdOJgw",
-                                      "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                                      "name": "Always returns Boolean true unconditionally.",
+                                      "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                                      "name": "Logical TRUE",
                                       "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                                       "type": "TOP"
                                     }
                                   },
                                   "jQxlhOe-RDilxY0sNIierQ": {
                                     "id": "jQxlhOe-RDilxY0sNIierQ",
-                                    "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                    "name": "Holarchy Core Memory Operators",
+                                    "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                    "name": "Holarchy Core Memory Actions & Operators",
                                     "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                     "type": "CM",
                                     "oaF3-dXwQkusjD3I2o9-8g": {
@@ -849,6 +585,13 @@
                                       "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
                                       "name": "OCD Boolean Flag Clear",
                                       "description": "Set the Boolean-type OCD namespace specified by path to value false.",
+                                      "type": "ACT"
+                                    },
+                                    "aXju3wSBQnufe0r51Y04wg": {
+                                      "id": "aXju3wSBQnufe0r51Y04wg",
+                                      "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                      "name": "Write Sub-Action Response",
+                                      "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                       "type": "ACT"
                                     }
                                   }

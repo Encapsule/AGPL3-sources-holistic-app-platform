@@ -30,148 +30,18 @@
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
                           "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                           "name": "Abstract Frame Latch",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "process": {
-                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "updated",
-                                "p": {
-                                  "description": "The value managed by the frame latch has been written.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "waiting",
-                                "p": {
-                                  "description": "Frame latch value has not changed since last signalled update.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "updated",
-                                  "v": "waiting"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "waiting",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
                           "id": "zzvzLbm2RTyQN1lWFcjpVA",
                           "vdid": "DxngxWcSscYXnIUgZbZb7g",
                           "name": "Theme Processor Model",
-                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                          "process": {
-                            "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                            "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                         }
                       ]
                     ],
                     "transitionOperatorSets": [
                       [
-                        {
-                          "id": "YgABX95wR86GCYrYaDLISA",
-                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                          "name": "AND Transition Expression Operator",
-                          "description": "Returns Boolean true iff all suboperations return true."
-                        },
-                        {
-                          "id": "e89cwnP4Qd6MocAhzdOJgw",
-                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                          "name": "Always returns Boolean true unconditionally.",
-                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
-                        },
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
                           "vdid": "zmPeG6lSvXidCjr_XyENrQ",
@@ -179,10 +49,28 @@
                           "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                         },
                         {
+                          "id": "YgABX95wR86GCYrYaDLISA",
+                          "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                          "name": "Logical AND",
+                          "description": "Returns Boolean true iff all suboperations return true."
+                        },
+                        {
                           "id": "TLSHkl73SO-utuzM7dyN2g",
-                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                          "name": "NOT Transition Expression Operator",
+                          "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                          "name": "Logical NOT",
                           "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to)."
+                        },
+                        {
+                          "id": "0JIva4IFSm6Xm7i38g8uUA",
+                          "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                          "name": "Logical OR",
+                          "description": "Returns Boolean true iff any suboperations return true."
+                        },
+                        {
+                          "id": "e89cwnP4Qd6MocAhzdOJgw",
+                          "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                          "name": "Logical TRUE",
+                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
                         },
                         {
                           "id": "oaF3-dXwQkusjD3I2o9-8g",
@@ -225,12 +113,6 @@
                           "vdid": "cNihhVrtDPl_5j7cSfcRug",
                           "name": "OCD Namespace Is Truthy",
                           "description": "Returns Boolean true iff the indicated OCD namespace is truthy."
-                        },
-                        {
-                          "id": "0JIva4IFSm6Xm7i38g8uUA",
-                          "vdid": "HyCocPERRAAEOSzTOspyaw",
-                          "name": "OR Transition Expression Operator",
-                          "description": "Returns Boolean true iff any suboperations return true."
                         }
                       ]
                     ],
@@ -271,6 +153,12 @@
                           "vdid": "yGTtQ-FAv_UvOMc7W65VGw",
                           "name": "ViewThemeProcessor::Write Settings",
                           "description": "Update the whole or part of the ViewThemeProcessor model's input theme settings document."
+                        },
+                        {
+                          "id": "aXju3wSBQnufe0r51Y04wg",
+                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                          "name": "Write Sub-Action Response",
+                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         }
                       ]
                     ]
@@ -321,131 +209,13 @@
                         "id": "z_mTe02hSWmaM1iRO1pBeA",
                         "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                         "name": "Abstract Frame Latch",
-                        "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                        "process": {
-                          "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "vlist": [
-                            {
-                              "u": "uninitialized",
-                              "p": {
-                                "description": "Default starting process step.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": [
-                                    {
-                                      "holarchy": {
-                                        "cm": {
-                                          "actions": {
-                                            "ocd": {
-                                              "setBooleanFlag": {
-                                                "path": "#.clock"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "u": "updated",
-                              "p": {
-                                "description": "The value managed by the frame latch has been written.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": [
-                                    {
-                                      "holarchy": {
-                                        "cm": {
-                                          "actions": {
-                                            "ocd": {
-                                              "clearBooleanFlag": {
-                                                "path": "#.clock"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "u": "waiting",
-                              "p": {
-                                "description": "Frame latch value has not changed since last signalled update.",
-                                "actions": {
-                                  "enter": [],
-                                  "exit": []
-                                }
-                              }
-                            }
-                          ],
-                          "elist": [
-                            {
-                              "e": {
-                                "u": "uninitialized",
-                                "v": "updated"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            },
-                            {
-                              "e": {
-                                "u": "updated",
-                                "v": "waiting"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "always": true
-                                }
-                              }
-                            },
-                            {
-                              "e": {
-                                "u": "waiting",
-                                "v": "updated"
-                              },
-                              "p": {
-                                "priority": 0,
-                                "operator": {
-                                  "holarchy": {
-                                    "cm": {
-                                      "operators": {
-                                        "ocd": {
-                                          "isBooleanFlagSet": {
-                                            "path": "#.clock"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          ]
-                        }
+                        "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                       },
                       "zzvzLbm2RTyQN1lWFcjpVA": {
                         "id": "zzvzLbm2RTyQN1lWFcjpVA",
                         "vdid": "DxngxWcSscYXnIUgZbZb7g",
                         "name": "Theme Processor Model",
-                        "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                        "process": {
-                          "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                          "vlist": [],
-                          "elist": []
-                        }
+                        "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                       }
                     },
                     "opmiSpecPaths": [
@@ -455,13 +225,7 @@
                           "id": "zzvzLbm2RTyQN1lWFcjpVA",
                           "vdid": "DxngxWcSscYXnIUgZbZb7g",
                           "name": "Theme Processor Model",
-                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                          "process": {
-                            "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                            "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                         }
                       }
                     ],
@@ -22061,24 +21825,24 @@
                     },
                     "transitionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "CMvz9x30nfjuykt8A93fQA",
+                        "operationID": "25km7hdVdZbvUQMVNrDrxQ",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "rAnCjiiPqJOIUCy0gsVhQw",
+                        "inputTypeVIID": "LAIAG_5gFy1Q7yuBn_4GXg",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "s-TrKZuNdOqWlJnPbeR13w",
+                        "outputTypeVIID": "4DHf-0tVFVCwOCqzD8FwIg",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "8m70E8lpNVeOdI7tp3YUtA"
+                        "operationVDID": "RqT0E7JcNVf6uo7t-WIUtA"
                       },
                       "supportedFilters": [
-                        "[0JIva4IFSm6Xm7i38g8uUA::OR Transition Expression Operator]",
+                        "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                         "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                         "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
-                        "[TLSHkl73SO-utuzM7dyN2g::NOT Transition Expression Operator]",
+                        "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
                         "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                         "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
-                        "[YgABX95wR86GCYrYaDLISA::AND Transition Expression Operator]",
-                        "[e89cwnP4Qd6MocAhzdOJgw::Always returns Boolean true unconditionally.]",
+                        "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                        "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                         "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                         "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                         "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
@@ -22089,102 +21853,6 @@
                       }
                     },
                     "transitionDispatcherFilterMap": {
-                      "YgABX95wR86GCYrYaDLISA": {
-                        "filterDescriptor": {
-                          "operationID": "YgABX95wR86GCYrYaDLISA",
-                          "operationName": "AND Transition Expression Operator",
-                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
-                          "inputFilterSpec": {
-                            "____label": "AND Transition Expression Operator Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "and": {
-                                "____types": "jsArray",
-                                "operandOperatorVariant": {
-                                  "____accept": "jsObject"
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
-                          "inputTypeVDID": "MQFe-Q8rBS3yhTg_XEijfQ",
-                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "9pp-RLYcWZMBzcScqI9ncg"
-                        }
-                      },
-                      "e89cwnP4Qd6MocAhzdOJgw": {
-                        "filterDescriptor": {
-                          "operationID": "e89cwnP4Qd6MocAhzdOJgw",
-                          "operationName": "Always returns Boolean true unconditionally.",
-                          "operationDescription": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
-                          "inputFilterSpec": {
-                            "____label": "Always returns Boolean true unconditionally. Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "always": {
-                                "____accept": "jsBoolean",
-                                "____inValueSet": [
-                                  true
-                                ]
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
-                          "inputTypeVDID": "0EB7_Y3i7dHCIqSTVQf8bQ",
-                          "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "7hv8ROZTdZP8DZ-c1OtJcg"
-                        }
-                      },
                       "9tNY7o5GTUGH_xda2GhP-w": {
                         "filterDescriptor": {
                           "operationID": "9tNY7o5GTUGH_xda2GhP-w",
@@ -22248,13 +21916,61 @@
                           "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
                         }
                       },
+                      "YgABX95wR86GCYrYaDLISA": {
+                        "filterDescriptor": {
+                          "operationID": "YgABX95wR86GCYrYaDLISA",
+                          "operationName": "Logical AND",
+                          "operationDescription": "Returns Boolean true iff all suboperations return true.",
+                          "inputFilterSpec": {
+                            "____label": "Logical AND Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "and": {
+                                "____types": "jsArray",
+                                "operandOperatorVariant": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "Th67oiutPj5XPCPBQs2sNg",
+                          "inputTypeVDID": "aZ0313jYspKqFYbxLUobFA",
+                          "outputTypeVIID": "4qvesBGXikOFKTURfESw5A",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "9jcTRLaZgJMBefycqJ3Wcg"
+                        }
+                      },
                       "TLSHkl73SO-utuzM7dyN2g": {
                         "filterDescriptor": {
                           "operationID": "TLSHkl73SO-utuzM7dyN2g",
-                          "operationName": "NOT Transition Expression Operator",
+                          "operationName": "Logical NOT",
                           "operationDescription": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                           "inputFilterSpec": {
-                            "____label": "NOT Transition Expression Operator Request",
+                            "____label": "Logical NOT Request",
                             "____types": "jsObject",
                             "context": {
                               "____label": "OPC Context Descriptor",
@@ -22287,10 +22003,106 @@
                             "____accept": "jsBoolean"
                           },
                           "inputTypeVIID": "VqL0404urku_v3ZjcOkZTg",
-                          "inputTypeVDID": "KhdBS4FFA46JYJ246QpDXQ",
+                          "inputTypeVDID": "b3mPoTvLTsPNNEE5vSl4Ig",
                           "outputTypeVIID": "V-JP28o44DYdLwju7U90ag",
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "MXgNRHS4xJPIEuycBGZEcg"
+                          "operationVDID": "MSNYRHRjqZPIbkKcBH-Scg"
+                        }
+                      },
+                      "0JIva4IFSm6Xm7i38g8uUA": {
+                        "filterDescriptor": {
+                          "operationID": "0JIva4IFSm6Xm7i38g8uUA",
+                          "operationName": "Logical OR",
+                          "operationDescription": "Returns Boolean true iff any suboperations return true.",
+                          "inputFilterSpec": {
+                            "____label": "Logical OR Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "or": {
+                                "____types": "jsArray",
+                                "operandOperatorVariant": {
+                                  "____accept": "jsObject"
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
+                          "inputTypeVDID": "-JaOoCpSpMXUBcCaKY9fVw",
+                          "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "4CecRIW4PJNmp1qcOG6ncg"
+                        }
+                      },
+                      "e89cwnP4Qd6MocAhzdOJgw": {
+                        "filterDescriptor": {
+                          "operationID": "e89cwnP4Qd6MocAhzdOJgw",
+                          "operationName": "Logical TRUE",
+                          "operationDescription": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
+                          "inputFilterSpec": {
+                            "____label": "Logical TRUE Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "transitionDispatcher": {
+                                "____label": "OPC Transition Dispatcher",
+                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                "____accept": "jsObject"
+                              }
+                            },
+                            "operatorRequest": {
+                              "____types": "jsObject",
+                              "always": {
+                                "____accept": "jsBoolean",
+                                "____inValueSet": [
+                                  true
+                                ]
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsBoolean"
+                          },
+                          "inputTypeVIID": "mlUI4xt2DYMMjmvmPlUqzQ",
+                          "inputTypeVDID": "C5XIeECWu2mxDmCCOEFunQ",
+                          "outputTypeVIID": "gGOXfWmLkCUR1ey8s8jjGA",
+                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                          "operationVDID": "7g4dROZHqpP8SX2c1AJhcg"
                         }
                       },
                       "oaF3-dXwQkusjD3I2o9-8g": {
@@ -22792,66 +22604,18 @@
                           "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                           "operationVDID": "vqWEROJwL5P3HeKc3FBvcg"
                         }
-                      },
-                      "0JIva4IFSm6Xm7i38g8uUA": {
-                        "filterDescriptor": {
-                          "operationID": "0JIva4IFSm6Xm7i38g8uUA",
-                          "operationName": "OR Transition Expression Operator",
-                          "operationDescription": "Returns Boolean true iff any suboperations return true.",
-                          "inputFilterSpec": {
-                            "____label": "OR Transition Expression Operator Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "transitionDispatcher": {
-                                "____label": "OPC Transition Dispatcher",
-                                "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                "____accept": "jsObject"
-                              }
-                            },
-                            "operatorRequest": {
-                              "____types": "jsObject",
-                              "or": {
-                                "____types": "jsArray",
-                                "operandOperatorVariant": {
-                                  "____accept": "jsObject"
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____accept": "jsBoolean"
-                          },
-                          "inputTypeVIID": "BIKphTRxk84K8Rl5zYJ-FQ",
-                          "inputTypeVDID": "0Xe392MJsGr0KO6YF3c80A",
-                          "outputTypeVIID": "703oxzDhgbWqvMb1deWsLg",
-                          "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                          "operationVDID": "4ImARIUqM5NmuBqcOBs-cg"
-                        }
                       }
                     },
                     "actionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "gqh82hOtL_WcG6qHURRpOw",
+                        "operationID": "YncPCwQQ5Ta8VBNy8QNVqQ",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "eowWJ-DqnKNUcC8hL_wzEA",
+                        "inputTypeVIID": "dhoBMr0LXIKfz66eTz8lwg",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "lYeceX1O2xgp4eg2S89YMw",
+                        "outputTypeVIID": "wZ9oH-QVT1ZYaxsl8aieWg",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "33H0E8FSNVc4fI7tec0UtA"
+                        "operationVDID": "oiz0E8p4NVftA47tSZcUtA"
                       },
                       "supportedFilters": [
                         "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
@@ -22860,6 +22624,7 @@
                         "[UK08qja3QiaHFGhl99fbmg::ViewThemeProcessor::Write Settings]",
                         "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
                         "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
+                        "[aXju3wSBQnufe0r51Y04wg::Write Sub-Action Response]",
                         "[e2kGs2nLRwW7RtFDPi8REg::Read Theme Palette]",
                         "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]"
                       ],
@@ -41852,6 +41617,69 @@
                           "operationVDID": "BEysJQSENK3CB-PWSTYklA"
                         }
                       },
+                      "aXju3wSBQnufe0r51Y04wg": {
+                        "filterDescriptor": {
+                          "operationID": "aXju3wSBQnufe0r51Y04wg",
+                          "operationName": "Write Sub-Action Response",
+                          "operationDescription": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                          "inputFilterSpec": {
+                            "____label": "Write Sub-Action Response Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "holarchy": {
+                                "____types": "jsObject",
+                                "core": {
+                                  "____types": "jsObject",
+                                  "writeSubactionResponse": {
+                                    "____types": "jsObject",
+                                    "subactionRequest": {
+                                      "____label": "Sub-Action Request",
+                                      "____description": "Some caller-specified action request that we're to dispatch on their behalf so that we can save the response in shared memory.",
+                                      "____accept": "jsObject"
+                                    },
+                                    "writeResponsePath": {
+                                      "____label": "Write Response Path",
+                                      "____description": "Absolute (begins in ~), cell-relative (begins in #), OCD path to write the subaction response. Note that relative paths are also supported here.",
+                                      "____accept": "jsString"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____label": "No Result (Default)",
+                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
+                            "____accept": "jsUndefined"
+                          },
+                          "inputTypeVIID": "HiwULbPvbF4NiFgugv_ZSg",
+                          "inputTypeVDID": "nUNjRm6k756h54bBy4S8Eg",
+                          "outputTypeVIID": "YXPCMgl_OxPwupnLbcirow",
+                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
+                          "operationVDID": "CHvoeVRpOtYpgVSkh0mYBw"
+                        }
+                      },
                       "KX0V_aQ3RzG01tzBS24MGw": {
                         "filterDescriptor": {
                           "operationID": "KX0V_aQ3RzG01tzBS24MGw",
@@ -42000,13 +41828,7 @@
                                     "id": "zzvzLbm2RTyQN1lWFcjpVA",
                                     "vdid": "DxngxWcSscYXnIUgZbZb7g",
                                     "name": "Theme Processor Model",
-                                    "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                                    "process": {
-                                      "name": "[zzvzLbm2RTyQN1lWFcjpVA::Theme Processor Model] APM Digraph",
-                                      "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
-                                      "vlist": [],
-                                      "elist": []
-                                    }
+                                    "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                                   }
                                 },
                                 "evalResponse": {

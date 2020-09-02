@@ -30,13 +30,7 @@
                           "id": "jDGvZvHASx-U1cV497Oamw",
                           "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
                           "name": "test",
-                          "description": "Binding SUCCESS!",
-                          "process": {
-                            "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
-                            "description": "Binding SUCCESS!",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "Binding SUCCESS!"
                         }
                       ]
                     ]
@@ -71,13 +65,7 @@
                         "id": "jDGvZvHASx-U1cV497Oamw",
                         "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
                         "name": "test",
-                        "description": "Binding SUCCESS!",
-                        "process": {
-                          "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
-                          "description": "Binding SUCCESS!",
-                          "vlist": [],
-                          "elist": []
-                        }
+                        "description": "Binding SUCCESS!"
                       }
                     },
                     "opmiSpecPaths": [
@@ -87,13 +75,7 @@
                           "id": "jDGvZvHASx-U1cV497Oamw",
                           "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
                           "name": "test",
-                          "description": "Binding SUCCESS!",
-                          "process": {
-                            "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
-                            "description": "Binding SUCCESS!",
-                            "vlist": [],
-                            "elist": []
-                          }
+                          "description": "Binding SUCCESS!"
                         }
                       }
                     ],
@@ -301,13 +283,7 @@
                                     "id": "jDGvZvHASx-U1cV497Oamw",
                                     "vdid": "MqXBDv91s7RyjXt-_DaJUQ",
                                     "name": "test",
-                                    "description": "Binding SUCCESS!",
-                                    "process": {
-                                      "name": "[jDGvZvHASx-U1cV497Oamw::test] APM Digraph",
-                                      "description": "Binding SUCCESS!",
-                                      "vlist": [],
-                                      "elist": []
-                                    }
+                                    "description": "Binding SUCCESS!"
                                   }
                                 },
                                 "evalResponse": {

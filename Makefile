@@ -667,11 +667,14 @@ reset: scrub env_clean_cache
 
 test:
 	$(DIR_ROOT)/TESTS/run-tests.js
+	@echo FINISH TARGET: test
 
 test-debug:
 	node --inspect-brk TESTS/run-tests.js
+	@echo FINISH TARGET: test-debug
 
 iruts:
 	$(DIR_TOOLBIN)/arc_generateIRUT
+	@echo FINISH TARGET: iruts
 
 

@@ -58,7 +58,7 @@ const factoryResponse = holodeck.harnessFactory.request({
                         ____opaque: true
                     }
                 },
-                ocdJSON: { ____accept: "jsObject" }
+                ocdJSON: { ____accept: [ "jsUndefined", "jsObject" ] }
             }
         }
     },
@@ -80,19 +80,25 @@ const factoryResponse = holodeck.harnessFactory.request({
 
             const cpInstance = (messageBody.constructorRequest instanceof holarchy.CellProcessor)?messageBody.constructorRequest:new holarchy.CellProcessor(messageBody.constructorRequest);
 
-            let cpToJSON = JSON.parse(JSON.stringify(cpInstance));
+            let serialized = JSON.parse(JSON.stringify(cpInstance));
 
-            // TODO: Filter non-idempotent info out of the cpToJSON payload written to holdeck 1 eval logs.
+            // Remove non-idempotent information from the serialized OPC object.
+            if (cpInstance.isValid()) {
+
+                delete serialized.opc.iid;
+                if (serialized.opc.lastEvalResponse && serialized.opc.lastEvalResponse.result) {
+                    delete serialized.opc.lastEvalResponse.result.summary.evalStopwatch;
+                }
+
+            }
 
             response.result = {
                 isValid: cpInstance.isValid(),
-                cpJSON: cpToJSON,
+                cpJSON: serialized,
                 actionEvaluations: []
             };
 
             messageBody.actRequests.forEach((actRequest_) => {
-
-                delete cpInstance._private.opc._private.lastEvaluationResponse; // why? I got this from OPC test harness. Need to look into this...
 
                 if (!cpInstance.isValid()) {
                     response.result.actionEvaluations.push({
@@ -102,7 +108,15 @@ const factoryResponse = holodeck.harnessFactory.request({
                     return;
                 }
 
+                delete cpInstance._private.opc._private.lastEvaluationResponse; // why? I got this from OPC test harness. Need to look into this...
+
                 let actResponse = cpInstance.act(actRequest_);
+
+                // Filter non-idempotent information out of the actResponse object.
+
+                if (!actResponse.error) {
+                    delete actResponse.result.lastEvaluation.summary.evalStopwatch;
+                }
 
                 response.result.actionEvaluations.push({
                     actRequest: actRequest_,

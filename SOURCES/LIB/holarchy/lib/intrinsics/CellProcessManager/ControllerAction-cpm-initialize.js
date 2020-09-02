@@ -35,22 +35,22 @@ const controllerAction = new ControllerAction({
 
             const message = request_.actionRequest.holarchy.CellProcessor.initialize;
 
-            const cellProcessDigraphPath = `~.${cpmMountingNamespaceName}.cellProcessDigraph`;
+            const cellProcessTreePath = `~.${cpmMountingNamespaceName}.cellProcessTree`;
 
-            let ocdResponse = request_.context.ocdi.readNamespace(cellProcessDigraphPath);
+            let ocdResponse = request_.context.ocdi.readNamespace(cellProcessTreePath);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
 
-            let processDigraph = ocdResponse.result;
+            let cellProcessTreeData = ocdResponse.result;
 
             const graphFactoryResponse = arccore.graph.directed.create(
-                processDigraph.serialized?
-                    processDigraph.serialized
+                cellProcessTreeData.digraph?
+                    cellProcessTreeData.digraph
                     :
                     {
-                        name: "Cell Process Digraph Model",
+                        name: "Cell Process Tree Digraph Model",
                         description: "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
                         vlist: [
                             { u: arccore.identifier.irut.fromReference("~").result, p: { apmBindingPath: "~", name: "Cell Process Manager" } }
@@ -63,12 +63,11 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            const cellProcessDigraph = graphFactoryResponse.result;
+            const cellProcessTreeDigraph = graphFactoryResponse.result;
 
-            delete processDigraph.serialized;
-            processDigraph.runtime = cellProcessDigraph;
+            cellProcessTreeData.digraph = cellProcessTreeDigraph;
 
-            ocdResponse = request_.context.ocdi.writeNamespace(cellProcessDigraphPath, processDigraph);
+            ocdResponse = request_.context.ocdi.writeNamespace(cellProcessTreePath, cellProcessTreeData);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;

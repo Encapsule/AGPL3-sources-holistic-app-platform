@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "Nz-pdDA_rmXIunLXPFvgPw",
+                    "vdid": "K18G20dE0i2laLD5to6z0g",
                     "name": "Holistic App Client Kernel",
                     "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "Nz-pdDA_rmXIunLXPFvgPw",
+                            "vdid": "K18G20dE0i2laLD5to6z0g",
                             "name": "Holistic App Client Kernel",
                             "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                             "type": "CM",
                             "ENENGxq1TkCa6Sk9YXaLlw": {
                               "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                              "vdid": "6ptgafBjH-BgA2kyzxKMGQ",
+                              "vdid": "fvZ4ED3cdxT7NwyxTDF4VQ",
                               "name": "Holistic App Client Runtime",
                               "description": "Holistic client application core runtime.",
                               "type": "CM",
@@ -55,19 +55,19 @@
                               },
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                                "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                                  "vdid": "6-po-sADr7GVFbymhU9U_g",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                    "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -87,7 +87,7 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                      "vdid": "euUNcasvs_3dms9bB55wFA",
                                       "name": "Holarchy Core",
                                       "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                       "type": "CM",
@@ -107,43 +107,43 @@
                                       },
                                       "RW8Y2O-kRNSv87yXT962wQ": {
                                         "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                        "vdid": "UXq8KRbzlBlMNZKG9T1l7Q",
+                                        "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
                                         "name": "Holarchy Core Logic",
                                         "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                         "type": "CM",
                                         "YgABX95wR86GCYrYaDLISA": {
                                           "id": "YgABX95wR86GCYrYaDLISA",
-                                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                                          "name": "AND Transition Expression Operator",
+                                          "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                                          "name": "Logical AND",
                                           "description": "Returns Boolean true iff all suboperations return true.",
                                           "type": "TOP"
                                         },
                                         "0JIva4IFSm6Xm7i38g8uUA": {
                                           "id": "0JIva4IFSm6Xm7i38g8uUA",
-                                          "vdid": "HyCocPERRAAEOSzTOspyaw",
-                                          "name": "OR Transition Expression Operator",
+                                          "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                                          "name": "Logical OR",
                                           "description": "Returns Boolean true iff any suboperations return true.",
                                           "type": "TOP"
                                         },
                                         "TLSHkl73SO-utuzM7dyN2g": {
                                           "id": "TLSHkl73SO-utuzM7dyN2g",
-                                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                                          "name": "NOT Transition Expression Operator",
+                                          "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                                          "name": "Logical NOT",
                                           "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                                           "type": "TOP"
                                         },
                                         "e89cwnP4Qd6MocAhzdOJgw": {
                                           "id": "e89cwnP4Qd6MocAhzdOJgw",
-                                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                                          "name": "Always returns Boolean true unconditionally.",
+                                          "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                                          "name": "Logical TRUE",
                                           "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                                           "type": "TOP"
                                         }
                                       },
                                       "jQxlhOe-RDilxY0sNIierQ": {
                                         "id": "jQxlhOe-RDilxY0sNIierQ",
-                                        "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                        "name": "Holarchy Core Memory Operators",
+                                        "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                        "name": "Holarchy Core Memory Actions & Operators",
                                         "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                         "type": "CM",
                                         "oaF3-dXwQkusjD3I2o9-8g": {
@@ -215,6 +215,13 @@
                                           "name": "OCD Boolean Flag Clear",
                                           "description": "Set the Boolean-type OCD namespace specified by path to value false.",
                                           "type": "ACT"
+                                        },
+                                        "aXju3wSBQnufe0r51Y04wg": {
+                                          "id": "aXju3wSBQnufe0r51Y04wg",
+                                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                          "name": "Write Sub-Action Response",
+                                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                                          "type": "ACT"
                                         }
                                       }
                                     }
@@ -224,7 +231,7 @@
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
                               "id": "qzMWhMstQ4Ki06O75y5hMA",
-                              "vdid": "5KgmEtSELse_1hsaBloOdw",
+                              "vdid": "ogdpIC3Us0S_UxbAmcRN-w",
                               "name": "DOM Location Processor",
                               "description": "Abstracts monitoring and setting the window.location and hashroute.",
                               "type": "CM",
@@ -252,7 +259,7 @@
                             },
                             "vrmv3WMRQXql7Bx3DDEIDw": {
                               "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                              "vdid": "deBobKmgzhpxv1UQ4jh_DQ",
+                              "vdid": "MhVQoORLvlD9UV963Bq4OA",
                               "name": "Holistic Client App View Manager",
                               "description": "Provides management of client view cells in a holistic client app.",
                               "type": "CM",
@@ -266,7 +273,7 @@
                             },
                             "UX7JquBhSZO0QyEk7u9-sw": {
                               "id": "UX7JquBhSZO0QyEk7u9-sw",
-                              "vdid": "wr5q5_fJ71F1x0xBVvvevw",
+                              "vdid": "STOMkr9A-SQ_zk5yGaRtHA",
                               "name": "Holistic App Client Display Adapter",
                               "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                               "type": "CM",
@@ -308,13 +315,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 42,
-                      "edges": 78,
+                      "vertices": 43,
+                      "edges": 80,
                       "artifacts": {
                         "cm": 12,
                         "apm": 5,
                         "top": 12,
-                        "act": 9
+                        "act": 10
                       }
                     }
                   },
@@ -326,1111 +333,34 @@
                           "id": "z_mTe02hSWmaM1iRO1pBeA",
                           "vdid": "9jOpGkKIURycWGDA5Nnxsg",
                           "name": "Abstract Frame Latch",
-                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                          "process": {
-                            "name": "[z_mTe02hSWmaM1iRO1pBeA::Abstract Frame Latch] APM Digraph",
-                            "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "updated",
-                                "p": {
-                                  "description": "The value managed by the frame latch has been written.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#.clock"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "waiting",
-                                "p": {
-                                  "description": "Frame latch value has not changed since last signalled update.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "updated",
-                                  "v": "waiting"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "waiting",
-                                  "v": "updated"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.clock"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
                           "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
                           "vdid": "dhd1UlVDm9EWryeg4T_FJw",
                           "name": "DOM Location Processor",
-                          "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
-                          "process": {
-                            "name": "[-1Ptaq_zTUa8Gfv_3ODtDg::DOM Location Processor] APM Digraph",
-                            "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "initialize",
-                                "p": {
-                                  "description": "Registering hashchange DOM event callback.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "actions": {
-                                                  "DOMLocationProcessor": {
-                                                    "initialize": true
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "actions": {
-                                                  "DOMLocationProcessor": {
-                                                    "notifyEvent": {
-                                                      "hashchange": true
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait",
-                                "p": {
-                                  "description": "Waiting for DOM hashchange event.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "update",
-                                "p": {
-                                  "description": "The observable browser location has been updated. Information about the current location, and who set it is available in this model's output namespace.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "clearBooleanFlag": {
-                                                  "path": "#._private.updateObservers"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "initialize"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "cell": {
-                                            "atStep": {
-                                              "path": "#.//.//.//.//",
-                                              "step": "boot1_start_kernel"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "initialize",
-                                  "v": "wait"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "wait",
-                                  "v": "update"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#._private.updateObservers"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "update",
-                                  "v": "wait"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location."
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
                           "vdid": "wMdKGGmfJUznN092sBj2xw",
                           "name": "Holistic Client App Runtime Kernel",
-                          "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                          "process": {
-                            "name": "[PPL45jw5RDWSMNsB97WIWg::Holistic Client App Runtime Kernel] APM Digraph",
-                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot0_hook_events",
-                                "p": {
-                                  "description": "Hooking DOM events pertinent to tracking the lifecycle of this instance of the client application running inside the user's browser.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "HolisticAppRuntime": {
-                                                  "actions": {
-                                                    "_private": {
-                                                      "hookEvents": true
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot1_start_kernel",
-                                "p": {
-                                  "description": "Start core client app kernel subsystems.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "cell": {
-                                                "process": {
-                                                  "create": {
-                                                    "apmBindingPath": "#.PPL45jw5RDWSMNsB97WIWg._private.subprocesses.viewProcessor",
-                                                    "ocdInitData": {}
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot2_query_derived",
-                                "p": {
-                                  "description": "Query the derived client app for information required to initialize the core client app runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot3_wait_kernel",
-                                "p": {
-                                  "description": "Wait for the core client app kernel subsystems to become available.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot4_config_derived",
-                                "p": {
-                                  "description": "Configure the derived application runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot5_wait_browser",
-                                "p": {
-                                  "description": "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot6_deserialize_app",
-                                "p": {
-                                  "description": "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot7_load_app_memory",
-                                "p": {
-                                  "description": "Load the deserialized app into the OCD to initialize the client app runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot8_init_app_view",
-                                "p": {
-                                  "description": "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "boot9_start_app",
-                                "p": {
-                                  "description": "Start the client application runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "running",
-                                "p": {
-                                  "description": "The client application is online and awaiting input from external actors.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "error_process_boot_failure",
-                                "p": {
-                                  "description": "Client application process boot failed due to unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "error_process_resume_failure",
-                                "p": {
-                                  "description": "Client application process resume failured due to unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "error_process_runtime_failure",
-                                "p": {
-                                  "description": "Client application process crashed at runtime due to unexpected and unrecoverable error(s).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "boot0_hook_events"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot0_hook_events",
-                                  "v": "boot1_start_kernel"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot1_start_kernel",
-                                  "v": "boot2_query_derived"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot2_query_derived",
-                                  "v": "boot3_wait_kernel"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot3_wait_kernel",
-                                  "v": "boot4_config_derived"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot4_config_derived",
-                                  "v": "boot5_wait_browser"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "boot5_wait_browser",
-                                  "v": "boot6_deserialize_app"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isBooleanFlagSet": {
-                                              "path": "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
                         {
                           "id": "Hsu-43zBRgqHItCPWPiBng",
                           "vdid": "OWua2vzX9aOS549fLUzD2g",
                           "name": "Holistic Client App View Processor",
-                          "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
-                          "process": {
-                            "name": "[Hsu-43zBRgqHItCPWPiBng::Holistic Client App View Processor] APM Digraph",
-                            "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default starting process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "initialize",
-                                "p": {
-                                  "description": "Performing initialization actions.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait_invariants",
-                                "p": {
-                                  "description": "Waiting for invariant inputs to be satisfied.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait_app_config",
-                                "p": {
-                                  "description": "Waiting for the client application runtime to be configured.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait_server_route",
-                                "p": {
-                                  "description": "Waiting for the DOM Location Processor to signal the client application's server-specified route (location.href).",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait_app_resume",
-                                "p": {
-                                  "description": "Waiting for the App Client Runtime to resume the client application runtime.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "rehydrate",
-                                "p": {
-                                  "description": "Use data from the server to rehydate the server-rendered d2r2/React view.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "ready",
-                                "p": {
-                                  "description": "View is interactive and up-to-date.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "update",
-                                "p": {
-                                  "description": "Update the client application's view model to incorporate changes in underlying data and model state.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "render",
-                                "p": {
-                                  "description": "Send the updated view to the d2r2/React Display Adaptor.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "initialize"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "initialize",
-                                  "v": "wait_invariants"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "wait_invariants",
-                                  "v": "wait_app_config"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals."
                         },
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
                           "vdid": "guj8_A0Z2pydtetwzFwaqA",
                           "name": "d2r2/React Client Display Adaptor",
-                          "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                          "process": {
-                            "name": "[IxoJ83u0TXmG7PLUYBvsyg::d2r2/React Client Display Adaptor] APM Digraph",
-                            "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
-                            "vlist": [
-                              {
-                                "u": "uninitialized",
-                                "p": {
-                                  "description": "Default APM process step.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "initialize",
-                                "p": {
-                                  "description": "Initialize",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait_invariants",
-                                "p": {
-                                  "description": "Waiting for d2r2 ComponentRouter instance (how to render), and DOM element (where to render) invariants to be specified.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "wait_inputs",
-                                "p": {
-                                  "description": "Invariants have been satisfied. Waiting for initial d2d2 ComponentRouter render data context to be specified.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "initialized",
-                                "p": {
-                                  "description": "Preparing for initial render operation. Determining if we rehyrdate server-rendered view. Or, replace it.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "rehydrate",
-                                "p": {
-                                  "description": "Rehydrating the specified d2r2 ComponentRouter render data context to reconstruct server-rendered d2r2 ComponentRouter render data context in the client application.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.private.renderPending"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "actions": {
-                                                  "d2r2ReactClientDisplayAdaptor": {
-                                                    "operation": "hydrate"
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "render",
-                                "p": {
-                                  "description": "Rendering the specified d2r2 ComponentRouter render data context to refresh layout and client-side React component mountings.",
-                                  "actions": {
-                                    "enter": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "actions": {
-                                              "ocd": {
-                                                "setBooleanFlag": {
-                                                  "path": "#.private.renderPending"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "holistic": {
-                                          "app": {
-                                            "client": {
-                                              "cm": {
-                                                "actions": {
-                                                  "d2r2ReactClientDisplayAdaptor": {
-                                                    "operation": "render"
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "rendering",
-                                "p": {
-                                  "description": "Rendering the specified d2r2 ComponentRouter render data context. Please wait for the operation to complete.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              },
-                              {
-                                "u": "ready",
-                                "p": {
-                                  "description": "Waiting for next clock signal to re-render client application view.",
-                                  "actions": {
-                                    "enter": [],
-                                    "exit": []
-                                  }
-                                }
-                              }
-                            ],
-                            "elist": [
-                              {
-                                "e": {
-                                  "u": "uninitialized",
-                                  "v": "initialize"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "cell": {
-                                            "atStep": {
-                                              "path": "#.//.//.//.//",
-                                              "step": "boot1_start_kernel"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "initialize",
-                                  "v": "wait_invariants"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "wait_invariants",
-                                  "v": "wait_inputs"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "and": [
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "operators": {
-                                              "ocd": {
-                                                "isNamespaceTruthy": {
-                                                  "path": "#.inputs.ComponentRouter"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "holarchy": {
-                                          "cm": {
-                                            "operators": {
-                                              "ocd": {
-                                                "isNamespaceTruthy": {
-                                                  "path": "#.inputs.DOMElement"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    ]
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "wait_inputs",
-                                  "v": "initialized"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isNamespaceTruthy": {
-                                              "path": "#.inputs.clock.value"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "initialized",
-                                  "v": "rehydrate"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "ocd": {
-                                            "isNamespaceTruthy": {
-                                              "path": "#.inputs.clock.value.options.rehydrate"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "initialized",
-                                  "v": "render"
-                                },
-                                "p": {
-                                  "priority": 1,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "rehydrate",
-                                  "v": "rendering"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "render",
-                                  "v": "rendering"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "always": true
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "rendering",
-                                  "v": "ready"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "not": {
-                                      "holarchy": {
-                                        "cm": {
-                                          "operators": {
-                                            "ocd": {
-                                              "isNamespaceTruthy": {
-                                                "path": "#.private.renderPending"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "ready",
-                                  "v": "render"
-                                },
-                                "p": {
-                                  "priority": 0,
-                                  "operator": {
-                                    "holarchy": {
-                                      "cm": {
-                                        "operators": {
-                                          "opmi": {
-                                            "atStep": {
-                                              "path": "#.inputs.clock",
-                                              "step": "updated"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
+                          "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                         }
                       ],
                       "top": [
-                        {
-                          "id": "YgABX95wR86GCYrYaDLISA",
-                          "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                          "name": "AND Transition Expression Operator",
-                          "description": "Returns Boolean true iff all suboperations return true."
-                        },
-                        {
-                          "id": "e89cwnP4Qd6MocAhzdOJgw",
-                          "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                          "name": "Always returns Boolean true unconditionally.",
-                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
-                        },
                         {
                           "id": "9tNY7o5GTUGH_xda2GhP-w",
                           "vdid": "zmPeG6lSvXidCjr_XyENrQ",
@@ -1438,10 +368,28 @@
                           "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
                         },
                         {
+                          "id": "YgABX95wR86GCYrYaDLISA",
+                          "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                          "name": "Logical AND",
+                          "description": "Returns Boolean true iff all suboperations return true."
+                        },
+                        {
                           "id": "TLSHkl73SO-utuzM7dyN2g",
-                          "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                          "name": "NOT Transition Expression Operator",
+                          "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                          "name": "Logical NOT",
                           "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to)."
+                        },
+                        {
+                          "id": "0JIva4IFSm6Xm7i38g8uUA",
+                          "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                          "name": "Logical OR",
+                          "description": "Returns Boolean true iff any suboperations return true."
+                        },
+                        {
+                          "id": "e89cwnP4Qd6MocAhzdOJgw",
+                          "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                          "name": "Logical TRUE",
+                          "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules)."
                         },
                         {
                           "id": "oaF3-dXwQkusjD3I2o9-8g",
@@ -1484,12 +432,6 @@
                           "vdid": "cNihhVrtDPl_5j7cSfcRug",
                           "name": "OCD Namespace Is Truthy",
                           "description": "Returns Boolean true iff the indicated OCD namespace is truthy."
-                        },
-                        {
-                          "id": "0JIva4IFSm6Xm7i38g8uUA",
-                          "vdid": "HyCocPERRAAEOSzTOspyaw",
-                          "name": "OR Transition Expression Operator",
-                          "description": "Returns Boolean true iff any suboperations return true."
                         }
                       ],
                       "act": [
@@ -1542,6 +484,12 @@
                           "description": "Reads and returns the value of OCD namespace via path indirection."
                         },
                         {
+                          "id": "aXju3wSBQnufe0r51Y04wg",
+                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                          "name": "Write Sub-Action Response",
+                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
+                        },
+                        {
                           "id": "ENIOOasYSdmJj_RXjA__hQ",
                           "vdid": "CJYfMSZautkxLcK565ZDTg",
                           "name": "d2r2/React Client Display Adaptor: Rydrate/Render",
@@ -1557,13 +505,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "Nz-pdDA_rmXIunLXPFvgPw",
+                          "vdid": "K18G20dE0i2laLD5to6z0g",
                           "name": "Holistic App Client Kernel",
                           "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                           "type": "CM",
                           "ENENGxq1TkCa6Sk9YXaLlw": {
                             "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                            "vdid": "6ptgafBjH-BgA2kyzxKMGQ",
+                            "vdid": "fvZ4ED3cdxT7NwyxTDF4VQ",
                             "name": "Holistic App Client Runtime",
                             "description": "Holistic client application core runtime.",
                             "type": "CM",
@@ -1590,19 +538,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "u5eIpFbKbgd5gKZXuLHjKQ",
+                              "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "UEr5U71Xh1iw_ilsUoOBTA",
+                                "vdid": "6-po-sADr7GVFbymhU9U_g",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "_9bpk3HhlQfmzS4jI_hFdg",
+                                  "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -1622,7 +570,7 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "uk5RZ8ArxyU70vHdQNgg5w",
+                                    "vdid": "euUNcasvs_3dms9bB55wFA",
                                     "name": "Holarchy Core",
                                     "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
                                     "type": "CM",
@@ -1642,43 +590,43 @@
                                     },
                                     "RW8Y2O-kRNSv87yXT962wQ": {
                                       "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                      "vdid": "UXq8KRbzlBlMNZKG9T1l7Q",
+                                      "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
                                       "name": "Holarchy Core Logic",
                                       "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                       "type": "CM",
                                       "YgABX95wR86GCYrYaDLISA": {
                                         "id": "YgABX95wR86GCYrYaDLISA",
-                                        "vdid": "5Wiq9QRF5UgklCeaWl6BWQ",
-                                        "name": "AND Transition Expression Operator",
+                                        "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
+                                        "name": "Logical AND",
                                         "description": "Returns Boolean true iff all suboperations return true.",
                                         "type": "TOP"
                                       },
                                       "0JIva4IFSm6Xm7i38g8uUA": {
                                         "id": "0JIva4IFSm6Xm7i38g8uUA",
-                                        "vdid": "HyCocPERRAAEOSzTOspyaw",
-                                        "name": "OR Transition Expression Operator",
+                                        "vdid": "FAh08f8CZQHnj-Pkilu-rw",
+                                        "name": "Logical OR",
                                         "description": "Returns Boolean true iff any suboperations return true.",
                                         "type": "TOP"
                                       },
                                       "TLSHkl73SO-utuzM7dyN2g": {
                                         "id": "TLSHkl73SO-utuzM7dyN2g",
-                                        "vdid": "MLN5p6fYf0FFTMRIix5okQ",
-                                        "name": "NOT Transition Expression Operator",
+                                        "vdid": "ASh3z9ynLmUqRJElxWHVjQ",
+                                        "name": "Logical NOT",
                                         "description": "Returns Boolean true iff the suboperator returns false (i.e. it logically complements or inverts whatever operator it's applied to).",
                                         "type": "TOP"
                                       },
                                       "e89cwnP4Qd6MocAhzdOJgw": {
                                         "id": "e89cwnP4Qd6MocAhzdOJgw",
-                                        "vdid": "bVHQ0XWofHA__BaTvwID4g",
-                                        "name": "Always returns Boolean true unconditionally.",
+                                        "vdid": "NmKPVm8o5IAXQE-GgWcCDA",
+                                        "name": "Logical TRUE",
                                         "description": "Always returns Boolean true. Used typically to unilaterally transition a cell process from one step to another (e.g. always, or as a default after many other transition rules).",
                                         "type": "TOP"
                                       }
                                     },
                                     "jQxlhOe-RDilxY0sNIierQ": {
                                       "id": "jQxlhOe-RDilxY0sNIierQ",
-                                      "vdid": "DBtb1VQvd9xXX2QbPHHsow",
-                                      "name": "Holarchy Core Memory Operators",
+                                      "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                      "name": "Holarchy Core Memory Actions & Operators",
                                       "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                       "type": "CM",
                                       "oaF3-dXwQkusjD3I2o9-8g": {
@@ -1750,6 +698,13 @@
                                         "name": "OCD Boolean Flag Clear",
                                         "description": "Set the Boolean-type OCD namespace specified by path to value false.",
                                         "type": "ACT"
+                                      },
+                                      "aXju3wSBQnufe0r51Y04wg": {
+                                        "id": "aXju3wSBQnufe0r51Y04wg",
+                                        "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
+                                        "name": "Write Sub-Action Response",
+                                        "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                                        "type": "ACT"
                                       }
                                     }
                                   }
@@ -1759,7 +714,7 @@
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "5KgmEtSELse_1hsaBloOdw",
+                            "vdid": "ogdpIC3Us0S_UxbAmcRN-w",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
@@ -1787,7 +742,7 @@
                           },
                           "vrmv3WMRQXql7Bx3DDEIDw": {
                             "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                            "vdid": "deBobKmgzhpxv1UQ4jh_DQ",
+                            "vdid": "MhVQoORLvlD9UV963Bq4OA",
                             "name": "Holistic Client App View Manager",
                             "description": "Provides management of client view cells in a holistic client app.",
                             "type": "CM",
@@ -1801,7 +756,7 @@
                           },
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
-                            "vdid": "wr5q5_fJ71F1x0xBVvvevw",
+                            "vdid": "STOMkr9A-SQ_zk5yGaRtHA",
                             "name": "Holistic App Client Display Adapter",
                             "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                             "type": "CM",
