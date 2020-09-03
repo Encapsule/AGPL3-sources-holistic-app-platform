@@ -9,46 +9,14 @@ module.exports = {
     ocdDataSpec: {
         ____types: "jsObject",
         ____defaultValue: {},
-        "PPL45jw5RDWSMNsB97WIWg": {
+        private: {
             ____types: "jsObject",
             ____defaultValue: {},
-            inputs: {
-                ____types: "jsObject",
-                ____defaultValue: {}
-            },
-            _private: {
-                ____types: "jsObject",
-                ____defaultValue: {},
-                windowLoaded: {
-                    ____label: "window.onload Completed Flag",
-                    ____description: "Boolean flag set when the window.onload event occurs.",
-                    ____accept: "jsBoolean",
-                    ____defaultValue: false
-                },
-                /*
-                subprocesses: {
-                    ____types: "jsObject",
-                    ____defaultValue: {},
-
-                    displayAdapter: {
-                        ____types: ["jsUndefined", "jsObject" ],
-                        ____appdsl: { apm: "IxoJ83u0TXmG7PLUYBvsyg" }
-                    },
-                    viewProcessor: {
-                        ____types: [ "jsUndefined" , "jsObject" ],
-                        ____appdsl: { apm: "Hsu-43zBRgqHItCPWPiBng" }
-                    },
-                    DOMLocation: {
-                        ____types: [ "jsUndefined" , "jsObject" ],
-                        ____appdsl: { apm: "-1Ptaq_zTUa8Gfv_3ODtDg" }
-                    },
-
-                }
-                */
-            },
-            outputs: {
-                ____types: "jsObject",
-                ____defaultValue: {}
+            windowLoaded: {
+                ____label: "window.onload Completed Flag",
+                ____description: "Boolean flag set when the window.onload event occurs.",
+                ____accept: "jsBoolean",
+                ____defaultValue: false
             }
         }
     },
@@ -70,10 +38,8 @@ module.exports = {
             description: "Start core client app kernel subsystems.",
             actions: {
                 enter: [
-                    { holarchy: { CellProcessor: { process: { create: {
-                        apmID: "Hsu-43zBRgqHItCPWPiBng", 
-                        cellProcessUniqueName: "Holistic Client App View Processor"
-                    }}}}}
+                    { holarchy: { CellProcessor: { process: { create: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg", cellProcessUniqueName: "DOM Location Processor" }}}}},
+                    { holarchy: { CellProcessor: { process: { create: { apmID: "Hsu-43zBRgqHItCPWPiBng", cellProcessUniqueName: "Holistic Client App View Processor" }}}}}
                 ]
             },
             transitions: [
@@ -113,7 +79,7 @@ module.exports = {
         boot5_wait_browser: {
             description: "Wait for the browser to finish loading the HTML document and its referenced external resources (scripts, CSS, images, fonts, JSON, ...",
             transitions: [
-                { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
+                { transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.private.windowLoaded" } } } } } },
                   nextStep: "boot6_deserialize_app"
                 }
             ]

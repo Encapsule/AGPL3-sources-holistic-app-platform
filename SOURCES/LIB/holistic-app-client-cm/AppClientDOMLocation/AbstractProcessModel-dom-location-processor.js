@@ -25,13 +25,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
         ____label: "Client Hash Route Location Processor",
         ____types: "jsObject",
 
-        inputs: {
-            ____types: "jsObject",
-            ____defaultValue: {}
-
-        },
-
-        _private: {
+        private: {
             ____types: "jsObject",
             ____defaultValue: {},
 
@@ -84,7 +78,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             description: "Default starting process step.",
             transitions: [
                 {
-                    transitionIf: { holarchy: { cm: { operators: { cell: { atStep: { path: "#.//.//.//.//", step: "boot1_start_kernel" } } } } } },
+                    transitionIf: { always: true },
                     nextStep: "initialize"
                 }
             ]
@@ -103,7 +97,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
             description: "Waiting for DOM hashchange event.",
             transitions: [
                 {
-                    transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#._private.updateObservers" } } } } } },
+                    transitionIf: { holarchy: { cm: { operators: { ocd: { isBooleanFlagSet: { path: "#.private.updateObservers" } } } } } },
                     nextStep: "update"
                 }
             ]
@@ -112,7 +106,7 @@ const apmClientHashRouteLocationProcessor = module.exports = {
         update: {
             description: "The observable browser location has been updated. Information about the current location, and who set it is available in this model's output namespace.",
             transitions: [ { transitionIf: { always: true }, nextStep: "wait" } ],
-            actions: { exit: [ { holarchy: { cm: { actions: { ocd: { clearBooleanFlag: { path: "#._private.updateObservers" } } } } } } ] }
+            actions: { exit: [ { holarchy: { cm: { actions: { ocd: { clearBooleanFlag: { path: "#.private.updateObservers" } } } } } } ] }
         }
 
     }

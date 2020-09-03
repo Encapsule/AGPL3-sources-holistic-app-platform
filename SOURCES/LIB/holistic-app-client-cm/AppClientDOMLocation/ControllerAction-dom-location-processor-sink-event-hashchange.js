@@ -67,10 +67,10 @@ module.exports = new holarchy.ControllerAction({
                 break;
             }
 
-            // Resolve the full path the DOM Location Processor _private namespace.
+            // Resolve the full path the DOM Location Processor private namespace.
             rpResponse = holarchy.ObservableControllerData.dataPathResolve({
                 apmBindingPath: request_.context.apmBindingPath,
-                dataPath: "#._private"
+                dataPath: "#.private"
             });
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
@@ -78,29 +78,29 @@ module.exports = new holarchy.ControllerAction({
             }
             const pathPrivate = rpResponse.result;
 
-            // Read the DOM Location Processor's _private OCD namespace.
+            // Read the DOM Location Processor's private OCD namespace.
             ocdResponse = request_.context.ocdi.readNamespace(pathPrivate);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
-            const _private = ocdResponse.result;
+            const privateNamespace = ocdResponse.result;
 
             const routerEventDescriptor = {
-                actor: ((_private.routerEventCount === _private.lastOutputEventIndex)?(_private.routerEventCount?"user":"server"):"app"),
+                actor: ((privateNamespace.routerEventCount === privateNamespace.lastOutputEventIndex)?(privateNamespace.routerEventCount?"user":"server"):"app"),
                 href: location.href, // capture the entire href serialization from the location object
-                routerEventNumber: _private.routerEventCount
+                routerEventNumber: privateNamespace.routerEventCount
             };
 
-            _private.locationHistory.push(routerEventDescriptor);
+            privateNamespace.locationHistory.push(routerEventDescriptor);
 
-            _private.routerEventCount++; // total hashchange events
+            privateNamespace.routerEventCount++; // total hashchange events
 
-            if (_private.routerEventCount > _private.lastOutputEventIndex) {
+            if (privateNamespace.routerEventCount > privateNamespace.lastOutputEventIndex) {
 
                 // Always re-written in the epilogue.
-                _private.lastOutputEventIndex++;
-                _private.updateObservers = true;
+                privateNamespace.lastOutputEventIndex++;
+                privateNamespace.updateObservers = true;
 
                 // Resolve the full path the DOM Location Processor outputs.currentRoute namespace.
                 let rpResponse = holarchy.ObservableControllerData.dataPathResolve({
@@ -121,7 +121,7 @@ module.exports = new holarchy.ControllerAction({
                 }
             }
 
-            ocdResponse = request_.context.ocdi.writeNamespace(pathPrivate, _private);
+            ocdResponse = request_.context.ocdi.writeNamespace(pathPrivate, privateNamespace);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;

@@ -60,7 +60,7 @@ module.exports = {
                 let actionResponse = request_.context.act({
                     actorName: "HolisticAppClientRuntime External DOM Event Notify",
                     actorTaskDescription: "Inform the HolisticAppClientRutime cell process that the window has loaded.",
-                    actionRequest: { holarchy: { cm: { actions: { ocd: { setBooleanFlag: { path: "#.PPL45jw5RDWSMNsB97WIWg._private.windowLoaded" } } } } } },
+                    actionRequest: { holarchy: { cm: { actions: { ocd: { setBooleanFlag: { path: "#.private.windowLoaded" } } } } } },
                     apmBindingPath: request_.context.apmBindingPath
                 });
 
