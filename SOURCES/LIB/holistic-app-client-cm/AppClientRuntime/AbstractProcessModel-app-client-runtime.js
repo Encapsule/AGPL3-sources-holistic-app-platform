@@ -47,11 +47,13 @@ module.exports = {
             ]
         },
 
+        // ================================================================
+        // **** CLIENT APPLICATION CALLBACK: QUERY
         boot2_query_derived: {
             description: "Query the derived client app for information required to initialize the core client app runtime.",
             actions: {
                 enter: [
-                    // { holistic: { app: { client: { runtime: { private: { actions: { queryDerivedAppConfig: true } } } } } } }
+                    { holistic: { app: { client: { query: {}}}}}
                 ]
             },
             transitions: [
@@ -67,10 +69,16 @@ module.exports = {
                 { transitionIf: { always: true }, nextStep: "boot4_config_derived" }
             ]
         },
-
+ 
+        // ================================================================
+        // **** CLIENT APPLICATION CALLBACK: CONFIG
         boot4_config_derived: {
             description: "Configure the derived application runtime.",
-            // TODO: Dispatch an action that calls another action defined by this CellModel's APM but implemented by the derived application."
+            actions: {
+                enter: [
+                    { holistic: { app: { client: { config: {}}}}}
+                ]
+            },
             transitions: [
                 { transitionIf: { always: true }, nextStep: "boot5_wait_browser" }
             ]
@@ -85,26 +93,39 @@ module.exports = {
             ]
         },
 
+        // ================================================================
+        // **** CLIENT APPLICATION CALLBACK: DESERIALIZE
         boot6_deserialize_app: {
             description: "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
             actions: {
-                enter: [
+                enter: [ 
+                    { holistic: { app: { client: { deserialize: {}}}}}
                 ]
             },
             transitions: [
+                { transitionIf: { always: true }, nextStep: "boot7_init_app_view" }
             ]
         },
 
-        boot7_load_app_memory: {
-            description: "Load the deserialized app into the OCD to initialize the client app runtime."
+        boot7_init_app_view: {
+            description: "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately.",
+            transitions: [
+                { transitionIf: { always: true }, nextStep: "boot8_init_start_app" }
+            ]
         },
 
-        boot8_init_app_view: {
-            description: "Initialize the view and d2r2/React display models. Performs a d2r2/ReactDOM.hydrate operation ultimately."
-        },
-
-        boot9_start_app: {
-            description: "Start the client application runtime."
+        // ================================================================
+        // **** CLIENT APPLICATION CALLBACK: START RUNTIME
+        boot8_init_start_app: {
+            description: "Start the client application runtime.",
+            actions: {
+                enter: [
+                    { holistic: { app: { client: { start: {}}}}}
+                ]
+            },
+            transitions: [
+                { transitionIf: { always: true }, nextStep: "running" }
+            ]
         },
 
         running: {
