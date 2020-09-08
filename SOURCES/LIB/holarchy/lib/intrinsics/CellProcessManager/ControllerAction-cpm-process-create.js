@@ -3,7 +3,7 @@
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
-
+const cpmLib = require("./lib");
 
 const controllerAction = new ControllerAction({
 
@@ -123,26 +123,27 @@ const controllerAction = new ControllerAction({
                     )
             );
 
-            // TODO: Convert to cpmLib call.
             // Now we have to dereference the cell process manager's cell process tree digraph runtime model
-            const cellProcessTreePath = `~.${cpmMountingNamespaceName}.cellProcessTree`;
+            // TODO: Re-examine this decission. And, perhaps move all path calculations into cpmLib?
+            const cellProcessManagerDataPath = `~.${cpmMountingNamespaceName}.cellProcessManager`;
 
-            // Read shared memory to retrieve a reference to the process manager's process tree data.
-            ocdResponse = request_.context.ocdi.readNamespace(cellProcessTreePath);
+            // Read shared memory to retrieve a reference to the CPM's private process management data.
+            ocdResponse = request_.context.ocdi.readNamespace(cellProcessManagerDataPath);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
             }
-            const cellProcessTreeData = ocdResponse.result;
+            const cellProcessManagerData = ocdResponse.result;
+            const ownedCellProcessesData = cellProcessManagerData.ownedCellProcesses;
 
             // Query the process tree digraph to determine if the new cell process' ID slot has already been allocated (i.e. it's a disallowed duplicate process create request).
-            if (cellProcessTreeData.digraph.isVertex(cellProcessID)) {
+            if (ownedCellProcessesData.digraph.isVertex(cellProcessID)) {
                 errors.push(`Invalid cellProcessUniqueName value '${message.cellProcessUniqueName}' is not unique. Cell process '${cellProcessID}' already exists.`);
                 break;
             }
 
             // Query the process tree digraph to determine if the parent cell process ID exists.
-            if (!cellProcessTreeData.digraph.isVertex(parentCellProcessID)) {
+            if (!ownedCellProcessesData.digraph.isVertex(parentCellProcessID)) {
                 errors.push(`The apmBindingPath '${request_.context.apmBindingPath}' specified by this request is not a valid parent cell process binding path.`);
                 errors.push(`Cell process ID '${parentCellProcessID}' is not known to cell process manager.`);
                 break;
@@ -156,10 +157,10 @@ const controllerAction = new ControllerAction({
             }
 
             // Record the new cell process in the cell process manager's digraph.
-            cellProcessTreeData.digraph.addVertex({ u: cellProcessID, p: { apmBindingPath }});
-            cellProcessTreeData.digraph.addEdge({ e: { u: parentCellProcessID, v: cellProcessID }});
+            ownedCellProcessesData.digraph.addVertex({ u: cellProcessID, p: { apmBindingPath }});
+            ownedCellProcessesData.digraph.addEdge({ e: { u: parentCellProcessID, v: cellProcessID }});
 
-            ocdResponse = request_.context.ocdi.writeNamespace(`${cellProcessTreePath}.revision`, cellProcessTreeData.revision + 1);
+            ocdResponse = request_.context.ocdi.writeNamespace(`${cellProcessManagerDataPath}.ownedCellProcesses.revision`, ownedCellProcessesData.revision + 1);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;

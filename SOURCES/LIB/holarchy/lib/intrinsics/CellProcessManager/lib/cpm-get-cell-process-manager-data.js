@@ -1,4 +1,4 @@
-// cpm-get-cell-process-tree-data.js
+// cpm-get-cell-process-manager-data.js
 
 const cpmMountingNamespaceName = require("../../../filters/cpm-mounting-namespace-name");
 const cellProcessTreePath = `~.${cpmMountingNamespaceName}.cellProcessTree`;

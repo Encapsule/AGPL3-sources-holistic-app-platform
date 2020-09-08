@@ -108,23 +108,44 @@ const factoryResponse = arccore.filter.create({
                         ____description: "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
                         ____types: "jsObject",
                         ____defaultValue: {},
-                        cellProcessTree: {
-                            ____label: "Cell Process Tree",
-                            ____description: "An @encapsule/arccore.graph DirectedGraph object used to keep track of the cell process tree.",
+                        cellProcessManager: {
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            revision: {
-                                ____label: "Cell Process Tree Revision",
-                                ____description: "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
-                                ____accept: "jsNumber",
-                                ____defaultValue: 0
-                            },
-                            digraph: {
-                                ____label: "Cell Process Runtime Model",
-                                ____description: "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
-                                ____accept: [ "jsUndefined", "jsObject" ]
-                            }
-                        }
+                            ownedCellProcesses: {
+                                ____label: "Owned Cell Processes Data",
+                                ____description: "Data used by the CPM to track and manage the lifespan of cell processes tree created & destroyed w/the CPM process create & delete actions respectively.",
+                                ____types: "jsObject",
+                                ____defaultValue: {},
+                                revision: {
+                                    ____label: "Cell Process Tree Revision",
+                                    ____description: "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
+                                    ____accept: "jsNumber",
+                                    ____defaultValue: 0
+                                },
+                                digraph: {
+                                    ____label: "Cell Process Runtime Model",
+                                    ____description: "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
+                                    ____accept: [ "jsUndefined", "jsObject" ]
+                                }
+                            }, // cellProcessTree
+                            sharedCellProcesses: {
+                                ____label: "Shared Cell Processes Data",
+                                ____description: "Data used by the CPM to track and manage the lifespan of reference-counted, shared, cell processes accessed via embedded helper cells that function as local in-cell-process proxies to other cell process(es).",
+                                ____types: "jsObject",
+                                ____defaultValue: {},
+                                revision: {
+                                    ____label: "Cell Process Tree Revision",
+                                    ____description: "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
+                                    ____accept: "jsNumber",
+                                    ____defaultValue: 0
+                                },
+                                digraph: {
+                                    ____label: "Cell Process Runtime Model",
+                                    ____description: "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
+                                    ____accept: [ "jsUndefined", "jsObject" ]
+                                }
+                            } // cellServices
+                        } // cellProcessManagerData
                     },
                     steps: {
                         uninitialized: {
