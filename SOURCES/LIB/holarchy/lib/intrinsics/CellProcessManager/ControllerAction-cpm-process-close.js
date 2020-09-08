@@ -7,8 +7,8 @@ const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-n
 const action = new ControllerAction({
 
     id: "1Puwq4UEQZuJy6pOrkvZSg",
-    name: "Cell Process Manager: Shared Process Close",
-    description: "Tell CellProcess instance to close a shared cell process.",
+    name: "Cell Process Manager: Close Cell Process",
+    description: "Instruct CellProcessor to unlink the indicated worker proxy subcell from the shared cell process instance.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -16,10 +16,14 @@ const action = new ControllerAction({
             ____types: "jsObject",
             CellProcessor: {
                 ____types: "jsObject",
-                sharedProcess: {
+                process: {
                     ____types: "jsObject",
                     close: {
-                        ____types: "jsObject"
+                        ____types: "jsObject",
+                        proxy: {
+                            ____types: "jsObject",
+                            path: { ____accept: "jsString", ____defaultValue: "#" }
+                        }
                     }
                 }
             }
@@ -27,6 +31,11 @@ const action = new ControllerAction({
     },
 
     actionResultSpec: {
+        ____accept: "jsUndefined"
+    },
+
+    bodyFunction: function(request_) {
+        return { error: null };
     }
 
 });

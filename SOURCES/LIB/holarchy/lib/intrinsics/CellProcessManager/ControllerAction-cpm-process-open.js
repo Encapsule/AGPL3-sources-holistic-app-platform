@@ -1,4 +1,4 @@
-// SOUCES/LIB/holarchy/lib/intrinsics/CellProcessManager/ControllerAction-cpm-shared-process-open.js
+// SOUCES/LIB/holarchy/lib/intrinsics/CellProcessManager/ControllerAction-cpm-process-open.js
 
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
@@ -7,8 +7,8 @@ const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-n
 const action = new ControllerAction({
 
     id: "MAaYEUinReO3AKaTI21CaQ",
-    name: "Cell Process Manager: Shared Process Attach Singleton",
-    description: "Tell CellProcessor instance to open a shared cell process singleton.",
+    name: "Cell Process Manager: Open Cell Process",
+    description: "Instruct CellProcessor to open the specified cell process instance as a shared cell process, and link it to the indicated worker proxy subcell.",
 
     actionRequestSpec: {
         ____types: "jsObject",
@@ -16,17 +16,18 @@ const action = new ControllerAction({
             ____types: "jsObject",
             CellProcessor: {
                 ____types: "jsObject",
-                sharedProcess: {
+                process: {
                     ____types: "jsObject",
-                    attach: {
+                    open: {
                         ____types: "jsObject",
+                        apmID: { ____accept: "jsString" },
+                        instanceName: {
+                            ____accept: "jsString",
+                            ____defaultValue: "singleton"
+                        },
                         proxy: {
                             ____types: "jsObject",
                             path: { ____accept: "jsString", ____defaultValue: "#" }
-                        },
-                        singleton: {
-                            ____types: "jsObject",
-                            apmID: { ____accept: "jsString" }
                         }
                     }
                 }
@@ -35,8 +36,14 @@ const action = new ControllerAction({
     },
 
     actionResultSpec: {
-    }
+        ____types: "jsObject",
+        apmBindingPath: { ____accept: [ "jsNull", "jsString" ], ____defaultValue: null }, // this is the OCD path of the new process
+        cellProcessID: { ____accept: [ "jsNull", "jsString"], ____defaultValue: null } // This is an IRUT-format cell process ID
+    },
 
+    bodyFunction: function(request_) {
+        return { error: null };
+    }
 
 });
 
