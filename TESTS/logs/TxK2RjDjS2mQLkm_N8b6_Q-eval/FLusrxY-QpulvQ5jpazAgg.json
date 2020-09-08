@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "O_U79QJwAnC7HrsebiJuIg",
-                      "vdid": "Qnhqs-kvB9XZ6x_xvJIdtA",
+                      "vdid": "D5fBIPCD2n_NCiZOXDnh_A",
                       "name": "Cell Process Manager [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "O_U79QJwAnC7HrsebiJuIg": {
                               "id": "O_U79QJwAnC7HrsebiJuIg",
-                              "vdid": "Qnhqs-kvB9XZ6x_xvJIdtA",
+                              "vdid": "D5fBIPCD2n_NCiZOXDnh_A",
                               "name": "Cell Process Manager [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test].",
                               "type": "CM",
@@ -187,9 +187,9 @@
                               },
                               "SdL0-5kmTuiNrWNu7zGZhg": {
                                 "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                "vdid": "U6pYHwXACTvRjAkh7YETaw",
+                                "vdid": "dM7q_uRXrScgd_WSX_TNJg",
                                 "name": "Cell Process Manager: Process Create",
-                                "description": "Requests that the Cell Process Manager create a new cell process inside the CellProcessor runtime host instance.",
+                                "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                 "type": "ACT"
                               },
                               "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -2300,7 +2300,7 @@
                           "filterDescriptor": {
                             "operationID": "SdL0-5kmTuiNrWNu7zGZhg",
                             "operationName": "Cell Process Manager: Process Create",
-                            "operationDescription": "Requests that the Cell Process Manager create a new cell process inside the CellProcessor runtime host instance.",
+                            "operationDescription": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                             "inputFilterSpec": {
                               "____label": "Cell Process Manager: Process Create Request",
                               "____types": "jsObject",
@@ -2338,10 +2338,8 @@
                                           "____accept": "jsString"
                                         },
                                         "cellProcessUniqueName": {
-                                          "____accept": [
-                                            "jsUndefined",
-                                            "jsString"
-                                          ]
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
                                         },
                                         "cellProcessInitData": {
                                           "____accept": "jsObject",
@@ -2406,10 +2404,10 @@
                               }
                             },
                             "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                            "inputTypeVDID": "4OoPR07C_v9TgpnKgcszAA",
+                            "inputTypeVDID": "f8Mx-jTDMuG7z-kT5zi1Vg",
                             "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                             "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                            "operationVDID": "Z4PKzbtPS2hHTxgeeY8E2Q"
+                            "operationVDID": "Z_ESzbtSKGhHmr4eeUY32Q"
                           }
                         },
                         "4s_DUfKnQ4aS-xRjewAfUQ": {
