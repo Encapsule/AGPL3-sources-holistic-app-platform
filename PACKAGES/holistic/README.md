@@ -4,7 +4,7 @@
 
 Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/HTML5 apps & services w/React based on System in Cloud (SiC) architecture.
 
-# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Holistic App Platform v0.0.45 trinity
+# ![](ASSETS/encapsule-holistic-32x32.png)&nbsp;Holistic App Platform v0.0.46 crossroads
 
 ##  &#x029C9; Distribution:  @encapsule/holistic
 
@@ -13,9 +13,9 @@ Encapsule Project is MIT-licensed libs & tools for building full-stack Node.js/H
 Full-stack component engineering platform for building complex stateful webs apps and services with software models.
 
 ```
-Package: @encapsule/holistic v0.0.45 "trinity" build ID "CMsLV0b-Sp-fPMFYWdd1Ug"
-Sources: Encapsule/holistic-master#55534b812f4da915606aeda194de6951748307b2
-Created: 2020-09-02T19:15:22.000Z Purpose: tools (Node.js) License: MIT
+Package: @encapsule/holistic v0.0.46 "crossroads" build ID "ZyYOidAYQoCzFXq8pDnTig"
+Sources: Encapsule/holistic-master#63c1f1c13493bb3c03a5bccb84d1481b82239022
+Created: 2020-09-08T15:27:32.000Z Purpose: tools (Node.js) License: MIT
 ```
 
 ## ![](ASSETS/encapsule-holistic-24x24.png)&nbsp;Overview
