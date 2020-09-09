@@ -51,18 +51,19 @@ const transitionOperator = new TransitionOperator({
                 break; // response.result === false
             }
 
-            let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
             }
-            const cellProcessTreeData = cpmLibResponse.result;
-            
+            const cpmDataDescriptor = cpmLibResponse.result;
+            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+
             cpmLibResponse = cpmLib.getProcessAncestorDescriptors.request({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
                 filterBy: message.filterBy,
                 ocdi: request_.context.ocdi,
-                treeData: cellProcessTreeData
+                treeData: ownedCellProcessesData
             });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
@@ -82,7 +83,7 @@ const transitionOperator = new TransitionOperator({
                     }
                     ancestorCellProcessDescriptor_.apmBindingPath = cpmApmBindingPath;
                 }
-                
+
                 if (!Array.isArray(message.apmStep)) {
                     operatorRequest.or.push({
                         holarchy: {

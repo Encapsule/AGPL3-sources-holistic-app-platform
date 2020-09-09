@@ -186,7 +186,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "DPUM9XpwenDTHtMepiKmIg",
-                      "vdid": "V1r0FGRm_i0BChnpagSaRw",
+                      "vdid": "uFbjCZY9SiEOdhTE-OMgmw",
                       "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                       "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                       "cmat": {
@@ -196,7 +196,7 @@
                             "type": "INDEX",
                             "DPUM9XpwenDTHtMepiKmIg": {
                               "id": "DPUM9XpwenDTHtMepiKmIg",
-                              "vdid": "V1r0FGRm_i0BChnpagSaRw",
+                              "vdid": "uFbjCZY9SiEOdhTE-OMgmw",
                               "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                               "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                               "type": "CM",
@@ -324,13 +324,6 @@
                                 "vdid": "9ZHIKAz-t9uOUTeknD1tmA",
                                 "name": "Cell Process Manager: Process Query",
                                 "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
-                                "type": "ACT"
-                              },
-                              "L2mTv5LvT12WIYb0cYOsLA": {
-                                "id": "L2mTv5LvT12WIYb0cYOsLA",
-                                "vdid": "yxXRAM9LbuW-seGzhWYG9g",
-                                "name": "Cell Process Manager Query",
-                                "description": "Performs a synchronous query of the Cell Process Manager's process digraph.",
                                 "type": "ACT"
                               },
                               "MDVBKW89TvO9T62Ge7GmNg": {
@@ -2574,21 +2567,20 @@
                       },
                       "actionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "18nwZ93CIpitWjvLrLsGUQ",
+                          "operationID": "wfq5-9O7PxP4eEMzz-NKRw",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "8qGca1zxp2qfkOWUy1968w",
+                          "inputTypeVIID": "epKAbjmV9zErNDj4hTnqzg",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "fR_0xOTtPyjpYUe5PYWeTA",
+                          "outputTypeVIID": "x9GkD91pBnryg7qVJJTXsg",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "1X_0E5-gNVdpPY7tbrcUtA"
+                          "operationVDID": "-QD0E1xnNVeQgo7t4mQUtA"
                         },
                         "supportedFilters": [
                           "[1Puwq4UEQZuJy6pOrkvZSg::Cell Process Manager: Close Cell Process]",
                           "[4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete]",
                           "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
                           "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
-                          "[L2mTv5LvT12WIYb0cYOsLA::Cell Process Manager Query]",
                           "[MAaYEUinReO3AKaTI21CaQ::Cell Process Manager: Open Cell Process]",
                           "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]",
                           "[SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]",
@@ -2603,60 +2595,6 @@
                         }
                       },
                       "actionDispatcherFilterMap": {
-                        "L2mTv5LvT12WIYb0cYOsLA": {
-                          "filterDescriptor": {
-                            "operationID": "L2mTv5LvT12WIYb0cYOsLA",
-                            "operationName": "Cell Process Manager Query",
-                            "operationDescription": "Performs a synchronous query of the Cell Process Manager's process digraph.",
-                            "inputFilterSpec": {
-                              "____label": "Cell Process Manager Query Request",
-                              "____types": "jsObject",
-                              "context": {
-                                "____label": "OPC Context Descriptor",
-                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                "____types": "jsObject",
-                                "apmBindingPath": {
-                                  "____label": "APM Binding Path",
-                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                  "____accept": "jsString"
-                                },
-                                "ocdi": {
-                                  "____label": "OCD Store Instance",
-                                  "____description": "A reference to the OCD store instance managed by OPC.",
-                                  "____accept": "jsObject"
-                                },
-                                "act": {
-                                  "____label": "OPC.act Method",
-                                  "____description": "A reference to ObservableProcessController.act method.",
-                                  "____accept": "jsFunction"
-                                }
-                              },
-                              "actionRequest": {
-                                "____types": "jsObject",
-                                "holarchy": {
-                                  "____types": "jsObject",
-                                  "CellProcessor": {
-                                    "____types": "jsObject",
-                                    "processes": {
-                                      "____types": "jsObject",
-                                      "query": {
-                                        "____types": "jsObject"
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "outputFilterSpec": {
-                              "____types": "jsObject"
-                            },
-                            "inputTypeVIID": "WP59HegrS284Hth_iKlJ5Q",
-                            "inputTypeVDID": "jdyEhdD9D2LFtUiUq1yiOw",
-                            "outputTypeVIID": "AmMOqx93V_LELH5sA5S39Q",
-                            "outputTypeVDID": "7NzfCLYAdEOqnYzn5N59fA",
-                            "operationVDID": "Gi7HxFZx6b5lC8Jc-ugzhg"
-                          }
-                        },
                         "1Puwq4UEQZuJy6pOrkvZSg": {
                           "filterDescriptor": {
                             "operationID": "1Puwq4UEQZuJy6pOrkvZSg",

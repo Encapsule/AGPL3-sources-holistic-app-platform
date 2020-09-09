@@ -38,18 +38,19 @@ module.exports = new TransitionOperator({
 
             const message = request_.operatorRequest.holarchy.CellProcessor.descendantProcessesAnyInStep;
 
-            let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
             }
-            const cellProcessTreeData = cpmLibResponse.result;
+            const cpmDataDescriptor = cpmLibResponse.result;
+            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
 
             cpmLibResponse = cpmLib.getProcessDescendantDescriptors.request({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
                 filterBy: message.filterBy,
                 ocdi: request_.context.ocdi,
-                treeData: cellProcessTreeData
+                treeData: ownedCellProcessesData
             });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);

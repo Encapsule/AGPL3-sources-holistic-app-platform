@@ -15,8 +15,9 @@ module.exports = {
         require("./ControllerAction-cpm-process-create"),
         require("./ControllerAction-cpm-process-delete"),
         require("./ControllerAction-cpm-process-open"),
-        require("./ControllerAction-cpm-process-query"),
-        require("./ControllerAction-cpm-query") // TODO: Disable this action until it's needed and restabilize the tests (on a clean branch).
+        require("./ControllerAction-cpm-process-query")
+
+        // require("./ControllerAction-cpm-query") // TODO: Disable this action until it's needed and restabilize the tests (on a clean branch).
     ],
 
     operators: [
