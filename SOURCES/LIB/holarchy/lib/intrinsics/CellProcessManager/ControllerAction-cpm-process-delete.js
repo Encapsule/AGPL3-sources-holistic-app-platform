@@ -164,8 +164,7 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-
-            ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.ownedCellProcesses.revision`, ownedCellProcessesData.revision + 1);
+            let ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.ownedCellProcesses.revision`, ownedCellProcessesData.revision + 1);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;

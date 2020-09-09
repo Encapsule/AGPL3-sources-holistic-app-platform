@@ -131,12 +131,13 @@ const controllerAction = new ControllerAction({
             }
 
             // Get a reference to the Cell Process Manager's process tree descriptor object.
-            let cpmLibResponse = cpmLib.getProcessTreeData({ ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
             }
-            const cellProcessTreeData = cpmLibResponse.result;
+            const cpmDataDescriptor = cpmLibResponse.result;
+            const cellProcessTreeData = cpmDataDescriptor.data.ownedCellProcesses;
 
             // Get a reference to this cell process' descriptor.
             cpmLibResponse = cpmLib.getProcessDescriptor.request({ cellProcessID, ocdi: request_.context.ocdi, treeData: cellProcessTreeData });
