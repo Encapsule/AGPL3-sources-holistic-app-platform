@@ -108,7 +108,7 @@ const factoryResponse = arccore.filter.create({
                         ____description: "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
                         ____types: "jsObject",
                         ____defaultValue: {},
-                        cellProcessManager: {
+                        _private: {
                             ____types: "jsObject",
                             ____defaultValue: {},
                             ownedCellProcesses: {

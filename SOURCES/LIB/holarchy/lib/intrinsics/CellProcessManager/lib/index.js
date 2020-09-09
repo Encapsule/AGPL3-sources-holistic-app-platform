@@ -13,6 +13,5 @@ module.exports = {
     getProcessDescendantDescriptors: require("./cpm-get-cell-process-descendant-descriptors"),
     getProcessParentDescriptor: require("./cpm-get-cell-process-parent-descriptor"),
     getProcessDescriptor: require("./cpm-get-cell-process-descriptor")
-
 };
 

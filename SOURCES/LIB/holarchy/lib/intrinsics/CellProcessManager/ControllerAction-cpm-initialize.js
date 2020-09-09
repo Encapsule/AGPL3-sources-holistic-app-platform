@@ -3,6 +3,7 @@
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
+const cpmLib = require("./lib");
 
 const controllerAction = new ControllerAction({
     id: "VNaA0AMsTXawb32xLaNGTA",
@@ -35,19 +36,17 @@ const controllerAction = new ControllerAction({
 
             const message = request_.actionRequest.holarchy.CellProcessor.initialize;
 
-            const cellProcessManagerDataPath = `~.${cpmMountingNamespaceName}.cellProcessManager`;
-
-            let ocdResponse = request_.context.ocdi.readNamespace(cellProcessManagerDataPath);
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
 
-            let cellProcessManagerData = ocdResponse.result;
+            const cpmDataDescriptor = cpmLibResponse.result;
 
             let graphFactoryResponse = arccore.graph.directed.create(
-                cellProcessManagerData.ownedCellProcesses.digraph?
-                    cellProcessManagerData.ownedCellProcesses.digraph
+                cpmDataDescriptor.data.ownedCellProcesses.digraph?
+                    cpmDataDescriptor.data.ownedCellProcesses.digraph
                     :
                     {
                         name: "Owned Cell Processes Tree Model",
@@ -63,11 +62,11 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            cellProcessManagerData.ownedCellProcesses.digraph = graphFactoryResponse.result;
+            cpmDataDescriptor.data.ownedCellProcesses.digraph = graphFactoryResponse.result;
 
             graphFactoryResponse = arccore.graph.directed.create(
-                cellProcessManagerData.sharedCellProcesses.digraph?
-                    cellProcessManagerData.sharedCellProcesses.digraph
+                cpmDataDescriptor.data.sharedCellProcesses.digraph?
+                    cpmDataDescriptor.data.sharedCellProcesses.digraph
                     :
                     {
                         name: "Shared Cell Processes Digraph Model",
@@ -80,9 +79,9 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            cellProcessManagerData.sharedCellProcesses.digraph = graphFactoryResponse.result;
+            cpmDataDescriptor.data.sharedCellProcesses.digraph = graphFactoryResponse.result;
 
-            ocdResponse = request_.context.ocdi.writeNamespace(cellProcessManagerDataPath, cellProcessManagerData);
+            let ocdResponse = request_.context.ocdi.writeNamespace(cpmDataDescriptor.path, cpmDataDescriptor.data);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;

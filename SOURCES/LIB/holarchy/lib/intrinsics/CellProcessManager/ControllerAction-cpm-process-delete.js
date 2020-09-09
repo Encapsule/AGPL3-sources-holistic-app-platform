@@ -3,6 +3,7 @@
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
+const cpmLib = require("./lib");
 
 const controllerAction = new ControllerAction({
     id: "4s_DUfKnQ4aS-xRjewAfUQ",

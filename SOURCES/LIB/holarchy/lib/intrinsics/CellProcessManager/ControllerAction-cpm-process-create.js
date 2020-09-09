@@ -97,15 +97,7 @@ const controllerAction = new ControllerAction({
             // NOTE: The CPM's cell process tree structure is used for managing the lifespan of cell processes; deleting a cell process via delete
             // process action will delete that cell process and all its decendants.
 
-            let parentCellProcessID;
-
-            if (!message.parentCellProcess) {
-                parentCellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
-            } else {
-
-            }
-
-            parentCellProcessID = (
+            let parentCellProcessID = (
                 !message.parentCellProcess? // if no override...
                     (arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result) // ... IRUT hash the outer context.apmBindingPath (aka #)
                     :
@@ -123,18 +115,16 @@ const controllerAction = new ControllerAction({
                     )
             );
 
-            // Now we have to dereference the cell process manager's cell process tree digraph runtime model
-            // TODO: Re-examine this decission. And, perhaps move all path calculations into cpmLib?
-            const cellProcessManagerDataPath = `~.${cpmMountingNamespaceName}.cellProcessManager`;
-
             // Read shared memory to retrieve a reference to the CPM's private process management data.
-            ocdResponse = request_.context.ocdi.readNamespace(cellProcessManagerDataPath);
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
-            const cellProcessManagerData = ocdResponse.result;
-            const ownedCellProcessesData = cellProcessManagerData.ownedCellProcesses;
+
+            const cpmDataDescriptor = cpmLibResponse.result;
+
+            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
 
             // Query the process tree digraph to determine if the new cell process' ID slot has already been allocated (i.e. it's a disallowed duplicate process create request).
             if (ownedCellProcessesData.digraph.isVertex(cellProcessID)) {
@@ -160,7 +150,7 @@ const controllerAction = new ControllerAction({
             ownedCellProcessesData.digraph.addVertex({ u: cellProcessID, p: { apmBindingPath }});
             ownedCellProcessesData.digraph.addEdge({ e: { u: parentCellProcessID, v: cellProcessID }});
 
-            ocdResponse = request_.context.ocdi.writeNamespace(`${cellProcessManagerDataPath}.ownedCellProcesses.revision`, ownedCellProcessesData.revision + 1);
+            ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.ownedCellProcesses.revision`, ownedCellProcessesData.revision + 1);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
