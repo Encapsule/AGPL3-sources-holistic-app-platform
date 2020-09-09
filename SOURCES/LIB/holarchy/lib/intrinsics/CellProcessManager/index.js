@@ -38,6 +38,7 @@ module.exports = {
     ],
 
     submodels: [
+        require("../CellProcessProxy")
     ]
 
 };
