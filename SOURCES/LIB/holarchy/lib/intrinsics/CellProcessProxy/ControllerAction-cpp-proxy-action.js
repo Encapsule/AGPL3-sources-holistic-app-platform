@@ -4,8 +4,42 @@ const ControllerAction = require("../../../lib/ControllerAction");
 
 const action = new ControllerAction({
     id: "rua1glcmTsOlYcfpZuiXnA",
-    name: "",
-    description: ""
+    name: "Cell Process Proxy: Proxy Action",
+    description: "Forwards the specified action request to the local cell process to which the proxy is currently connected.",
+
+    actionRequestSpec: {
+        ____types: "jsObject",
+        holarchy: {
+            ____types: "jsObject",
+            CellProcessor: {
+                ____types: "jsObject",
+                process: {
+                    ____types: "jsObject",
+                    proxy: {
+                        ____types: "jsObject",
+                        // Proxy (i.e. forward through) this proxy to another local cell process...
+                        proxyPath: {
+                            ____accept: "jsString",
+                            ____defaultValue: "#"
+                        },
+                        // ... an arbitrary ControllerAction request.
+                        request: {
+                            ____accept: "jsObject"
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    actionResultSpec: {
+        ____accept: "jsObject" // TODO
+    },
+
+    bodyFunction: function(request_) {
+        return { error: null };
+    }
+
 });
 
 if (!action.isValid()) {
