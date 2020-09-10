@@ -108,44 +108,40 @@ const factoryResponse = arccore.filter.create({
                         ____description: "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
                         ____types: "jsObject",
                         ____defaultValue: {},
-                        _private: {
+                        ownedCellProcesses: {
+                            ____label: "Owned Cell Processes Data",
+                            ____description: "Data used by the CPM to track and manage the lifespan of cell processes tree created & destroyed w/the CPM process create & delete actions respectively.",
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            ownedCellProcesses: {
-                                ____label: "Owned Cell Processes Data",
-                                ____description: "Data used by the CPM to track and manage the lifespan of cell processes tree created & destroyed w/the CPM process create & delete actions respectively.",
-                                ____types: "jsObject",
-                                ____defaultValue: {},
-                                revision: {
-                                    ____label: "Cell Process Tree Revision",
-                                    ____description: "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
-                                    ____accept: "jsNumber",
-                                    ____defaultValue: 0
-                                },
-                                digraph: {
-                                    ____label: "Cell Process Runtime Model",
-                                    ____description: "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
-                                    ____accept: [ "jsUndefined", "jsObject" ]
-                                }
-                            }, // cellProcessTree
-                            sharedCellProcesses: {
-                                ____label: "Shared Cell Processes Data",
-                                ____description: "Data used by the CPM to track and manage the lifespan of reference-counted, shared, cell processes accessed via embedded helper cells that function as local in-cell-process proxies to other cell process(es).",
-                                ____types: "jsObject",
-                                ____defaultValue: {},
-                                revision: {
-                                    ____label: "Cell Process Tree Revision",
-                                    ____description: "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
-                                    ____accept: "jsNumber",
-                                    ____defaultValue: 0
-                                },
-                                digraph: {
-                                    ____label: "Cell Process Runtime Model",
-                                    ____description: "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
-                                    ____accept: [ "jsUndefined", "jsObject" ]
-                                }
-                            } // cellServices
-                        } // cellProcessManagerData
+                            revision: {
+                                ____label: "Owned Cell Processes Data Revision",
+                                ____description: "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
+                                ____accept: "jsNumber",
+                                ____defaultValue: 0
+                            },
+                            digraph: {
+                                ____label: "Owned Cell Processes Data Model",
+                                ____description: "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
+                                ____accept: [ "jsUndefined", "jsObject" ]
+                            }
+                        }, // ownedCellProcesses
+                        sharedCellProcesses: {
+                            ____label: "Shared Cell Processes Data",
+                            ____description: "Data used by the CPM to track and manage the lifespan of reference-counted, shared, cell processes accessed via embedded helper cells that function as local in-cell-process proxies to other cell process(es).",
+                            ____types: "jsObject",
+                            ____defaultValue: {},
+                            revision: {
+                                ____label: "Shared Cell Processes Data Revision",
+                                ____description: "A monotonically-increasing counter value that is incremented every time a shared cell process is created or deleted via ControllerAction call.",
+                                ____accept: "jsNumber",
+                                ____defaultValue: 0
+                            },
+                            digraph: {
+                                ____label: "Shared Cell Processes Data Model",
+                                ____description: "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
+                                ____accept: [ "jsUndefined", "jsObject" ]
+                            }
+                        } // sharedCellProcesses
                     },
                     steps: {
                         uninitialized: {
@@ -173,6 +169,7 @@ const factoryResponse = arccore.filter.create({
                 actions: CellProcessManager.actions,
                 operators: CellProcessManager.operators,
                 subcells: [
+                    ...CellProcessManager.subcells,
                     HolarchyCore,
                     request_.cellmodel
                 ]

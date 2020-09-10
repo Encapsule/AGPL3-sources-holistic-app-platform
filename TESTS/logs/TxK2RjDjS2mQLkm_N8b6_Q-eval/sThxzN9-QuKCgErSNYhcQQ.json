@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                    "vdid": "X_Z4ED_cdxRmNwyxcDF4VQ",
+                    "vdid": "M6QhDa5snNoxhMpOGbZLsQ",
                     "name": "Holistic App Client Runtime",
                     "description": "Holistic client application core runtime.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "ENENGxq1TkCa6Sk9YXaLlw": {
                             "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                            "vdid": "X_Z4ED_cdxRmNwyxcDF4VQ",
+                            "vdid": "M6QhDa5snNoxhMpOGbZLsQ",
                             "name": "Holistic App Client Runtime",
                             "description": "Holistic client application core runtime.",
                             "type": "CM",
@@ -49,19 +49,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
+                              "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "6-po-sADr7GVFbymhU9U_g",
+                                "vdid": "choshRI8Fma_nYBDIBHUlA",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
+                                  "vdid": "lQBOAgGY0X7--37O5c-I2g",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -81,9 +81,9 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "euUNcasvs_3dms9bB55wFA",
+                                    "vdid": "VCvlx03_XeWnbvPzsE1fBA",
                                     "name": "Holarchy Core",
-                                    "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
+                                    "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                     "type": "CM",
                                     "orTbEFR_Q-u-qqEqP8OUBA": {
                                       "id": "orTbEFR_Q-u-qqEqP8OUBA",
@@ -399,7 +399,7 @@
                         "type": "INDEX",
                         "ENENGxq1TkCa6Sk9YXaLlw": {
                           "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                          "vdid": "X_Z4ED_cdxRmNwyxcDF4VQ",
+                          "vdid": "M6QhDa5snNoxhMpOGbZLsQ",
                           "name": "Holistic App Client Runtime",
                           "description": "Holistic client application core runtime.",
                           "type": "CM",
@@ -426,19 +426,19 @@
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
+                            "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "6-po-sADr7GVFbymhU9U_g",
+                              "vdid": "choshRI8Fma_nYBDIBHUlA",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
+                                "vdid": "lQBOAgGY0X7--37O5c-I2g",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -458,9 +458,9 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "euUNcasvs_3dms9bB55wFA",
+                                  "vdid": "VCvlx03_XeWnbvPzsE1fBA",
                                   "name": "Holarchy Core",
-                                  "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
+                                  "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                   "type": "CM",
                                   "orTbEFR_Q-u-qqEqP8OUBA": {
                                     "id": "orTbEFR_Q-u-qqEqP8OUBA",

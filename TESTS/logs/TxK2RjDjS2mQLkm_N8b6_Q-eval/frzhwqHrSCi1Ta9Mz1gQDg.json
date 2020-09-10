@@ -16,7 +16,7 @@
                     "description": "Tests the CPM descendant processes active transition operator implementation.",
                     "cellmodel": {
                       "id": "L0L3o-vqTOOli8Lio96e8w",
-                      "vdid": "HNQfWNDVpLqAAAwa69tCBQ",
+                      "vdid": "caJD_tcck5xY84PsmP1_3Q",
                       "name": "CPM Descendant Processes Active Operator Test Model",
                       "description": "A model to test the descendant processes active operator.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "L0L3o-vqTOOli8Lio96e8w": {
                               "id": "L0L3o-vqTOOli8Lio96e8w",
-                              "vdid": "HNQfWNDVpLqAAAwa69tCBQ",
+                              "vdid": "caJD_tcck5xY84PsmP1_3Q",
                               "name": "CPM Descendant Processes Active Operator Test Model",
                               "description": "A model to test the descendant processes active operator.",
                               "type": "CM",
@@ -53,19 +53,19 @@
                               },
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
+                                "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "6-po-sADr7GVFbymhU9U_g",
+                                  "vdid": "choshRI8Fma_nYBDIBHUlA",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
+                                    "vdid": "lQBOAgGY0X7--37O5c-I2g",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -85,9 +85,9 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "euUNcasvs_3dms9bB55wFA",
+                                      "vdid": "VCvlx03_XeWnbvPzsE1fBA",
                                       "name": "Holarchy Core",
-                                      "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
+                                      "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                       "type": "CM",
                                       "orTbEFR_Q-u-qqEqP8OUBA": {
                                         "id": "orTbEFR_Q-u-qqEqP8OUBA",
@@ -291,7 +291,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                      "vdid": "2ibBrN6tgGZBBZlYUKgatg",
+                      "vdid": "31G7yPYThVswpmkqrnV0JQ",
                       "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                       "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                       "cmat": {
@@ -301,13 +301,13 @@
                             "type": "INDEX",
                             "EPUQ9YpwinAcHhwe1iLWIg": {
                               "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                              "vdid": "2ibBrN6tgGZBBZlYUKgatg",
+                              "vdid": "31G7yPYThVswpmkqrnV0JQ",
                               "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                               "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                               "type": "CM",
                               "8QyasQskrIDJKjf52YSZ5Q": {
                                 "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                 "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                 "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                                 "type": "APM"
@@ -398,7 +398,7 @@
                               },
                               "1Puwq4UEQZuJy6pOrkvZSg": {
                                 "id": "1Puwq4UEQZuJy6pOrkvZSg",
-                                "vdid": "GRXImlzHjfShbfsMQSguJg",
+                                "vdid": "Wq_G4ZDR7wfkXSL1uXfRgg",
                                 "name": "Cell Process Manager: Close Cell Process",
                                 "description": "Instruct CellProcessor to unlink the indicated worker proxy subcell from the shared cell process instance.",
                                 "type": "ACT"
@@ -419,7 +419,7 @@
                               },
                               "MAaYEUinReO3AKaTI21CaQ": {
                                 "id": "MAaYEUinReO3AKaTI21CaQ",
-                                "vdid": "ZFO4QsywL8TNaLhfHhM7sQ",
+                                "vdid": "Qp6SC7RpwNvCpw7TM71ZQg",
                                 "name": "Cell Process Manager: Open Cell Process",
                                 "description": "Instruct CellProcessor to open the specified cell process instance as a shared cell process, and link it to the indicated worker proxy subcell.",
                                 "type": "ACT"
@@ -431,11 +431,53 @@
                                 "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                 "type": "ACT"
                               },
+                              "LG9CCSEmSYaU6Mp9J0wZ5g": {
+                                "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
+                                "vdid": "EH9607nNLLDxh7yw9tcq-A",
+                                "name": "Holarchy Cell Process Proxy Helper Model",
+                                "description": "",
+                                "type": "CM",
+                                "CPPU-UPgS8eWiMap3Ixovg": {
+                                  "id": "CPPU-UPgS8eWiMap3Ixovg",
+                                  "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                  "name": "Holarchy Cell Process Proxy Helper Process",
+                                  "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
+                                  "type": "APM"
+                                },
+                                "FTxze-WaRp6HS0Dlr_Ke6A": {
+                                  "id": "FTxze-WaRp6HS0Dlr_Ke6A",
+                                  "vdid": "obCORxHw3MAUuFQzdMtx9w",
+                                  "name": "Cell Process Proxy: Proxy Operator",
+                                  "description": "Forwards the specified operator request to the local cell process to which the proxy is currently connected.",
+                                  "type": "TOP"
+                                },
+                                "rua1glcmTsOlYcfpZuiXnA": {
+                                  "id": "rua1glcmTsOlYcfpZuiXnA",
+                                  "vdid": "I-AIvfcICcu8hC0_jtWo6Q",
+                                  "name": "Cell Process Proxy: Proxy Action",
+                                  "description": "Forwards the specified action request to the local cell process to which the proxy is currently connected.",
+                                  "type": "ACT"
+                                },
+                                "X6ck_Bo4RmWTVHl-vk-urw": {
+                                  "id": "X6ck_Bo4RmWTVHl-vk-urw",
+                                  "vdid": "bIyk8URhZsEnCz9f9ilMbQ",
+                                  "name": "Cell Process Proxy: Connect Proxy",
+                                  "description": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
+                                  "type": "ACT"
+                                },
+                                "ySiBEGcaRGWVOZmwBRyhrA": {
+                                  "id": "ySiBEGcaRGWVOZmwBRyhrA",
+                                  "vdid": "Gz5JCs2-wjlEnEXT9J8cUA",
+                                  "name": "Cell Process Proxy: Disconnect Proxy",
+                                  "description": "Disconnect a connected cell process proxy from whatever local cell process it is currently connected to.",
+                                  "type": "ACT"
+                                }
+                              },
                               "MDVBKW89TvO9T62Ge7GmNg": {
                                 "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                "vdid": "euUNcasvs_3dms9bB55wFA",
+                                "vdid": "VCvlx03_XeWnbvPzsE1fBA",
                                 "name": "Holarchy Core",
-                                "description": "Holarchy Core CellLibrary packages standard logic and shared memory cell process step transition operators and action plug-ins that are loaded automatically into every CellProcessor cellular process runtime environment instance.",
+                                "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                 "type": "CM",
                                 "orTbEFR_Q-u-qqEqP8OUBA": {
                                   "id": "orTbEFR_Q-u-qqEqP8OUBA",
@@ -573,7 +615,7 @@
                               },
                               "L0L3o-vqTOOli8Lio96e8w": {
                                 "id": "L0L3o-vqTOOli8Lio96e8w",
-                                "vdid": "HNQfWNDVpLqAAAwa69tCBQ",
+                                "vdid": "caJD_tcck5xY84PsmP1_3Q",
                                 "name": "CPM Descendant Processes Active Operator Test Model",
                                 "description": "A model to test the descendant processes active operator.",
                                 "type": "CM",
@@ -600,19 +642,19 @@
                                 },
                                 "RyMcv3MpTI-Co1EyVOIvlw": {
                                   "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                  "vdid": "e4QXL6wlpNhG-Wuyl1RwbA",
+                                  "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
                                   "name": "Holarchy CML",
                                   "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                   "type": "CM",
                                   "c2cq2OE9SiaLKahL3Mk0KA": {
                                     "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                    "vdid": "6-po-sADr7GVFbymhU9U_g",
+                                    "vdid": "choshRI8Fma_nYBDIBHUlA",
                                     "name": "Holarchy Base Cell Model",
                                     "description": "A collection of low-level building blocks.",
                                     "type": "CM",
                                     "U5iIpgd8SHCk7pvaciVLTQ": {
                                       "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                      "vdid": "FMmdFMpi2sIxS-Gby5s0NA",
+                                      "vdid": "lQBOAgGY0X7--37O5c-I2g",
                                       "name": "Holarchy Base Memory Mailbox Flag",
                                       "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                       "type": "CM",
@@ -664,7 +706,7 @@
                         },
                         "8QyasQskrIDJKjf52YSZ5Q": {
                           "id": "8QyasQskrIDJKjf52YSZ5Q",
-                          "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                           "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                           "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                         },
@@ -673,6 +715,12 @@
                           "vdid": "9OnXus4mvB4GxhPoXMwTlw",
                           "name": "Dummy Process A Process",
                           "description": "Implements a trivial cell process that does nothing."
+                        },
+                        "CPPU-UPgS8eWiMap3Ixovg": {
+                          "id": "CPPU-UPgS8eWiMap3Ixovg",
+                          "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                          "name": "Holarchy Cell Process Proxy Helper Process",
+                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                         }
                       },
                       "opmiSpecPaths": [
@@ -680,7 +728,7 @@
                           "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                           "opmiRef": {
                             "id": "8QyasQskrIDJKjf52YSZ5Q",
-                            "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                            "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                             "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                             "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                           }
@@ -903,48 +951,44 @@
                           },
                           "____label": "Cell Process Manager",
                           "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
-                          "_private": {
+                          "ownedCellProcesses": {
+                            "____label": "Owned Cell Processes Data",
+                            "____description": "Data used by the CPM to track and manage the lifespan of cell processes tree created & destroyed w/the CPM process create & delete actions respectively.",
                             "____types": "jsObject",
                             "____defaultValue": {},
-                            "ownedCellProcesses": {
-                              "____label": "Owned Cell Processes Data",
-                              "____description": "Data used by the CPM to track and manage the lifespan of cell processes tree created & destroyed w/the CPM process create & delete actions respectively.",
-                              "____types": "jsObject",
-                              "____defaultValue": {},
-                              "revision": {
-                                "____label": "Cell Process Tree Revision",
-                                "____description": "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
-                                "____accept": "jsNumber",
-                                "____defaultValue": 0
-                              },
-                              "digraph": {
-                                "____label": "Cell Process Runtime Model",
-                                "____description": "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
-                                "____accept": [
-                                  "jsUndefined",
-                                  "jsObject"
-                                ]
-                              }
+                            "revision": {
+                              "____label": "Owned Cell Processes Data Revision",
+                              "____description": "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
+                              "____accept": "jsNumber",
+                              "____defaultValue": 0
                             },
-                            "sharedCellProcesses": {
-                              "____label": "Shared Cell Processes Data",
-                              "____description": "Data used by the CPM to track and manage the lifespan of reference-counted, shared, cell processes accessed via embedded helper cells that function as local in-cell-process proxies to other cell process(es).",
-                              "____types": "jsObject",
-                              "____defaultValue": {},
-                              "revision": {
-                                "____label": "Cell Process Tree Revision",
-                                "____description": "A monotonically-increasing counter value that is incremented every time a cell process is created or deleted via ControllerAction call.",
-                                "____accept": "jsNumber",
-                                "____defaultValue": 0
-                              },
-                              "digraph": {
-                                "____label": "Cell Process Runtime Model",
-                                "____description": "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
-                                "____accept": [
-                                  "jsUndefined",
-                                  "jsObject"
-                                ]
-                              }
+                            "digraph": {
+                              "____label": "Owned Cell Processes Data Model",
+                              "____description": "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsObject"
+                              ]
+                            }
+                          },
+                          "sharedCellProcesses": {
+                            "____label": "Shared Cell Processes Data",
+                            "____description": "Data used by the CPM to track and manage the lifespan of reference-counted, shared, cell processes accessed via embedded helper cells that function as local in-cell-process proxies to other cell process(es).",
+                            "____types": "jsObject",
+                            "____defaultValue": {},
+                            "revision": {
+                              "____label": "Shared Cell Processes Data Revision",
+                              "____description": "A monotonically-increasing counter value that is incremented every time a shared cell process is created or deleted via ControllerAction call.",
+                              "____accept": "jsNumber",
+                              "____defaultValue": 0
+                            },
+                            "digraph": {
+                              "____label": "Shared Cell Processes Data Model",
+                              "____description": "A deserialized @encapsule/arccore.graph DirectedGraph class instance leveraged by the cell process manager action interface.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsObject"
+                              ]
                             }
                           },
                           "__apmiStep": {
@@ -967,32 +1011,30 @@
                           "revision": 0
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "_private": {
-                            "ownedCellProcesses": {
-                              "revision": 0,
-                              "digraph": {
-                                "name": "Owned Cell Processes Tree Model",
-                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                "vlist": [
-                                  {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "p": {
-                                      "apmBindingPath": "~",
-                                      "name": "Cell Process Manager"
-                                    }
+                          "ownedCellProcesses": {
+                            "revision": 0,
+                            "digraph": {
+                              "name": "Owned Cell Processes Tree Model",
+                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                              "vlist": [
+                                {
+                                  "u": "U1NTU1paWlqwsLCwxMTExA",
+                                  "p": {
+                                    "apmBindingPath": "~",
+                                    "name": "Cell Process Manager"
                                   }
-                                ],
-                                "elist": []
-                              }
-                            },
-                            "sharedCellProcesses": {
-                              "revision": 0,
-                              "digraph": {
-                                "name": "Shared Cell Processes Digraph Model",
-                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                "vlist": [],
-                                "elist": []
-                              }
+                                }
+                              ],
+                              "elist": []
+                            }
+                          },
+                          "sharedCellProcesses": {
+                            "revision": 0,
+                            "digraph": {
+                              "name": "Shared Cell Processes Digraph Model",
+                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                              "vlist": [],
+                              "elist": []
                             }
                           },
                           "__apmiStep": "ready"
@@ -1000,14 +1042,14 @@
                       },
                       "transitionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                          "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                          "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                          "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                          "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                         },
                         "supportedFilters": [
                           "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -1018,6 +1060,7 @@
                           "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                           "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                           "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                          "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                           "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                           "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                           "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -1919,6 +1962,67 @@
                             "operationVDID": "oZJ6RHexkpOzBYmcgMUscg"
                           }
                         },
+                        "FTxze-WaRp6HS0Dlr_Ke6A": {
+                          "filterDescriptor": {
+                            "operationID": "FTxze-WaRp6HS0Dlr_Ke6A",
+                            "operationName": "Cell Process Proxy: Proxy Operator",
+                            "operationDescription": "Forwards the specified operator request to the local cell process to which the proxy is currently connected.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Proxy: Proxy Operator Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "process": {
+                                      "____types": "jsObject",
+                                      "proxy": {
+                                        "____types": "jsObject",
+                                        "proxyPath": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "#"
+                                        },
+                                        "request": {
+                                          "____accept": "jsObject"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "ooFMvEOukuVa0x6ZXU8QYw",
+                            "inputTypeVDID": "__utUfo4vGXJqY0oo3XcMA",
+                            "outputTypeVIID": "ftWRWl9xc_cfwE1RhIu4ig",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "2S0zRHkAbpO0JBOc6B87cg"
+                          }
+                        },
                         "YgABX95wR86GCYrYaDLISA": {
                           "filterDescriptor": {
                             "operationID": "YgABX95wR86GCYrYaDLISA",
@@ -2611,14 +2715,14 @@
                       },
                       "actionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "ca_nfuo6JEgp9vHvOdz8gQ",
+                          "operationID": "2CPcaap9YXApjY0hA4igfA",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "LcgATeMZ6R7Du0JfvKi7Ww",
+                          "inputTypeVIID": "ty6pOY0SP2RsdRAuWq7W7w",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "qS7z5v5pFwOVfZ8YHhZFig",
+                          "outputTypeVIID": "8v7FNLhxugeDxsMZL9gtcw",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "YM30ExkKNVfszY7tjkgUtA"
+                          "operationVDID": "vwz0EyScNVeBmo7th74UtA"
                         },
                         "supportedFilters": [
                           "[1Puwq4UEQZuJy6pOrkvZSg::Cell Process Manager: Close Cell Process]",
@@ -2630,10 +2734,13 @@
                           "[SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]",
                           "[VNaA0AMsTXawb32xLaNGTA::Cell Process Manager: Initialize]",
                           "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
+                          "[X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]",
                           "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
                           "[aXju3wSBQnufe0r51Y04wg::Write Sub-Action Response]",
                           "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]",
-                          "[r-JgxABoS_a-mSE2c1nvKA::Cell Process Manager: Process Query]"
+                          "[r-JgxABoS_a-mSE2c1nvKA::Cell Process Manager: Process Query]",
+                          "[rua1glcmTsOlYcfpZuiXnA::Cell Process Proxy: Proxy Action]",
+                          "[ySiBEGcaRGWVOZmwBRyhrA::Cell Process Proxy: Disconnect Proxy]"
                         ],
                         "options": {
                           "action": "getFilter"
@@ -2678,12 +2785,9 @@
                                       "____types": "jsObject",
                                       "close": {
                                         "____types": "jsObject",
-                                        "proxy": {
-                                          "____types": "jsObject",
-                                          "path": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "#"
-                                          }
+                                        "proxyPath": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "#"
                                         }
                                       }
                                     }
@@ -2695,10 +2799,10 @@
                               "____accept": "jsUndefined"
                             },
                             "inputTypeVIID": "GWRHNIAoQrVS5ttLzGJfXw",
-                            "inputTypeVDID": "XFiCOM49OxM6iDv4JQ0cEg",
+                            "inputTypeVDID": "MSx2Xt97yD8AfdhK9zd7Kw",
                             "outputTypeVIID": "3A4xi3igfcIp9tg3PeMOYQ",
                             "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                            "operationVDID": "Or3IkphLBDHsf30w_uKhSA"
+                            "operationVDID": "OndCkpg1wDHs5WMw_scmSA"
                           }
                         },
                         "VNaA0AMsTXawb32xLaNGTA": {
@@ -2803,12 +2907,9 @@
                                           "____accept": "jsString",
                                           "____defaultValue": "singleton"
                                         },
-                                        "proxy": {
-                                          "____types": "jsObject",
-                                          "path": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "#"
-                                          }
+                                        "proxyPath": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "#"
                                         }
                                       }
                                     }
@@ -2834,10 +2935,10 @@
                               }
                             },
                             "inputTypeVIID": "gHNEk505R7RJ8ODDtiHkQA",
-                            "inputTypeVDID": "XQ0dDJm1bLt5L7ioNU75Xw",
+                            "inputTypeVDID": "QcJxUaQA-C083yJKrCqzbQ",
                             "outputTypeVIID": "ljqFANxOSFD8S-tQNZzUIg",
                             "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                            "operationVDID": "qKyfzdFuxWh6riAenlQ92Q"
+                            "operationVDID": "qOqvzdGPD2h6MlMenuN-2Q"
                           }
                         },
                         "SdL0-5kmTuiNrWNu7zGZhg": {
@@ -3329,6 +3430,199 @@
                             "operationVDID": "1t0UyF7MpAypiTwFacLvBg"
                           }
                         },
+                        "X6ck_Bo4RmWTVHl-vk-urw": {
+                          "filterDescriptor": {
+                            "operationID": "X6ck_Bo4RmWTVHl-vk-urw",
+                            "operationName": "Cell Process Proxy: Connect Proxy",
+                            "operationDescription": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Proxy: Connect Proxy Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "process": {
+                                      "____types": "jsObject",
+                                      "proxy": {
+                                        "____types": "jsObject",
+                                        "connect": {
+                                          "____types": "jsObject",
+                                          "proxyPath": {
+                                            "____accept": "jsString",
+                                            "____defaultValue": "#"
+                                          },
+                                          "localCellProcess": {
+                                            "____types": "jsObject",
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            },
+                                            "instanceName": {
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsObject"
+                            },
+                            "inputTypeVIID": "tyyJO-xMV2o0PtVr2ON4CA",
+                            "inputTypeVDID": "E9F7qakBLXbdhbjzcTMlqg",
+                            "outputTypeVIID": "w46nFkDwQGGu0ASHsdx-Zg",
+                            "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
+                            "operationVDID": "pSOFT5cXIRruJ0yIb4fuWA"
+                          }
+                        },
+                        "ySiBEGcaRGWVOZmwBRyhrA": {
+                          "filterDescriptor": {
+                            "operationID": "ySiBEGcaRGWVOZmwBRyhrA",
+                            "operationName": "Cell Process Proxy: Disconnect Proxy",
+                            "operationDescription": "Disconnect a connected cell process proxy from whatever local cell process it is currently connected to.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Proxy: Disconnect Proxy Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "process": {
+                                      "____types": "jsObject",
+                                      "proxy": {
+                                        "____types": "jsObject",
+                                        "disconnect": {
+                                          "____types": "jsObject",
+                                          "proxyPath": {
+                                            "____accept": "jsString",
+                                            "____defaultValue": "#"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsObject"
+                            },
+                            "inputTypeVIID": "h6l9mMigEod2Xwz_hwJIFA",
+                            "inputTypeVDID": "un71HzB1OUWcRv0lA5knbQ",
+                            "outputTypeVIID": "QAhxEJeD9pT1iEi640CbKg",
+                            "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
+                            "operationVDID": "NX23T9RECBq5BJGIFcdDWA"
+                          }
+                        },
+                        "rua1glcmTsOlYcfpZuiXnA": {
+                          "filterDescriptor": {
+                            "operationID": "rua1glcmTsOlYcfpZuiXnA",
+                            "operationName": "Cell Process Proxy: Proxy Action",
+                            "operationDescription": "Forwards the specified action request to the local cell process to which the proxy is currently connected.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Proxy: Proxy Action Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "act": {
+                                  "____label": "OPC.act Method",
+                                  "____description": "A reference to ObservableProcessController.act method.",
+                                  "____accept": "jsFunction"
+                                }
+                              },
+                              "actionRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "process": {
+                                      "____types": "jsObject",
+                                      "proxy": {
+                                        "____types": "jsObject",
+                                        "proxyPath": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "#"
+                                        },
+                                        "request": {
+                                          "____accept": "jsObject"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsObject"
+                            },
+                            "inputTypeVIID": "wvVjeksTupOn_69OUmomJg",
+                            "inputTypeVDID": "fI8vbhDVdtxOY56C1uOo_w",
+                            "outputTypeVIID": "jZDkQbYcqjnTQHMZvYiTTw",
+                            "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
+                            "operationVDID": "udcVT9fvoRplgUWIclCRWA"
+                          }
+                        },
                         "iyvk_9vhRn2qvrjOes5v7Q": {
                           "filterDescriptor": {
                             "operationID": "iyvk_9vhRn2qvrjOes5v7Q",
@@ -3789,7 +4083,7 @@
                                     "initialStep": "uninitialized",
                                     "apmRef": {
                                       "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                      "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                      "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                       "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                       "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                     }
@@ -3817,32 +4111,30 @@
                                                   "revision": 0
                                                 },
                                                 "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                                                  "_private": {
-                                                    "ownedCellProcesses": {
-                                                      "revision": 0,
-                                                      "digraph": {
-                                                        "name": "Owned Cell Processes Tree Model",
-                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                            "p": {
-                                                              "apmBindingPath": "~",
-                                                              "name": "Cell Process Manager"
-                                                            }
+                                                  "ownedCellProcesses": {
+                                                    "revision": 0,
+                                                    "digraph": {
+                                                      "name": "Owned Cell Processes Tree Model",
+                                                      "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                      "vlist": [
+                                                        {
+                                                          "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                          "p": {
+                                                            "apmBindingPath": "~",
+                                                            "name": "Cell Process Manager"
                                                           }
-                                                        ],
-                                                        "elist": []
-                                                      }
-                                                    },
-                                                    "sharedCellProcesses": {
-                                                      "revision": 0,
-                                                      "digraph": {
-                                                        "name": "Shared Cell Processes Digraph Model",
-                                                        "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [],
-                                                        "elist": []
-                                                      }
+                                                        }
+                                                      ],
+                                                      "elist": []
+                                                    }
+                                                  },
+                                                  "sharedCellProcesses": {
+                                                    "revision": 0,
+                                                    "digraph": {
+                                                      "name": "Shared Cell Processes Digraph Model",
+                                                      "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                                      "vlist": [],
+                                                      "elist": []
                                                     }
                                                   },
                                                   "__apmiStep": "ready"
@@ -3850,14 +4142,14 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                                                  "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                                                  "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                                                  "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                                                  "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -3868,6 +4160,7 @@
                                                   "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                   "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                   "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                                                  "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                                                   "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                                                   "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                                                   "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -3955,7 +4248,7 @@
                                     "initialStep": "initializing",
                                     "apmRef": {
                                       "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                      "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                      "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                       "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                       "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                     }
@@ -3983,32 +4276,30 @@
                                                   "revision": 0
                                                 },
                                                 "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                                                  "_private": {
-                                                    "ownedCellProcesses": {
-                                                      "revision": 0,
-                                                      "digraph": {
-                                                        "name": "Owned Cell Processes Tree Model",
-                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                            "p": {
-                                                              "apmBindingPath": "~",
-                                                              "name": "Cell Process Manager"
-                                                            }
+                                                  "ownedCellProcesses": {
+                                                    "revision": 0,
+                                                    "digraph": {
+                                                      "name": "Owned Cell Processes Tree Model",
+                                                      "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                      "vlist": [
+                                                        {
+                                                          "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                          "p": {
+                                                            "apmBindingPath": "~",
+                                                            "name": "Cell Process Manager"
                                                           }
-                                                        ],
-                                                        "elist": []
-                                                      }
-                                                    },
-                                                    "sharedCellProcesses": {
-                                                      "revision": 0,
-                                                      "digraph": {
-                                                        "name": "Shared Cell Processes Digraph Model",
-                                                        "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [],
-                                                        "elist": []
-                                                      }
+                                                        }
+                                                      ],
+                                                      "elist": []
+                                                    }
+                                                  },
+                                                  "sharedCellProcesses": {
+                                                    "revision": 0,
+                                                    "digraph": {
+                                                      "name": "Shared Cell Processes Digraph Model",
+                                                      "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                                      "vlist": [],
+                                                      "elist": []
                                                     }
                                                   },
                                                   "__apmiStep": "ready"
@@ -4016,14 +4307,14 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                                                  "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                                                  "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                                                  "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                                                  "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -4034,6 +4325,7 @@
                                                   "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                   "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                   "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                                                  "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                                                   "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                                                   "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                                                   "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -4105,7 +4397,7 @@
                                     "initialStep": "ready",
                                     "apmRef": {
                                       "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                      "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                      "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                       "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                       "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                     }
@@ -4196,7 +4488,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                         "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                         "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                       }
@@ -4264,57 +4556,55 @@
                                                     "revision": 1
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                                                    "_private": {
-                                                      "ownedCellProcesses": {
-                                                        "revision": 2,
-                                                        "digraph": {
-                                                          "name": "Owned Cell Processes Tree Model",
-                                                          "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                                          "vlist": [
-                                                            {
+                                                    "ownedCellProcesses": {
+                                                      "revision": 2,
+                                                      "digraph": {
+                                                        "name": "Owned Cell Processes Tree Model",
+                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                        "vlist": [
+                                                          {
+                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                            "p": {
+                                                              "apmBindingPath": "~",
+                                                              "name": "Cell Process Manager"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                                            "p": {
+                                                              "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "viZxXd_JP4ujghfxAcO5yw",
+                                                            "p": {
+                                                              "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                                            }
+                                                          }
+                                                        ],
+                                                        "elist": [
+                                                          {
+                                                            "e": {
                                                               "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "p": {
-                                                                "apmBindingPath": "~",
-                                                                "name": "Cell Process Manager"
-                                                              }
-                                                            },
-                                                            {
+                                                              "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                                            }
+                                                          },
+                                                          {
+                                                            "e": {
                                                               "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                              "p": {
-                                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                                              }
-                                                            },
-                                                            {
-                                                              "u": "viZxXd_JP4ujghfxAcO5yw",
-                                                              "p": {
-                                                                "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                                              }
+                                                              "v": "viZxXd_JP4ujghfxAcO5yw"
                                                             }
-                                                          ],
-                                                          "elist": [
-                                                            {
-                                                              "e": {
-                                                                "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                                "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                                              }
-                                                            },
-                                                            {
-                                                              "e": {
-                                                                "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                                "v": "viZxXd_JP4ujghfxAcO5yw"
-                                                              }
-                                                            }
-                                                          ]
-                                                        }
-                                                      },
-                                                      "sharedCellProcesses": {
-                                                        "revision": 0,
-                                                        "digraph": {
-                                                          "name": "Shared Cell Processes Digraph Model",
-                                                          "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                          "vlist": [],
-                                                          "elist": []
-                                                        }
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    "sharedCellProcesses": {
+                                                      "revision": 0,
+                                                      "digraph": {
+                                                        "name": "Shared Cell Processes Digraph Model",
+                                                        "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -4322,14 +4612,14 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                                                    "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                                                    "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                                                    "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                                                    "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -4340,6 +4630,7 @@
                                                     "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                     "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                     "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                                                    "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                                                     "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                                                     "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                                                     "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -4411,7 +4702,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                         "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                         "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                       }
@@ -4479,57 +4770,55 @@
                                                     "revision": 1
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                                                    "_private": {
-                                                      "ownedCellProcesses": {
-                                                        "revision": 2,
-                                                        "digraph": {
-                                                          "name": "Owned Cell Processes Tree Model",
-                                                          "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                                          "vlist": [
-                                                            {
+                                                    "ownedCellProcesses": {
+                                                      "revision": 2,
+                                                      "digraph": {
+                                                        "name": "Owned Cell Processes Tree Model",
+                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                        "vlist": [
+                                                          {
+                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                            "p": {
+                                                              "apmBindingPath": "~",
+                                                              "name": "Cell Process Manager"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                                            "p": {
+                                                              "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "viZxXd_JP4ujghfxAcO5yw",
+                                                            "p": {
+                                                              "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                                            }
+                                                          }
+                                                        ],
+                                                        "elist": [
+                                                          {
+                                                            "e": {
                                                               "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "p": {
-                                                                "apmBindingPath": "~",
-                                                                "name": "Cell Process Manager"
-                                                              }
-                                                            },
-                                                            {
+                                                              "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                                            }
+                                                          },
+                                                          {
+                                                            "e": {
                                                               "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                              "p": {
-                                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                                              }
-                                                            },
-                                                            {
-                                                              "u": "viZxXd_JP4ujghfxAcO5yw",
-                                                              "p": {
-                                                                "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                                              }
+                                                              "v": "viZxXd_JP4ujghfxAcO5yw"
                                                             }
-                                                          ],
-                                                          "elist": [
-                                                            {
-                                                              "e": {
-                                                                "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                                "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                                              }
-                                                            },
-                                                            {
-                                                              "e": {
-                                                                "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                                "v": "viZxXd_JP4ujghfxAcO5yw"
-                                                              }
-                                                            }
-                                                          ]
-                                                        }
-                                                      },
-                                                      "sharedCellProcesses": {
-                                                        "revision": 0,
-                                                        "digraph": {
-                                                          "name": "Shared Cell Processes Digraph Model",
-                                                          "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                          "vlist": [],
-                                                          "elist": []
-                                                        }
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    "sharedCellProcesses": {
+                                                      "revision": 0,
+                                                      "digraph": {
+                                                        "name": "Shared Cell Processes Digraph Model",
+                                                        "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -4537,14 +4826,14 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                                                    "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                                                    "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                                                    "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                                                    "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -4555,6 +4844,7 @@
                                                     "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                     "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                     "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                                                    "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                                                     "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                                                     "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                                                     "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -4627,45 +4917,43 @@
                           "revision": 0
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "_private": {
-                            "ownedCellProcesses": {
-                              "revision": 1,
-                              "digraph": {
-                                "name": "Owned Cell Processes Tree Model",
-                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                "vlist": [
-                                  {
+                          "ownedCellProcesses": {
+                            "revision": 1,
+                            "digraph": {
+                              "name": "Owned Cell Processes Tree Model",
+                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                              "vlist": [
+                                {
+                                  "u": "U1NTU1paWlqwsLCwxMTExA",
+                                  "p": {
+                                    "apmBindingPath": "~",
+                                    "name": "Cell Process Manager"
+                                  }
+                                },
+                                {
+                                  "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                  "p": {
+                                    "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                  }
+                                }
+                              ],
+                              "elist": [
+                                {
+                                  "e": {
                                     "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "p": {
-                                      "apmBindingPath": "~",
-                                      "name": "Cell Process Manager"
-                                    }
-                                  },
-                                  {
-                                    "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                    "p": {
-                                      "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                    }
+                                    "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
                                   }
-                                ],
-                                "elist": [
-                                  {
-                                    "e": {
-                                      "u": "U1NTU1paWlqwsLCwxMTExA",
-                                      "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                    }
-                                  }
-                                ]
-                              }
-                            },
-                            "sharedCellProcesses": {
-                              "revision": 0,
-                              "digraph": {
-                                "name": "Shared Cell Processes Digraph Model",
-                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                "vlist": [],
-                                "elist": []
-                              }
+                                }
+                              ]
+                            }
+                          },
+                          "sharedCellProcesses": {
+                            "revision": 0,
+                            "digraph": {
+                              "name": "Shared Cell Processes Digraph Model",
+                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                              "vlist": [],
+                              "elist": []
                             }
                           },
                           "__apmiStep": "ready"
@@ -4738,7 +5026,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                         "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                         "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                       }
@@ -4806,57 +5094,55 @@
                                                     "revision": 1
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                                                    "_private": {
-                                                      "ownedCellProcesses": {
-                                                        "revision": 2,
-                                                        "digraph": {
-                                                          "name": "Owned Cell Processes Tree Model",
-                                                          "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                                          "vlist": [
-                                                            {
+                                                    "ownedCellProcesses": {
+                                                      "revision": 2,
+                                                      "digraph": {
+                                                        "name": "Owned Cell Processes Tree Model",
+                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                        "vlist": [
+                                                          {
+                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                            "p": {
+                                                              "apmBindingPath": "~",
+                                                              "name": "Cell Process Manager"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                                            "p": {
+                                                              "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "viZxXd_JP4ujghfxAcO5yw",
+                                                            "p": {
+                                                              "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                                            }
+                                                          }
+                                                        ],
+                                                        "elist": [
+                                                          {
+                                                            "e": {
                                                               "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "p": {
-                                                                "apmBindingPath": "~",
-                                                                "name": "Cell Process Manager"
-                                                              }
-                                                            },
-                                                            {
+                                                              "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                                            }
+                                                          },
+                                                          {
+                                                            "e": {
                                                               "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                              "p": {
-                                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                                              }
-                                                            },
-                                                            {
-                                                              "u": "viZxXd_JP4ujghfxAcO5yw",
-                                                              "p": {
-                                                                "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                                              }
+                                                              "v": "viZxXd_JP4ujghfxAcO5yw"
                                                             }
-                                                          ],
-                                                          "elist": [
-                                                            {
-                                                              "e": {
-                                                                "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                                "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                                              }
-                                                            },
-                                                            {
-                                                              "e": {
-                                                                "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                                "v": "viZxXd_JP4ujghfxAcO5yw"
-                                                              }
-                                                            }
-                                                          ]
-                                                        }
-                                                      },
-                                                      "sharedCellProcesses": {
-                                                        "revision": 0,
-                                                        "digraph": {
-                                                          "name": "Shared Cell Processes Digraph Model",
-                                                          "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                          "vlist": [],
-                                                          "elist": []
-                                                        }
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    "sharedCellProcesses": {
+                                                      "revision": 0,
+                                                      "digraph": {
+                                                        "name": "Shared Cell Processes Digraph Model",
+                                                        "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -4864,14 +5150,14 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                                                    "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                                                    "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                                                    "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                                                    "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -4882,6 +5168,7 @@
                                                     "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                     "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                     "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                                                    "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                                                     "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                                                     "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                                                     "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -4978,57 +5265,55 @@
                                                     "revision": 1
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                                                    "_private": {
-                                                      "ownedCellProcesses": {
-                                                        "revision": 2,
-                                                        "digraph": {
-                                                          "name": "Owned Cell Processes Tree Model",
-                                                          "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                                          "vlist": [
-                                                            {
+                                                    "ownedCellProcesses": {
+                                                      "revision": 2,
+                                                      "digraph": {
+                                                        "name": "Owned Cell Processes Tree Model",
+                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                        "vlist": [
+                                                          {
+                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                            "p": {
+                                                              "apmBindingPath": "~",
+                                                              "name": "Cell Process Manager"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                                            "p": {
+                                                              "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "viZxXd_JP4ujghfxAcO5yw",
+                                                            "p": {
+                                                              "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                                            }
+                                                          }
+                                                        ],
+                                                        "elist": [
+                                                          {
+                                                            "e": {
                                                               "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "p": {
-                                                                "apmBindingPath": "~",
-                                                                "name": "Cell Process Manager"
-                                                              }
-                                                            },
-                                                            {
+                                                              "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                                            }
+                                                          },
+                                                          {
+                                                            "e": {
                                                               "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                              "p": {
-                                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                                              }
-                                                            },
-                                                            {
-                                                              "u": "viZxXd_JP4ujghfxAcO5yw",
-                                                              "p": {
-                                                                "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                                              }
+                                                              "v": "viZxXd_JP4ujghfxAcO5yw"
                                                             }
-                                                          ],
-                                                          "elist": [
-                                                            {
-                                                              "e": {
-                                                                "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                                "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                                              }
-                                                            },
-                                                            {
-                                                              "e": {
-                                                                "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                                "v": "viZxXd_JP4ujghfxAcO5yw"
-                                                              }
-                                                            }
-                                                          ]
-                                                        }
-                                                      },
-                                                      "sharedCellProcesses": {
-                                                        "revision": 0,
-                                                        "digraph": {
-                                                          "name": "Shared Cell Processes Digraph Model",
-                                                          "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                          "vlist": [],
-                                                          "elist": []
-                                                        }
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    "sharedCellProcesses": {
+                                                      "revision": 0,
+                                                      "digraph": {
+                                                        "name": "Shared Cell Processes Digraph Model",
+                                                        "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -5036,14 +5321,14 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                                                    "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                                                    "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                                                    "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                                                    "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -5054,6 +5339,7 @@
                                                     "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                     "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                     "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                                                    "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                                                     "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                                                     "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                                                     "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -5127,7 +5413,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                         "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                         "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                       }
@@ -5227,57 +5513,55 @@
                                                     "revision": 1
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                                                    "_private": {
-                                                      "ownedCellProcesses": {
-                                                        "revision": 2,
-                                                        "digraph": {
-                                                          "name": "Owned Cell Processes Tree Model",
-                                                          "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                                          "vlist": [
-                                                            {
+                                                    "ownedCellProcesses": {
+                                                      "revision": 2,
+                                                      "digraph": {
+                                                        "name": "Owned Cell Processes Tree Model",
+                                                        "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                                        "vlist": [
+                                                          {
+                                                            "u": "U1NTU1paWlqwsLCwxMTExA",
+                                                            "p": {
+                                                              "apmBindingPath": "~",
+                                                              "name": "Cell Process Manager"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                                            "p": {
+                                                              "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                            }
+                                                          },
+                                                          {
+                                                            "u": "viZxXd_JP4ujghfxAcO5yw",
+                                                            "p": {
+                                                              "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                                            }
+                                                          }
+                                                        ],
+                                                        "elist": [
+                                                          {
+                                                            "e": {
                                                               "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "p": {
-                                                                "apmBindingPath": "~",
-                                                                "name": "Cell Process Manager"
-                                                              }
-                                                            },
-                                                            {
+                                                              "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                                            }
+                                                          },
+                                                          {
+                                                            "e": {
                                                               "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                              "p": {
-                                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                                              }
-                                                            },
-                                                            {
-                                                              "u": "viZxXd_JP4ujghfxAcO5yw",
-                                                              "p": {
-                                                                "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                                              }
+                                                              "v": "viZxXd_JP4ujghfxAcO5yw"
                                                             }
-                                                          ],
-                                                          "elist": [
-                                                            {
-                                                              "e": {
-                                                                "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                                "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                                              }
-                                                            },
-                                                            {
-                                                              "e": {
-                                                                "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                                                "v": "viZxXd_JP4ujghfxAcO5yw"
-                                                              }
-                                                            }
-                                                          ]
-                                                        }
-                                                      },
-                                                      "sharedCellProcesses": {
-                                                        "revision": 0,
-                                                        "digraph": {
-                                                          "name": "Shared Cell Processes Digraph Model",
-                                                          "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                          "vlist": [],
-                                                          "elist": []
-                                                        }
+                                                          }
+                                                        ]
+                                                      }
+                                                    },
+                                                    "sharedCellProcesses": {
+                                                      "revision": 0,
+                                                      "digraph": {
+                                                        "name": "Shared Cell Processes Digraph Model",
+                                                        "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -5285,14 +5569,14 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "Edi-_R3Jwpl62Q_XgxQNdA",
+                                                    "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "lshA78xfrMIO78K1QFJOKA",
+                                                    "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "mWfElEHz7pWO0nR8x2FXCA",
+                                                    "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "__P0E7yjNVc9iY7tK8UUtA"
+                                                    "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
@@ -5303,6 +5587,7 @@
                                                     "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                                                     "[DX5GfJcwRNq0xW20KzMSJQ::Cell Process Manager: Descendant Processes All In Step]",
                                                     "[DzlsRZBOReO03GSPsU3CIg::Cell Process Manager: Descendant Processes Any In Step]",
+                                                    "[FTxze-WaRp6HS0Dlr_Ke6A::Cell Process Proxy: Proxy Operator]",
                                                     "[Fs6tE76WR5yTOdbwQ_N_FQ::Cell Process Manager: Descendant Processes Active]",
                                                     "[PHPSWivjRyK80Gtymsp-pA::Cell Process Manager: Parent Process In Step]",
                                                     "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
@@ -5374,7 +5659,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "fb8r_BtHtkjrvT2ZLQ-bgg",
+                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
                                         "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
                                         "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
                                       }
@@ -5489,57 +5774,55 @@
                           "revision": 1
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "_private": {
-                            "ownedCellProcesses": {
-                              "revision": 2,
-                              "digraph": {
-                                "name": "Owned Cell Processes Tree Model",
-                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                                "vlist": [
-                                  {
+                          "ownedCellProcesses": {
+                            "revision": 2,
+                            "digraph": {
+                              "name": "Owned Cell Processes Tree Model",
+                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                              "vlist": [
+                                {
+                                  "u": "U1NTU1paWlqwsLCwxMTExA",
+                                  "p": {
+                                    "apmBindingPath": "~",
+                                    "name": "Cell Process Manager"
+                                  }
+                                },
+                                {
+                                  "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                  "p": {
+                                    "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                  }
+                                },
+                                {
+                                  "u": "viZxXd_JP4ujghfxAcO5yw",
+                                  "p": {
+                                    "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                  }
+                                }
+                              ],
+                              "elist": [
+                                {
+                                  "e": {
                                     "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "p": {
-                                      "apmBindingPath": "~",
-                                      "name": "Cell Process Manager"
-                                    }
-                                  },
-                                  {
+                                    "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                  }
+                                },
+                                {
+                                  "e": {
                                     "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                    "p": {
-                                      "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                    }
-                                  },
-                                  {
-                                    "u": "viZxXd_JP4ujghfxAcO5yw",
-                                    "p": {
-                                      "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                    }
+                                    "v": "viZxXd_JP4ujghfxAcO5yw"
                                   }
-                                ],
-                                "elist": [
-                                  {
-                                    "e": {
-                                      "u": "U1NTU1paWlqwsLCwxMTExA",
-                                      "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                    }
-                                  },
-                                  {
-                                    "e": {
-                                      "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                      "v": "viZxXd_JP4ujghfxAcO5yw"
-                                    }
-                                  }
-                                ]
-                              }
-                            },
-                            "sharedCellProcesses": {
-                              "revision": 0,
-                              "digraph": {
-                                "name": "Shared Cell Processes Digraph Model",
-                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                "vlist": [],
-                                "elist": []
-                              }
+                                }
+                              ]
+                            }
+                          },
+                          "sharedCellProcesses": {
+                            "revision": 0,
+                            "digraph": {
+                              "name": "Shared Cell Processes Digraph Model",
+                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                              "vlist": [],
+                              "elist": []
                             }
                           },
                           "__apmiStep": "ready"

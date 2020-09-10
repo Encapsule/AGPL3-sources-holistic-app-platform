@@ -13,6 +13,43 @@ const cellModel = new CellModel({
         id: "CPPU-UPgS8eWiMap3Ixovg",
         name: "Holarchy Cell Process Proxy Helper Process",
         description: "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
+
+        ocdDataSpec: {
+            ____types: "jsObject",
+            "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                lcpBindingRequest: {
+                    ____types: [ "jsUndefined", "jsObject" ],
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString" },
+                    proxyOwner: { ____accept: "jsString" }
+                },
+                lcpBindingResponse: {
+                    ____types: [ "jsUndefined", "jsObject" ],
+                    error: {
+                        ____accept: [ "jsNull", "jsString" ]
+                    },
+                    result: {
+                        ____types: [ "jsUndefined", "jsObject" ],
+                        lcpBindingPath: { ____accept: "jsString" }
+                    }
+                }
+            }
+        }, // ocdDataSpec
+
+        steps: {
+            uninitialized: {
+                description: "Default cell process step.",
+                transitions: [
+                    { transitionIf: { always: true }, nextStep: "ready" }
+                ]
+            },
+            ready: {
+                description: "The cell process proxy helper process is constructed and ready to accept action and operator requests."
+            }
+        }
+
     }, // apm
 
     actions: [

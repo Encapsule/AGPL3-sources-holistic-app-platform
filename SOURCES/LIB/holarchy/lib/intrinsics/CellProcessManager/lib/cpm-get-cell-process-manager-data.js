@@ -3,7 +3,7 @@
 const arccore = require("@encapsule/arccore");
 
 const cpmMountingNamespaceName = require("../../../filters/cpm-mounting-namespace-name");
-const cpmDataPath = `~.${cpmMountingNamespaceName}._private`;
+const cpmDataPath = `~.${cpmMountingNamespaceName}`;
 
 const factoryResponse = arccore.filter.create({
     operationID: "0nrwHYIeQEamsFGAU52gmQ",

@@ -25,7 +25,7 @@ const action = new ControllerAction({
                                 ____defaultValue: "#"
                             },
                             // ... to this new or existing local cell process.
-                            cellProcess: {
+                            localCellProcess: {
                                 ____types: "jsObject",
                                 apmID: {
                                     ____accept: "jsString"

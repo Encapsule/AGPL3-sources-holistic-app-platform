@@ -37,7 +37,7 @@ module.exports = {
         require("./TransitionOperator-cpm-parent-process-in-step")              // STAGE 1 COMPLETE
     ],
 
-    submodels: [
+    subcells: [
         require("../CellProcessProxy")
     ]
 
