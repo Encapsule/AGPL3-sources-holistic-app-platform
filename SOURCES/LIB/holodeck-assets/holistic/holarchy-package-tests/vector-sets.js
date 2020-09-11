@@ -24,9 +24,13 @@ module.exports = [
     require("./vector-set-cm-constructor"),
 
     // Low-level CellProcessor ES6 class tests.
+    // ... includes CPM owned process create / delete / query action tests
     require("./vector-set-cp-constructor"),
+    // ... includes test matrix (or part of it) for CPM owned process operators (ancesors, parent, children, descendants)
+    require("./vector-set-cpm-process-operators"),
 
-    require("./vector-set-cpm-process-operators")
+
+    require("./vector-set-cpm-shared-processes")
 
     // TOOD: Add harness and vector set for ObservableControllerData
     // Probably end up renaming to ObservableCellData to keep OCD acronym.
