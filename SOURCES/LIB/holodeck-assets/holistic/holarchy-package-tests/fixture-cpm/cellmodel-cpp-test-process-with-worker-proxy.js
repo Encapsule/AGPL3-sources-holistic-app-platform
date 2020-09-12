@@ -12,6 +12,14 @@ const cellModel = new holarchy.CellModel({
         description: "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
         ocdDataSpec: {
             ____types: "jsObject",
+            construction: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                instanceName: {
+                    ____accept: [ "jsNull", "jsString" ],
+                    ____defaultValue: null
+                }
+            },
             proxyTest: {
                 ____types: "jsObject",
                 ____defaultValue: {},
@@ -45,8 +53,9 @@ const cellModel = new holarchy.CellModel({
                                                 proxyPath: "#.proxyTest",
                                                 localCellProcess: {
                                                     // apmID: "i6htE08TRzaWc9Hq00B3sg", // this is a total lie - nonesuch
-                                                    apmID: "J9RsPcp3RoS1QrZG-04XPg" // proxy back to the host process (should be okay although i am not sure why)
+                                                    apmID: "J9RsPcp3RoS1QrZG-04XPg", // proxy back to the host process (should be okay although i am not sure why)
                                                     // instanceName -> default to singleton
+                                                    instanceName: "proxy-test-#1"
                                                 }
                                             }
                                         }

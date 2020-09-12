@@ -145,21 +145,80 @@ const action = new ControllerAction({
             // We now know it's possible to create an instance of the localCellProcess. But, we still do not know if the lcp is already present in
             // either the sharedCellProcesses.digraph and/or the ownedCellProcesses.digraph. And, the logic is a bit tricky. However, at this point
             // we can start to mutate the graphs because we're past the point where any bad input provided via request_ is likely to cause an error.
-            
+
             if (!cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(thisCellProcessID)) {
                 // This host is not currently hosting any connected proxy helper instance(s). And, no other host owns proxy instance(s) that are connected to it.
                 // And, we know the host must exist. So, it must be an owned cell process. Record it as such.
                 cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: thisCellProcessID, p: { role: "owned", apmBindingPath: request_.context.apmBindingPath }});
             }
 
-
             if (cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(proxyHelperID)) {
                 // This indicates that this proxy helper instance is currently connected.
-                cpmDataDescriptor.data.sharedCellProcesses.digraph.deleteVertex(proxyHelperID); // host -> proxy -> lcp (linked) ===> host lcp (unlinked)
+                cpmDataDescriptor.data.sharedCellProcesses.digraph.removeVertex(proxyHelperID); // host -> proxy -> lcp (linked) ===> host lcp (unlinked)
             }
             cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: proxyHelperID, p: { role: "helper", apmBindingPath: proxyPath }});
             cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: thisCellProcessID, v: proxyHelperID }, p: { role: "host-to-proxy" }});
-            
+
+            // If LCP is present in the sharedProcessesDigraph and not the ownedProcessesDigraph there's a consistency problem.
+            if (cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(lcpProcessID)) {
+                if (!cpmDataDescriptor.data.ownedCellProcesses.digraph.isVertex(lcpProcessID)) {
+                    errors(`Internal consistency error detected. Cannot connect proxy '${proxyPath}' to localCellProcess '${lcpBindingPath}'.`);
+                    break;
+                }
+                const lcpProps = cpmDataDescriptor.data.sharedCellProcesses.digraph.getVertexProperty(lcpProcessID);
+                cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: proxyHelperID, v: lcpProcessID }, p: { role: `proxy-to-${lcpProps.role}` }});
+            } else {
+                if (cpmDataDescriptor.data.ownedCellProcesses.digraph.isVertex(lcpProcessID)) {
+                    cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: lcpProcessID, p: { role: "owned", apmBindingPath: lcpBindingPath }});
+                    cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: proxyHelperID, v: lcpProcessID }, p: { role: "proxy-to-owned" }});
+                } else {
+                    const actionResponse = request_.context.act({
+                        actorName: "Cell Process Proxy: open connection",
+                        actorTaskDescription: "Attempting to create a new owned worker process that will be managed as a shared cell process.",
+                        actionRequest: {
+                            holarchy: {
+                                CellProcessor: {
+                                    process: {
+                                        create: {
+                                            apmID: message.localCellProcess.apmID,
+                                            cellProcessUniqueName: message.localCellProcess.instanceName,
+                                            cellProcessInitData: {
+                                                construction: {
+                                                    instanceName: message.localCellProcess.instanceName
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        apmBindingPath: "~" // shared cell processes are owned by the CellProcessor
+                    });
+                    if (actionResponse.error) {
+                        errors.push("Failed to create new shared cell process during cell process proxy connect.");
+                        errors.push(actionResponse.error);
+                    }
+                    cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: lcpProcessID, p: { role: "shared", apmBindingPath: lcpBindingPath }});
+                    cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: proxyHelperID, v: lcpProcessID }, p: { role: "proxy-to-shared" }});
+                }
+
+            }
+
+            response.result = {
+                host: {
+                    apmBindingPath: request_.context.apmBindingPath,
+                    processID: thisCellProcessID
+                },
+                proxy: {
+                    apmBindingPath: proxyPath,
+                    proccessID: proxyHelperID
+                },
+                connected: {
+                    apmBindingPath: lcpBindingPath,
+                    processID: lcpProcessID
+                }
+            }
+
             break;
         }
         if (errors.length) {
