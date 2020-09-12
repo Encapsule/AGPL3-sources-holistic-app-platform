@@ -75,6 +75,7 @@ const controllerAction = new ControllerAction({
             const message = request_.actionRequest.holarchy.CellProcessor.process.create;
 
             // This is closely coupled w/the CellProcessor constructor filter.
+            // TODO: Replace w/cpmLib call
             const apmProcessesNamespace = `~.${message.apmID}_CellProcesses`;
 
             // Query the ObservableCellData instance (ocdi) to determine if apmProcessNamespace exists.

@@ -67,7 +67,7 @@ const factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            reponse.error = errors.join(" ");
+            response.error = errors.join(" ");
         }
         return response;
     } // bodyFunction
