@@ -19,6 +19,8 @@ var ControllerAction = require("../../ControllerAction");
 
 var cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 
+var cpmLib = require("./lib");
+
 var controllerAction = new ControllerAction({
   id: "4s_DUfKnQ4aS-xRjewAfUQ",
   name: "Cell Process Manager: Process Delete",
@@ -94,18 +96,19 @@ var controllerAction = new ControllerAction({
       } // TODO: This should be converted to a cpmLib call
 
 
-      var cellProcessID = message.cellProcessID ? message.cellProcessID : message.apmBindingPath ? arccore.identifier.irut.fromReference(message.apmBindingPath).result : arccore.identifier.irut.fromReference("~.".concat(message.cellProcessNamespace.apmID, "_CellProcesses.cellProcessMap.").concat(arccore.identifier.irut.fromReference(message.cellProcessNamespace.cellProcessUniqueName).result)).result; // Now we have to dereference the cell process manager's process digraph (always a single-rooted tree).
+      var cellProcessID = message.cellProcessID ? message.cellProcessID : message.apmBindingPath ? arccore.identifier.irut.fromReference(message.apmBindingPath).result : arccore.identifier.irut.fromReference("~.".concat(message.cellProcessNamespace.apmID, "_CellProcesses.cellProcessMap.").concat(arccore.identifier.irut.fromReference(message.cellProcessNamespace.cellProcessUniqueName).result)).result;
+      var cpmLibResponse = cpmLib.getProcessManagerData.request({
+        ocdi: request_.context.ocdi
+      });
 
-      var cellProcessTreePath = "~.".concat(cpmMountingNamespaceName, ".cellProcessTree");
-      var ocdResponse = request_.context.ocdi.readNamespace(cellProcessTreePath);
-
-      if (ocdResponse.error) {
-        errors.push(ocdResponse.error);
+      if (cpmLibResponse.error) {
+        errors.push(cpmLibResponse.error);
         return "break";
       }
 
-      var cellProcessTreeData = ocdResponse.result;
-      var inDegree = cellProcessTreeData.digraph.inDegree(cellProcessID);
+      var cpmDataDescriptor = cpmLibResponse.result;
+      var ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+      var inDegree = ownedCellProcessesData.digraph.inDegree(cellProcessID);
 
       switch (inDegree) {
         case -1:
@@ -129,10 +132,10 @@ var controllerAction = new ControllerAction({
         return "break";
       }
 
-      var parentProcessID = cellProcessTreeData.digraph.inEdges(cellProcessID)[0].u;
+      var parentProcessID = ownedCellProcessesData.digraph.inEdges(cellProcessID)[0].u;
       var processesToDelete = [];
       var digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
-        digraph: cellProcessTreeData.digraph,
+        digraph: ownedCellProcessesData.digraph,
         options: {
           startVector: [cellProcessID]
         },
@@ -156,50 +159,51 @@ var controllerAction = new ControllerAction({
 
       for (var i = 0; processesToDelete.length > i; i++) {
         var _cellProcessID = processesToDelete[i];
-        var processDescriptor = cellProcessTreeData.digraph.getVertexProperty(_cellProcessID);
+        var processDescriptor = ownedCellProcessesData.digraph.getVertexProperty(_cellProcessID);
         var apmBindingPath = processDescriptor.apmBindingPath;
         var apmBindingPathTokens = apmBindingPath.split(".");
         var apmProcessesNamespace = apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 1).join(".");
         var apmProcessesRevisionNamespace = [].concat(_toConsumableArray(apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 2)), ["revision"]).join(".");
-        ocdResponse = request_.context.ocdi.readNamespace(apmProcessesNamespace);
 
-        if (ocdResponse.error) {
-          errors.push(ocdResponse.error);
+        var _ocdResponse = request_.context.ocdi.readNamespace(apmProcessesNamespace);
+
+        if (_ocdResponse.error) {
+          errors.push(_ocdResponse.error);
           break;
         }
 
-        var processesMemory = ocdResponse.result;
+        var processesMemory = _ocdResponse.result;
         delete processesMemory[apmBindingPathTokens[apmBindingPathTokens.length - 1]];
-        ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesNamespace, processesMemory);
+        _ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesNamespace, processesMemory);
 
-        if (ocdResponse.error) {
-          errors.push(ocdResponse.error);
+        if (_ocdResponse.error) {
+          errors.push(_ocdResponse.error);
           break;
         }
 
-        ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
+        _ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
 
-        if (ocdResponse.error) {
-          errors.push(ocdResponse.error);
+        if (_ocdResponse.error) {
+          errors.push(_ocdResponse.error);
           break;
         }
 
-        var apmProcessesRevision = ocdResponse.result;
-        ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesRevisionNamespace, apmProcessesRevision + 1);
+        var apmProcessesRevision = _ocdResponse.result;
+        _ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesRevisionNamespace, apmProcessesRevision + 1);
 
-        if (ocdResponse.error) {
-          errors.push(ocdResponse.error);
+        if (_ocdResponse.error) {
+          errors.push(_ocdResponse.error);
           break;
         }
 
-        cellProcessTreeData.digraph.removeVertex(_cellProcessID);
+        ownedCellProcessesData.digraph.removeVertex(_cellProcessID);
       }
 
       if (errors.length) {
         return "break";
       }
 
-      ocdResponse = request_.context.ocdi.writeNamespace("".concat(cellProcessTreePath, ".revision"), cellProcessTreeData.revision + 1);
+      var ocdResponse = request_.context.ocdi.writeNamespace("".concat(cpmDataDescriptor.path, ".ownedCellProcesses.revision"), ownedCellProcessesData.revision + 1);
 
       if (ocdResponse.error) {
         errors.push(ocdResponse.error);
@@ -207,7 +211,7 @@ var controllerAction = new ControllerAction({
       }
 
       response.result = {
-        apmBindingPath: cellProcessTreeData.digraph.getVertexProperty(parentProcessID).apmBindingPath,
+        apmBindingPath: ownedCellProcessesData.digraph.getVertexProperty(parentProcessID).apmBindingPath,
         cellProcessID: parentProcessID
       };
       return "break";

@@ -28,12 +28,9 @@ var action = new ControllerAction({
               ____accept: "jsString",
               ____defaultValue: "singleton"
             },
-            proxy: {
-              ____types: "jsObject",
-              path: {
-                ____accept: "jsString",
-                ____defaultValue: "#"
-              }
+            proxyPath: {
+              ____accept: "jsString",
+              ____defaultValue: "#"
             }
           }
         }

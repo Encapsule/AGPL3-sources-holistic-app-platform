@@ -21,12 +21,9 @@ var action = new ControllerAction({
           ____types: "jsObject",
           close: {
             ____types: "jsObject",
-            proxy: {
-              ____types: "jsObject",
-              path: {
-                ____accept: "jsString",
-                ____defaultValue: "#"
-              }
+            proxyPath: {
+              ____accept: "jsString",
+              ____defaultValue: "#"
             }
           }
         }
