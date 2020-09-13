@@ -37,16 +37,67 @@ const cellModel = new CellModel({
         }, // ocdDataSpec
 
         steps: {
+
             uninitialized: {
                 description: "Default cell process step.",
                 transitions: [
-                    { transitionIf: { always: true }, nextStep: "ready" }
+                    {
+                        nextStep: "connected",
+                        transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy.lcpConnect" } } } } } }
+                    },
+                    {
+                        nextStep: "disconnected",
+                        transitionIf: { always: true }
+                    }
                 ]
             },
-            ready: {
-                description: "The cell process proxy helper process is constructed and ready to accept action and operator requests."
+
+            disconnected: {
+                description: "This cell process proxy helper is waiting for a connection action request from a hosting cell process.",
+                transitions: [
+                    {
+                        nextStep: "connected",
+                        transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy.lcpConnect" } } } } } },
+                    }
+                ]
+            },
+
+            connected: {
+                description: "This cell process proxy helper is connected to a local (CellProcessor-resident) cell process.",
+                transitions: [
+                    {
+                        nextStep: "broken",
+                        transitionIf: { holarchy: { cm: { operators: { ocd: { compare: { values: {
+                            a: { path: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy.lcpConnect" },
+                            b: { value: null },
+                            operator: "==="
+                        } } } } } } }
+                    },
+                    {
+                        nextStep: "disconnected",
+                        transitionIf: { not: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy.lcpConnect" } } } } } } },
+                    }
+                ]
+            },
+
+            broken: {
+                description: "This cell process proxy helper was connected to an owned cell process that has been deleted.",
+                transitions: [
+                    {
+                        nextStep: "connected",
+                        transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceTruthy: { path: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy.lcpConnect" } } } } } },
+                    },
+                    {
+                        nextStep: "disconnected",
+                        transitionIf: { holarchy: { cm: { operators: { ocd: { isNamespaceIdenticalToValue: {
+                            path: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy.lcpConnect",
+                            value: undefined
+                        } } } } } }
+                    }
+                ]
             }
-        }
+
+        } // steps
 
     }, // apm
 
