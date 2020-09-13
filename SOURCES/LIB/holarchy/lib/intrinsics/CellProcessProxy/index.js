@@ -19,21 +19,19 @@ const cellModel = new CellModel({
             "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
                 ____types: "jsObject",
                 ____defaultValue: {},
-                lcpBindingRequest: {
-                    ____types: [ "jsUndefined", "jsObject" ],
+                lcpRequest: {
+                    ____types: [ "jsUndefined",
+                                 "jsObject"
+                               ],
                     apmID: { ____accept: "jsString" },
-                    instanceName: { ____accept: "jsString" },
-                    proxyOwner: { ____accept: "jsString" }
+                    instanceName: { ____accept: "jsString" }
                 },
-                lcpBindingResponse: {
-                    ____types: [ "jsUndefined", "jsObject" ],
-                    error: {
-                        ____accept: [ "jsNull", "jsString" ]
-                    },
-                    result: {
-                        ____types: [ "jsUndefined", "jsObject" ],
-                        lcpBindingPath: { ____accept: "jsString" }
-                    }
+                lcpConnect: {
+                    ____accept: [
+                        "jsUndefined", // the cell process proxy is disconnected currently
+                        "jsString", // the apmBindingPath of the connected local cell process (lcp)
+                        "jsNull" // the previous connection has been disconnected due to deletion of owned lcp
+                    ]
                 }
             }
         }, // ocdDataSpec

@@ -56,6 +56,8 @@ const action = new ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
 
+            let runGarbageCollector = false;
+
             // Get the CPM process' data.
             let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
@@ -155,6 +157,7 @@ const action = new ControllerAction({
             if (cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(proxyHelperID)) {
                 // This indicates that this proxy helper instance is currently connected.
                 cpmDataDescriptor.data.sharedCellProcesses.digraph.removeVertex(proxyHelperID); // host -> proxy -> lcp (linked) ===> host lcp (unlinked)
+                runGarbageCollector = true;
             }
             cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: proxyHelperID, p: { role: "helper", apmBindingPath: proxyPath }});
             cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: thisCellProcessID, v: proxyHelperID }, p: { role: "host-to-proxy" }});
@@ -202,6 +205,39 @@ const action = new ControllerAction({
                     cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: proxyHelperID, v: lcpProcessID }, p: { role: "proxy-to-shared" }});
                 }
 
+            }
+
+            ocdResponse = request_.context.ocdi.writeNamespace(
+                {
+                    apmBindingPath: proxyPath,
+                    dataPath: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy"
+                },
+                {
+                    lcpRequest: {
+                        apmID: message.localCellProcess.apmID,
+                        instanceName: message.localCellProcess.instanceName,
+                        proxyOwner: request_.context.apmBindingPath
+                    },
+                    lcpConnect: lcpBindingPath
+                }
+            );
+
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+
+            ocdResponse = request_.context.ocdi.writeNamespace(
+                {
+                    apmBindingPath: cpmDataDescriptor.path,
+                    dataPath: "#.sharedCellProcesses.revision"
+                },
+                cpmDataDescriptor.data.sharedCellProcesses.revision + 1
+            );
+
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
             }
 
             response.result = {

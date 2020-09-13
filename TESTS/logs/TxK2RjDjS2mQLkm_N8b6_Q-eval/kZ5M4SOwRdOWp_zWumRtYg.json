@@ -79,7 +79,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                      "vdid": "TzkV67hgNQQ_zxZsUgQUcw",
+                      "vdid": "gzkV68xgNQS8zxZsWQQUcw",
                       "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                       "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                       "cmat": {
@@ -89,7 +89,7 @@
                             "type": "INDEX",
                             "TPVM9ZxwnHBvHm8e1yLXIg": {
                               "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                              "vdid": "TzkV67hgNQQ_zxZsUgQUcw",
+                              "vdid": "gzkV68xgNQS8zxZsWQQUcw",
                               "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                               "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                               "type": "CM",
@@ -221,13 +221,13 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "EH9607nNLLDxh7yw9tcq-A",
+                                "vdid": "639608fNLLAFh7ywftcq-A",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
                                 "CPPU-UPgS8eWiMap3Ixovg": {
                                   "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                  "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                  "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                   "name": "Holarchy Cell Process Proxy Helper Process",
                                   "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
                                   "type": "APM"
@@ -445,7 +445,7 @@
                         },
                         "CPPU-UPgS8eWiMap3Ixovg": {
                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                          "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                          "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                           "name": "Holarchy Cell Process Proxy Helper Process",
                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                         }
@@ -473,7 +473,7 @@
                           "specPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.cellProcessID.proxyTest",
                           "opmiRef": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
-                            "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                            "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                             "name": "Holarchy Cell Process Proxy Helper Process",
                             "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                           }
@@ -557,7 +557,7 @@
                                 "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
                                   "____types": "jsObject",
                                   "____defaultValue": {},
-                                  "lcpBindingRequest": {
+                                  "lcpRequest": {
                                     "____types": [
                                       "jsUndefined",
                                       "jsObject"
@@ -567,31 +567,14 @@
                                     },
                                     "instanceName": {
                                       "____accept": "jsString"
-                                    },
-                                    "proxyOwner": {
-                                      "____accept": "jsString"
                                     }
                                   },
-                                  "lcpBindingResponse": {
-                                    "____types": [
+                                  "lcpConnect": {
+                                    "____accept": [
                                       "jsUndefined",
-                                      "jsObject"
-                                    ],
-                                    "error": {
-                                      "____accept": [
-                                        "jsNull",
-                                        "jsString"
-                                      ]
-                                    },
-                                    "result": {
-                                      "____types": [
-                                        "jsUndefined",
-                                        "jsObject"
-                                      ],
-                                      "lcpBindingPath": {
-                                        "____accept": "jsString"
-                                      }
-                                    }
+                                      "jsString",
+                                      "jsNull"
+                                    ]
                                   }
                                 },
                                 "__apmiStep": {
@@ -4117,7 +4100,13 @@
                                                           "instanceName": null
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4127,7 +4116,13 @@
                                                           "instanceName": "proxy-test-#1"
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4179,7 +4174,7 @@
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 0,
+                                                      "revision": 2,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
@@ -4372,7 +4367,7 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                        "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                         "name": "Holarchy Cell Process Proxy Helper Process",
                                         "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
@@ -4394,7 +4389,13 @@
                                                           "instanceName": null
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4404,7 +4405,13 @@
                                                           "instanceName": "proxy-test-#1"
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4456,7 +4463,7 @@
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 0,
+                                                      "revision": 2,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
@@ -4683,7 +4690,13 @@
                                                           "instanceName": null
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4693,7 +4706,13 @@
                                                           "instanceName": "proxy-test-#1"
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4745,7 +4764,7 @@
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 0,
+                                                      "revision": 2,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
@@ -4921,7 +4940,13 @@
                                                           "instanceName": null
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4931,7 +4956,13 @@
                                                           "instanceName": "proxy-test-#1"
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -4983,7 +5014,7 @@
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 0,
+                                                      "revision": 2,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
@@ -5176,7 +5207,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                        "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                         "name": "Holarchy Cell Process Proxy Helper Process",
                                         "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
@@ -5208,7 +5239,7 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                        "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                         "name": "Holarchy Cell Process Proxy Helper Process",
                                         "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
@@ -5230,7 +5261,13 @@
                                                           "instanceName": null
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -5240,7 +5277,13 @@
                                                           "instanceName": "proxy-test-#1"
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -5292,7 +5335,7 @@
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 0,
+                                                      "revision": 2,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
@@ -5549,7 +5592,13 @@
                                                           "instanceName": null
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -5559,7 +5608,13 @@
                                                           "instanceName": "proxy-test-#1"
                                                         },
                                                         "proxyTest": {
-                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                                          "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                                            "lcpRequest": {
+                                                              "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                                              "instanceName": "proxy-test-#1"
+                                                            },
+                                                            "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                                          },
                                                           "__apmiStep": "ready"
                                                         },
                                                         "__apmiStep": "end_test"
@@ -5611,7 +5666,7 @@
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 0,
+                                                      "revision": 2,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
@@ -5765,7 +5820,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                        "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                         "name": "Holarchy Cell Process Proxy Helper Process",
                                         "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
@@ -5797,7 +5852,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                        "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                         "name": "Holarchy Cell Process Proxy Helper Process",
                                         "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
@@ -5940,7 +5995,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                        "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                         "name": "Holarchy Cell Process Proxy Helper Process",
                                         "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
@@ -5972,7 +6027,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "tZPi3kYYDpzlG0Ng2MF_1w",
+                                        "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
                                         "name": "Holarchy Cell Process Proxy Helper Process",
                                         "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
@@ -6009,7 +6064,13 @@
                                 "instanceName": null
                               },
                               "proxyTest": {
-                                "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                  "lcpRequest": {
+                                    "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                    "instanceName": "proxy-test-#1"
+                                  },
+                                  "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                },
                                 "__apmiStep": "ready"
                               },
                               "__apmiStep": "end_test"
@@ -6019,7 +6080,13 @@
                                 "instanceName": "proxy-test-#1"
                               },
                               "proxyTest": {
-                                "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {},
+                                "CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy": {
+                                  "lcpRequest": {
+                                    "apmID": "J9RsPcp3RoS1QrZG-04XPg",
+                                    "instanceName": "proxy-test-#1"
+                                  },
+                                  "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.JNLNrwlq_e5iqCj2VaIBFg"
+                                },
                                 "__apmiStep": "ready"
                               },
                               "__apmiStep": "end_test"
@@ -6071,7 +6138,7 @@
                             }
                           },
                           "sharedCellProcesses": {
-                            "revision": 0,
+                            "revision": 2,
                             "digraph": {
                               "name": "Shared Cell Processes Digraph Model",
                               "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
