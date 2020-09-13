@@ -96,6 +96,8 @@ const action = new ControllerAction({
                 break;
             }
 
+            // snip ================================================================
+
             ocdResponse = request_.context.ocdi.getNamespaceSpec(proxyPath);
             if (ocdResponse.error) {
                 errors.push(`Invalid proxyPath value '${message.proxyPath}' resolves to an apmBindingPath value '${proxyPath}' that is not declared within the proxy owner process' memory space!`);
@@ -117,13 +119,11 @@ const action = new ControllerAction({
                 break;
             }
 
-            let proxyData = ocdResponse.result;
+            let proxyData = ocdResponse.result; // apparently, we never reference this? We're just concerned it's present and therefor presume it's been constructed/initialized by whomever however
 
-            if (!proxyData || !proxyData["CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy"]) {
-                errors.push("Failed to connect cell process proxy because the helper process has not been initialized by the owner cell process.");
-                errors.push(ocdResponse.error);
-                break;
-            }
+            // snip ================================================================
+
+
 
             // At this point we know / are confident of the following:
             //
@@ -208,10 +208,7 @@ const action = new ControllerAction({
             }
 
             ocdResponse = request_.context.ocdi.writeNamespace(
-                {
-                    apmBindingPath: proxyPath,
-                    dataPath: "#.CPPU-UPgS8eWiMap3Ixovg_CellProcessProxy"
-                },
+                proxyPath,
                 {
                     lcpRequest: {
                         apmID: message.localCellProcess.apmID,

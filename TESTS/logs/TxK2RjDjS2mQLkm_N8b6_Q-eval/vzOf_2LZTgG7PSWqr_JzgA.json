@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "HPUc9Ytwi3ArHise8SLxIg",
-                      "vdid": "WHvE5fBk8fFQBzSpst6ZwQ",
+                      "vdid": "wM5GISR8-ixjdR3_EsuNOA",
                       "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "HPUc9Ytwi3ArHise8SLxIg": {
                               "id": "HPUc9Ytwi3ArHise8SLxIg",
-                              "vdid": "WHvE5fBk8fFQBzSpst6ZwQ",
+                              "vdid": "wM5GISR8-ixjdR3_EsuNOA",
                               "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                               "type": "CM",
@@ -222,13 +222,13 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "639608fNLLAFh7ywftcq-A",
+                                "vdid": "I0jGLxszG3Z-i4CDnWFR3Q",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
                                 "CPPU-UPgS8eWiMap3Ixovg": {
                                   "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                  "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
+                                  "vdid": "ltngFeqWZidLxRgsLO-QCw",
                                   "name": "Holarchy Cell Process Proxy Helper Process",
                                   "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
                                   "type": "APM"
@@ -238,6 +238,27 @@
                                   "vdid": "obCORxHw3MAUuFQzdMtx9w",
                                   "name": "Cell Process Proxy: Proxy Operator",
                                   "description": "Forwards the specified operator request to the local cell process to which the proxy is currently connected.",
+                                  "type": "TOP"
+                                },
+                                "c-n6U_maQa23j9jWFDsgOw": {
+                                  "id": "c-n6U_maQa23j9jWFDsgOw",
+                                  "vdid": "jTNAV528BRDlPXSm3rTGjA",
+                                  "name": "Cell Process Proxy: Proxy State Broken",
+                                  "description": "Returns Boolean true if the cell process proxy helper cell was logically connected to an owned local cell process that has been deleted.",
+                                  "type": "TOP"
+                                },
+                                "aRz-bXOaSY-77jGIvSLFvw": {
+                                  "id": "aRz-bXOaSY-77jGIvSLFvw",
+                                  "vdid": "zDzTy4XRCqO_M-wTxNZJhA",
+                                  "name": "Cell Process Proxy: Proxy State Connected",
+                                  "description": "Returns Boolean true if the cell process proxy helper cell is logically connected to an owned or shared local cell process.",
+                                  "type": "TOP"
+                                },
+                                "1SC437izTgKckxxWUq6cbQ": {
+                                  "id": "1SC437izTgKckxxWUq6cbQ",
+                                  "vdid": "tgcYQ-qgNWOPzU4CiEZxzw",
+                                  "name": "Cell Process Proxy: Proxy State Disconnected",
+                                  "description": "Returns Boolean true if the cell process proxy helper cell is logically disconnected from a shared local cell process.",
                                   "type": "TOP"
                                 },
                                 "rua1glcmTsOlYcfpZuiXnA": {
@@ -446,7 +467,7 @@
                         },
                         "CPPU-UPgS8eWiMap3Ixovg": {
                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                          "vdid": "BSsdi8GgcY-LqrBGyEC_tw",
+                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
                           "name": "Holarchy Cell Process Proxy Helper Process",
                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                         }
@@ -631,17 +652,18 @@
                       },
                       "transitionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
+                          "operationID": "TZvSCBi6ozfmgLai6uv3Gw",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
+                          "inputTypeVIID": "MZxqvA3Vq7qbRuFdAlYyvQ",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
+                          "outputTypeVIID": "kDBlezhDF0AiqZ7i7JENsQ",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
+                          "operationVDID": "S0T0E2XvNVczGo7tTaEUtA"
                         },
                         "supportedFilters": [
                           "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
+                          "[1SC437izTgKckxxWUq6cbQ::Cell Process Proxy: Proxy State Disconnected]",
                           "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                           "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                           "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
@@ -656,6 +678,8 @@
                           "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                           "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
                           "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                          "[aRz-bXOaSY-77jGIvSLFvw::Cell Process Proxy: Proxy State Connected]",
+                          "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy State Broken]",
                           "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                           "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
                           "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
@@ -1610,6 +1634,171 @@
                             "outputTypeVIID": "ftWRWl9xc_cfwE1RhIu4ig",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                             "operationVDID": "2S0zRHkAbpO0JBOc6B87cg"
+                          }
+                        },
+                        "c-n6U_maQa23j9jWFDsgOw": {
+                          "filterDescriptor": {
+                            "operationID": "c-n6U_maQa23j9jWFDsgOw",
+                            "operationName": "Cell Process Proxy: Proxy State Broken",
+                            "operationDescription": "Returns Boolean true if the cell process proxy helper cell was logically connected to an owned local cell process that has been deleted.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Proxy: Proxy State Broken Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessProxy": {
+                                    "____types": "jsObject",
+                                    "isBroken": {
+                                      "____types": "jsObject",
+                                      "path": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "5RayNO1bsuyAC3nJxgqNYQ",
+                            "inputTypeVDID": "OEtalM1ws-SLYBZ-e4g2tQ",
+                            "outputTypeVIID": "HfQhdWTbdkYrpdNDU5_mFQ",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "OUQXRJ5075OIYKKcXS16cg"
+                          }
+                        },
+                        "aRz-bXOaSY-77jGIvSLFvw": {
+                          "filterDescriptor": {
+                            "operationID": "aRz-bXOaSY-77jGIvSLFvw",
+                            "operationName": "Cell Process Proxy: Proxy State Connected",
+                            "operationDescription": "Returns Boolean true if the cell process proxy helper cell is logically connected to an owned or shared local cell process.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Proxy: Proxy State Connected Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessProxy": {
+                                    "____types": "jsObject",
+                                    "isConnected": {
+                                      "____types": "jsObject",
+                                      "path": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "qwnNaBFHQrPJaQOkIOZr-Q",
+                            "inputTypeVDID": "uDDRnsg4PgzssW9uI1_f5g",
+                            "outputTypeVIID": "u3RSkCmZU0K1DZrNsfDyZA",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "KhwQRI1lIZM7f06cIJcfcg"
+                          }
+                        },
+                        "1SC437izTgKckxxWUq6cbQ": {
+                          "filterDescriptor": {
+                            "operationID": "1SC437izTgKckxxWUq6cbQ",
+                            "operationName": "Cell Process Proxy: Proxy State Disconnected",
+                            "operationDescription": "Returns Boolean true if the cell process proxy helper cell is logically disconnected from a shared local cell process.",
+                            "inputFilterSpec": {
+                              "____label": "Cell Process Proxy: Proxy State Disconnected Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "CellProcessProxy": {
+                                    "____types": "jsObject",
+                                    "isDisconnected": {
+                                      "____types": "jsObject",
+                                      "path": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "ZfcgwsSs-8GkkSGBIUOrjA",
+                            "inputTypeVDID": "8u-HCk8w4jJpwZ-SW12AZQ",
+                            "outputTypeVIID": "yB3Lawcem3cuQveeow25dg",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "WimGRN9rTJMLVgecDrJlcg"
                           }
                         },
                         "YgABX95wR86GCYrYaDLISA": {
@@ -3655,17 +3844,18 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
+                                                  "operationID": "TZvSCBi6ozfmgLai6uv3Gw",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
+                                                  "inputTypeVIID": "MZxqvA3Vq7qbRuFdAlYyvQ",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
+                                                  "outputTypeVIID": "kDBlezhDF0AiqZ7i7JENsQ",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
+                                                  "operationVDID": "S0T0E2XvNVczGo7tTaEUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
+                                                  "[1SC437izTgKckxxWUq6cbQ::Cell Process Proxy: Proxy State Disconnected]",
                                                   "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                   "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                                                   "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
@@ -3680,6 +3870,8 @@
                                                   "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                   "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
                                                   "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                                                  "[aRz-bXOaSY-77jGIvSLFvw::Cell Process Proxy: Proxy State Connected]",
+                                                  "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy State Broken]",
                                                   "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                                                   "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
                                                   "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
@@ -3812,17 +4004,18 @@
                                               },
                                               "transitionDispatcher": {
                                                 "filterDescriptor": {
-                                                  "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
+                                                  "operationID": "TZvSCBi6ozfmgLai6uv3Gw",
                                                   "operationName": "Discriminator Filter",
                                                   "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                  "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
+                                                  "inputTypeVIID": "MZxqvA3Vq7qbRuFdAlYyvQ",
                                                   "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
+                                                  "outputTypeVIID": "kDBlezhDF0AiqZ7i7JENsQ",
                                                   "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                  "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
+                                                  "operationVDID": "S0T0E2XvNVczGo7tTaEUtA"
                                                 },
                                                 "supportedFilters": [
                                                   "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
+                                                  "[1SC437izTgKckxxWUq6cbQ::Cell Process Proxy: Proxy State Disconnected]",
                                                   "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                   "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                                                   "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
@@ -3837,6 +4030,8 @@
                                                   "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                   "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
                                                   "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                                                  "[aRz-bXOaSY-77jGIvSLFvw::Cell Process Proxy: Proxy State Connected]",
+                                                  "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy State Broken]",
                                                   "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                                                   "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
                                                   "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
@@ -4093,17 +4288,18 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
+                                                    "operationID": "TZvSCBi6ozfmgLai6uv3Gw",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
+                                                    "inputTypeVIID": "MZxqvA3Vq7qbRuFdAlYyvQ",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
+                                                    "outputTypeVIID": "kDBlezhDF0AiqZ7i7JENsQ",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
+                                                    "operationVDID": "S0T0E2XvNVczGo7tTaEUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
+                                                    "[1SC437izTgKckxxWUq6cbQ::Cell Process Proxy: Proxy State Disconnected]",
                                                     "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                     "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                                                     "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
@@ -4118,6 +4314,8 @@
                                                     "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                     "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
                                                     "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                                                    "[aRz-bXOaSY-77jGIvSLFvw::Cell Process Proxy: Proxy State Connected]",
+                                                    "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy State Broken]",
                                                     "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                                                     "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
                                                     "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
@@ -4285,17 +4483,18 @@
                                                 },
                                                 "transitionDispatcher": {
                                                   "filterDescriptor": {
-                                                    "operationID": "FXhPER2NJ0qMQaS3pVVdEQ",
+                                                    "operationID": "TZvSCBi6ozfmgLai6uv3Gw",
                                                     "operationName": "Discriminator Filter",
                                                     "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                    "inputTypeVIID": "qAMwUfnuZ-PB72jxoIjXqg",
+                                                    "inputTypeVIID": "MZxqvA3Vq7qbRuFdAlYyvQ",
                                                     "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "outputTypeVIID": "JumMXLE2pcqU38LjPwD2fA",
+                                                    "outputTypeVIID": "kDBlezhDF0AiqZ7i7JENsQ",
                                                     "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                    "operationVDID": "ZYX0E-AbNVfGf47tvXwUtA"
+                                                    "operationVDID": "S0T0E2XvNVczGo7tTaEUtA"
                                                   },
                                                   "supportedFilters": [
                                                     "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
+                                                    "[1SC437izTgKckxxWUq6cbQ::Cell Process Proxy: Proxy State Disconnected]",
                                                     "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
                                                     "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                                                     "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
@@ -4310,6 +4509,8 @@
                                                     "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                                                     "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
                                                     "[YgABX95wR86GCYrYaDLISA::Logical AND]",
+                                                    "[aRz-bXOaSY-77jGIvSLFvw::Cell Process Proxy: Proxy State Connected]",
+                                                    "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy State Broken]",
                                                     "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                                                     "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
                                                     "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
