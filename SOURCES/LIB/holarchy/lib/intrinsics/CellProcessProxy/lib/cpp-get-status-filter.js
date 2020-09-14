@@ -17,7 +17,7 @@ const factoryResponse = arccore.filter.create({
         proxyPath: {
             ____accept: [
                 "jsUndefined", // apmBindingPath must be the path of the cell process proxy cell
-                "jString" // the path of the cell process proxy is deduced via OCD.resolvePath from apmBindingPath and proxyPath
+                "jsString" // the path of the cell process proxy is deduced via OCD.resolvePath from apmBindingPath and proxyPath
             ]
         },
         ocdi: { ____accept: "jsObject" }
@@ -50,7 +50,7 @@ const factoryResponse = arccore.filter.create({
 
             inBreakScope = true;
 
-            let ocdResponse = OCD.resolvePath({ apmBindingPath: request_.apmBindingPath, dataPath: request_.proxyPath});
+            let ocdResponse = OCD.dataPathResolve({ apmBindingPath: request_.apmBindingPath, dataPath: request_.proxyPath});
             if (ocdResponse.error) {
                 errors.push("Unable to resolve the path to the cell process proxy cell.");
                 errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}':`);
@@ -73,23 +73,26 @@ const factoryResponse = arccore.filter.create({
                 errors.push("There isn't even a possibility of there being a cell process proxy (or even a cell) at the path specified for the cell process proxy cell because it has no APM binding.");
                 errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}' = '${proxyCellPath}':`);
                 errors.push(ocdResponse.error);
+                break;
             }
 
             if (proxyMemorySpec.____appdsl.apm !== "CPPU-UPgS8eWiMap3Ixovg") {
                 errors.push("Invalid cell process proxy helper path resolves to cell that is not delcared as a cell process proxy cell!");
                 errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}' = '${proxyCellPath}':`);
-                errors.push(ocdResponse.error);
+                errors.push(`Found cell with APM binding '${proxyMemorySpec.____appdsl.apm}'.`);
+                break;
             }
 
             // Okay. Now, we have established that the caller has provided an apmBindingPath and proxyPath inputs that
             // resolve to a cell that may or may not exist. Here we are being asked to retrieve the status of a cell presumed
             // to exist. So, if it doesn't that's an error.
 
-            ocdResponse = request_.context.ocdi.readNamespace(proxyPath);
+            ocdResponse = request_.ocdi.readNamespace(proxyCellPath);
             if (ocdResponse.error) {
                 errors.push("The specified cell process proxy helper does not exist!");
                 errors.push("It is the responsibility of some hosting cell to manage the lifespan of its cell process proxy helpers.");
                 errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}' = '${proxyCellPath}':`);
+                break;
             }
 
             const cppMemory = ocdResponse.result;
@@ -99,7 +102,7 @@ const factoryResponse = arccore.filter.create({
                 paths: {
                     apmBindingPath: request_.apmBindingPath,
                     proxyPath: request_.proxyPath,
-                    resolvedPath: proxyPath
+                    resolvedPath: proxyCellPath
                 },
                 status: {
                     "[object Undefined]": "disconnected",
@@ -112,7 +115,7 @@ const factoryResponse = arccore.filter.create({
         if (errors.length) {
             response.error = errors.join(" ");
         }
-        return repsonse;
+        return response;
     }
 
 });

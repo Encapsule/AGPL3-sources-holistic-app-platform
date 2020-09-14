@@ -31,15 +31,29 @@ const cellModel = new holarchy.CellModel({
             uninitialized: {
                 description: "Default cell process step.",
                 transitions: [
-                    { transitionIf: { always: true }, nextStep: "connect_proxy" }
+                    { transitionIf: { always: true }, nextStep: "test_status_operators" }
                 ]
+            },
+
+            test_status_operators: {
+                description: "Test the CPP status operators.",
+                transitions: [
+                    { transitionIf: { holarchy: { CellProcessProxy: { isConnected: { proxyPath: "#.proxyTest" } } } }, nextStep: "test_status_operators_unexpected_response" },
+                    { transitionIf: { holarchy: { CellProcessProxy: { isBroken: { proxyPath: "#.proxyTest" } } } }, nextStep: "test_status_operators_unexpected_response" },
+                    { transitionIf: { holarchy: { CellProcessProxy: { isDisconnected: { proxyPath: "#.proxyTest" } } } }, nextStep: "connect_proxy" },
+                    { transitionIf: { always: true }, nextStep: "test_status_operators_unexpected_response" }
+                ]
+            },
+
+            test_status_operators_unexpected_response: {
+                description: "If we reach this step then one of the status transition operators didn't work as we expected it to."
             },
 
             connect_proxy: {
                 description: "Attempt to connect the proxy to something completely random.",
 
                 transitions: [
-                    { transitionIf: { always: true }, nextStep: "end_test" }
+                    { transitionIf: { always: true }, nextStep: "test_process_complete" }
                 ],
 
                 actions: {
@@ -68,7 +82,7 @@ const cellModel = new holarchy.CellModel({
                 }
             },
 
-            end_test: {
+            test_process_complete: {
                 description: "The last step in the test process."
             }
 

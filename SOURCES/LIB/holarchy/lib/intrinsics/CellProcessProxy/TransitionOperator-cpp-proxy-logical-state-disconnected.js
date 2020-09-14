@@ -1,6 +1,7 @@
 // TransitionOperator-cpp-proxy-logical-state-disconnect.js
 
 const TransitionOperator = require("../../../lib/TransitionOperator");
+const cppLib = require("./lib");
 
 const transitionOperator = new TransitionOperator({
     id: "1SC437izTgKckxxWUq6cbQ",
@@ -14,7 +15,7 @@ const transitionOperator = new TransitionOperator({
                 ____types: "jsObject",
                 isDisconnected: {
                     ____types: "jsObject",
-                    path: { ____accept: "jsString", ____defaultValue: "#" }
+                    proxyPath: { ____accept: "jsString", ____defaultValue: "#" }
                 }
             }
         }
@@ -25,16 +26,17 @@ const transitionOperator = new TransitionOperator({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const dispatchRequest = {
-                context: request_.context,
-                operatorRequest: subOperatorRequest
-            };
-            let transitionDispatcherResponse = request_.context.transitionDispatcher.request(dispatchRequest);
-            if (transitionDispatcherResponse.error) {
-                errors.push(transitionOperatorResponse.error);
+            const message = request_.operatorRequest.holarchy.CellProcessProxy.isDisconnected;
+            const cppLibResponse = cppLib.getStatus.request({
+                apmBindingPath: request_.context.apmBindingPath,
+                proxyPath: message.proxyPath,
+                ocdi: request_.context.ocdi
+            });
+            if (cppLibResponse.error) {
+                errors.push(cppLibResponse.error);
                 break;
             }
-            response = transitionDispatcherResponse.result.request(dispatchRequest);
+            response.result = cppLibResponse.result.status === "disconnected";
             break;
         }
         if (errors.length) {

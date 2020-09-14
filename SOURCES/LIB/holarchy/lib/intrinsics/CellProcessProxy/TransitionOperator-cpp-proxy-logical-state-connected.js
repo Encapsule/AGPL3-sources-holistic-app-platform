@@ -1,6 +1,7 @@
 // TransitionOperator-cpp-proxy-logical-state-connected.js
 
 const TransitionOperator = require("../../../lib/TransitionOperator");
+const cppLib = require("./lib");
 
 const transitionOperator = new TransitionOperator({
     id: "aRz-bXOaSY-77jGIvSLFvw",
@@ -14,7 +15,7 @@ const transitionOperator = new TransitionOperator({
                 ____types: "jsObject",
                 isConnected: {
                     ____types: "jsObject",
-                    path: { ____accept: "jsString", ____defaultValue: "#" }
+                    proxyPath: { ____accept: "jsString", ____defaultValue: "#" }
                 }
             }
         }
@@ -25,6 +26,18 @@ const transitionOperator = new TransitionOperator({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+            const message = request_.operatorRequest.holarchy.CellProcessProxy.isConnected;
+            const cppLibResponse = cppLib.getStatus.request({
+                apmBindingPath: request_.context.apmBindingPath,
+                proxyPath: message.proxyPath,
+                ocdi: request_.context.ocdi
+            });
+            if (cppLibResponse.error) {
+                errors.push(cppLibResponse.error);
+                break;
+            }
+            response.result = cppLibResponse.result.status === "connected";
+            break;
 
 
         }
