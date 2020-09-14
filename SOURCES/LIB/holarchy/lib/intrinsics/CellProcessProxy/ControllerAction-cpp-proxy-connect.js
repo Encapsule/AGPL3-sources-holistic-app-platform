@@ -14,30 +14,24 @@ const action = new ControllerAction({
         ____types: "jsObject",
         holarchy: {
             ____types: "jsObject",
-            CellProcessor: {
+            CellProcessProxy: {
                 ____types: "jsObject",
-                process: {
+                connect: {
                     ____types: "jsObject",
-                    proxy: {
+                    // Connect from this proxy process (a helper cell process)...
+                    proxyPath: {
+                        ____accept: "jsString",
+                        ____defaultValue: "#"
+                    },
+                    // ... to this new or existing local cell process.
+                    localCellProcess: {
                         ____types: "jsObject",
-                        connect: {
-                            ____types: "jsObject",
-                            // Connect from this proxy process (a helper cell process)...
-                            proxyPath: {
-                                ____accept: "jsString",
-                                ____defaultValue: "#"
-                            },
-                            // ... to this new or existing local cell process.
-                            localCellProcess: {
-                                ____types: "jsObject",
-                                apmID: {
-                                    ____accept: "jsString"
-                                },
-                                instanceName: {
-                                    ____accept: "jsString",
-                                    ____defaultValue: "singleton"
-                                }
-                            }
+                        apmID: {
+                            ____accept: "jsString"
+                        },
+                        instanceName: {
+                            ____accept: "jsString",
+                            ____defaultValue: "singleton"
                         }
                     }
                 }
@@ -80,7 +74,7 @@ const action = new ControllerAction({
                 break;
             }
 
-            const message = request_.actionRequest.holarchy.CellProcessor.process.proxy.connect;
+            const message = request_.actionRequest.holarchy.CellProcessProxy.connect;
 
             let ocdResponse = OCD.dataPathResolve({ dataPath: message.proxyPath, apmBindingPath: request_.context.apmBindingPath });
             if (ocdResponse.error) {

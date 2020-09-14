@@ -11,22 +11,16 @@ const action = new ControllerAction({
         ____types: "jsObject",
         holarchy: {
             ____types: "jsObject",
-            CellProcessor: {
+            CellProcessProxy: {
                 ____types: "jsObject",
-                process: {
+                disconnect: {
                     ____types: "jsObject",
-                    proxy: {
-                        ____types: "jsObject",
-                        disconnect: {
-                            ____types: "jsObject",
-                            // Disconnect this cell process proxy process instance...
-                            proxyPath: {
-                                ____accept: "jsString",
-                                ____defaultValue: "#"
-                            }
-                            // ... from the local cell process that the proxy is connected to.
-                        }
+                    // Disconnect this cell process proxy process instance...
+                    proxyPath: {
+                        ____accept: "jsString",
+                        ____defaultValue: "#"
                     }
+                    // ... from the local cell process that the proxy is connected to.
                 }
             }
         }

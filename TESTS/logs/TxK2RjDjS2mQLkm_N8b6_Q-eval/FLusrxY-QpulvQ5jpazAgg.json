@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "O_U79QJwAnC7HrsebiJuIg",
-                      "vdid": "eqj8ngP8PgCx6WG-X8pmFg",
+                      "vdid": "R8n8nqkLPgBLhWG-iflmFg",
                       "name": "Cell Process Manager [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "O_U79QJwAnC7HrsebiJuIg": {
                               "id": "O_U79QJwAnC7HrsebiJuIg",
-                              "vdid": "eqj8ngP8PgCx6WG-X8pmFg",
+                              "vdid": "R8n8nqkLPgBLhWG-iflmFg",
                               "name": "Cell Process Manager [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test].",
                               "type": "CM",
@@ -222,7 +222,7 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "I0nGLxvHG3Z-iICDnb1R3Q",
+                                "vdid": "MkmxL_3HXnYwiIWDWL373Q",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
@@ -235,7 +235,7 @@
                                 },
                                 "FTxze-WaRp6HS0Dlr_Ke6A": {
                                   "id": "FTxze-WaRp6HS0Dlr_Ke6A",
-                                  "vdid": "obCORxHw3MAUuFQzdMtx9w",
+                                  "vdid": "kJBnZNNn3Lxf6RUk8mj24w",
                                   "name": "Cell Process Proxy: Proxy Operator",
                                   "description": "Forwards the specified operator request to the local cell process to which the proxy is currently connected.",
                                   "type": "TOP"
@@ -263,21 +263,21 @@
                                 },
                                 "rua1glcmTsOlYcfpZuiXnA": {
                                   "id": "rua1glcmTsOlYcfpZuiXnA",
-                                  "vdid": "I-AIvfcICcu8hC0_jtWo6Q",
+                                  "vdid": "lF3iXabsvbcPtNj1QK8JtA",
                                   "name": "Cell Process Proxy: Proxy Action",
                                   "description": "Forwards the specified action request to the local cell process to which the proxy is currently connected.",
                                   "type": "ACT"
                                 },
                                 "X6ck_Bo4RmWTVHl-vk-urw": {
                                   "id": "X6ck_Bo4RmWTVHl-vk-urw",
-                                  "vdid": "bIyk8URhZsEnCz9f9ilMbQ",
+                                  "vdid": "3jBnjI4z9YDixr_A0s1KNw",
                                   "name": "Cell Process Proxy: Connect Proxy",
                                   "description": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
                                   "type": "ACT"
                                 },
                                 "ySiBEGcaRGWVOZmwBRyhrA": {
                                   "id": "ySiBEGcaRGWVOZmwBRyhrA",
-                                  "vdid": "Gz5JCs2-wjlEnEXT9J8cUA",
+                                  "vdid": "tqAP4Jtz3YIZjer8PMc59w",
                                   "name": "Cell Process Proxy: Disconnect Proxy",
                                   "description": "Disconnect a connected cell process proxy from whatever local cell process it is currently connected to.",
                                   "type": "ACT"
@@ -1607,19 +1607,16 @@
                                 "____types": "jsObject",
                                 "holarchy": {
                                   "____types": "jsObject",
-                                  "CellProcessor": {
+                                  "CellProcessProxy": {
                                     "____types": "jsObject",
-                                    "process": {
+                                    "proxy": {
                                       "____types": "jsObject",
-                                      "proxy": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        },
-                                        "request": {
-                                          "____accept": "jsObject"
-                                        }
+                                      "proxyPath": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      },
+                                      "operatorRequest": {
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -1630,10 +1627,10 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "ooFMvEOukuVa0x6ZXU8QYw",
-                            "inputTypeVDID": "__utUfo4vGXJqY0oo3XcMA",
+                            "inputTypeVDID": "_BEUiGPtG1yFMovvJ89nQQ",
                             "outputTypeVIID": "ftWRWl9xc_cfwE1RhIu4ig",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "2S0zRHkAbpO0JBOc6B87cg"
+                            "operationVDID": "2cRdRHny85O0Ag2c6HH3cg"
                           }
                         },
                         "c-n6U_maQa23j9jWFDsgOw": {
@@ -3239,28 +3236,22 @@
                                 "____types": "jsObject",
                                 "holarchy": {
                                   "____types": "jsObject",
-                                  "CellProcessor": {
+                                  "CellProcessProxy": {
                                     "____types": "jsObject",
-                                    "process": {
+                                    "connect": {
                                       "____types": "jsObject",
-                                      "proxy": {
+                                      "proxyPath": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      },
+                                      "localCellProcess": {
                                         "____types": "jsObject",
-                                        "connect": {
-                                          "____types": "jsObject",
-                                          "proxyPath": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "#"
-                                          },
-                                          "localCellProcess": {
-                                            "____types": "jsObject",
-                                            "apmID": {
-                                              "____accept": "jsString"
-                                            },
-                                            "instanceName": {
-                                              "____accept": "jsString",
-                                              "____defaultValue": "singleton"
-                                            }
-                                          }
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
                                         }
                                       }
                                     }
@@ -3272,10 +3263,10 @@
                               "____accept": "jsObject"
                             },
                             "inputTypeVIID": "tyyJO-xMV2o0PtVr2ON4CA",
-                            "inputTypeVDID": "E9F7qakBLXbdhbjzcTMlqg",
+                            "inputTypeVDID": "O856p4_ezfMe5yaGB7_igA",
                             "outputTypeVIID": "w46nFkDwQGGu0ASHsdx-Zg",
                             "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                            "operationVDID": "pSOFT5cXIRruJ0yIb4fuWA"
+                            "operationVDID": "pfQPT5f6SBrusZSIbxKrWA"
                           }
                         },
                         "ySiBEGcaRGWVOZmwBRyhrA": {
@@ -3310,19 +3301,13 @@
                                 "____types": "jsObject",
                                 "holarchy": {
                                   "____types": "jsObject",
-                                  "CellProcessor": {
+                                  "CellProcessProxy": {
                                     "____types": "jsObject",
-                                    "process": {
+                                    "disconnect": {
                                       "____types": "jsObject",
-                                      "proxy": {
-                                        "____types": "jsObject",
-                                        "disconnect": {
-                                          "____types": "jsObject",
-                                          "proxyPath": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "#"
-                                          }
-                                        }
+                                      "proxyPath": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
                                       }
                                     }
                                   }
@@ -3333,10 +3318,10 @@
                               "____accept": "jsObject"
                             },
                             "inputTypeVIID": "h6l9mMigEod2Xwz_hwJIFA",
-                            "inputTypeVDID": "un71HzB1OUWcRv0lA5knbQ",
+                            "inputTypeVDID": "v5uye5AXrJQqdNwCxhtTpA",
                             "outputTypeVIID": "QAhxEJeD9pT1iEi640CbKg",
                             "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                            "operationVDID": "NX23T9RECBq5BJGIFcdDWA"
+                            "operationVDID": "NYEMT9QU_Bq5TXeIFXWSWA"
                           }
                         },
                         "rua1glcmTsOlYcfpZuiXnA": {
@@ -3371,19 +3356,16 @@
                                 "____types": "jsObject",
                                 "holarchy": {
                                   "____types": "jsObject",
-                                  "CellProcessor": {
+                                  "CellProcessProxy": {
                                     "____types": "jsObject",
-                                    "process": {
+                                    "proxy": {
                                       "____types": "jsObject",
-                                      "proxy": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        },
-                                        "request": {
-                                          "____accept": "jsObject"
-                                        }
+                                      "proxyPath": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      },
+                                      "actionRequest": {
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -3394,10 +3376,10 @@
                               "____accept": "jsObject"
                             },
                             "inputTypeVIID": "wvVjeksTupOn_69OUmomJg",
-                            "inputTypeVDID": "fI8vbhDVdtxOY56C1uOo_w",
+                            "inputTypeVDID": "eQHnRv608pkOwdnlgaJZ6g",
                             "outputTypeVIID": "jZDkQbYcqjnTQHMZvYiTTw",
                             "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                            "operationVDID": "udcVT9fvoRplgUWIclCRWA"
+                            "operationVDID": "ufuUT9cxqxplA7uIcnFuWA"
                           }
                         },
                         "_yxWfFLnTqqN-UxRdd7W5w": {

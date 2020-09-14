@@ -60,18 +60,14 @@ const cellModel = new holarchy.CellModel({
                     enter: [
                         {
                             holarchy: {
-                                CellProcessor: {
-                                    process: {
-                                        proxy: {
-                                            connect: {
-                                                proxyPath: "#.proxyTest",
-                                                localCellProcess: {
-                                                    // apmID: "i6htE08TRzaWc9Hq00B3sg", // this is a total lie - nonesuch
-                                                    apmID: "J9RsPcp3RoS1QrZG-04XPg", // proxy back to the host process (should be okay although i am not sure why)
-                                                    // instanceName -> default to singleton
-                                                    instanceName: "proxy-test-#1"
-                                                }
-                                            }
+                                CellProcessProxy: {
+                                    connect: {
+                                        proxyPath: "#.proxyTest",
+                                        localCellProcess: {
+                                            // apmID: "i6htE08TRzaWc9Hq00B3sg", // this is a total lie - nonesuch
+                                            apmID: "J9RsPcp3RoS1QrZG-04XPg", // proxy back to the host process (should be okay although i am not sure why)
+                                            // instanceName -> default to singleton
+                                            instanceName: "proxy-test-#1"
                                         }
                                     }
                                 }

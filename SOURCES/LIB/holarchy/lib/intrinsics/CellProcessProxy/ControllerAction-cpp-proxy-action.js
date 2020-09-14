@@ -11,21 +11,18 @@ const action = new ControllerAction({
         ____types: "jsObject",
         holarchy: {
             ____types: "jsObject",
-            CellProcessor: {
+            CellProcessProxy: {
                 ____types: "jsObject",
-                process: {
+                proxy: {
                     ____types: "jsObject",
-                    proxy: {
-                        ____types: "jsObject",
-                        // Proxy (i.e. forward through) this proxy to another local cell process...
-                        proxyPath: {
-                            ____accept: "jsString",
-                            ____defaultValue: "#"
-                        },
-                        // ... an arbitrary ControllerAction request.
-                        request: {
-                            ____accept: "jsObject"
-                        }
+                    // Proxy (i.e. forward through) this proxy to another local cell process...
+                    proxyPath: {
+                        ____accept: "jsString",
+                        ____defaultValue: "#"
+                    },
+                    // ... an arbitrary ControllerAction request.
+                    actionRequest: {
+                        ____accept: "jsObject"
                     }
                 }
             }
