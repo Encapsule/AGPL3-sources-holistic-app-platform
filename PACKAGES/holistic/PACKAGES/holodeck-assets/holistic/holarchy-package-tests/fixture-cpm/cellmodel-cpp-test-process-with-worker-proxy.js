@@ -13,6 +13,14 @@ var cellModel = new holarchy.CellModel({
     description: "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
     ocdDataSpec: {
       ____types: "jsObject",
+      construction: {
+        ____types: "jsObject",
+        ____defaultValue: {},
+        instanceName: {
+          ____accept: ["jsNull", "jsString"],
+          ____defaultValue: null
+        }
+      },
       proxyTest: {
         ____types: "jsObject",
         ____defaultValue: {},
@@ -30,8 +38,53 @@ var cellModel = new holarchy.CellModel({
           transitionIf: {
             always: true
           },
-          nextStep: "connect_proxy"
+          nextStep: "test_status_operators"
         }]
+      },
+      test_status_operators: {
+        description: "Test the CPP status operators.",
+        transitions: [{
+          transitionIf: {
+            holarchy: {
+              CellProcessProxy: {
+                isConnected: {
+                  proxyPath: "#.proxyTest"
+                }
+              }
+            }
+          },
+          nextStep: "test_status_operators_unexpected_response"
+        }, {
+          transitionIf: {
+            holarchy: {
+              CellProcessProxy: {
+                isBroken: {
+                  proxyPath: "#.proxyTest"
+                }
+              }
+            }
+          },
+          nextStep: "test_status_operators_unexpected_response"
+        }, {
+          transitionIf: {
+            holarchy: {
+              CellProcessProxy: {
+                isDisconnected: {
+                  proxyPath: "#.proxyTest"
+                }
+              }
+            }
+          },
+          nextStep: "connect_proxy"
+        }, {
+          transitionIf: {
+            always: true
+          },
+          nextStep: "test_status_operators_unexpected_response"
+        }]
+      },
+      test_status_operators_unexpected_response: {
+        description: "If we reach this step then one of the status transition operators didn't work as we expected it to."
       },
       connect_proxy: {
         description: "Attempt to connect the proxy to something completely random.",
@@ -39,7 +92,7 @@ var cellModel = new holarchy.CellModel({
           transitionIf: {
             always: true
           },
-          nextStep: "end_test"
+          nextStep: "test_process_complete"
         }],
         actions: {
           enter: [{
@@ -50,9 +103,11 @@ var cellModel = new holarchy.CellModel({
                     connect: {
                       proxyPath: "#.proxyTest",
                       localCellProcess: {
-                        apmID: "i6htE08TRzaWc9Hq00B3sg" // this is a total lie - nonesuch
+                        // apmID: "i6htE08TRzaWc9Hq00B3sg", // this is a total lie - nonesuch
+                        apmID: "J9RsPcp3RoS1QrZG-04XPg",
+                        // proxy back to the host process (should be okay although i am not sure why)
                         // instanceName -> default to singleton
-
+                        instanceName: "proxy-test-#1"
                       }
                     }
                   }
@@ -62,7 +117,7 @@ var cellModel = new holarchy.CellModel({
           }]
         }
       },
-      end_test: {
+      test_process_complete: {
         description: "The last step in the test process."
       }
     }
