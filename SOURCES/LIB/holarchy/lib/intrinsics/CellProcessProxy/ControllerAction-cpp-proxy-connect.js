@@ -4,6 +4,7 @@ const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../../lib/ControllerAction");
 const OCD = require("../../../lib/ObservableControllerData");
 const cpmLib = require("../CellProcessManager/lib");
+const cppLib = require("./lib");
 
 const action = new ControllerAction({
     id: "X6ck_Bo4RmWTVHl-vk-urw",
@@ -51,6 +52,7 @@ const action = new ControllerAction({
             inBreakScope = true;
 
             let runGarbageCollector = false;
+            const message = request_.actionRequest.holarchy.CellProcessProxy.connect;
 
             // Get the CPM process' data.
             let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
@@ -74,50 +76,24 @@ const action = new ControllerAction({
                 break;
             }
 
-            const message = request_.actionRequest.holarchy.CellProcessProxy.connect;
-
-            let ocdResponse = OCD.dataPathResolve({ dataPath: message.proxyPath, apmBindingPath: request_.context.apmBindingPath });
-            if (ocdResponse.error) {
-                errors.push(`Invalid proxyPath value '${message.proxyPath}' cannot be used to build the binding path of the cell process proxy helper cell process.`);
-                errors.push(ocdResponse.error);
+            let cppLibResponse = cppLib.getStatus.request({
+                apmBindingPath: request_.context.apmBindingPath,
+                proxyPath: message.proxyPath,
+                ocdi: request_.context.ocdi
+            });
+            if (cppLibResponse.error) {
+                errors.push("Cannot locate the cell process proxy cell instance.");
+                errors.push(cppLibResponse.error);
                 break;
             }
+            const cppMemoryStatusDescriptor = cppLibResponse.result;
 
-            const proxyPath = ocdResponse.result;
+            const proxyPath = cppMemoryStatusDescriptor.paths.resolvedPath;
 
             if (!proxyPath.startsWith(request_.context.apmBindingPath)) {
                 errors.push(`Invalid proxyPath value '${message.proxyPath}' resolves to an apmBindingPath value '${proxyPath}' that is outside of the proxy owner process' cell memory space!`);
                 break;
             }
-
-            // snip ================================================================
-
-            ocdResponse = request_.context.ocdi.getNamespaceSpec(proxyPath);
-            if (ocdResponse.error) {
-                errors.push(`Invalid proxyPath value '${message.proxyPath}' resolves to an apmBindingPath value '${proxyPath}' that is not declared within the proxy owner process' memory space!`);
-                break;
-            }
-
-            const proxyNamespaceSpec = ocdResponse.result;
-
-            if (!proxyNamespaceSpec.____appdsl || (proxyNamespaceSpec.____appdsl.apm !== "CPPU-UPgS8eWiMap3Ixovg")) {
-                errors.push(`Invalid proxyPath value '${message.proxyPath}' resolves to an apmBindingPath value '${proxyPath}' in the owning process' memory space that is missing or has unexpected APM binding annotation.`);
-                errors.push(`'${proxyPath}' not bound to CellProcessProxy APM; missing ____appdsl annotation?`);
-                break;
-            }
-
-            ocdResponse = request_.context.ocdi.readNamespace(proxyPath);
-            if (ocdResponse.error) {
-                errors.push(`Failed to connect cell process proxy because the helper process' cell memory cannot be read from path '${proxyPath}'.`);
-                errors.push(ocdResponse.error);
-                break;
-            }
-
-            let proxyData = ocdResponse.result; // apparently, we never reference this? We're just concerned it's present and therefor presume it's been constructed/initialized by whomever however
-
-            // snip ================================================================
-
-
 
             // At this point we know / are confident of the following:
             //
@@ -128,7 +104,7 @@ const action = new ControllerAction({
 
             const lcpBindingPath = `~.${message.localCellProcess.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.localCellProcess.instanceName).result}`;
 
-            ocdResponse = request_.context.ocdi.getNamespaceSpec(lcpBindingPath);
+            let ocdResponse = request_.context.ocdi.getNamespaceSpec(lcpBindingPath);
             if (ocdResponse.error) {
                 errors.push(`Unknown APM ID value specified for localCellProcess.apmID. Do you have a CellModel registered w/APM ID value '${message.localCellProcess.apmID}'?`);
                 errors.push(ocdResponse.error);
