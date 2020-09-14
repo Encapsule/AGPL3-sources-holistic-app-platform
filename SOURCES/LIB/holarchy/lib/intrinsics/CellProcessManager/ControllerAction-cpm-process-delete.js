@@ -4,6 +4,7 @@ const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../ControllerAction");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 const cpmLib = require("./lib");
+const cppLib = require("../CellProcessProxy/lib");
 
 const controllerAction = new ControllerAction({
     id: "4s_DUfKnQ4aS-xRjewAfUQ",
@@ -79,12 +80,13 @@ const controllerAction = new ControllerAction({
             const cpmDataDescriptor = cpmLibResponse.result;
 
             const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+            const sharedCellProcesses = cpmDataDescriptor.data.sharedCellProcesses;
 
             const inDegree = ownedCellProcessesData.digraph.inDegree(cellProcessID);
 
             switch (inDegree) {
             case -1:
-                errors.push(`Invalid cell process apmBindingPath or cellProcessID specified in cell process delete. No such cell process '${cellProcessID}'.`);
+                errors.push(`Invalid cell process apmBindingPath or cellProcessID specified in cell process delete. No such cell process ID '${cellProcessID}'.`);
                 break;
             case 0:
                 errors.push("You cannot delete the root cell process manager process using this mechanism! Delete the CellProcessor instance if that's what you really want to do.");
@@ -98,6 +100,13 @@ const controllerAction = new ControllerAction({
             }
             if (errors.length) {
                 break;
+            }
+
+            if (sharedCellProcesses.digraph.isVertex(cellProcessID)) {
+                if (sharedCellProcesses.digraph.getVertexProperty(cellProcessID).role === "shared") {
+                    errors.push(`Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '${cellProcessID}' is a shared process.`);
+                    break;
+                }
             }
 
             const parentProcessID = ownedCellProcessesData.digraph.inEdges(cellProcessID)[0].u;
@@ -167,6 +176,18 @@ const controllerAction = new ControllerAction({
             let ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.ownedCellProcesses.revision`, ownedCellProcessesData.revision + 1);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
+                break;
+            }
+
+            let cppLibResponse = cppLib.removeOwnedProcesses.request({ cpmData: cpmDataDescriptor.data, deletedOwnedCellProcesses: processesToDelete });
+            if (cppLibResponse.error) {
+                errors.push(cppResponse.error);
+                break;
+            }
+
+            cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data });
+            if (cppLibResponse.error) {
+                errors.push(cppResponse.error);
                 break;
             }
 

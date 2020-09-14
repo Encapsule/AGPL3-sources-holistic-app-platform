@@ -207,6 +207,13 @@ const action = new ControllerAction({
                 break;
             }
 
+            cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data });
+            if (cppLibResponse.error) {
+                errors.push("Oh no! An error occurred during gargage collection!");
+                errors.push(cppLibResponse.error);
+                break;
+            }
+
             response.result = {
                 host: {
                     apmBindingPath: request_.context.apmBindingPath,
