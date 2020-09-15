@@ -41,6 +41,7 @@ const factoryResponse = arccore.filter.create({
                 const verticesToRemove = [];
                 const sharedProcessesToDelete = [];
 
+                /*
                 if (!rootVertices.length) {
                     // The shared digraph has closed up on itself in some sort of cyclic topology.
                     // Or, perhaps it is now empty? If, so then we're done here.
@@ -77,12 +78,13 @@ const factoryResponse = arccore.filter.create({
                             // Okay. So, now we know there's at least one owned process holding some other
                             // process by proxy connect(ions). But, we do not know if there exist isolated
                             // pockets of shared process vertices that are holding themselves in CellProcessor.
-                        }
                         
+                        }
                     } else {
                         // So, nothing to do about that; it will get sorted below.
                     }
                 }
+                */
 
                 while (rootVertices.length) {
 
@@ -164,6 +166,42 @@ const factoryResponse = arccore.filter.create({
                 }
 
                 gcContinue = (verticesToRemove.length + sharedProcessesToDelete.length) > 0;
+
+                if (!gcContinue) {
+                    const ownedProcessVertices = [];
+                    sharedDigraph.getVertices().forEach((vertex_) => {
+                        if (sharedDigraph.getVertexProperty(vertex_).role === "owned") {
+                            ownedProcessVertices.push(vertex_);
+                        }
+                    });
+                    const digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
+                        digraph: sharedDigraph,
+                        options: { startVector: ownedProcessVertices, allowEmptyStartVector: true },
+                        visitor: {}
+                    });
+                    if (digraphTraversalResponse.error) {
+                        errors.push(digraphTraversalResponse.error);
+                        break;
+                    }
+
+                    if (digraphTraversalResponse.result.searchStatus !== "completed") {
+                        errors.push("Internal validation error performing shared process cluster identification. Breadth fist search did not complete as expected.");
+                        break;
+                    }
+
+                    const undiscoveredVertices = Object.keys(digraphTraversalResponse.result.undiscoveredMap);
+                    while (undiscoveredVertices.length) {
+                        const examineVertex = undiscoveredVertices.pop();
+                        const examineVertexProp = sharedDigraph.getVertexProperty(examineVertex);
+                        if (examineVertexProp.role === "shared") {
+                            sharedProcessesToDelete.push(examineVertex);
+                        }
+                    }
+
+                    gcContinue = (verticesToRemove.length + sharedProcessesToDelete.length) > 0;
+
+                }
+
 
                 while (sharedProcessesToDelete.length) {
                     const deleteProcessID = sharedProcessesToDelete.pop();
