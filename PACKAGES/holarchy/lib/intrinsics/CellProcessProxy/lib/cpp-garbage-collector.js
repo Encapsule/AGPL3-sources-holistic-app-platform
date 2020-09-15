@@ -14,6 +14,9 @@ var factoryResponse = arccore.filter.create({
     },
     ocdi: {
       ____accept: "jsObject"
+    },
+    act: {
+      ____accept: "jsFunction"
     }
   },
   outputFilterSpec: {
@@ -27,19 +30,60 @@ var factoryResponse = arccore.filter.create({
     var errors = [];
     var inBreakScope = false;
 
-    while (!inBreakScope) {
+    var _loop = function _loop() {
       inBreakScope = true;
       var ownedDigraph = request_.cpmData.ownedCellProcesses.digraph;
       var sharedDigraph = request_.cpmData.sharedCellProcesses.digraph;
       var gcContinue = true;
 
-      while (gcContinue) {
+      var _loop2 = function _loop2() {
         gcContinue = false; // Examine all the root vertices in the shared processes digraph.
 
         var rootVertices = sharedDigraph.getRootVertices();
         var leafVertices = sharedDigraph.getLeafVertices();
         var verticesToRemove = [];
         var sharedProcessesToDelete = [];
+        /*
+        if (!rootVertices.length) {
+            // The shared digraph has closed up on itself in some sort of cyclic topology.
+            // Or, perhaps it is now empty? If, so then we're done here.
+            if (sharedDigraph.verticesCount()) {
+                // Okay. There are vertex(ices) in the shared digraph. But, no root vertex set.
+                // So, some work to do in order to discern what's cyclic groups of shared cell processes
+                // none of which are serving any owned cell process(es). We do not allow self-referential
+                // clusters held in CellProcessor instance by virtue of the fact that they need just each
+                // other. But, there exists no owned cell process that needs any of them.
+                 const ownedProcessIDs = [];
+                const sharedProcessIDs = [];
+                 sharedDigraph.getVertices().forEach((vertex_) => {
+                    const examineVertexProp = sharedDigraph.getVertexProperty(vertex_);
+                    switch (examineVertexProp.role) {
+                    case "owned":
+                        ownedProcessIDs.push(vertex_);
+                        break;
+                    case "shared":
+                        sharedProcessIDs.push(vertex_);
+                        break;
+                    default:
+                        break;
+                    }
+                });
+                 if (!ownedProcessIDs.length) {
+                    while (sharedProcessIDs.length) {
+                        const deleteProcessID = sharedProcessIDs.pop();
+                        sharedProcessesToDelete.push(deleteProcessID);
+                    }
+                } else {
+                    // Okay. So, now we know there's at least one owned process holding some other
+                    // process by proxy connect(ions). But, we do not know if there exist isolated
+                    // pockets of shared process vertices that are holding themselves in CellProcessor.
+                
+                }
+            } else {
+                // So, nothing to do about that; it will get sorted below.
+            }
+        }
+        */
 
         while (rootVertices.length) {
           var examineVertex = rootVertices.pop();
@@ -69,8 +113,7 @@ var factoryResponse = arccore.filter.create({
             case "shared":
               // A cell that is a process that is shared that has reached the root has no connected cell process proxies. And, it represents the allocation
               // of a special-owned cell process that is reference counted by this mechanism.
-              verticesToRemove.push(examineVertex);
-              sharedProcessesToDelete.push(examineVertexProp.apmBindingPath);
+              sharedProcessesToDelete.push(examineVertex);
               break;
 
             default:
@@ -85,7 +128,7 @@ var factoryResponse = arccore.filter.create({
 
 
         if (errors.length) {
-          break;
+          return "break";
         }
 
         while (leafVertices.length) {
@@ -125,22 +168,108 @@ var factoryResponse = arccore.filter.create({
         }
 
         if (errors.length) {
-          break;
+          return "break";
         }
 
         gcContinue = verticesToRemove.length + sharedProcessesToDelete.length > 0;
 
+        if (!gcContinue) {
+          var ownedProcessVertices = [];
+          sharedDigraph.getVertices().forEach(function (vertex_) {
+            if (sharedDigraph.getVertexProperty(vertex_).role === "owned") {
+              ownedProcessVertices.push(vertex_);
+            }
+          });
+          var digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
+            digraph: sharedDigraph,
+            options: {
+              startVector: ownedProcessVertices,
+              allowEmptyStartVector: true
+            },
+            visitor: {}
+          });
+
+          if (digraphTraversalResponse.error) {
+            errors.push(digraphTraversalResponse.error);
+            return "break";
+          }
+
+          if (digraphTraversalResponse.result.searchStatus !== "completed") {
+            errors.push("Internal validation error performing shared process cluster identification. Breadth fist search did not complete as expected.");
+            return "break";
+          }
+
+          var undiscoveredVertices = Object.keys(digraphTraversalResponse.result.undiscoveredMap);
+
+          while (undiscoveredVertices.length) {
+            var _examineVertex2 = undiscoveredVertices.pop();
+
+            var _examineVertexProp2 = sharedDigraph.getVertexProperty(_examineVertex2);
+
+            if (_examineVertexProp2.role === "shared") {
+              sharedProcessesToDelete.push(_examineVertex2);
+            }
+          }
+
+          gcContinue = verticesToRemove.length + sharedProcessesToDelete.length > 0;
+        }
+
+        while (sharedProcessesToDelete.length) {
+          var deleteProcessID = sharedProcessesToDelete.pop();
+          var outEdges = sharedDigraph.outEdges(deleteProcessID);
+          outEdges.forEach(function (edge_) {
+            verticesToRemove.push(edge_.v);
+          });
+          sharedDigraph.removeVertex(deleteProcessID);
+          var actResponse = request_.act({
+            actorName: "Cell Process Proxy: Garbage Collector",
+            actorTaskDescription: "Deleting unneeded shared cell process.",
+            actionRequest: {
+              holarchy: {
+                CellProcessor: {
+                  process: {
+                    "delete": {
+                      cellProcessID: deleteProcessID
+                    }
+                  }
+                }
+              }
+            }
+          });
+
+          if (actResponse.error) {
+            errors.push(actResponse.error);
+            break;
+          }
+        }
+
+        if (errors.length) {
+          return "break";
+        }
+
         while (verticesToRemove.length) {
           sharedDigraph.removeVertex(verticesToRemove.pop());
         }
+      };
+
+      while (gcContinue) {
+        var _ret2 = _loop2();
+
+        if (_ret2 === "break") break;
       } // end while gcContinue
 
 
       if (errors.length) {
-        break;
+        return "break";
       }
 
-      break;
+      return "break";
+    };
+
+    while (!inBreakScope) {
+      var _ret = _loop();
+
+      if (_ret === "break") break;
     } // end while !inBreakScope
 
 

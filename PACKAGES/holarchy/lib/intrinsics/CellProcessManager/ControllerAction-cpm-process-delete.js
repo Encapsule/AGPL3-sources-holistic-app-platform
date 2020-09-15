@@ -110,7 +110,7 @@ var controllerAction = new ControllerAction({
 
       var cpmDataDescriptor = cpmLibResponse.result;
       var ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
-      var sharedCellProcesses = cpmDataDescriptor.data.sharedCellProcesses;
+      var sharedCellProcessesData = cpmDataDescriptor.data.sharedCellProcesses;
       var inDegree = ownedCellProcessesData.digraph.inDegree(cellProcessID);
 
       switch (inDegree) {
@@ -135,9 +135,9 @@ var controllerAction = new ControllerAction({
         return "break";
       }
 
-      if (sharedCellProcesses.digraph.isVertex(cellProcessID)) {
-        if (sharedCellProcesses.digraph.getVertexProperty(cellProcessID).role === "shared") {
-          errors.push("Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '".concat(cellProcessID, "' is a shared process."));
+      if (sharedCellProcessesData.digraph.isVertex(cellProcessID)) {
+        if (sharedCellProcessesData.digraph.getVertexProperty(cellProcessID).role === "shared") {
+          errors.push("Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '".concat(cellProcessID, "' is a shared process that cannot be deleted w/Cell Process Manager process delete."));
           return "break";
         }
       }
@@ -232,12 +232,20 @@ var controllerAction = new ControllerAction({
 
       if (cppLibResponse.result.runGarbageCollector) {
         cppLibResponse = cppLib.collectGarbage.request({
+          act: request_.context.act,
           cpmData: cpmDataDescriptor.data,
           ocdi: request_.context.ocdi
         });
 
         if (cppLibResponse.error) {
           errors.push(cppResponse.error);
+          return "break";
+        }
+
+        ocdResponse = request_.context.ocdi.writeNamespace("".concat(cpmDataDescriptor.path, ".sharedCellProcesses.revision"), sharedCellProcessesData.revision + 1);
+
+        if (ocdResponse.error) {
+          errors.push(ocdResponse.error);
           return "break";
         }
       }

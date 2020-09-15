@@ -267,6 +267,7 @@ var action = new ControllerAction({
 
       if (runGarbageCollector) {
         cppLibResponse = cppLib.collectGarbage.request({
+          act: request_.context.act,
           cpmData: cpmDataDescriptor.data,
           ocdi: request_.context.ocdi
         });
