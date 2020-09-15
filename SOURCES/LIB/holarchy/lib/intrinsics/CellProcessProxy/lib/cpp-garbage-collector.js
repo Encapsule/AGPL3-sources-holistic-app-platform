@@ -10,7 +10,8 @@ const factoryResponse = arccore.filter.create({
     inputFilterSpec: {
         ____types: "jsObject",
         cpmData: { ____accept: "jsObject" },
-        ocdi: { ____accept: "jsObject" }
+        ocdi: { ____accept: "jsObject" },
+        act: { ____accept: "jsFunction" }
     },
 
     outputFilterSpec: {
@@ -39,6 +40,49 @@ const factoryResponse = arccore.filter.create({
 
                 const verticesToRemove = [];
                 const sharedProcessesToDelete = [];
+
+                if (!rootVertices.length) {
+                    // The shared digraph has closed up on itself in some sort of cyclic topology.
+                    // Or, perhaps it is now empty? If, so then we're done here.
+                    if (sharedDigraph.verticesCount()) {
+                        // Okay. There are vertex(ices) in the shared digraph. But, no root vertex set.
+                        // So, some work to do in order to discern what's cyclic groups of shared cell processes
+                        // none of which are serving any owned cell process(es). We do not allow self-referential
+                        // clusters held in CellProcessor instance by virtue of the fact that they need just each
+                        // other. But, there exists no owned cell process that needs any of them.
+
+                        const ownedProcessIDs = [];
+                        const sharedProcessIDs = [];
+
+                        sharedDigraph.getVertices().forEach((vertex_) => {
+                            const examineVertexProp = sharedDigraph.getVertexProperty(vertex_);
+                            switch (examineVertexProp.role) {
+                            case "owned":
+                                ownedProcessIDs.push(vertex_);
+                                break;
+                            case "shared":
+                                sharedProcessIDs.push(vertex_);
+                                break;
+                            default:
+                                break;
+                            }
+                        });
+
+                        if (!ownedProcessIDs.length) {
+                            while (sharedProcessIDs.length) {
+                                const deleteProcessID = sharedProcessIDs.pop();
+                                sharedProcessesToDelete.push(deleteProcessID);
+                            }
+                        } else {
+                            // Okay. So, now we know there's at least one owned process holding some other
+                            // process by proxy connect(ions). But, we do not know if there exist isolated
+                            // pockets of shared process vertices that are holding themselves in CellProcessor.
+                        }
+                        
+                    } else {
+                        // So, nothing to do about that; it will get sorted below.
+                    }
+                }
 
                 while (rootVertices.length) {
 
@@ -69,8 +113,7 @@ const factoryResponse = arccore.filter.create({
                     case "shared":
                         // A cell that is a process that is shared that has reached the root has no connected cell process proxies. And, it represents the allocation
                         // of a special-owned cell process that is reference counted by this mechanism.
-                        verticesToRemove.push(examineVertex);
-                        sharedProcessesToDelete.push(examineVertexProp.apmBindingPath);
+                        sharedProcessesToDelete.push(examineVertex);
                         break;
 
                     default:
@@ -122,11 +165,31 @@ const factoryResponse = arccore.filter.create({
 
                 gcContinue = (verticesToRemove.length + sharedProcessesToDelete.length) > 0;
 
+                while (sharedProcessesToDelete.length) {
+                    const deleteProcessID = sharedProcessesToDelete.pop();
+                    const outEdges = sharedDigraph.outEdges(deleteProcessID);
+                    outEdges.forEach((edge_) => {
+                        verticesToRemove.push(edge_.v);
+                    });
+                    sharedDigraph.removeVertex(deleteProcessID);
+                    const actResponse = request_.act({
+                        actorName: "Cell Process Proxy: Garbage Collector",
+                        actorTaskDescription: "Deleting unneeded shared cell process.",
+                        actionRequest: { holarchy: { CellProcessor: { process: { delete: { cellProcessID: deleteProcessID } } } } }
+                    });
+                    if (actResponse.error) {
+                        errors.push(actResponse.error);
+                        break;
+                    }
+                }
+
+                if (errors.length) {
+                    break;
+                }
+
                 while (verticesToRemove.length) {
                     sharedDigraph.removeVertex(verticesToRemove.pop());
                 }
-
-                
 
             } // end while gcContinue
 

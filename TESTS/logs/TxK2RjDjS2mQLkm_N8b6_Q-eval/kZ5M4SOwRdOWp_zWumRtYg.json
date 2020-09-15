@@ -4304,27 +4304,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.vWDZi8HHd5XpyNZfnHj0WQ",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -4335,65 +4320,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -4576,27 +4514,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.vWDZi8HHd5XpyNZfnHj0WQ",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -4607,65 +4530,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -4737,27 +4613,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.vWDZi8HHd5XpyNZfnHj0WQ",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -4768,65 +4629,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -4898,27 +4712,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.vWDZi8HHd5XpyNZfnHj0WQ",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -4929,65 +4728,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -5212,27 +4964,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.vWDZi8HHd5XpyNZfnHj0WQ",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -5243,65 +4980,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -5403,27 +5093,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -5434,65 +5109,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -5739,27 +5367,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -5770,65 +5383,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -5900,27 +5466,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -5931,65 +5482,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -6061,27 +5565,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -6092,65 +5581,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -6438,27 +5880,12 @@
                                                 "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
                                                 "ocdi": {
                                                   "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                                                    "cellProcessMap": {
-                                                      "f2ltTSHfJPY3BmBgos7neA": {
-                                                        "construction": {
-                                                          "instanceName": "Secondary Shared Test Process"
-                                                        },
-                                                        "proxyTest": {
-                                                          "lcpRequest": {
-                                                            "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                                            "instanceName": "Secondary Shared Test Process"
-                                                          },
-                                                          "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                                          "__apmiStep": "uninitialized"
-                                                        },
-                                                        "__apmiStep": "test_process_complete"
-                                                      }
-                                                    },
-                                                    "revision": 3
+                                                    "cellProcessMap": {},
+                                                    "revision": 4
                                                   },
                                                   "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                                                     "ownedCellProcesses": {
-                                                      "revision": 3,
+                                                      "revision": 4,
                                                       "digraph": {
                                                         "name": "Owned Cell Processes Tree Model",
                                                         "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -6469,65 +5896,18 @@
                                                               "apmBindingPath": "~",
                                                               "name": "Cell Process Manager"
                                                             }
-                                                          },
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
                                                           }
                                                         ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "U1NTU1paWlqwsLCwxMTExA",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "elist": []
                                                       }
                                                     },
                                                     "sharedCellProcesses": {
-                                                      "revision": 2,
+                                                      "revision": 3,
                                                       "digraph": {
                                                         "name": "Shared Cell Processes Digraph Model",
                                                         "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                                                        "vlist": [
-                                                          {
-                                                            "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                            "p": {
-                                                              "role": "shared",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                                            }
-                                                          },
-                                                          {
-                                                            "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                            "p": {
-                                                              "role": "shared-proxy",
-                                                              "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                                            }
-                                                          }
-                                                        ],
-                                                        "elist": [
-                                                          {
-                                                            "e": {
-                                                              "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                                              "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                                            },
-                                                            "p": {
-                                                              "role": "host-to-proxy"
-                                                            }
-                                                          },
-                                                          {
-                                                            "e": {
-                                                              "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                                              "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                                            },
-                                                            "p": {
-                                                              "role": "proxy-to-shared"
-                                                            }
-                                                          }
-                                                        ]
+                                                        "vlist": [],
+                                                        "elist": []
                                                       }
                                                     },
                                                     "__apmiStep": "ready"
@@ -7025,7 +6405,7 @@
                         }
                       },
                       "actResponse": {
-                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete] rejected the request with error: Filter [4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete] failed while performing main operation. Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '7fVVLzb4SaU8M3EIS8_jTA' is a shared process."
+                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete] rejected the request with error: Filter [4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete] failed while performing main operation. Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '7fVVLzb4SaU8M3EIS8_jTA' is a shared process that cannot be deleted w/Cell Process Manager process delete."
                       },
                       "ocdJSON": {
                         "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
@@ -7213,7 +6593,7 @@
                             "evalNumber": 2,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 1,
                                 "frames": 1,
                                 "errors": 0,
                                 "transitions": 0
@@ -7223,7 +6603,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 3,
+                                    "bindings": 1,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7264,70 +6644,6 @@
                                         "total": 0
                                       }
                                     }
-                                  },
-                                  "7fVVLzb4SaU8M3EIS8_jTA": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                        "specPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "test_process_complete",
-                                      "apmRef": {
-                                        "id": "J9RsPcp3RoS1QrZG-04XPg",
-                                        "vdid": "Ni4Ssco6YWMii_j2hcDFgA",
-                                        "name": "CPP Test Process With Worker Proxy Process",
-                                        "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "test_process_complete",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "fl4Jy-ZgExhO70pnobBOHQ": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest",
-                                        "specPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                      },
-                                      "initialStep": "uninitialized",
-                                      "apmRef": {
-                                        "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                        "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                                        "name": "Holarchy Cell Process Proxy Helper Process",
-                                        "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "uninitialized",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
                                   }
                                 }
                               }
@@ -7337,27 +6653,12 @@
                       },
                       "ocdJSON": {
                         "J9RsPcp3RoS1QrZG-04XPg_CellProcesses": {
-                          "cellProcessMap": {
-                            "f2ltTSHfJPY3BmBgos7neA": {
-                              "construction": {
-                                "instanceName": "Secondary Shared Test Process"
-                              },
-                              "proxyTest": {
-                                "lcpRequest": {
-                                  "apmID": "J9RsPcp3RoS1QrZG-04XPg",
-                                  "instanceName": "Secondary Shared Test Process"
-                                },
-                                "lcpConnect": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA",
-                                "__apmiStep": "uninitialized"
-                              },
-                              "__apmiStep": "test_process_complete"
-                            }
-                          },
-                          "revision": 3
+                          "cellProcessMap": {},
+                          "revision": 4
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "ownedCellProcesses": {
-                            "revision": 3,
+                            "revision": 4,
                             "digraph": {
                               "name": "Owned Cell Processes Tree Model",
                               "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
@@ -7368,65 +6669,18 @@
                                     "apmBindingPath": "~",
                                     "name": "Cell Process Manager"
                                   }
-                                },
-                                {
-                                  "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                  "p": {
-                                    "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                  }
                                 }
                               ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                  }
-                                }
-                              ]
+                              "elist": []
                             }
                           },
                           "sharedCellProcesses": {
-                            "revision": 2,
+                            "revision": 3,
                             "digraph": {
                               "name": "Shared Cell Processes Digraph Model",
                               "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [
-                                {
-                                  "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                  "p": {
-                                    "role": "shared",
-                                    "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA"
-                                  }
-                                },
-                                {
-                                  "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                  "p": {
-                                    "role": "shared-proxy",
-                                    "apmBindingPath": "~.J9RsPcp3RoS1QrZG-04XPg_CellProcesses.cellProcessMap.f2ltTSHfJPY3BmBgos7neA.proxyTest"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "7fVVLzb4SaU8M3EIS8_jTA",
-                                    "v": "fl4Jy-ZgExhO70pnobBOHQ"
-                                  },
-                                  "p": {
-                                    "role": "host-to-proxy"
-                                  }
-                                },
-                                {
-                                  "e": {
-                                    "u": "fl4Jy-ZgExhO70pnobBOHQ",
-                                    "v": "7fVVLzb4SaU8M3EIS8_jTA"
-                                  },
-                                  "p": {
-                                    "role": "proxy-to-shared"
-                                  }
-                                }
-                              ]
+                              "vlist": [],
+                              "elist": []
                             }
                           },
                           "__apmiStep": "ready"

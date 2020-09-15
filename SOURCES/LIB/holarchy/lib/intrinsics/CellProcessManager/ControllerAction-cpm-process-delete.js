@@ -80,7 +80,7 @@ const controllerAction = new ControllerAction({
             const cpmDataDescriptor = cpmLibResponse.result;
 
             const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
-            const sharedCellProcesses = cpmDataDescriptor.data.sharedCellProcesses;
+            const sharedCellProcessesData = cpmDataDescriptor.data.sharedCellProcesses;
 
             const inDegree = ownedCellProcessesData.digraph.inDegree(cellProcessID);
 
@@ -102,9 +102,9 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            if (sharedCellProcesses.digraph.isVertex(cellProcessID)) {
-                if (sharedCellProcesses.digraph.getVertexProperty(cellProcessID).role === "shared") {
-                    errors.push(`Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '${cellProcessID}' is a shared process.`);
+            if (sharedCellProcessesData.digraph.isVertex(cellProcessID)) {
+                if (sharedCellProcessesData.digraph.getVertexProperty(cellProcessID).role === "shared") {
+                    errors.push(`Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '${cellProcessID}' is a shared process that cannot be deleted w/Cell Process Manager process delete.`);
                     break;
                 }
             }
@@ -186,9 +186,14 @@ const controllerAction = new ControllerAction({
             }
 
             if (cppLibResponse.result.runGarbageCollector) {
-                cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data, ocdi: request_.context.ocdi });
+                cppLibResponse = cppLib.collectGarbage.request({ act: request_.context.act, cpmData: cpmDataDescriptor.data, ocdi: request_.context.ocdi });
                 if (cppLibResponse.error) {
                     errors.push(cppResponse.error);
+                    break;
+                }
+                ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.sharedCellProcesses.revision`, sharedCellProcessesData.revision + 1);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
                     break;
                 }
             }
