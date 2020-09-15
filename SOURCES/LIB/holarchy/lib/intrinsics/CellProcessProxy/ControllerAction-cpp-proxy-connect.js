@@ -129,7 +129,10 @@ const action = new ControllerAction({
                 cpmDataDescriptor.data.sharedCellProcesses.digraph.removeVertex(proxyHelperID); // host -> proxy -> lcp (linked) ===> host lcp (unlinked)
                 runGarbageCollector = true;
             }
-            cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: proxyHelperID, p: { role: "helper", apmBindingPath: proxyPath }});
+
+            const thisCellProcessRole = cpmDataDescriptor.data.sharedCellProcesses.digraph.getVertexProperty(thisCellProcessID).role;
+
+            cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: proxyHelperID, p: { role: `${thisCellProcessRole}-proxy`, apmBindingPath: proxyPath }});
             cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: thisCellProcessID, v: proxyHelperID }, p: { role: "host-to-proxy" }});
 
             // If LCP is present in the sharedProcessesDigraph and not the ownedProcessesDigraph there's a consistency problem.
@@ -207,11 +210,13 @@ const action = new ControllerAction({
                 break;
             }
 
-            cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data });
-            if (cppLibResponse.error) {
-                errors.push("Oh no! An error occurred during gargage collection!");
-                errors.push(cppLibResponse.error);
-                break;
+            if (runGarbageCollector) {
+                cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data });
+                if (cppLibResponse.error) {
+                    errors.push("Oh no! An error occurred during garbage collection!");
+                    errors.push(cppLibResponse.error);
+                    break;
+                }
             }
 
             response.result = {

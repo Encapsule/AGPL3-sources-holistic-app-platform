@@ -185,10 +185,12 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data });
-            if (cppLibResponse.error) {
-                errors.push(cppResponse.error);
-                break;
+            if (cppLibResponse.result.runGarbageCollector) {
+                cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data });
+                if (cppLibResponse.error) {
+                    errors.push(cppResponse.error);
+                    break;
+                }
             }
 
             response.result = {

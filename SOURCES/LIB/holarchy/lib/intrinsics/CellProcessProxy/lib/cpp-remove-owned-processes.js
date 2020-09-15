@@ -17,7 +17,12 @@ const factoryResponse = arccore.filter.create({
     },
 
     outputFilterSpec: {
-        ____opaque: true // TODO
+        ____types: "jsObject",
+        ____defaultValue: {},
+        runGarbageCollector: {
+            ____accept: "jsBoolean",
+            ____defaultValue: false
+        }
     },
 
     bodyFunction: function(request_) {
@@ -26,9 +31,24 @@ const factoryResponse = arccore.filter.create({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+            const sharedDigraph = request_.cpmData.sharedCellProcesses.digraph;
+            let runGarbageCollector = false;
             while (request_.deletedOwnedCellProcesses.length) {
-                request_.cpmData.sharedCellProcesses.digraph.removeVertex(request_.deletedOwnedCellProcesses.pop());
+                // We actually do not care if these process ID's are present in the owned process digraph or not.
+                // They are as good as dead to us in terms of managing reference counts on shared processes.
+                const deleteProcessID = request_.deletedOwnedCellProcesses.pop();
+                if (sharedDigraph.isVertex(deleteProcessID)) {
+                    // We are tracking this owned process in the shared process digraph.
+                    const outEdges = sharedDigraph.outEdges(deleteProcessID); // these are proxy helper cells
+                    // Deleting an owned process deletes its owned proxy helpers by definition.
+                    outEdges.forEach((outEdge_) => {
+                        sharedDigraph.removeVertex(outEdge_.v); // proxy helper cell
+                    });
+                    sharedDigraph.removeVertex(deleteProcessID);
+                    runGarbageCollector = true;
+                }
             }
+            response.result = { runGarbageCollector };
             break;
         }
         if (errors.length) {

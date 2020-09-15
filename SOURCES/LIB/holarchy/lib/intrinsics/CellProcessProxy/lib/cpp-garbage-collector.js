@@ -44,7 +44,8 @@ const factoryResponse = arccore.filter.create({
 
                     switch (examineVertexProp.role) {
 
-                    case "helper":
+                    case "owned-proxy":
+                    case "shared-proxy":
                         // A helper cell that has reached the root has, by definition, no cell process proxies connected to it.
                         verticesToRemove.push(examineVertex);
                         break;
@@ -83,6 +84,14 @@ const factoryResponse = arccore.filter.create({
                 if (errors.length) {
                     break;
                 }
+
+                gcContinue = (verticesToRemove.length + sharedProcessesToDelete.length) > 0;
+
+                while (verticesToRemove.length) {
+                    sharedDigraph.removeVertex(verticesToRemove.pop());
+                }
+
+                
 
             } // end while gcContinue
 
