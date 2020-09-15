@@ -21,6 +21,8 @@ var cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-nam
 
 var cpmLib = require("./lib");
 
+var cppLib = require("../CellProcessProxy/lib");
+
 var controllerAction = new ControllerAction({
   id: "4s_DUfKnQ4aS-xRjewAfUQ",
   name: "Cell Process Manager: Process Delete",
@@ -108,11 +110,12 @@ var controllerAction = new ControllerAction({
 
       var cpmDataDescriptor = cpmLibResponse.result;
       var ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+      var sharedCellProcesses = cpmDataDescriptor.data.sharedCellProcesses;
       var inDegree = ownedCellProcessesData.digraph.inDegree(cellProcessID);
 
       switch (inDegree) {
         case -1:
-          errors.push("Invalid cell process apmBindingPath or cellProcessID specified in cell process delete. No such cell process '".concat(cellProcessID, "'."));
+          errors.push("Invalid cell process apmBindingPath or cellProcessID specified in cell process delete. No such cell process ID '".concat(cellProcessID, "'."));
           break;
 
         case 0:
@@ -130,6 +133,13 @@ var controllerAction = new ControllerAction({
 
       if (errors.length) {
         return "break";
+      }
+
+      if (sharedCellProcesses.digraph.isVertex(cellProcessID)) {
+        if (sharedCellProcesses.digraph.getVertexProperty(cellProcessID).role === "shared") {
+          errors.push("Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID '".concat(cellProcessID, "' is a shared process."));
+          return "break";
+        }
       }
 
       var parentProcessID = ownedCellProcessesData.digraph.inEdges(cellProcessID)[0].u;
@@ -208,6 +218,28 @@ var controllerAction = new ControllerAction({
       if (ocdResponse.error) {
         errors.push(ocdResponse.error);
         return "break";
+      }
+
+      var cppLibResponse = cppLib.removeOwnedProcesses.request({
+        cpmData: cpmDataDescriptor.data,
+        deletedOwnedCellProcesses: processesToDelete
+      });
+
+      if (cppLibResponse.error) {
+        errors.push(cppResponse.error);
+        return "break";
+      }
+
+      if (cppLibResponse.result.runGarbageCollector) {
+        cppLibResponse = cppLib.collectGarbage.request({
+          cpmData: cpmDataDescriptor.data,
+          ocdi: request_.context.ocdi
+        });
+
+        if (cppLibResponse.error) {
+          errors.push(cppResponse.error);
+          return "break";
+        }
       }
 
       response.result = {

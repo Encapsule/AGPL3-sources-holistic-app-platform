@@ -9,6 +9,8 @@ var OCD = require("../../../lib/ObservableControllerData");
 
 var cpmLib = require("../CellProcessManager/lib");
 
+var cppLib = require("./lib");
+
 var action = new ControllerAction({
   id: "X6ck_Bo4RmWTVHl-vk-urw",
   name: "Cell Process Proxy: Connect Proxy",
@@ -17,30 +19,24 @@ var action = new ControllerAction({
     ____types: "jsObject",
     holarchy: {
       ____types: "jsObject",
-      CellProcessor: {
+      CellProcessProxy: {
         ____types: "jsObject",
-        process: {
+        connect: {
           ____types: "jsObject",
-          proxy: {
+          // Connect from this proxy process (a helper cell process)...
+          proxyPath: {
+            ____accept: "jsString",
+            ____defaultValue: "#"
+          },
+          // ... to this new or existing local cell process.
+          localCellProcess: {
             ____types: "jsObject",
-            connect: {
-              ____types: "jsObject",
-              // Connect from this proxy process (a helper cell process)...
-              proxyPath: {
-                ____accept: "jsString",
-                ____defaultValue: "#"
-              },
-              // ... to this new or existing local cell process.
-              localCellProcess: {
-                ____types: "jsObject",
-                apmID: {
-                  ____accept: "jsString"
-                },
-                instanceName: {
-                  ____accept: "jsString",
-                  ____defaultValue: "singleton"
-                }
-              }
+            apmID: {
+              ____accept: "jsString"
+            },
+            instanceName: {
+              ____accept: "jsString",
+              ____defaultValue: "singleton"
             }
           }
         }
@@ -60,7 +56,8 @@ var action = new ControllerAction({
 
     while (!inBreakScope) {
       inBreakScope = true;
-      var runGarbageCollector = false; // Get the CPM process' data.
+      var runGarbageCollector = false;
+      var message = request_.actionRequest.holarchy.CellProcessProxy.connect; // Get the CPM process' data.
 
       var cpmLibResponse = cpmLib.getProcessManagerData.request({
         ocdi: request_.context.ocdi
@@ -84,60 +81,34 @@ var action = new ControllerAction({
         break;
       }
 
-      var message = request_.actionRequest.holarchy.CellProcessor.process.proxy.connect;
-      var ocdResponse = OCD.dataPathResolve({
-        dataPath: message.proxyPath,
-        apmBindingPath: request_.context.apmBindingPath
+      var cppLibResponse = cppLib.getStatus.request({
+        apmBindingPath: request_.context.apmBindingPath,
+        proxyPath: message.proxyPath,
+        ocdi: request_.context.ocdi
       });
 
-      if (ocdResponse.error) {
-        errors.push("Invalid proxyPath value '".concat(message.proxyPath, "' cannot be used to build the binding path of the cell process proxy helper cell process."));
-        errors.push(ocdResponse.error);
+      if (cppLibResponse.error) {
+        errors.push("Cannot locate the cell process proxy cell instance.");
+        errors.push(cppLibResponse.error);
         break;
       }
 
-      var proxyPath = ocdResponse.result;
+      var cppMemoryStatusDescriptor = cppLibResponse.result;
+      var proxyPath = cppMemoryStatusDescriptor.paths.resolvedPath;
 
       if (!proxyPath.startsWith(request_.context.apmBindingPath)) {
         errors.push("Invalid proxyPath value '".concat(message.proxyPath, "' resolves to an apmBindingPath value '").concat(proxyPath, "' that is outside of the proxy owner process' cell memory space!"));
         break;
-      } // snip ================================================================
-
-
-      ocdResponse = request_.context.ocdi.getNamespaceSpec(proxyPath);
-
-      if (ocdResponse.error) {
-        errors.push("Invalid proxyPath value '".concat(message.proxyPath, "' resolves to an apmBindingPath value '").concat(proxyPath, "' that is not declared within the proxy owner process' memory space!"));
-        break;
-      }
-
-      var proxyNamespaceSpec = ocdResponse.result;
-
-      if (!proxyNamespaceSpec.____appdsl || proxyNamespaceSpec.____appdsl.apm !== "CPPU-UPgS8eWiMap3Ixovg") {
-        errors.push("Invalid proxyPath value '".concat(message.proxyPath, "' resolves to an apmBindingPath value '").concat(proxyPath, "' in the owning process' memory space that is missing or has unexpected APM binding annotation."));
-        errors.push("'".concat(proxyPath, "' not bound to CellProcessProxy APM; missing ____appdsl annotation?"));
-        break;
-      }
-
-      ocdResponse = request_.context.ocdi.readNamespace(proxyPath);
-
-      if (ocdResponse.error) {
-        errors.push("Failed to connect cell process proxy because the helper process' cell memory cannot be read from path '".concat(proxyPath, "'."));
-        errors.push(ocdResponse.error);
-        break;
-      }
-
-      var proxyData = ocdResponse.result; // apparently, we never reference this? We're just concerned it's present and therefor presume it's been constructed/initialized by whomever however
-      // snip ================================================================
-      // At this point we know / are confident of the following:
+      } // At this point we know / are confident of the following:
       //
       // - We know which existing owned (i.e. allocated w/CPM process create) OR shared (i.e. allocated w/CPM process open) cell process will OWN (i.e. will hold, by proxy in this example) a reference to another local owned or shared cell process.
       // - We are confident that relative to the owner we can access the specified cell process proxy helper cell. And, that it is actually bound to the CellProcessProxy APM etc.
       //
       // However, we do not yet know anything yet about the local cell process that the caller wishes to connect to via the proxy instance. So, we look at that next.
 
+
       var lcpBindingPath = "~.".concat(message.localCellProcess.apmID, "_CellProcesses.cellProcessMap.").concat(arccore.identifier.irut.fromReference(message.localCellProcess.instanceName).result);
-      ocdResponse = request_.context.ocdi.getNamespaceSpec(lcpBindingPath);
+      var ocdResponse = request_.context.ocdi.getNamespaceSpec(lcpBindingPath);
 
       if (ocdResponse.error) {
         errors.push("Unknown APM ID value specified for localCellProcess.apmID. Do you have a CellModel registered w/APM ID value '".concat(message.localCellProcess.apmID, "'?"));
@@ -169,10 +140,11 @@ var action = new ControllerAction({
         runGarbageCollector = true;
       }
 
+      var thisCellProcessRole = cpmDataDescriptor.data.sharedCellProcesses.digraph.getVertexProperty(thisCellProcessID).role;
       cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({
         u: proxyHelperID,
         p: {
-          role: "helper",
+          role: "".concat(thisCellProcessRole, "-proxy"),
           apmBindingPath: proxyPath
         }
       });
@@ -291,6 +263,19 @@ var action = new ControllerAction({
       if (ocdResponse.error) {
         errors.push(ocdResponse.error);
         break;
+      }
+
+      if (runGarbageCollector) {
+        cppLibResponse = cppLib.collectGarbage.request({
+          cpmData: cpmDataDescriptor.data,
+          ocdi: request_.context.ocdi
+        });
+
+        if (cppLibResponse.error) {
+          errors.push("Oh no! An error occurred during garbage collection!");
+          errors.push(cppLibResponse.error);
+          break;
+        }
       }
 
       response.result = {

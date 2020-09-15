@@ -186,7 +186,7 @@ const controllerAction = new ControllerAction({
             }
 
             if (cppLibResponse.result.runGarbageCollector) {
-                cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data });
+                cppLibResponse = cppLib.collectGarbage.request({ cpmData: cpmDataDescriptor.data, ocdi: request_.context.ocdi });
                 if (cppLibResponse.error) {
                     errors.push(cppResponse.error);
                     break;

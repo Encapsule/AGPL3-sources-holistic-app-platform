@@ -9,7 +9,8 @@ const factoryResponse = arccore.filter.create({
 
     inputFilterSpec: {
         ____types: "jsObject",
-        cpmData: { ____accept: "jsObject" }
+        cpmData: { ____accept: "jsObject" },
+        ocdi: { ____accept: "jsObject" }
     },
 
     outputFilterSpec: {
@@ -34,6 +35,8 @@ const factoryResponse = arccore.filter.create({
                 // Examine all the root vertices in the shared processes digraph.
 
                 const rootVertices = sharedDigraph.getRootVertices();
+                const leafVertices = sharedDigraph.getLeafVertices();
+
                 const verticesToRemove = [];
                 const sharedProcessesToDelete = [];
 
@@ -80,6 +83,38 @@ const factoryResponse = arccore.filter.create({
                     }
 
                 } // while examine all current root vertices
+
+                if (errors.length) {
+                    break;
+                }
+
+                while (leafVertices.length) {
+                    const examineVertex = leafVertices.pop();
+                    const examineVertexProp = sharedDigraph.getVertexProperty(examineVertex);
+                    switch (examineVertexProp.role) {
+                    case "owned-proxy":
+                    case "shared-proxy":
+                        // Any proxy that's in the shared digraph indicates that that proxy helper cell thinks its connected.
+                        // The fact that it's now a leaf vertex indicates that it's no longer connected. This may actually
+                        // only occur when the connection was from a proxy cell to an owned cell process that has been deleted.
+                        // So, we want to update the cell process proxy helper cell's state (put it in broken state), and then
+                        // we want to remove the proxy vertex as we only allow connected proxies in the shared digraph.
+                        const ocdResponse = request_.ocdi.writeNamespace( { apmBindingPath: examineVertexProp.apmBindingPath, dataPath: "#.lcpConnect" }, null );
+                        if (ocdResponse.error) {
+                            errors.push(ocdResponse.error);
+                            break;
+                        }
+                        verticesToRemove.push(examineVertex);
+                        break;
+                    case "owned":
+                    case "shared":
+                        break;
+                    default:
+                        errors.push(`Unexpected shared process role value '${examineVertexProp.role}'.`);
+                        break;
+                    }
+
+                }
 
                 if (errors.length) {
                     break;
