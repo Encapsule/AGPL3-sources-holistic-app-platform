@@ -321,13 +321,29 @@ const factoryResponse = arccore.filter.create({
                     const initialStep = apmInstanceFrame.evalRequest.initialStep;
                     const stepDescriptor = apmRef.getStepDescriptor(initialStep);
 
-                    if (!stepDescriptor) {
+                    let ocdResponse = opcRef._private.ocdi.readNamespace(`${apmBindingPath}.__apmiStep`);
+                    if (ocdResponse.error) {
+                        // We take this as a blunt indicator that cells evaluated previously in the frame have killed this cell.
                         logger.request({
-                            logLevel: "warn",
+                            logLevel: "info",
                             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
                             subsystem: "opc", method: "evaluate", phase: "body",
-                            message: `No step descriptor in model for [${apmRef.getID()}::${apmRef.getName()}] for step '${initialStep}'. Ignoring.`
+                            message: `[${apmRef.getID()}::${apmRef.getName()}] was in initial step '${initialStep}'. But, now we find that it was put to death earlier in the evaluation frame. Back to dust...`
                         });
+                        apmInstanceFrame.evalResponse.status = "cell-deleted";
+                        apmInstanceFrame.evalResponse.finishStep = "death";
+                        continue;
+                    }
+
+                    if (!stepDescriptor) {
+                        /* This is really just noise
+                        logger.request({
+                            logLevel: "info",
+                            opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name, evalCount: result.evalNumber, frameCount: result.summary.counts.frames, actorStack: opcRef._private.opcActorStack },
+                            subsystem: "opc", method: "evaluate", phase: "body",
+                            message: `[${apmRef.getID()}::${apmRef.getName()}] in initial terminal process step, '${initialStep}'. No process rules means to work for us. So, we're moving on...`
+                        });
+                        */
                         apmInstanceFrame.evalResponse.status = "noop";
                         apmInstanceFrame.evalResponse.finishStep = initialStep;
                         continue;

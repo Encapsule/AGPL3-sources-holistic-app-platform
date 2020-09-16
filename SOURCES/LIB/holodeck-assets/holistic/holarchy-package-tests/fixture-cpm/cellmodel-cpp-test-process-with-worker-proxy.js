@@ -52,10 +52,6 @@ const cellModel = new holarchy.CellModel({
             connect_proxy: {
                 description: "Attempt to connect the proxy to something completely random.",
 
-                transitions: [
-                    { transitionIf: { always: true }, nextStep: "test_process_complete" }
-                ],
-
                 actions: {
                     enter: [
                         {
@@ -75,7 +71,56 @@ const cellModel = new holarchy.CellModel({
                         }
 
                     ]
-                }
+                },
+
+                transitions: [
+                    {
+                        transitionIf: { holarchy: { CellProcessProxy: { isBroken: { proxyPath: "#.proxyTest" } } } },
+                        nextStep: "test_status_operators_unexpected_response"
+                    },
+                    {
+                        transitionIf: { holarchy: { CellProcessProxy: { isDisconnected: { proxyPath: "#.proxyTest" } } } },
+                        nextStep: "test_status_operators_unexpected_response"
+                    },
+                    {
+                        transitionIf: { holarchy: { CellProcessProxy: { isConnected: { proxyPath: "#.proxyTest" } } } },
+                        nextStep: "proxy_connected"
+                    },
+                    {
+                        transitionIf: { always: true },
+                        nextStep: "test_status_operators_unexpected_response"
+                    }
+                ]
+                
+            },
+
+            proxy_connected: {
+                description: "The cell process proxy helper is now connected to a local cell process instance.",
+
+                transitions: [
+                    {
+                        transitionIf: { always: true },
+                        nextStep: "disconnect_proxy"
+                    }
+                ]
+            },
+
+            disconnect_proxy: {
+                description: "Now disconnect the proxy.",
+
+                actions: {
+                    enter: [
+                        { holarchy: { CellProcessProxy: { disconnect: { proxyPath: "#.proxyTest" } } } }
+                    ]
+                },
+
+                transitions: [
+                    {
+                        transitionIf: { always: true },
+                        nextStep: "test_process_complete"
+                    }
+                ]
+
             },
 
             test_process_complete: {

@@ -1,8 +1,8 @@
 // cpm-get-cell-process-descriptor.js
 
 const arccore = require("@encapsule/arccore");
-const cellProcessQueryResponseDescriptorSpec = require("./iospecs/cell-process-query-response-descriptor-spec");
 const cellProcessQueryRequestFilterBySpec = require("./iospecs/cell-process-query-request-filterby-spec");
+const cellProcessQueryResponseDescriptorSpec = require("./iospecs/cell-process-query-response-descriptor-spec");
 const cpmMountingNamespaceName = require("../../../filters/cpm-mounting-namespace-name");
 const cpmPath = `~.${cpmMountingNamespaceName}`;
 
