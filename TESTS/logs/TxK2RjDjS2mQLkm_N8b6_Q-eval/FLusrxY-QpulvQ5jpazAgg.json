@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "O_U79QJwAnC7HrsebiJuIg",
-                      "vdid": "R8n8nqkLPgBLhWG-iflmFg",
+                      "vdid": "gsv93Pv0iH9Al9L0G6HGIg",
                       "name": "Cell Process Manager [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "O_U79QJwAnC7HrsebiJuIg": {
                               "id": "O_U79QJwAnC7HrsebiJuIg",
-                              "vdid": "R8n8nqkLPgBLhWG-iflmFg",
+                              "vdid": "gsv93Pv0iH9Al9L0G6HGIg",
                               "name": "Cell Process Manager [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [FLusrxY-QpulvQ5jpazAgg::CPM Ancestor Processes Any In Step Operator Test].",
                               "type": "CM",
@@ -185,13 +185,6 @@
                                 "description": "Performs initialization of Cell Process Manager cell process (the root and parent process of all cell processes executing in a CellProcess runtime host instance).",
                                 "type": "ACT"
                               },
-                              "1Puwq4UEQZuJy6pOrkvZSg": {
-                                "id": "1Puwq4UEQZuJy6pOrkvZSg",
-                                "vdid": "Wq_G4ZDR7wfkXSL1uXfRgg",
-                                "name": "Cell Process Manager: Close Cell Process",
-                                "description": "Instruct CellProcessor to unlink the indicated worker proxy subcell from the shared cell process instance.",
-                                "type": "ACT"
-                              },
                               "SdL0-5kmTuiNrWNu7zGZhg": {
                                 "id": "SdL0-5kmTuiNrWNu7zGZhg",
                                 "vdid": "dM7q_uRXrScgd_WSX_TNJg",
@@ -204,13 +197,6 @@
                                 "vdid": "Zu6vqkbcKMfcIATr64ymag",
                                 "name": "Cell Process Manager: Process Delete",
                                 "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
-                                "type": "ACT"
-                              },
-                              "MAaYEUinReO3AKaTI21CaQ": {
-                                "id": "MAaYEUinReO3AKaTI21CaQ",
-                                "vdid": "Qp6SC7RpwNvCpw7TM71ZQg",
-                                "name": "Cell Process Manager: Open Cell Process",
-                                "description": "Instruct CellProcessor to open the specified cell process instance as a shared cell process, and link it to the indicated worker proxy subcell.",
                                 "type": "ACT"
                               },
                               "r-JgxABoS_a-mSE2c1nvKA": {
@@ -2490,21 +2476,19 @@
                       },
                       "actionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "DsTiz0LNXpuVd0peQAx0qQ",
+                          "operationID": "1siJTP9lcpX_rb-vAzAGOg",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "2FWrryx8liFH4nTJG8IgWw",
+                          "inputTypeVIID": "MG0D0Ul-yuP5btZd88c_Rw",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "XT_a0bD_97TzsGcj_LAfKw",
+                          "outputTypeVIID": "s_2zhet04YDKwq4bJuuBBA",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "fxX0EysONVcf0I7t5PEUtA"
+                          "operationVDID": "7X_0E2SlNVcLo47twhwUtA"
                         },
                         "supportedFilters": [
-                          "[1Puwq4UEQZuJy6pOrkvZSg::Cell Process Manager: Close Cell Process]",
                           "[4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete]",
                           "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
                           "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
-                          "[MAaYEUinReO3AKaTI21CaQ::Cell Process Manager: Open Cell Process]",
                           "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]",
                           "[SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]",
                           "[VNaA0AMsTXawb32xLaNGTA::Cell Process Manager: Initialize]",
@@ -2521,64 +2505,6 @@
                         }
                       },
                       "actionDispatcherFilterMap": {
-                        "1Puwq4UEQZuJy6pOrkvZSg": {
-                          "filterDescriptor": {
-                            "operationID": "1Puwq4UEQZuJy6pOrkvZSg",
-                            "operationName": "Cell Process Manager: Close Cell Process",
-                            "operationDescription": "Instruct CellProcessor to unlink the indicated worker proxy subcell from the shared cell process instance.",
-                            "inputFilterSpec": {
-                              "____label": "Cell Process Manager: Close Cell Process Request",
-                              "____types": "jsObject",
-                              "context": {
-                                "____label": "OPC Context Descriptor",
-                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                "____types": "jsObject",
-                                "apmBindingPath": {
-                                  "____label": "APM Binding Path",
-                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                  "____accept": "jsString"
-                                },
-                                "ocdi": {
-                                  "____label": "OCD Store Instance",
-                                  "____description": "A reference to the OCD store instance managed by OPC.",
-                                  "____accept": "jsObject"
-                                },
-                                "act": {
-                                  "____label": "OPC.act Method",
-                                  "____description": "A reference to ObservableProcessController.act method.",
-                                  "____accept": "jsFunction"
-                                }
-                              },
-                              "actionRequest": {
-                                "____types": "jsObject",
-                                "holarchy": {
-                                  "____types": "jsObject",
-                                  "CellProcessor": {
-                                    "____types": "jsObject",
-                                    "process": {
-                                      "____types": "jsObject",
-                                      "close": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "outputFilterSpec": {
-                              "____accept": "jsUndefined"
-                            },
-                            "inputTypeVIID": "GWRHNIAoQrVS5ttLzGJfXw",
-                            "inputTypeVDID": "MSx2Xt97yD8AfdhK9zd7Kw",
-                            "outputTypeVIID": "3A4xi3igfcIp9tg3PeMOYQ",
-                            "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                            "operationVDID": "OndCkpg1wDHs5WMw_scmSA"
-                          }
-                        },
                         "VNaA0AMsTXawb32xLaNGTA": {
                           "filterDescriptor": {
                             "operationID": "VNaA0AMsTXawb32xLaNGTA",
@@ -2634,85 +2560,6 @@
                             "outputTypeVIID": "lMKXDxhWJyUadol-UoiO1w",
                             "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
                             "operationVDID": "329Gkp9dLDHMBCEweD_BSA"
-                          }
-                        },
-                        "MAaYEUinReO3AKaTI21CaQ": {
-                          "filterDescriptor": {
-                            "operationID": "MAaYEUinReO3AKaTI21CaQ",
-                            "operationName": "Cell Process Manager: Open Cell Process",
-                            "operationDescription": "Instruct CellProcessor to open the specified cell process instance as a shared cell process, and link it to the indicated worker proxy subcell.",
-                            "inputFilterSpec": {
-                              "____label": "Cell Process Manager: Open Cell Process Request",
-                              "____types": "jsObject",
-                              "context": {
-                                "____label": "OPC Context Descriptor",
-                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                "____types": "jsObject",
-                                "apmBindingPath": {
-                                  "____label": "APM Binding Path",
-                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                  "____accept": "jsString"
-                                },
-                                "ocdi": {
-                                  "____label": "OCD Store Instance",
-                                  "____description": "A reference to the OCD store instance managed by OPC.",
-                                  "____accept": "jsObject"
-                                },
-                                "act": {
-                                  "____label": "OPC.act Method",
-                                  "____description": "A reference to ObservableProcessController.act method.",
-                                  "____accept": "jsFunction"
-                                }
-                              },
-                              "actionRequest": {
-                                "____types": "jsObject",
-                                "holarchy": {
-                                  "____types": "jsObject",
-                                  "CellProcessor": {
-                                    "____types": "jsObject",
-                                    "process": {
-                                      "____types": "jsObject",
-                                      "open": {
-                                        "____types": "jsObject",
-                                        "apmID": {
-                                          "____accept": "jsString"
-                                        },
-                                        "instanceName": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "singleton"
-                                        },
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "outputFilterSpec": {
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____accept": [
-                                  "jsNull",
-                                  "jsString"
-                                ],
-                                "____defaultValue": null
-                              },
-                              "cellProcessID": {
-                                "____accept": [
-                                  "jsNull",
-                                  "jsString"
-                                ],
-                                "____defaultValue": null
-                              }
-                            },
-                            "inputTypeVIID": "gHNEk505R7RJ8ODDtiHkQA",
-                            "inputTypeVDID": "QcJxUaQA-C083yJKrCqzbQ",
-                            "outputTypeVIID": "ljqFANxOSFD8S-tQNZzUIg",
-                            "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                            "operationVDID": "qOqvzdGPD2h6MlMenuN-2Q"
                           }
                         },
                         "SdL0-5kmTuiNrWNu7zGZhg": {

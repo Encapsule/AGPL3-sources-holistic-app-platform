@@ -11,13 +11,14 @@ module.exports = {
 
     actions: [
         require("./ControllerAction-cpm-initialize"),
-        require("./ControllerAction-cpm-process-close"),
         require("./ControllerAction-cpm-process-create"),
         require("./ControllerAction-cpm-process-delete"),
-        require("./ControllerAction-cpm-process-open"),
         require("./ControllerAction-cpm-process-query")
 
-        // require("./ControllerAction-cpm-query") // TODO: Disable this action until it's needed and restabilize the tests (on a clean branch).
+        // TODO: Disabled until I have time to think about
+        // which facets of the Cell Process Manager's state
+        // data we want to expose. And, to what ends.
+        // require("./ControllerAction-cpm-query")
     ],
 
     operators: [
