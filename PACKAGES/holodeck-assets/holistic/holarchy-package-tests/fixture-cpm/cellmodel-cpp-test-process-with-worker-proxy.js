@@ -3,6 +3,22 @@
 // cellmodel-cpp-test-process-with-worker-proxy.js
 var holarchy = require("@encapsule/holarchy");
 
+var connectProxyActionRequest = {
+  holarchy: {
+    CellProcessProxy: {
+      connect: {
+        proxyPath: "#.proxyTest",
+        localCellProcess: {
+          // apmID: "i6htE08TRzaWc9Hq00B3sg", // this is a total lie - nonesuch
+          apmID: "J9RsPcp3RoS1QrZG-04XPg",
+          // proxy back to the host process (should be okay although i am not sure why)
+          // instanceName -> default to singleton
+          instanceName: "Secondary Shared Test Process"
+        }
+      }
+    }
+  }
+};
 var cellModel = new holarchy.CellModel({
   id: "w6WWHevPQOKeGOe6QSL5Iw",
   name: "CPP Test Process With Worker Proxy Model",
@@ -89,22 +105,7 @@ var cellModel = new holarchy.CellModel({
       connect_proxy: {
         description: "Attempt to connect the proxy to something completely random.",
         actions: {
-          enter: [{
-            holarchy: {
-              CellProcessProxy: {
-                connect: {
-                  proxyPath: "#.proxyTest",
-                  localCellProcess: {
-                    // apmID: "i6htE08TRzaWc9Hq00B3sg", // this is a total lie - nonesuch
-                    apmID: "J9RsPcp3RoS1QrZG-04XPg",
-                    // proxy back to the host process (should be okay although i am not sure why)
-                    // instanceName -> default to singleton
-                    instanceName: "Secondary Shared Test Process"
-                  }
-                }
-              }
-            }
-          }]
+          enter: [connectProxyActionRequest]
         },
         transitions: [{
           transitionIf: {
@@ -156,7 +157,7 @@ var cellModel = new holarchy.CellModel({
         }]
       },
       disconnect_proxy: {
-        description: "Now disconnect the proxy.",
+        description: "The proxy is connected. Now disconnect the proxy.",
         actions: {
           enter: [{
             holarchy: {
@@ -167,6 +168,65 @@ var cellModel = new holarchy.CellModel({
               }
             }
           }]
+        },
+        transitions: [{
+          transitionIf: {
+            holarchy: {
+              CellProcessProxy: {
+                isBroken: {
+                  proxyPath: "#.proxyTest"
+                }
+              }
+            }
+          },
+          nextStep: "test_status_operators_unexpected_response"
+        }, {
+          transitionIf: {
+            holarchy: {
+              CellProcessProxy: {
+                isConnected: {
+                  proxyPath: "#.proxyTest"
+                }
+              }
+            }
+          },
+          nextStep: "test_status_operators_unexpected_response"
+        }, {
+          transitionIf: {
+            holarchy: {
+              CellProcessProxy: {
+                isDisconnected: {
+                  proxyPath: "#.proxyTest"
+                }
+              }
+            }
+          },
+          nextStep: "proxy_disconnected"
+        }, {
+          transitionIf: {
+            always: true
+          },
+          nextStep: "test_status_operators_unexpected_response"
+        }, {
+          transitionIf: {
+            always: true
+          },
+          nextStep: "test_process_complete"
+        }]
+      },
+      proxy_disconnected: {
+        description: "The proxy has been disconnected.",
+        transitions: [{
+          transitionIf: {
+            always: true
+          },
+          nextStep: "reconnect_proxy"
+        }]
+      },
+      reconnect_proxy: {
+        description: "The proxy has been disconnected. Now let's reconnect it.",
+        actions: {
+          enter: [connectProxyActionRequest]
         },
         transitions: [{
           transitionIf: {
