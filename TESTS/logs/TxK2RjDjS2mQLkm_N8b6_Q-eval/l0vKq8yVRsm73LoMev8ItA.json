@@ -330,13 +330,7 @@
                                       {
                                         "request": {
                                           "context": {
-                                            "apmBindingPath": "~.test",
-                                            "ocdi": {
-                                              "test": {
-                                                "__apmiStep": "uninitialized"
-                                              }
-                                            },
-                                            "transitionDispatcher": {}
+                                            "apmBindingPath": "~.test"
                                           },
                                           "operatorRequest": {
                                             "noneSuchOperator": true

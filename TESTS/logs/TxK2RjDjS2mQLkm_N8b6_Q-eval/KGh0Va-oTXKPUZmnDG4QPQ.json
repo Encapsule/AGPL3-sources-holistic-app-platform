@@ -1299,43 +1299,7 @@
                                       {
                                         "request": {
                                           "context": {
-                                            "apmBindingPath": "~.test",
-                                            "ocdi": {
-                                              "test": {
-                                                "__apmiStep": "uninitialized"
-                                              }
-                                            },
-                                            "transitionDispatcher": {
-                                              "filterDescriptor": {
-                                                "operationID": "--CsfoV58cFW2ywCK-2u5A",
-                                                "operationName": "Discriminator Filter",
-                                                "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                                                "inputTypeVIID": "0JpEh8szj81feUlhS66Ayw",
-                                                "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "outputTypeVIID": "HQjT_L0DBREA1yPLqWtouA",
-                                                "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                                                "operationVDID": "Gxn0ExIgNVcA4o7tGqoUtA"
-                                              },
-                                              "supportedFilters": [
-                                                "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
-                                                "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
-                                                "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
-                                                "[AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]",
-                                                "[TLSHkl73SO-utuzM7dyN2g::Logical NOT]",
-                                                "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
-                                                "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
-                                                "[YgABX95wR86GCYrYaDLISA::Logical AND]",
-                                                "[ZdpLuggZRVaMI6aPW1mmUw::Bad Transition Operator #2]",
-                                                "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
-                                                "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
-                                                "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
-                                                "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
-                                                "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]"
-                                              ],
-                                              "options": {
-                                                "action": "getFilter"
-                                              }
-                                            }
+                                            "apmBindingPath": "~.test"
                                           },
                                           "operatorRequest": {
                                             "badTransitionOperatorResponseError": true

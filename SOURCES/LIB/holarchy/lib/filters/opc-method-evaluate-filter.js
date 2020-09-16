@@ -399,8 +399,20 @@ const factoryResponse = arccore.filter.create({
                             };
                         }
 
+                        /*
                         apmInstanceFrame.evalResponse.phases.p1_toperator.push({
                             request: operatorRequest,
+                            response: transitionResponse
+                        });
+                        */
+
+                        apmInstanceFrame.evalResponse.phases.p1_toperator.push({
+                            request: {
+                                context: {
+                                    apmBindingPath: operatorRequest.context.apmBindingPath
+                                },
+                                operatorRequest: operatorRequest.operatorRequest
+                            },
                             response: transitionResponse
                         });
 
