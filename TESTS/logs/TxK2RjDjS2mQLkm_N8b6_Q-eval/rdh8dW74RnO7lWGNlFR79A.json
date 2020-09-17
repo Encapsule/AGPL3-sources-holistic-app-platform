@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "xvXG9QBwAHADHgMeXyJfIg",
-                      "vdid": "7-45nsPFu2vOZZ8xH6yjQg",
+                      "vdid": "siI5niY6u2vORJ8xTEOjQg",
                       "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                       "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "xvXG9QBwAHADHgMeXyJfIg": {
                               "id": "xvXG9QBwAHADHgMeXyJfIg",
-                              "vdid": "7-45nsPFu2vOZZ8xH6yjQg",
+                              "vdid": "siI5niY6u2vORJ8xTEOjQg",
                               "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                               "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                               "type": "CM",
@@ -208,7 +208,7 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "MkmxL_3HXnYwiIWDWL373Q",
+                                "vdid": "MkkKL_3HNXYwiLyDWL0r3Q",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
@@ -249,7 +249,7 @@
                                 },
                                 "rua1glcmTsOlYcfpZuiXnA": {
                                   "id": "rua1glcmTsOlYcfpZuiXnA",
-                                  "vdid": "lF3iXabsvbcPtNj1QK8JtA",
+                                  "vdid": "6SUfgrcDSKGLaZGJ377PjA",
                                   "name": "Cell Process Proxy: Proxy Action",
                                   "description": "Forwards the specified action request to the local cell process to which the proxy is currently connected.",
                                   "type": "ACT"
@@ -3220,13 +3220,13 @@
                               }
                             },
                             "outputFilterSpec": {
-                              "____accept": "jsObject"
+                              "____opaque": true
                             },
                             "inputTypeVIID": "wvVjeksTupOn_69OUmomJg",
                             "inputTypeVDID": "eQHnRv608pkOwdnlgaJZ6g",
                             "outputTypeVIID": "jZDkQbYcqjnTQHMZvYiTTw",
-                            "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                            "operationVDID": "ufuUT9cxqxplA7uIcnFuWA"
+                            "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                            "operationVDID": "ufuYE9cxUldlA9XtcnEHtA"
                           }
                         },
                         "_yxWfFLnTqqN-UxRdd7W5w": {

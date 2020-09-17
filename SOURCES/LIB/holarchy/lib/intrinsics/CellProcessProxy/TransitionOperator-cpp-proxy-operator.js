@@ -1,6 +1,7 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/CellProcessProxy/TransitionOperator-cpp-proxy-operator.js
 
 const TransitionOperator = require("../../../lib/TransitionOperator");
+const cppLib = require("./lib");
 
 const action = new TransitionOperator({
     id: "FTxze-WaRp6HS0Dlr_Ke6A",
@@ -31,7 +32,10 @@ const action = new TransitionOperator({
     },
 
     bodyFunction: function(request_) {
-        return { error: null, result: false};
+        return cppLib.proxyActionOperatorRequest.request({
+            requestType: "operator",
+            originalRequestToProxy: request_
+        });
     }
 
 });
