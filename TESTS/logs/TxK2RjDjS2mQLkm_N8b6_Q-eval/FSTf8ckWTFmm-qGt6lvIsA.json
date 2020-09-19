@@ -1,38 +1,57 @@
 {
   "dosRgxmiR66ongCbJB78ow": {
     "T-BP4MgzyDOa-pr65Zrlmg": {
-      "NPN6z4aOTqOOO60wLVKOcg": {
+      "FSTf8ckWTFmm-qGt6lvIsA": {
         "harnessRequest": {
-          "id": "NPN6z4aOTqOOO60wLVKOcg",
-          "name": "CellProcessor Constructor Test #2",
-          "description": "A minamally-configured CellProcessor instance. Should succeed to create and delete a trivial cell process.",
+          "id": "FSTf8ckWTFmm-qGt6lvIsA",
+          "name": "CPM Shared Process Test #2",
+          "description": "Start verifying that some simple CellModels that include CellProxy helpers work correctly when used as helpers, owned, and shared processes alike.",
           "vectorRequest": {
             "holistic": {
               "holarchy": {
                 "CellProcessor": {
                   "constructorRequest": {
-                    "id": "NPN6z4aOTqOOO60wLVKOcg",
-                    "name": "CellProcessor Constructor #2",
-                    "description": "A minamally-configured CellProcessor instance.",
+                    "id": "FSTf8ckWTFmm-qGt6lvIsA",
+                    "name": "CPM Shared Process Test #2",
+                    "description": "Start verifying that some simple CellModels that include CellProxy helpers work correctly when used as helpers, owned, and shared processes alike.",
                     "cellmodel": {
-                      "id": "cJQGRL5sTSqk02JiEaM06g",
-                      "name": "Test CM",
-                      "description": "Test CellModel",
-                      "apm": {
-                        "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                        "name": "Test CM APM",
-                        "description": "Test AbstractProcessModel",
-                        "ocdDataSpec": {
-                          "____label": "Test APM Root",
-                          "____types": "jsObject",
-                          "____defaultValue": {},
-                          "testProperty": {
-                            "____label": "Test Property",
-                            "____accept": [
-                              "jsNull",
-                              "jsString"
-                            ],
-                            "____defaultValue": null
+                      "id": "CIyx6qSlSCyeBKMAQbGMPA",
+                      "vdid": "1xqeWJf3iJkGK-uiDTbkfw",
+                      "name": "CPP Test Model 2",
+                      "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
+                      "cmat": {
+                        "error": null,
+                        "result": {
+                          "INDEX_CM": {
+                            "type": "INDEX",
+                            "CIyx6qSlSCyeBKMAQbGMPA": {
+                              "id": "CIyx6qSlSCyeBKMAQbGMPA",
+                              "vdid": "1xqeWJf3iJkGK-uiDTbkfw",
+                              "name": "CPP Test Model 2",
+                              "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
+                              "type": "CM",
+                              "houKkWpYTX6hly7r79gD6g": {
+                                "id": "houKkWpYTX6hly7r79gD6g",
+                                "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                                "name": "CPP Test Model 2",
+                                "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
+                                "type": "APM"
+                              },
+                              "YBH28RLOTqG5jb6mkLBNKQ": {
+                                "id": "YBH28RLOTqG5jb6mkLBNKQ",
+                                "vdid": "XT2hWr401f1EECRrVso92Q",
+                                "name": "CPP Test Message Model",
+                                "description": "A simple cell model to transport a something between cells.",
+                                "type": "CM",
+                                "Kh2lTQHGT9qG0j1omkJmAg": {
+                                  "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                                  "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
+                                  "name": "CPP Test Message Process",
+                                  "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
+                                  "type": "APM"
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -40,61 +59,14 @@
                   },
                   "actRequests": [
                     {
-                      "actorName": "CP constructor test #2",
+                      "actorName": "CPM Shared Process Test #2",
+                      "actorTaskDescription": "Start a test process.",
                       "actionRequest": {
                         "holarchy": {
                           "CellProcessor": {
                             "process": {
                               "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "delete": {
-                                "cellProcessNamespace": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
-                                }
+                                "apmID": "houKkWpYTX6hly7r79gD6g"
                               }
                             }
                           }
@@ -116,30 +88,30 @@
             },
             "harnessDispatch": {
               "UBSclp3gSqCCmSvoG3W4tw": {
-                "NPN6z4aOTqOOO60wLVKOcg": {
+                "FSTf8ckWTFmm-qGt6lvIsA": {
                   "isValid": true,
                   "cpJSON": {
                     "cm": {
-                      "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                      "vdid": "plcqv-D8Ce6aXW1cqnr3jg",
-                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
-                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                      "id": "kfWR9Xtwe3BNHk0eBSIFIg",
+                      "vdid": "YC3dlaSOODE_TcSkcprV6w",
+                      "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
+                      "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                       "cmat": {
                         "error": null,
                         "result": {
                           "INDEX_CM": {
                             "type": "INDEX",
-                            "ZfVl9fVw9XBGHkYehCKEIg": {
-                              "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                              "vdid": "plcqv-D8Ce6aXW1cqnr3jg",
-                              "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
-                              "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                            "kfWR9Xtwe3BNHk0eBSIFIg": {
+                              "id": "kfWR9Xtwe3BNHk0eBSIFIg",
+                              "vdid": "YC3dlaSOODE_TcSkcprV6w",
+                              "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
+                              "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                               "type": "CM",
-                              "3M28sc9PL4B_c1v5qwFC5Q": {
-                                "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                              "g7q1sdooMYBA7q759AKr5Q": {
+                                "id": "g7q1sdooMYBA7q759AKr5Q",
+                                "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                                "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                                "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                                 "type": "APM"
                               },
                               "gJnA-VJTTLa0g9TKFmjv1Q": {
@@ -464,18 +436,32 @@
                                   }
                                 }
                               },
-                              "cJQGRL5sTSqk02JiEaM06g": {
-                                "id": "cJQGRL5sTSqk02JiEaM06g",
-                                "vdid": "c1m4sdZvtR4e32NkI3mX-Q",
-                                "name": "Test CM",
-                                "description": "Test CellModel",
+                              "CIyx6qSlSCyeBKMAQbGMPA": {
+                                "id": "CIyx6qSlSCyeBKMAQbGMPA",
+                                "vdid": "1xqeWJf3iJkGK-uiDTbkfw",
+                                "name": "CPP Test Model 2",
+                                "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                                 "type": "CM",
-                                "6OPnhgR9QWyEFaBpaZNb1A": {
-                                  "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                                  "name": "Test CM APM",
-                                  "description": "Test AbstractProcessModel",
+                                "houKkWpYTX6hly7r79gD6g": {
+                                  "id": "houKkWpYTX6hly7r79gD6g",
+                                  "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                                  "name": "CPP Test Model 2",
+                                  "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
                                   "type": "APM"
+                                },
+                                "YBH28RLOTqG5jb6mkLBNKQ": {
+                                  "id": "YBH28RLOTqG5jb6mkLBNKQ",
+                                  "vdid": "XT2hWr401f1EECRrVso92Q",
+                                  "name": "CPP Test Message Model",
+                                  "description": "A simple cell model to transport a something between cells.",
+                                  "type": "CM",
+                                  "Kh2lTQHGT9qG0j1omkJmAg": {
+                                    "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                                    "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
+                                    "name": "CPP Test Message Process",
+                                    "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
+                                    "type": "APM"
+                                  }
                                 }
                               }
                             }
@@ -484,9 +470,9 @@
                       }
                     },
                     "opc": {
-                      "id": "O7jKS-rSpT-eQUFuRaSPrw",
-                      "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller",
-                      "description": "Provides shared memory and runtime automata process orchestration for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor-resident cell processes.",
+                      "id": "XzvKS1LCpT8FHUFumCqPrw",
+                      "name": "[FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Observable Process Controller",
+                      "description": "Provides shared memory and runtime automata process orchestration for [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] CellProcessor-resident cell processes.",
                       "options": {
                         "evaluate": {
                           "maxFrames": 16,
@@ -494,64 +480,113 @@
                         }
                       },
                       "apmMap": {
-                        "3M28sc9PL4B_c1v5qwFC5Q": {
-                          "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                          "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                          "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                          "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                        "Kh2lTQHGT9qG0j1omkJmAg": {
+                          "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                          "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
+                          "name": "CPP Test Message Process",
+                          "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
+                        },
+                        "houKkWpYTX6hly7r79gD6g": {
+                          "id": "houKkWpYTX6hly7r79gD6g",
+                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                          "name": "CPP Test Model 2",
+                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
+                        },
+                        "g7q1sdooMYBA7q759AKr5Q": {
+                          "id": "g7q1sdooMYBA7q759AKr5Q",
+                          "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                          "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                          "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
                         },
                         "CPPU-UPgS8eWiMap3Ixovg": {
                           "id": "CPPU-UPgS8eWiMap3Ixovg",
                           "vdid": "ltngFeqWZidLxRgsLO-QCw",
                           "name": "Holarchy Cell Process Proxy Helper Process",
                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                        },
-                        "6OPnhgR9QWyEFaBpaZNb1A": {
-                          "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                          "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                          "name": "Test CM APM",
-                          "description": "Test AbstractProcessModel"
                         }
                       },
                       "opmiSpecPaths": [
                         {
                           "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                           "opmiRef": {
-                            "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                            "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                            "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                            "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                            "id": "g7q1sdooMYBA7q759AKr5Q",
+                            "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                            "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                            "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
                           }
                         },
                         {
-                          "specPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.cellProcessID",
+                          "specPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
-                            "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                            "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                            "name": "Test CM APM",
-                            "description": "Test AbstractProcessModel"
+                            "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                            "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
+                            "name": "CPP Test Message Process",
+                            "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
+                          }
+                        },
+                        {
+                          "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID",
+                          "opmiRef": {
+                            "id": "houKkWpYTX6hly7r79gD6g",
+                            "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                            "name": "CPP Test Model 2",
+                            "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
+                          }
+                        },
+                        {
+                          "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID.proxyTest",
+                          "opmiRef": {
+                            "id": "CPPU-UPgS8eWiMap3Ixovg",
+                            "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                            "name": "Holarchy Cell Process Proxy Helper Process",
+                            "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                           }
                         }
                       ],
                       "ocdTemplateSpec": {
                         "____types": "jsObject",
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Processes Memory",
-                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM].",
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                          "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process].",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "cellProcessMap": {
-                            "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Map",
-                            "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Map",
+                            "____description": "A map of [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
                             "____types": "jsObject",
                             "____asMap": true,
                             "____defaultValue": {},
                             "cellProcessID": {
-                              "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Instance",
-                              "____description": "Cell process instance memory for [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM]: Test AbstractProcessModel",
+                              "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process]: A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
                               "____types": "jsObject",
                               "____appdsl": {
-                                "apm": "6OPnhgR9QWyEFaBpaZNb1A"
+                                "apm": "Kh2lTQHGT9qG0j1omkJmAg"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "houKkWpYTX6hly7r79gD6g_CellProcesses": {
+                          "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [houKkWpYTX6hly7r79gD6g::CPP Test Model 2].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Process Map",
+                            "____description": "A map of [houKkWpYTX6hly7r79gD6g::CPP Test Model 2] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Process Instance",
+                              "____description": "Cell process instance memory for [houKkWpYTX6hly7r79gD6g::CPP Test Model 2]: A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "houKkWpYTX6hly7r79gD6g"
                               }
                             }
                           },
@@ -564,41 +599,105 @@
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "____appdsl": {
-                            "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                            "apm": "g7q1sdooMYBA7q759AKr5Q"
                           }
                         }
                       },
                       "ocdRuntimeSpec": {
-                        "____label": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] Observable Controller Data Store",
-                        "____description": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                        "____label": "OPC [XzvKS1LCpT8FHUFumCqPrw::[FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Observable Process Controller] Observable Controller Data Store",
+                        "____description": "OPC [XzvKS1LCpT8FHUFumCqPrw::[FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Observable Process Controller] system process runtime state data managed by OPC instance.",
                         "____types": "jsObject",
                         "____defaultValue": {},
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Processes Memory",
-                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM].",
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                          "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process].",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "cellProcessMap": {
-                            "____label": "[6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] Cell Process Map",
-                            "____description": "A map of [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Map",
+                            "____description": "A map of [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
                             "____types": "jsObject",
                             "____asMap": true,
                             "____defaultValue": {},
                             "cellProcessID": {
-                              "____label": "Test APM Root",
-                              "____description": "Cell process instance memory for [6OPnhgR9QWyEFaBpaZNb1A::Test CM APM]: Test AbstractProcessModel",
+                              "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process]: A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
                               "____types": "jsObject",
                               "____appdsl": {
-                                "apm": "6OPnhgR9QWyEFaBpaZNb1A"
+                                "apm": "Kh2lTQHGT9qG0j1omkJmAg"
                               },
-                              "____defaultValue": {},
-                              "testProperty": {
-                                "____label": "Test Property",
-                                "____accept": [
-                                  "jsNull",
-                                  "jsString"
-                                ],
-                                "____defaultValue": null
+                              "message": {
+                                "____opaque": true
+                              },
+                              "__apmiStep": {
+                                "____accept": "jsString",
+                                "____defaultValue": "uninitialized"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "houKkWpYTX6hly7r79gD6g_CellProcesses": {
+                          "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [houKkWpYTX6hly7r79gD6g::CPP Test Model 2].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Process Map",
+                            "____description": "A map of [houKkWpYTX6hly7r79gD6g::CPP Test Model 2] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Process Instance",
+                              "____description": "Cell process instance memory for [houKkWpYTX6hly7r79gD6g::CPP Test Model 2]: A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "houKkWpYTX6hly7r79gD6g"
+                              },
+                              "construction": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "instanceName": {
+                                  "____types": [
+                                    "jsNull",
+                                    "jsString"
+                                  ],
+                                  "____defaultValue": null
+                                }
+                              },
+                              "proxyTest": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "apm": "CPPU-UPgS8eWiMap3Ixovg"
+                                },
+                                "lcpRequest": {
+                                  "____types": [
+                                    "jsUndefined",
+                                    "jsObject"
+                                  ],
+                                  "apmID": {
+                                    "____accept": "jsString"
+                                  },
+                                  "instanceName": {
+                                    "____accept": "jsString"
+                                  }
+                                },
+                                "lcpConnect": {
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString",
+                                    "jsNull"
+                                  ]
+                                },
+                                "__apmiStep": {
+                                  "____accept": "jsString",
+                                  "____defaultValue": "uninitialized"
+                                }
                               },
                               "__apmiStep": {
                                 "____accept": "jsString",
@@ -615,7 +714,7 @@
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "____appdsl": {
-                            "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                            "apm": "g7q1sdooMYBA7q759AKr5Q"
                           },
                           "____label": "Cell Process Manager",
                           "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -666,7 +765,11 @@
                         }
                       },
                       "ocdi": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 0
+                        },
+                        "houKkWpYTX6hly7r79gD6g_CellProcesses": {
                           "cellProcessMap": {},
                           "revision": 0
                         },
@@ -3807,10 +3910,10 @@
                                     },
                                     "initialStep": "uninitialized",
                                     "apmRef": {
-                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                      "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                      "id": "g7q1sdooMYBA7q759AKr5Q",
+                                      "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                                      "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                                      "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
                                     }
                                   },
                                   "evalResponse": {
@@ -3888,10 +3991,10 @@
                                     },
                                     "initialStep": "initializing",
                                     "apmRef": {
-                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                      "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                      "id": "g7q1sdooMYBA7q759AKr5Q",
+                                      "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                                      "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                                      "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
                                     }
                                   },
                                   "evalResponse": {
@@ -3953,10 +4056,10 @@
                                     },
                                     "initialStep": "ready",
                                     "apmRef": {
-                                      "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                      "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                      "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                      "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                      "id": "g7q1sdooMYBA7q759AKr5Q",
+                                      "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                                      "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                                      "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
                                     }
                                   },
                                   "evalResponse": {
@@ -3988,14 +4091,14 @@
                   "actionEvaluations": [
                     {
                       "actRequest": {
-                        "actorName": "CP constructor test #2",
+                        "actorName": "CPM Shared Process Test #2",
+                        "actorTaskDescription": "Start a test process.",
                         "actionRequest": {
                           "holarchy": {
                             "CellProcessor": {
                               "process": {
                                 "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
+                                  "apmID": "houKkWpYTX6hly7r79gD6g"
                                 }
                               }
                             }
@@ -4006,29 +4109,31 @@
                         "error": null,
                         "result": {
                           "actionResult": {
-                            "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
-                            "cellProcessID": "GnZD29qpnZdyarMnoUPHEg"
+                            "apmBindingPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                            "cellProcessID": "_gBow9N-MaS3PsprUrI_yA"
                           },
                           "lastEvaluation": {
                             "evalNumber": 1,
                             "summary": {
                               "counts": {
-                                "bindings": 2,
-                                "frames": 1,
+                                "bindings": 7,
+                                "frames": 2,
                                 "errors": 0,
-                                "transitions": 0
+                                "transitions": 1
                               }
                             },
                             "evalFrames": [
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 2,
-                                    "transitions": 0,
+                                    "bindings": 3,
+                                    "transitions": 1,
                                     "errors": 0
                                   },
                                   "reports": {
-                                    "transitions": [],
+                                    "transitions": [
+                                      "_gBow9N-MaS3PsprUrI_yA"
+                                    ],
                                     "errors": []
                                   }
                                 },
@@ -4041,10 +4146,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        "id": "g7q1sdooMYBA7q759AKr5Q",
+                                        "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                                        "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                                        "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
                                       }
                                     },
                                     "evalResponse": {
@@ -4065,18 +4170,245 @@
                                       }
                                     }
                                   },
-                                  "GnZD29qpnZdyarMnoUPHEg": {
+                                  "_gBow9N-MaS3PsprUrI_yA": {
                                     "evalRequest": {
                                       "dataBinding": {
-                                        "dataPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
-                                        "specPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.cellProcessID"
+                                        "dataPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                        "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID"
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                                        "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                                        "name": "Test CM APM",
-                                        "description": "Test AbstractProcessModel"
+                                        "id": "houKkWpYTX6hly7r79gD6g",
+                                        "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                                        "name": "CPP Test Model 2",
+                                        "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "transitioned",
+                                      "finishStep": "finished",
+                                      "phases": {
+                                        "p1_toperator": [
+                                          {
+                                            "request": {
+                                              "context": {
+                                                "apmBindingPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                              },
+                                              "operatorRequest": {
+                                                "always": true
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": true
+                                            }
+                                          }
+                                        ],
+                                        "p2_exit": [
+                                          {
+                                            "request": {
+                                              "holarchy": {
+                                                "CellProcessProxy": {
+                                                  "connect": {
+                                                    "proxyPath": "#.proxyTest",
+                                                    "localCellProcess": {
+                                                      "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "response": {
+                                              "error": null,
+                                              "result": {
+                                                "actionResult": {
+                                                  "host": {
+                                                    "apmBindingPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                    "processID": "_gBow9N-MaS3PsprUrI_yA"
+                                                  },
+                                                  "proxy": {
+                                                    "apmBindingPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxyTest",
+                                                    "proccessID": "yEo7tjIayOhRbzg8pzJbdQ"
+                                                  },
+                                                  "connected": {
+                                                    "apmBindingPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                    "processID": "R0Fow8jZMaRF1Mprf4Y_yA"
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        ],
+                                        "p3_enter": [],
+                                        "p4_finalize": {
+                                          "error": null,
+                                          "result": "finished"
+                                        }
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "yEo7tjIayOhRbzg8pzJbdQ": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxyTest",
+                                        "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "CPPU-UPgS8eWiMap3Ixovg",
+                                        "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                        "name": "Holarchy Cell Process Proxy Helper Process",
+                                        "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "summary": {
+                                  "counts": {
+                                    "bindings": 4,
+                                    "transitions": 0,
+                                    "errors": 0
+                                  },
+                                  "reports": {
+                                    "transitions": [],
+                                    "errors": []
+                                  }
+                                },
+                                "bindings": {
+                                  "YI9gj9oX2hdfEV8RmbuZuw": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                      },
+                                      "initialStep": "ready",
+                                      "apmRef": {
+                                        "id": "g7q1sdooMYBA7q759AKr5Q",
+                                        "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                                        "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                                        "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "ready",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "R0Fow8jZMaRF1Mprf4Y_yA": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                        "specPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                                        "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
+                                        "name": "CPP Test Message Process",
+                                        "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "_gBow9N-MaS3PsprUrI_yA": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                        "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "finished",
+                                      "apmRef": {
+                                        "id": "houKkWpYTX6hly7r79gD6g",
+                                        "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                                        "name": "CPP Test Model 2",
+                                        "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "finished",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "yEo7tjIayOhRbzg8pzJbdQ": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxyTest",
+                                        "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "CPPU-UPgS8eWiMap3Ixovg",
+                                        "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                        "name": "Holarchy Cell Process Proxy Helper Process",
+                                        "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                       }
                                     },
                                     "evalResponse": {
@@ -4104,296 +4436,32 @@
                         }
                       },
                       "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
                           "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
+                            "4ODg4BoaGhqkpKSkX19fXw": {
                               "__apmiStep": "uninitialized"
                             }
                           },
                           "revision": 1
                         },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
-                                  "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
-                      },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                        "houKkWpYTX6hly7r79gD6g_CellProcesses": {
                           "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
-                              "__apmiStep": "uninitialized"
+                            "4ODg4BoaGhqkpKSkX19fXw": {
+                              "construction": {
+                                "instanceName": null
+                              },
+                              "proxyTest": {
+                                "lcpRequest": {
+                                  "apmID": "Kh2lTQHGT9qG0j1omkJmAg",
+                                  "instanceName": "singleton"
+                                },
+                                "lcpConnect": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                "__apmiStep": "uninitialized"
+                              },
+                              "__apmiStep": "finished"
                             }
                           },
                           "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
-                                  "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
-                      },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
-                              "__apmiStep": "uninitialized"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
-                                  "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "delete": {
-                                  "cellProcessNamespace": {
-                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                    "cellProcessUniqueName": "test-process-1"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": null,
-                        "result": {
-                          "actionResult": {
-                            "apmBindingPath": "~",
-                            "cellProcessID": "U1NTU1paWlqwsLCwxMTExA"
-                          },
-                          "lastEvaluation": {
-                            "evalNumber": 2,
-                            "summary": {
-                              "counts": {
-                                "bindings": 1,
-                                "frames": 1,
-                                "errors": 0,
-                                "transitions": 0
-                              }
-                            },
-                            "evalFrames": [
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 1,
-                                    "transitions": 0,
-                                    "errors": 0
-                                  },
-                                  "reports": {
-                                    "transitions": [],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {},
-                          "revision": 2
                         },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "ownedCellProcesses": {
@@ -4408,18 +4476,84 @@
                                     "apmBindingPath": "~",
                                     "name": "Cell Process Manager"
                                   }
+                                },
+                                {
+                                  "u": "_gBow9N-MaS3PsprUrI_yA",
+                                  "p": {
+                                    "apmBindingPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                  }
+                                },
+                                {
+                                  "u": "R0Fow8jZMaRF1Mprf4Y_yA",
+                                  "p": {
+                                    "apmBindingPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                  }
                                 }
                               ],
-                              "elist": []
+                              "elist": [
+                                {
+                                  "e": {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "v": "_gBow9N-MaS3PsprUrI_yA"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "v": "R0Fow8jZMaRF1Mprf4Y_yA"
+                                  }
+                                }
+                              ]
                             }
                           },
                           "sharedCellProcesses": {
-                            "revision": 0,
+                            "revision": 1,
                             "digraph": {
                               "name": "Shared Cell Processes Digraph Model",
                               "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
+                              "vlist": [
+                                {
+                                  "u": "_gBow9N-MaS3PsprUrI_yA",
+                                  "p": {
+                                    "role": "owned",
+                                    "apmBindingPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                  }
+                                },
+                                {
+                                  "u": "yEo7tjIayOhRbzg8pzJbdQ",
+                                  "p": {
+                                    "role": "owned-proxy",
+                                    "apmBindingPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxyTest"
+                                  }
+                                },
+                                {
+                                  "u": "R0Fow8jZMaRF1Mprf4Y_yA",
+                                  "p": {
+                                    "role": "shared",
+                                    "apmBindingPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                  }
+                                }
+                              ],
+                              "elist": [
+                                {
+                                  "e": {
+                                    "u": "_gBow9N-MaS3PsprUrI_yA",
+                                    "v": "yEo7tjIayOhRbzg8pzJbdQ"
+                                  },
+                                  "p": {
+                                    "role": "host-to-proxy"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "yEo7tjIayOhRbzg8pzJbdQ",
+                                    "v": "R0Fow8jZMaRF1Mprf4Y_yA"
+                                  },
+                                  "p": {
+                                    "role": "proxy-to-shared"
+                                  }
+                                }
+                              ]
                             }
                           },
                           "__apmiStep": "ready"

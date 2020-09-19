@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "E_WdaY2VpWUf9XxSF5sWGA",
+                    "vdid": "fui_D0S93oFlpfX9o_SyEQ",
                     "name": "Holistic App Client Kernel",
                     "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "E_WdaY2VpWUf9XxSF5sWGA",
+                            "vdid": "fui_D0S93oFlpfX9o_SyEQ",
                             "name": "Holistic App Client Kernel",
                             "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                             "type": "CM",
                             "ENENGxq1TkCa6Sk9YXaLlw": {
                               "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                              "vdid": "M6QhDa5snNoxhMpOGbZLsQ",
+                              "vdid": "jGHcUseu_p1De9zUIve2AA",
                               "name": "Holistic App Client Runtime",
                               "description": "Holistic client application core runtime.",
                               "type": "CM",
@@ -55,19 +55,19 @@
                               },
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
+                                "vdid": "8Q4coLVWfcacJSKYCDDZvw",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "choshRI8Fma_nYBDIBHUlA",
+                                  "vdid": "UGFABsAiMleR_fEr5FWILA",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "lQBOAgGY0X7--37O5c-I2g",
+                                    "vdid": "xaZfL0gwoNcqXDCGnf6IDw",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -87,7 +87,7 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "VCvlx03_XeWnbvPzsE1fBA",
+                                      "vdid": "Ihpf_HFtGJYLxQqW2jofpg",
                                       "name": "Holarchy Core",
                                       "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                       "type": "CM",
@@ -142,7 +142,7 @@
                                       },
                                       "jQxlhOe-RDilxY0sNIierQ": {
                                         "id": "jQxlhOe-RDilxY0sNIierQ",
-                                        "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                        "vdid": "k3Tp6h_XUrZWVMpgBqWh5A",
                                         "name": "Holarchy Core Memory Actions & Operators",
                                         "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                         "type": "CM",
@@ -155,9 +155,9 @@
                                         },
                                         "2w7n6KxdR8mdIliePJesLQ": {
                                           "id": "2w7n6KxdR8mdIliePJesLQ",
-                                          "vdid": "tljozSCr53fX-AmzURPyEg",
-                                          "name": "OCD Compare Values",
-                                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                                          "vdid": "LxdR4ZycXiKfJOoUpmcnUg",
+                                          "name": "OCD Namespace A ? B Value Comparison",
+                                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path.",
                                           "type": "TOP"
                                         },
                                         "UeLs9PcASwuC7KR190eYhA": {
@@ -193,6 +193,20 @@
                                           "vdid": "cNihhVrtDPl_5j7cSfcRug",
                                           "name": "OCD Namespace Is Truthy",
                                           "description": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                                          "type": "TOP"
+                                        },
+                                        "pj9a6tQpSXWp7WZZ8VbKLQ": {
+                                          "id": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                                          "vdid": "zquEh0gwCPP_d9hmBD3uAQ",
+                                          "name": "OCD Namespace Is Array Empty",
+                                          "description": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0.",
+                                          "type": "TOP"
+                                        },
+                                        "fS5liuD1RBSdaPBEhsoxXw": {
+                                          "id": "fS5liuD1RBSdaPBEhsoxXw",
+                                          "vdid": "DmRYzsWPhe-U6ZWFhMH9-w",
+                                          "name": "OCD Namespace Is Map Keyless",
+                                          "description": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0.",
                                           "type": "TOP"
                                         },
                                         "Ve_kEFkGSMSgOqUWu9Yo_w": {
@@ -231,7 +245,7 @@
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
                               "id": "qzMWhMstQ4Ki06O75y5hMA",
-                              "vdid": "BmulYBAWQfsH_oao6BFvPw",
+                              "vdid": "m_U0T9y1Nf5IeY4P5Dxy2A",
                               "name": "DOM Location Processor",
                               "description": "Abstracts monitoring and setting the window.location and hashroute.",
                               "type": "CM",
@@ -259,7 +273,7 @@
                             },
                             "vrmv3WMRQXql7Bx3DDEIDw": {
                               "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                              "vdid": "tT1p_brSG3Kavwkp_4VYFg",
+                              "vdid": "mXReHT81mozwmBPSs3F7LQ",
                               "name": "Holistic Client App View Manager",
                               "description": "Provides management of client view cells in a holistic client app.",
                               "type": "CM",
@@ -273,7 +287,7 @@
                             },
                             "UX7JquBhSZO0QyEk7u9-sw": {
                               "id": "UX7JquBhSZO0QyEk7u9-sw",
-                              "vdid": "yy1rfqbw-1I7bYnukyF2BA",
+                              "vdid": "NH9QMMWIH9GSVL-VUT6nDA",
                               "name": "Holistic App Client Display Adapter",
                               "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                               "type": "CM",
@@ -315,12 +329,12 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 43,
-                      "edges": 80,
+                      "vertices": 45,
+                      "edges": 84,
                       "artifacts": {
                         "cm": 12,
                         "apm": 5,
-                        "top": 12,
+                        "top": 14,
                         "act": 10
                       }
                     }
@@ -405,9 +419,15 @@
                         },
                         {
                           "id": "2w7n6KxdR8mdIliePJesLQ",
-                          "vdid": "tljozSCr53fX-AmzURPyEg",
-                          "name": "OCD Compare Values",
-                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator."
+                          "vdid": "LxdR4ZycXiKfJOoUpmcnUg",
+                          "name": "OCD Namespace A ? B Value Comparison",
+                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path."
+                        },
+                        {
+                          "id": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                          "vdid": "zquEh0gwCPP_d9hmBD3uAQ",
+                          "name": "OCD Namespace Is Array Empty",
+                          "description": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0."
                         },
                         {
                           "id": "ggsavKiARsq7rjwn-lxdfA",
@@ -426,6 +446,12 @@
                           "vdid": "6DCD8gfsCpkJ1sJ50kP1xg",
                           "name": "OCD Namespace Is Less Than Value",
                           "description": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only."
+                        },
+                        {
+                          "id": "fS5liuD1RBSdaPBEhsoxXw",
+                          "vdid": "DmRYzsWPhe-U6ZWFhMH9-w",
+                          "name": "OCD Namespace Is Map Keyless",
+                          "description": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0."
                         },
                         {
                           "id": "kD1PcgqYQlm7fJatNG2ZsA",
@@ -505,13 +531,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "E_WdaY2VpWUf9XxSF5sWGA",
+                          "vdid": "fui_D0S93oFlpfX9o_SyEQ",
                           "name": "Holistic App Client Kernel",
                           "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                           "type": "CM",
                           "ENENGxq1TkCa6Sk9YXaLlw": {
                             "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                            "vdid": "M6QhDa5snNoxhMpOGbZLsQ",
+                            "vdid": "jGHcUseu_p1De9zUIve2AA",
                             "name": "Holistic App Client Runtime",
                             "description": "Holistic client application core runtime.",
                             "type": "CM",
@@ -538,19 +564,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
+                              "vdid": "8Q4coLVWfcacJSKYCDDZvw",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "choshRI8Fma_nYBDIBHUlA",
+                                "vdid": "UGFABsAiMleR_fEr5FWILA",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "lQBOAgGY0X7--37O5c-I2g",
+                                  "vdid": "xaZfL0gwoNcqXDCGnf6IDw",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -570,7 +596,7 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "VCvlx03_XeWnbvPzsE1fBA",
+                                    "vdid": "Ihpf_HFtGJYLxQqW2jofpg",
                                     "name": "Holarchy Core",
                                     "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                     "type": "CM",
@@ -625,7 +651,7 @@
                                     },
                                     "jQxlhOe-RDilxY0sNIierQ": {
                                       "id": "jQxlhOe-RDilxY0sNIierQ",
-                                      "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                      "vdid": "k3Tp6h_XUrZWVMpgBqWh5A",
                                       "name": "Holarchy Core Memory Actions & Operators",
                                       "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                       "type": "CM",
@@ -638,9 +664,9 @@
                                       },
                                       "2w7n6KxdR8mdIliePJesLQ": {
                                         "id": "2w7n6KxdR8mdIliePJesLQ",
-                                        "vdid": "tljozSCr53fX-AmzURPyEg",
-                                        "name": "OCD Compare Values",
-                                        "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                                        "vdid": "LxdR4ZycXiKfJOoUpmcnUg",
+                                        "name": "OCD Namespace A ? B Value Comparison",
+                                        "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path.",
                                         "type": "TOP"
                                       },
                                       "UeLs9PcASwuC7KR190eYhA": {
@@ -676,6 +702,20 @@
                                         "vdid": "cNihhVrtDPl_5j7cSfcRug",
                                         "name": "OCD Namespace Is Truthy",
                                         "description": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                                        "type": "TOP"
+                                      },
+                                      "pj9a6tQpSXWp7WZZ8VbKLQ": {
+                                        "id": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                                        "vdid": "zquEh0gwCPP_d9hmBD3uAQ",
+                                        "name": "OCD Namespace Is Array Empty",
+                                        "description": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0.",
+                                        "type": "TOP"
+                                      },
+                                      "fS5liuD1RBSdaPBEhsoxXw": {
+                                        "id": "fS5liuD1RBSdaPBEhsoxXw",
+                                        "vdid": "DmRYzsWPhe-U6ZWFhMH9-w",
+                                        "name": "OCD Namespace Is Map Keyless",
+                                        "description": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0.",
                                         "type": "TOP"
                                       },
                                       "Ve_kEFkGSMSgOqUWu9Yo_w": {
@@ -714,7 +754,7 @@
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "BmulYBAWQfsH_oao6BFvPw",
+                            "vdid": "m_U0T9y1Nf5IeY4P5Dxy2A",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
@@ -742,7 +782,7 @@
                           },
                           "vrmv3WMRQXql7Bx3DDEIDw": {
                             "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                            "vdid": "tT1p_brSG3Kavwkp_4VYFg",
+                            "vdid": "mXReHT81mozwmBPSs3F7LQ",
                             "name": "Holistic Client App View Manager",
                             "description": "Provides management of client view cells in a holistic client app.",
                             "type": "CM",
@@ -756,7 +796,7 @@
                           },
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
-                            "vdid": "yy1rfqbw-1I7bYnukyF2BA",
+                            "vdid": "NH9QMMWIH9GSVL-VUT6nDA",
                             "name": "Holistic App Client Display Adapter",
                             "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                             "type": "CM",
