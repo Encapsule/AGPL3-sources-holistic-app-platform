@@ -22,7 +22,7 @@ const cellModel = new holarchy.CellModel({ // CellModel declaration
         require("./cellmodel-cpm-test-operator-parentProcessActive"),
         require("./cellmodel-cpm-test-operator-parentProcessInStep"),
 
-        require("./cellmodel-cpp-test-process-with-worker-proxy")
+        require("./cellmodel-cpm-test-shared-processes")
 
     ] // CPM Child Process Active Operator Test Model subcells
 });
