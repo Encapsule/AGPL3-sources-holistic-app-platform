@@ -14,7 +14,9 @@ module.exports = new CellModel({
         require("./TransitionOperator-ocd-is-greater-than-value"),
         require("./TransitionOperator-ocd-is-identical-to-value"),
         require("./TransitionOperator-ocd-is-less-than-value"),
-        require("./TransitionOperator-ocd-is-truthy")
+        require("./TransitionOperator-ocd-is-truthy"),
+        require("./TransitionOperator-ocd-array-is-empty"),
+        require("./TransitionOperator-ocd-map-is-keyless")
     ],
     actions: [
         require("./ControllerAction-ocd-read-namespace-indirect"),

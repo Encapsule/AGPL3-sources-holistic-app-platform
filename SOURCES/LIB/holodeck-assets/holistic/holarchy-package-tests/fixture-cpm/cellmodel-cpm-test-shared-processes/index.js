@@ -9,7 +9,7 @@ const connectProxyActionRequest = {
                 proxyPath: "#.proxyTest",
                 localCellProcess: {
                     // apmID: "i6htE08TRzaWc9Hq00B3sg", // this is a total lie - nonesuch
-                    apmID: "J9RsPcp3RoS1QrZG-04XPg", // proxy back to the host process (should be okay although i am not sure why)
+                    apmID: "J9RsPcp3RoS1QrZG-04XPg", // proxy back to the host process
                     // instanceName -> default to singleton
                     instanceName: "Secondary Shared Test Process"
                 }
@@ -18,16 +18,137 @@ const connectProxyActionRequest = {
     }
 };
 
+const cppTestMessageModel = new holarchy.CellModel({
+    id: "YBH28RLOTqG5jb6mkLBNKQ",
+    name: "CPP Test Message Model",
+    description: "A simple cell model to transport a something between cells.",
+    apm: {
+        id: "Kh2lTQHGT9qG0j1omkJmAg",
+        name: "CPP Test Message Process",
+        description: "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
+        ocdDataSpec: {
+            ____types: "jsObject",
+            message: { ____opaque: true }
+        }
+    }
+});
 
+const cppTestDroidModel = new holarchy.CellModel({
+    id: "-_Aig3K1Qvu8iqn6ncr00g",
+    name: "CPP Test Droid Model",
+    description: "A generic model to help orchestrate test creation and experiment further with interesting CellModel usage patterns.",
+    apm: {
+        id: "e1eD7WDvTJqZwzu0i_FDGA",
+        name: "CPP Test Droid Process",
+        description: "Provides a mechanism to pre-program a little droid agent to run tests as a cell inside of CellProcessor instance.",
 
-const cellModel = new holarchy.CellModel({
+        ocdDataSpec: {
+            ____types: "jsObject",
+            construction: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                instanceName: { ____accept: [ "jsNull", "jsString" ] },
+                droidProcessRuntimeBehaviors: {
+                    ____types: "jsArray",
+                    ____defaultValue: [],
+                    runtimeBehaviorDescriptor: {
+                        ____types: "jsObject",
+                        operatorRequest: { ____accept: [ "jsUndefined", "jsObject" ] },
+                        actionRequest: { ____types: [ "jsUndefined", "jsObject", "jsArray" ] }
+                    }
+                }
+            },
+            output: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                droidBehaviorLog: {
+                    ____types: "jsArray",
+                    ____defaultValue: [],
+                    behaviorStepLog: { ____accept: "jsObject" /* TODO */ }
+                }
+            }
+        },
+        
+        steps: {
+            uninitialized: {
+                description: "Default process start step.",
+                transitions: [
+                    {
+                        transitionIf: { holarchy: { cm: { operators: { ocd: { arrayIsEmpty: { path: "#.construction.droidProcessRuntimeBehaviors" } } } } } },
+                        nextStep: "waiting_for_behavior_sequence"
+                    },
+                    {
+                        transitionIf: { always: true },
+                        nextStep: "run_behavior_sequence"
+                    }
+                ]
+            },
+            waiting_for_behavior_sequence: {
+                description: "Waiting for someone to write #.construction.droidProcessRuntimeBehaviors namespace with instructions.",
+                transitions: [
+                    {
+                        transitionIf: { not: { holarchy: { cm: { operators: { ocd: { arrayIsEmpty: { path: "#.construction.droidProcessRuntimeBehaviors" } } } } } } },
+                        nextStep: "set_new_behavior"
+                    }
+                ]
+            },
+            set_new_behavior: {
+                description: "Dequeueing new droid behavior...",
+                actions: {
+                    enter: [
+                        { "e1eD7WDvTJqZwzu0i_FDGA_workerAction": { setNewBehavior: {} } }
+                    ],
+                },
+                transitions: [
+                    {
+                        transitionIf: { always: true },
+                        nextStep: "wait_behavior_operator"
+                    }
+                ]
+            },
+            wait_behavior_operator: {
+                description: "Wait for the condition specified by the currently set droid behavior.",
+                transitions: [
+                    {
+                        transitionIf: { "e1eD7WDvTJqZwzu0i_FDGA_workerOperator": { evaluateBehaviorOperator: {} } },
+                        nextStep: "run_behavior_actions",
+                    }
+                ]
+            },
+            run_behavior_actions: {
+                description: "Running action(s) specified by the currently set droid behavior.",
+                actions: {
+                    enter: [
+                        {  "e1eD7WDvTJqZwzu0i_FDGA_workerAction": { runBehaviorActions: {} } }
+                    ]
+                },
+                transitions: [
+                    {
+                        transitionIf: { holarchy: { cm: { operators: { ocd: { arrayIsEmpty: { path: "#.construction.droidProcessRuntimeBehaviors" } } } } } },
+                        nextStep: "droid_process_finished"
+                    },
+                    {
+                        transitionIf: { always: true },
+                        nextStep: "set_new_behavior"
+                    }
+                ]
+            },
+            droid_process_finished: {
+                description: "The droid process is finished."
+            }
+        }
+    }
+        
+});
+
+const cppTestModel1 = new holarchy.CellModel({
     id: "w6WWHevPQOKeGOe6QSL5Iw",
-    name: "CPP Test Process With Worker Proxy Model",
+    name: "CPP Test Model 1",
     description: "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
     apm: {
         id: "J9RsPcp3RoS1QrZG-04XPg",
-        name: "CPP Test Process With Worker Proxy Process",
-        description: "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
+        name: "CPP Test Process 1",
+        description: "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
         ocdDataSpec: {
             ____types: "jsObject",
             construction: {
@@ -38,11 +159,8 @@ const cellModel = new holarchy.CellModel({
                     ____defaultValue: null
                 }
             },
-            proxyTest: {
-                ____types: "jsObject",
-                ____defaultValue: {},
-                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell process proxy (CPP) */ }
-            }
+            proxyTest: { ____types: "jsObject", ____defaultValue: {}, ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell process proxy (CPP) */ } }
+
         },
         steps: {
 
@@ -237,14 +355,70 @@ const cellModel = new holarchy.CellModel({
 
     ],
 
-    operators: [
-
-    ]
+    operators: []
 
 });
 
-if (!cellModel.isValid()) {
-    throw new Error(cellModel.toJSON());
-}
 
-module.exports = cellModel;
+const cppTestModel2 = new holarchy.CellModel({
+    id: "CIyx6qSlSCyeBKMAQbGMPA",
+    name: "CPP Test Model 2",
+    description: "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
+    
+    apm: {
+        id: "houKkWpYTX6hly7r79gD6g",
+        name: "CPP Test Model 2",
+        description: "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
+
+        ocdDataSpec: {
+            ____types: "jsObject",
+            construction: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                instanceName: {
+                    ____types: [ "jsNull", "jsString" ],
+                    ____defaultValue: null
+                }
+            },
+            proxyTest: { ____types: "jsObject", ____defaultValue: {}, ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell process proxy (CPP) */ } }
+        },
+
+        steps: {
+
+            uninitialized: {
+                description: "Default process starting step.",
+                actions: {
+                    exit: [
+                        { holarchy: { CellProcessProxy: { connect: { proxyPath: "#.proxyTest", localCellProcess: { apmID:  "Kh2lTQHGT9qG0j1omkJmAg" /* "CPP Test Message Process" */ } } } } }
+                    ]
+                },
+                transitions: [ { transitionIf: { always: true }, nextStep: "finished" } ]
+            },
+
+            finished: {
+                description: "The process has reached its terminal step."
+            }
+
+
+        }
+
+    },
+
+    subcells: [ cppTestMessageModel ]
+
+});
+
+
+module.exports = new holarchy.CellModel({
+    id: "asXXPy1URzacz2swT74u-A",
+    name: "CPP Test Models Wrapper",
+    description: "A wrapper for CPP Test CellModels.",
+    subcells: [
+        cppTestMessageModel,
+        cppTestModel1,
+        cppTestModel2
+    ]
+});
+
+                                         
+

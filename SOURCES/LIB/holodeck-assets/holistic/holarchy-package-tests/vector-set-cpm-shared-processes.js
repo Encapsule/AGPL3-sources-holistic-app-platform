@@ -4,7 +4,7 @@ module.exports = [
 
     {
         id: "kZ5M4SOwRdOWp_zWumRtYg",
-        name: "CPM Cell Process Proxy Test #1",
+        name: "CPM Shared Process Test #1",
         description: "A Cell Process Proxy unit test.",
         vectorRequest: {
             holistic: {
@@ -74,6 +74,36 @@ module.exports = [
                                 }
                             }
                             
+                        ]
+                    }
+                }
+            }
+        }
+    },
+
+    {
+        id: "FSTf8ckWTFmm-qGt6lvIsA",
+        name: "CPM Shared Process Test #2",
+        description: "Start verifying that some simple CellModels that include CellProxy helpers work correctly when used as helpers, owned, and shared processes alike.",
+        vectorRequest: {
+            holistic: {
+                holarchy: {
+                    CellProcessor: {
+                        constructorRequest: {
+                            id: "FSTf8ckWTFmm-qGt6lvIsA",
+                            name: "CPM Shared Process Test #2",
+                            description: "Start verifying that some simple CellModels that include CellProxy helpers work correctly when used as helpers, owned, and shared processes alike.",
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "CIyx6qSlSCyeBKMAQbGMPA" /* "CPP Test Model 2" */ }).result
+                        },
+
+                        actRequests: [
+
+                            {
+                                actorName: "CPM Shared Process Test #2",
+                                actorTaskDescription: "Start a test process.",
+                                actionRequest: { holarchy: { CellProcessor: { process: { create: { apmID: "houKkWpYTX6hly7r79gD6g" } } } } }
+                            }
+
                         ]
                     }
                 }
