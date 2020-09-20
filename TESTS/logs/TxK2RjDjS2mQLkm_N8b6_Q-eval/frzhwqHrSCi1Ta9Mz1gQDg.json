@@ -16,7 +16,7 @@
                     "description": "Tests the CPM descendant processes active transition operator implementation.",
                     "cellmodel": {
                       "id": "L0L3o-vqTOOli8Lio96e8w",
-                      "vdid": "NBTk1RVOm8FIDeNBtqJhBQ",
+                      "vdid": "IvooN6RmAaHxSjrYxTSOcg",
                       "name": "CPM Descendant Processes Active Operator Test Model",
                       "description": "A model to test the descendant processes active operator.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "L0L3o-vqTOOli8Lio96e8w": {
                               "id": "L0L3o-vqTOOli8Lio96e8w",
-                              "vdid": "NBTk1RVOm8FIDeNBtqJhBQ",
+                              "vdid": "IvooN6RmAaHxSjrYxTSOcg",
                               "name": "CPM Descendant Processes Active Operator Test Model",
                               "description": "A model to test the descendant processes active operator.",
                               "type": "CM",
@@ -39,7 +39,7 @@
                               },
                               "fUQKrIPcQmingXFEQ4Pt9A": {
                                 "id": "fUQKrIPcQmingXFEQ4Pt9A",
-                                "vdid": "2D51dpQQ86Z7xtQsQTRG8A",
+                                "vdid": "2fI0AaJ-wi2lnUuIo81NKQ",
                                 "name": "Dummy Process A Cell Model",
                                 "description": "A simple cell model that carries a regressive APM for testing various CPM actions and operators.",
                                 "type": "CM",
@@ -53,19 +53,19 @@
                               },
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "8Q4coLVWfcacJSKYCDDZvw",
+                                "vdid": "6Oat2CPw6kIm-sG7Mezkhg",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "UGFABsAiMleR_fEr5FWILA",
+                                  "vdid": "Z1cm66QPdtZ1N7PZw-FU_w",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "xaZfL0gwoNcqXDCGnf6IDw",
+                                    "vdid": "1oddR4AAuAJb5MBrqckdzQ",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -85,13 +85,13 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "Ihpf_HFtGJYLxQqW2jofpg",
+                                      "vdid": "e_0rmtOonaXDWo3oekmQsA",
                                       "name": "Holarchy Core",
                                       "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                       "type": "CM",
                                       "orTbEFR_Q-u-qqEqP8OUBA": {
                                         "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                        "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                        "vdid": "uvllVSSpQeMfNj6urucS8Q",
                                         "name": "Holarchy Core Cell",
                                         "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
                                         "type": "CM",
@@ -105,7 +105,7 @@
                                       },
                                       "RW8Y2O-kRNSv87yXT962wQ": {
                                         "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                        "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
+                                        "vdid": "e4dxj77HMqe_v4l_aOzwwA",
                                         "name": "Holarchy Core Logic",
                                         "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                         "type": "CM",
@@ -140,7 +140,7 @@
                                       },
                                       "jQxlhOe-RDilxY0sNIierQ": {
                                         "id": "jQxlhOe-RDilxY0sNIierQ",
-                                        "vdid": "k3Tp6h_XUrZWVMpgBqWh5A",
+                                        "vdid": "la9u8vIGh_WglwTdEwbNZg",
                                         "name": "Holarchy Core Memory Actions & Operators",
                                         "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                         "type": "CM",
@@ -305,7 +305,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                      "vdid": "p6OB7wFMIDC2bObpi4TShA",
+                      "vdid": "AwMTT0emvdkeq5PKUgd3rw",
                       "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                       "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                       "cmat": {
@@ -315,7 +315,7 @@
                             "type": "INDEX",
                             "EPUQ9YpwinAcHhwe1iLWIg": {
                               "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                              "vdid": "p6OB7wFMIDC2bObpi4TShA",
+                              "vdid": "AwMTT0emvdkeq5PKUgd3rw",
                               "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                               "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                               "type": "CM",
@@ -433,7 +433,7 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "MkkKL_3HNXYwiLyDWL0r3Q",
+                                "vdid": "hPV2drGcIMpSSKc5QBYCAg",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
@@ -496,13 +496,13 @@
                               },
                               "MDVBKW89TvO9T62Ge7GmNg": {
                                 "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                "vdid": "Ihpf_HFtGJYLxQqW2jofpg",
+                                "vdid": "e_0rmtOonaXDWo3oekmQsA",
                                 "name": "Holarchy Core",
                                 "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                 "type": "CM",
                                 "orTbEFR_Q-u-qqEqP8OUBA": {
                                   "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                  "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                  "vdid": "uvllVSSpQeMfNj6urucS8Q",
                                   "name": "Holarchy Core Cell",
                                   "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
                                   "type": "CM",
@@ -516,7 +516,7 @@
                                 },
                                 "RW8Y2O-kRNSv87yXT962wQ": {
                                   "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                  "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
+                                  "vdid": "e4dxj77HMqe_v4l_aOzwwA",
                                   "name": "Holarchy Core Logic",
                                   "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                   "type": "CM",
@@ -551,7 +551,7 @@
                                 },
                                 "jQxlhOe-RDilxY0sNIierQ": {
                                   "id": "jQxlhOe-RDilxY0sNIierQ",
-                                  "vdid": "k3Tp6h_XUrZWVMpgBqWh5A",
+                                  "vdid": "la9u8vIGh_WglwTdEwbNZg",
                                   "name": "Holarchy Core Memory Actions & Operators",
                                   "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                   "type": "CM",
@@ -650,7 +650,7 @@
                               },
                               "L0L3o-vqTOOli8Lio96e8w": {
                                 "id": "L0L3o-vqTOOli8Lio96e8w",
-                                "vdid": "NBTk1RVOm8FIDeNBtqJhBQ",
+                                "vdid": "IvooN6RmAaHxSjrYxTSOcg",
                                 "name": "CPM Descendant Processes Active Operator Test Model",
                                 "description": "A model to test the descendant processes active operator.",
                                 "type": "CM",
@@ -663,7 +663,7 @@
                                 },
                                 "fUQKrIPcQmingXFEQ4Pt9A": {
                                   "id": "fUQKrIPcQmingXFEQ4Pt9A",
-                                  "vdid": "2D51dpQQ86Z7xtQsQTRG8A",
+                                  "vdid": "2fI0AaJ-wi2lnUuIo81NKQ",
                                   "name": "Dummy Process A Cell Model",
                                   "description": "A simple cell model that carries a regressive APM for testing various CPM actions and operators.",
                                   "type": "CM",
@@ -677,19 +677,19 @@
                                 },
                                 "RyMcv3MpTI-Co1EyVOIvlw": {
                                   "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                  "vdid": "8Q4coLVWfcacJSKYCDDZvw",
+                                  "vdid": "6Oat2CPw6kIm-sG7Mezkhg",
                                   "name": "Holarchy CML",
                                   "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                   "type": "CM",
                                   "c2cq2OE9SiaLKahL3Mk0KA": {
                                     "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                    "vdid": "UGFABsAiMleR_fEr5FWILA",
+                                    "vdid": "Z1cm66QPdtZ1N7PZw-FU_w",
                                     "name": "Holarchy Base Cell Model",
                                     "description": "A collection of low-level building blocks.",
                                     "type": "CM",
                                     "U5iIpgd8SHCk7pvaciVLTQ": {
                                       "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                      "vdid": "xaZfL0gwoNcqXDCGnf6IDw",
+                                      "vdid": "1oddR4AAuAJb5MBrqckdzQ",
                                       "name": "Holarchy Base Memory Mailbox Flag",
                                       "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                       "type": "CM",

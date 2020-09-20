@@ -16,7 +16,7 @@
                     "description": "A Cell Process Proxy unit test.",
                     "cellmodel": {
                       "id": "w6WWHevPQOKeGOe6QSL5Iw",
-                      "vdid": "8Cmoo20iPVuvg2Jz7w0daw",
+                      "vdid": "s3IUbBcKrM9sAYQ-cEpLfg",
                       "name": "CPP Test Model 1",
                       "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "w6WWHevPQOKeGOe6QSL5Iw": {
                               "id": "w6WWHevPQOKeGOe6QSL5Iw",
-                              "vdid": "8Cmoo20iPVuvg2Jz7w0daw",
+                              "vdid": "s3IUbBcKrM9sAYQ-cEpLfg",
                               "name": "CPP Test Model 1",
                               "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                               "type": "CM",
@@ -123,7 +123,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                      "vdid": "zMvXfuqK3jKLmEzzdqsbOQ",
+                      "vdid": "x4ZQrRgpr51_ZNuL0Auo_Q",
                       "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                       "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                       "cmat": {
@@ -133,7 +133,7 @@
                             "type": "INDEX",
                             "TPVM9ZxwnHBvHm8e1yLXIg": {
                               "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                              "vdid": "zMvXfuqK3jKLmEzzdqsbOQ",
+                              "vdid": "x4ZQrRgpr51_ZNuL0Auo_Q",
                               "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                               "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                               "type": "CM",
@@ -251,7 +251,7 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "MkkKL_3HNXYwiLyDWL0r3Q",
+                                "vdid": "hPV2drGcIMpSSKc5QBYCAg",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
@@ -314,13 +314,13 @@
                               },
                               "MDVBKW89TvO9T62Ge7GmNg": {
                                 "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                "vdid": "Ihpf_HFtGJYLxQqW2jofpg",
+                                "vdid": "e_0rmtOonaXDWo3oekmQsA",
                                 "name": "Holarchy Core",
                                 "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                 "type": "CM",
                                 "orTbEFR_Q-u-qqEqP8OUBA": {
                                   "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                  "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                  "vdid": "uvllVSSpQeMfNj6urucS8Q",
                                   "name": "Holarchy Core Cell",
                                   "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
                                   "type": "CM",
@@ -334,7 +334,7 @@
                                 },
                                 "RW8Y2O-kRNSv87yXT962wQ": {
                                   "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                  "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
+                                  "vdid": "e4dxj77HMqe_v4l_aOzwwA",
                                   "name": "Holarchy Core Logic",
                                   "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                   "type": "CM",
@@ -369,7 +369,7 @@
                                 },
                                 "jQxlhOe-RDilxY0sNIierQ": {
                                   "id": "jQxlhOe-RDilxY0sNIierQ",
-                                  "vdid": "k3Tp6h_XUrZWVMpgBqWh5A",
+                                  "vdid": "la9u8vIGh_WglwTdEwbNZg",
                                   "name": "Holarchy Core Memory Actions & Operators",
                                   "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                   "type": "CM",
@@ -468,7 +468,7 @@
                               },
                               "w6WWHevPQOKeGOe6QSL5Iw": {
                                 "id": "w6WWHevPQOKeGOe6QSL5Iw",
-                                "vdid": "8Cmoo20iPVuvg2Jz7w0daw",
+                                "vdid": "s3IUbBcKrM9sAYQ-cEpLfg",
                                 "name": "CPP Test Model 1",
                                 "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                                 "type": "CM",

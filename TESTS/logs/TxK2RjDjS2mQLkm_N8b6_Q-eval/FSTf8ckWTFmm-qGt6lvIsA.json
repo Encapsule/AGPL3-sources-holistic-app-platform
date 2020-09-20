@@ -16,7 +16,7 @@
                     "description": "Start verifying that some simple CellModels that include CellProxy helpers work correctly when used as helpers, owned, and shared processes alike.",
                     "cellmodel": {
                       "id": "CIyx6qSlSCyeBKMAQbGMPA",
-                      "vdid": "1xqeWJf3iJkGK-uiDTbkfw",
+                      "vdid": "uGc1YJLEOFUfBPg-YOkWrg",
                       "name": "CPP Test Model 2",
                       "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "CIyx6qSlSCyeBKMAQbGMPA": {
                               "id": "CIyx6qSlSCyeBKMAQbGMPA",
-                              "vdid": "1xqeWJf3iJkGK-uiDTbkfw",
+                              "vdid": "uGc1YJLEOFUfBPg-YOkWrg",
                               "name": "CPP Test Model 2",
                               "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                               "type": "CM",
@@ -39,14 +39,14 @@
                               },
                               "YBH28RLOTqG5jb6mkLBNKQ": {
                                 "id": "YBH28RLOTqG5jb6mkLBNKQ",
-                                "vdid": "XT2hWr401f1EECRrVso92Q",
-                                "name": "CPP Test Message Model",
+                                "vdid": "QhMMbwOyBaCYoEQRYsxZ4A",
+                                "name": "Messenger Model",
                                 "description": "A simple cell model to transport a something between cells.",
                                 "type": "CM",
                                 "Kh2lTQHGT9qG0j1omkJmAg": {
                                   "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                  "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
-                                  "name": "CPP Test Message Process",
+                                  "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                                  "name": "Messenger Process",
                                   "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
                                   "type": "APM"
                                 }
@@ -93,7 +93,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                      "vdid": "YC3dlaSOODE_TcSkcprV6w",
+                      "vdid": "j-R6bz0XiV1_naCndHHBJw",
                       "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                       "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                       "cmat": {
@@ -103,7 +103,7 @@
                             "type": "INDEX",
                             "kfWR9Xtwe3BNHk0eBSIFIg": {
                               "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                              "vdid": "YC3dlaSOODE_TcSkcprV6w",
+                              "vdid": "j-R6bz0XiV1_naCndHHBJw",
                               "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                               "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                               "type": "CM",
@@ -221,7 +221,7 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "MkkKL_3HNXYwiLyDWL0r3Q",
+                                "vdid": "hPV2drGcIMpSSKc5QBYCAg",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
@@ -284,13 +284,13 @@
                               },
                               "MDVBKW89TvO9T62Ge7GmNg": {
                                 "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                "vdid": "Ihpf_HFtGJYLxQqW2jofpg",
+                                "vdid": "e_0rmtOonaXDWo3oekmQsA",
                                 "name": "Holarchy Core",
                                 "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                 "type": "CM",
                                 "orTbEFR_Q-u-qqEqP8OUBA": {
                                   "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                  "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                  "vdid": "uvllVSSpQeMfNj6urucS8Q",
                                   "name": "Holarchy Core Cell",
                                   "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
                                   "type": "CM",
@@ -304,7 +304,7 @@
                                 },
                                 "RW8Y2O-kRNSv87yXT962wQ": {
                                   "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                  "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
+                                  "vdid": "e4dxj77HMqe_v4l_aOzwwA",
                                   "name": "Holarchy Core Logic",
                                   "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                   "type": "CM",
@@ -339,7 +339,7 @@
                                 },
                                 "jQxlhOe-RDilxY0sNIierQ": {
                                   "id": "jQxlhOe-RDilxY0sNIierQ",
-                                  "vdid": "k3Tp6h_XUrZWVMpgBqWh5A",
+                                  "vdid": "la9u8vIGh_WglwTdEwbNZg",
                                   "name": "Holarchy Core Memory Actions & Operators",
                                   "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                   "type": "CM",
@@ -438,7 +438,7 @@
                               },
                               "CIyx6qSlSCyeBKMAQbGMPA": {
                                 "id": "CIyx6qSlSCyeBKMAQbGMPA",
-                                "vdid": "1xqeWJf3iJkGK-uiDTbkfw",
+                                "vdid": "uGc1YJLEOFUfBPg-YOkWrg",
                                 "name": "CPP Test Model 2",
                                 "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                                 "type": "CM",
@@ -451,14 +451,14 @@
                                 },
                                 "YBH28RLOTqG5jb6mkLBNKQ": {
                                   "id": "YBH28RLOTqG5jb6mkLBNKQ",
-                                  "vdid": "XT2hWr401f1EECRrVso92Q",
-                                  "name": "CPP Test Message Model",
+                                  "vdid": "QhMMbwOyBaCYoEQRYsxZ4A",
+                                  "name": "Messenger Model",
                                   "description": "A simple cell model to transport a something between cells.",
                                   "type": "CM",
                                   "Kh2lTQHGT9qG0j1omkJmAg": {
                                     "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                    "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
-                                    "name": "CPP Test Message Process",
+                                    "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                                    "name": "Messenger Process",
                                     "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
                                     "type": "APM"
                                   }
@@ -480,12 +480,6 @@
                         }
                       },
                       "apmMap": {
-                        "Kh2lTQHGT9qG0j1omkJmAg": {
-                          "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                          "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
-                          "name": "CPP Test Message Process",
-                          "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
-                        },
                         "houKkWpYTX6hly7r79gD6g": {
                           "id": "houKkWpYTX6hly7r79gD6g",
                           "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
@@ -503,6 +497,12 @@
                           "vdid": "ltngFeqWZidLxRgsLO-QCw",
                           "name": "Holarchy Cell Process Proxy Helper Process",
                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
+                        },
+                        "Kh2lTQHGT9qG0j1omkJmAg": {
+                          "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                          "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                          "name": "Messenger Process",
+                          "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
                         }
                       },
                       "opmiSpecPaths": [
@@ -516,21 +516,21 @@
                           }
                         },
                         {
-                          "specPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.cellProcessID",
-                          "opmiRef": {
-                            "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                            "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
-                            "name": "CPP Test Message Process",
-                            "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
-                          }
-                        },
-                        {
                           "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "houKkWpYTX6hly7r79gD6g",
                             "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
                             "name": "CPP Test Model 2",
                             "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
+                          }
+                        },
+                        {
+                          "specPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.cellProcessID",
+                          "opmiRef": {
+                            "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                            "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                            "name": "Messenger Process",
+                            "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
                           }
                         },
                         {
@@ -545,31 +545,6 @@
                       ],
                       "ocdTemplateSpec": {
                         "____types": "jsObject",
-                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
-                          "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Processes Memory",
-                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process].",
-                          "____types": "jsObject",
-                          "____defaultValue": {},
-                          "cellProcessMap": {
-                            "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Map",
-                            "____description": "A map of [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
-                            "____types": "jsObject",
-                            "____asMap": true,
-                            "____defaultValue": {},
-                            "cellProcessID": {
-                              "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Instance",
-                              "____description": "Cell process instance memory for [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process]: A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
-                              "____types": "jsObject",
-                              "____appdsl": {
-                                "apm": "Kh2lTQHGT9qG0j1omkJmAg"
-                              }
-                            }
-                          },
-                          "revision": {
-                            "____accept": "jsNumber",
-                            "____defaultValue": 0
-                          }
-                        },
                         "houKkWpYTX6hly7r79gD6g_CellProcesses": {
                           "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Processes Memory",
                           "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [houKkWpYTX6hly7r79gD6g::CPP Test Model 2].",
@@ -595,6 +570,31 @@
                             "____defaultValue": 0
                           }
                         },
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                          "____label": "[Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Kh2lTQHGT9qG0j1omkJmAg::Messenger Process].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] Cell Process Map",
+                            "____description": "A map of [Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [Kh2lTQHGT9qG0j1omkJmAg::Messenger Process]: A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "Kh2lTQHGT9qG0j1omkJmAg"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "____types": "jsObject",
                           "____defaultValue": {},
@@ -608,38 +608,6 @@
                         "____description": "OPC [XzvKS1LCpT8FHUFumCqPrw::[FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Observable Process Controller] system process runtime state data managed by OPC instance.",
                         "____types": "jsObject",
                         "____defaultValue": {},
-                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
-                          "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Processes Memory",
-                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process].",
-                          "____types": "jsObject",
-                          "____defaultValue": {},
-                          "cellProcessMap": {
-                            "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Map",
-                            "____description": "A map of [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
-                            "____types": "jsObject",
-                            "____asMap": true,
-                            "____defaultValue": {},
-                            "cellProcessID": {
-                              "____label": "[Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process] Cell Process Instance",
-                              "____description": "Cell process instance memory for [Kh2lTQHGT9qG0j1omkJmAg::CPP Test Message Process]: A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
-                              "____types": "jsObject",
-                              "____appdsl": {
-                                "apm": "Kh2lTQHGT9qG0j1omkJmAg"
-                              },
-                              "message": {
-                                "____opaque": true
-                              },
-                              "__apmiStep": {
-                                "____accept": "jsString",
-                                "____defaultValue": "uninitialized"
-                              }
-                            }
-                          },
-                          "revision": {
-                            "____accept": "jsNumber",
-                            "____defaultValue": 0
-                          }
-                        },
                         "houKkWpYTX6hly7r79gD6g_CellProcesses": {
                           "____label": "[houKkWpYTX6hly7r79gD6g::CPP Test Model 2] Cell Processes Memory",
                           "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [houKkWpYTX6hly7r79gD6g::CPP Test Model 2].",
@@ -710,6 +678,38 @@
                             "____defaultValue": 0
                           }
                         },
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                          "____label": "[Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [Kh2lTQHGT9qG0j1omkJmAg::Messenger Process].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] Cell Process Map",
+                            "____description": "A map of [Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[Kh2lTQHGT9qG0j1omkJmAg::Messenger Process] Cell Process Instance",
+                              "____description": "Cell process instance memory for [Kh2lTQHGT9qG0j1omkJmAg::Messenger Process]: A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "Kh2lTQHGT9qG0j1omkJmAg"
+                              },
+                              "message": {
+                                "____opaque": true
+                              },
+                              "__apmiStep": {
+                                "____accept": "jsString",
+                                "____defaultValue": "uninitialized"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
                         "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                           "____types": "jsObject",
                           "____defaultValue": {},
@@ -765,11 +765,11 @@
                         }
                       },
                       "ocdi": {
-                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                        "houKkWpYTX6hly7r79gD6g_CellProcesses": {
                           "cellProcessMap": {},
                           "revision": 0
                         },
-                        "houKkWpYTX6hly7r79gD6g_CellProcesses": {
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
                           "cellProcessMap": {},
                           "revision": 0
                         },
@@ -4333,38 +4333,6 @@
                                       }
                                     }
                                   },
-                                  "R0Fow8jZMaRF1Mprf4Y_yA": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
-                                        "specPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "uninitialized",
-                                      "apmRef": {
-                                        "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                        "vdid": "AjtSl4Wm3rvwhO2VRjlv0Q",
-                                        "name": "CPP Test Message Process",
-                                        "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "uninitialized",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
                                   "_gBow9N-MaS3PsprUrI_yA": {
                                     "evalRequest": {
                                       "dataBinding": {
@@ -4382,6 +4350,38 @@
                                     "evalResponse": {
                                       "status": "noop",
                                       "finishStep": "finished",
+                                      "phases": {
+                                        "p1_toperator": [],
+                                        "p2_exit": [],
+                                        "p3_enter": [],
+                                        "p4_finalize": null
+                                      },
+                                      "errors": {
+                                        "p1_toperator": 0,
+                                        "p2_exit": 0,
+                                        "p3_enter": 0,
+                                        "p4_finalize": 0,
+                                        "total": 0
+                                      }
+                                    }
+                                  },
+                                  "R0Fow8jZMaRF1Mprf4Y_yA": {
+                                    "evalRequest": {
+                                      "dataBinding": {
+                                        "dataPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                        "specPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.cellProcessID"
+                                      },
+                                      "initialStep": "uninitialized",
+                                      "apmRef": {
+                                        "id": "Kh2lTQHGT9qG0j1omkJmAg",
+                                        "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                                        "name": "Messenger Process",
+                                        "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
+                                      }
+                                    },
+                                    "evalResponse": {
+                                      "status": "noop",
+                                      "finishStep": "uninitialized",
                                       "phases": {
                                         "p1_toperator": [],
                                         "p2_exit": [],
@@ -4436,14 +4436,6 @@
                         }
                       },
                       "ocdJSON": {
-                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
-                          "cellProcessMap": {
-                            "4ODg4BoaGhqkpKSkX19fXw": {
-                              "__apmiStep": "uninitialized"
-                            }
-                          },
-                          "revision": 1
-                        },
                         "houKkWpYTX6hly7r79gD6g_CellProcesses": {
                           "cellProcessMap": {
                             "4ODg4BoaGhqkpKSkX19fXw": {
@@ -4459,6 +4451,14 @@
                                 "__apmiStep": "uninitialized"
                               },
                               "__apmiStep": "finished"
+                            }
+                          },
+                          "revision": 1
+                        },
+                        "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                          "cellProcessMap": {
+                            "4ODg4BoaGhqkpKSkX19fXw": {
+                              "__apmiStep": "uninitialized"
                             }
                           },
                           "revision": 1

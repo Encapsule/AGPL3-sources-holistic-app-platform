@@ -18,28 +18,15 @@ const connectProxyActionRequest = {
     }
 };
 
-const cppTestMessageModel = new holarchy.CellModel({
-    id: "YBH28RLOTqG5jb6mkLBNKQ",
-    name: "CPP Test Message Model",
-    description: "A simple cell model to transport a something between cells.",
-    apm: {
-        id: "Kh2lTQHGT9qG0j1omkJmAg",
-        name: "CPP Test Message Process",
-        description: "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
-        ocdDataSpec: {
-            ____types: "jsObject",
-            message: { ____opaque: true }
-        }
-    }
-});
+const messengerModel = require("./cellmodel-messenger");
 
 const cppTestDroidModel = new holarchy.CellModel({
     id: "-_Aig3K1Qvu8iqn6ncr00g",
-    name: "CPP Test Droid Model",
+    name: "Test Droid Model",
     description: "A generic model to help orchestrate test creation and experiment further with interesting CellModel usage patterns.",
     apm: {
         id: "e1eD7WDvTJqZwzu0i_FDGA",
-        name: "CPP Test Droid Process",
+        name: "Test Droid Process",
         description: "Provides a mechanism to pre-program a little droid agent to run tests as a cell inside of CellProcessor instance.",
 
         ocdDataSpec: {
@@ -68,7 +55,7 @@ const cppTestDroidModel = new holarchy.CellModel({
                 }
             }
         },
-        
+
         steps: {
             uninitialized: {
                 description: "Default process start step.",
@@ -138,7 +125,7 @@ const cppTestDroidModel = new holarchy.CellModel({
             }
         }
     }
-        
+
 });
 
 const cppTestModel1 = new holarchy.CellModel({
@@ -210,7 +197,7 @@ const cppTestModel1 = new holarchy.CellModel({
                         nextStep: "test_status_operators_unexpected_response"
                     }
                 ]
-                
+
             },
 
             proxy_connected: {
@@ -285,7 +272,7 @@ const cppTestModel1 = new holarchy.CellModel({
                     }
                 ]
             },
-            
+
             reconnect_proxy: {
                 description: "The proxy has been disconnected. Now let's reconnect it.",
                 actions: {
@@ -326,7 +313,7 @@ const cppTestModel1 = new holarchy.CellModel({
             }
 
         } // APM process model steps
-        
+
     }, // APM
 
     actions: [
@@ -364,7 +351,7 @@ const cppTestModel2 = new holarchy.CellModel({
     id: "CIyx6qSlSCyeBKMAQbGMPA",
     name: "CPP Test Model 2",
     description: "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
-    
+
     apm: {
         id: "houKkWpYTX6hly7r79gD6g",
         name: "CPP Test Model 2",
@@ -404,8 +391,57 @@ const cppTestModel2 = new holarchy.CellModel({
 
     },
 
-    subcells: [ cppTestMessageModel ]
+    subcells: [ messengerModel ]
 
+});
+
+const cppTestModel3 = new holarchy.CellModel({
+    id: "QdTHgiTaR6CDG7mdBEfZng",
+    name: "CPP Test Model 3",
+    description: "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
+    apm: {
+        id: "ZU4XFMxxT4-43mKsAp0dwA",
+        name: "CPP Test Process 3",
+        description: "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in).",
+        ocdDataSpec: {
+            ____types: "jsObject",
+
+            // Here we splice in a "helper" insance of CPP Test Model 2 that contains a proxy that it tries to connect when its process starts.
+            helper1A: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { apm: "houKkWpYTX6hly7r79gD6g" } // cpp test 2 process
+            },
+            helper1B: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                helper2A: {
+                    ____types: "jsObject",
+                    ____defaultValue: {},
+                    ____appdsl: { apm: "houKkWpYTX6hly7r79gD6g" } // cpp test 2 process
+                },
+                helper2B: {
+                    ____types: "jsObject",
+                    ____defaultValue: {},
+                    helper3A: {
+                        ____types: "jsObject",
+                        ____defaultValue: {},
+                        ____appdsl: { apm: "houKkWpYTX6hly7r79gD6g" } // cpp test 2 process
+                    }
+                }
+            },
+            helper1C: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { apm: "Kh2lTQHGT9qG0j1omkJmAg" } // messenger process
+            }
+
+        }
+    },
+    subcells: [
+        cppTestModel2,
+        messengerModel
+    ]
 });
 
 
@@ -413,12 +449,17 @@ module.exports = new holarchy.CellModel({
     id: "asXXPy1URzacz2swT74u-A",
     name: "CPP Test Models Wrapper",
     description: "A wrapper for CPP Test CellModels.",
+    // TODO: Rename to 'usesCellModels' as the CellModels enumerated here do not actuall change anything about this CellModel's definition.
+    // Rather, they define the other CellModels that must also be registered with a CellProcessor instance in order for this cell to function
+    // correctly at runtime in the CellProcessor instance.
     subcells: [
-        cppTestMessageModel,
+        messengerModel,
+        // cppTestDroidModel,
         cppTestModel1,
-        cppTestModel2
+        cppTestModel2,
+        cppTestModel3
     ]
 });
 
-                                         
+
 
