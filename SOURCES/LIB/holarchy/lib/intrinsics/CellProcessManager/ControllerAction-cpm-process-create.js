@@ -114,13 +114,14 @@ const controllerAction = new ControllerAction({
                 // NO EXPLICIT OVERRIDE PROVIDED.
                 // Assume the caller is a cell that wants to create a child process. We care if that cell is a process or not. If it's not, then it's a cell owned by a process. And, we need to know which.
 
-                cpmLibResponse = cpmLib.getOwnerProcessDescriptor.request({ path: request_.context.apmBindingPath, cpmDataDescriptor: cpmDataDescriptor, ocdi: request_.context.ocdi, treeData: ownedCellProcessesData });
+                cpmLibResponse = cpmLib.getOwnerProcessDescriptor.request({ cellPath: request_.context.apmBindingPath, cpmDataDescriptor: cpmDataDescriptor, ocdi: request_.context.ocdi, treeData: ownedCellProcessesData });
                 if (cpmLibResponse.error) {
                     errors.push(cpmLibResponse.error);
                     break;
                 }
 
-                parentCellProcessID = cpmLibResponse.result.cellProcessID; // REALLY IS OWNER!
+                const cellOwnershipVector = cpmLibResponse.result;
+                parentCellProcessID = cellOwnershipVector.ownershipVector[cellOwnershipVector.ownershipVector.length - 1].cellProcessID; // is always the owning cell process
 
             } else {
                 parentCellProcessID = message.parentCellProcess.cellProcessID?(message.parentCellProcess.cellProcessID):(message.apmBindingPath?(arccore.identifier.irut.fromReference(message.parentCellProcess.apmBindingPath).result):(arccore.identifier.irut.fromReference(`~.${message.parentCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.parentCellProcess.cellProcessNamespace.cellProcessUniqueName).result}`).result));

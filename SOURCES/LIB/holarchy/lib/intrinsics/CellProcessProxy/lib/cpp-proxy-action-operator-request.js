@@ -27,7 +27,7 @@ const factoryResponse = arccore.filter.create({
                   request_.originalRequestToProxy.actionRequest.holarchy.CellProcessProxy.proxy
                   :
                   request_.originalRequestToProxy.operatorRequest.holarchy.CellProcessProxy.proxy;
-            
+
             // This ensures we're addressing an actual CellProcessProxy-bound cell.
             // And, get us a copy of its memory and its current connection state.
             let cppLibResponse = cppGetStatusFilter.request({
