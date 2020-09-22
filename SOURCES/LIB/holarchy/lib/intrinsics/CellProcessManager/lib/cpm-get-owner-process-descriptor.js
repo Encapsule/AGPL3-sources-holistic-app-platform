@@ -11,7 +11,7 @@ const factoryResponse = arccore.filter.create({
         ____types: "jsObject",
         path: { ____accept: "jsString" },
         ocdi: { ____accept: "jsObject" },
-        treeData: { ____accept: "jsObject" }
+        cpmDataDescriptor: { ____accept: "jsObject" }
     },
 
     outputFilterSpec: require("./iospecs/cell-process-query-response-descriptor-spec"),
@@ -22,39 +22,35 @@ const factoryResponse = arccore.filter.create({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-
             if (!request_.path.startsWith("~")) {
                 errors.push(`Invalid path '${request_.path}'. Path must be an absolute dot-delimited ObservableControllerData namespace path beginning with the anonymous namespace token, ~.`);
-                brea;
+                break;
             }
-
-            let ownerProcessID = null;
+            let owner = { cellProcessID: null, apmBindingPath: null, apmID: null };
             const pathTokens = request_.path.split(".");
-
+            const ownedCellProcesses = request_.cpmDataDescriptor.data.ownedCellProcesses;
             while (pathTokens.length) {
-                const testProcessID = arccore.identifier.irut.fromReference(path.join(".")).result;
-                if (request_.treeData.digraph.isVertex(testProcessID)) {
-                    ownerProcessID = testProcessID;
+                const currentPath = pathTokens.join(".");
+                const testProcessID = arccore.identifier.irut.fromReference(pathTokens.join(".")).result;
+                if (ownedCellProcesses.digraph.isVertex(testProcessID)) {
+                    const vertexProp = ownedCellProcesses.digraph.getVertexProperty(testProcessID);
+                    // TODO: Why isn't the apmID on the vertex prop? laziness...
+                    owner.cellProcessID = testProcessID;
+                    owner.apmBindingPath = (currentPath !== "~")?vertexProp.apmBindingPath:request_.cpmDataDescriptor.path;
+                    const ocdResponse = request_.ocdi.getNamespaceSpec(owner.apmBindingPath);
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
+                    owner.apmID = ocdResponse.result.____appdsl.apm;
                     break;
                 }
                 apmBindingPathTokens.pop();
             }
-
-            if (!ownerProcessID) {
-                errors.push(`Cannot locate an active cell process that owns the ObservableControllerData namespace, '${request_.path}'.`);
+            if (errors.length) {
                 break;
             }
-
-            const apmBindingPath = pathTokens.join(".");
-            let ocdResponse = request_.ocdi.getNamespaceSpec(apmBindingPath);
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
-                break;
-            }
-            const apmID = ocdResponse.result.____appdsl.apm;
-
-            response.result = { cellProcessID: ownerProcessID, apmBindingPath, apmID };
-
+            response.result = owner;
             break;
         }
         if (errors.length) {

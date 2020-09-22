@@ -71,6 +71,16 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log("Cell Process Manager process create...");
 
+            // Read shared memory to retrieve a reference to the CPM's private process management data.
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+
+            const cpmDataDescriptor = cpmLibResponse.result;
+            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+
             // Dereference the body of the action request.
             const message = request_.actionRequest.holarchy.CellProcessor.process.create;
 
@@ -98,34 +108,23 @@ const controllerAction = new ControllerAction({
             // NOTE: The CPM's cell process tree structure is used for managing the lifespan of cell processes; deleting a cell process via delete
             // process action will delete that cell process and all its decendants.
 
-            let parentCellProcessID = (
-                !message.parentCellProcess? // if no override...
-                    (arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result) // ... IRUT hash the outer context.apmBindingPath (aka #)
-                    :
-                    ( // else if override
-                        message.parentCellProcess.cellProcessID? // ... If the override specifies a cellProcessID ...
-                            (message.parentCellProcess.cellProcessID) // ... use it
-                            :
-                            ( // else
-                                message.apmBindingPath? // ... If the override specifies an apmBindingPath ...
-                                    (arccore.identifier.irut.fromReference(message.parentCellProcess.apmBindingPath).result) // ... use it
-                                    : // else
-                                    // ... deduce from apmID, cellProcessUniqueName and path conventions defined by CellProcess and CPM.
-                                    (arccore.identifier.irut.fromReference(`~.${message.parentCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.parentCellProcess.cellProcessNamespace.cellProcessUniqueName).result}`).result)
-                            )
-                    )
-            );
+            let parentCellProcessID = null;
 
-            // Read shared memory to retrieve a reference to the CPM's private process management data.
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
-            if (cpmLibResponse.error) {
-                errors.push(cpmLibResponse.error);
-                break;
+            if (!message.parentCellProcess) {
+                // NO EXPLICIT OVERRIDE PROVIDED.
+                // Assume the caller is a cell that wants to create a child process. We care if that cell is a process or not. If it's not, then it's a cell owned by a process. And, we need to know which.
+
+                cpmLibResponse = cpmLib.getOwnerProcessDescriptor.request({ path: request_.context.apmBindingPath, cpmDataDescriptor: cpmDataDescriptor, ocdi: request_.context.ocdi, treeData: ownedCellProcessesData });
+                if (cpmLibResponse.error) {
+                    errors.push(cpmLibResponse.error);
+                    break;
+                }
+
+                parentCellProcessID = cpmLibResponse.result.cellProcessID; // REALLY IS OWNER!
+
+            } else {
+                parentCellProcessID = message.parentCellProcess.cellProcessID?(message.parentCellProcess.cellProcessID):(message.apmBindingPath?(arccore.identifier.irut.fromReference(message.parentCellProcess.apmBindingPath).result):(arccore.identifier.irut.fromReference(`~.${message.parentCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.parentCellProcess.cellProcessNamespace.cellProcessUniqueName).result}`).result));
             }
-
-            const cpmDataDescriptor = cpmLibResponse.result;
-
-            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
 
             // Query the process tree digraph to determine if the new cell process' ID slot has already been allocated (i.e. it's a disallowed duplicate process create request).
             if (ownedCellProcessesData.digraph.isVertex(cellProcessID)) {
