@@ -38,7 +38,7 @@ const factoryResponse = arccore.filter.create({
 
             let idResponse = arccore.identifier.irut.isIRUT(request_.id);
             if (idResponse.error) {
-                errors.push("Bad SMR ID specified:");
+                errors.push(`Invalid IRUT specified for id. '${request_.id} is not an IRUT string.`);
                 errors.push(idResponse.error);
                 break;
             }
@@ -52,7 +52,6 @@ const factoryResponse = arccore.filter.create({
             console.log(`CellModel::constructor [${request_.id}::${request_.name}]`);
 
             response.result = {
-                "LMFSviNhR8WQoLvtv_YnbQ": true, // non-intrusive output type identifier
                 id: request_.id,
                 name: request_.name,
                 description: request_.description,
@@ -71,6 +70,18 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
             let digraph = response.result.digraph = filterResponse.result;
+
+            // WARNING: NOT OBVIOUS --- A CellModel instance's _private namesapce contains a digraph model
+            // of all the artifacts it defines (i.e. it's AbstractProcessModel, ControllerAction, TransitionOperator).
+            // Plus, all the artifacts defined by all the other CellModels that this CellModel requires at
+            // runtime to operator correctly. This is modeled as each CellModel's digraph containing its
+            // own CM (CellModel) vertex (for itself) + N other CM-type vertices that model the cells it
+            // requires at runtime. Each of the CM digraphs is self-similar and as described they form a
+            // tree with linked CM vertices as the trunk and APM, ACT, TOP vertices as leaf vertices.
+            // This allows any CellModel to serve as a complete and self-contained in-memory database.
+            // BUT, CellModel digraph vertex that models _ITSELF_ cannot ever have an artifact prop value!
+
+
 
             digraph.addVertex({ u: request_.id, p: { type: "CM" }}); // Add this CellModel to the digraph.
             digraph.addEdge({ e: { u: indexVertices.CM, v: request_.id }, p: { type: `${indexVertices.CM}::CM` }}); // Link the CellModel to the CellModel index.
@@ -178,11 +189,19 @@ const factoryResponse = arccore.filter.create({
                                         errors.push(`CellModel id='${artifactID}' includes a prior definition of CellModel id='${request_.id}' that we're currently trying to define.`);
                                         continue;
                                     } // if the developer is confused, sloppy w/cut-and-paste, or has just made a simple coding mistake w/require/import that introduces a definition cycle in the CellModel artifact tree
-                                    if (!bProps.artifact) {
-                                        bProps.artifact = artifact; // because a CellModel will always include a vertex for itself. But, will never link itself to the vertex props because causes the digraph to become non-serializable
-                                    }
                                     const aVDID = aProps.artifact.getVDID();
-                                    const bVDID = bProps.artifact.getVDID();
+                                    // CAREFUL! arccore.DirectedGraph edge and vertex props are tricky...
+                                    // DirectedGraph.getVertexProperty returns a live reference to a vertex's attached property (opaque to DirectedGraph).
+                                    // To users of DirectedGraph if a vertex (or edge) has a property attached is significant information that cannot be deduced
+                                    // directly from the property value (without ambiguity). So DirectedGraph maintains an internal Boolean flag per vertex and per
+                                    // edge that is set when any property value is attached to a vertex or edge. And, cleared when the property is explicitly
+                                    // deleted. Users of a DirectedGraph container can then query DirectedGraph.hasVertex/EdgeProperty to determine if the property
+                                    // set flag is true/false. It's tricky. This is why it a really bad idea to try to use a vertex/edge property as a temporary
+                                    // scratch pad in an algorithm like this. Previously, I was attaching artifact to bprops for the sole purpose of avoiding the
+                                    // following conditional evaluation of the artifact reference on which to call getVDID. It's not obvious but this little mistake
+                                    // causes a stack overflow to occur loading a CellModel that includes various shape trees of CM's that themselves include
+                                    // dependencies of CM's that have already been incorporated into the tree. Yea... >:/
+                                    const bVDID = (bProps.artifact?bProps.artifact:artifact).getVDID();
                                     if (aVDID !== bVDID) {
                                         errors.push(`Bad ${pcmr_.type} registration. Unable to merge CellModel id='${artifactID}' into CellModel id='${request_.id}' due to conflict.`);
                                         errors.push(`CellModel id='${artifactID}' ${bProps.type} registration id='${bProps.artifact.getID()}' invalid runtime version.`);

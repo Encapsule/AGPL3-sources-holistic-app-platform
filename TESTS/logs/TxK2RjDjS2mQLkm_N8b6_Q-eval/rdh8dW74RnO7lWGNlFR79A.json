@@ -16,7 +16,7 @@
                     "description": "Tests the CPM parent process active operator.",
                     "cellmodel": {
                       "id": "mLTbOO97TtixSbKl8VB7gQ",
-                      "vdid": "H3ZAgIBd-7sh1mPQOr9tRw",
+                      "vdid": "T3HsGqNlIjvXfaXY_rlD5w",
                       "name": "CPM Parent Process Active Operator Test Model",
                       "description": "A model to test CPM parent process active operator.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "mLTbOO97TtixSbKl8VB7gQ": {
                               "id": "mLTbOO97TtixSbKl8VB7gQ",
-                              "vdid": "H3ZAgIBd-7sh1mPQOr9tRw",
+                              "vdid": "T3HsGqNlIjvXfaXY_rlD5w",
                               "name": "CPM Parent Process Active Operator Test Model",
                               "description": "A model to test CPM parent process active operator.",
                               "type": "CM",
@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "xvXG9QBwAHADHgMeXyJfIg",
-                      "vdid": "siI5niY6u2vORJ8xTEOjQg",
+                      "vdid": "L9aLPRh-tTbt0aNF058yZQ",
                       "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                       "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "xvXG9QBwAHADHgMeXyJfIg": {
                               "id": "xvXG9QBwAHADHgMeXyJfIg",
-                              "vdid": "siI5niY6u2vORJ8xTEOjQg",
+                              "vdid": "L9aLPRh-tTbt0aNF058yZQ",
                               "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                               "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                               "type": "CM",
@@ -208,7 +208,7 @@
                               },
                               "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                 "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                "vdid": "MkkKL_3HNXYwiLyDWL0r3Q",
+                                "vdid": "hPV2drGcIMpSSKc5QBYCAg",
                                 "name": "Holarchy Cell Process Proxy Helper Model",
                                 "description": "",
                                 "type": "CM",
@@ -271,13 +271,13 @@
                               },
                               "MDVBKW89TvO9T62Ge7GmNg": {
                                 "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                "vdid": "VCvlx03_XeWnbvPzsE1fBA",
+                                "vdid": "e_0rmtOonaXDWo3oekmQsA",
                                 "name": "Holarchy Core",
                                 "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                 "type": "CM",
                                 "orTbEFR_Q-u-qqEqP8OUBA": {
                                   "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                  "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                  "vdid": "uvllVSSpQeMfNj6urucS8Q",
                                   "name": "Holarchy Core Cell",
                                   "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
                                   "type": "CM",
@@ -291,7 +291,7 @@
                                 },
                                 "RW8Y2O-kRNSv87yXT962wQ": {
                                   "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                  "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
+                                  "vdid": "e4dxj77HMqe_v4l_aOzwwA",
                                   "name": "Holarchy Core Logic",
                                   "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                   "type": "CM",
@@ -326,7 +326,7 @@
                                 },
                                 "jQxlhOe-RDilxY0sNIierQ": {
                                   "id": "jQxlhOe-RDilxY0sNIierQ",
-                                  "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                  "vdid": "la9u8vIGh_WglwTdEwbNZg",
                                   "name": "Holarchy Core Memory Actions & Operators",
                                   "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                   "type": "CM",
@@ -339,9 +339,9 @@
                                   },
                                   "2w7n6KxdR8mdIliePJesLQ": {
                                     "id": "2w7n6KxdR8mdIliePJesLQ",
-                                    "vdid": "tljozSCr53fX-AmzURPyEg",
-                                    "name": "OCD Compare Values",
-                                    "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                                    "vdid": "LxdR4ZycXiKfJOoUpmcnUg",
+                                    "name": "OCD Namespace A ? B Value Comparison",
+                                    "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path.",
                                     "type": "TOP"
                                   },
                                   "UeLs9PcASwuC7KR190eYhA": {
@@ -379,6 +379,20 @@
                                     "description": "Returns Boolean true iff the indicated OCD namespace is truthy.",
                                     "type": "TOP"
                                   },
+                                  "pj9a6tQpSXWp7WZZ8VbKLQ": {
+                                    "id": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                                    "vdid": "zquEh0gwCPP_d9hmBD3uAQ",
+                                    "name": "OCD Namespace Is Array Empty",
+                                    "description": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0.",
+                                    "type": "TOP"
+                                  },
+                                  "fS5liuD1RBSdaPBEhsoxXw": {
+                                    "id": "fS5liuD1RBSdaPBEhsoxXw",
+                                    "vdid": "DmRYzsWPhe-U6ZWFhMH9-w",
+                                    "name": "OCD Namespace Is Map Keyless",
+                                    "description": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0.",
+                                    "type": "TOP"
+                                  },
                                   "Ve_kEFkGSMSgOqUWu9Yo_w": {
                                     "id": "Ve_kEFkGSMSgOqUWu9Yo_w",
                                     "vdid": "DPKyvFjaLnWwv-4AP4IYQw",
@@ -411,7 +425,7 @@
                               },
                               "mLTbOO97TtixSbKl8VB7gQ": {
                                 "id": "mLTbOO97TtixSbKl8VB7gQ",
-                                "vdid": "H3ZAgIBd-7sh1mPQOr9tRw",
+                                "vdid": "T3HsGqNlIjvXfaXY_rlD5w",
                                 "name": "CPM Parent Process Active Operator Test Model",
                                 "description": "A model to test CPM parent process active operator.",
                                 "type": "CM",
@@ -638,19 +652,19 @@
                       },
                       "transitionDispatcher": {
                         "filterDescriptor": {
-                          "operationID": "TZvSCBi6ozfmgLai6uv3Gw",
+                          "operationID": "wVyCJLDACE2iwMK_V1Q38g",
                           "operationName": "Discriminator Filter",
                           "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                          "inputTypeVIID": "MZxqvA3Vq7qbRuFdAlYyvQ",
+                          "inputTypeVIID": "HtkcCNBr_k7D9mc3HzyhKg",
                           "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "outputTypeVIID": "kDBlezhDF0AiqZ7i7JENsQ",
+                          "outputTypeVIID": "01id0ZGAg9-DR9hqCyvgmw",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                          "operationVDID": "S0T0E2XvNVczGo7tTaEUtA"
+                          "operationVDID": "iyX0E83MNVeMlI7tJmEUtA"
                         },
                         "supportedFilters": [
                           "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
                           "[1SC437izTgKckxxWUq6cbQ::Cell Process Proxy: Proxy State Disconnected]",
-                          "[2w7n6KxdR8mdIliePJesLQ::OCD Compare Values]",
+                          "[2w7n6KxdR8mdIliePJesLQ::OCD Namespace A ? B Value Comparison]",
                           "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                           "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
                           "[9HNGDusyTtKpleXFae7O5A::Cell Process Manager: Parent Process Active]",
@@ -668,12 +682,14 @@
                           "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy State Broken]",
                           "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                           "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
+                          "[fS5liuD1RBSdaPBEhsoxXw::OCD Namespace Is Map Keyless]",
                           "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
                           "[ggsavKiARsq7rjwn-lxdfA::OCD Namespace Is Greater Than Value]",
                           "[jFxFmpHSSPaeWEFfLh8eWw::Cell Process Manager: Ancestor Processes Any In Step]",
                           "[k7THIKKDQMKOac1Rxh9tEQ::OCD Namespace Is Identical To Value]",
                           "[kD1PcgqYQlm7fJatNG2ZsA::OCD Namespace Is Truthy]",
                           "[oaF3-dXwQkusjD3I2o9-8g::OCD Array Length Equal to Value]",
+                          "[pj9a6tQpSXWp7WZZ8VbKLQ::OCD Namespace Is Array Empty]",
                           "[xIRhBHueTRGO0xq63UUbyQ::Cell Process Manager: Child Processes Active]"
                         ],
                         "options": {
@@ -2105,10 +2121,10 @@
                         "2w7n6KxdR8mdIliePJesLQ": {
                           "filterDescriptor": {
                             "operationID": "2w7n6KxdR8mdIliePJesLQ",
-                            "operationName": "OCD Compare Values",
-                            "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                            "operationName": "OCD Namespace A ? B Value Comparison",
+                            "operationDescription": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path.",
                             "inputFilterSpec": {
-                              "____label": "OCD Compare Values Request",
+                              "____label": "OCD Namespace A ? B Value Comparison Request",
                               "____types": "jsObject",
                               "context": {
                                 "____label": "OPC Context Descriptor",
@@ -2209,10 +2225,70 @@
                               "____accept": "jsBoolean"
                             },
                             "inputTypeVIID": "Vd7i-lH1mj84kJrcpYoR9g",
-                            "inputTypeVDID": "uXfDAJlX200_coTaw1pLtg",
+                            "inputTypeVDID": "we4gsONAq8XLVofHZjgx5w",
                             "outputTypeVIID": "kxjuRwQKX01DJDkjruKvXg",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                            "operationVDID": "l5iBRNf6zpMr3-CcKjAWcg"
+                            "operationVDID": "l60yRNc4cZMrOtqcKqP9cg"
+                          }
+                        },
+                        "pj9a6tQpSXWp7WZZ8VbKLQ": {
+                          "filterDescriptor": {
+                            "operationID": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                            "operationName": "OCD Namespace Is Array Empty",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Namespace Is Array Empty Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "arrayIsEmpty": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "8WDm-CC4lQnnKYro89MK2g",
+                            "inputTypeVDID": "Q-Htr-yHRojgL8p4HkS4bw",
+                            "outputTypeVIID": "lcDQLsyLvx_9RfG-kyHwhA",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "53cpRDV7MZOYdMOcMW07cg"
                           }
                         },
                         "ggsavKiARsq7rjwn-lxdfA": {
@@ -2411,6 +2487,66 @@
                             "outputTypeVIID": "C3a0V2HEKW7fH5xudFSe2Q",
                             "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                             "operationVDID": "l9RzRDh_y5NJEa-c2o72cg"
+                          }
+                        },
+                        "fS5liuD1RBSdaPBEhsoxXw": {
+                          "filterDescriptor": {
+                            "operationID": "fS5liuD1RBSdaPBEhsoxXw",
+                            "operationName": "OCD Namespace Is Map Keyless",
+                            "operationDescription": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0.",
+                            "inputFilterSpec": {
+                              "____label": "OCD Namespace Is Map Keyless Request",
+                              "____types": "jsObject",
+                              "context": {
+                                "____label": "OPC Context Descriptor",
+                                "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                "____types": "jsObject",
+                                "apmBindingPath": {
+                                  "____label": "APM Binding Path",
+                                  "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                  "____accept": "jsString"
+                                },
+                                "ocdi": {
+                                  "____label": "OCD Store Instance",
+                                  "____description": "A reference to the OCD store instance managed by OPC.",
+                                  "____accept": "jsObject"
+                                },
+                                "transitionDispatcher": {
+                                  "____label": "OPC Transition Dispatcher",
+                                  "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                  "____accept": "jsObject"
+                                }
+                              },
+                              "operatorRequest": {
+                                "____types": "jsObject",
+                                "holarchy": {
+                                  "____types": "jsObject",
+                                  "cm": {
+                                    "____types": "jsObject",
+                                    "operators": {
+                                      "____types": "jsObject",
+                                      "ocd": {
+                                        "____types": "jsObject",
+                                        "mapIsKeyless": {
+                                          "____types": "jsObject",
+                                          "path": {
+                                            "____accept": "jsString"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "outputFilterSpec": {
+                              "____accept": "jsBoolean"
+                            },
+                            "inputTypeVIID": "AhSGTfAi0eXWxin8HSY6dA",
+                            "inputTypeVDID": "JOHtpQqHRiCYL8pNDES4Rg",
+                            "outputTypeVIID": "D2SJBJGJrPn0GyV2XgoWJw",
+                            "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                            "operationVDID": "U6xLRDGfAJP2ayWcc4jWcg"
                           }
                         },
                         "kD1PcgqYQlm7fJatNG2ZsA": {

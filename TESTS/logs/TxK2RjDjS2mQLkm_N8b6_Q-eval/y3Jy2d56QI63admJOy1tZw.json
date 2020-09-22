@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "qzMWhMstQ4Ki06O75y5hMA",
-                    "vdid": "BmulYBAWQfsH_oao6BFvPw",
+                    "vdid": "4KAydejZa-EFhNB9trop1A",
                     "name": "DOM Location Processor",
                     "description": "Abstracts monitoring and setting the window.location and hashroute.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "BmulYBAWQfsH_oao6BFvPw",
+                            "vdid": "4KAydejZa-EFhNB9trop1A",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
@@ -49,19 +49,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
+                              "vdid": "6Oat2CPw6kIm-sG7Mezkhg",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "choshRI8Fma_nYBDIBHUlA",
+                                "vdid": "Z1cm66QPdtZ1N7PZw-FU_w",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "lQBOAgGY0X7--37O5c-I2g",
+                                  "vdid": "1oddR4AAuAJb5MBrqckdzQ",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -81,13 +81,13 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "VCvlx03_XeWnbvPzsE1fBA",
+                                    "vdid": "e_0rmtOonaXDWo3oekmQsA",
                                     "name": "Holarchy Core",
                                     "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                     "type": "CM",
                                     "orTbEFR_Q-u-qqEqP8OUBA": {
                                       "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                      "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                      "vdid": "uvllVSSpQeMfNj6urucS8Q",
                                       "name": "Holarchy Core Cell",
                                       "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
                                       "type": "CM",
@@ -101,7 +101,7 @@
                                     },
                                     "RW8Y2O-kRNSv87yXT962wQ": {
                                       "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                      "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
+                                      "vdid": "e4dxj77HMqe_v4l_aOzwwA",
                                       "name": "Holarchy Core Logic",
                                       "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                       "type": "CM",
@@ -136,7 +136,7 @@
                                     },
                                     "jQxlhOe-RDilxY0sNIierQ": {
                                       "id": "jQxlhOe-RDilxY0sNIierQ",
-                                      "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                      "vdid": "la9u8vIGh_WglwTdEwbNZg",
                                       "name": "Holarchy Core Memory Actions & Operators",
                                       "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                       "type": "CM",
@@ -149,9 +149,9 @@
                                       },
                                       "2w7n6KxdR8mdIliePJesLQ": {
                                         "id": "2w7n6KxdR8mdIliePJesLQ",
-                                        "vdid": "tljozSCr53fX-AmzURPyEg",
-                                        "name": "OCD Compare Values",
-                                        "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                                        "vdid": "LxdR4ZycXiKfJOoUpmcnUg",
+                                        "name": "OCD Namespace A ? B Value Comparison",
+                                        "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path.",
                                         "type": "TOP"
                                       },
                                       "UeLs9PcASwuC7KR190eYhA": {
@@ -187,6 +187,20 @@
                                         "vdid": "cNihhVrtDPl_5j7cSfcRug",
                                         "name": "OCD Namespace Is Truthy",
                                         "description": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                                        "type": "TOP"
+                                      },
+                                      "pj9a6tQpSXWp7WZZ8VbKLQ": {
+                                        "id": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                                        "vdid": "zquEh0gwCPP_d9hmBD3uAQ",
+                                        "name": "OCD Namespace Is Array Empty",
+                                        "description": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0.",
+                                        "type": "TOP"
+                                      },
+                                      "fS5liuD1RBSdaPBEhsoxXw": {
+                                        "id": "fS5liuD1RBSdaPBEhsoxXw",
+                                        "vdid": "DmRYzsWPhe-U6ZWFhMH9-w",
+                                        "name": "OCD Namespace Is Map Keyless",
+                                        "description": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0.",
                                         "type": "TOP"
                                       },
                                       "Ve_kEFkGSMSgOqUWu9Yo_w": {
@@ -245,12 +259,12 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 33,
-                      "edges": 57,
+                      "vertices": 35,
+                      "edges": 61,
                       "artifacts": {
                         "cm": 8,
                         "apm": 2,
-                        "top": 12,
+                        "top": 14,
                         "act": 7
                       }
                     }
@@ -317,9 +331,15 @@
                         },
                         {
                           "id": "2w7n6KxdR8mdIliePJesLQ",
-                          "vdid": "tljozSCr53fX-AmzURPyEg",
-                          "name": "OCD Compare Values",
-                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator."
+                          "vdid": "LxdR4ZycXiKfJOoUpmcnUg",
+                          "name": "OCD Namespace A ? B Value Comparison",
+                          "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path."
+                        },
+                        {
+                          "id": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                          "vdid": "zquEh0gwCPP_d9hmBD3uAQ",
+                          "name": "OCD Namespace Is Array Empty",
+                          "description": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0."
                         },
                         {
                           "id": "ggsavKiARsq7rjwn-lxdfA",
@@ -338,6 +358,12 @@
                           "vdid": "6DCD8gfsCpkJ1sJ50kP1xg",
                           "name": "OCD Namespace Is Less Than Value",
                           "description": "Returns Boolean true iff the indicated OCD namespace is less than the indicated value. Limited to number and string value comparisons only."
+                        },
+                        {
+                          "id": "fS5liuD1RBSdaPBEhsoxXw",
+                          "vdid": "DmRYzsWPhe-U6ZWFhMH9-w",
+                          "name": "OCD Namespace Is Map Keyless",
+                          "description": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0."
                         },
                         {
                           "id": "kD1PcgqYQlm7fJatNG2ZsA",
@@ -399,7 +425,7 @@
                         "type": "INDEX",
                         "qzMWhMstQ4Ki06O75y5hMA": {
                           "id": "qzMWhMstQ4Ki06O75y5hMA",
-                          "vdid": "BmulYBAWQfsH_oao6BFvPw",
+                          "vdid": "4KAydejZa-EFhNB9trop1A",
                           "name": "DOM Location Processor",
                           "description": "Abstracts monitoring and setting the window.location and hashroute.",
                           "type": "CM",
@@ -426,19 +452,19 @@
                           },
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "0FU1w_MtTndc8PrD2fY8Ng",
+                            "vdid": "6Oat2CPw6kIm-sG7Mezkhg",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "choshRI8Fma_nYBDIBHUlA",
+                              "vdid": "Z1cm66QPdtZ1N7PZw-FU_w",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "lQBOAgGY0X7--37O5c-I2g",
+                                "vdid": "1oddR4AAuAJb5MBrqckdzQ",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -458,13 +484,13 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "VCvlx03_XeWnbvPzsE1fBA",
+                                  "vdid": "e_0rmtOonaXDWo3oekmQsA",
                                   "name": "Holarchy Core",
                                   "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                   "type": "CM",
                                   "orTbEFR_Q-u-qqEqP8OUBA": {
                                     "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                    "vdid": "Vmec8PHtmLyfNYvz7w9X5Q",
+                                    "vdid": "uvllVSSpQeMfNj6urucS8Q",
                                     "name": "Holarchy Core Cell",
                                     "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
                                     "type": "CM",
@@ -478,7 +504,7 @@
                                   },
                                   "RW8Y2O-kRNSv87yXT962wQ": {
                                     "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                    "vdid": "xPF9l7Jj3a9CTdMC7UwFxw",
+                                    "vdid": "e4dxj77HMqe_v4l_aOzwwA",
                                     "name": "Holarchy Core Logic",
                                     "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                     "type": "CM",
@@ -513,7 +539,7 @@
                                   },
                                   "jQxlhOe-RDilxY0sNIierQ": {
                                     "id": "jQxlhOe-RDilxY0sNIierQ",
-                                    "vdid": "wqwUJQKiGO8MZMW_LrfiDA",
+                                    "vdid": "la9u8vIGh_WglwTdEwbNZg",
                                     "name": "Holarchy Core Memory Actions & Operators",
                                     "description": "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
                                     "type": "CM",
@@ -526,9 +552,9 @@
                                     },
                                     "2w7n6KxdR8mdIliePJesLQ": {
                                       "id": "2w7n6KxdR8mdIliePJesLQ",
-                                      "vdid": "tljozSCr53fX-AmzURPyEg",
-                                      "name": "OCD Compare Values",
-                                      "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator.",
+                                      "vdid": "LxdR4ZycXiKfJOoUpmcnUg",
+                                      "name": "OCD Namespace A ? B Value Comparison",
+                                      "description": "Returns Boolean true iff operand A and B values compare using the indicated comparison operator. Note either A and/or B may be specified by value or path.",
                                       "type": "TOP"
                                     },
                                     "UeLs9PcASwuC7KR190eYhA": {
@@ -564,6 +590,20 @@
                                       "vdid": "cNihhVrtDPl_5j7cSfcRug",
                                       "name": "OCD Namespace Is Truthy",
                                       "description": "Returns Boolean true iff the indicated OCD namespace is truthy.",
+                                      "type": "TOP"
+                                    },
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ": {
+                                      "id": "pj9a6tQpSXWp7WZZ8VbKLQ",
+                                      "vdid": "zquEh0gwCPP_d9hmBD3uAQ",
+                                      "name": "OCD Namespace Is Array Empty",
+                                      "description": "Returns Boolean true iff the indicated OCD namespace value is an array AND value.length !== 0.",
+                                      "type": "TOP"
+                                    },
+                                    "fS5liuD1RBSdaPBEhsoxXw": {
+                                      "id": "fS5liuD1RBSdaPBEhsoxXw",
+                                      "vdid": "DmRYzsWPhe-U6ZWFhMH9-w",
+                                      "name": "OCD Namespace Is Map Keyless",
+                                      "description": "Returns Boolean true iff the indicated OCD namespace is declared as a map in the OCD filter spec AND the OCD value is an object AND Object.key(value) !== 0.",
                                       "type": "TOP"
                                     },
                                     "Ve_kEFkGSMSgOqUWu9Yo_w": {
