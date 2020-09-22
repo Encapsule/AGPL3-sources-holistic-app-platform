@@ -3,7 +3,6 @@
 const arccore = require("@encapsule/arccore");
 
 /*
-
 e.g.
 ocdData = { // <= some arbitrary cell memory (i.e. we presume this object is bound to an APM and is a "cell"
     x: { // just an object owned by this cell
@@ -107,7 +106,7 @@ const factoryResponse = arccore.filter.create({
                 const isCurrentPathCell = currentPathNamespaceSpec.____appdsl && currentPathNamespaceSpec.____appdsl.apm;
 
                 if (!tokensProcessed && !isCurrentPathCell) {
-                    errors.push(`Invalid path '${request_.path}'. Path be be resolvable to an active cell to be a valid target for this request.`);
+                    errors.push(`Invalid path '${request_.cellPath}'. The cellPath value must resolve to a cell (not just some cell's contained data) that is active as a helper. Or, that is active as either an owned are shared cell process managed by the CPM."`);
                     break;
                 }
 
