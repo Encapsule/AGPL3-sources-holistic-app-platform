@@ -111,7 +111,7 @@ const factoryResponse = arccore.filter.create({
                 }
 
                 if (!isCurrentPathCell) {
-                    apmBindingPathTokens.pop();
+                    pathTokens.pop();
                     continue;
                 }
 
@@ -125,7 +125,7 @@ const factoryResponse = arccore.filter.create({
                     activeCellDescriptor.cellRole = "helper";
                     activeCellDescriptor.cellStrategy = "helper"
                     response.result.ownershipVector.push(activeCellDescriptor);
-                    apmBindingPathTokens.pop();
+                    pathTokens.pop();
                     continue;
                 }
 

@@ -395,6 +395,41 @@ const cppTestModel2 = new holarchy.CellModel({
 
 });
 
+const cppTestModel2A = new holarchy.CellModel({
+    id: "Cujmg-9jSpyAozTZfhkFLg",
+    name: "CPP Test Model 2A",
+    description: "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
+
+    apm: {
+        id: "RxRtYI77Sd6FMa1Iyv9dSg",
+        name: "CPP Test Process 2A",
+        description: "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
+        steps: {
+
+            uninitialized: {
+                description: "Default starting step.",
+                transitions: [
+                    { transitionIf: { always: true }, nextStep: "finished" }
+                ],
+                actions: {
+                    exit: [
+                        { holarchy: { CellProcessor: { process: { create: { apmID: "Kh2lTQHGT9qG0j1omkJmAg" /* "CPP Test Message Process" */ } } } } }
+                    ]
+                }
+            },
+
+            finished: {
+                description: "Terminal step of CPP Test 2A process."
+            }
+
+        }
+    },
+
+
+    subcells: [ messengerModel ]
+
+});
+
 const cppTestModel3 = new holarchy.CellModel({
     id: "QdTHgiTaR6CDG7mdBEfZng",
     name: "CPP Test Model 3",
@@ -434,12 +469,18 @@ const cppTestModel3 = new holarchy.CellModel({
                 ____types: "jsObject",
                 ____defaultValue: {},
                 ____appdsl: { apm: "Kh2lTQHGT9qG0j1omkJmAg" } // messenger process
+            },
+            helper1D: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { apm: "RxRtYI77Sd6FMa1Iyv9dSg" } // CPP Test Process 2A
             }
 
         }
     },
     subcells: [
         cppTestModel2,
+        cppTestModel2A,
         messengerModel
     ]
 });
