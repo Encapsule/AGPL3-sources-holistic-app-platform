@@ -4430,817 +4430,829 @@
                   },
                   "actionEvaluations": [
                     {
-                      "actRequest": {
-                        "actorName": "CPM Descendant Processes Active Test",
-                        "actorTaskDescription": "Start the first process instance. We will use this process as our test.",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "apmID": "cYpoxyyZSwm19CqH3v7eLQ",
-                                  "cellProcessUniqueName": "Test Process"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": null,
-                        "result": {
-                          "actionResult": {
-                            "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                            "cellProcessID": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                      "testHarnessActionSummary": {
+                        "actionRequest": "PASS",
+                        "postActionCellProcessorEval": "PASS",
+                        "postCellProcessorEvalOCD": {
+                          "z_mTe02hSWmaM1iRO1pBeA_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
                           },
-                          "lastEvaluation": {
-                            "evalNumber": 1,
-                            "summary": {
-                              "counts": {
-                                "bindings": 4,
-                                "frames": 2,
-                                "errors": 0,
-                                "transitions": 1
+                          "cYpoxyyZSwm19CqH3v7eLQ_CellProcesses": {
+                            "cellProcessMap": {
+                              "xILEgi3ALcCoB6gHzL3MvQ": {
+                                "__apmiStep": "wait_for_descendant_processes_1"
                               }
                             },
-                            "evalFrames": [
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 2,
-                                    "transitions": 1,
-                                    "errors": 0
-                                  },
-                                  "reports": {
-                                    "transitions": [
-                                      "Yr2uOEOB0hJ9HR8q01fJ_Q"
-                                    ],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
+                            "revision": 1
+                          },
+                          "3E27IH_CQeqBUFsGm4tIIA_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
+                          },
+                          "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                            "ownedCellProcesses": {
+                              "revision": 1,
+                              "digraph": {
+                                "name": "Owned Cell Processes Tree Model",
+                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                "vlist": [
+                                  {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "p": {
+                                      "apmBindingPath": "~",
+                                      "name": "Cell Process Manager"
                                     }
                                   },
-                                  "Yr2uOEOB0hJ9HR8q01fJ_Q": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                        "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "uninitialized",
-                                      "apmRef": {
-                                        "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                        "vdid": "dCUoyBGlbilHgqsDyiE7OA",
-                                        "name": "CPM Descendant Processes Active Operator Test Process",
-                                        "description": "A process to test the descendant processes active operator."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "transitioned",
-                                      "finishStep": "wait_for_descendant_processes_1",
-                                      "phases": {
-                                        "p1_toperator": [
-                                          {
-                                            "request": {
-                                              "context": {
-                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                              },
-                                              "operatorRequest": {
-                                                "always": true
-                                              }
-                                            },
-                                            "response": {
-                                              "error": null,
-                                              "result": true
-                                            }
-                                          }
-                                        ],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": {
-                                          "error": null,
-                                          "result": "wait_for_descendant_processes_1"
-                                        }
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
+                                  {
+                                    "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                    "p": {
+                                      "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
                                     }
                                   }
-                                }
-                              },
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 2,
-                                    "transitions": 0,
-                                    "errors": 0
-                                  },
-                                  "reports": {
-                                    "transitions": [],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "Yr2uOEOB0hJ9HR8q01fJ_Q": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                        "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "wait_for_descendant_processes_1",
-                                      "apmRef": {
-                                        "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                        "vdid": "dCUoyBGlbilHgqsDyiE7OA",
-                                        "name": "CPM Descendant Processes Active Operator Test Process",
-                                        "description": "A process to test the descendant processes active operator."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "wait_for_descendant_processes_1",
-                                      "phases": {
-                                        "p1_toperator": [
-                                          {
-                                            "request": {
-                                              "context": {
-                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                              },
-                                              "operatorRequest": {
-                                                "holarchy": {
-                                                  "CellProcessor": {
-                                                    "descendantProcessesActive": {}
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "response": {
-                                              "error": null,
-                                              "result": false
-                                            }
-                                          }
-                                        ],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
+                                ],
+                                "elist": [
+                                  {
+                                    "e": {
+                                      "u": "U1NTU1paWlqwsLCwxMTExA",
+                                      "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
                                     }
                                   }
-                                }
+                                ]
                               }
-                            ]
+                            },
+                            "sharedCellProcesses": {
+                              "revision": 0,
+                              "digraph": {
+                                "name": "Shared Cell Processes Digraph Model",
+                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                "vlist": [],
+                                "elist": []
+                              }
+                            },
+                            "__apmiStep": "ready"
                           }
                         }
                       },
-                      "ocdJSON": {
-                        "z_mTe02hSWmaM1iRO1pBeA_CellProcesses": {
-                          "cellProcessMap": {},
-                          "revision": 0
-                        },
-                        "cYpoxyyZSwm19CqH3v7eLQ_CellProcesses": {
-                          "cellProcessMap": {
-                            "xILEgi3ALcCoB6gHzL3MvQ": {
-                              "__apmiStep": "wait_for_descendant_processes_1"
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CPM Descendant Processes Active Test",
+                          "actorTaskDescription": "Start the first process instance. We will use this process as our test.",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "create": {
+                                    "apmID": "cYpoxyyZSwm19CqH3v7eLQ",
+                                    "cellProcessUniqueName": "Test Process"
+                                  }
+                                }
+                              }
                             }
-                          },
-                          "revision": 1
+                          }
                         },
-                        "3E27IH_CQeqBUFsGm4tIIA_CellProcesses": {
-                          "cellProcessMap": {},
-                          "revision": 0
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
+                        "actResponse": {
+                          "error": null,
+                          "result": {
+                            "actionResult": {
+                              "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
+                              "cellProcessID": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                            },
+                            "lastEvaluation": {
+                              "evalNumber": 1,
+                              "summary": {
+                                "counts": {
+                                  "bindings": 4,
+                                  "frames": 2,
+                                  "errors": 0,
+                                  "transitions": 1
+                                }
+                              },
+                              "evalFrames": [
                                 {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 2,
+                                      "transitions": 1,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [
+                                        "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                      ],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
+                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
+                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
+                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "Yr2uOEOB0hJ9HR8q01fJ_Q": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
+                                          "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "uninitialized",
+                                        "apmRef": {
+                                          "id": "cYpoxyyZSwm19CqH3v7eLQ",
+                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "name": "CPM Descendant Processes Active Operator Test Process",
+                                          "description": "A process to test the descendant processes active operator."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "transitioned",
+                                        "finishStep": "wait_for_descendant_processes_1",
+                                        "phases": {
+                                          "p1_toperator": [
+                                            {
+                                              "request": {
+                                                "context": {
+                                                  "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                },
+                                                "operatorRequest": {
+                                                  "always": true
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": true
+                                              }
+                                            }
+                                          ],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": {
+                                            "error": null,
+                                            "result": "wait_for_descendant_processes_1"
+                                          }
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
                                   }
                                 },
                                 {
-                                  "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                  "p": {
-                                    "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 2,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
+                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
+                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
+                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "Yr2uOEOB0hJ9HR8q01fJ_Q": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
+                                          "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "wait_for_descendant_processes_1",
+                                        "apmRef": {
+                                          "id": "cYpoxyyZSwm19CqH3v7eLQ",
+                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "name": "CPM Descendant Processes Active Operator Test Process",
+                                          "description": "A process to test the descendant processes active operator."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "wait_for_descendant_processes_1",
+                                        "phases": {
+                                          "p1_toperator": [
+                                            {
+                                              "request": {
+                                                "context": {
+                                                  "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                },
+                                                "operatorRequest": {
+                                                  "holarchy": {
+                                                    "CellProcessor": {
+                                                      "descendantProcessesActive": {}
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": false
+                                              }
+                                            }
+                                          ],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               ]
                             }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
+                          }
                         }
                       }
                     },
                     {
-                      "actRequest": {
-                        "actorName": "CPM Child Processes Active Test",
-                        "actorTaskDescription": "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "parentCellProcess": {
-                                    "cellProcessNamespace": {
-                                      "apmID": "cYpoxyyZSwm19CqH3v7eLQ",
-                                      "cellProcessUniqueName": "Test Process"
-                                    }
-                                  },
-                                  "apmID": "3E27IH_CQeqBUFsGm4tIIA",
-                                  "cellProcessUniqueName": "Child Process"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": null,
-                        "result": {
-                          "actionResult": {
-                            "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
-                            "cellProcessID": "viZxXd_JP4ujghfxAcO5yw"
+                      "testHarnessActionSummary": {
+                        "actionRequest": "PASS",
+                        "postActionCellProcessorEval": "PASS",
+                        "postCellProcessorEvalOCD": {
+                          "z_mTe02hSWmaM1iRO1pBeA_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
                           },
-                          "lastEvaluation": {
-                            "evalNumber": 2,
-                            "summary": {
-                              "counts": {
-                                "bindings": 9,
-                                "frames": 3,
-                                "errors": 0,
-                                "transitions": 3
+                          "cYpoxyyZSwm19CqH3v7eLQ_CellProcesses": {
+                            "cellProcessMap": {
+                              "xILEgi3ALcCoB6gHzL3MvQ": {
+                                "__apmiStep": "test_pass_1"
                               }
                             },
-                            "evalFrames": [
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 3,
-                                    "transitions": 2,
-                                    "errors": 0
-                                  },
-                                  "reports": {
-                                    "transitions": [
-                                      "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                      "viZxXd_JP4ujghfxAcO5yw"
-                                    ],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "Yr2uOEOB0hJ9HR8q01fJ_Q": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                        "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "wait_for_descendant_processes_1",
-                                      "apmRef": {
-                                        "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                        "vdid": "dCUoyBGlbilHgqsDyiE7OA",
-                                        "name": "CPM Descendant Processes Active Operator Test Process",
-                                        "description": "A process to test the descendant processes active operator."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "transitioned",
-                                      "finishStep": "test_pass_1",
-                                      "phases": {
-                                        "p1_toperator": [
-                                          {
-                                            "request": {
-                                              "context": {
-                                                "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                              },
-                                              "operatorRequest": {
-                                                "holarchy": {
-                                                  "CellProcessor": {
-                                                    "descendantProcessesActive": {}
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "response": {
-                                              "error": null,
-                                              "result": true
-                                            }
-                                          }
-                                        ],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": {
-                                          "error": null,
-                                          "result": "test_pass_1"
-                                        }
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "viZxXd_JP4ujghfxAcO5yw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
-                                        "specPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "uninitialized",
-                                      "apmRef": {
-                                        "id": "3E27IH_CQeqBUFsGm4tIIA",
-                                        "vdid": "9OnXus4mvB4GxhPoXMwTlw",
-                                        "name": "Dummy Process A Process",
-                                        "description": "Implements a trivial cell process that does nothing."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "transitioned",
-                                      "finishStep": "initialize",
-                                      "phases": {
-                                        "p1_toperator": [
-                                          {
-                                            "request": {
-                                              "context": {
-                                                "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                              },
-                                              "operatorRequest": {
-                                                "always": true
-                                              }
-                                            },
-                                            "response": {
-                                              "error": null,
-                                              "result": true
-                                            }
-                                          }
-                                        ],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": {
-                                          "error": null,
-                                          "result": "initialize"
-                                        }
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 3,
-                                    "transitions": 1,
-                                    "errors": 0
-                                  },
-                                  "reports": {
-                                    "transitions": [
-                                      "viZxXd_JP4ujghfxAcO5yw"
-                                    ],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "Yr2uOEOB0hJ9HR8q01fJ_Q": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                        "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "test_pass_1",
-                                      "apmRef": {
-                                        "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                        "vdid": "dCUoyBGlbilHgqsDyiE7OA",
-                                        "name": "CPM Descendant Processes Active Operator Test Process",
-                                        "description": "A process to test the descendant processes active operator."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "test_pass_1",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "viZxXd_JP4ujghfxAcO5yw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
-                                        "specPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "initialize",
-                                      "apmRef": {
-                                        "id": "3E27IH_CQeqBUFsGm4tIIA",
-                                        "vdid": "9OnXus4mvB4GxhPoXMwTlw",
-                                        "name": "Dummy Process A Process",
-                                        "description": "Implements a trivial cell process that does nothing."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "transitioned",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [
-                                          {
-                                            "request": {
-                                              "context": {
-                                                "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
-                                              },
-                                              "operatorRequest": {
-                                                "always": true
-                                              }
-                                            },
-                                            "response": {
-                                              "error": null,
-                                              "result": true
-                                            }
-                                          }
-                                        ],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": {
-                                          "error": null,
-                                          "result": "ready"
-                                        }
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 3,
-                                    "transitions": 0,
-                                    "errors": 0
-                                  },
-                                  "reports": {
-                                    "transitions": [],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "Yr2uOEOB0hJ9HR8q01fJ_Q": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                        "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "test_pass_1",
-                                      "apmRef": {
-                                        "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                        "vdid": "dCUoyBGlbilHgqsDyiE7OA",
-                                        "name": "CPM Descendant Processes Active Operator Test Process",
-                                        "description": "A process to test the descendant processes active operator."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "test_pass_1",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  },
-                                  "viZxXd_JP4ujghfxAcO5yw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
-                                        "specPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "3E27IH_CQeqBUFsGm4tIIA",
-                                        "vdid": "9OnXus4mvB4GxhPoXMwTlw",
-                                        "name": "Dummy Process A Process",
-                                        "description": "Implements a trivial cell process that does nothing."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                            "revision": 1
+                          },
+                          "3E27IH_CQeqBUFsGm4tIIA_CellProcesses": {
+                            "cellProcessMap": {
+                              "aQsQp_v0Jw3HgE76DYzb8w": {
+                                "__apmiStep": "ready"
                               }
-                            ]
+                            },
+                            "revision": 1
+                          },
+                          "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                            "ownedCellProcesses": {
+                              "revision": 2,
+                              "digraph": {
+                                "name": "Owned Cell Processes Tree Model",
+                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                "vlist": [
+                                  {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "p": {
+                                      "apmBindingPath": "~",
+                                      "name": "Cell Process Manager"
+                                    }
+                                  },
+                                  {
+                                    "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                    "p": {
+                                      "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                    }
+                                  },
+                                  {
+                                    "u": "viZxXd_JP4ujghfxAcO5yw",
+                                    "p": {
+                                      "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                    }
+                                  }
+                                ],
+                                "elist": [
+                                  {
+                                    "e": {
+                                      "u": "U1NTU1paWlqwsLCwxMTExA",
+                                      "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                      "v": "viZxXd_JP4ujghfxAcO5yw"
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "sharedCellProcesses": {
+                              "revision": 0,
+                              "digraph": {
+                                "name": "Shared Cell Processes Digraph Model",
+                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                "vlist": [],
+                                "elist": []
+                              }
+                            },
+                            "__apmiStep": "ready"
                           }
                         }
                       },
-                      "ocdJSON": {
-                        "z_mTe02hSWmaM1iRO1pBeA_CellProcesses": {
-                          "cellProcessMap": {},
-                          "revision": 0
-                        },
-                        "cYpoxyyZSwm19CqH3v7eLQ_CellProcesses": {
-                          "cellProcessMap": {
-                            "xILEgi3ALcCoB6gHzL3MvQ": {
-                              "__apmiStep": "test_pass_1"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "3E27IH_CQeqBUFsGm4tIIA_CellProcesses": {
-                          "cellProcessMap": {
-                            "aQsQp_v0Jw3HgE76DYzb8w": {
-                              "__apmiStep": "ready"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 2,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                  "p": {
-                                    "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
-                                  }
-                                },
-                                {
-                                  "u": "viZxXd_JP4ujghfxAcO5yw",
-                                  "p": {
-                                    "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CPM Child Processes Active Test",
+                          "actorTaskDescription": "Start the second process instance. We will use this process to trigger a process step change in the first test process instance.",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "create": {
+                                    "parentCellProcess": {
+                                      "cellProcessNamespace": {
+                                        "apmID": "cYpoxyyZSwm19CqH3v7eLQ",
+                                        "cellProcessUniqueName": "Test Process"
+                                      }
+                                    },
+                                    "apmID": "3E27IH_CQeqBUFsGm4tIIA",
+                                    "cellProcessUniqueName": "Child Process"
                                   }
                                 }
-                              ],
-                              "elist": [
+                              }
+                            }
+                          }
+                        },
+                        "actResponse": {
+                          "error": null,
+                          "result": {
+                            "actionResult": {
+                              "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
+                              "cellProcessID": "viZxXd_JP4ujghfxAcO5yw"
+                            },
+                            "lastEvaluation": {
+                              "evalNumber": 2,
+                              "summary": {
+                                "counts": {
+                                  "bindings": 9,
+                                  "frames": 3,
+                                  "errors": 0,
+                                  "transitions": 3
+                                }
+                              },
+                              "evalFrames": [
                                 {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "Yr2uOEOB0hJ9HR8q01fJ_Q"
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 3,
+                                      "transitions": 2,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [
+                                        "Yr2uOEOB0hJ9HR8q01fJ_Q",
+                                        "viZxXd_JP4ujghfxAcO5yw"
+                                      ],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
+                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
+                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
+                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "Yr2uOEOB0hJ9HR8q01fJ_Q": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
+                                          "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "wait_for_descendant_processes_1",
+                                        "apmRef": {
+                                          "id": "cYpoxyyZSwm19CqH3v7eLQ",
+                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "name": "CPM Descendant Processes Active Operator Test Process",
+                                          "description": "A process to test the descendant processes active operator."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "transitioned",
+                                        "finishStep": "test_pass_1",
+                                        "phases": {
+                                          "p1_toperator": [
+                                            {
+                                              "request": {
+                                                "context": {
+                                                  "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                                },
+                                                "operatorRequest": {
+                                                  "holarchy": {
+                                                    "CellProcessor": {
+                                                      "descendantProcessesActive": {}
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": true
+                                              }
+                                            }
+                                          ],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": {
+                                            "error": null,
+                                            "result": "test_pass_1"
+                                          }
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "viZxXd_JP4ujghfxAcO5yw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
+                                          "specPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "uninitialized",
+                                        "apmRef": {
+                                          "id": "3E27IH_CQeqBUFsGm4tIIA",
+                                          "vdid": "9OnXus4mvB4GxhPoXMwTlw",
+                                          "name": "Dummy Process A Process",
+                                          "description": "Implements a trivial cell process that does nothing."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "transitioned",
+                                        "finishStep": "initialize",
+                                        "phases": {
+                                          "p1_toperator": [
+                                            {
+                                              "request": {
+                                                "context": {
+                                                  "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                                },
+                                                "operatorRequest": {
+                                                  "always": true
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": true
+                                              }
+                                            }
+                                          ],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": {
+                                            "error": null,
+                                            "result": "initialize"
+                                          }
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
                                   }
                                 },
                                 {
-                                  "e": {
-                                    "u": "Yr2uOEOB0hJ9HR8q01fJ_Q",
-                                    "v": "viZxXd_JP4ujghfxAcO5yw"
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 3,
+                                      "transitions": 1,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [
+                                        "viZxXd_JP4ujghfxAcO5yw"
+                                      ],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
+                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
+                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
+                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "Yr2uOEOB0hJ9HR8q01fJ_Q": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
+                                          "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "test_pass_1",
+                                        "apmRef": {
+                                          "id": "cYpoxyyZSwm19CqH3v7eLQ",
+                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "name": "CPM Descendant Processes Active Operator Test Process",
+                                          "description": "A process to test the descendant processes active operator."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "test_pass_1",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "viZxXd_JP4ujghfxAcO5yw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
+                                          "specPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "initialize",
+                                        "apmRef": {
+                                          "id": "3E27IH_CQeqBUFsGm4tIIA",
+                                          "vdid": "9OnXus4mvB4GxhPoXMwTlw",
+                                          "name": "Dummy Process A Process",
+                                          "description": "Implements a trivial cell process that does nothing."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "transitioned",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [
+                                            {
+                                              "request": {
+                                                "context": {
+                                                  "apmBindingPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w"
+                                                },
+                                                "operatorRequest": {
+                                                  "always": true
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": true
+                                              }
+                                            }
+                                          ],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": {
+                                            "error": null,
+                                            "result": "ready"
+                                          }
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 3,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
+                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
+                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
+                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "Yr2uOEOB0hJ9HR8q01fJ_Q": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
+                                          "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "test_pass_1",
+                                        "apmRef": {
+                                          "id": "cYpoxyyZSwm19CqH3v7eLQ",
+                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "name": "CPM Descendant Processes Active Operator Test Process",
+                                          "description": "A process to test the descendant processes active operator."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "test_pass_1",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "viZxXd_JP4ujghfxAcO5yw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
+                                          "specPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "3E27IH_CQeqBUFsGm4tIIA",
+                                          "vdid": "9OnXus4mvB4GxhPoXMwTlw",
+                                          "name": "Dummy Process A Process",
+                                          "description": "Implements a trivial cell process that does nothing."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               ]
                             }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
+                          }
                         }
                       }
                     }

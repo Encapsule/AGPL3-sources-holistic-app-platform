@@ -430,6 +430,57 @@ const cppTestModel2A = new holarchy.CellModel({
 
 });
 
+const cppTestModel2B = new holarchy.CellModel({
+    id: "QrdiLE9OTqe-SZcvxXbvKw",
+    name: "CPP Test Model 2B",
+    description: "A model that embeds helpers at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+    apm: {
+        id: "V82j4g2-SBaCI2dGRHw-Xg",
+        name: "CPP Test Process 2B",
+        description: "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+        ocdDataSpec: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            justADataObjectNamespace: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                helperCellThatCallsProcessCreate: {
+                    ____types: "jsObject",
+                    ____appdsl: { apm: "RxRtYI77Sd6FMa1Iyv9dSg" }
+                }
+            }
+        }
+    }
+});
+
+const cppTestModel2C = new holarchy.CellModel({
+    id: "wLBTQ697Roi08S4f5BnoDg",
+    name: "CPP Test Model 2C",
+    description: "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
+    apm: {
+        id: "GUW2Fi3_SLaGrHy_X-nghA",
+        name: "CPP Test Process 2C",
+        description: "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
+        ocdDataSpec: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            testProcess2: {
+                ____types: "jsObject",
+                ____appdsl: { apm: "houKkWpYTX6hly7r79gD6g" }
+            },
+            testProcess2A: {
+                ____types: "jsObject",
+                ____appdsl: { apm: "RxRtYI77Sd6FMa1Iyv9dSg" }
+            },
+            testProcess2B: {
+                ____types: "jsObject",
+                ____appdsl: { apm: "V82j4g2-SBaCI2dGRHw-Xg" }
+            }
+        }
+    },
+    subcells: [ cppTestModel2, cppTestModel2A, cppTestModel2B ]
+});
+
 const cppTestModel3 = new holarchy.CellModel({
     id: "QdTHgiTaR6CDG7mdBEfZng",
     name: "CPP Test Model 3",
@@ -498,6 +549,9 @@ module.exports = new holarchy.CellModel({
         // cppTestDroidModel,
         cppTestModel1,
         cppTestModel2,
+        cppTestModel2A,
+        cppTestModel2B,
+        cppTestModel2C,
         cppTestModel3
     ]
 });

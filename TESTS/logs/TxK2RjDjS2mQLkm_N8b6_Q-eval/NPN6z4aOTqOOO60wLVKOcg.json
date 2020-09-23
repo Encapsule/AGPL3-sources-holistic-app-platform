@@ -3987,331 +3987,71 @@
                   },
                   "actionEvaluations": [
                     {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": null,
-                        "result": {
-                          "actionResult": {
-                            "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
-                            "cellProcessID": "GnZD29qpnZdyarMnoUPHEg"
-                          },
-                          "lastEvaluation": {
-                            "evalNumber": 1,
-                            "summary": {
-                              "counts": {
-                                "bindings": 2,
-                                "frames": 1,
-                                "errors": 0,
-                                "transitions": 0
+                      "testHarnessActionSummary": {
+                        "actionRequest": "PASS",
+                        "postActionCellProcessorEval": "PASS",
+                        "postCellProcessorEvalOCD": {
+                          "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                            "cellProcessMap": {
+                              "ZDzHy574xd-FjPLB2rTCcQ": {
+                                "testProperty": null,
+                                "__apmiStep": "uninitialized"
                               }
                             },
-                            "evalFrames": [
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 2,
-                                    "transitions": 0,
-                                    "errors": 0
-                                  },
-                                  "reports": {
-                                    "transitions": [],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
+                            "revision": 1
+                          },
+                          "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                            "ownedCellProcesses": {
+                              "revision": 1,
+                              "digraph": {
+                                "name": "Owned Cell Processes Tree Model",
+                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                "vlist": [
+                                  {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "p": {
+                                      "apmBindingPath": "~",
+                                      "name": "Cell Process Manager"
                                     }
                                   },
-                                  "GnZD29qpnZdyarMnoUPHEg": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
-                                        "specPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.cellProcessID"
-                                      },
-                                      "initialStep": "uninitialized",
-                                      "apmRef": {
-                                        "id": "6OPnhgR9QWyEFaBpaZNb1A",
-                                        "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
-                                        "name": "Test CM APM",
-                                        "description": "Test AbstractProcessModel"
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "uninitialized",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
+                                  {
+                                    "u": "GnZD29qpnZdyarMnoUPHEg",
+                                    "p": {
+                                      "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
                                     }
                                   }
-                                }
+                                ],
+                                "elist": [
+                                  {
+                                    "e": {
+                                      "u": "U1NTU1paWlqwsLCwxMTExA",
+                                      "v": "GnZD29qpnZdyarMnoUPHEg"
+                                    }
+                                  }
+                                ]
                               }
-                            ]
+                            },
+                            "sharedCellProcesses": {
+                              "revision": 0,
+                              "digraph": {
+                                "name": "Shared Cell Processes Digraph Model",
+                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                "vlist": [],
+                                "elist": []
+                              }
+                            },
+                            "__apmiStep": "ready"
                           }
                         }
                       },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
-                              "__apmiStep": "uninitialized"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
-                                  "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
-                      },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
-                              "__apmiStep": "uninitialized"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
-                                  "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "cellProcessUniqueName": "test-process-1"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "actResponse": {
-                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
-                      },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
-                              "__apmiStep": "uninitialized"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
-                                  "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "CP constructor test #2",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "delete": {
-                                  "cellProcessNamespace": {
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CP constructor test #2",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "create": {
                                     "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
                                     "cellProcessUniqueName": "test-process-1"
                                   }
@@ -4319,110 +4059,394 @@
                               }
                             }
                           }
-                        }
-                      },
-                      "actResponse": {
-                        "error": null,
-                        "result": {
-                          "actionResult": {
-                            "apmBindingPath": "~",
-                            "cellProcessID": "U1NTU1paWlqwsLCwxMTExA"
-                          },
-                          "lastEvaluation": {
-                            "evalNumber": 2,
-                            "summary": {
-                              "counts": {
-                                "bindings": 1,
-                                "frames": 1,
-                                "errors": 0,
-                                "transitions": 0
-                              }
+                        },
+                        "actResponse": {
+                          "error": null,
+                          "result": {
+                            "actionResult": {
+                              "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
+                              "cellProcessID": "GnZD29qpnZdyarMnoUPHEg"
                             },
-                            "evalFrames": [
-                              {
-                                "summary": {
-                                  "counts": {
-                                    "bindings": 1,
-                                    "transitions": 0,
-                                    "errors": 0
+                            "lastEvaluation": {
+                              "evalNumber": 1,
+                              "summary": {
+                                "counts": {
+                                  "bindings": 2,
+                                  "frames": 1,
+                                  "errors": 0,
+                                  "transitions": 0
+                                }
+                              },
+                              "evalFrames": [
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 2,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
                                   },
-                                  "reports": {
-                                    "transitions": [],
-                                    "errors": []
-                                  }
-                                },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                                          "vdid": "DPAlZUIZMp88ScpbzyM4xg",
+                                          "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
+                                          "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        }
                                       },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
                                       }
                                     },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
+                                    "GnZD29qpnZdyarMnoUPHEg": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
+                                          "specPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "uninitialized",
+                                        "apmRef": {
+                                          "id": "6OPnhgR9QWyEFaBpaZNb1A",
+                                          "vdid": "ep_P8Y0NBP28o2q8Kyg_qQ",
+                                          "name": "Test CM APM",
+                                          "description": "Test AbstractProcessModel"
+                                        }
                                       },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "uninitialized",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
                                       }
                                     }
                                   }
                                 }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "testHarnessActionSummary": {
+                        "actionRequest": "FAIL",
+                        "postActionCellProcessorEval": "SKIPPED",
+                        "postCellProcessorEvalOCD": {
+                          "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                            "cellProcessMap": {
+                              "ZDzHy574xd-FjPLB2rTCcQ": {
+                                "testProperty": null,
+                                "__apmiStep": "uninitialized"
                               }
-                            ]
+                            },
+                            "revision": 1
+                          },
+                          "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                            "ownedCellProcesses": {
+                              "revision": 1,
+                              "digraph": {
+                                "name": "Owned Cell Processes Tree Model",
+                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                "vlist": [
+                                  {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "p": {
+                                      "apmBindingPath": "~",
+                                      "name": "Cell Process Manager"
+                                    }
+                                  },
+                                  {
+                                    "u": "GnZD29qpnZdyarMnoUPHEg",
+                                    "p": {
+                                      "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
+                                    }
+                                  }
+                                ],
+                                "elist": [
+                                  {
+                                    "e": {
+                                      "u": "U1NTU1paWlqwsLCwxMTExA",
+                                      "v": "GnZD29qpnZdyarMnoUPHEg"
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "sharedCellProcesses": {
+                              "revision": 0,
+                              "digraph": {
+                                "name": "Shared Cell Processes Digraph Model",
+                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                "vlist": [],
+                                "elist": []
+                              }
+                            },
+                            "__apmiStep": "ready"
                           }
                         }
                       },
-                      "ocdJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {},
-                          "revision": 2
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 2,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CP constructor test #2",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "create": {
+                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                    "cellProcessUniqueName": "test-process-1"
                                   }
                                 }
-                              ],
-                              "elist": []
+                              }
                             }
+                          }
+                        },
+                        "actResponse": {
+                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
+                        }
+                      }
+                    },
+                    {
+                      "testHarnessActionSummary": {
+                        "actionRequest": "FAIL",
+                        "postActionCellProcessorEval": "SKIPPED",
+                        "postCellProcessorEvalOCD": {
+                          "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                            "cellProcessMap": {
+                              "ZDzHy574xd-FjPLB2rTCcQ": {
+                                "testProperty": null,
+                                "__apmiStep": "uninitialized"
+                              }
+                            },
+                            "revision": 1
                           },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
+                          "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                            "ownedCellProcesses": {
+                              "revision": 1,
+                              "digraph": {
+                                "name": "Owned Cell Processes Tree Model",
+                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                "vlist": [
+                                  {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "p": {
+                                      "apmBindingPath": "~",
+                                      "name": "Cell Process Manager"
+                                    }
+                                  },
+                                  {
+                                    "u": "GnZD29qpnZdyarMnoUPHEg",
+                                    "p": {
+                                      "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ"
+                                    }
+                                  }
+                                ],
+                                "elist": [
+                                  {
+                                    "e": {
+                                      "u": "U1NTU1paWlqwsLCwxMTExA",
+                                      "v": "GnZD29qpnZdyarMnoUPHEg"
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "sharedCellProcesses": {
+                              "revision": 0,
+                              "digraph": {
+                                "name": "Shared Cell Processes Digraph Model",
+                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                "vlist": [],
+                                "elist": []
+                              }
+                            },
+                            "__apmiStep": "ready"
+                          }
+                        }
+                      },
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CP constructor test #2",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "create": {
+                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                    "cellProcessUniqueName": "test-process-1"
+                                  }
+                                }
+                              }
                             }
+                          }
+                        },
+                        "actResponse": {
+                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Error dispatching controller action filter. Skipping any further evaluation. ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Invalid cellProcessUniqueName value 'test-process-1' is not unique. Cell process 'GnZD29qpnZdyarMnoUPHEg' already exists."
+                        }
+                      }
+                    },
+                    {
+                      "testHarnessActionSummary": {
+                        "actionRequest": "PASS",
+                        "postActionCellProcessorEval": "PASS",
+                        "postCellProcessorEvalOCD": {
+                          "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 2
                           },
-                          "__apmiStep": "ready"
+                          "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                            "ownedCellProcesses": {
+                              "revision": 2,
+                              "digraph": {
+                                "name": "Owned Cell Processes Tree Model",
+                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                "vlist": [
+                                  {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "p": {
+                                      "apmBindingPath": "~",
+                                      "name": "Cell Process Manager"
+                                    }
+                                  }
+                                ],
+                                "elist": []
+                              }
+                            },
+                            "sharedCellProcesses": {
+                              "revision": 0,
+                              "digraph": {
+                                "name": "Shared Cell Processes Digraph Model",
+                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                "vlist": [],
+                                "elist": []
+                              }
+                            },
+                            "__apmiStep": "ready"
+                          }
+                        }
+                      },
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CP constructor test #2",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "delete": {
+                                    "cellProcessNamespace": {
+                                      "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                      "cellProcessUniqueName": "test-process-1"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "actResponse": {
+                          "error": null,
+                          "result": {
+                            "actionResult": {
+                              "apmBindingPath": "~",
+                              "cellProcessID": "U1NTU1paWlqwsLCwxMTExA"
+                            },
+                            "lastEvaluation": {
+                              "evalNumber": 2,
+                              "summary": {
+                                "counts": {
+                                  "bindings": 1,
+                                  "frames": 1,
+                                  "errors": 0,
+                                  "transitions": 0
+                                }
+                              },
+                              "evalFrames": [
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 1,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "3M28sc9PL4B_c1v5qwFC5Q",
+                                          "vdid": "DPAlZUIZMp88ScpbzyM4xg",
+                                          "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
+                                          "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
                         }
                       }
                     }
