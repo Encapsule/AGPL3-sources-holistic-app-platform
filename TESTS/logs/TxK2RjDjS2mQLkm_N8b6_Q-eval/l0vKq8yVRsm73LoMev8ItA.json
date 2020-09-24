@@ -337,8 +337,7 @@
                                           }
                                         },
                                         "response": {
-                                          "error": "TransitionOperator request rejected by MDR phase 1 discriminator. Bad request format; this request cannot be processed by any of the TransitionOperator's registered.",
-                                          "result": "No TransitionOperator class instances registered!"
+                                          "error": "TransitionOperator request value type cannot be routed to any registered TransitionOperator plug-in filters based on runtime type feature analysis. Please check your request format vs. registered TransitionOperator plug-in filter request signatures. No TransitionOperator class instances registered!"
                                         }
                                       }
                                     ],

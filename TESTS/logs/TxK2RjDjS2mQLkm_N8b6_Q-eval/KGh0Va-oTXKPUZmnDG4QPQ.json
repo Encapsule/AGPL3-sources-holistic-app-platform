@@ -1440,7 +1440,7 @@
                                           }
                                         },
                                         "response": {
-                                          "error": "TransitionOperator request rejected by MDR phase 2 router. The selected TransitionOperator filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] rejected the request with error: Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
+                                          "error": "TransitionOperator request dispatch failed during processing of the request by selected TransitionOperator plug-in filter delegate [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]. Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
                                         }
                                       }
                                     ],

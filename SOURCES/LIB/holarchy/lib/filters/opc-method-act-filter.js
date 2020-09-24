@@ -94,8 +94,7 @@ const factoryResponse = arccore.filter.create({
                     actionResponse = opcRef._private.actionDispatcher.request(controllerActionRequest);
                     if (actionResponse.error) {
                         actionResponse = {
-                            error: "ControllerAction request rejected by MDR phase 1 discrimintor. Bad request format; this request cannot be processed by any of the ControllerAction's registered.",
-                            result: actionResponse.error
+                            error: `ControllerAction request value type cannot be routed to any registered ControllerAction plug-in filters based on runtime type feature analysis. Please check your request format vs. registered ControllerAction plug-in filter request signatures. ${actionResponse.error}`
                         };
                     } else {
                         let actionFilter = actionResponse.result;
@@ -110,8 +109,7 @@ const factoryResponse = arccore.filter.create({
                         actionResponse = actionFilter.request(controllerActionRequest);
                         if (actionResponse.error) {
                             actionResponse = {
-                                error: `ControllerAction request rejected by MDR phase 2 router. The selected ControllerAction filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}] rejected the request with error: ${actionResponse.error}`,
-                                result: actionResponse.error
+                                error: `ControllerAction request dispatch failed during processing of the request by selected ControllerAction plug-in filter delegate [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]. ${actionResponse.error}`
                             };
                         }
                     }
@@ -129,7 +127,6 @@ const factoryResponse = arccore.filter.create({
                 // the transport error.
 
                 if (actionResponse.error) {
-                    errors.push("Error dispatching controller action filter. Skipping any further evaluation.");
                     errors.push(actionResponse.error);
                     break;
                 }

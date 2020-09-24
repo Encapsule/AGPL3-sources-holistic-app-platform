@@ -381,15 +381,14 @@ const factoryResponse = arccore.filter.create({
                             transitionResponse = opcRef._private.transitionDispatcher.request(operatorRequest);
                             if (transitionResponse.error) {
                                 transitionResponse = {
-                                    error: `TransitionOperator request rejected by MDR phase 1 discriminator. Bad request format; this request cannot be processed by any of the TransitionOperator's registered.`,
-                                    result: transitionResponse.error
+                                    error: `TransitionOperator request value type cannot be routed to any registered TransitionOperator plug-in filters based on runtime type feature analysis. Please check your request format vs. registered TransitionOperator plug-in filter request signatures. ${transitionResponse.error}`
                                 };
                             } else {
                                 let topFilter = transitionResponse.result;
                                 transitionResponse = topFilter.request(operatorRequest);
                                 if (transitionResponse.error) {
                                     transitionResponse = {
-                                        error: `TransitionOperator request rejected by MDR phase 2 router. The selected TransitionOperator filter [${topFilter.filterDescriptor.operationID}::${topFilter.filterDescriptor.operationName}] rejected the request with error: ${transitionResponse.error}`
+                                        error: `TransitionOperator request dispatch failed during processing of the request by selected TransitionOperator plug-in filter delegate [${topFilter.filterDescriptor.operationID}::${topFilter.filterDescriptor.operationName}]. ${transitionResponse.error}`
                                     };
                                 }
                             }
