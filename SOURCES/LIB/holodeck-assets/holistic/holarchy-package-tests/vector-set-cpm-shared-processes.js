@@ -122,14 +122,20 @@ module.exports = [
                             id: "QiSQnxzURSa4aVk_0PZGnQ",
                             name: "CPM Shared Process Test #3",
                             description: "Can we use a cell that uses a proxy as a helper?",
-                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "QdTHgiTaR6CDG7mdBEfZng" /* "CPP Test Model 2" */ }).result
+                            cellmodel: testFixtureModel.getArtifact({ type: "CM", id: "QdTHgiTaR6CDG7mdBEfZng" /* "CPP Test Model 3" */ }).result
                         },
 
                         actRequests: [
                             {
-                                actorName: "CPM Shared Process Test #2",
+                                actorName: "CPM Shared Process Test #3",
                                 actorTaskDescription: "Start a test process.",
                                 actionRequest: { holarchy: { CellProcessor: { process: { create: { apmID: "ZU4XFMxxT4-43mKsAp0dwA" } } } } }
+                            },
+
+                            {
+                                actorName: "CPM Shared Process Test #3",
+                                actorTaskDescription: "Delete a test process.",
+                                actionRequest: { holarchy: { CellProcessor: { process: { delete: { cellProcessNamespace: { apmID: "ZU4XFMxxT4-43mKsAp0dwA" } } } } } }
                             }
 
                         ]

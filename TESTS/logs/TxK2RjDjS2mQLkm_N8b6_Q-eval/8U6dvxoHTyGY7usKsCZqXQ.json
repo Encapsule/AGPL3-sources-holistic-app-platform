@@ -186,7 +186,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "DPUM9XpwenDTHtMepiKmIg",
-                      "vdid": "4JIrWNF4Zp8X0eupQSOmMg",
+                      "vdid": "LpIrWCp4Zp_R0eup2COmMg",
                       "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                       "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                       "cmat": {
@@ -196,7 +196,7 @@
                             "type": "INDEX",
                             "DPUM9XpwenDTHtMepiKmIg": {
                               "id": "DPUM9XpwenDTHtMepiKmIg",
-                              "vdid": "4JIrWNF4Zp8X0eupQSOmMg",
+                              "vdid": "LpIrWCp4Zp_R0eup2COmMg",
                               "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                               "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                               "type": "CM",
@@ -293,14 +293,14 @@
                               },
                               "SdL0-5kmTuiNrWNu7zGZhg": {
                                 "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                "vdid": "dM7q_uRXrScgd_WSX_TNJg",
+                                "vdid": "Bywn34W5G24d-Fymz-BakA",
                                 "name": "Cell Process Manager: Process Create",
                                 "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                 "type": "ACT"
                               },
                               "4s_DUfKnQ4aS-xRjewAfUQ": {
                                 "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                "vdid": "Zu6vqkbcKMfcIATr64ymag",
+                                "vdid": "KrPD4eCflmz2TKqzHHBCnw",
                                 "name": "Cell Process Manager: Process Delete",
                                 "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                 "type": "ACT"
@@ -818,6 +818,7 @@
                               "____appdsl": {
                                 "apm": "itgXQ5RWS66fcdsuZim8AQ"
                               },
+                              "____defaultValue": {},
                               "__apmiStep": {
                                 "____accept": "jsString",
                                 "____defaultValue": "uninitialized"
@@ -847,6 +848,7 @@
                               "____appdsl": {
                                 "apm": "Q15zOx5FT-2vt1jSKIIOLQ"
                               },
+                              "____defaultValue": {},
                               "__apmiStep": {
                                 "____accept": "jsString",
                                 "____defaultValue": "uninitialized"
@@ -876,6 +878,7 @@
                               "____appdsl": {
                                 "apm": "CW2q-O_CQ0CObmLa1PWb3g"
                               },
+                              "____defaultValue": {},
                               "__apmiStep": {
                                 "____accept": "jsString",
                                 "____defaultValue": "uninitialized"
@@ -905,6 +908,7 @@
                               "____appdsl": {
                                 "apm": "l_CypcNERjOcr7SxzIGt8A"
                               },
+                              "____defaultValue": {},
                               "__apmiStep": {
                                 "____accept": "jsString",
                                 "____defaultValue": "uninitialized"
@@ -3111,8 +3115,10 @@
                                           "____defaultValue": "singleton"
                                         },
                                         "cellProcessInitData": {
-                                          "____accept": "jsObject",
-                                          "____defaultValue": {}
+                                          "____accept": [
+                                            "jsObject",
+                                            "jsUndefined"
+                                          ]
                                         },
                                         "parentCellProcess": {
                                           "____label": "Parent Cell Process Override",
@@ -3142,10 +3148,8 @@
                                               "____accept": "jsString"
                                             },
                                             "cellProcessUniqueName": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsString"
-                                              ]
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
                                             }
                                           }
                                         }
@@ -3173,10 +3177,10 @@
                               }
                             },
                             "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                            "inputTypeVDID": "f8Mx-jTDMuG7z-kT5zi1Vg",
+                            "inputTypeVDID": "P5vqz9_vU76s9BNMKcfJoA",
                             "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                             "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                            "operationVDID": "Z_ESzbtSKGhHmr4eeUY32Q"
+                            "operationVDID": "Z91HzbsW-mhH0pseeWNx2Q"
                           }
                         },
                         "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -3238,10 +3242,8 @@
                                             "____accept": "jsString"
                                           },
                                           "cellProcessUniqueName": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString"
-                                            ]
+                                            "____accept": "jsString",
+                                            "____defaultValue": "singleton"
                                           }
                                         }
                                       }
@@ -3260,10 +3262,10 @@
                               }
                             },
                             "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                            "inputTypeVDID": "nCGlcEFiK6Fp_YHaLXFLZg",
+                            "inputTypeVDID": "CoxHu1kdTA-05kasr0HwRw",
                             "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                             "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                            "operationVDID": "j0_lCQ9kkpRKXij0PX-7rg"
+                            "operationVDID": "jyVqCQ-wZpRKlJL0Pa1Yrg"
                           }
                         },
                         "r-JgxABoS_a-mSE2c1nvKA": {
@@ -4511,25 +4513,33 @@
                                   {
                                     "u": "_hWb8Lg7SgAgKhF9d1FO5g",
                                     "p": {
-                                      "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ"
+                                      "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                      "role": "cell-process",
+                                      "apmID": "itgXQ5RWS66fcdsuZim8AQ"
                                     }
                                   },
                                   {
                                     "u": "ftyuSnSqgtr2FcHKRPmx9g",
                                     "p": {
-                                      "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA"
+                                      "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                      "role": "cell-process",
+                                      "apmID": "Q15zOx5FT-2vt1jSKIIOLQ"
                                     }
                                   },
                                   {
                                     "u": "VsSmPicBXAh73PdonbKo9Q",
                                     "p": {
-                                      "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw"
+                                      "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                      "role": "cell-process",
+                                      "apmID": "CW2q-O_CQ0CObmLa1PWb3g"
                                     }
                                   },
                                   {
                                     "u": "d-vsHMlM0I7KK1NJ6gT_Tw",
                                     "p": {
-                                      "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w"
+                                      "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                      "role": "cell-process",
+                                      "apmID": "l_CypcNERjOcr7SxzIGt8A"
                                     }
                                   }
                                 ],
@@ -5208,25 +5218,33 @@
                                   {
                                     "u": "_hWb8Lg7SgAgKhF9d1FO5g",
                                     "p": {
-                                      "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ"
+                                      "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                      "role": "cell-process",
+                                      "apmID": "itgXQ5RWS66fcdsuZim8AQ"
                                     }
                                   },
                                   {
                                     "u": "ftyuSnSqgtr2FcHKRPmx9g",
                                     "p": {
-                                      "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA"
+                                      "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                      "role": "cell-process",
+                                      "apmID": "Q15zOx5FT-2vt1jSKIIOLQ"
                                     }
                                   },
                                   {
                                     "u": "VsSmPicBXAh73PdonbKo9Q",
                                     "p": {
-                                      "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw"
+                                      "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                      "role": "cell-process",
+                                      "apmID": "CW2q-O_CQ0CObmLa1PWb3g"
                                     }
                                   },
                                   {
                                     "u": "d-vsHMlM0I7KK1NJ6gT_Tw",
                                     "p": {
-                                      "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w"
+                                      "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                      "role": "cell-process",
+                                      "apmID": "l_CypcNERjOcr7SxzIGt8A"
                                     }
                                   }
                                 ],
@@ -5582,25 +5600,33 @@
                                   {
                                     "u": "_hWb8Lg7SgAgKhF9d1FO5g",
                                     "p": {
-                                      "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ"
+                                      "apmBindingPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.QOXIG2H4wYN1ZSpgO7KBSQ",
+                                      "role": "cell-process",
+                                      "apmID": "itgXQ5RWS66fcdsuZim8AQ"
                                     }
                                   },
                                   {
                                     "u": "ftyuSnSqgtr2FcHKRPmx9g",
                                     "p": {
-                                      "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA"
+                                      "apmBindingPath": "~.Q15zOx5FT-2vt1jSKIIOLQ_CellProcesses.cellProcessMap.d3d3dxAQEBB0dHR0jIyMjA",
+                                      "role": "cell-process",
+                                      "apmID": "Q15zOx5FT-2vt1jSKIIOLQ"
                                     }
                                   },
                                   {
                                     "u": "VsSmPicBXAh73PdonbKo9Q",
                                     "p": {
-                                      "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw"
+                                      "apmBindingPath": "~.CW2q-O_CQ0CObmLa1PWb3g_CellProcesses.cellProcessMap.GhoaGpSUlJTR0dHRj4-Pjw",
+                                      "role": "cell-process",
+                                      "apmID": "CW2q-O_CQ0CObmLa1PWb3g"
                                     }
                                   },
                                   {
                                     "u": "d-vsHMlM0I7KK1NJ6gT_Tw",
                                     "p": {
-                                      "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w"
+                                      "apmBindingPath": "~.l_CypcNERjOcr7SxzIGt8A_CellProcesses.cellProcessMap.KioqKra2trZzc3Nz4-Pj4w",
+                                      "role": "cell-process",
+                                      "apmID": "l_CypcNERjOcr7SxzIGt8A"
                                     }
                                   }
                                 ],

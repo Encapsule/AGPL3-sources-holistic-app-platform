@@ -80,7 +80,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "HPUc9Ytwi3ArHise8SLxIg",
-                      "vdid": "TvJwlwIzn8JPqw2pqpX6Qw",
+                      "vdid": "AvJwl4Mzn8JQqw2pLJX6Qw",
                       "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                       "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                       "cmat": {
@@ -90,7 +90,7 @@
                             "type": "INDEX",
                             "HPUc9Ytwi3ArHise8SLxIg": {
                               "id": "HPUc9Ytwi3ArHise8SLxIg",
-                              "vdid": "TvJwlwIzn8JPqw2pqpX6Qw",
+                              "vdid": "AvJwl4Mzn8JQqw2pLJX6Qw",
                               "name": "Cell Process Manager [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test] Model",
                               "description": "Cell process manager root process for CellProcessor [vzOf_2LZTgG7PSWqr_JzgA::CPM Ancestor Processes All In Step Operator Test].",
                               "type": "CM",
@@ -187,14 +187,14 @@
                               },
                               "SdL0-5kmTuiNrWNu7zGZhg": {
                                 "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                "vdid": "dM7q_uRXrScgd_WSX_TNJg",
+                                "vdid": "Bywn34W5G24d-Fymz-BakA",
                                 "name": "Cell Process Manager: Process Create",
                                 "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                 "type": "ACT"
                               },
                               "4s_DUfKnQ4aS-xRjewAfUQ": {
                                 "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                "vdid": "Zu6vqkbcKMfcIATr64ymag",
+                                "vdid": "KrPD4eCflmz2TKqzHHBCnw",
                                 "name": "Cell Process Manager: Process Delete",
                                 "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                 "type": "ACT"
@@ -550,6 +550,7 @@
                               "____appdsl": {
                                 "apm": "c09ke74xRza4Q9u2Ly0NIA"
                               },
+                              "____defaultValue": {},
                               "__apmiStep": {
                                 "____accept": "jsString",
                                 "____defaultValue": "uninitialized"
@@ -2744,8 +2745,10 @@
                                           "____defaultValue": "singleton"
                                         },
                                         "cellProcessInitData": {
-                                          "____accept": "jsObject",
-                                          "____defaultValue": {}
+                                          "____accept": [
+                                            "jsObject",
+                                            "jsUndefined"
+                                          ]
                                         },
                                         "parentCellProcess": {
                                           "____label": "Parent Cell Process Override",
@@ -2775,10 +2778,8 @@
                                               "____accept": "jsString"
                                             },
                                             "cellProcessUniqueName": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsString"
-                                              ]
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
                                             }
                                           }
                                         }
@@ -2806,10 +2807,10 @@
                               }
                             },
                             "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                            "inputTypeVDID": "f8Mx-jTDMuG7z-kT5zi1Vg",
+                            "inputTypeVDID": "P5vqz9_vU76s9BNMKcfJoA",
                             "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                             "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                            "operationVDID": "Z_ESzbtSKGhHmr4eeUY32Q"
+                            "operationVDID": "Z91HzbsW-mhH0pseeWNx2Q"
                           }
                         },
                         "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -2871,10 +2872,8 @@
                                             "____accept": "jsString"
                                           },
                                           "cellProcessUniqueName": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString"
-                                            ]
+                                            "____accept": "jsString",
+                                            "____defaultValue": "singleton"
                                           }
                                         }
                                       }
@@ -2893,10 +2892,10 @@
                               }
                             },
                             "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                            "inputTypeVDID": "nCGlcEFiK6Fp_YHaLXFLZg",
+                            "inputTypeVDID": "CoxHu1kdTA-05kasr0HwRw",
                             "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                             "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                            "operationVDID": "j0_lCQ9kkpRKXij0PX-7rg"
+                            "operationVDID": "jyVqCQ-wZpRKlJL0Pa1Yrg"
                           }
                         },
                         "r-JgxABoS_a-mSE2c1nvKA": {
@@ -3966,7 +3965,9 @@
                                   {
                                     "u": "1WmuOAha0hL7ex8qqf7J_Q",
                                     "p": {
-                                      "apmBindingPath": "~.c09ke74xRza4Q9u2Ly0NIA_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
+                                      "apmBindingPath": "~.c09ke74xRza4Q9u2Ly0NIA_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
+                                      "role": "cell-process",
+                                      "apmID": "c09ke74xRza4Q9u2Ly0NIA"
                                     }
                                   }
                                 ],

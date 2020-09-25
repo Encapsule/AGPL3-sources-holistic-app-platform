@@ -16,7 +16,7 @@
                     "description": "Can we use a cell that uses a proxy as a helper?",
                     "cellmodel": {
                       "id": "QdTHgiTaR6CDG7mdBEfZng",
-                      "vdid": "rpwG6s_FxWgvoK9lQkbhow",
+                      "vdid": "BdE0HOhI0NhImJNPjdjCnQ",
                       "name": "CPP Test Model 3",
                       "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                       "cmat": {
@@ -26,39 +26,39 @@
                             "type": "INDEX",
                             "QdTHgiTaR6CDG7mdBEfZng": {
                               "id": "QdTHgiTaR6CDG7mdBEfZng",
-                              "vdid": "rpwG6s_FxWgvoK9lQkbhow",
+                              "vdid": "BdE0HOhI0NhImJNPjdjCnQ",
                               "name": "CPP Test Model 3",
                               "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                               "type": "CM",
                               "ZU4XFMxxT4-43mKsAp0dwA": {
                                 "id": "ZU4XFMxxT4-43mKsAp0dwA",
-                                "vdid": "0wUeysmSGSyqVlIoqWnboQ",
+                                "vdid": "tAHQGZnlUu3AbhRdh1ZVYQ",
                                 "name": "CPP Test Process 3",
                                 "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in).",
                                 "type": "APM"
                               },
                               "CIyx6qSlSCyeBKMAQbGMPA": {
                                 "id": "CIyx6qSlSCyeBKMAQbGMPA",
-                                "vdid": "uGc1YJLEOFUfBPg-YOkWrg",
+                                "vdid": "uLrdYJJc0VUfxT4-YHOjrg",
                                 "name": "CPP Test Model 2",
                                 "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                                 "type": "CM",
                                 "houKkWpYTX6hly7r79gD6g": {
                                   "id": "houKkWpYTX6hly7r79gD6g",
-                                  "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                                  "vdid": "T9pdDJv-WJJt0Najwz520w",
                                   "name": "CPP Test Model 2",
                                   "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
                                   "type": "APM"
                                 },
                                 "YBH28RLOTqG5jb6mkLBNKQ": {
                                   "id": "YBH28RLOTqG5jb6mkLBNKQ",
-                                  "vdid": "QhMMbwOyBaCYoEQRYsxZ4A",
+                                  "vdid": "QhPFbwOyO6CYoKERYsxE4A",
                                   "name": "Messenger Model",
                                   "description": "A simple cell model to transport a something between cells.",
                                   "type": "CM",
                                   "Kh2lTQHGT9qG0j1omkJmAg": {
                                     "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                    "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                                    "vdid": "LcF4jFuYyDP8jHBEfzCGfQ",
                                     "name": "Messenger Process",
                                     "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
                                     "type": "APM"
@@ -67,7 +67,7 @@
                               },
                               "Cujmg-9jSpyAozTZfhkFLg": {
                                 "id": "Cujmg-9jSpyAozTZfhkFLg",
-                                "vdid": "nx0JXHq5zcGoM7Atk26Yog",
+                                "vdid": "nxhiXHoQM8GoQBwtkzRIog",
                                 "name": "CPP Test Model 2A",
                                 "description": "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                 "type": "CM",
@@ -76,6 +76,34 @@
                                   "vdid": "va0SPScT2BexIHvdP-jBbg",
                                   "name": "CPP Test Process 2A",
                                   "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
+                                  "type": "APM"
+                                }
+                              },
+                              "QrdiLE9OTqe-SZcvxXbvKw": {
+                                "id": "QrdiLE9OTqe-SZcvxXbvKw",
+                                "vdid": "Vq4VKJ5j7D51huCmreQp0A",
+                                "name": "CPP Test Model 2B",
+                                "description": "A model that embeds helpers at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+                                "type": "CM",
+                                "V82j4g2-SBaCI2dGRHw-Xg": {
+                                  "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                                  "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                                  "name": "CPP Test Process 2B",
+                                  "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+                                  "type": "APM"
+                                }
+                              },
+                              "wLBTQ697Roi08S4f5BnoDg": {
+                                "id": "wLBTQ697Roi08S4f5BnoDg",
+                                "vdid": "1D2pGKf8LSW3MalaBos1xQ",
+                                "name": "CPP Test Model 2C",
+                                "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
+                                "type": "CM",
+                                "GUW2Fi3_SLaGrHy_X-nghA": {
+                                  "id": "GUW2Fi3_SLaGrHy_X-nghA",
+                                  "vdid": "_aGyecHz23hw_ur-q-rfig",
+                                  "name": "CPP Test Process 2C",
+                                  "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                   "type": "APM"
                                 }
                               }
@@ -87,7 +115,7 @@
                   },
                   "actRequests": [
                     {
-                      "actorName": "CPM Shared Process Test #2",
+                      "actorName": "CPM Shared Process Test #3",
                       "actorTaskDescription": "Start a test process.",
                       "actionRequest": {
                         "holarchy": {
@@ -95,6 +123,23 @@
                             "process": {
                               "create": {
                                 "apmID": "ZU4XFMxxT4-43mKsAp0dwA"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "actorName": "CPM Shared Process Test #3",
+                      "actorTaskDescription": "Delete a test process.",
+                      "actionRequest": {
+                        "holarchy": {
+                          "CellProcessor": {
+                            "process": {
+                              "delete": {
+                                "cellProcessNamespace": {
+                                  "apmID": "ZU4XFMxxT4-43mKsAp0dwA"
+                                }
                               }
                             }
                           }
@@ -121,7 +166,7 @@
                   "cpJSON": {
                     "cm": {
                       "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                      "vdid": "k7JbD1s4MuqbpPUhcDJ18g",
+                      "vdid": "t_2LrFoMGUM1H4rM5FaMgQ",
                       "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                       "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                       "cmat": {
@@ -131,7 +176,7 @@
                             "type": "INDEX",
                             "FvUW9UtwS3DDHsMeWSJZIg": {
                               "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                              "vdid": "k7JbD1s4MuqbpPUhcDJ18g",
+                              "vdid": "t_2LrFoMGUM1H4rM5FaMgQ",
                               "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                               "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                               "type": "CM",
@@ -228,14 +273,14 @@
                               },
                               "SdL0-5kmTuiNrWNu7zGZhg": {
                                 "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                "vdid": "dM7q_uRXrScgd_WSX_TNJg",
+                                "vdid": "Bywn34W5G24d-Fymz-BakA",
                                 "name": "Cell Process Manager: Process Create",
                                 "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                 "type": "ACT"
                               },
                               "4s_DUfKnQ4aS-xRjewAfUQ": {
                                 "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                "vdid": "Zu6vqkbcKMfcIATr64ymag",
+                                "vdid": "KrPD4eCflmz2TKqzHHBCnw",
                                 "name": "Cell Process Manager: Process Delete",
                                 "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                 "type": "ACT"
@@ -466,39 +511,39 @@
                               },
                               "QdTHgiTaR6CDG7mdBEfZng": {
                                 "id": "QdTHgiTaR6CDG7mdBEfZng",
-                                "vdid": "rpwG6s_FxWgvoK9lQkbhow",
+                                "vdid": "BdE0HOhI0NhImJNPjdjCnQ",
                                 "name": "CPP Test Model 3",
                                 "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                                 "type": "CM",
                                 "ZU4XFMxxT4-43mKsAp0dwA": {
                                   "id": "ZU4XFMxxT4-43mKsAp0dwA",
-                                  "vdid": "0wUeysmSGSyqVlIoqWnboQ",
+                                  "vdid": "tAHQGZnlUu3AbhRdh1ZVYQ",
                                   "name": "CPP Test Process 3",
                                   "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in).",
                                   "type": "APM"
                                 },
                                 "CIyx6qSlSCyeBKMAQbGMPA": {
                                   "id": "CIyx6qSlSCyeBKMAQbGMPA",
-                                  "vdid": "uGc1YJLEOFUfBPg-YOkWrg",
+                                  "vdid": "uLrdYJJc0VUfxT4-YHOjrg",
                                   "name": "CPP Test Model 2",
                                   "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                                   "type": "CM",
                                   "houKkWpYTX6hly7r79gD6g": {
                                     "id": "houKkWpYTX6hly7r79gD6g",
-                                    "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                                    "vdid": "T9pdDJv-WJJt0Najwz520w",
                                     "name": "CPP Test Model 2",
                                     "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
                                     "type": "APM"
                                   },
                                   "YBH28RLOTqG5jb6mkLBNKQ": {
                                     "id": "YBH28RLOTqG5jb6mkLBNKQ",
-                                    "vdid": "QhMMbwOyBaCYoEQRYsxZ4A",
+                                    "vdid": "QhPFbwOyO6CYoKERYsxE4A",
                                     "name": "Messenger Model",
                                     "description": "A simple cell model to transport a something between cells.",
                                     "type": "CM",
                                     "Kh2lTQHGT9qG0j1omkJmAg": {
                                       "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                      "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                                      "vdid": "LcF4jFuYyDP8jHBEfzCGfQ",
                                       "name": "Messenger Process",
                                       "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
                                       "type": "APM"
@@ -507,7 +552,7 @@
                                 },
                                 "Cujmg-9jSpyAozTZfhkFLg": {
                                   "id": "Cujmg-9jSpyAozTZfhkFLg",
-                                  "vdid": "nx0JXHq5zcGoM7Atk26Yog",
+                                  "vdid": "nxhiXHoQM8GoQBwtkzRIog",
                                   "name": "CPP Test Model 2A",
                                   "description": "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                   "type": "CM",
@@ -516,6 +561,34 @@
                                     "vdid": "va0SPScT2BexIHvdP-jBbg",
                                     "name": "CPP Test Process 2A",
                                     "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
+                                    "type": "APM"
+                                  }
+                                },
+                                "QrdiLE9OTqe-SZcvxXbvKw": {
+                                  "id": "QrdiLE9OTqe-SZcvxXbvKw",
+                                  "vdid": "Vq4VKJ5j7D51huCmreQp0A",
+                                  "name": "CPP Test Model 2B",
+                                  "description": "A model that embeds helpers at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+                                  "type": "CM",
+                                  "V82j4g2-SBaCI2dGRHw-Xg": {
+                                    "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                                    "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                                    "name": "CPP Test Process 2B",
+                                    "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+                                    "type": "APM"
+                                  }
+                                },
+                                "wLBTQ697Roi08S4f5BnoDg": {
+                                  "id": "wLBTQ697Roi08S4f5BnoDg",
+                                  "vdid": "1D2pGKf8LSW3MalaBos1xQ",
+                                  "name": "CPP Test Model 2C",
+                                  "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
+                                  "type": "CM",
+                                  "GUW2Fi3_SLaGrHy_X-nghA": {
+                                    "id": "GUW2Fi3_SLaGrHy_X-nghA",
+                                    "vdid": "_aGyecHz23hw_ur-q-rfig",
+                                    "name": "CPP Test Process 2C",
+                                    "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                     "type": "APM"
                                   }
                                 }
@@ -538,7 +611,7 @@
                       "apmMap": {
                         "houKkWpYTX6hly7r79gD6g": {
                           "id": "houKkWpYTX6hly7r79gD6g",
-                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                          "vdid": "T9pdDJv-WJJt0Najwz520w",
                           "name": "CPP Test Model 2",
                           "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                         },
@@ -548,9 +621,21 @@
                           "name": "CPP Test Process 2A",
                           "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared)."
                         },
+                        "V82j4g2-SBaCI2dGRHw-Xg": {
+                          "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                          "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                          "name": "CPP Test Process 2B",
+                          "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly."
+                        },
+                        "GUW2Fi3_SLaGrHy_X-nghA": {
+                          "id": "GUW2Fi3_SLaGrHy_X-nghA",
+                          "vdid": "_aGyecHz23hw_ur-q-rfig",
+                          "name": "CPP Test Process 2C",
+                          "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies."
+                        },
                         "ZU4XFMxxT4-43mKsAp0dwA": {
                           "id": "ZU4XFMxxT4-43mKsAp0dwA",
-                          "vdid": "0wUeysmSGSyqVlIoqWnboQ",
+                          "vdid": "tAHQGZnlUu3AbhRdh1ZVYQ",
                           "name": "CPP Test Process 3",
                           "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in)."
                         },
@@ -568,7 +653,7 @@
                         },
                         "Kh2lTQHGT9qG0j1omkJmAg": {
                           "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                          "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                          "vdid": "LcF4jFuYyDP8jHBEfzCGfQ",
                           "name": "Messenger Process",
                           "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
                         }
@@ -587,7 +672,7 @@
                           "specPath": "~.houKkWpYTX6hly7r79gD6g_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "houKkWpYTX6hly7r79gD6g",
-                            "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
+                            "vdid": "T9pdDJv-WJJt0Najwz520w",
                             "name": "CPP Test Model 2",
                             "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                           }
@@ -602,10 +687,28 @@
                           }
                         },
                         {
+                          "specPath": "~.V82j4g2-SBaCI2dGRHw-Xg_CellProcesses.cellProcessMap.cellProcessID",
+                          "opmiRef": {
+                            "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                            "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                            "name": "CPP Test Process 2B",
+                            "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly."
+                          }
+                        },
+                        {
+                          "specPath": "~.GUW2Fi3_SLaGrHy_X-nghA_CellProcesses.cellProcessMap.cellProcessID",
+                          "opmiRef": {
+                            "id": "GUW2Fi3_SLaGrHy_X-nghA",
+                            "vdid": "_aGyecHz23hw_ur-q-rfig",
+                            "name": "CPP Test Process 2C",
+                            "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies."
+                          }
+                        },
+                        {
                           "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "ZU4XFMxxT4-43mKsAp0dwA",
-                            "vdid": "0wUeysmSGSyqVlIoqWnboQ",
+                            "vdid": "tAHQGZnlUu3AbhRdh1ZVYQ",
                             "name": "CPP Test Process 3",
                             "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in)."
                           }
@@ -614,7 +717,7 @@
                           "specPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.cellProcessID",
                           "opmiRef": {
                             "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                            "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                            "vdid": "LcF4jFuYyDP8jHBEfzCGfQ",
                             "name": "Messenger Process",
                             "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
                           }
@@ -629,25 +732,25 @@
                           }
                         },
                         {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1A",
+                          "specPath": "~.GUW2Fi3_SLaGrHy_X-nghA_CellProcesses.cellProcessMap.cellProcessID.testProcess2B",
                           "opmiRef": {
-                            "id": "houKkWpYTX6hly7r79gD6g",
-                            "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                            "name": "CPP Test Model 2",
-                            "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
+                            "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                            "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                            "name": "CPP Test Process 2B",
+                            "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly."
                           }
                         },
                         {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1C",
+                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E",
                           "opmiRef": {
-                            "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                            "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
-                            "name": "Messenger Process",
-                            "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
+                            "id": "GUW2Fi3_SLaGrHy_X-nghA",
+                            "vdid": "_aGyecHz23hw_ur-q-rfig",
+                            "name": "CPP Test Process 2C",
+                            "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies."
                           }
                         },
                         {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1D",
+                          "specPath": "~.V82j4g2-SBaCI2dGRHw-Xg_CellProcesses.cellProcessMap.cellProcessID.justADataObjectNamespace.helperCellThatCallsProcessCreate",
                           "opmiRef": {
                             "id": "RxRtYI77Sd6FMa1Iyv9dSg",
                             "vdid": "va0SPScT2BexIHvdP-jBbg",
@@ -656,48 +759,30 @@
                           }
                         },
                         {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1A.proxyTest",
+                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B",
                           "opmiRef": {
-                            "id": "CPPU-UPgS8eWiMap3Ixovg",
-                            "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                            "name": "Holarchy Cell Process Proxy Helper Process",
-                            "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
+                            "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                            "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                            "name": "CPP Test Process 2B",
+                            "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly."
                           }
                         },
                         {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2A",
+                          "specPath": "~.GUW2Fi3_SLaGrHy_X-nghA_CellProcesses.cellProcessMap.cellProcessID.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate",
                           "opmiRef": {
-                            "id": "houKkWpYTX6hly7r79gD6g",
-                            "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                            "name": "CPP Test Model 2",
-                            "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
+                            "id": "RxRtYI77Sd6FMa1Iyv9dSg",
+                            "vdid": "va0SPScT2BexIHvdP-jBbg",
+                            "name": "CPP Test Process 2A",
+                            "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared)."
                           }
                         },
                         {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2A.proxyTest",
+                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate",
                           "opmiRef": {
-                            "id": "CPPU-UPgS8eWiMap3Ixovg",
-                            "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                            "name": "Holarchy Cell Process Proxy Helper Process",
-                            "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                          }
-                        },
-                        {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2B.helper3A",
-                          "opmiRef": {
-                            "id": "houKkWpYTX6hly7r79gD6g",
-                            "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                            "name": "CPP Test Model 2",
-                            "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                          }
-                        },
-                        {
-                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2B.helper3A.proxyTest",
-                          "opmiRef": {
-                            "id": "CPPU-UPgS8eWiMap3Ixovg",
-                            "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                            "name": "Holarchy Cell Process Proxy Helper Process",
-                            "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
+                            "id": "RxRtYI77Sd6FMa1Iyv9dSg",
+                            "vdid": "va0SPScT2BexIHvdP-jBbg",
+                            "name": "CPP Test Process 2A",
+                            "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared)."
                           }
                         }
                       ],
@@ -745,6 +830,56 @@
                               "____types": "jsObject",
                               "____appdsl": {
                                 "apm": "RxRtYI77Sd6FMa1Iyv9dSg"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "V82j4g2-SBaCI2dGRHw-Xg_CellProcesses": {
+                          "____label": "[V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] Cell Process Map",
+                            "____description": "A map of [V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] Cell Process Instance",
+                              "____description": "Cell process instance memory for [V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B]: A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "V82j4g2-SBaCI2dGRHw-Xg"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "GUW2Fi3_SLaGrHy_X-nghA_CellProcesses": {
+                          "____label": "[GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] Cell Process Map",
+                            "____description": "A map of [GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] Cell Process Instance",
+                              "____description": "Cell process instance memory for [GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C]: A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "GUW2Fi3_SLaGrHy_X-nghA"
                               }
                             }
                           },
@@ -834,6 +969,7 @@
                               "____appdsl": {
                                 "apm": "houKkWpYTX6hly7r79gD6g"
                               },
+                              "____defaultValue": {},
                               "construction": {
                                 "____types": "jsObject",
                                 "____defaultValue": {},
@@ -904,6 +1040,130 @@
                               "____appdsl": {
                                 "apm": "RxRtYI77Sd6FMa1Iyv9dSg"
                               },
+                              "____defaultValue": {},
+                              "__apmiStep": {
+                                "____accept": "jsString",
+                                "____defaultValue": "uninitialized"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "V82j4g2-SBaCI2dGRHw-Xg_CellProcesses": {
+                          "____label": "[V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] Cell Process Map",
+                            "____description": "A map of [V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B] Cell Process Instance",
+                              "____description": "Cell process instance memory for [V82j4g2-SBaCI2dGRHw-Xg::CPP Test Process 2B]: A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "V82j4g2-SBaCI2dGRHw-Xg"
+                              },
+                              "____defaultValue": {},
+                              "construction": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "instanceName": {
+                                  "____accept": [
+                                    "jsString",
+                                    "jsNull"
+                                  ],
+                                  "____defaultValue": null
+                                }
+                              },
+                              "justADataObjectNamespace": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "helperCellThatCallsProcessCreate": {
+                                  "____types": "jsObject",
+                                  "____defaultValue": {},
+                                  "____appdsl": {
+                                    "apm": "RxRtYI77Sd6FMa1Iyv9dSg"
+                                  },
+                                  "__apmiStep": {
+                                    "____accept": "jsString",
+                                    "____defaultValue": "uninitialized"
+                                  }
+                                }
+                              },
+                              "__apmiStep": {
+                                "____accept": "jsString",
+                                "____defaultValue": "uninitialized"
+                              }
+                            }
+                          },
+                          "revision": {
+                            "____accept": "jsNumber",
+                            "____defaultValue": 0
+                          }
+                        },
+                        "GUW2Fi3_SLaGrHy_X-nghA_CellProcesses": {
+                          "____label": "[GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] Cell Processes Memory",
+                          "____description": "Shared cell process memory for cell processes bound to AbstractProcessModel [GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C].",
+                          "____types": "jsObject",
+                          "____defaultValue": {},
+                          "cellProcessMap": {
+                            "____label": "[GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] Cell Process Map",
+                            "____description": "A map of [GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] process instances by process ID that are managed by the CellProcessor (~) runtime host instance.",
+                            "____types": "jsObject",
+                            "____asMap": true,
+                            "____defaultValue": {},
+                            "cellProcessID": {
+                              "____label": "[GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C] Cell Process Instance",
+                              "____description": "Cell process instance memory for [GUW2Fi3_SLaGrHy_X-nghA::CPP Test Process 2C]: A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
+                              "____types": "jsObject",
+                              "____appdsl": {
+                                "apm": "GUW2Fi3_SLaGrHy_X-nghA"
+                              },
+                              "____defaultValue": {},
+                              "testProcess2B": {
+                                "____types": "jsObject",
+                                "____defaultValue": {},
+                                "____appdsl": {
+                                  "apm": "V82j4g2-SBaCI2dGRHw-Xg"
+                                },
+                                "construction": {
+                                  "____types": "jsObject",
+                                  "____defaultValue": {},
+                                  "instanceName": {
+                                    "____accept": [
+                                      "jsString",
+                                      "jsNull"
+                                    ],
+                                    "____defaultValue": null
+                                  }
+                                },
+                                "justADataObjectNamespace": {
+                                  "____types": "jsObject",
+                                  "____defaultValue": {},
+                                  "helperCellThatCallsProcessCreate": {
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "____appdsl": {
+                                      "apm": "RxRtYI77Sd6FMa1Iyv9dSg"
+                                    },
+                                    "__apmiStep": {
+                                      "____accept": "jsString",
+                                      "____defaultValue": "uninitialized"
+                                    }
+                                  }
+                                },
+                                "__apmiStep": {
+                                  "____accept": "jsString",
+                                  "____defaultValue": "uninitialized"
+                                }
+                              },
                               "__apmiStep": {
                                 "____accept": "jsString",
                                 "____defaultValue": "uninitialized"
@@ -933,189 +1193,49 @@
                               "____appdsl": {
                                 "apm": "ZU4XFMxxT4-43mKsAp0dwA"
                               },
-                              "helper1A": {
+                              "____defaultValue": {},
+                              "helper1E": {
                                 "____types": "jsObject",
                                 "____defaultValue": {},
                                 "____appdsl": {
-                                  "apm": "houKkWpYTX6hly7r79gD6g"
+                                  "apm": "GUW2Fi3_SLaGrHy_X-nghA"
                                 },
-                                "construction": {
-                                  "____types": "jsObject",
-                                  "____defaultValue": {},
-                                  "instanceName": {
-                                    "____types": [
-                                      "jsNull",
-                                      "jsString"
-                                    ],
-                                    "____defaultValue": null
-                                  }
-                                },
-                                "proxyTest": {
+                                "testProcess2B": {
                                   "____types": "jsObject",
                                   "____defaultValue": {},
                                   "____appdsl": {
-                                    "apm": "CPPU-UPgS8eWiMap3Ixovg"
-                                  },
-                                  "lcpRequest": {
-                                    "____types": [
-                                      "jsUndefined",
-                                      "jsObject"
-                                    ],
-                                    "apmID": {
-                                      "____accept": "jsString"
-                                    },
-                                    "instanceName": {
-                                      "____accept": "jsString"
-                                    }
-                                  },
-                                  "lcpConnect": {
-                                    "____accept": [
-                                      "jsUndefined",
-                                      "jsString",
-                                      "jsNull"
-                                    ]
-                                  },
-                                  "__apmiStep": {
-                                    "____accept": "jsString",
-                                    "____defaultValue": "uninitialized"
-                                  }
-                                },
-                                "__apmiStep": {
-                                  "____accept": "jsString",
-                                  "____defaultValue": "uninitialized"
-                                }
-                              },
-                              "helper1B": {
-                                "____types": "jsObject",
-                                "____defaultValue": {},
-                                "helper2A": {
-                                  "____types": "jsObject",
-                                  "____defaultValue": {},
-                                  "____appdsl": {
-                                    "apm": "houKkWpYTX6hly7r79gD6g"
+                                    "apm": "V82j4g2-SBaCI2dGRHw-Xg"
                                   },
                                   "construction": {
                                     "____types": "jsObject",
                                     "____defaultValue": {},
                                     "instanceName": {
-                                      "____types": [
-                                        "jsNull",
-                                        "jsString"
+                                      "____accept": [
+                                        "jsString",
+                                        "jsNull"
                                       ],
                                       "____defaultValue": null
                                     }
                                   },
-                                  "proxyTest": {
+                                  "justADataObjectNamespace": {
                                     "____types": "jsObject",
                                     "____defaultValue": {},
-                                    "____appdsl": {
-                                      "apm": "CPPU-UPgS8eWiMap3Ixovg"
-                                    },
-                                    "lcpRequest": {
-                                      "____types": [
-                                        "jsUndefined",
-                                        "jsObject"
-                                      ],
-                                      "apmID": {
-                                        "____accept": "jsString"
+                                    "helperCellThatCallsProcessCreate": {
+                                      "____types": "jsObject",
+                                      "____defaultValue": {},
+                                      "____appdsl": {
+                                        "apm": "RxRtYI77Sd6FMa1Iyv9dSg"
                                       },
-                                      "instanceName": {
-                                        "____accept": "jsString"
+                                      "__apmiStep": {
+                                        "____accept": "jsString",
+                                        "____defaultValue": "uninitialized"
                                       }
-                                    },
-                                    "lcpConnect": {
-                                      "____accept": [
-                                        "jsUndefined",
-                                        "jsString",
-                                        "jsNull"
-                                      ]
-                                    },
-                                    "__apmiStep": {
-                                      "____accept": "jsString",
-                                      "____defaultValue": "uninitialized"
                                     }
                                   },
                                   "__apmiStep": {
                                     "____accept": "jsString",
                                     "____defaultValue": "uninitialized"
                                   }
-                                },
-                                "helper2B": {
-                                  "____types": "jsObject",
-                                  "____defaultValue": {},
-                                  "helper3A": {
-                                    "____types": "jsObject",
-                                    "____defaultValue": {},
-                                    "____appdsl": {
-                                      "apm": "houKkWpYTX6hly7r79gD6g"
-                                    },
-                                    "construction": {
-                                      "____types": "jsObject",
-                                      "____defaultValue": {},
-                                      "instanceName": {
-                                        "____types": [
-                                          "jsNull",
-                                          "jsString"
-                                        ],
-                                        "____defaultValue": null
-                                      }
-                                    },
-                                    "proxyTest": {
-                                      "____types": "jsObject",
-                                      "____defaultValue": {},
-                                      "____appdsl": {
-                                        "apm": "CPPU-UPgS8eWiMap3Ixovg"
-                                      },
-                                      "lcpRequest": {
-                                        "____types": [
-                                          "jsUndefined",
-                                          "jsObject"
-                                        ],
-                                        "apmID": {
-                                          "____accept": "jsString"
-                                        },
-                                        "instanceName": {
-                                          "____accept": "jsString"
-                                        }
-                                      },
-                                      "lcpConnect": {
-                                        "____accept": [
-                                          "jsUndefined",
-                                          "jsString",
-                                          "jsNull"
-                                        ]
-                                      },
-                                      "__apmiStep": {
-                                        "____accept": "jsString",
-                                        "____defaultValue": "uninitialized"
-                                      }
-                                    },
-                                    "__apmiStep": {
-                                      "____accept": "jsString",
-                                      "____defaultValue": "uninitialized"
-                                    }
-                                  }
-                                }
-                              },
-                              "helper1C": {
-                                "____types": "jsObject",
-                                "____defaultValue": {},
-                                "____appdsl": {
-                                  "apm": "Kh2lTQHGT9qG0j1omkJmAg"
-                                },
-                                "message": {
-                                  "____opaque": true
-                                },
-                                "__apmiStep": {
-                                  "____accept": "jsString",
-                                  "____defaultValue": "uninitialized"
-                                }
-                              },
-                              "helper1D": {
-                                "____types": "jsObject",
-                                "____defaultValue": {},
-                                "____appdsl": {
-                                  "apm": "RxRtYI77Sd6FMa1Iyv9dSg"
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
@@ -1151,6 +1271,7 @@
                               "____appdsl": {
                                 "apm": "Kh2lTQHGT9qG0j1omkJmAg"
                               },
+                              "____defaultValue": {},
                               "message": {
                                 "____opaque": true
                               },
@@ -1225,6 +1346,14 @@
                           "revision": 0
                         },
                         "RxRtYI77Sd6FMa1Iyv9dSg_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 0
+                        },
+                        "V82j4g2-SBaCI2dGRHw-Xg_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 0
+                        },
+                        "GUW2Fi3_SLaGrHy_X-nghA_CellProcesses": {
                           "cellProcessMap": {},
                           "revision": 0
                         },
@@ -3360,8 +3489,10 @@
                                           "____defaultValue": "singleton"
                                         },
                                         "cellProcessInitData": {
-                                          "____accept": "jsObject",
-                                          "____defaultValue": {}
+                                          "____accept": [
+                                            "jsObject",
+                                            "jsUndefined"
+                                          ]
                                         },
                                         "parentCellProcess": {
                                           "____label": "Parent Cell Process Override",
@@ -3391,10 +3522,8 @@
                                               "____accept": "jsString"
                                             },
                                             "cellProcessUniqueName": {
-                                              "____accept": [
-                                                "jsUndefined",
-                                                "jsString"
-                                              ]
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
                                             }
                                           }
                                         }
@@ -3422,10 +3551,10 @@
                               }
                             },
                             "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                            "inputTypeVDID": "f8Mx-jTDMuG7z-kT5zi1Vg",
+                            "inputTypeVDID": "P5vqz9_vU76s9BNMKcfJoA",
                             "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                             "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                            "operationVDID": "Z_ESzbtSKGhHmr4eeUY32Q"
+                            "operationVDID": "Z91HzbsW-mhH0pseeWNx2Q"
                           }
                         },
                         "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -3487,10 +3616,8 @@
                                             "____accept": "jsString"
                                           },
                                           "cellProcessUniqueName": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString"
-                                            ]
+                                            "____accept": "jsString",
+                                            "____defaultValue": "singleton"
                                           }
                                         }
                                       }
@@ -3509,10 +3636,10 @@
                               }
                             },
                             "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                            "inputTypeVDID": "nCGlcEFiK6Fp_YHaLXFLZg",
+                            "inputTypeVDID": "CoxHu1kdTA-05kasr0HwRw",
                             "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                             "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                            "operationVDID": "j0_lCQ9kkpRKXij0PX-7rg"
+                            "operationVDID": "jyVqCQ-wZpRKlJL0Pa1Yrg"
                           }
                         },
                         "r-JgxABoS_a-mSE2c1nvKA": {
@@ -4555,7 +4682,7 @@
                     {
                       "testHarnessActionSummary": {
                         "actionRequest": "PASS",
-                        "postActionCellProcessorEval": "FAIL",
+                        "postActionCellProcessorEval": "PASS",
                         "postCellProcessorEvalOCD": {
                           "houKkWpYTX6hly7r79gD6g_CellProcesses": {
                             "cellProcessMap": {},
@@ -4565,45 +4692,30 @@
                             "cellProcessMap": {},
                             "revision": 0
                           },
+                          "V82j4g2-SBaCI2dGRHw-Xg_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
+                          },
+                          "GUW2Fi3_SLaGrHy_X-nghA_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
+                          },
                           "ZU4XFMxxT4-43mKsAp0dwA_CellProcesses": {
                             "cellProcessMap": {
                               "4ODg4BoaGhqkpKSkX19fXw": {
-                                "helper1A": {
-                                  "construction": {
-                                    "instanceName": null
-                                  },
-                                  "proxyTest": {
-                                    "__apmiStep": "uninitialized"
-                                  },
-                                  "__apmiStep": "uninitialized"
-                                },
-                                "helper1B": {
-                                  "helper2A": {
+                                "helper1E": {
+                                  "testProcess2B": {
                                     "construction": {
                                       "instanceName": null
                                     },
-                                    "proxyTest": {
-                                      "__apmiStep": "uninitialized"
+                                    "justADataObjectNamespace": {
+                                      "helperCellThatCallsProcessCreate": {
+                                        "__apmiStep": "finished"
+                                      }
                                     },
                                     "__apmiStep": "uninitialized"
                                   },
-                                  "helper2B": {
-                                    "helper3A": {
-                                      "construction": {
-                                        "instanceName": null
-                                      },
-                                      "proxyTest": {
-                                        "__apmiStep": "uninitialized"
-                                      },
-                                      "__apmiStep": "uninitialized"
-                                    }
-                                  }
-                                },
-                                "helper1C": {
                                   "__apmiStep": "uninitialized"
-                                },
-                                "helper1D": {
-                                  "__apmiStep": "finished"
                                 },
                                 "__apmiStep": "uninitialized"
                               }
@@ -4635,13 +4747,41 @@
                                   {
                                     "u": "nXpow6rHMaRUc8prbyk_yA",
                                     "p": {
-                                      "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                      "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                      "role": "cell-process",
+                                      "apmID": "ZU4XFMxxT4-43mKsAp0dwA"
+                                    }
+                                  },
+                                  {
+                                    "u": "bXU73fqmyFGRuzhkoERbng",
+                                    "p": {
+                                      "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E",
+                                      "role": "cell-process-helper",
+                                      "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
+                                    }
+                                  },
+                                  {
+                                    "u": "GmrK-RduNYcjFj8CZxmWPA",
+                                    "p": {
+                                      "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B",
+                                      "role": "cell-process-helper",
+                                      "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
+                                    }
+                                  },
+                                  {
+                                    "u": "J6twhaPRw0JaNaXiTQLAfQ",
+                                    "p": {
+                                      "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate",
+                                      "role": "cell-process-helper",
+                                      "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
                                     }
                                   },
                                   {
                                     "u": "R0Fow8jZMaRF1Mprf4Y_yA",
                                     "p": {
-                                      "apmBindingPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                      "apmBindingPath": "~.Kh2lTQHGT9qG0j1omkJmAg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                      "role": "cell-process",
+                                      "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
                                     }
                                   }
                                 ],
@@ -4655,6 +4795,24 @@
                                   {
                                     "e": {
                                       "u": "nXpow6rHMaRUc8prbyk_yA",
+                                      "v": "bXU73fqmyFGRuzhkoERbng"
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "bXU73fqmyFGRuzhkoERbng",
+                                      "v": "GmrK-RduNYcjFj8CZxmWPA"
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "GmrK-RduNYcjFj8CZxmWPA",
+                                      "v": "J6twhaPRw0JaNaXiTQLAfQ"
+                                    }
+                                  },
+                                  {
+                                    "e": {
+                                      "u": "J6twhaPRw0JaNaXiTQLAfQ",
                                       "v": "R0Fow8jZMaRF1Mprf4Y_yA"
                                     }
                                   }
@@ -4676,7 +4834,7 @@
                       },
                       "testHarnessActionDispatch": {
                         "actRequest": {
-                          "actorName": "CPM Shared Process Test #2",
+                          "actorName": "CPM Shared Process Test #3",
                           "actorTaskDescription": "Start a test process.",
                           "actionRequest": {
                             "holarchy": {
@@ -4701,9 +4859,9 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 21,
+                                  "bindings": 11,
                                   "frames": 2,
-                                  "errors": 6,
+                                  "errors": 0,
                                   "transitions": 1
                                 }
                               },
@@ -4711,19 +4869,15 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 10,
+                                      "bindings": 5,
                                       "transitions": 1,
-                                      "errors": 3
+                                      "errors": 0
                                     },
                                     "reports": {
                                       "transitions": [
-                                        "bXU79PqmyEuRuzjNoERbEA"
+                                        "J6twhaPRw0JaNaXiTQLAfQ"
                                       ],
-                                      "errors": [
-                                        "bXU7wvqmyNqRuzhNoERbrQ",
-                                        "O948K4nZv4DV0G6f18XPnw",
-                                        "Ujmr3Yi__b_CbrcG7e-e-A"
-                                      ]
+                                      "errors": []
                                     }
                                   },
                                   "bindings": {
@@ -4768,7 +4922,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "ZU4XFMxxT4-43mKsAp0dwA",
-                                          "vdid": "0wUeysmSGSyqVlIoqWnboQ",
+                                          "vdid": "tAHQGZnlUu3AbhRdh1ZVYQ",
                                           "name": "CPP Test Process 3",
                                           "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in)."
                                         }
@@ -4791,83 +4945,18 @@
                                         }
                                       }
                                     },
-                                    "bXU7wvqmyNqRuzhNoERbrQ": {
+                                    "bXU73fqmyFGRuzhkoERbng": {
                                       "evalRequest": {
                                         "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1A"
+                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E",
+                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E"
                                         },
                                         "initialStep": "uninitialized",
                                         "apmRef": {
-                                          "id": "houKkWpYTX6hly7r79gD6g",
-                                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                                          "name": "CPP Test Model 2",
-                                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [
-                                            {
-                                              "request": {
-                                                "context": {
-                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A"
-                                                },
-                                                "operatorRequest": {
-                                                  "always": true
-                                                }
-                                              },
-                                              "response": {
-                                                "error": null,
-                                                "result": true
-                                              }
-                                            }
-                                          ],
-                                          "p2_exit": [
-                                            {
-                                              "request": {
-                                                "holarchy": {
-                                                  "CellProcessProxy": {
-                                                    "connect": {
-                                                      "proxyPath": "#.proxyTest",
-                                                      "localCellProcess": {
-                                                        "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]. But, the plug-in rejected the request with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Invalid apmBindingPath value '~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A' does not resolve to an active worker or shared cell process. From the perspective of this error handler it's difficult to say precisely what this error means given the broad semantics of ControllerAction plug-in filters. Here is a list of possible problems in decreasing order of liklihood: Your request format may be invalid above the point in the request data where the message router made its delegate selection and this error is the plug-in rejecting the request entirely. Or, the selected ControllerAction plug-in filter may implement some sort of additional input value validation that constrains the permissible input beyond what's examined by the message router and ControllerAction plug-in filters. And, you've violated API constraints. Or, you have made a valid request but applied the action to the wrong type of cell (i.e. you think you're acting on a cell bound to APM X but it's really bound to a Y). Or, the cell you're attempting to act upon is not in the correct process step or otherwise prepared to accept or take action on behalf of the caller. Or, there's a bug in the ControllerAction plug-in filter itself. If you track down the source of this error and it's not on this list please report it!"
-                                              }
-                                            }
-                                          ],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 1,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 1
-                                        }
-                                      }
-                                    },
-                                    "bXU7vvqmyPWRuziCoERbmA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1C",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1C"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                          "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
-                                          "name": "Messenger Process",
-                                          "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
+                                          "id": "GUW2Fi3_SLaGrHy_X-nghA",
+                                          "vdid": "_aGyecHz23hw_ur-q-rfig",
+                                          "name": "CPP Test Process 2C",
+                                          "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies."
                                         }
                                       },
                                       "evalResponse": {
@@ -4888,11 +4977,43 @@
                                         }
                                       }
                                     },
-                                    "bXU79PqmyEuRuzjNoERbEA": {
+                                    "GmrK-RduNYcjFj8CZxmWPA": {
                                       "evalRequest": {
                                         "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1D",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1D"
+                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B",
+                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B"
+                                        },
+                                        "initialStep": "uninitialized",
+                                        "apmRef": {
+                                          "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                                          "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                                          "name": "CPP Test Process 2B",
+                                          "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "uninitialized",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "J6twhaPRw0JaNaXiTQLAfQ": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate",
+                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate"
                                         },
                                         "initialStep": "uninitialized",
                                         "apmRef": {
@@ -4910,7 +5031,7 @@
                                             {
                                               "request": {
                                                 "context": {
-                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1D"
+                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate"
                                                 },
                                                 "operatorRequest": {
                                                   "always": true
@@ -4960,249 +5081,19 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "O948BonZvxDV0G5V18XP6A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A.proxyTest",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1A.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "O948K4nZv4DV0G6f18XPnw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2A"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "houKkWpYTX6hly7r79gD6g",
-                                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                                          "name": "CPP Test Model 2",
-                                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [
-                                            {
-                                              "request": {
-                                                "context": {
-                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A"
-                                                },
-                                                "operatorRequest": {
-                                                  "always": true
-                                                }
-                                              },
-                                              "response": {
-                                                "error": null,
-                                                "result": true
-                                              }
-                                            }
-                                          ],
-                                          "p2_exit": [
-                                            {
-                                              "request": {
-                                                "holarchy": {
-                                                  "CellProcessProxy": {
-                                                    "connect": {
-                                                      "proxyPath": "#.proxyTest",
-                                                      "localCellProcess": {
-                                                        "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]. But, the plug-in rejected the request with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Invalid apmBindingPath value '~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A' does not resolve to an active worker or shared cell process. From the perspective of this error handler it's difficult to say precisely what this error means given the broad semantics of ControllerAction plug-in filters. Here is a list of possible problems in decreasing order of liklihood: Your request format may be invalid above the point in the request data where the message router made its delegate selection and this error is the plug-in rejecting the request entirely. Or, the selected ControllerAction plug-in filter may implement some sort of additional input value validation that constrains the permissible input beyond what's examined by the message router and ControllerAction plug-in filters. And, you've violated API constraints. Or, you have made a valid request but applied the action to the wrong type of cell (i.e. you think you're acting on a cell bound to APM X but it's really bound to a Y). Or, the cell you're attempting to act upon is not in the correct process step or otherwise prepared to accept or take action on behalf of the caller. Or, there's a bug in the ControllerAction plug-in filter itself. If you track down the source of this error and it's not on this list please report it!"
-                                              }
-                                            }
-                                          ],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 1,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 1
-                                        }
-                                      }
-                                    },
-                                    "UjmrIIi__V_Cbre-7e-ejA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A.proxyTest",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2A.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "Ujmr3Yi__b_CbrcG7e-e-A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2B.helper3A"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "houKkWpYTX6hly7r79gD6g",
-                                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                                          "name": "CPP Test Model 2",
-                                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [
-                                            {
-                                              "request": {
-                                                "context": {
-                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A"
-                                                },
-                                                "operatorRequest": {
-                                                  "always": true
-                                                }
-                                              },
-                                              "response": {
-                                                "error": null,
-                                                "result": true
-                                              }
-                                            }
-                                          ],
-                                          "p2_exit": [
-                                            {
-                                              "request": {
-                                                "holarchy": {
-                                                  "CellProcessProxy": {
-                                                    "connect": {
-                                                      "proxyPath": "#.proxyTest",
-                                                      "localCellProcess": {
-                                                        "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]. But, the plug-in rejected the request with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Invalid apmBindingPath value '~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A' does not resolve to an active worker or shared cell process. From the perspective of this error handler it's difficult to say precisely what this error means given the broad semantics of ControllerAction plug-in filters. Here is a list of possible problems in decreasing order of liklihood: Your request format may be invalid above the point in the request data where the message router made its delegate selection and this error is the plug-in rejecting the request entirely. Or, the selected ControllerAction plug-in filter may implement some sort of additional input value validation that constrains the permissible input beyond what's examined by the message router and ControllerAction plug-in filters. And, you've violated API constraints. Or, you have made a valid request but applied the action to the wrong type of cell (i.e. you think you're acting on a cell bound to APM X but it's really bound to a Y). Or, the cell you're attempting to act upon is not in the correct process step or otherwise prepared to accept or take action on behalf of the caller. Or, there's a bug in the ControllerAction plug-in filter itself. If you track down the source of this error and it's not on this list please report it!"
-                                              }
-                                            }
-                                          ],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 1,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 1
-                                        }
-                                      }
-                                    },
-                                    "M_aAWxjr91u_yOXi2WqK0g": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A.proxyTest",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2B.helper3A.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 11,
+                                      "bindings": 6,
                                       "transitions": 0,
-                                      "errors": 3
+                                      "errors": 0
                                     },
                                     "reports": {
                                       "transitions": [],
-                                      "errors": [
-                                        "bXU7wvqmyNqRuzhNoERbrQ",
-                                        "O948K4nZv4DV0G6f18XPnw",
-                                        "Ujmr3Yi__b_CbrcG7e-e-A"
-                                      ]
+                                      "errors": []
                                     }
                                   },
                                   "bindings": {
@@ -5247,7 +5138,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "ZU4XFMxxT4-43mKsAp0dwA",
-                                          "vdid": "0wUeysmSGSyqVlIoqWnboQ",
+                                          "vdid": "tAHQGZnlUu3AbhRdh1ZVYQ",
                                           "name": "CPP Test Process 3",
                                           "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in)."
                                         }
@@ -5279,7 +5170,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                          "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
+                                          "vdid": "LcF4jFuYyDP8jHBEfzCGfQ",
                                           "name": "Messenger Process",
                                           "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
                                         }
@@ -5302,83 +5193,18 @@
                                         }
                                       }
                                     },
-                                    "bXU7wvqmyNqRuzhNoERbrQ": {
+                                    "bXU73fqmyFGRuzhkoERbng": {
                                       "evalRequest": {
                                         "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1A"
+                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E",
+                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E"
                                         },
                                         "initialStep": "uninitialized",
                                         "apmRef": {
-                                          "id": "houKkWpYTX6hly7r79gD6g",
-                                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                                          "name": "CPP Test Model 2",
-                                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [
-                                            {
-                                              "request": {
-                                                "context": {
-                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A"
-                                                },
-                                                "operatorRequest": {
-                                                  "always": true
-                                                }
-                                              },
-                                              "response": {
-                                                "error": null,
-                                                "result": true
-                                              }
-                                            }
-                                          ],
-                                          "p2_exit": [
-                                            {
-                                              "request": {
-                                                "holarchy": {
-                                                  "CellProcessProxy": {
-                                                    "connect": {
-                                                      "proxyPath": "#.proxyTest",
-                                                      "localCellProcess": {
-                                                        "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]. But, the plug-in rejected the request with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Invalid apmBindingPath value '~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A' does not resolve to an active worker or shared cell process. From the perspective of this error handler it's difficult to say precisely what this error means given the broad semantics of ControllerAction plug-in filters. Here is a list of possible problems in decreasing order of liklihood: Your request format may be invalid above the point in the request data where the message router made its delegate selection and this error is the plug-in rejecting the request entirely. Or, the selected ControllerAction plug-in filter may implement some sort of additional input value validation that constrains the permissible input beyond what's examined by the message router and ControllerAction plug-in filters. And, you've violated API constraints. Or, you have made a valid request but applied the action to the wrong type of cell (i.e. you think you're acting on a cell bound to APM X but it's really bound to a Y). Or, the cell you're attempting to act upon is not in the correct process step or otherwise prepared to accept or take action on behalf of the caller. Or, there's a bug in the ControllerAction plug-in filter itself. If you track down the source of this error and it's not on this list please report it!"
-                                              }
-                                            }
-                                          ],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 1,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 1
-                                        }
-                                      }
-                                    },
-                                    "bXU7vvqmyPWRuziCoERbmA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1C",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1C"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "Kh2lTQHGT9qG0j1omkJmAg",
-                                          "vdid": "n7sGEV12uFqBpvB8FHdzUQ",
-                                          "name": "Messenger Process",
-                                          "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
+                                          "id": "GUW2Fi3_SLaGrHy_X-nghA",
+                                          "vdid": "_aGyecHz23hw_ur-q-rfig",
+                                          "name": "CPP Test Process 2C",
+                                          "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies."
                                         }
                                       },
                                       "evalResponse": {
@@ -5399,11 +5225,43 @@
                                         }
                                       }
                                     },
-                                    "bXU79PqmyEuRuzjNoERbEA": {
+                                    "GmrK-RduNYcjFj8CZxmWPA": {
                                       "evalRequest": {
                                         "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1D",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1D"
+                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B",
+                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B"
+                                        },
+                                        "initialStep": "uninitialized",
+                                        "apmRef": {
+                                          "id": "V82j4g2-SBaCI2dGRHw-Xg",
+                                          "vdid": "hWddL6OG7m-rJsHwVGFOwA",
+                                          "name": "CPP Test Process 2B",
+                                          "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "uninitialized",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "J6twhaPRw0JaNaXiTQLAfQ": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate",
+                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate"
                                         },
                                         "initialStep": "finished",
                                         "apmRef": {
@@ -5430,218 +5288,141 @@
                                           "total": 0
                                         }
                                       }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "testHarnessActionSummary": {
+                        "actionRequest": "PASS",
+                        "postActionCellProcessorEval": "PASS",
+                        "postCellProcessorEvalOCD": {
+                          "houKkWpYTX6hly7r79gD6g_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
+                          },
+                          "RxRtYI77Sd6FMa1Iyv9dSg_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
+                          },
+                          "V82j4g2-SBaCI2dGRHw-Xg_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
+                          },
+                          "GUW2Fi3_SLaGrHy_X-nghA_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 0
+                          },
+                          "ZU4XFMxxT4-43mKsAp0dwA_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 2
+                          },
+                          "Kh2lTQHGT9qG0j1omkJmAg_CellProcesses": {
+                            "cellProcessMap": {},
+                            "revision": 2
+                          },
+                          "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                            "ownedCellProcesses": {
+                              "revision": 3,
+                              "digraph": {
+                                "name": "Owned Cell Processes Tree Model",
+                                "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                                "vlist": [
+                                  {
+                                    "u": "U1NTU1paWlqwsLCwxMTExA",
+                                    "p": {
+                                      "apmBindingPath": "~",
+                                      "name": "Cell Process Manager"
+                                    }
+                                  }
+                                ],
+                                "elist": []
+                              }
+                            },
+                            "sharedCellProcesses": {
+                              "revision": 0,
+                              "digraph": {
+                                "name": "Shared Cell Processes Digraph Model",
+                                "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                                "vlist": [],
+                                "elist": []
+                              }
+                            },
+                            "__apmiStep": "ready"
+                          }
+                        }
+                      },
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CPM Shared Process Test #3",
+                          "actorTaskDescription": "Delete a test process.",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "delete": {
+                                    "cellProcessNamespace": {
+                                      "apmID": "ZU4XFMxxT4-43mKsAp0dwA"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "actResponse": {
+                          "error": null,
+                          "result": {
+                            "actionResult": {
+                              "apmBindingPath": "~",
+                              "cellProcessID": "U1NTU1paWlqwsLCwxMTExA"
+                            },
+                            "lastEvaluation": {
+                              "evalNumber": 2,
+                              "summary": {
+                                "counts": {
+                                  "bindings": 1,
+                                  "frames": 1,
+                                  "errors": 0,
+                                  "transitions": 0
+                                }
+                              },
+                              "evalFrames": [
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 1,
+                                      "transitions": 0,
+                                      "errors": 0
                                     },
-                                    "O948BonZvxDV0G5V18XP6A": {
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
                                       "evalRequest": {
                                         "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1A.proxyTest",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1A.proxyTest"
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
                                         },
-                                        "initialStep": "uninitialized",
+                                        "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
+                                          "id": "XKzisde2voALMnP5NP2m5Q",
+                                          "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
+                                          "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
+                                          "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
                                         }
                                       },
                                       "evalResponse": {
                                         "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "O948K4nZv4DV0G6f18XPnw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2A"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "houKkWpYTX6hly7r79gD6g",
-                                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                                          "name": "CPP Test Model 2",
-                                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [
-                                            {
-                                              "request": {
-                                                "context": {
-                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A"
-                                                },
-                                                "operatorRequest": {
-                                                  "always": true
-                                                }
-                                              },
-                                              "response": {
-                                                "error": null,
-                                                "result": true
-                                              }
-                                            }
-                                          ],
-                                          "p2_exit": [
-                                            {
-                                              "request": {
-                                                "holarchy": {
-                                                  "CellProcessProxy": {
-                                                    "connect": {
-                                                      "proxyPath": "#.proxyTest",
-                                                      "localCellProcess": {
-                                                        "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]. But, the plug-in rejected the request with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Invalid apmBindingPath value '~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A' does not resolve to an active worker or shared cell process. From the perspective of this error handler it's difficult to say precisely what this error means given the broad semantics of ControllerAction plug-in filters. Here is a list of possible problems in decreasing order of liklihood: Your request format may be invalid above the point in the request data where the message router made its delegate selection and this error is the plug-in rejecting the request entirely. Or, the selected ControllerAction plug-in filter may implement some sort of additional input value validation that constrains the permissible input beyond what's examined by the message router and ControllerAction plug-in filters. And, you've violated API constraints. Or, you have made a valid request but applied the action to the wrong type of cell (i.e. you think you're acting on a cell bound to APM X but it's really bound to a Y). Or, the cell you're attempting to act upon is not in the correct process step or otherwise prepared to accept or take action on behalf of the caller. Or, there's a bug in the ControllerAction plug-in filter itself. If you track down the source of this error and it's not on this list please report it!"
-                                              }
-                                            }
-                                          ],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 1,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 1
-                                        }
-                                      }
-                                    },
-                                    "UjmrIIi__V_Cbre-7e-ejA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2A.proxyTest",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2A.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "Ujmr3Yi__b_CbrcG7e-e-A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2B.helper3A"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "houKkWpYTX6hly7r79gD6g",
-                                          "vdid": "wJ18yW8KQUiq-rBUCpac-Q",
-                                          "name": "CPP Test Model 2",
-                                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [
-                                            {
-                                              "request": {
-                                                "context": {
-                                                  "apmBindingPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A"
-                                                },
-                                                "operatorRequest": {
-                                                  "always": true
-                                                }
-                                              },
-                                              "response": {
-                                                "error": null,
-                                                "result": true
-                                              }
-                                            }
-                                          ],
-                                          "p2_exit": [
-                                            {
-                                              "request": {
-                                                "holarchy": {
-                                                  "CellProcessProxy": {
-                                                    "connect": {
-                                                      "proxyPath": "#.proxyTest",
-                                                      "localCellProcess": {
-                                                        "apmID": "Kh2lTQHGT9qG0j1omkJmAg"
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]. But, the plug-in rejected the request with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Invalid apmBindingPath value '~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A' does not resolve to an active worker or shared cell process. From the perspective of this error handler it's difficult to say precisely what this error means given the broad semantics of ControllerAction plug-in filters. Here is a list of possible problems in decreasing order of liklihood: Your request format may be invalid above the point in the request data where the message router made its delegate selection and this error is the plug-in rejecting the request entirely. Or, the selected ControllerAction plug-in filter may implement some sort of additional input value validation that constrains the permissible input beyond what's examined by the message router and ControllerAction plug-in filters. And, you've violated API constraints. Or, you have made a valid request but applied the action to the wrong type of cell (i.e. you think you're acting on a cell bound to APM X but it's really bound to a Y). Or, the cell you're attempting to act upon is not in the correct process step or otherwise prepared to accept or take action on behalf of the caller. Or, there's a bug in the ControllerAction plug-in filter itself. If you track down the source of this error and it's not on this list please report it!"
-                                              }
-                                            }
-                                          ],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 1,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 1
-                                        }
-                                      }
-                                    },
-                                    "M_aAWxjr91u_yOXi2WqK0g": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1B.helper2B.helper3A.proxyTest",
-                                          "specPath": "~.ZU4XFMxxT4-43mKsAp0dwA_CellProcesses.cellProcessMap.cellProcessID.helper1B.helper2B.helper3A.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
+                                        "finishStep": "ready",
                                         "phases": {
                                           "p1_toperator": [],
                                           "p2_exit": [],

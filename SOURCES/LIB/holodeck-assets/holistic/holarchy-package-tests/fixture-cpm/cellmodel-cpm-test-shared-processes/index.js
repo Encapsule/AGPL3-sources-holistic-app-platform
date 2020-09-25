@@ -31,6 +31,7 @@ const cppTestDroidModel = new holarchy.CellModel({
 
         ocdDataSpec: {
             ____types: "jsObject",
+            ____defaultValue: {},
             construction: {
                 ____types: "jsObject",
                 ____defaultValue: {},
@@ -138,12 +139,12 @@ const cppTestModel1 = new holarchy.CellModel({
         description: "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
         ocdDataSpec: {
             ____types: "jsObject",
+            ____defaultValue: {},
             construction: {
                 ____types: "jsObject",
                 ____defaultValue: {},
                 instanceName: {
-                    ____accept: [ "jsNull", "jsString" ],
-                    ____defaultValue: null
+                    ____accept: [ "jsUndefined", "jsString" ]
                 }
             },
             proxyTest: { ____types: "jsObject", ____defaultValue: {}, ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell process proxy (CPP) */ } }
@@ -359,6 +360,7 @@ const cppTestModel2 = new holarchy.CellModel({
 
         ocdDataSpec: {
             ____types: "jsObject",
+            ____defaultValue: {},
             construction: {
                 ____types: "jsObject",
                 ____defaultValue: {},
@@ -441,11 +443,20 @@ const cppTestModel2B = new holarchy.CellModel({
         ocdDataSpec: {
             ____types: "jsObject",
             ____defaultValue: {},
+            construction: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                instanceName: {
+                    ____accept: [ "jsString", "jsNull" ],
+                    ____defaultValue: null
+                }
+            },
             justADataObjectNamespace: {
                 ____types: "jsObject",
                 ____defaultValue: {},
                 helperCellThatCallsProcessCreate: {
                     ____types: "jsObject",
+                    ____defaultValue: {},
                     ____appdsl: { apm: "RxRtYI77Sd6FMa1Iyv9dSg" }
                 }
             }
@@ -464,16 +475,21 @@ const cppTestModel2C = new holarchy.CellModel({
         ocdDataSpec: {
             ____types: "jsObject",
             ____defaultValue: {},
+            /*
             testProcess2: {
                 ____types: "jsObject",
+                ____defaultValue: {},
                 ____appdsl: { apm: "houKkWpYTX6hly7r79gD6g" }
             },
             testProcess2A: {
                 ____types: "jsObject",
+                ____defaultValue: {},
                 ____appdsl: { apm: "RxRtYI77Sd6FMa1Iyv9dSg" }
             },
+            */
             testProcess2B: {
                 ____types: "jsObject",
+                ____defaultValue: {},
                 ____appdsl: { apm: "V82j4g2-SBaCI2dGRHw-Xg" }
             }
         }
@@ -491,7 +507,9 @@ const cppTestModel3 = new holarchy.CellModel({
         description: "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in).",
         ocdDataSpec: {
             ____types: "jsObject",
+            ____defaultValue: {},
 
+            /*
             // Here we splice in a "helper" insance of CPP Test Model 2 that contains a proxy that it tries to connect when its process starts.
             helper1A: {
                 ____types: "jsObject",
@@ -525,6 +543,13 @@ const cppTestModel3 = new holarchy.CellModel({
                 ____types: "jsObject",
                 ____defaultValue: {},
                 ____appdsl: { apm: "RxRtYI77Sd6FMa1Iyv9dSg" } // CPP Test Process 2A
+            },
+            */
+
+            helper1E: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { apm: "GUW2Fi3_SLaGrHy_X-nghA" }
             }
 
         }
@@ -532,6 +557,8 @@ const cppTestModel3 = new holarchy.CellModel({
     subcells: [
         cppTestModel2,
         cppTestModel2A,
+        cppTestModel2B,
+        cppTestModel2C,
         messengerModel
     ]
 });

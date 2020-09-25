@@ -39,10 +39,10 @@ const activeCellDescriptor = {
         ____accept: "jsString",
         ____inValueSet: [ "helper", "owned", "shared" ]
     },
-    cellProcessID: {
-        ____label: "Cell Process ID",
-        ____description: "The cell process ID of the active cell at response.result.cellPath iff response.result.cellRole === process. Otherwise, null to indicate N/A.",
-        ____accept: [ "jsString", "jsNull" ],
+    cellID: {
+        ____label: "Cell ID",
+        ____description: "The cell ID of the active cell at response.result.cellPath. If cellRole === process this is also the cell process ID.",
+        ____accept: [ "jsString" ],
         ____defaultValue: null
     }
 };
@@ -117,7 +117,7 @@ const factoryResponse = arccore.filter.create({
 
                 const currentPathCellID = arccore.identifier.irut.fromReference(currentPath).result;
 
-                let activeCellDescriptor = { cellPath: currentPath, cellAPMID: currentPathNamespaceSpec.____appdsl.apm };
+                let activeCellDescriptor = { cellPath: currentPath, cellAPMID: currentPathNamespaceSpec.____appdsl.apm, cellID: currentPathCellID };
 
                 const isCurrentPathCellProcess = ownedCellProcesses.digraph.isVertex(currentPathCellID);
 
@@ -143,7 +143,6 @@ const factoryResponse = arccore.filter.create({
 
                 activeCellDescriptor.cellRole = "process";
                 activeCellDescriptor.cellStrategy = isCurrentPathCellProcessOwned?"owned":"shared";
-                activeCellDescriptor.cellProcessID = currentPathCellID;
                 response.result.ownershipVector.push(activeCellDescriptor);
 
                 break;

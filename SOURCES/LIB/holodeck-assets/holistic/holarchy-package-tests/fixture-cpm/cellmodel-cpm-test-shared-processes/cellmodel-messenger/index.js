@@ -10,6 +10,7 @@ const messengerModel = new holarchy.CellModel({
         description: "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
         ocdDataSpec: {
             ____types: "jsObject",
+            ____defaultValue: {},
             message: { ____opaque: true }
         }
     }

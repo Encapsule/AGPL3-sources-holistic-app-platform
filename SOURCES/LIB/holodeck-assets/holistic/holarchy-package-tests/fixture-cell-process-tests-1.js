@@ -72,7 +72,6 @@ const cellModel = new holarchy.CellModel({
         }
 
     ]
-    
 
 });
 

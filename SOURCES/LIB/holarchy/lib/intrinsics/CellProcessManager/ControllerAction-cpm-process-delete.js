@@ -29,7 +29,7 @@ const controllerAction = new ControllerAction({
                         cellProcessNamespace: {
                             ____types: [ "jsUndefined", "jsObject" ],
                             apmID: { ____accept: "jsString" },
-                            cellProcessUniqueName: { ____accept: [ "jsUndefined", "jsString" ] }
+                            cellProcessUniqueName: { ____accept: "jsString", ____defaultValue: "singleton" }
                         }
                     }
                 }
@@ -56,7 +56,7 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            console.log("Cell Process Manager process delete...");
+            console.log(`[${this.operationID}::${this.operationName}] action start...`);
 
             // Dereference the body of the action request.
             const message = request_.actionRequest.holarchy.CellProcessor.process.delete;
@@ -67,7 +67,6 @@ const controllerAction = new ControllerAction({
             }
 
             // TODO: This should be converted to a cpmLib call
-
             let cellProcessID = message.cellProcessID?message.cellProcessID:
                 message.apmBindingPath?arccore.identifier.irut.fromReference(message.apmBindingPath).result:
                 arccore.identifier.irut.fromReference(`~.${message.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.cellProcessNamespace.cellProcessUniqueName).result}`).result;
@@ -113,7 +112,7 @@ const controllerAction = new ControllerAction({
 
             let processesToDelete = [];
 
-            let digraphTraversalResponse = arccore.graph.directed.breadthFirstTraverse({
+            let digraphTraversalResponse = arccore.graph.directed.depthFirstTraverse({
                 digraph: ownedCellProcessesData.digraph,
                 options: { startVector: [ cellProcessID ] },
                 visitor: {
@@ -134,39 +133,56 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
+            let cellProcessRemoveIDs = [];
             for (let i = 0 ; processesToDelete.length > i ; i++) {
 
-                const cellProcessID = processesToDelete[i];
-                const processDescriptor = ownedCellProcessesData.digraph.getVertexProperty(cellProcessID);
-                const apmBindingPath = processDescriptor.apmBindingPath;
-                const apmBindingPathTokens = apmBindingPath.split(".");
-                const apmProcessesNamespace = apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 1).join(".");
-                const apmProcessesRevisionNamespace = [ ...apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 2), "revision" ].join(".");
-                let ocdResponse = request_.context.ocdi.readNamespace(apmProcessesNamespace);
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
-                    break;
-                }
-                let processesMemory = ocdResponse.result;
-                delete processesMemory[apmBindingPathTokens[apmBindingPathTokens.length - 1]];
-                ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesNamespace, processesMemory);
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error)
-                    break;
-                }
-                ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
-                    break;
-                }
-                const apmProcessesRevision = ocdResponse.result;
-                ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesRevisionNamespace, apmProcessesRevision + 1);
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
-                    break;
+                const cellID = processesToDelete[i];
+                const cellDescriptor = ownedCellProcessesData.digraph.getVertexProperty(cellID);
+                if (cellDescriptor.role === "cell-process") {
+                    cellProcessRemoveIDs.push(cellID);
+                    const apmBindingPath = cellDescriptor.apmBindingPath;
+                    const apmBindingPathTokens = apmBindingPath.split(".");
+                    const apmProcessesNamespace = apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 1).join(".");
+                    const apmProcessesRevisionNamespace = [ ...apmBindingPathTokens.slice(0, apmBindingPathTokens.length - 2), "revision" ].join(".");
+
+                    // TODO: ObservableControllerData should abstract all common array and map type operations.
+                    // DELETE CELL PROCESS FROM ObservableControllerData.
+                    // You see... This is a horrible pattern. There are simpler way available even w/current OCD.
+                    // But, there's a reason why I insist on using writeNamespace even here. And, why we 100% need OCD to support containers natively.
+
+                    // Read the array...
+                    let ocdResponse = request_.context.ocdi.readNamespace(apmProcessesNamespace);
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
+                    let processesMemory = ocdResponse.result;
+
+                    // Delete the element (this is the cell process)...
+                    delete processesMemory[apmBindingPathTokens[apmBindingPathTokens.length - 1]];
+
+                    // Write the entire array back into OCD (removing the cell process from OCD).
+                    ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesNamespace, processesMemory);
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error)
+                        break;
+                    }
+
+                    // There's no reason why OCD cannot also support an efficient namespace increment operator.
+                    ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
+                    const apmProcessesRevision = ocdResponse.result;
+                    ocdResponse = request_.context.ocdi.writeNamespace(apmProcessesRevisionNamespace, apmProcessesRevision + 1);
+                    if (ocdResponse.error) {
+                        errors.push(ocdResponse.error);
+                        break;
+                    }
                 }
 
-                ownedCellProcessesData.digraph.removeVertex(cellProcessID);
+                ownedCellProcessesData.digraph.removeVertex(cellID);
 
             }
             if (errors.length) {
@@ -208,6 +224,7 @@ const controllerAction = new ControllerAction({
         if (errors.length) {
             response.error = errors.join(" ");
         }
+        console.log(`[${this.operationID}::${this.operationName}] action completed w/status '${response.error?"ERROR":"SUCCESS"}'.`);
         return response;
     }
 
