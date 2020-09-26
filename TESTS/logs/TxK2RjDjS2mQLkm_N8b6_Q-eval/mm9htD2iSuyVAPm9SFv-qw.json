@@ -45,7 +45,7 @@
                     "description": "Dispatch an OPC.act method with a valid request and no registered controller actions.",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

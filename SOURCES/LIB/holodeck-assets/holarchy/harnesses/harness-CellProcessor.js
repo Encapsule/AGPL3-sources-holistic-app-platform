@@ -33,24 +33,30 @@ const factoryResponse = holodeck.harnessFactory.request({
     },
     testVectorResultOutputSpec: {
         ____types: "jsObject",
-        isValid: { ____accept: "jsBoolean" },
-        cpJSON: {
-            ____accept: [
-                "jsString", // The instance is invalid and this is this._private.constructorError string.
-                "jsObject",  // The instance is valid and this is this._private object.
-            ]
+        construction: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+
+            isValid: { ____accept: "jsBoolean" },
+
+            postConstructionToJSON: {
+                ____accept: [
+                    "jsString", // The instance is invalid and this is this._private.constructorError string.
+                    "jsObject",  // The instance is valid and this is this._private object.
+                ]
+            }
         },
-        actionEvaluations: {
-            ____label: "Post Action State",
+        testActionLog: {
+            ____label: "CellProcessor.act Calls Performed by the Test",
             ____types: "jsArray",
             ____defaultValue: [],
-            evaluationResponse: {
+
+            testActionSummary: {
                 ____types: "jsObject",
                 testHarnessActionSummary: {
                     ____types: "jsObject",
                     actionRequest: { ____accept: "jsString", ____inValueSet: [ "PASS", "FAIL" ] },
-                    postActionCellProcessorEval: { ____accept: "jsString", ____inValueSet: [ "SKIPPED", "PASS", "FAIL" ] },
-                    postCellProcessorEvalOCD: { ____accept: "jsObject" }
+                    postActionCellProcessorEval: { ____accept: "jsString", ____inValueSet: [ "SKIPPED", "PASS", "FAIL" ] }
                 },
                 testHarnessActionDispatch: {
                     ____types: "jsObject",
@@ -66,9 +72,10 @@ const factoryResponse = holodeck.harnessFactory.request({
                             ____opaque: true
                         }
                     }
-                }
-            }
-        }
+                },
+                postActionToJSON: { ____accept: "jsObject" }
+            } // testActionSummary
+        },
     },
     harnessBodyFunction: (vectorRequest_) => {
 
@@ -92,31 +99,27 @@ const factoryResponse = holodeck.harnessFactory.request({
 
             // Remove non-idempotent information from the serialized OPC object.
             if (cpInstance.isValid()) {
-
                 delete serialized.opc.iid;
                 if (serialized.opc.lastEvalResponse && serialized.opc.lastEvalResponse.result) {
                     delete serialized.opc.lastEvalResponse.result.summary.evalStopwatch;
                 }
-
             }
 
             response.result = {
-                isValid: cpInstance.isValid(),
-                cpJSON: serialized,
-                actionEvaluations: []
+                construction: {
+                    isValid: cpInstance.isValid(),
+                    postConstructionToJSON: serialized,
+                },
+                testActionLog: []
             };
+
+            if (!cpInstance.isValid()) {
+                break;
+            }
 
             messageBody.actRequests.forEach((actRequest_) => {
 
-                if (!cpInstance.isValid()) {
-                    response.result.actionEvaluations.push({
-                        actRequest: actRequest_,
-                        actResponse: { error: "CellProcessor instance is invalid!" }
-                    });
-                    return;
-                }
-
-                delete cpInstance._private.opc._private.lastEvaluationResponse; // TODO: Figure out why this delete is necessary? Or, is it. I do not remember the details at this point. Seems harmless, so just a TODO.
+               delete cpInstance._private.opc._private.lastEvaluationResponse; // TODO: Figure out why this delete is necessary? Or, is it. I do not remember the details at this point. Seems harmless, so just a TODO.
 
                 let actResponse = cpInstance.act(actRequest_);
 
@@ -128,20 +131,21 @@ const factoryResponse = holodeck.harnessFactory.request({
                     delete actResponse.result.lastEvaluation.summary.evalStopwatch;
                 }
 
-                response.result.actionEvaluations.push({
+                response.result.testActionLog.push({
                     testHarnessActionSummary: {
                         actionRequest: actResponse.error?"FAIL":"PASS",
                         postActionCellProcessorEval: actResponse.error?"SKIPPED":actResponse.result.lastEvaluation.summary.counts.errors?"FAIL":"PASS",
-                        postCellProcessorEvalOCD: JSON.parse(JSON.stringify(cpInstance._private.opc._private.ocdi._private.storeData))
 
                     },
                     testHarnessActionDispatch: {
                         actRequest: actRequest_,
                         actResponse: actResponse
-                    }
+                    },
+                    postActionToJSON: JSON.parse(JSON.stringify(cpInstance.toJSON().opc.toJSON().ocdi.toJSON()))
+
                 });
 
-            });
+            }); // end for test CellProcessor.act calls
 
             break;
         }

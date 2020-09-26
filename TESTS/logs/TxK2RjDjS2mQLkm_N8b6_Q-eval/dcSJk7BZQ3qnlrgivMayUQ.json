@@ -172,7 +172,7 @@
                     "description": "Test controller action failure (bad action returns transport error).",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

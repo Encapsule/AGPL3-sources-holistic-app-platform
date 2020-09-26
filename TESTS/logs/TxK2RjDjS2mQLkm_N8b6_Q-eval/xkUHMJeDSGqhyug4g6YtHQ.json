@@ -212,7 +212,7 @@
                     "description": "Just a very basic test of a ThemeProcessor cell process all by itself.",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

@@ -157,7 +157,7 @@
                     "description": "Test controller exit action failure (no controller actions registered).",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

@@ -1,11 +1,13 @@
 const holarchy = require("@encapsule/holarchy");
 
+const modelSpace = require("../model-space");
+
 const messengerModel = new holarchy.CellModel({
-    id: "YBH28RLOTqG5jb6mkLBNKQ",
+    id: modelSpace.cmID("CPP Test Messenger"),
     name: "Messenger Model",
     description: "A simple cell model to transport a something between cells.",
     apm: {
-        id: "Kh2lTQHGT9qG0j1omkJmAg",
+        id: modelSpace.apmID("CPP Test Messenger"),
         name: "Messenger Process",
         description: "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery.",
         ocdDataSpec: {

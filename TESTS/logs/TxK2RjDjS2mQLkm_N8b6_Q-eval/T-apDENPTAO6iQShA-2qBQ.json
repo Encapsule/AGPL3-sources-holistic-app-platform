@@ -44,7 +44,7 @@
                     "description": "Undescribed OPC",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

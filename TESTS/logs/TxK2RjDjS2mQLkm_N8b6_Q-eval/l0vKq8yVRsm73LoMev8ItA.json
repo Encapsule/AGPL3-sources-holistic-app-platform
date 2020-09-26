@@ -74,7 +74,7 @@
                     "description": "Test transition operator failure (no transition operators registered).",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

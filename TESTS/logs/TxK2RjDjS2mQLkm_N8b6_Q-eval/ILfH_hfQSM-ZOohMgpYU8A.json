@@ -24,9 +24,11 @@
             "harnessDispatch": {
               "UBSclp3gSqCCmSvoG3W4tw": {
                 "ILfH_hfQSM-ZOohMgpYU8A": {
-                  "isValid": false,
-                  "cpJSON": "CellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::CellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject].",
-                  "actionEvaluations": []
+                  "construction": {
+                    "isValid": false,
+                    "postConstructionToJSON": "CellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::CellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                  },
+                  "testActionLog": []
                 }
               }
             }

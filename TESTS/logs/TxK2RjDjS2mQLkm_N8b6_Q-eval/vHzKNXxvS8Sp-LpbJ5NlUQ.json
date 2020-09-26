@@ -74,7 +74,7 @@
                     "description": "Dispatch OPC.act method with valid request that invokes a ControllerAction that calls a ControllerAction to to check return value handling.",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

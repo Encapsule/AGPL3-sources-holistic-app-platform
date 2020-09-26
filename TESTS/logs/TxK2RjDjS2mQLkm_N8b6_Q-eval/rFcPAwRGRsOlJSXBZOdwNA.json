@@ -176,7 +176,7 @@
                     "description": "Test transition operator failure (bad operator throws exception from bodyFunction).",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },

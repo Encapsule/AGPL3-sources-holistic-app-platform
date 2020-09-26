@@ -191,7 +191,7 @@
                     "description": "Attempt to apply the d2r2/React Client Display Adaptor APM inside of an OPC instance.",
                     "options": {
                       "evaluate": {
-                        "maxFrames": 16,
+                        "maxFrames": 64,
                         "firstEvaluation": "constructor"
                       }
                     },
