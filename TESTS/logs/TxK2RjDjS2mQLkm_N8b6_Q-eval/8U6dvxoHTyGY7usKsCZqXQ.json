@@ -182,6 +182,7 @@
             "harnessDispatch": {
               "UBSclp3gSqCCmSvoG3W4tw": {
                 "8U6dvxoHTyGY7usKsCZqXQ": {
+                  "vectorFailed": false,
                   "construction": {
                     "isValid": true,
                     "postConstructionToJSON": {

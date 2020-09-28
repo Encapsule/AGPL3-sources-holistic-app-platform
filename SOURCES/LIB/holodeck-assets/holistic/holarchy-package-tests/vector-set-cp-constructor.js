@@ -11,7 +11,14 @@ module.exports = [
             holistic: {
                 holarchy: {
                     CellProcessor: {
-                        constructorRequest: undefined // explicitly
+                        constructorRequest: undefined, // explicitly
+                        options: {
+                            failTestIf: {
+                                CellProcessor: {
+                                    instanceValidity: "fail-if-instance-valid"
+                                }
+                            }
+                        }
                     }
                 }
             }

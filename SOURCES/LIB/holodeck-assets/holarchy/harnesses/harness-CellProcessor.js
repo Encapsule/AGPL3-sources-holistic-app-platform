@@ -26,6 +26,47 @@ const factoryResponse = holodeck.harnessFactory.request({
                         actRequest: {
                             ____opaque: true // accept any request and let OPC sort it out
                         }
+                    },
+                    options: {
+                        ____types: "jsObject",
+                        ____defaultValue: {},
+                        failTestIf: {
+                            ____label: "Fail Test If...",
+                            ____description: "Flags that override the default behaviors of the CellProcessor test harness.",
+                            ____types: "jsObject",
+                            ____defaultValue: {},
+                            CellProcessor: {
+                                ____types: "jsObject",
+                                ____defaultValue: {},
+                                instanceValidity: {
+                                    ____types: "jsString",
+                                    ____inValueSet: [
+                                        "ignore-never-fail",
+                                        "fail-if-instance-invalid",
+                                        "fail-if-instance-valid"
+                                    ],
+                                    ____defaultValue: "fail-if-instance-invalid"
+                                },
+                                validInstanceHasOPCWarnings: {
+                                    ____accept: "jsString",
+                                    ____inValueSet: [
+                                        "ignore-never-fail",
+                                        "fail-if-opc-has-warnings",
+                                        "fail-if-opc-no-warnings"
+                                    ],
+                                    ____defaultValue: "fail-if-opc-has-warnings"
+                                }, // opcWarning
+                                validInstanceHasOPCErrors: {
+                                    ____accept: "jsString",
+                                    ____inValueSet: [
+                                        "ignore-never-fail",
+                                        "fail-if-opc-has-errors",
+                                        "fail-if-opc-no-errors"
+                                    ],
+                                    ____defaultValue: "fail-if-opc-has-errors"
+                                } // cellEvaluation
+                            }
+                        }
                     }
                 }
             }
@@ -33,6 +74,10 @@ const factoryResponse = holodeck.harnessFactory.request({
     },
     testVectorResultOutputSpec: {
         ____types: "jsObject",
+        vectorFailed: { // the CellProcessor harness sets this true if it decides that this vector has gone vectored off the rail based on default options and overrides if specified in vectorRequest
+            ____accept: "jsBoolean",
+            ____defaultValue: false
+        },
         construction: {
             ____types: "jsObject",
             ____defaultValue: {},
@@ -106,6 +151,7 @@ const factoryResponse = holodeck.harnessFactory.request({
             }
 
             response.result = {
+                vectorFailed: false, // ?
                 construction: {
                     isValid: cpInstance.isValid(),
                     postConstructionToJSON: serialized,
@@ -113,7 +159,49 @@ const factoryResponse = holodeck.harnessFactory.request({
                 testActionLog: []
             };
 
-            if (!cpInstance.isValid()) {
+            switch (messageBody.options.failTestIf.CellProcessor.instanceValidity) {
+            case "ignore-never-fail":
+                break;
+            case "fail-if-instance-invalid":
+                if (!cpInstance.isValid()) {
+                    response.result.vectorFailed = true;
+                }
+                break;
+            case "fail-if-instance-valid":
+                if (cpInstance.isValid()) {
+                    response.result.vectorFailed = true;
+                }
+                break;
+            }
+
+            if (cpInstance.isValid()) {
+                switch (messageBody.options.failTestIf.CellProcessor.validInstanceHasOPCWarnings) {
+                case "ignore-never-fail":
+                    break;
+                case "fail-if-opc-has-warnings":
+                    if (cpInstance.toJSON().opc.toJSON().constructionWarnings.length !== 0) {
+                        response.result.vectorFailed = true;
+                    }
+                    break;
+                case "fail-if-opc-no-warnings":
+                    if (cpInstance.toJSON().opc.toJSON().constructionWarnings.length === 0) {
+                        response.result.vectorFailed = true;
+                    }
+                    break;
+                }
+
+                switch (messageBody.options.failTestIf.CellProcessor.validInstanceHasOPCErrors) {
+                case "ignore-never-fail":
+                    break;
+                case "fail-if-opc-has-errors":
+                    break;
+                case "fail-if-opc-no-errors":
+                    break;
+                }
+
+            }
+
+            if (errors.length) {
                 break;
             }
 

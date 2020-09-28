@@ -9,7 +9,15 @@
           "vectorRequest": {
             "holistic": {
               "holarchy": {
-                "CellProcessor": {}
+                "CellProcessor": {
+                  "options": {
+                    "failTestIf": {
+                      "CellProcessor": {
+                        "instanceValidity": "fail-if-instance-valid"
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -24,6 +32,7 @@
             "harnessDispatch": {
               "UBSclp3gSqCCmSvoG3W4tw": {
                 "ILfH_hfQSM-ZOohMgpYU8A": {
+                  "vectorFailed": false,
                   "construction": {
                     "isValid": false,
                     "postConstructionToJSON": "CellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::CellProcessor::constructor Filter] failed while normalizing request input. Error at path '~': Value of type 'jsUndefined' not in allowed type set [jsObject]."
