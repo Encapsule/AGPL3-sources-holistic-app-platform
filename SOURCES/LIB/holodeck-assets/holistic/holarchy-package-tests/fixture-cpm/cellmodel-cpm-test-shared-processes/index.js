@@ -2,8 +2,7 @@
 
 const holarchy = require("@encapsule/holarchy");
 
-
-const modelSpace = require("./model-space"); // some weird shit that portends things to come...
+const cellspace = require("../cellspace");
 
 const cmCPPTestMessenger = require("./cellmodel-messenger");
 const cmCPPTestDroid = require("./cellmodel-droid");
@@ -14,7 +13,7 @@ const connectProxyActionRequest = {
             connect: {
                 proxyPath: "#.proxyTest",
                 localCellProcess: {
-                    apmID: modelSpace.apmID("CPP Test 1"),
+                    apmID: cellspace.apmID("CPP Test 1"),
                     instanceName: "Test Process B"
                 }
             }
@@ -24,11 +23,11 @@ const connectProxyActionRequest = {
 
 
 const cppTestModel1 = new holarchy.CellModel({
-    id: modelSpace.cmID("CPP Test 1"),
+    id: cellspace.cmID("CPP Test 1"),
     name: "CPP Test 1",
     description: "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
     apm: {
-        id: modelSpace.apmID("CPP Test 1"),
+        id: cellspace.apmID("CPP Test 1"),
         name: "CPP Test 1",
         description: "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
         ocdDataSpec: {
@@ -243,12 +242,12 @@ const cppTestModel1 = new holarchy.CellModel({
 
 
 const cppTestModel2 = new holarchy.CellModel({
-    id: modelSpace.cmID("CPP Test 2"),
+    id: cellspace.cmID("CPP Test 2"),
     name: "CPP Test Model 2",
     description: "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
 
     apm: {
-        id: modelSpace.apmID("CPP Test 2"),
+        id: cellspace.apmID("CPP Test 2"),
         name: "CPP Test Model 2",
         description: "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
 
@@ -272,7 +271,7 @@ const cppTestModel2 = new holarchy.CellModel({
                 description: "Default process starting step.",
                 actions: {
                     exit: [
-                        { holarchy: { CellProcessProxy: { connect: { proxyPath: "#.proxyTest", localCellProcess: { apmID:  modelSpace.apmID("CPP Test Messenger") } } } } }
+                        { holarchy: { CellProcessProxy: { connect: { proxyPath: "#.proxyTest", localCellProcess: { apmID:  cellspace.apmID("CPP Test Messenger") } } } } }
                     ]
                 },
                 transitions: [ { transitionIf: { always: true }, nextStep: "finished" } ]
@@ -292,12 +291,12 @@ const cppTestModel2 = new holarchy.CellModel({
 });
 
 const cppTestModel2A = new holarchy.CellModel({
-    id: modelSpace.cmID("CPP Test 2A"),
+    id: cellspace.cmID("CPP Test 2A"),
     name: "CPP Test 2A",
     description: "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
 
     apm: {
-        id: modelSpace.apmID("CPP Test 2A"),
+        id: cellspace.apmID("CPP Test 2A"),
         name: "CPP Test 2A",
         description: "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
         steps: {
@@ -309,7 +308,7 @@ const cppTestModel2A = new holarchy.CellModel({
                 ],
                 actions: {
                     exit: [
-                        { holarchy: { CellProcessor: { process: { create: { apmID: modelSpace.apmID("CPP Test Messenger") } } } } }
+                        { holarchy: { CellProcessor: { process: { create: { apmID: cellspace.apmID("CPP Test Messenger") } } } } }
                     ]
                 }
             },
@@ -327,11 +326,11 @@ const cppTestModel2A = new holarchy.CellModel({
 });
 
 const cppTestModel2B = new holarchy.CellModel({
-    id: modelSpace.cmID("CPP Test 2B"),
+    id: cellspace.cmID("CPP Test 2B"),
     name: "CPP Test Model 2B",
     description: "A model that embeds helpers at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
     apm: {
-        id: modelSpace.apmID("CPP Test 2B"),
+        id: cellspace.apmID("CPP Test 2B"),
         name: "CPP Test Process 2B",
         description: "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly.",
         ocdDataSpec: {
@@ -351,7 +350,7 @@ const cppTestModel2B = new holarchy.CellModel({
                 helperCellThatCallsProcessCreate: {
                     ____types: "jsObject",
                     ____defaultValue: {},
-                    ____appdsl: { apm: modelSpace.apmID("CPP Test 2") }
+                    ____appdsl: { apm: cellspace.apmID("CPP Test 2") }
                 }
             }
         }
@@ -359,11 +358,11 @@ const cppTestModel2B = new holarchy.CellModel({
 });
 
 const cppTestModel2C = new holarchy.CellModel({
-    id: modelSpace.cmID("CPP Test 2C"),
+    id: cellspace.cmID("CPP Test 2C"),
     name: "CPP Test Model 2C",
     description: "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
     apm: {
-        id: modelSpace.apmID("CPP Test 2C"),
+        id: cellspace.apmID("CPP Test 2C"),
         name: "CPP Test Process 2C",
         description: "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
         ocdDataSpec: {
@@ -384,7 +383,7 @@ const cppTestModel2C = new holarchy.CellModel({
             testProcess2B: {
                 ____types: "jsObject",
                 ____defaultValue: {},
-                ____appdsl: { apm: modelSpace.apmID("CPP Test 2B") }
+                ____appdsl: { apm: cellspace.apmID("CPP Test 2B") }
             }
         }
     },
@@ -392,11 +391,11 @@ const cppTestModel2C = new holarchy.CellModel({
 });
 
 const cppTestModel3 = new holarchy.CellModel({
-    id: modelSpace.cmID("CPP Test 3"),
+    id: cellspace.cmID("CPP Test 3"),
     name: "CPP Test Model 3",
     description: "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
     apm: {
-        id: modelSpace.apmID("CPP Test 3"),
+        id: cellspace.apmID("CPP Test 3"),
         name: "CPP Test Process 3",
         description: "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in).",
         ocdDataSpec: {
@@ -443,7 +442,7 @@ const cppTestModel3 = new holarchy.CellModel({
             helper1E: {
                 ____types: "jsObject",
                 ____defaultValue: {},
-                ____appdsl: { apm: modelSpace.apmID("CPP Test 2C") }
+                ____appdsl: { apm: cellspace.apmID("CPP Test 2C") }
             }
 
         }
@@ -459,7 +458,7 @@ const cppTestModel3 = new holarchy.CellModel({
 
 
 module.exports = new holarchy.CellModel({
-    id: modelSpace.cmID("CPP Test Models Wrapper"),
+    id: cellspace.cmID("CPP Test Models Wrapper"),
     name: "CPP Test Models Wrapper",
     description: "A wrapper for CPP Test CellModels.",
     // TODO: Rename to 'usesCellModels' as the CellModels enumerated here do not actuall change anything about this CellModel's definition.

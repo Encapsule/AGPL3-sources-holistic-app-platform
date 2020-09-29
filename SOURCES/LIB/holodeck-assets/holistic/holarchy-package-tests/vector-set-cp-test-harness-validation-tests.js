@@ -22,7 +22,7 @@ module.exports = [
         name: "CellProcessor Test Harness Validation: CP Instance Validity #3",
         description: "Invalid CellProcessor instance w/validity option set to fail-if-instance-valid",
 
-    }
+    },
 
 
     {
@@ -50,7 +50,7 @@ module.exports = [
         id: "HUsKwZgXS2eEwXBA543ETQ",
         name: "Cell Processor Test Harness Validation: CP Instance OPC Warnings #1",
         description: "Valid CellProcessor instance w/out OPC construction warnings w/option set to ignore-never-fail.",
-    }
+    },
 
     {
         id: "nFbr0AznSVSVtlkvEMI_oQ",
