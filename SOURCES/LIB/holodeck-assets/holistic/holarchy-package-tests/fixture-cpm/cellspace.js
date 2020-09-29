@@ -1,10 +1,8 @@
-// model-space.js
+// cellspace.js
 
 const arccore = require("@encapsule/arccore");
 
 const space = { name: "Cell Proxy / Shared Process Test Space", id: "j450oO5FRF6GOiYYcuh6cw" };
-
-
 
 module.exports = {
     cmID: function(name_) {
@@ -15,7 +13,6 @@ module.exports = {
         };
         return arccore.identifier.irut.fromReference(coordinate).result;
     },
-
     apmID: function(name_) {
         const coordinate = {
             ...space,

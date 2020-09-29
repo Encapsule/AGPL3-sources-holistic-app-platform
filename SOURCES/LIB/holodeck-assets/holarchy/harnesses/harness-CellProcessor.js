@@ -194,8 +194,16 @@ const factoryResponse = holodeck.harnessFactory.request({
                 case "ignore-never-fail":
                     break;
                 case "fail-if-opc-has-errors":
+                    let lastEvalResponse = cpInstance.toJSON().opc.toJSON().lastEvalResponse;
+                    if (lastEvalResponse.error || (lastEvalResponse.result.summary.counts.errors !== 0)) {
+                        response.result.vectorFailed = true;
+                    }
                     break;
                 case "fail-if-opc-no-errors":
+                    lastEvalResponse = cpInstance.toJSON().opc.toJSON().lastEvalResponse;
+                    if (!lastEvalResponse.error && (lastEvalResponse.result.summary.counts.errors === 0)) {
+                        response.result.vectorFailed = true;
+                    }
                     break;
                 }
 

@@ -1,0 +1,50 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "T-BP4MgzyDOa-pr65Zrlmg": {
+      "TkqAmiF8TR-S70xy2BTW6g": {
+        "harnessRequest": {
+          "id": "TkqAmiF8TR-S70xy2BTW6g",
+          "name": "CellProcessor Test Harness Validation: CP Instance Validity #3",
+          "description": "Invalid CellProcessor instance w/validity option set to fail-if-instance-valid",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "CellProcessor": {
+                  "constructorRequest": {},
+                  "options": {
+                    "failTestIf": {
+                      "CellProcessor": {
+                        "instanceValidity": "fail-if-instance-valid"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "UBSclp3gSqCCmSvoG3W4tw": {
+                "TkqAmiF8TR-S70xy2BTW6g": {
+                  "vectorFailed": false,
+                  "construction": {
+                    "isValid": false,
+                    "postConstructionToJSON": "CellProcessor::constructor for [unspecified::unspecified] failed yielding a zombie instance. Filter [7tYVAis3TJGjaEe-6DiKHw::CellProcessor::constructor Filter] failed while normalizing request input. Error at path '~.id': Value of type 'jsUndefined' not in allowed type set [jsString]."
+                  },
+                  "testActionLog": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
