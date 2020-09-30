@@ -1,6 +1,6 @@
 
 const cppTestFixtureCellModel = require("./fixture-cpm");
-const cppTestModelSpace = require("./fixture-cpm/cellmodel-cpm-test-shared-processes/model-space");
+const cppTestModelSpace = require("./fixture-cpm/cellspace");
 
 module.exports = [
 
