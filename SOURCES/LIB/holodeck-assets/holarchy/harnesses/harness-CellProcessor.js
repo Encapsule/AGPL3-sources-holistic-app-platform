@@ -24,13 +24,9 @@ const holarchy = require("@encapsule/holarchy");
                         ____defaultValue: "fail-if-action-error"
                     },
                     evaluateError: {
-                        ____types :"jsObject",
-                        ____defaultValue: {},
-                        opcErrors: {
-                            ____types: "jsString",
-                            ____inValueSet: [ "ignore-never-fail", "fail-if-opc-has-errors", "fail-if-opc-no-errors" ],
-                            ____defaultValue: "fail-if-opc-has-errors"
-                        }
+                        ____types: "jsString",
+                        ____inValueSet: [ "ignore-never-fail", "fail-if-opc-has-errors", "fail-if-opc-no-errors" ],
+                        ____defaultValue: "fail-if-opc-has-errors"
                     }
                 }
             }
@@ -48,13 +44,6 @@ const holarchy = require("@encapsule/holarchy");
     }
 
     const makeTestActorRequestFilter = factoryResponse.result;
-
-    factoryResponse = makeTestActorRequestFilter.request();
-    if (factoryResponse.error) {
-        throw new Error(factoryResponse.error);
-    }
-
-    const defaultTestActorRequest = factoryResponse.result;
 
     factoryResponse = holodeck.harnessFactory.request({
         id: "UBSclp3gSqCCmSvoG3W4tw",
@@ -172,6 +161,7 @@ const holarchy = require("@encapsule/holarchy");
                     ____types: "jsObject",
                     testHarnessActionSummary: {
                         ____types: "jsObject",
+                        testDisposition: { ____accept: "jsString", ____inValueSet: [ "TEST PASS", "TEST FAIL" ] },
                         actionRequest: { ____accept: "jsString", ____inValueSet: [ "PASS", "FAIL" ] },
                         postActionCellProcessorEval: { ____accept: "jsString", ____inValueSet: [ "SKIPPED", "PASS", "FAIL" ] }
                     },
@@ -285,11 +275,20 @@ const holarchy = require("@encapsule/holarchy");
                     break;
                 }
 
-                messageBody.actRequests.forEach((actRequest_) => {
+                // Merge the actRequest queues (old/new) into a single new queue of testActorRequests that we can deal with identically.
+                const testActorRequests = [];
+                messageBody.testActorRequests.forEach((testActorRequest_) => { testActorRequests.push(testActorRequest_); });
+                messageBody.actRequests.forEach((actRequest_) => { testActorRequests.push(makeTestActorRequestFilter.request({ actRequest: actRequest_ }).result); });
+
+
+                while (testActorRequests.length) {
+
+                    const testActorRequest = testActorRequests.shift(); // FIFO the test actor requests.
 
                     delete cpInstance._private.opc._private.lastEvaluationResponse; // TODO: Figure out why this delete is necessary? Or, is it. I do not remember the details at this point. Seems harmless, so just a TODO.
 
-                    let actResponse = cpInstance.act(actRequest_);
+                    const actRequest = testActorRequest.actRequest;
+                    let actResponse = cpInstance.act(actRequest);
 
                     // Filter non-idempotent information out of the actResponse object.
 
@@ -299,21 +298,59 @@ const holarchy = require("@encapsule/holarchy");
                         delete actResponse.result.lastEvaluation.summary.evalStopwatch;
                     }
 
+                    let failTestDueToTestActorRequest = false;
+
+                    // Test actor request failure analysis.
+                    switch (testActorRequest.options.failTestIf.CellProcessor.actionError) {
+                    case "ignore-never-fail":
+                        break;
+                    case "fail-if-action-error":
+                        if (actResponse.error) {
+                            response.result.vectorFailed = true;
+                            failTestDueToTestActorRequest = true;
+                        }
+                        break;
+                    case "fail-if-action-result":
+                        if (!actResponse.error) {
+                            response.result.vectorFailed = true;
+                            failTestDueToTestActorRequest = true;
+                        }
+                        break;
+                    }
+
+                    switch(testActorRequest.options.failTestIf.CellProcessor.evaluateError) {
+                    case "ignore-never-fail":
+                        break;
+                    case "fail-if-opc-has-errors":
+                        let lastEvalResponse = cpInstance.toJSON().opc.toJSON().lastEvalResponse;
+                        if (lastEvalResponse.error || (lastEvalResponse.result.summary.counts.errors !== 0)) {
+                            response.result.vectorFailed = true;
+                        }
+                        break;
+                    case "fail-if-opc-no-errors":
+                        lastEvalResponse = cpInstance.toJSON().opc.toJSON().lastEvalResponse;
+                        if (!lastEvalResponse.error && (lastEvalResponse.result.summary.counts.errors === 0)) {
+                            response.result.vectorFailed = true;
+                        }
+                        break;
+                    }
+
                     response.result.testActionLog.push({
                         testHarnessActionSummary: {
+                            testDisposition: failTestDueToTestActorRequest?"TEST FAIL":"TEST PASS",
                             actionRequest: actResponse.error?"FAIL":"PASS",
                             postActionCellProcessorEval: actResponse.error?"SKIPPED":actResponse.result.lastEvaluation.summary.counts.errors?"FAIL":"PASS",
 
                         },
                         testHarnessActionDispatch: {
-                            actRequest: actRequest_,
+                            actRequest: actRequest,
                             actResponse: actResponse
                         },
                         postActionToJSON: JSON.parse(JSON.stringify(cpInstance.toJSON().opc.toJSON().ocdi.toJSON()))
 
                     });
 
-                }); // end for test CellProcessor.act calls
+                }; // while testActorRequests.length
 
                 break;
             }

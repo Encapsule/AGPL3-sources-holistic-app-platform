@@ -293,6 +293,9 @@ const runnerFascade = { // fake filter
 
             analysis.totalFailedVectors = resultPayload.summary.runnerStats.failures.length;
             console.log(`> total FAILED vectors ....... ${analysis.totalFailedVectors}`);
+            if (analysis.totalFailedVectors) {
+                resultPayload.summary.runnerStats.failures.forEach((testVectorID_) => { console.error("! Failed test vector: " + testVectorID_); });
+            }
 
         } else {
             console.error(`Runner failed with error: ${runnerResponse.error}`);

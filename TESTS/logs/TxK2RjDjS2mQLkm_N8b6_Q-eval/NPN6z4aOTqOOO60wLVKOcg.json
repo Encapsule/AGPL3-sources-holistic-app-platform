@@ -38,62 +38,60 @@
                       }
                     }
                   },
-                  "actRequests": [
+                  "testActorRequests": [
                     {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                "cellProcessUniqueName": "test-process-1"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CP constructor test #2",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "delete": {
-                                "cellProcessNamespace": {
+                      "actRequest": {
+                        "actorName": "CP constructor test #2",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "create": {
                                   "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
                                   "cellProcessUniqueName": "test-process-1"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "options": {
+                        "failTestIf": {
+                          "CellProcessor": {
+                            "actionError": "fail-if-action-result"
+                          }
+                        }
+                      },
+                      "actRequest": {
+                        "actorName": "CP constructor test #2",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "create": {
+                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                  "cellProcessUniqueName": "test-process-1"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "actRequest": {
+                        "actorName": "CP constructor test #2",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "delete": {
+                                  "cellProcessNamespace": {
+                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                    "cellProcessUniqueName": "test-process-1"
+                                  }
                                 }
                               }
                             }
@@ -3989,6 +3987,7 @@
                   "testActionLog": [
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
                         "postActionCellProcessorEval": "PASS"
                       },
@@ -4168,6 +4167,7 @@
                     },
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "FAIL",
                         "postActionCellProcessorEval": "SKIPPED"
                       },
@@ -4249,87 +4249,7 @@
                     },
                     {
                       "testHarnessActionSummary": {
-                        "actionRequest": "FAIL",
-                        "postActionCellProcessorEval": "SKIPPED"
-                      },
-                      "testHarnessActionDispatch": {
-                        "actRequest": {
-                          "actorName": "CP constructor test #2",
-                          "actionRequest": {
-                            "holarchy": {
-                              "CellProcessor": {
-                                "process": {
-                                  "create": {
-                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                    "cellProcessUniqueName": "test-process-1"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "actResponse": {
-                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]. But, the plug-in rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. Cannot create cell process ID 'GnZD29qpnZdyarMnoUPHEg' at path '~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ' because it is already active! From the perspective of this error handler it's difficult to say precisely what this error means given the broad semantics of ControllerAction plug-in filters. Here is a list of possible problems in decreasing order of liklihood: Your request format may be invalid above the point in the request data where the message router made its delegate selection and this error is the plug-in rejecting the request entirely. Or, the selected ControllerAction plug-in filter may implement some sort of additional input value validation that constrains the permissible input beyond what's examined by the message router and ControllerAction plug-in filters. And, you've violated API constraints. Or, you have made a valid request but applied the action to the wrong type of cell (i.e. you think you're acting on a cell bound to APM X but it's really bound to a Y). Or, the cell you're attempting to act upon is not in the correct process step or otherwise prepared to accept or take action on behalf of the caller. Or, there's a bug in the ControllerAction plug-in filter itself. If you track down the source of this error and it's not on this list please report it!"
-                        }
-                      },
-                      "postActionToJSON": {
-                        "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
-                          "cellProcessMap": {
-                            "ZDzHy574xd-FjPLB2rTCcQ": {
-                              "testProperty": null,
-                              "__apmiStep": "uninitialized"
-                            }
-                          },
-                          "revision": 1
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 1,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
-                              "vlist": [
-                                {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
-                                  "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
-                                  }
-                                },
-                                {
-                                  "u": "GnZD29qpnZdyarMnoUPHEg",
-                                  "p": {
-                                    "apmBindingPath": "~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ",
-                                    "role": "cell-process",
-                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A"
-                                  }
-                                }
-                              ],
-                              "elist": [
-                                {
-                                  "e": {
-                                    "u": "U1NTU1paWlqwsLCwxMTExA",
-                                    "v": "GnZD29qpnZdyarMnoUPHEg"
-                                  }
-                                }
-                              ]
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
                         "postActionCellProcessorEval": "PASS"
                       },

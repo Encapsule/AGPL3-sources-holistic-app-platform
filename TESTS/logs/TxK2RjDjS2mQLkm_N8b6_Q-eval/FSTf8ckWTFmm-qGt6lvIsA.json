@@ -4094,6 +4094,7 @@
                   "testActionLog": [
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
                         "postActionCellProcessorEval": "PASS"
                       },

@@ -113,16 +113,25 @@
                       }
                     }
                   },
-                  "actRequests": [
+                  "testActorRequests": [
                     {
-                      "actorName": "CPM Shared Process Test #3",
-                      "actorTaskDescription": "Start a test process.",
-                      "actionRequest": {
-                        "holarchy": {
+                      "options": {
+                        "failTestIf": {
                           "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                            "evaluateError": "fail-if-opc-no-errors"
+                          }
+                        }
+                      },
+                      "actRequest": {
+                        "actorName": "CPM Shared Process Test #3",
+                        "actorTaskDescription": "Start a test process.",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "create": {
+                                  "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                                }
                               }
                             }
                           }
@@ -130,15 +139,17 @@
                       }
                     },
                     {
-                      "actorName": "CPM Shared Process Test #3",
-                      "actorTaskDescription": "Delete a test process.",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "delete": {
-                                "cellProcessNamespace": {
-                                  "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                      "actRequest": {
+                        "actorName": "CPM Shared Process Test #3",
+                        "actorTaskDescription": "Delete a test process.",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "delete": {
+                                  "cellProcessNamespace": {
+                                    "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                                  }
                                 }
                               }
                             }
@@ -4834,6 +4845,7 @@
                   "testActionLog": [
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
                         "postActionCellProcessorEval": "FAIL"
                       },
@@ -5215,6 +5227,7 @@
                     },
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
                         "postActionCellProcessorEval": "PASS"
                       },

@@ -50,34 +50,18 @@
                       }
                     }
                   },
-                  "actRequests": [
+                  "testActorRequests": [
                     {
-                      "actorName": "CPM Cell Process Proxy Test #1",
-                      "actorTaskDescription": "Instantiate test process that embeds a process proxy worker process.",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "create": {
-                                "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                "cellProcessUniqueName": "Test Process A"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "actorName": "CPM Cell Process Proxy Test #1",
-                      "actorTaskDescription": "Attempt to delete the newly created shared process (should fail).",
-                      "actionRequest": {
-                        "holarchy": {
-                          "CellProcessor": {
-                            "process": {
-                              "delete": {
-                                "cellProcessNamespace": {
+                      "actRequest": {
+                        "actorName": "CPM Cell Process Proxy Test #1",
+                        "actorTaskDescription": "Instantiate test process that embeds a process proxy worker process.",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "create": {
                                   "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                  "cellProcessUniqueName": "Test Process B"
+                                  "cellProcessUniqueName": "Test Process A"
                                 }
                               }
                             }
@@ -86,16 +70,45 @@
                       }
                     },
                     {
-                      "actorName": "CPM Cell Process Proxy Test #1",
-                      "actorTaskDescription": "Attempt to delete the original test process (should succeed).",
-                      "actionRequest": {
-                        "holarchy": {
+                      "options": {
+                        "failTestIf": {
                           "CellProcessor": {
-                            "process": {
-                              "delete": {
-                                "cellProcessNamespace": {
-                                  "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                  "cellProcessUniqueName": "Test Process A"
+                            "actionError": "fail-if-action-result"
+                          }
+                        }
+                      },
+                      "actRequest": {
+                        "actorName": "CPM Cell Process Proxy Test #1",
+                        "actorTaskDescription": "Attempt to delete the newly created shared process (should fail).",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "delete": {
+                                  "cellProcessNamespace": {
+                                    "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                    "cellProcessUniqueName": "Test Process B"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "actRequest": {
+                        "actorName": "CPM Cell Process Proxy Test #1",
+                        "actorTaskDescription": "Attempt to delete the original test process (should succeed).",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "delete": {
+                                  "cellProcessNamespace": {
+                                    "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                    "cellProcessUniqueName": "Test Process A"
+                                  }
                                 }
                               }
                             }
@@ -4088,6 +4101,7 @@
                   "testActionLog": [
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
                         "postActionCellProcessorEval": "PASS"
                       },
@@ -7759,6 +7773,7 @@
                     },
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "FAIL",
                         "postActionCellProcessorEval": "SKIPPED"
                       },
@@ -7945,6 +7960,7 @@
                     },
                     {
                       "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
                         "postActionCellProcessorEval": "PASS"
                       },
