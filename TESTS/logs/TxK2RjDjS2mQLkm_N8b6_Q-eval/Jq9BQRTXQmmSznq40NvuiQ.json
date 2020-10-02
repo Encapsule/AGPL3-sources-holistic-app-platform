@@ -10,6 +10,15 @@
             "holistic": {
               "holarchy": {
                 "CellProcessor": {
+                  "options": {
+                    "failTestIf": {
+                      "postTestAnalysis": {
+                        "CellProcessManager": {
+                          "ownedProcessTableEmpty": "fail-if-no-owned-processes"
+                        }
+                      }
+                    }
+                  },
                   "constructorRequest": {
                     "id": "Jq9BQRTXQmmSznq40NvuiQ",
                     "name": "CPM Child Processes All In Step Operator Test",

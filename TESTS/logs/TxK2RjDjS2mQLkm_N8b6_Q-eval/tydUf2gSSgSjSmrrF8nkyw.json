@@ -10,6 +10,15 @@
             "holistic": {
               "holarchy": {
                 "CellProcessor": {
+                  "options": {
+                    "failTestIf": {
+                      "postTestAnalysis": {
+                        "CellProcessManager": {
+                          "ownedProcessTableEmpty": "fail-if-no-owned-processes"
+                        }
+                      }
+                    }
+                  },
                   "constructorRequest": {
                     "id": "tydUf2gSSgSjSmrrF8nkyw",
                     "name": "CPM Descendant Processes All In Step Test",

@@ -7,6 +7,7 @@
           "name": "CPM Shared Process Test #2",
           "description": "Start verifying that some simple CellModels that include CellProxy helpers work correctly when used as helpers, owned, and shared processes alike.",
           "vectorRequest": {
+            "description": "Verify that CPP Test 2 APM is able to connect it's top-level proxy helper to shared test messenger shared cell process.",
             "holistic": {
               "holarchy": {
                 "CellProcessor": {
@@ -67,6 +68,23 @@
                             "process": {
                               "create": {
                                 "apmID": "XP3yGl1ciCtMsHnMdn5i3A"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "actorName": "CPM Shared Process Test #2",
+                      "actorTaskDescription": "Delete the test process.",
+                      "actionRequest": {
+                        "holarchy": {
+                          "CellProcessor": {
+                            "process": {
+                              "delete": {
+                                "cellProcessNamespace": {
+                                  "apmID": "XP3yGl1ciCtMsHnMdn5i3A"
+                                }
                               }
                             }
                           }
@@ -4568,6 +4586,140 @@
                                   }
                                 }
                               ]
+                            }
+                          },
+                          "__apmiStep": "ready"
+                        }
+                      }
+                    },
+                    {
+                      "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
+                        "actionRequest": "PASS",
+                        "postActionCellProcessorEval": "PASS"
+                      },
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "CPM Shared Process Test #2",
+                          "actorTaskDescription": "Delete the test process.",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "delete": {
+                                    "cellProcessNamespace": {
+                                      "apmID": "XP3yGl1ciCtMsHnMdn5i3A"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "actResponse": {
+                          "error": null,
+                          "result": {
+                            "actionResult": {
+                              "apmBindingPath": "~",
+                              "cellProcessID": "U1NTU1paWlqwsLCwxMTExA"
+                            },
+                            "lastEvaluation": {
+                              "evalNumber": 2,
+                              "summary": {
+                                "counts": {
+                                  "bindings": 1,
+                                  "frames": 1,
+                                  "errors": 0,
+                                  "transitions": 0
+                                }
+                              },
+                              "evalFrames": [
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 1,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "g7q1sdooMYBA7q759AKr5Q",
+                                          "vdid": "U2hTAFcKs4dW3cAZWTRtAg",
+                                          "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]",
+                                          "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "postActionToJSON": {
+                        "XP3yGl1ciCtMsHnMdn5i3A_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 2
+                        },
+                        "blVAl6l4wc87xvb0Bgdidg_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 2
+                        },
+                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                          "ownedCellProcesses": {
+                            "revision": 4,
+                            "digraph": {
+                              "name": "Owned Cell Processes Tree Model",
+                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                              "vlist": [
+                                {
+                                  "u": "U1NTU1paWlqwsLCwxMTExA",
+                                  "p": {
+                                    "apmBindingPath": "~",
+                                    "name": "Cell Process Manager"
+                                  }
+                                }
+                              ],
+                              "elist": []
+                            }
+                          },
+                          "sharedCellProcesses": {
+                            "revision": 2,
+                            "digraph": {
+                              "name": "Shared Cell Processes Digraph Model",
+                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                              "vlist": [],
+                              "elist": []
                             }
                           },
                           "__apmiStep": "ready"

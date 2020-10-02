@@ -10,6 +10,15 @@
             "holistic": {
               "holarchy": {
                 "CellProcessor": {
+                  "options": {
+                    "failTestIf": {
+                      "postTestAnalysis": {
+                        "CellProcessManager": {
+                          "ownedProcessTableEmpty": "fail-if-no-owned-processes"
+                        }
+                      }
+                    }
+                  },
                   "constructorRequest": {
                     "id": "rdh8dW74RnO7lWGNlFR79A",
                     "name": "CPM Parent Process Active Test",

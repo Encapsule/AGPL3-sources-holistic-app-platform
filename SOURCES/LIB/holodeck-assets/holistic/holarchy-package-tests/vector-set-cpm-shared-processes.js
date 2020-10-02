@@ -98,6 +98,7 @@ module.exports = [
         name: "CPM Shared Process Test #2",
         description: "Start verifying that some simple CellModels that include CellProxy helpers work correctly when used as helpers, owned, and shared processes alike.",
         vectorRequest: {
+            description: "Verify that CPP Test 2 APM is able to connect it's top-level proxy helper to shared test messenger shared cell process.",
             holistic: {
                 holarchy: {
                     CellProcessor: {
@@ -113,8 +114,12 @@ module.exports = [
                                 actorName: "CPM Shared Process Test #2",
                                 actorTaskDescription: "Start a test process.",
                                 actionRequest: { holarchy: { CellProcessor: { process: { create: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } } }
+                            },
+                            {
+                                actorName: "CPM Shared Process Test #2",
+                                actorTaskDescription: "Delete the test process.",
+                                actionRequest: { holarchy: { CellProcessor: { process: { delete: { cellProcessNamespace: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } } } }
                             }
-
                         ]
                     }
                 }

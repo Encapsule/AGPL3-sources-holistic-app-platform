@@ -10,6 +10,15 @@
             "holistic": {
               "holarchy": {
                 "CellProcessor": {
+                  "options": {
+                    "failTestIf": {
+                      "postTestAnalysis": {
+                        "CellProcessManager": {
+                          "ownedProcessTableEmpty": "fail-if-no-owned-processes"
+                        }
+                      }
+                    }
+                  },
                   "constructorRequest": {
                     "id": "vzOf_2LZTgG7PSWqr_JzgA",
                     "name": "CPM Ancestor Processes All In Step Operator Test",
