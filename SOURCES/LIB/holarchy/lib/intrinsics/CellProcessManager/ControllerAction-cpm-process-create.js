@@ -1,7 +1,7 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/CellProcessManager/ControllerAction-cpm-process-create.js
 
 const arccore = require("@encapsule/arccore");
-const ControllerAction = require("../../ControllerAction");
+const ControllerAction = require("../../../ControllerAction");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 const cpmLib = require("./lib");
 

@@ -18,7 +18,7 @@ const routerEventDescriptorSpec = {
 const apmClientHashRouteLocationProcessor = module.exports = {
 
     id: "-1Ptaq_zTUa8Gfv_3ODtDg",
-    name: "DOM Location Processor",
+    name: "Holistic App Client Kernel: DOM Location Processor",
     description: "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
 
     ocdDataSpec: {

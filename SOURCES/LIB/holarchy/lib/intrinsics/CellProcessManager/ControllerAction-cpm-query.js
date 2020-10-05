@@ -1,6 +1,6 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-query.js
 
-const ControllerAction = require("../../ControllerAction");
+const ControllerAction = require("../../../ControllerAction");
 
 const controllerAction = new ControllerAction({
     id: "L2mTv5LvT12WIYb0cYOsLA",

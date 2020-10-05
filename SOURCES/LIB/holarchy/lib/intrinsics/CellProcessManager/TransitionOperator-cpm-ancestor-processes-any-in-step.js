@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const cpmLib = require("./lib");
-const TransitionOperator = require("../../TransitionOperator");
+const TransitionOperator = require("../../../TransitionOperator");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 const cpmApmBindingPath = `~.${cpmMountingNamespaceName}`;
 const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");

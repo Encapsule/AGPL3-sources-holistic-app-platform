@@ -1,6 +1,6 @@
 // TransitionOperator-cpp-proxy-logical-state-broken.js
 
-const TransitionOperator = require("../../../lib/TransitionOperator");
+const TransitionOperator = require("../../../TransitionOperator");
 const cppLib = require("./lib");
 
 const transitionOperator = new TransitionOperator({

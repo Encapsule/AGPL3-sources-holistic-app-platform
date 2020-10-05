@@ -1,7 +1,7 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/CellProcessProxy/ControllerAction-cpp-proxy-connect.js
 
 const arccore = require("@encapsule/arccore");
-const ControllerAction = require("../../../lib/ControllerAction");
+const ControllerAction = require("../../../ControllerAction");
 const OCD = require("../../../lib/ObservableControllerData");
 const cpmLib = require("../CellProcessManager/lib");
 const cppLib = require("./lib");

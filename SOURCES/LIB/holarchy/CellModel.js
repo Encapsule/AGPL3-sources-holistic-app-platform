@@ -119,4 +119,4 @@ module.exports = class CellModel {
         return response;
     } // getCMConfig (TODO: getConfig)
 
-}
+};

@@ -1,7 +1,7 @@
 
 // ControllerAction-ocd-read-namespace-indirect.js
 
-const ControllerAction = require("../../../ControllerAction");
+const ControllerAction = require("../../../../ControllerAction");
 const ObservableControllerData = require("../../../ObservableControllerData");
 
 module.exports = new ControllerAction({

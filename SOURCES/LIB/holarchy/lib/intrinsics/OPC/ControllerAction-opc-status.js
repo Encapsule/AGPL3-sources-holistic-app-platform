@@ -1,5 +1,5 @@
 
-const ControllerAction = require("../../ControllerAction");
+const ControllerAction = require("../../../ControllerAction");
 
 module.exports = new ControllerAction({
     id: "S1GqYjTtSQazSxkIL9vtpA",

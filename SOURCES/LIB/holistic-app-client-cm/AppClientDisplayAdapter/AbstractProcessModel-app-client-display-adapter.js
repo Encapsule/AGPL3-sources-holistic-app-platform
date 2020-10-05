@@ -1,30 +1,48 @@
-// opm-d2r2-react-client-display-adaptor-declaration.js
-//
-// This is constructor data for @encapsule/holarchy.ObservableProcessModel class constructor function.
-//
+/*
 
-module.exports = {
+  Holistic App Client Kernel: d2r2/React Client Display Adaptor
+
+  d2r2/React Client Display Adaptor process provides generic routing of @encapsule/d2r2 request object that represents
+  an application/service command to change entirely, or partially update the layout of the HTML5 page view currently
+  visible to the user.
+
+  This process is always created as an owned singleton process by the Holistic App Client Kernel process.
+
+  Derived client application CellModels do not ever interact w/the d2r2/React Client Display Adaptor process directly.
+  Rather, d2r2/React Client Display Adaptor acts at the behest of the Holistic App Client Kernel process exclusively:
+
+  - Application-specified DOMElement (typically a reference to a <DIV/>) to be used to render display layout updates via React
+  - Application-specified d2r2 Component set (an array of d2r2 Component wrapper filters) used to specialize the d2r2 <ComponentRouter/> instance.
+  - The cell process ID of an application-defined AppClientDisplayDriver cell process
+    - d2r2/React display adaptor process will open a CellProxy to the derived client application's designated "display driver process".
+    - Once display adaptor has connected its proxy to the the derived application's display driver process, it monitors the display driver process for
+      change and then reads (PULL) the display driver's updated (because it's changed) d2r2 request when (a) the last display update made by the display
+      adaptor has completed AND (b) the derived application's display driver process indicates that a new / updated d2r2 display layout request
+      is available for processing.
+*/
+
+
+
+
+const holarchy = require("@encapsule/holarchy");
+
+const apm = new holarchy.AbstractProcessModel({
 
     id: "IxoJ83u0TXmG7PLUYBvsyg",
-    name: "d2r2/React Client Display Adaptor",
+    name: "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
     description: "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
+
     ocdDataSpec: {
-        ____label: "d2r2/React Client Display Adaptor Memory",
+
+        ____label: "Holistic App Client Kernel: d2r2/React Client Display Adaptor Memory",
         ____description: "Shared memory definition for the d2r2/React Client Display Adaptor OPM.",
         ____types: "jsObject",
 
-        inputs: {
-            // TODO: Probably none of the inputs should be serialized.
-            ____label: "Adaptor Inputs",
+        construction: {
             ____types: "jsObject",
             ____defaultValue: {},
-            ComponentRouter: {
-                // TODO: Not serializable
-                ____label: "d2r2 <ComponentRouter/>",
-                ____description: "A reference to previously-constructed <ComponentRouter/> instance (a React component that implements @encapsule/d2r2 dynamic layout protocol).",
-                ____accept: [ "jsNull", "jsFunction" ],
-                ____defaultValue: null
-            },
+            toJSON: { ____types: "jsFunction", ____defaultValue: function() { return { tempState: true }; } },
+            instanceName: { ____types: [ "jsNull", "jsString" ], ____defaultValue: null }, // Set by CellProcessor CPM on owned process initialization.
             DOMElement: {
                 // TODO: Not serializable
                 ____label: "d2r2 Target DOM Element",
@@ -32,36 +50,18 @@ module.exports = {
                 ____opaque: true, // this is typically a "[object HTMLDivElement]" type not natively supported by filter.
                 ____defaultValue: null
             },
-            clock: {
-                ____label: "React Output Processor Clock",
-                ____description: "A frame latch used to trigger dynamic rerendering of the client view via d2r2 <ComponentRouter/> and Facebook React RTL's.",
-                ____types: "jsObject",
-                ____appdsl: { apm: "z_mTe02hSWmaM1iRO1pBeA" /* bind to Frame Latch OPM */ },
-                value: {
-                    ____label: "Render Command",
-                    ____types: [ "jsNull", "jsObject" ],
-                    ____defaultValue: null,
-                    options: {
-                        ____types: "jsObject",
-                        ____defaultValue: {},
-                        rehydrate: {
-                            ____types: "jsBoolean",
-                            ____defaultValue: false
-                        }
-                    },
-                    pathRenderContext: {
-                        ____label: "Render Context OCD Path",
-                        ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.",
-                        ____accept: "jsString"
-                    },
-                    pathRenderData: {
-                        ____label: "Render Data OCD Path",
-                        ____description: "Fully-qualified OCD path of the descriptor object to be deep copied and passed to <ComponentRouter/> via this.props.renderData.",
-                        ____accept: "jsString"
-                    }
-                } // value
-            } // clock
-        }, // inputs
+            d2r2Components: {
+                ____types: [ "jsNull", "jsArray" ],
+                ____defaultValue: null,
+                d2r2Component: { ____accept: "jsObject" }
+            }
+        },
+
+        driverProxy: {
+            ____types: "jsObject",
+            ____defaultValue: {},
+            ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /*CellProxy*/ }
+        },
 
         private: {
             ____types: "jsObject",
@@ -70,15 +70,48 @@ module.exports = {
                 ____accept: "jsNumber",
                 ____defaultValue: -1
             },
-            renderPending: {
+            busyRendering: {
                 ____accept: "jsBoolean",
                 ____defaultValue: false
+            },
+            runtimeTempState: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                toJSON: { ____types: "jsFunction", ____defaultValue: function() { return { tempState: true }; } },
+                DOMElement: {
+                    // TODO: Not serializable
+                    ____label: "d2r2 Target DOM Element",
+                    ____description: "A reference to the DOM element to be be managed by the d2r2/React Client Display Adaptor (obtained with document.getElementById).",
+                    ____opaque: true, // this is typically a "[object HTMLDivElement]" type not natively supported by filter.
+                    ____defaultValue: null
+                },
+                ComponentRouterInstance: {
+                    ____accept: [ "jsNull", "jsObject" ],
+                    ____defaultValue: null }
             }
         }
 
     }, // ocdDataSpec
 
     steps: {
+
+        uninitialized: {
+            description: "Default process start step.",
+            transitions: [
+                { transitionIf: { always: true }, nextStep: "initializing" }
+            ]
+        },
+
+        initializing: {
+            description: "d2r2/React Client Display Adaptor process is initializing...",
+        },
+
+
+
+        // ----------------------------------------------------------------
+
+        /*
+
 
         uninitialized: {
             description: "Default APM process step.",
@@ -157,7 +190,16 @@ module.exports = {
             description: "Waiting for next clock signal to re-render client application view.",
             transitions: [ { transitionIf: { holarchy: { cm: { operators: { opmi: { atStep: { path: "#.inputs.clock", step: "updated" } } } } } },  nextStep: "render" } ]
         }
+        */
+
 
     } // steps
 
-}; // APM declaration
+});
+
+if (!apm.isValid()) {
+    throw new Error(apm.toJSON());
+}
+
+module.exports = apm;
+

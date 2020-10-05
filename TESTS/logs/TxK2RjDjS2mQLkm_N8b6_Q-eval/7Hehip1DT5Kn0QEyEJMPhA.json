@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "s1wBFqR0ER-r6vVaHm01jg",
+                    "vdid": "SCpzX7xonyIhLn3drcLNlQ",
                     "name": "Holistic App Client Kernel",
                     "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                     "cmat": {
@@ -22,20 +22,20 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "s1wBFqR0ER-r6vVaHm01jg",
+                            "vdid": "SCpzX7xonyIhLn3drcLNlQ",
                             "name": "Holistic App Client Kernel",
                             "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                             "type": "CM",
                             "ENENGxq1TkCa6Sk9YXaLlw": {
                               "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                              "vdid": "NXptX1HTZ1Jc7OZBEg1Z0A",
+                              "vdid": "c78TuXF_hJRUjLZWeUDDIA",
                               "name": "Holistic App Client Runtime",
                               "description": "Holistic client application core runtime.",
                               "type": "CM",
                               "PPL45jw5RDWSMNsB97WIWg": {
                                 "id": "PPL45jw5RDWSMNsB97WIWg",
-                                "vdid": "srFhBFKNO0CCZJafK9fp2g",
-                                "name": "Holistic Client App Runtime Kernel",
+                                "vdid": "TeFe4LbWYBw06mqjmeT9Lg",
+                                "name": "Holistic Client App Kernel",
                                 "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                                 "type": "APM"
                               },
@@ -245,14 +245,14 @@
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
                               "id": "qzMWhMstQ4Ki06O75y5hMA",
-                              "vdid": "4KAydejZa-EFhNB9trop1A",
+                              "vdid": "1A8O_o7a4B1w_KWyL_LQaQ",
                               "name": "DOM Location Processor",
                               "description": "Abstracts monitoring and setting the window.location and hashroute.",
                               "type": "CM",
                               "-1Ptaq_zTUa8Gfv_3ODtDg": {
                                 "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                                "vdid": "vhsSfD19StAeZ3ez3MOFWw",
-                                "name": "DOM Location Processor",
+                                "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                                "name": "Holistic App Client Kernel: DOM Location Processor",
                                 "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                                 "type": "APM"
                               },
@@ -273,28 +273,28 @@
                             },
                             "vrmv3WMRQXql7Bx3DDEIDw": {
                               "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                              "vdid": "kjFXGccqjhvcWMDElBpQhA",
+                              "vdid": "cnXhyfqjpwH3SjkoAZJgUA",
                               "name": "Holistic Client App View Manager",
                               "description": "Provides management of client view cells in a holistic client app.",
                               "type": "CM",
                               "Hsu-43zBRgqHItCPWPiBng": {
                                 "id": "Hsu-43zBRgqHItCPWPiBng",
-                                "vdid": "OWua2vzX9aOS549fLUzD2g",
-                                "name": "Holistic Client App View Processor",
+                                "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                                "name": "Holistic App Client Kernel: Client View Processor",
                                 "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                                 "type": "APM"
                               }
                             },
                             "UX7JquBhSZO0QyEk7u9-sw": {
                               "id": "UX7JquBhSZO0QyEk7u9-sw",
-                              "vdid": "Xe2kRhVpHDVcjjHsiH37VA",
-                              "name": "Holistic App Client Display Adapter",
+                              "vdid": "cv1g7OJTSwMT-S5fT7k1ag",
+                              "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                               "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                               "type": "CM",
                               "IxoJ83u0TXmG7PLUYBvsyg": {
                                 "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                "vdid": "guj8_A0Z2pydtetwzFwaqA",
-                                "name": "d2r2/React Client Display Adaptor",
+                                "vdid": "PZm8_r7O3NFEVgHwhn-gzg",
+                                "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                                 "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                                 "type": "APM"
                               },
@@ -330,7 +330,7 @@
                   "summary": {
                     "counts": {
                       "vertices": 45,
-                      "edges": 84,
+                      "edges": 83,
                       "artifacts": {
                         "cm": 12,
                         "apm": 5,
@@ -350,27 +350,27 @@
                           "description": "Frame latch provides a way to create a value and attach a model that transitions between waiting and updated process steps whenever the value is written. This allows consumers of the value (other OPM typically) to monitor frame latch process to know when the value is updated so that they can read the new value and do whatever they need to with it."
                         },
                         {
+                          "id": "Hsu-43zBRgqHItCPWPiBng",
+                          "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                          "name": "Holistic App Client Kernel: Client View Processor",
+                          "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals."
+                        },
+                        {
                           "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                          "vdid": "vhsSfD19StAeZ3ez3MOFWw",
-                          "name": "DOM Location Processor",
+                          "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                          "name": "Holistic App Client Kernel: DOM Location Processor",
                           "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location."
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "srFhBFKNO0CCZJafK9fp2g",
-                          "name": "Holistic Client App Runtime Kernel",
+                          "vdid": "TeFe4LbWYBw06mqjmeT9Lg",
+                          "name": "Holistic Client App Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
                         {
-                          "id": "Hsu-43zBRgqHItCPWPiBng",
-                          "vdid": "OWua2vzX9aOS549fLUzD2g",
-                          "name": "Holistic Client App View Processor",
-                          "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals."
-                        },
-                        {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "guj8_A0Z2pydtetwzFwaqA",
-                          "name": "d2r2/React Client Display Adaptor",
+                          "vdid": "PZm8_r7O3NFEVgHwhn-gzg",
+                          "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                         }
                       ],
@@ -531,20 +531,20 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "s1wBFqR0ER-r6vVaHm01jg",
+                          "vdid": "SCpzX7xonyIhLn3drcLNlQ",
                           "name": "Holistic App Client Kernel",
                           "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                           "type": "CM",
                           "ENENGxq1TkCa6Sk9YXaLlw": {
                             "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                            "vdid": "NXptX1HTZ1Jc7OZBEg1Z0A",
+                            "vdid": "c78TuXF_hJRUjLZWeUDDIA",
                             "name": "Holistic App Client Runtime",
                             "description": "Holistic client application core runtime.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "srFhBFKNO0CCZJafK9fp2g",
-                              "name": "Holistic Client App Runtime Kernel",
+                              "vdid": "TeFe4LbWYBw06mqjmeT9Lg",
+                              "name": "Holistic Client App Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "type": "APM"
                             },
@@ -754,14 +754,14 @@
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "4KAydejZa-EFhNB9trop1A",
+                            "vdid": "1A8O_o7a4B1w_KWyL_LQaQ",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
                             "-1Ptaq_zTUa8Gfv_3ODtDg": {
                               "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                              "vdid": "vhsSfD19StAeZ3ez3MOFWw",
-                              "name": "DOM Location Processor",
+                              "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                              "name": "Holistic App Client Kernel: DOM Location Processor",
                               "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                               "type": "APM"
                             },
@@ -782,28 +782,28 @@
                           },
                           "vrmv3WMRQXql7Bx3DDEIDw": {
                             "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                            "vdid": "kjFXGccqjhvcWMDElBpQhA",
+                            "vdid": "cnXhyfqjpwH3SjkoAZJgUA",
                             "name": "Holistic Client App View Manager",
                             "description": "Provides management of client view cells in a holistic client app.",
                             "type": "CM",
                             "Hsu-43zBRgqHItCPWPiBng": {
                               "id": "Hsu-43zBRgqHItCPWPiBng",
-                              "vdid": "OWua2vzX9aOS549fLUzD2g",
-                              "name": "Holistic Client App View Processor",
+                              "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                              "name": "Holistic App Client Kernel: Client View Processor",
                               "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                               "type": "APM"
                             }
                           },
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
-                            "vdid": "Xe2kRhVpHDVcjjHsiH37VA",
-                            "name": "Holistic App Client Display Adapter",
+                            "vdid": "cv1g7OJTSwMT-S5fT7k1ag",
+                            "name": "Holistic App Client Kernel: d2r2/React Client Display Adaptor",
                             "description": "Manages the DOM display via @encapsule/d2r2 and React.",
                             "type": "CM",
                             "IxoJ83u0TXmG7PLUYBvsyg": {
                               "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                              "vdid": "guj8_A0Z2pydtetwzFwaqA",
-                              "name": "d2r2/React Client Display Adaptor",
+                              "vdid": "PZm8_r7O3NFEVgHwhn-gzg",
+                              "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                               "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React.",
                               "type": "APM"
                             },

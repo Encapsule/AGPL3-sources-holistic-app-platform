@@ -1,7 +1,7 @@
 
 // ControllerAction-clear-boolean-flag.js
 
-const ControllerAction = require("../../../ControllerAction");
+const ControllerAction = require("../../../../ControllerAction");
 const ObservableControllerData = require("../../../ObservableControllerData");
 
 

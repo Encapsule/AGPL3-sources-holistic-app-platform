@@ -1,14 +1,26 @@
-// @encapsule/holarchy package exports.
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
+
+// @encapsule/holarchy - the keystone of holistic app platform
+// Copyright (C) 2020 Christopher D. Russell for Encapsule Project
 
 const packageMeta = require("./package.json");
 
+const CellT2Point = require("./CellT2Point");
 const CellModel = require("./CellModel");
 const CellProcessor = require("./CellProcessor");
-const ObservableProcessController = require("./lib/ObservableProcessController");
-const AbstractProcessModel = require("./lib/AbstractProcessModel");
-const TransitionOperator = require("./lib/TransitionOperator");
-const ControllerAction = require("./lib/ControllerAction");
-const ObservableControllerData = require("./lib/ObservableControllerData");
+const AbstractProcessModel = require("./AbstractProcessModel");
+const TransitionOperator = require("./TransitionOperator");
+const ControllerAction = require("./ControllerAction");
+
+// Implementation details of in-OS-process CellProcessor cellular software service runtime host environment.
+const ObservableProcessController = require("./lib/ObservableProcessController"); // OPC - cellular runtime core (leveraced by CellProcessor (CP))
+const ObservableControllerData = require("./lib/ObservableControllerData"); // OCD - celluar runtime memory core (leveraged by ObservableProcessController (OPC))
 
 module.exports = {
 
@@ -24,6 +36,11 @@ module.exports = {
     // ================================================================
     // DEVELOPER API
     // ================================================================
+
+    /*
+      CellPoint
+    */
+    CellT2Point,
 
     /*
       CellModel (CM) is an ES6 class instantiated with operator
@@ -106,7 +123,7 @@ module.exports = {
     // ================================================================
     // ================================================================
     // DEPRECATED: ApplicationStateController is deprecated. Use OCD.
-    ApplicationDataStore: ObservableControllerData,
+    // ApplicationDataStore: ObservableControllerData,
     // ================================================================
     // ================================================================
     // ================================================================

@@ -1,7 +1,7 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/ControllerAction-cpm-process-query.js
 
 const arccore = require("@encapsule/arccore");
-const ControllerAction = require("../../ControllerAction");
+const ControllerAction = require("../../../ControllerAction");
 const cpmLib = require("./lib");
 
 const cellProcessQueryResponseDescriptorSpec = require("./lib/iospecs/cell-process-query-response-descriptor-spec");

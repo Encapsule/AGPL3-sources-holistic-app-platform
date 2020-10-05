@@ -2,9 +2,9 @@
 
 const arccore = require("@encapsule/arccore");
 const ObservableProcessController = require("../ObservableProcessController");
-const AbstractProcessModel = require("../AbstractProcessModel");
-const TransitionOperator = require("../TransitionOperator");
-const ControllerAction = require("../ControllerAction");
+const AbstractProcessModel = require("../../AbstractProcessModel");
+const TransitionOperator = require("../../TransitionOperator");
+const ControllerAction = require("../../ControllerAction");
 
 
 const indexVertices = {

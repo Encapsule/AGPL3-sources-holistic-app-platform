@@ -1,6 +1,6 @@
 // TransitionOperator-ocd-map-is-keyless
 
-const TransitionOperator = require("../../../TransitionOperator");
+const TransitionOperator = require("../../../../TransitionOperator");
 const ObservableControllerData = require("../../../ObservableControllerData");
 
 module.exports = new TransitionOperator({

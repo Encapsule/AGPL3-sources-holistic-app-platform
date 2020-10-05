@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                    "vdid": "kjFXGccqjhvcWMDElBpQhA",
+                    "vdid": "cnXhyfqjpwH3SjkoAZJgUA",
                     "name": "Holistic Client App View Manager",
                     "description": "Provides management of client view cells in a holistic client app.",
                     "cmat": {
@@ -22,14 +22,14 @@
                           "type": "INDEX",
                           "vrmv3WMRQXql7Bx3DDEIDw": {
                             "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                            "vdid": "kjFXGccqjhvcWMDElBpQhA",
+                            "vdid": "cnXhyfqjpwH3SjkoAZJgUA",
                             "name": "Holistic Client App View Manager",
                             "description": "Provides management of client view cells in a holistic client app.",
                             "type": "CM",
                             "Hsu-43zBRgqHItCPWPiBng": {
                               "id": "Hsu-43zBRgqHItCPWPiBng",
-                              "vdid": "OWua2vzX9aOS549fLUzD2g",
-                              "name": "Holistic Client App View Processor",
+                              "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                              "name": "Holistic App Client Kernel: Client View Processor",
                               "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                               "type": "APM"
                             },
@@ -267,8 +267,8 @@
                         },
                         {
                           "id": "Hsu-43zBRgqHItCPWPiBng",
-                          "vdid": "OWua2vzX9aOS549fLUzD2g",
-                          "name": "Holistic Client App View Processor",
+                          "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                          "name": "Holistic App Client Kernel: Client View Processor",
                           "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals."
                         }
                       ],
@@ -399,14 +399,14 @@
                         "type": "INDEX",
                         "vrmv3WMRQXql7Bx3DDEIDw": {
                           "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                          "vdid": "kjFXGccqjhvcWMDElBpQhA",
+                          "vdid": "cnXhyfqjpwH3SjkoAZJgUA",
                           "name": "Holistic Client App View Manager",
                           "description": "Provides management of client view cells in a holistic client app.",
                           "type": "CM",
                           "Hsu-43zBRgqHItCPWPiBng": {
                             "id": "Hsu-43zBRgqHItCPWPiBng",
-                            "vdid": "OWua2vzX9aOS549fLUzD2g",
-                            "name": "Holistic Client App View Processor",
+                            "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                            "name": "Holistic App Client Kernel: Client View Processor",
                             "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
                             "type": "APM"
                           },

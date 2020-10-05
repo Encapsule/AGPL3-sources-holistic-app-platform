@@ -1,6 +1,6 @@
 // AbstractProcessModel-cpp.js
 
-const AbstractProcessModel = require("../../../lib/AbstractProcessModel");
+const AbstractProcessModel = require("../../../AbstractProcessModel");
 
 const apm = new AbstractProcessModel({
 

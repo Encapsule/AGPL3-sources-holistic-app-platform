@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const cpmLib = require("./lib");
-const TransitionOperator = require("../../TransitionOperator");
+const TransitionOperator = require("../../../TransitionOperator");
 const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
 
 // TODO: Not sure we'll actually ever use this. But it's simple enough. Keep an eye. Maybe remove it later?

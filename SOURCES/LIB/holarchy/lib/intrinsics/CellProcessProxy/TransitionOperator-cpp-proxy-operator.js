@@ -1,6 +1,6 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/CellProcessProxy/TransitionOperator-cpp-proxy-operator.js
 
-const TransitionOperator = require("../../../lib/TransitionOperator");
+const TransitionOperator = require("../../../TransitionOperator");
 const cppLib = require("./lib");
 
 const action = new TransitionOperator({

@@ -3,7 +3,7 @@
 module.exports = {
 
     id: "PPL45jw5RDWSMNsB97WIWg",
-    name: "Holistic Client App Runtime Kernel",
+    name: "Holistic Client App Kernel",
     description: "This model manages, tracks, and controls the lifecycle of the client application.",
 
     ocdDataSpec: {
@@ -38,8 +38,9 @@ module.exports = {
             description: "Start core client app kernel subsystems.",
             actions: {
                 enter: [
-                    { holarchy: { CellProcessor: { process: { create: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg", cellProcessUniqueName: "DOM Location Processor" }}}}},
-                    { holarchy: { CellProcessor: { process: { create: { apmID: "Hsu-43zBRgqHItCPWPiBng", cellProcessUniqueName: "Holistic Client App View Processor" }}}}}
+                    { holarchy: { CellProcessor: { process: { create: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } } },
+                    { holarchy: { CellProcessor: { process: { create: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } } },
+                    { holarchy: { CellProcessor: { process: { create: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } } }
                 ]
             },
             transitions: [
@@ -98,7 +99,7 @@ module.exports = {
         boot6_deserialize_app: {
             description: "Access the boot ROM embedded in the hosting HTML document to get the suspended process state of the derived application.",
             actions: {
-                enter: [ 
+                enter: [
                     { holistic: { app: { client: { deserialize: {}}}}}
                 ]
             },

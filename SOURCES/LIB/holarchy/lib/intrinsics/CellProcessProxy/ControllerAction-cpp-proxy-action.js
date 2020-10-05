@@ -1,6 +1,6 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/CellProcessProxy/ControllerAction-cpp-proxy-action.js
 
-const ControllerAction = require("../../../lib/ControllerAction");
+const ControllerAction = require("../../../ControllerAction");
 const cppLib = require("./lib");
 
 const action = new ControllerAction({

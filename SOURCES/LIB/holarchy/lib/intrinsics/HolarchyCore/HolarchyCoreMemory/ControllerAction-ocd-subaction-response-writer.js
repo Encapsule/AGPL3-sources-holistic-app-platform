@@ -1,5 +1,5 @@
 
-const ControllerAction = require("../../../ControllerAction");
+const ControllerAction = require("../../../../ControllerAction");
 const ObservableControllerData = require("../../../ObservableControllerData");
 
 const controllerAction = new ControllerAction({

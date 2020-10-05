@@ -1,7 +1,7 @@
 // SOURCES/LIB/holarchy/lib/intrinsics/CellProcessProxy/ControllerAction-cpp-proxy-disconnect.js
 
 const arccore = require("@encapsule/arccore");
-const ControllerAction = require("../../../lib/ControllerAction");
+const ControllerAction = require("../../../ControllerAction");
 const OCD = require("../../../lib/ObservableControllerData");
 const cpmLib = require("../CellProcessManager/lib");
 const cppLib = require("./lib");
@@ -42,7 +42,7 @@ const action = new ControllerAction({
             inBreakScope = true;
 
             const message = request_.actionRequest.holarchy.CellProcessProxy.disconnect;
-            
+
             // Get the CPM process' data.
             let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
@@ -96,7 +96,7 @@ const action = new ControllerAction({
                 errors.push(cppLibResponse.error);
                 break;
             }
-            
+
             ocdResponse = request_.context.ocdi.writeNamespace(
                 {
                     apmBindingPath: cpmDataDescriptor.path,
