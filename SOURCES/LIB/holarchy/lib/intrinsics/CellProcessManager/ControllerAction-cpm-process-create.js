@@ -132,7 +132,7 @@ const controllerAction = new ControllerAction({
                 ocdi: request_.context.ocdi
             });
             if (cpmLibResponse.error) {
-                errors.push(`Cannot create cell process because we cannot determine which other cell process should be assigned ownership of the proposed new cell process w/ID '${newCellProcessID}' at path '${apmBindiingPath}'.`);
+                errors.push(`Cannot create cell process because we cannot determine which other cell process should be assigned ownership of the proposed new cell process w/ID '${newCellProcessID}' at path '${apmBindingPath}'.`);
                 errors.push(cpmLibResponse.error);
                 break;
             }
