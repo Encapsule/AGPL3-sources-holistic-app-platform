@@ -1,9 +1,9 @@
 // CellT2Point.js
 
 const arccore = require("@encapsule/arccore");
-const constructorFilter = require("./lib/filters/ct2p-method-constructor-filter");
+const constructorFilter = require("./lib/filters/cpp-method-constructor-filter");
 
-module.exports = class CellT2Point {
+module.exports = class CellProcessPlane {
 
     constructor(request_) {
         let errors = [];

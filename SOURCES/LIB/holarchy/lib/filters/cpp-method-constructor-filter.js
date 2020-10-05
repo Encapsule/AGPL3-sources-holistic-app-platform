@@ -1,11 +1,11 @@
-// ct2p-method-constructor-filter.js
+// cpp-method-constructor-filter.js
 
 const arccore = require("@encapsule/arccore");
 
 const factoryResponse = arccore.filter.create({
     operationID: "BiBucvx-R7aop0g_CSzw_Q",
-    operationName: "CellT2Point::constructor Filter",
-    operationDescription: "Filters request descriptor object passed to CellT2Point constructor function.",
+    operationName: "CellProcessPlane::constructor Filter",
+    operationDescription: "Filters request descriptor object passed to CellProcessPlane constructor function.",
     inputFilterSpec: require("./iospecs/ct2p-method-constructor-input-spec"),
     outputFilterSpec: require("./iospecs/ct2p-method-constructor-output-spec"),
     bodyFunction: function(request_) {
