@@ -43,7 +43,7 @@ const factoryResponse = arccore.filter.create({
             break;
         }
         if (errors.length) {
-            repsonse.error = errors.join(" ");
+            response.error = errors.join(" ");
         }
         return response;
     }

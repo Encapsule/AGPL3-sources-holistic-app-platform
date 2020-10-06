@@ -116,7 +116,7 @@ const factoryResponse = holodeck.harnessFactory.request({
         messageBody.actRequests.forEach((actRequest_) => {
 
             // TODO: FIX THIS: This is a bug in OPC.act - should it delete last eval results on entry? Maybe in OPC._evaluate?
-            delete opcInstance._private.lastEvalautionRepsonse;
+            delete opcInstance._private.lastEvalautionResponse;
 
             if (!opcInstance.isValid()) {
                 response.result.actionEvaluations.push({
