@@ -45,14 +45,33 @@ const factoryResponse = holodeck.harnessFactory.request({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
             const messageBody = request_.vectorRequest.holistic.holarchy.ObservableControllerData;
             const ocdi = (messageBody.constructorRequest instanceof holarchy.ObservableControllerData)?messageBody.constructorRequest:new holarchy.ObservableControllerData(messageBody.constructorRequest);
             response.result = {
                 construction: {
                     isValid: ocdi.isValid(),
                     toJSON: ocdi.toJSON()
-                }
+                },
+                methodCallDispatchDescriptors: [
+                ]
             };
+
+            if (!ocdi.isValid()) {
+                break;
+            }
+
+            while (messageBody.methodCalls.length) {
+                const messageCallDescriptor = messageBody.methodCalls.shift();
+                const methodResponse = ocdi[messageCallDescriptor.methodName](...messageCallDescriptor.argv);
+                const methodCallDispatchDescriptor = {
+                    request: messageCallDescriptor,
+                    response: methodResponse,
+                    toJSON: ocdi.toJSON()
+                };
+                response.result.methodCallDispatchDescriptors.push(methodCallDispatchDescriptor);
+            }
+
             break;
         }
         if (errors.length) {

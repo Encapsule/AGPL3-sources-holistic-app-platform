@@ -5,7 +5,10 @@ module.exports = [
 
     require("./vector-set-cp-test-harness-validation-tests"),
 
-    // Low-level ObservableProcessModel ES6 class tests.
+    // Low-level ObservableControllerData ES6 class tests.
+    require("./vector-set-ocd-base-tests"),
+
+    // Low-level ObservableProcessController ES6 class tests.
     require("./vector-set-opc-constructor"),
     require("./vector-set-opc-constructor-bindings"),
     require("./vector-set-opc-method-act"),

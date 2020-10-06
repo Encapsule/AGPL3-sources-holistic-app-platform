@@ -1,0 +1,170 @@
+{
+  "dosRgxmiR66ongCbJB78ow": {
+    "Z4U257O6k1WkrWVA5SNlXQ": {
+      "in2UzfF3QiG3_NJHRPEhag": {
+        "harnessRequest": {
+          "id": "in2UzfF3QiG3_NJHRPEhag",
+          "name": "OCD Test #1",
+          "description": "A simple test of the OCD ES6 class.",
+          "vectorRequest": {
+            "holistic": {
+              "holarchy": {
+                "ObservableControllerData": {
+                  "constructorRequest": {
+                    "id": "in2UzfF3QiG3_NJHRPEhag",
+                    "name": "OCD Test #1",
+                    "description": "A simple test of the OCD ES6 class.",
+                    "spec": {
+                      "____types": "jsObject",
+                      "____defaultValue": {},
+                      "testMap": {
+                        "____types": "jsObject",
+                        "____asMap": true,
+                        "____defaultValue": {},
+                        "element": {
+                          "____accept": "jsObject"
+                        }
+                      }
+                    }
+                  },
+                  "methodCalls": [
+                    {
+                      "methodName": "readNamespace",
+                      "argv": [
+                        "~.testMap"
+                      ]
+                    },
+                    {
+                      "methodName": "writeNamespace",
+                      "argv": [
+                        "~.testMap.testKey",
+                        {
+                          "testMessage": "This seems to work?"
+                        }
+                      ]
+                    },
+                    {
+                      "methodName": "writeNamespace",
+                      "argv": [
+                        "~.testMap.notakey",
+                        {
+                          "similarly": "This also seems to work."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "harnessResponse": {
+          "error": null,
+          "result": {
+            "harnessOptions": {
+              "idempotent": true,
+              "gitDiffHunkSize": 0
+            },
+            "harnessDispatch": {
+              "7JFMyzm-T9aUv-ULeN_3FQ": {
+                "in2UzfF3QiG3_NJHRPEhag": {
+                  "construction": {
+                    "isValid": true,
+                    "toJSON": {
+                      "testMap": {
+                        "testKey": {
+                          "testMessage": "This seems to work?"
+                        },
+                        "notakey": {
+                          "similarly": "This also seems to work."
+                        }
+                      }
+                    }
+                  },
+                  "methodCallDispatchDescriptors": [
+                    {
+                      "request": {
+                        "methodName": "readNamespace",
+                        "argv": [
+                          "~.testMap"
+                        ]
+                      },
+                      "response": {
+                        "error": null,
+                        "result": {}
+                      },
+                      "toJSON": {
+                        "testMap": {
+                          "testKey": {
+                            "testMessage": "This seems to work?"
+                          },
+                          "notakey": {
+                            "similarly": "This also seems to work."
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "request": {
+                        "methodName": "writeNamespace",
+                        "argv": [
+                          "~.testMap.testKey",
+                          {
+                            "testMessage": "This seems to work?"
+                          }
+                        ]
+                      },
+                      "response": {
+                        "error": null,
+                        "result": {
+                          "testMessage": "This seems to work?"
+                        }
+                      },
+                      "toJSON": {
+                        "testMap": {
+                          "testKey": {
+                            "testMessage": "This seems to work?"
+                          },
+                          "notakey": {
+                            "similarly": "This also seems to work."
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "request": {
+                        "methodName": "writeNamespace",
+                        "argv": [
+                          "~.testMap.notakey",
+                          {
+                            "similarly": "This also seems to work."
+                          }
+                        ]
+                      },
+                      "response": {
+                        "error": null,
+                        "result": {
+                          "similarly": "This also seems to work."
+                        }
+                      },
+                      "toJSON": {
+                        "testMap": {
+                          "testKey": {
+                            "testMessage": "This seems to work?"
+                          },
+                          "notakey": {
+                            "similarly": "This also seems to work."
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
