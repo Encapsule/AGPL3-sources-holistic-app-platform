@@ -42,7 +42,7 @@ module.exports = new TransitionOperator({
 
             // This is all we can ever be 100% sure about based on the apmBindingPath.
             if (request_.context.apmBindingPath === "~") {
-                break; // resposne.result === false
+                break; // response.result === false
             }
 
             // So, we have to query the CPM process tree.

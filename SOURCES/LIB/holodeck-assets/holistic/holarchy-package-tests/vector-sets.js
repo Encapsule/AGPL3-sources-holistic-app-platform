@@ -35,9 +35,7 @@ module.exports = [
     require("./vector-set-cpm-process-operators"),
 
 
-    require("./vector-set-cpm-shared-processes")
-
-    // TOOD: Add harness and vector set for ObservableControllerData
-    // Probably end up renaming to ObservableCellData to keep OCD acronym.
+    require("./vector-set-cpm-shared-processes"),
+    require("./vector-set-cpm-proxy-tests")
 
 ];
