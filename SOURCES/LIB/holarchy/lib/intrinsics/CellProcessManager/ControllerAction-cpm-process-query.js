@@ -36,7 +36,7 @@ const controllerAction = new ControllerAction({
                             cellProcessNamespace: {
                                 ____types: [ "jsUndefined", "jsObject" ],
                                 apmID: { ____accept: "jsString" },
-                                cellProcessUniqueName: { ____accept: [ "jsUndefined", "jsString" ] }
+                                cellProcessUniqueName: { ____accept: "jsString", ____defaultValue: "singleton" }
                             }
                         },
                         resultSets: {

@@ -113,7 +113,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                        "vdid": "U-TAJ3kXEh_BnWJSX3EeSA",
+                        "vdid": "buTAJ3UXEh8LnWJS_nEeSA",
                         "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                         "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                         "cmat": {
@@ -123,7 +123,7 @@
                               "type": "INDEX",
                               "kfWR9Xtwe3BNHk0eBSIFIg": {
                                 "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                                "vdid": "U-TAJ3kXEh_BnWJSX3EeSA",
+                                "vdid": "buTAJ3UXEh8LnWJS_nEeSA",
                                 "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                                 "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                                 "type": "CM",
@@ -234,7 +234,7 @@
                                 },
                                 "r-JgxABoS_a-mSE2c1nvKA": {
                                   "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                  "vdid": "9ZHIKAz-t9uOUTeknD1tmA",
+                                  "vdid": "ZHZAUrESwQG_4llDItwzLQ",
                                   "name": "Cell Process Manager: Process Query",
                                   "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                   "type": "ACT"
@@ -3155,10 +3155,8 @@
                                                 "____accept": "jsString"
                                               },
                                               "cellProcessUniqueName": {
-                                                "____accept": [
-                                                  "jsUndefined",
-                                                  "jsString"
-                                                ]
+                                                "____accept": "jsString",
+                                                "____defaultValue": "singleton"
                                               }
                                             }
                                           },
@@ -3354,10 +3352,10 @@
                                 }
                               },
                               "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
-                              "inputTypeVDID": "poG7cuqYcoAhAPSDRf-xRw",
+                              "inputTypeVDID": "cTDkkv2ALgQqV5Y8aZ6j0w",
                               "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
                               "outputTypeVDID": "rRcfFnGcxrjgQ1q8bpA-Fg",
-                              "operationVDID": "1t0UyF7MpAypiTwFacLvBg"
+                              "operationVDID": "1kxjyF5CSgypKMcFaUaCBg"
                             }
                           },
                           "X6ck_Bo4RmWTVHl-vk-urw": {
