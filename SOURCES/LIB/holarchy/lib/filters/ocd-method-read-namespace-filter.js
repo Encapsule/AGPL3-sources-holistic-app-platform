@@ -58,7 +58,7 @@ const factoryResponse = arccore.filter.create({
             if (!request_.ocdReference._private.accessFilters.read[fqPath]) {
                 // Cache miss. Create a new read filter for the requested namespace.
                 const operationId = arccore.identifier.irut.fromReference("read-filter" + fqPath).result;
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, sourceRef: request_.ocdReference._private.storeDataSpec, parseFilterSpec: true });
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, specRef: request_.ocdReference._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error || !filterResponse.result) {
                     errors.push(`Cannot read controller data store namespace path '${fqPath}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);
@@ -69,7 +69,7 @@ const factoryResponse = arccore.filter.create({
                     operationID: operationId,
                     operationName: `Controller Data Read Filter ${operationId}`,
                     operationDescription: `Validated/normalized read operations from OCD namespace '${fqPath}'.`,
-                    bodyFunction: () => { return getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, sourceRef: request_.ocdReference._private.storeData }); },
+                    bodyFunction: () => { return getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, dataRef: request_.ocdReference._private.storeData, specRef: request_.ocdReference._private.storeDataSpec }); },
                     outputFilterSpec: targetNamespaceSpec,
                 });
                 if (filterResponse.error) {

@@ -31,10 +31,3 @@ module.exports = class ObservableControllerData {
     getNamespaceSpec(path_) { return (this.isValid()?methodFilterGetNamespaceSpec.request({ ocdClass: ObservableControllerData, ocdReference: this, path: path_ }):{ error: this.toJSON() }); }
 
 } // class ObservableControllerData
-
-
-
-
-
-
-

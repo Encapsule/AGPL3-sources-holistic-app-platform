@@ -71,7 +71,7 @@ const factoryResponse = arccore.filter.create({
                 } // if invalid write attempt
                 const parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
                 const targetNamespace = pathTokens[pathTokens.length - 1];
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, sourceRef: request_.ocdReference._private.storeDataSpec, parseFilterSpec: true });
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, specRef: request_.ocdReference._private.storeDataSpec, parseFilterSpec: true });
                 if (filterResponse.error || !filterResponse.result) {
                     errors.push(`Cannot write controller data store namespace path '${fqPath}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
@@ -89,7 +89,7 @@ const factoryResponse = arccore.filter.create({
                         let inBreakScope = false;
                         while (!inBreakScope) {
                             inBreakScope = true;
-                            let innerResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: parentPath, sourceRef: request_.ocdReference._private.storeData });
+                            let innerResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: parentPath, dataRef: request_.ocdReference._private.storeData, specRef: request_.ocdReference._private.storeDataSpec });
                             if (innerResponse.error) {
                                 errors.push(`Unable to write to OCD namespace '${fqPath}' due to an error reading parent namespace '${parentPath}'.`);
                                 errors.push(innerResponse.error);
