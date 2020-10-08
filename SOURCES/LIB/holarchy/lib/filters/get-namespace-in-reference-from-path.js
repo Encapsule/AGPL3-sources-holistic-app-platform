@@ -38,44 +38,33 @@ const arccore = require("@encapsule/arccore");
         },
 
         bodyFunction: function(request_) {
-
             let response = { error: null, result: null };
             let errors = [];
             let inBreakScope = false;
-
             while (!inBreakScope) {
                 inBreakScope = true;
-
                 let proxyIndirects = 0;
                 let resolvedPathTokens = [];
                 let resolvedSpecPathTokens = [];
                 let pathTokens = request_.namespacePath.split(".");
-
                 if (pathTokens[0] !== "~") {
                     errors.push(`Invalid request.namespacePath value '${request_.namespacePath}' specified.`);
                     errors.push("Path must be a an ARCcore.filter-style dot-delimited path beginning with ~ that is taken to represent the value passed via request.dataRef.");
                     break;
                 }
-
                 if (pathTokens.length === 1) {
                     // Path specifies the entirety of dataRef.
                     response.result = request_.dataRef?request_.dataRef:request_.specRef;
                     break;
                 }
-
                 const currentToken = pathTokens.shift();
                 resolvedPathTokens.push(currentToken);
                 resolvedSpecPathTokens.push(currentToken);
-
                 let dataRef = request_.dataRef;
                 let specRef = request_.specRef;
-
                 const dataRefQuery = dataRef?true:false;
-
                 while (pathTokens.length) {
-
                     let resolveFilterSpecContainerElementDescriptor = false;
-
                     if (specRef.____asMap) {
                         resolveFilterSpecContainerElementDescriptor = true;
                     } else {
@@ -91,17 +80,14 @@ const arccore = require("@encapsule/arccore");
                             }
                         }
                     }
-
                     let innerResponse = arccore.types.check.inTypeSet({
                         types: [ "jsObject" /*, "jsArray" */],
                         value: specRef
                     });
-
                     if (innerResponse.error) {
                         errors.unshift(innerResponse.error);
                         break;
                     }
-
                     if (!innerResponse.result  /* false iff not in type set. otherwise jsMoniker string of match. */ ) {
                         let actualType = arccore.types.convert({ from: "jsReference", to: "jsMoniker", value: specRef}).result;
                         let resolvedPath = resolvedPathTokens.join(".");
@@ -110,20 +96,16 @@ const arccore = require("@encapsule/arccore");
                         errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" entity type that does not have subnamespaces.");
                         break;
                     }
-
                     if (dataRefQuery) {
-
                         innerResponse = arccore.types.check.inTypeSet({
                             types: [ "jsObject", "jsArray" ],
                             value: dataRef
                         });
-
                         if (innerResponse.error) {
                             errors.unshift(innerResponse.error);
                             break;
                         }
-
-                        if (!innerResponse.result /* null iff not in type set. otherwise jsMoniker string of match. */ ) {
+                        if (!innerResponse.result /* false iff not in type set. otherwise jsMoniker string of match. */ ) {
                             let actualType = arccore.types.convert({ from: "jsReference", to: "jsMoniker", value: dataRef}).result;
                             let resolvedPath = resolvedPathTokens.join(".");
                             errors.push("Failed to resolve namespace path '" + request_.namespacePath + "':");
@@ -131,12 +113,9 @@ const arccore = require("@encapsule/arccore");
                             errors.push("But, '" + resolvedPath + "' is actually an \"" + actualType + "\" entity type that does not have subnamespaces.");
                             break;
                         }
-
                     }
-
                     let token = pathTokens.shift();
                     let specToken = token;
-
                     if (resolveFilterSpecContainerElementDescriptor) {
                         for (let name_ in specRef) {
                             if (!name_.startsWith("____")) {
@@ -145,36 +124,37 @@ const arccore = require("@encapsule/arccore");
                             }
                         }
                     }
-
+                    specRef = specRef[specToken];
+                    resolvedSpecPathTokens.push(specToken);
                     if (dataRefQuery) {
+
+                        // Special-case handling for data reference resolution via CellProcessProxy (APM) bound helper cells encountered in the data.
+                        // Firstly, determine if we're currently examining a cell.
+
+                        if (specRef.____appdsl && specRef.____appdsl.apm && (specRef.____appdsl.apm === "CPPU-UPgS8eWiMap3Ixovg" /*"Holarchy Cell Process Proxy Helper Process"*/)) {
+                            console.log(`> Currently examining specRef path '${resolvedSpecPathTokens.join(".")}' that declared as a CellProcessProxy helpers cell.`);
+
+                        }
+
                         dataRef = dataRef[token];
                         resolvedPathTokens.push(token);
                     }
-                    specRef = specRef[specToken];
-                    resolvedSpecPathTokens.push(specToken);
-
                 } // while pathTokens.length
-
                 if (errors.length) {
                     break;
                 }
-
                 if (!request_.dataRef && (Object.prototype.toString.call(specRef) !== "[object Object]")) {
                     errors.push(`Cannot resolve the specified OCD path '${request_.namespacePath}' to the namespace's corresponding filter specification because the data path you provided is wrong.`);
                     errors.push(`Specifically, the last namespace in the path '${resolvedPathTokens.join(".")}' is not declared in this OCD instance's controlling filter specification.`);
                     break;
                 }
-
                 response.result = request_.dataRef?dataRef:specRef;
                 break;
             }
-
             if (errors.length) {
                 response.error = errors.join(" ");
             }
-
             return response;
-
         } // bodyFunciton
 
     }); // filter factory request
