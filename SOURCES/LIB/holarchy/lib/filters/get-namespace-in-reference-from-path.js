@@ -124,21 +124,32 @@ const arccore = require("@encapsule/arccore");
                             }
                         }
                     }
+
+                    // Update the specRef and resolvedSpecPathTokens (at least for now).
                     specRef = specRef[specToken];
                     resolvedSpecPathTokens.push(specToken);
+
+                    // If we executing a query for a data reference...
                     if (dataRefQuery) {
 
+                        dataRef = dataRef[token];
+                        resolvedPathTokens.push(token);
+
                         // Special-case handling for data reference resolution via CellProcessProxy (APM) bound helper cells encountered in the data.
-                        // Firstly, determine if we're currently examining a cell.
 
                         if (specRef.____appdsl && specRef.____appdsl.apm && (specRef.____appdsl.apm === "CPPU-UPgS8eWiMap3Ixovg" /*"Holarchy Cell Process Proxy Helper Process"*/)) {
                             console.log(`> Currently examining specRef path '${resolvedSpecPathTokens.join(".")}' that declared as a CellProcessProxy helpers cell.`);
 
+                            let currentNamespaceIsQueryTarget = false;
+                            let nextTokenInProxySpec = false;
+                            let proxyIsConnected = false;
+
+                            
+
                         }
 
-                        dataRef = dataRef[token];
-                        resolvedPathTokens.push(token);
                     }
+
                 } // while pathTokens.length
                 if (errors.length) {
                     break;
