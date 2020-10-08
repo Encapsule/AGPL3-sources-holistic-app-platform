@@ -30,12 +30,6 @@ const arccore = require("@encapsule/arccore");
                 ____description: "A reference to the source filter specification descriptor object. Iff dataRef === undefined, then this filter returns the filter spec namespace descriptor object reference corresponding to namespacePath.",
                 ____accept: "jsObject" // This filter presumes specRef to be a reference to a valid filter spec namespace descriptor object (or object tree). But, it does not itself validate this presumption.
                 // ____defaultValue: {} // TODO: Remove this --- it's not optional that the caller specify specRef. We're just not quite there yet.
-            },
-            parseFilterSpec: {
-                ____label: "Parse Filter Spec",
-                ____description: "A default-false Boolean flag that indicates if the algorithm should parse dataRef as a filter specification ignoring literal token values in namespacePath that correspond to map and array element value declarations.",
-                ____accept: "jsBoolean",
-                ____defaultValue: false
             }
         },
 

@@ -53,11 +53,7 @@ const factoryResponse = arccore.filter.create({
             if (errors.length) {
                 break;
             }
-            const filterResponse = getNamespaceInReferenceFromPathFilter.request({
-                namespacePath: fqPath,
-                specRef: request_.ocdReference._private.storeDataSpec,
-                parseFilterSpec: true
-            });
+            const filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, specRef: request_.ocdReference._private.storeDataSpec });
             if (filterResponse.error) {
                 errors.push(`Cannot resolve a namespace descriptor in filter specification for path '${fqPath}'.`);
                 errors.push(filterResponse.error);

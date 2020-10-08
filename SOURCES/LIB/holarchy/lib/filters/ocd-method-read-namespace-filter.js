@@ -58,7 +58,7 @@ const factoryResponse = arccore.filter.create({
             if (!request_.ocdReference._private.accessFilters.read[fqPath]) {
                 // Cache miss. Create a new read filter for the requested namespace.
                 const operationId = arccore.identifier.irut.fromReference("read-filter" + fqPath).result;
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, specRef: request_.ocdReference._private.storeDataSpec, parseFilterSpec: true });
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, specRef: request_.ocdReference._private.storeDataSpec });
                 if (filterResponse.error || !filterResponse.result) {
                     errors.push(`Cannot read controller data store namespace path '${fqPath}' because it is not possible to construct a read filter for this namespace.`);
                     errors.push(filterResponse.error);

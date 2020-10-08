@@ -71,7 +71,7 @@ const factoryResponse = arccore.filter.create({
                 } // if invalid write attempt
                 const parentPath = pathTokens.slice(0, pathTokens.length - 1).join(".");
                 const targetNamespace = pathTokens[pathTokens.length - 1];
-                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, specRef: request_.ocdReference._private.storeDataSpec, parseFilterSpec: true });
+                let filterResponse = getNamespaceInReferenceFromPathFilter.request({ namespacePath: fqPath, specRef: request_.ocdReference._private.storeDataSpec });
                 if (filterResponse.error || !filterResponse.result) {
                     errors.push(`Cannot write controller data store namespace path '${fqPath}' because it is not possible to construct a write filter for this namespace.`);
                     errors.push(filterResponse.error);
