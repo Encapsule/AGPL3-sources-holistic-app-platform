@@ -13,15 +13,21 @@ module.exports = {
         require("./ControllerAction-cpm-initialize"),
         require("./ControllerAction-cpm-process-create"),
         require("./ControllerAction-cpm-process-delete"),
-        require("./ControllerAction-cpm-process-query")
+        require("./ControllerAction-cpm-process-query"),
 
         // TODO: Disabled until I have time to think about
         // which facets of the Cell Process Manager's state
         // data we want to expose. And, to what ends.
         // require("./ControllerAction-cpm-query")
+
+        require("./ControllerAction-cpm-action-request-on")
     ],
 
     operators: [
+
+        require("./TransitionOperator-cpm-operator-request-on"),
+
+
         require("./TransitionOperator-cpm-ancestor-processes-active"),          // STAGE 1 COMPLETE
         require("./TransitionOperator-cpm-ancestor-processes-all-in-step"),     // STAGE 1 COMPLETE
         require("./TransitionOperator-cpm-ancestor-processes-any-in-step"),     // STAGE 1 COMPLETE
