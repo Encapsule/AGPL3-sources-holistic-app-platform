@@ -113,7 +113,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                        "vdid": "buTAJ3UXEh8LnWJS_nEeSA",
+                        "vdid": "JeTAJz4XEh_GnWJS9nEeSA",
                         "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                         "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                         "cmat": {
@@ -123,7 +123,7 @@
                               "type": "INDEX",
                               "kfWR9Xtwe3BNHk0eBSIFIg": {
                                 "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                                "vdid": "buTAJ3UXEh8LnWJS_nEeSA",
+                                "vdid": "JeTAJz4XEh_GnWJS9nEeSA",
                                 "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                                 "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                                 "type": "CM",
@@ -241,13 +241,13 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "hPV2drGcIMpSSKc5QBYCAg",
+                                  "vdid": "1_V2djWcIMrMSKc5hxYCAg",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
                                   "CPPU-UPgS8eWiMap3Ixovg": {
                                     "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                    "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                    "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                     "name": "Holarchy Cell Process Proxy Helper Process",
                                     "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
                                     "type": "APM"
@@ -514,7 +514,7 @@
                           },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
-                            "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                            "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                             "name": "Holarchy Cell Process Proxy Helper Process",
                             "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                           },
@@ -557,7 +557,7 @@
                             "specPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.cellProcessID.proxyTest",
                             "opmiRef": {
                               "id": "CPPU-UPgS8eWiMap3Ixovg",
-                              "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                              "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                               "name": "Holarchy Cell Process Proxy Helper Process",
                               "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                             }
@@ -664,24 +664,28 @@
                                   "____appdsl": {
                                     "apm": "CPPU-UPgS8eWiMap3Ixovg"
                                   },
-                                  "lcpRequest": {
-                                    "____types": [
-                                      "jsUndefined",
-                                      "jsObject"
-                                    ],
-                                    "apmID": {
-                                      "____accept": "jsString"
+                                  "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "lcpRequest": {
+                                      "____types": [
+                                        "jsUndefined",
+                                        "jsObject"
+                                      ],
+                                      "apmID": {
+                                        "____accept": "jsString"
+                                      },
+                                      "instanceName": {
+                                        "____accept": "jsString"
+                                      }
                                     },
-                                    "instanceName": {
-                                      "____accept": "jsString"
+                                    "lcpConnect": {
+                                      "____accept": [
+                                        "jsUndefined",
+                                        "jsString",
+                                        "jsNull"
+                                      ]
                                     }
-                                  },
-                                  "lcpConnect": {
-                                    "____accept": [
-                                      "jsUndefined",
-                                      "jsString",
-                                      "jsNull"
-                                    ]
                                   },
                                   "__apmiStep": {
                                     "____accept": "jsString",
@@ -4288,7 +4292,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -4431,7 +4435,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -4469,11 +4473,13 @@
                                 "instanceName": null
                               },
                               "proxyTest": {
-                                "lcpRequest": {
-                                  "apmID": "blVAl6l4wc87xvb0Bgdidg",
-                                  "instanceName": "singleton"
+                                "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                  "lcpRequest": {
+                                    "apmID": "blVAl6l4wc87xvb0Bgdidg",
+                                    "instanceName": "singleton"
+                                  },
+                                  "lcpConnect": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
                                 },
-                                "lcpConnect": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
                                 "__apmiStep": "uninitialized"
                               },
                               "__apmiStep": "finished"

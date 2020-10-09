@@ -82,7 +82,7 @@ const action = new ControllerAction({
                 break;
             }
 
-            let ocdResponse = request_.context.ocdi.writeNamespace(proxyPath, {}); // resets the state of the proxy cell
+            let ocdResponse = request_.context.ocdi.writeNamespace(`${proxyPath}.CPPU-UPgS8eWiMap3Ixovg_private`, {}); // resets the state of the proxy cell
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;

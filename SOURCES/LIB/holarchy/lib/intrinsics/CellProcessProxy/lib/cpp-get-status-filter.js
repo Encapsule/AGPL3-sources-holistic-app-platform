@@ -87,7 +87,7 @@ const factoryResponse = arccore.filter.create({
             // resolve to a cell that may or may not exist. Here we are being asked to retrieve the status of a cell presumed
             // to exist. So, if it doesn't that's an error.
 
-            ocdResponse = request_.ocdi.readNamespace(proxyCellPath);
+            ocdResponse = request_.ocdi.readNamespace(`${proxyCellPath}.CPPU-UPgS8eWiMap3Ixovg_private`);
             if (ocdResponse.error) {
                 errors.push("The specified cell process proxy helper does not exist!");
                 errors.push("It is the responsibility of some hosting cell to manage the lifespan of its cell process proxy helpers.");

@@ -32,10 +32,28 @@ const action = new TransitionOperator({
     },
 
     bodyFunction: function(request_) {
-        return cppLib.proxyActionOperatorRequest.request({
-            requestType: "operator",
-            originalRequestToProxy: request_
-        });
+        let response = { error: null, result: false };
+        let errors = [];
+        let inBreakScope = false;
+        while (!inBreakScope) {
+            inBreakScope = true;
+
+            const proxyResponse = cppLib.proxyActionOperatorRequest.request({
+                requestType: "operator",
+                originalRequestToProxy: request_
+            });
+            if (proxyResponse.error) {
+                errors.push("Unable to proxy operator request due to error:");
+                errors.push(proxyResponse.error);
+                break;
+            }
+            response.result = proxyResponse.result;
+            break;
+        }
+        if (errors.length) {
+            repsonse.error = errors.join(" ");
+        }
+        return response;
     }
 
 });

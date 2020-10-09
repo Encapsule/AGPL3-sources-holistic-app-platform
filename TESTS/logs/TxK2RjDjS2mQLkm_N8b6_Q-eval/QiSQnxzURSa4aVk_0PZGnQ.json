@@ -179,7 +179,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                        "vdid": "n7ICWjra-VMFHq-D0h_Bsg",
+                        "vdid": "brICWr_a-VNGHq-D0R_Bsg",
                         "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                         "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                         "cmat": {
@@ -189,7 +189,7 @@
                               "type": "INDEX",
                               "FvUW9UtwS3DDHsMeWSJZIg": {
                                 "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                                "vdid": "n7ICWjra-VMFHq-D0h_Bsg",
+                                "vdid": "brICWr_a-VNGHq-D0R_Bsg",
                                 "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                                 "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                                 "type": "CM",
@@ -307,13 +307,13 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "hPV2drGcIMpSSKc5QBYCAg",
+                                  "vdid": "1_V2djWcIMrMSKc5hxYCAg",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
                                   "CPPU-UPgS8eWiMap3Ixovg": {
                                     "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                    "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                    "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                     "name": "Holarchy Cell Process Proxy Helper Process",
                                     "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
                                     "type": "APM"
@@ -660,7 +660,7 @@
                           },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
-                            "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                            "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                             "name": "Holarchy Cell Process Proxy Helper Process",
                             "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                           },
@@ -739,7 +739,7 @@
                             "specPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.cellProcessID.proxyTest",
                             "opmiRef": {
                               "id": "CPPU-UPgS8eWiMap3Ixovg",
-                              "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                              "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                               "name": "Holarchy Cell Process Proxy Helper Process",
                               "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                             }
@@ -784,7 +784,7 @@
                             "specPath": "~.XP3y-l1ciDBMsHnzdn5iWg_CellProcesses.cellProcessMap.cellProcessID.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest",
                             "opmiRef": {
                               "id": "CPPU-UPgS8eWiMap3Ixovg",
-                              "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                              "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                               "name": "Holarchy Cell Process Proxy Helper Process",
                               "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                             }
@@ -802,7 +802,7 @@
                             "specPath": "~.XP3ymV1ciAdMsHnBdn5ilw_CellProcesses.cellProcessMap.cellProcessID.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest",
                             "opmiRef": {
                               "id": "CPPU-UPgS8eWiMap3Ixovg",
-                              "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                              "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                               "name": "Holarchy Cell Process Proxy Helper Process",
                               "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                             }
@@ -820,7 +820,7 @@
                             "specPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest",
                             "opmiRef": {
                               "id": "CPPU-UPgS8eWiMap3Ixovg",
-                              "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                              "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                               "name": "Holarchy Cell Process Proxy Helper Process",
                               "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                             }
@@ -1057,24 +1057,28 @@
                                   "____appdsl": {
                                     "apm": "CPPU-UPgS8eWiMap3Ixovg"
                                   },
-                                  "lcpRequest": {
-                                    "____types": [
-                                      "jsUndefined",
-                                      "jsObject"
-                                    ],
-                                    "apmID": {
-                                      "____accept": "jsString"
+                                  "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "lcpRequest": {
+                                      "____types": [
+                                        "jsUndefined",
+                                        "jsObject"
+                                      ],
+                                      "apmID": {
+                                        "____accept": "jsString"
+                                      },
+                                      "instanceName": {
+                                        "____accept": "jsString"
+                                      }
                                     },
-                                    "instanceName": {
-                                      "____accept": "jsString"
+                                    "lcpConnect": {
+                                      "____accept": [
+                                        "jsUndefined",
+                                        "jsString",
+                                        "jsNull"
+                                      ]
                                     }
-                                  },
-                                  "lcpConnect": {
-                                    "____accept": [
-                                      "jsUndefined",
-                                      "jsString",
-                                      "jsNull"
-                                    ]
                                   },
                                   "__apmiStep": {
                                     "____accept": "jsString",
@@ -1148,24 +1152,28 @@
                                       "____appdsl": {
                                         "apm": "CPPU-UPgS8eWiMap3Ixovg"
                                       },
-                                      "lcpRequest": {
-                                        "____types": [
-                                          "jsUndefined",
-                                          "jsObject"
-                                        ],
-                                        "apmID": {
-                                          "____accept": "jsString"
+                                      "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                        "____types": "jsObject",
+                                        "____defaultValue": {},
+                                        "lcpRequest": {
+                                          "____types": [
+                                            "jsUndefined",
+                                            "jsObject"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          },
+                                          "instanceName": {
+                                            "____accept": "jsString"
+                                          }
                                         },
-                                        "instanceName": {
-                                          "____accept": "jsString"
+                                        "lcpConnect": {
+                                          "____accept": [
+                                            "jsUndefined",
+                                            "jsString",
+                                            "jsNull"
+                                          ]
                                         }
-                                      },
-                                      "lcpConnect": {
-                                        "____accept": [
-                                          "jsUndefined",
-                                          "jsString",
-                                          "jsNull"
-                                        ]
                                       },
                                       "__apmiStep": {
                                         "____accept": "jsString",
@@ -1251,24 +1259,28 @@
                                         "____appdsl": {
                                           "apm": "CPPU-UPgS8eWiMap3Ixovg"
                                         },
-                                        "lcpRequest": {
-                                          "____types": [
-                                            "jsUndefined",
-                                            "jsObject"
-                                          ],
-                                          "apmID": {
-                                            "____accept": "jsString"
+                                        "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                          "____types": "jsObject",
+                                          "____defaultValue": {},
+                                          "lcpRequest": {
+                                            "____types": [
+                                              "jsUndefined",
+                                              "jsObject"
+                                            ],
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            },
+                                            "instanceName": {
+                                              "____accept": "jsString"
+                                            }
                                           },
-                                          "instanceName": {
-                                            "____accept": "jsString"
+                                          "lcpConnect": {
+                                            "____accept": [
+                                              "jsUndefined",
+                                              "jsString",
+                                              "jsNull"
+                                            ]
                                           }
-                                        },
-                                        "lcpConnect": {
-                                          "____accept": [
-                                            "jsUndefined",
-                                            "jsString",
-                                            "jsNull"
-                                          ]
                                         },
                                         "__apmiStep": {
                                           "____accept": "jsString",
@@ -1365,24 +1377,28 @@
                                           "____appdsl": {
                                             "apm": "CPPU-UPgS8eWiMap3Ixovg"
                                           },
-                                          "lcpRequest": {
-                                            "____types": [
-                                              "jsUndefined",
-                                              "jsObject"
-                                            ],
-                                            "apmID": {
-                                              "____accept": "jsString"
+                                          "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                            "____types": "jsObject",
+                                            "____defaultValue": {},
+                                            "lcpRequest": {
+                                              "____types": [
+                                                "jsUndefined",
+                                                "jsObject"
+                                              ],
+                                              "apmID": {
+                                                "____accept": "jsString"
+                                              },
+                                              "instanceName": {
+                                                "____accept": "jsString"
+                                              }
                                             },
-                                            "instanceName": {
-                                              "____accept": "jsString"
+                                            "lcpConnect": {
+                                              "____accept": [
+                                                "jsUndefined",
+                                                "jsString",
+                                                "jsNull"
+                                              ]
                                             }
-                                          },
-                                          "lcpConnect": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString",
-                                              "jsNull"
-                                            ]
                                           },
                                           "__apmiStep": {
                                             "____accept": "jsString",
@@ -5098,7 +5114,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -5159,6 +5175,7 @@
                                         "instanceName": null
                                       },
                                       "proxyTest": {
+                                        "CPPU-UPgS8eWiMap3Ixovg_private": {},
                                         "__apmiStep": "uninitialized"
                                       },
                                       "__apmiStep": "uninitialized"

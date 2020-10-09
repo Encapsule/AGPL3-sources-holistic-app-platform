@@ -45,7 +45,7 @@ const action = new ControllerAction({
                 originalRequestToProxy: request_
             });
             if (proxyResponse.error) {
-                errors.push("Unable to proxy action request due to error that occurred in the cell your proxy is connected to.");
+                errors.push("Unable to proxy action request due to error:");
                 errors.push(proxyResponse.error);
                 break;
             }

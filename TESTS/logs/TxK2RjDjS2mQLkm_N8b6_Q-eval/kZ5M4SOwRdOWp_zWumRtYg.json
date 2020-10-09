@@ -138,7 +138,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                        "vdid": "oN-Trq0DNxbA8tUeUERojQ",
+                        "vdid": "zN-TrgUDNxZE8tUeB0RojQ",
                         "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                         "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                         "cmat": {
@@ -148,7 +148,7 @@
                               "type": "INDEX",
                               "TPVM9ZxwnHBvHm8e1yLXIg": {
                                 "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                                "vdid": "oN-Trq0DNxbA8tUeUERojQ",
+                                "vdid": "zN-TrgUDNxZE8tUeB0RojQ",
                                 "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                                 "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                                 "type": "CM",
@@ -266,13 +266,13 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "hPV2drGcIMpSSKc5QBYCAg",
+                                  "vdid": "1_V2djWcIMrMSKc5hxYCAg",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
                                   "CPPU-UPgS8eWiMap3Ixovg": {
                                     "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                    "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                    "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                     "name": "Holarchy Cell Process Proxy Helper Process",
                                     "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
                                     "type": "APM"
@@ -532,7 +532,7 @@
                           },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
-                            "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                            "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                             "name": "Holarchy Cell Process Proxy Helper Process",
                             "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                           }
@@ -560,7 +560,7 @@
                             "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest",
                             "opmiRef": {
                               "id": "CPPU-UPgS8eWiMap3Ixovg",
-                              "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                              "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                               "name": "Holarchy Cell Process Proxy Helper Process",
                               "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                             }
@@ -641,24 +641,28 @@
                                   "____appdsl": {
                                     "apm": "CPPU-UPgS8eWiMap3Ixovg"
                                   },
-                                  "lcpRequest": {
-                                    "____types": [
-                                      "jsUndefined",
-                                      "jsObject"
-                                    ],
-                                    "apmID": {
-                                      "____accept": "jsString"
+                                  "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                    "____types": "jsObject",
+                                    "____defaultValue": {},
+                                    "lcpRequest": {
+                                      "____types": [
+                                        "jsUndefined",
+                                        "jsObject"
+                                      ],
+                                      "apmID": {
+                                        "____accept": "jsString"
+                                      },
+                                      "instanceName": {
+                                        "____accept": "jsString"
+                                      }
                                     },
-                                    "instanceName": {
-                                      "____accept": "jsString"
+                                    "lcpConnect": {
+                                      "____accept": [
+                                        "jsUndefined",
+                                        "jsString",
+                                        "jsNull"
+                                      ]
                                     }
-                                  },
-                                  "lcpConnect": {
-                                    "____accept": [
-                                      "jsUndefined",
-                                      "jsString",
-                                      "jsNull"
-                                    ]
                                   },
                                   "__apmiStep": {
                                     "____accept": "jsString",
@@ -4244,7 +4248,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -4456,7 +4460,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -4684,7 +4688,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -4716,7 +4720,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -4927,7 +4931,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -4959,7 +4963,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -5136,7 +5140,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -5302,7 +5306,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -5484,7 +5488,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -5516,7 +5520,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -5795,7 +5799,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -5827,7 +5831,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6071,7 +6075,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6103,7 +6107,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6349,7 +6353,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6381,7 +6385,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6625,7 +6629,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6657,7 +6661,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6890,7 +6894,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -6922,7 +6926,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -7120,7 +7124,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -7152,7 +7156,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -7374,7 +7378,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -7406,7 +7410,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -7549,7 +7553,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -7581,7 +7585,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "ltngFeqWZidLxRgsLO-QCw",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                                           "name": "Holarchy Cell Process Proxy Helper Process",
                                           "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
                                         }
@@ -7617,11 +7621,13 @@
                             "f1CSvqlIFdfDuyOaCvdx7w": {
                               "construction": {},
                               "proxyTest": {
-                                "lcpRequest": {
-                                  "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                  "instanceName": "Test Process B"
+                                "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                  "lcpRequest": {
+                                    "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                    "instanceName": "Test Process B"
+                                  },
+                                  "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg"
                                 },
-                                "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg",
                                 "__apmiStep": "uninitialized"
                               },
                               "__apmiStep": "whatever"
@@ -7631,11 +7637,13 @@
                                 "instanceName": "Test Process B"
                               },
                               "proxyTest": {
-                                "lcpRequest": {
-                                  "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                  "instanceName": "Test Process B"
+                                "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                  "lcpRequest": {
+                                    "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                    "instanceName": "Test Process B"
+                                  },
+                                  "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg"
                                 },
-                                "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg",
                                 "__apmiStep": "uninitialized"
                               },
                               "__apmiStep": "whatever"
@@ -7804,11 +7812,13 @@
                             "f1CSvqlIFdfDuyOaCvdx7w": {
                               "construction": {},
                               "proxyTest": {
-                                "lcpRequest": {
-                                  "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                  "instanceName": "Test Process B"
+                                "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                  "lcpRequest": {
+                                    "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                    "instanceName": "Test Process B"
+                                  },
+                                  "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg"
                                 },
-                                "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg",
                                 "__apmiStep": "uninitialized"
                               },
                               "__apmiStep": "whatever"
@@ -7818,11 +7828,13 @@
                                 "instanceName": "Test Process B"
                               },
                               "proxyTest": {
-                                "lcpRequest": {
-                                  "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                  "instanceName": "Test Process B"
+                                "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                  "lcpRequest": {
+                                    "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                    "instanceName": "Test Process B"
+                                  },
+                                  "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg"
                                 },
-                                "lcpConnect": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg",
                                 "__apmiStep": "uninitialized"
                               },
                               "__apmiStep": "whatever"

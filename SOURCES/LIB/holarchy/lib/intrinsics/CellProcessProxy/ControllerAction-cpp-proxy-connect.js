@@ -187,12 +187,14 @@ const action = new ControllerAction({
             ocdResponse = request_.context.ocdi.writeNamespace(
                 proxyPath,
                 {
-                    lcpRequest: {
-                        apmID: message.localCellProcess.apmID,
-                        instanceName: message.localCellProcess.instanceName,
-                        proxyOwner: request_.context.apmBindingPath
-                    },
-                    lcpConnect: lcpBindingPath
+                    "CPPU-UPgS8eWiMap3Ixovg_private": {
+                        lcpRequest: {
+                            apmID: message.localCellProcess.apmID,
+                            instanceName: message.localCellProcess.instanceName,
+                            proxyOwner: request_.context.apmBindingPath
+                        },
+                        lcpConnect: lcpBindingPath
+                    }
                 }
             );
 
