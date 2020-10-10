@@ -89,7 +89,7 @@ const controllerAction = new ControllerAction({
 
             let ocdResponse = request_.context.ocdi.getNamespaceSpec(apmProcessesNamespace);
             if (ocdResponse.error) {
-                errors.push(`The CellModel provided to this CellProcessor instance's constructor function did not register an AbstractProcessModel with ID '${message.apmID}'. So, we cannot create a cell process based on this APM ID because we have no ideas even what it is.`);
+                errors.push(`The cell process could not be created as requested because the AbstractProcessModel ID specified, '${message.apmID}', is not registered inside this CellProcessor instance.`);
                 errors.push(ocdResponse.error);
                 break;
             }
@@ -107,7 +107,7 @@ const controllerAction = new ControllerAction({
 
             // Query ownedCellProcesses.digraph to determine if the new cell process' ID slot has already been allocated (i.e. it's a disallowed duplicate process create request).
             if (ownedCellProcesses.digraph.isVertex(newCellProcessID)) {
-                errors.push(`Cannot create cell process ID '${newCellProcessID}' at path '${newCellProcessBindingPath}' because it is already active!`);
+                errors.push(`The cell process could not be created as requested because cell process ID '${newCellProcessID}' is already active at path '${newCellProcessBindingPath}'.`);
                 break;
             }
 
@@ -132,7 +132,7 @@ const controllerAction = new ControllerAction({
                 ocdi: request_.context.ocdi
             });
             if (cpmLibResponse.error) {
-                errors.push(`While attempting to create new cell process '${newCellProcessID}' at path '${newCellProcessBindingPath}' an error occurred while determining which existing cell process should be assigned ownership of the new cell process based on a create process request received from cell at path '${queryCellPath}'. Detail:`)
+                errors.push(`The cell process could not be created as requested. While examining create process request made by an active cell at '${queryCellPath}' we were not able to deduce which cell process should be given ownership of the requested new cell process ID '${newCellProcessID}' to be activated at path '{newCellProcessBindingPath}'. More detail:`);
                 errors.push(cpmLibResponse.error);
                 break;
             }
