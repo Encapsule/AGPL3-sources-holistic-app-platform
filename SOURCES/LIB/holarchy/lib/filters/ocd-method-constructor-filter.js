@@ -4,7 +4,7 @@ const arccore = require("@encapsule/arccore");
 
 const factoryResponse = arccore.filter.create({
     operationID: "Z0_rX_NhQ5-c0BCWNTXmgw",
-    operationName: "OCD Method Constructor Filter",
+    operationName: "OCD::constructor Filter",
     operationDescription: "Implements the ObservableControllerData class constructor method.",
     inputFilterSpec: {
         ____label: "OCD Constructor Request",

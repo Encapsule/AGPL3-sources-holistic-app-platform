@@ -6,7 +6,7 @@ const arccore = require("@encapsule/arccore");
 
     let factoryResponse = arccore.filter.create({
         operationID: "Z7Z7OvwnQL-bRrOGfEy-ZQ",
-        operationName: "Get Namespace Data In Reference From Path",
+        operationName: "OCD Get Namespace Data In Reference From Path",
         operationDescription: "Retrieve data in namespace within memory-resident data indicated by sourceRef.",
 
         inputFilterSpec: {

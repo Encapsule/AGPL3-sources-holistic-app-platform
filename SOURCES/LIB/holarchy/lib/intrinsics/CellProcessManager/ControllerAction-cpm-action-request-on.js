@@ -16,11 +16,11 @@ const controllerAction = new ControllerAction({
                 ____types: "jsObject",
                 actOn: {
                     ____types: "jsObject",
-                    path: {
+                    cellPath: {
                         ____accept: "jsString",
                         ____defaultValue: "#"
                     },
-                    actRequest: { ____accept: "jsObject" }
+                    actionRequest: { ____accept: "jsObject" }
                 }
             }
         }
@@ -41,8 +41,8 @@ const controllerAction = new ControllerAction({
             const messageBody = request_.actionRequest.holarchy.CellProcessor.actOn;
 
             let ocdResponse = ObservableControllerData.dataPathResolve({
-                dataPath: messageBody.path,
-                apmBindingPath: request_.apmBindingPath
+                dataPath: messageBody.cellPath,
+                apmBindingPath: request_.context.apmBindingPath
             });
 
             if (ocdResponse.error) {
@@ -55,8 +55,12 @@ const controllerAction = new ControllerAction({
             let actResponse = request_.context.act({
                 actorName: "Cell Process Manager: actOn",
                 actorTaskDescription: `Delegating ControllerAction request to cell at path '${targetCellPath}'.`,
-                actionRequest: messageBody.actRequest,
-                apmBindingPath: targetCellPath
+                actionRequest: messageBody.actionRequest,
+                context: {
+                    act: request_.context.act,
+                    apmBindingPath: targetCellPath,
+                    ocdi: request_.context.ocdi,
+                }
             });
 
             if (actResponse.error) {

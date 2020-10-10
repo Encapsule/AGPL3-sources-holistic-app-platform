@@ -32,6 +32,59 @@ module.exports = [
                                             ____types: "jsObject",
                                             ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell process proxy (CPP) */ }
                                         }
+                                    },
+                                    steps: {
+                                        uninitialized: {
+                                            description: "Default process step label.",
+                                            transitions: [
+                                                { transitionIf: { always: true }, nextStep: "connect_proxy" }
+                                            ]
+                                        },
+
+                                        connect_proxy: {
+                                            description: "Attempt to connect the proxy.",
+                                            transitions: [
+                                                { transitionIf: { always: true }, nextStep: "connect_proxy" }
+                                            ],
+                                            actions: {
+                                                exit: [
+                                                    {
+                                                        holarchy: {
+                                                            CellProcessor: {
+                                                                actOn: {
+                                                                    cellPath: "#.proxy",
+                                                                    actionRequest: {
+                                                                        holarchy: {
+                                                                            CellProcessProxy: {
+                                                                                connect: {
+                                                                                    localCellProcess: {
+                                                                                        apmID: "mctGtkfiQmeO93Va6WkGZw"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+
+                                        check_proxy_connection: {
+                                            description: "Check the status of the proxy connection.",
+                                        },
+
+                                        connect_proxy_error: {
+                                            description: "The attempt to connect the proxy failed."
+
+                                        },
+
+                                        proxy_connected: {
+                                            description: "The proxy is now connected."
+                                        }
+
                                     }
                                 }
                             }

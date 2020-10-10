@@ -16,7 +16,7 @@ const transitionOperator = new TransitionOperator({
                 ____types: "jsObject",
                 opOn: {
                     ____types: "jsObject",
-                    path: {
+                    cellPath: {
                         ____accept: "jsString",
                         ____defaultValue: "#"
                     },
@@ -37,8 +37,8 @@ const transitionOperator = new TransitionOperator({
             const messageBody = request_.actionRequest.holarchy.CellProcessor.opOn;
 
             let ocdResponse = ObservableControllerData.dataPathResolve({
-                dataPath: messageBody.path,
-                apmBindingPath: request_.apmBindingPath
+                dataPath: messageBody.cellPath,
+                apmBindingPath: request_.context.apmBindingPath
             });
 
             if (ocdResponse.error) {

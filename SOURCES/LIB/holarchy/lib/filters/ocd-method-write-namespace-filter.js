@@ -5,7 +5,7 @@ const ocdMethodPathSpec = require("./iospecs/ocd-method-path-spec");
 const getNamespaceInReferenceFromPathFilter = require("./get-namespace-in-reference-from-path");
 
 const factoryResponse = arccore.filter.create({
-    operationID:     "NqAyu1cLQQyX0w95zaQt6A",
+    operationID: "NqAyu1cLQQyX0w95zaQt6A",
     operationName: "OCD::writeNamespace Method Filter",
     operationDescription: "Implementes ObservableControllerData.writeNamespace method.",
 

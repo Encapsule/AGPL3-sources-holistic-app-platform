@@ -62,6 +62,18 @@ const action = new ControllerAction({
             }
             const cpmDataDescriptor = cpmLibResponse.result;
 
+
+            // THIS IS SUBTLE AND VERY HARD TO THINK ABOUT.
+            // When this ControllerAction is called the request_.context.apmBindingPath has, until now,
+            // been presumed to be resolvable to a existing cell process ID that is taken as the owner
+            // of the proxy helper cell the action request seeks to have connected.
+            //
+            // This is changing:
+            // Active cells should consider TransitionOperator and ControllerAction requests declared in APM to
+            // be akin to calling a private method 
+
+
+
             const thisCellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
 
             // TODO:
