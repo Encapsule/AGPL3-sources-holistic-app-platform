@@ -50,7 +50,7 @@ const activeCellDescriptor = {
 const factoryResponse = arccore.filter.create({
 
     operationID: "A9HTmM0IRw2z3Q2oqFkqCg",
-    operationName: "cpmLib: Get Cell Owner Report",
+    operationName: "cpmLib: Get Cell Process Ownership Report",
     operationDescription: "Query CPM to get current cell ownership report data for the active cell at request.cellPath.",
 
     inputFilterSpec: {
@@ -129,16 +129,24 @@ const factoryResponse = arccore.filter.create({
                     continue;
                 }
 
-                let isCurrentPathCellProcessOwned = true;
+                let isCurrentPathCellProcessOwned = false;
 
                 if (sharedCellProcesses.digraph.isVertex(currentPathCellID)) {
                     const vertexProp = sharedCellProcesses.digraph.getVertexProperty(currentPathCellID);
-                    if (vertexProp.role === "shared") {
+                    switch (vertexProp.role) {
+                    case "owned":
+                        break;
+                    case "shared":
                         isCurrentPathCellProcessOwned = false;
-                    } else {
-                        errors.push("Internal error in CPM >:/");
+                        break;
+                    default:
+                        errors.push(`Internal error in CPM >:/ Unexpected sharedCellProcesses.digraph vertex property role value '${vertexProp.role}' cannot be parsed.`);
                         break;
                     }
+                }
+
+                if (errors.length) {
+                    break;
                 }
 
                 activeCellDescriptor.cellRole = "process";

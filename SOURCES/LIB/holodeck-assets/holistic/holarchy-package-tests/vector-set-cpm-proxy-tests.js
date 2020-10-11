@@ -43,37 +43,17 @@ module.exports = [
 
                                         connect_proxy: {
                                             description: "Attempt to connect the proxy.",
-                                            transitions: [
-                                                { transitionIf: { always: true }, nextStep: "connect_proxy" }
-                                            ],
                                             actions: {
-                                                exit: [
-                                                    {
-                                                        holarchy: {
-                                                            CellProcessor: {
-                                                                actOn: {
-                                                                    cellPath: "#.proxy",
-                                                                    actionRequest: {
-                                                                        holarchy: {
-                                                                            CellProcessProxy: {
-                                                                                connect: {
-                                                                                    localCellProcess: {
-                                                                                        apmID: "mctGtkfiQmeO93Va6WkGZw"
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
+                                                enter: [
+                                                    { holarchy: { CellProcessor: { actOn: { cellPath: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
                                                 ]
-                                            }
-                                        },
-
-                                        check_proxy_connection: {
-                                            description: "Check the status of the proxy connection.",
+                                            },
+                                            transitions: [
+                                                { transitionIf: { holarchy: { CellProcessor: { opOn: { cellPath: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } } }, nextStep: "connect_proxy_error" },
+                                                { transitionIf: { holarchy: { CellProcessor: { opOn: { cellPath: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } } }, nextStep: "connect_proxy_error" },
+                                                { transitionIf: { holarchy: { CellProcessor: { opOn: { cellPath: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } } }, nextStep: "proxy_connected" },
+                                                { transitionIf: { always: true }, nextStep: "connect_proxy_error" }
+                                            ],
                                         },
 
                                         connect_proxy_error: {
@@ -99,13 +79,15 @@ module.exports = [
                                 }
                             },
 
+                            /*
                             {
                                actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                   actionRequest: { holarchy: { CellProcessor: { process: { delete: { cellProcessNamespace: { apmID: "mctGtkfiQmeO93Va6WkGZw"  } } } } } }
+                                    actionRequest: { holarchy: { CellProcessor: { process: { delete: { cellProcessNamespace: { apmID: "mctGtkfiQmeO93Va6WkGZw"  } } } } } }
                                 }
                             }
+                            */
 
                         ]
                     }

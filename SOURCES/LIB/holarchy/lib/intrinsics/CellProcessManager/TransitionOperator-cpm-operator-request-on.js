@@ -6,7 +6,7 @@ const ObservableControllerData = require("../../../lib/ObservableControllerData"
 const transitionOperator = new TransitionOperator({
     id: "DxL0zD_ERu-0kNGX2FvoGg",
     name: "Cell Process Manager: Operator Request On Cell (opOn)",
-    description: "Generically re-routes the TransitionOperator request specified by opRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
+    description: "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
 
     operatorRequestSpec: {
         ____types: "jsObject",
@@ -20,7 +20,7 @@ const transitionOperator = new TransitionOperator({
                         ____accept: "jsString",
                         ____defaultValue: "#"
                     },
-                    opRequest: { ____accept: "jsObject" }
+                    operatorRequest: { ____accept: "jsObject" }
                 }
             }
         }
@@ -34,7 +34,7 @@ const transitionOperator = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const messageBody = request_.actionRequest.holarchy.CellProcessor.opOn;
+            const messageBody = request_.operatorRequest.holarchy.CellProcessor.opOn;
 
             let ocdResponse = ObservableControllerData.dataPathResolve({
                 dataPath: messageBody.cellPath,
@@ -48,10 +48,12 @@ const transitionOperator = new TransitionOperator({
 
             const targetCellPath = ocdResponse.result;
 
-            let operatorResponse = request_.context.transitionDispatcher({
-                context: request_.context,
-                operatorRequest: messageBody.opRequest,
-                apmBindingPath: targetCellPath
+            let operatorResponse = request_.context.transitionDispatcher.request({
+                context: {
+                    ...request_.context,
+                    apmBindingPath: targetCellPath
+                },
+                operatorRequest: messageBody.operatorRequest,
             });
             if (operatorResponse.error) {
                 errors.push("Unable to resolve TransitionOperator plug-in to process specified request:");
@@ -63,9 +65,11 @@ const transitionOperator = new TransitionOperator({
             const operatorFilter = operatorResponse.result;
 
             operatorResponse = operatorFilter.request({
-                context: request_.context,
-                operatorRequest: messageBody.opRequest,
-                apmBindingPath: targetCellPath
+                context: {
+                    ...request_.context,
+                    apmBindingPath: targetCellPath
+                },
+                operatorRequest: messageBody.operatorRequest,
             });
             if (operatorResponse.error) {
                 errors.push("We were not able to delegate your TransitionOperator request to a plug-in. However, the plug-in subsequently rejected your request with error:");

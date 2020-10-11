@@ -19,21 +19,12 @@ const action = new ControllerAction({
                 ____types: "jsObject",
                 connect: {
                     ____types: "jsObject",
-                    // Connect from this proxy process (a helper cell process)...
-                    proxyPath: {
-                        ____accept: "jsString",
-                        ____defaultValue: "#"
+                    apmID: {
+                        ____accept: "jsString"
                     },
-                    // ... to this new or existing local cell process.
-                    localCellProcess: {
-                        ____types: "jsObject",
-                        apmID: {
-                            ____accept: "jsString"
-                        },
-                        instanceName: {
-                            ____accept: "jsString",
-                            ____defaultValue: "singleton"
-                        }
+                    instanceName: {
+                        ____accept: "jsString",
+                        ____defaultValue: "singleton"
                     }
                 }
             }
@@ -54,45 +45,12 @@ const action = new ControllerAction({
             let runGarbageCollector = false;
             const message = request_.actionRequest.holarchy.CellProcessProxy.connect;
 
-            // Get the CPM process' data.
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
-            if (cpmLibResponse.error) {
-                errors.push(cpmLibResponse.error);
-                break;
-            }
-            const cpmDataDescriptor = cpmLibResponse.result;
-
-
-            // THIS IS SUBTLE AND VERY HARD TO THINK ABOUT.
-            // When this ControllerAction is called the request_.context.apmBindingPath has, until now,
-            // been presumed to be resolvable to a existing cell process ID that is taken as the owner
-            // of the proxy helper cell the action request seeks to have connected.
-            //
-            // This is changing:
-            // Active cells should consider TransitionOperator and ControllerAction requests declared in APM to
-            // be akin to calling a private method 
-
-
-
-            const thisCellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
-
-            // TODO:
-            // I think it's useful to remove this restriction in the future and allow any cell process to assert itself as the owner of the proxy.
-            // Because, it actually may really be the owner of the proxy despite not being more than a helper cell process itself.
-            // Note, that there's a similar nuanced restriction that applies to calling CPM process create from a worker cell process step action.
-            // Where apmBindingPath is required to be a the path to an active owned cell process that is assigned as the single parent (owner) of
-            // of every owned cell process (child) created w/CPM process create.
-
-            if (!cpmDataDescriptor.data.ownedCellProcesses.digraph.isVertex(thisCellProcessID)) {
-                errors.push(`Invalid apmBindingPath value '${request_.context.apmBindingPath}' does not resolve to an active worker or shared cell process.`);
-                break;
-            }
+            const proxyHelperPath = request_.context.apmBindingPath; // Take request_.context.apmBindingPath to be proxyHelperPath.
 
             // This ensures we're addressing an actuall CellProcessProxy-bound cell.
             // And, get us a copy of its memory and its current connection state.
             let cppLibResponse = cppLib.getStatus.request({
-                apmBindingPath: request_.context.apmBindingPath,
-                proxyPath: message.proxyPath,
+                proxyHelperPath,
                 ocdi: request_.context.ocdi
             });
             if (cppLibResponse.error) {
@@ -102,12 +60,44 @@ const action = new ControllerAction({
             }
             const cppMemoryStatusDescriptor = cppLibResponse.result;
 
-            const proxyPath = cppMemoryStatusDescriptor.paths.resolvedPath;
+            // Okay - we're talking to an active CellProcessProxy helper cell.
 
-            if (!proxyPath.startsWith(request_.context.apmBindingPath)) {
-                errors.push(`Invalid proxyPath value '${message.proxyPath}' resolves to an apmBindingPath value '${proxyPath}' that is outside of the proxy owner process' cell memory space!`);
+            // Get the CPM process' data.
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
+            const cpmDataDescriptor = cpmLibResponse.result;
+
+            // CellProcessProxy cells are always owned by another cell...
+            // CellProcessProxy CellModel APM ID is not registered with the CPM so you cannot activate a proxy via CPM process create.
+            // Which means you cannot connect a proxy to a proxy... At least not directly.
+
+            // So, now because we know we're a helper cell (i.e. declared within and thus "owned") by at least one containing APM layer
+            // we need to determine exactly where we are in relationship to the cell below us on this memory branch that is actually
+            // an cell process (i.e. its hashed cellPath IRUT is present in the CPM cell process graph).
+
+            cpmLibResponse = cpmLib.getProcessOwnershipReportDescriptor.request({
+                cellPath: proxyHelperPath,
+                cpmDataDescriptor: cpmDataDescriptor,
+                ocdi: request_.context.ocdi
+            });
+            if (cpmLibResponse.error) {
+                errors.push(`An unexpected error occurred while trying to determine which cell process owns CellProcessProxy helper cell at path '${proxyHelperPath}':`);
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+            const cellOwnershipReport = cpmLibResponse.result;
+
+            // TEMPORARY: For now, let's keep the current restrictions on proxy depth that we have currently imposed as they are so as not to break anything.
+            if (cellOwnershipReport.ownershipVector.length !== 2) {
+                errors.push(`Unsupported connection request on CellProcessProxy helper cell at path '${proxyHelperPath}' that is declared at namespace height ${cellOwnershipReport.ownershipVector.length} > 2 relative to its owning cell process. NOTE: I am working to remove this restriction now...`);
+                break;
+            }
+
+            const proxyOwnerProcessID = cellOwnershipReport.ownershipVector[1].cellID;
+            const proxyOwnerProcessPath = cellOwnershipReport.ownershipVector[1].cellPath
 
             // At this point we know / are confident of the following:
             //
@@ -118,26 +108,26 @@ const action = new ControllerAction({
             //
             // However, we do not yet know anything yet about the local cell process that the caller wishes to connect to via the proxy instance. So, we look at that next.
 
-            const lcpBindingPath = `~.${message.localCellProcess.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.localCellProcess.instanceName).result}`;
+            const lcpBindingPath = `~.${message.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.instanceName).result}`;
 
             let ocdResponse = request_.context.ocdi.getNamespaceSpec(lcpBindingPath);
             if (ocdResponse.error) {
-                errors.push(`Unknown APM ID value specified for localCellProcess.apmID. Do you have a CellModel registered w/APM ID value '${message.localCellProcess.apmID}'?`);
+                errors.push(`Unable to connect CellProcessProxy at path '${proxyHelperPath}' to a cell process with APM ID value '${message.apmID}' as specified. This AbstractProcessModel is not known inside this CellProcessor instance.`);
                 errors.push(ocdResponse.error);
                 break;
             }
 
             const lcpProcessID = arccore.identifier.irut.fromReference(lcpBindingPath).result;
-            const proxyHelperID = arccore.identifier.irut.fromReference(proxyPath).result;
+            const proxyHelperID = cellOwnershipReport.ownershipVector[0].cellID;
 
             // We now know it's possible to create an instance of the localCellProcess. But, we still do not know if the lcp is already present in
             // either the sharedCellProcesses.digraph and/or the ownedCellProcesses.digraph. And, the logic is a bit tricky. However, at this point
             // we can start to mutate the graphs because we're past the point where any bad input provided via request_ is likely to cause an error.
 
-            if (!cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(thisCellProcessID)) {
+            if (!cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(proxyOwnerProcessID)) {
                 // This host is not currently hosting any connected proxy helper instance(s). And, no other host owns proxy instance(s) that are connected to it.
                 // And, we know the host must exist. So, it must be an owned cell process. Record it as such.
-                cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: thisCellProcessID, p: { role: "owned", apmBindingPath: request_.context.apmBindingPath }});
+                cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: proxyOwnerProcessID, p: { role: "owned", apmBindingPath: proxyOwnerProcessPath }});
             }
 
             if (cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(proxyHelperID)) {
@@ -146,15 +136,15 @@ const action = new ControllerAction({
                 runGarbageCollector = true;
             }
 
-            const thisCellProcessRole = cpmDataDescriptor.data.sharedCellProcesses.digraph.getVertexProperty(thisCellProcessID).role;
+            const proxyOwnerProcessRole = cpmDataDescriptor.data.sharedCellProcesses.digraph.getVertexProperty(proxyOwnerProcessID).role;
 
-            cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: proxyHelperID, p: { role: `${thisCellProcessRole}-proxy`, apmBindingPath: proxyPath }});
-            cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: thisCellProcessID, v: proxyHelperID }, p: { role: "host-to-proxy" }});
+            cpmDataDescriptor.data.sharedCellProcesses.digraph.addVertex({ u: proxyHelperID, p: { role: `${proxyOwnerProcessRole}-proxy`, apmBindingPath: proxyHelperPath }});
+            cpmDataDescriptor.data.sharedCellProcesses.digraph.addEdge({ e: { u: proxyOwnerProcessID, v: proxyHelperID }, p: { role: "host-to-proxy" }});
 
             // If LCP is present in the sharedProcessesDigraph and not the ownedProcessesDigraph there's a consistency problem.
             if (cpmDataDescriptor.data.sharedCellProcesses.digraph.isVertex(lcpProcessID)) {
                 if (!cpmDataDescriptor.data.ownedCellProcesses.digraph.isVertex(lcpProcessID)) {
-                    errors(`Internal consistency error detected. Cannot connect proxy '${proxyPath}' to localCellProcess '${lcpBindingPath}'.`);
+                    errors(`Internal consistency error detected. Cannot connect proxy '${proxyHelperPath}' to localCellProcess '${lcpBindingPath}'.`);
                     break;
                 }
                 const lcpProps = cpmDataDescriptor.data.sharedCellProcesses.digraph.getVertexProperty(lcpProcessID);
@@ -172,11 +162,11 @@ const action = new ControllerAction({
                                 CellProcessor: {
                                     process: {
                                         create: {
-                                            apmID: message.localCellProcess.apmID,
-                                            cellProcessUniqueName: message.localCellProcess.instanceName,
+                                            apmID: message.apmID,
+                                            cellProcessUniqueName: message.instanceName,
                                             cellProcessInitData: {
                                                 construction: {
-                                                    instanceName: message.localCellProcess.instanceName
+                                                    instanceName: message.instanceName
                                                 }
                                             }
                                         }
@@ -184,7 +174,7 @@ const action = new ControllerAction({
                                 }
                             }
                         },
-                        apmBindingPath: "~" // shared cell processes are owned by the CellProcessor
+                        apmBindingPath: "~" // shared cell processes are owned by the CellProcessor instnace's Cell Process Manager daemon process.
                     });
                     if (actionResponse.error) {
                         errors.push("Failed to create new shared cell process during cell process proxy connect.");
@@ -197,13 +187,12 @@ const action = new ControllerAction({
             }
 
             ocdResponse = request_.context.ocdi.writeNamespace(
-                proxyPath,
+                proxyHelperPath,
                 {
                     "CPPU-UPgS8eWiMap3Ixovg_private": {
                         lcpRequest: {
-                            apmID: message.localCellProcess.apmID,
-                            instanceName: message.localCellProcess.instanceName,
-                            proxyOwner: request_.context.apmBindingPath
+                            apmID: message.apmID,
+                            instanceName: message.instanceName,
                         },
                         lcpConnect: lcpBindingPath
                     }
@@ -238,11 +227,11 @@ const action = new ControllerAction({
 
             response.result = {
                 host: {
-                    apmBindingPath: request_.context.apmBindingPath,
-                    processID: thisCellProcessID
+                    apmBindingPath: proxyOwnerProcessPath,
+                    processID: proxyOwnerProcessID
                 },
                 proxy: {
-                    apmBindingPath: proxyPath,
+                    apmBindingPath: proxyHelperPath,
                     proccessID: proxyHelperID
                 },
                 connected: {

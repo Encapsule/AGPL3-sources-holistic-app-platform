@@ -50,16 +50,8 @@
                           },
                           "connect_proxy": {
                             "description": "Attempt to connect the proxy.",
-                            "transitions": [
-                              {
-                                "transitionIf": {
-                                  "always": true
-                                },
-                                "nextStep": "connect_proxy"
-                              }
-                            ],
                             "actions": {
-                              "exit": [
+                              "enter": [
                                 {
                                   "holarchy": {
                                     "CellProcessor": {
@@ -69,9 +61,7 @@
                                           "holarchy": {
                                             "CellProcessProxy": {
                                               "connect": {
-                                                "localCellProcess": {
-                                                  "apmID": "mctGtkfiQmeO93Va6WkGZw"
-                                                }
+                                                "apmID": "mctGtkfiQmeO93Va6WkGZw"
                                               }
                                             }
                                           }
@@ -81,10 +71,72 @@
                                   }
                                 }
                               ]
-                            }
-                          },
-                          "check_proxy_connection": {
-                            "description": "Check the status of the proxy connection."
+                            },
+                            "transitions": [
+                              {
+                                "transitionIf": {
+                                  "holarchy": {
+                                    "CellProcessor": {
+                                      "opOn": {
+                                        "cellPath": "#.proxy",
+                                        "operatorRequest": {
+                                          "holarchy": {
+                                            "CellProcessProxy": {
+                                              "isBroken": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "nextStep": "connect_proxy_error"
+                              },
+                              {
+                                "transitionIf": {
+                                  "holarchy": {
+                                    "CellProcessor": {
+                                      "opOn": {
+                                        "cellPath": "#.proxy",
+                                        "operatorRequest": {
+                                          "holarchy": {
+                                            "CellProcessProxy": {
+                                              "isDisconnected": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "nextStep": "connect_proxy_error"
+                              },
+                              {
+                                "transitionIf": {
+                                  "holarchy": {
+                                    "CellProcessor": {
+                                      "opOn": {
+                                        "cellPath": "#.proxy",
+                                        "operatorRequest": {
+                                          "holarchy": {
+                                            "CellProcessProxy": {
+                                              "isConnected": {}
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "nextStep": "proxy_connected"
+                              },
+                              {
+                                "transitionIf": {
+                                  "always": true
+                                },
+                                "nextStep": "connect_proxy_error"
+                              }
+                            ]
                           },
                           "connect_proxy_error": {
                             "description": "The attempt to connect the proxy failed."
@@ -113,25 +165,6 @@
                           }
                         }
                       }
-                    },
-                    {
-                      "actRequest": {
-                        "actorName": "Proxy Test A",
-                        "actorTaskDescription": "Start test process.",
-                        "actionRequest": {
-                          "holarchy": {
-                            "CellProcessor": {
-                              "process": {
-                                "delete": {
-                                  "cellProcessNamespace": {
-                                    "apmID": "mctGtkfiQmeO93Va6WkGZw"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
                     }
                   ]
                 }
@@ -150,13 +183,13 @@
               "UBSclp3gSqCCmSvoG3W4tw": {
                 "N8wBqzGVT6i6Dvwzff4Zrw": {
                   "vectorFailed": true,
-                  "vectorFailedReason": "Test execution analysis violation: CellProcessor.act call induced OPC cell evaluation w/unexpected OPC transport errors.",
+                  "vectorFailedReason": "Post-test execution analysis violation: CellProcessManager shared process table is not empty as expected.",
                   "construction": {
                     "isValid": true,
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                        "vdid": "c5Izl45GWcRjZ5qgWK6UQA",
+                        "vdid": "dq7Om_BzDBSkw-vyE3Th8Q",
                         "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Model",
                         "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A].",
                         "cmat": {
@@ -166,7 +199,7 @@
                               "type": "INDEX",
                               "hvWG9VRwVHCkHqQediJ2Ig": {
                                 "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                                "vdid": "c5Izl45GWcRjZ5qgWK6UQA",
+                                "vdid": "dq7Om_BzDBSkw-vyE3Th8Q",
                                 "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Model",
                                 "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A].",
                                 "type": "CM",
@@ -179,9 +212,9 @@
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
                                   "id": "DxL0zD_ERu-0kNGX2FvoGg",
-                                  "vdid": "4QLAU76Wn8tVq3-KpySq-Q",
+                                  "vdid": "zmTZvRsCysPThdysqRjDrA",
                                   "name": "Cell Process Manager: Operator Request On Cell (opOn)",
-                                  "description": "Generically re-routes the TransitionOperator request specified by opRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
+                                  "description": "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
                                   "type": "TOP"
                                 },
                                 "gJnA-VJTTLa0g9TKFmjv1Q": {
@@ -298,7 +331,7 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "1_V2djWcIMrMSKc5hxYCAg",
+                                  "vdid": "17zodjX51MrMSGQ5hxfkAg",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
@@ -318,21 +351,21 @@
                                   },
                                   "c-n6U_maQa23j9jWFDsgOw": {
                                     "id": "c-n6U_maQa23j9jWFDsgOw",
-                                    "vdid": "BTviSIk_8Xe4eBrK6SnErg",
+                                    "vdid": "oIlSozym6sRqzskjoN7N5Q",
                                     "name": "Cell Process Proxy: Proxy State Broken",
                                     "description": "Returns Boolean true if the cell process proxy helper cell was logically connected to an owned local cell process that has been deleted.",
                                     "type": "TOP"
                                   },
                                   "aRz-bXOaSY-77jGIvSLFvw": {
                                     "id": "aRz-bXOaSY-77jGIvSLFvw",
-                                    "vdid": "gIuD_aBTV3tj8exU9tYQKg",
+                                    "vdid": "hvcoVSqTT8l8Ai5G2AFBGA",
                                     "name": "Cell Process Proxy: Proxy State Connected",
                                     "description": "Returns Boolean true if the cell process proxy helper cell is logically connected to an owned or shared local cell process.",
                                     "type": "TOP"
                                   },
                                   "1SC437izTgKckxxWUq6cbQ": {
                                     "id": "1SC437izTgKckxxWUq6cbQ",
-                                    "vdid": "2qL1Kefc-4p9aSLwzo_Fuw",
+                                    "vdid": "Pv2XmlFVnneMbE4rFCr6wg",
                                     "name": "Cell Process Proxy: Proxy State Disconnected",
                                     "description": "Returns Boolean true if the cell process proxy helper cell is logically disconnected from a shared local cell process.",
                                     "type": "TOP"
@@ -346,7 +379,7 @@
                                   },
                                   "X6ck_Bo4RmWTVHl-vk-urw": {
                                     "id": "X6ck_Bo4RmWTVHl-vk-urw",
-                                    "vdid": "3jBnjI4z9YDixr_A0s1KNw",
+                                    "vdid": "sf5wN33aT6edeazh3hDNLQ",
                                     "name": "Cell Process Proxy: Connect Proxy",
                                     "description": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
                                     "type": "ACT"
@@ -515,13 +548,13 @@
                                 },
                                 "NAlcfNAXTteoRMDrYOzTjA": {
                                   "id": "NAlcfNAXTteoRMDrYOzTjA",
-                                  "vdid": "T7z5_UBhcEsoJxYsaIvrbw",
+                                  "vdid": "T7wI_UBhE0soJyQsaIvVbw",
                                   "name": "Proxy Test A Model",
                                   "description": "A test process.",
                                   "type": "CM",
                                   "mctGtkfiQmeO93Va6WkGZw": {
                                     "id": "mctGtkfiQmeO93Va6WkGZw",
-                                    "vdid": "D7TRPqDcD6N_3KgLfC0Jxg",
+                                    "vdid": "xC34bG4O5ca8SxRXKlJBOg",
                                     "name": "Proxy Test A Process",
                                     "description": "A test process.",
                                     "type": "APM"
@@ -557,7 +590,7 @@
                           },
                           "mctGtkfiQmeO93Va6WkGZw": {
                             "id": "mctGtkfiQmeO93Va6WkGZw",
-                            "vdid": "D7TRPqDcD6N_3KgLfC0Jxg",
+                            "vdid": "xC34bG4O5ca8SxRXKlJBOg",
                             "name": "Proxy Test A Process",
                             "description": "A test process."
                           }
@@ -576,7 +609,7 @@
                             "specPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "mctGtkfiQmeO93Va6WkGZw",
-                              "vdid": "D7TRPqDcD6N_3KgLfC0Jxg",
+                              "vdid": "xC34bG4O5ca8SxRXKlJBOg",
                               "name": "Proxy Test A Process",
                               "description": "A test process."
                             }
@@ -1575,7 +1608,7 @@
                             "filterDescriptor": {
                               "operationID": "DxL0zD_ERu-0kNGX2FvoGg",
                               "operationName": "Cell Process Manager: Operator Request On Cell (opOn)",
-                              "operationDescription": "Generically re-routes the TransitionOperator request specified by opRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
+                              "operationDescription": "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
                               "inputFilterSpec": {
                                 "____label": "Cell Process Manager: Operator Request On Cell (opOn) Request",
                                 "____types": "jsObject",
@@ -1611,7 +1644,7 @@
                                           "____accept": "jsString",
                                           "____defaultValue": "#"
                                         },
-                                        "opRequest": {
+                                        "operatorRequest": {
                                           "____accept": "jsObject"
                                         }
                                       }
@@ -1623,10 +1656,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "YLFJL6iCghMv4NEjeMpjUg",
-                              "inputTypeVDID": "BlNqyuZN_7lrG9c61UwFqw",
+                              "inputTypeVDID": "QVzNqhTDi5F5L5Kos28IjQ",
                               "outputTypeVIID": "yhlYdTxhXIXWTUsdh8nWEQ",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "5BnyRH4pXJPZJFKcn0Rfcg"
+                              "operationVDID": "5BoVRH6lUZPZlqicn5pncg"
                             }
                           },
                           "9HNGDusyTtKpleXFae7O5A": {
@@ -1867,11 +1900,7 @@
                                     "CellProcessProxy": {
                                       "____types": "jsObject",
                                       "isBroken": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        }
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -1881,10 +1910,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "5RayNO1bsuyAC3nJxgqNYQ",
-                              "inputTypeVDID": "z8x36kl_ba96mva4sauhHA",
+                              "inputTypeVDID": "ehCU8-SABHGn9eo54hsVqw",
                               "outputTypeVIID": "HfQhdWTbdkYrpdNDU5_mFQ",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "OaUwRJ7iXJOI_EacXSV4cg"
+                              "operationVDID": "OVD2RJ67hZOI07ecXZsPcg"
                             }
                           },
                           "aRz-bXOaSY-77jGIvSLFvw": {
@@ -1922,11 +1951,7 @@
                                     "CellProcessProxy": {
                                       "____types": "jsObject",
                                       "isConnected": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        }
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -1936,10 +1961,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "qwnNaBFHQrPJaQOkIOZr-Q",
-                              "inputTypeVDID": "wGvMYGtz5QM_6k4QZbVqMA",
+                              "inputTypeVDID": "LEG0kBE7fxdV1wG63T8ZqQ",
                               "outputTypeVIID": "u3RSkCmZU0K1DZrNsfDyZA",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "KtkdRI1qCpM7rA6cIIlrcg"
+                              "operationVDID": "KoZURI16NJM7c9OcIF7Ccg"
                             }
                           },
                           "1SC437izTgKckxxWUq6cbQ": {
@@ -1977,11 +2002,7 @@
                                     "CellProcessProxy": {
                                       "____types": "jsObject",
                                       "isDisconnected": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        }
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -1991,10 +2012,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "ZfcgwsSs-8GkkSGBIUOrjA",
-                              "inputTypeVDID": "GRxVKBcxfjzPNmG1yY28bA",
+                              "inputTypeVDID": "oorjrsRKJgxNacALFrMoQg",
                               "outputTypeVIID": "yB3Lawcem3cuQveeow25dg",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "WjA9RN-hb5MLgz6cDuEEcg"
+                              "operationVDID": "Ws8qRN_d45ML2CycDk9fcg"
                             }
                           },
                           "YgABX95wR86GCYrYaDLISA": {
@@ -3475,19 +3496,12 @@
                                       "____types": "jsObject",
                                       "connect": {
                                         "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
+                                        "apmID": {
+                                          "____accept": "jsString"
                                         },
-                                        "localCellProcess": {
-                                          "____types": "jsObject",
-                                          "apmID": {
-                                            "____accept": "jsString"
-                                          },
-                                          "instanceName": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "singleton"
-                                          }
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
                                         }
                                       }
                                     }
@@ -3498,10 +3512,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "tyyJO-xMV2o0PtVr2ON4CA",
-                              "inputTypeVDID": "O856p4_ezfMe5yaGB7_igA",
+                              "inputTypeVDID": "63a6-QFVzMzlrMs4JwFWqw",
                               "outputTypeVIID": "w46nFkDwQGGu0ASHsdx-Zg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "pfQPT5f6SBrusZSIbxKrWA"
+                              "operationVDID": "pWvfT5fNFhrujCiIb-GSWA"
                             }
                           },
                           "ySiBEGcaRGWVOZmwBRyhrA": {
@@ -4193,7 +4207,7 @@
                       "testHarnessActionSummary": {
                         "testDisposition": "TEST PASS",
                         "actionRequest": "PASS",
-                        "postActionCellProcessorEval": "FAIL"
+                        "postActionCellProcessorEval": "PASS"
                       },
                       "testHarnessActionDispatch": {
                         "actRequest": {
@@ -4222,10 +4236,10 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 6,
-                                  "frames": 2,
-                                  "errors": 1,
-                                  "transitions": 1
+                                  "bindings": 9,
+                                  "frames": 3,
+                                  "errors": 0,
+                                  "transitions": 2
                                 }
                               },
                               "evalFrames": [
@@ -4285,7 +4299,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "mctGtkfiQmeO93Va6WkGZw",
-                                          "vdid": "D7TRPqDcD6N_3KgLfC0Jxg",
+                                          "vdid": "xC34bG4O5ca8SxRXKlJBOg",
                                           "name": "Proxy Test A Process",
                                           "description": "A test process."
                                         }
@@ -4311,7 +4325,49 @@
                                             }
                                           ],
                                           "p2_exit": [],
-                                          "p3_enter": [],
+                                          "p3_enter": [
+                                            {
+                                              "request": {
+                                                "holarchy": {
+                                                  "CellProcessor": {
+                                                    "actOn": {
+                                                      "cellPath": "#.proxy",
+                                                      "actionRequest": {
+                                                        "holarchy": {
+                                                          "CellProcessProxy": {
+                                                            "connect": {
+                                                              "apmID": "mctGtkfiQmeO93Va6WkGZw"
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": {
+                                                  "actionResult": {
+                                                    "actionResult": {
+                                                      "host": {
+                                                        "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                        "processID": "8cFow8-OMaRc6MprCps_yA"
+                                                      },
+                                                      "proxy": {
+                                                        "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy",
+                                                        "proccessID": "0HbVqoxgvl71Vi4Tx7w8Zg"
+                                                      },
+                                                      "connected": {
+                                                        "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                        "processID": "8cFow8-OMaRc6MprCps_yA"
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          ],
                                           "p4_finalize": {
                                             "error": null,
                                             "result": "connect_proxy"
@@ -4364,14 +4420,14 @@
                                   "summary": {
                                     "counts": {
                                       "bindings": 3,
-                                      "transitions": 0,
-                                      "errors": 1
+                                      "transitions": 1,
+                                      "errors": 0
                                     },
                                     "reports": {
-                                      "transitions": [],
-                                      "errors": [
+                                      "transitions": [
                                         "8cFow8-OMaRc6MprCps_yA"
-                                      ]
+                                      ],
+                                      "errors": []
                                     }
                                   },
                                   "bindings": {
@@ -4416,14 +4472,14 @@
                                         "initialStep": "connect_proxy",
                                         "apmRef": {
                                           "id": "mctGtkfiQmeO93Va6WkGZw",
-                                          "vdid": "D7TRPqDcD6N_3KgLfC0Jxg",
+                                          "vdid": "xC34bG4O5ca8SxRXKlJBOg",
                                           "name": "Proxy Test A Process",
                                           "description": "A test process."
                                         }
                                       },
                                       "evalResponse": {
-                                        "status": "error",
-                                        "finishStep": "connect_proxy",
+                                        "status": "transitioned",
+                                        "finishStep": "proxy_connected",
                                         "phases": {
                                           "p1_toperator": [
                                             {
@@ -4432,29 +4488,14 @@
                                                   "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
                                                 },
                                                 "operatorRequest": {
-                                                  "always": true
-                                                }
-                                              },
-                                              "response": {
-                                                "error": null,
-                                                "result": true
-                                              }
-                                            }
-                                          ],
-                                          "p2_exit": [
-                                            {
-                                              "request": {
-                                                "holarchy": {
-                                                  "CellProcessor": {
-                                                    "actOn": {
-                                                      "cellPath": "#.proxy",
-                                                      "actionRequest": {
-                                                        "holarchy": {
-                                                          "CellProcessProxy": {
-                                                            "connect": {
-                                                              "localCellProcess": {
-                                                                "apmID": "mctGtkfiQmeO93Va6WkGZw"
-                                                              }
+                                                  "holarchy": {
+                                                    "CellProcessor": {
+                                                      "opOn": {
+                                                        "cellPath": "#.proxy",
+                                                        "operatorRequest": {
+                                                          "holarchy": {
+                                                            "CellProcessProxy": {
+                                                              "isBroken": {}
                                                             }
                                                           }
                                                         }
@@ -4464,19 +4505,189 @@
                                                 }
                                               },
                                               "response": {
-                                                "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request On Cell (actOn)]. But, the plug-in rejected the request with error: Filter [wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request On Cell (actOn)] failed while performing main operation. We were not able to delegate your ControllerAction request due to error: Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy]. But, the plug-in rejected the request with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Cannot locate the cell process proxy cell instance. Filter [EH_OsCUFT5eybmstGuNCyA::Cell Process Proxy: Get CPP Memory & Status] failed while performing main operation. There isn't even a possibility of there being a cell process proxy (or even a cell) at the path specified for the cell process proxy cell because it has no APM binding. With apmBindingPath='~' and dataPath='#' = '~': "
+                                                "error": null,
+                                                "result": false
+                                              }
+                                            },
+                                            {
+                                              "request": {
+                                                "context": {
+                                                  "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                                },
+                                                "operatorRequest": {
+                                                  "holarchy": {
+                                                    "CellProcessor": {
+                                                      "opOn": {
+                                                        "cellPath": "#.proxy",
+                                                        "operatorRequest": {
+                                                          "holarchy": {
+                                                            "CellProcessProxy": {
+                                                              "isDisconnected": {}
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": false
+                                              }
+                                            },
+                                            {
+                                              "request": {
+                                                "context": {
+                                                  "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                                },
+                                                "operatorRequest": {
+                                                  "holarchy": {
+                                                    "CellProcessor": {
+                                                      "opOn": {
+                                                        "cellPath": "#.proxy",
+                                                        "operatorRequest": {
+                                                          "holarchy": {
+                                                            "CellProcessProxy": {
+                                                              "isConnected": {}
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "response": {
+                                                "error": null,
+                                                "result": true
                                               }
                                             }
                                           ],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": {
+                                            "error": null,
+                                            "result": "proxy_connected"
+                                          }
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "0HbVqoxgvl71Vi4Tx7w8Zg": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy",
+                                          "specPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.cellProcessID.proxy"
+                                        },
+                                        "initialStep": "uninitialized",
+                                        "apmRef": {
+                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
+                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
+                                          "name": "Holarchy Cell Process Proxy Helper Process",
+                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "uninitialized",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
                                           "p3_enter": [],
                                           "p4_finalize": null
                                         },
                                         "errors": {
                                           "p1_toperator": 0,
-                                          "p2_exit": 1,
+                                          "p2_exit": 0,
                                           "p3_enter": 0,
                                           "p4_finalize": 0,
-                                          "total": 1
+                                          "total": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 3,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "pxyLsTQOfYCCAwn5efuO5Q",
+                                          "vdid": "V1clEdWvWXlbiluQzRQH1g",
+                                          "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
+                                          "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    },
+                                    "8cFow8-OMaRc6MprCps_yA": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                          "specPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.cellProcessID"
+                                        },
+                                        "initialStep": "proxy_connected",
+                                        "apmRef": {
+                                          "id": "mctGtkfiQmeO93Va6WkGZw",
+                                          "vdid": "xC34bG4O5ca8SxRXKlJBOg",
+                                          "name": "Proxy Test A Process",
+                                          "description": "A test process."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "proxy_connected",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
                                         }
                                       }
                                     },
@@ -4525,10 +4736,16 @@
                             "4ODg4BoaGhqkpKSkX19fXw": {
                               "count": 0,
                               "proxy": {
-                                "CPPU-UPgS8eWiMap3Ixovg_private": {},
+                                "CPPU-UPgS8eWiMap3Ixovg_private": {
+                                  "lcpRequest": {
+                                    "apmID": "mctGtkfiQmeO93Va6WkGZw",
+                                    "instanceName": "singleton"
+                                  },
+                                  "lcpConnect": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                },
                                 "__apmiStep": "uninitialized"
                               },
-                              "__apmiStep": "connect_proxy"
+                              "__apmiStep": "proxy_connected"
                             }
                           },
                           "revision": 1
@@ -4567,142 +4784,46 @@
                             }
                           },
                           "sharedCellProcesses": {
-                            "revision": 0,
+                            "revision": 1,
                             "digraph": {
                               "name": "Shared Cell Processes Digraph Model",
                               "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
-                            }
-                          },
-                          "__apmiStep": "ready"
-                        }
-                      }
-                    },
-                    {
-                      "testHarnessActionSummary": {
-                        "testDisposition": "TEST PASS",
-                        "actionRequest": "PASS",
-                        "postActionCellProcessorEval": "PASS"
-                      },
-                      "testHarnessActionDispatch": {
-                        "actRequest": {
-                          "actorName": "Proxy Test A",
-                          "actorTaskDescription": "Start test process.",
-                          "actionRequest": {
-                            "holarchy": {
-                              "CellProcessor": {
-                                "process": {
-                                  "delete": {
-                                    "cellProcessNamespace": {
-                                      "apmID": "mctGtkfiQmeO93Va6WkGZw"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "actResponse": {
-                          "error": null,
-                          "result": {
-                            "actionResult": {
-                              "apmBindingPath": "~",
-                              "cellProcessID": "U1NTU1paWlqwsLCwxMTExA"
-                            },
-                            "lastEvaluation": {
-                              "evalNumber": 2,
-                              "summary": {
-                                "counts": {
-                                  "bindings": 1,
-                                  "frames": 1,
-                                  "errors": 0,
-                                  "transitions": 0
-                                }
-                              },
-                              "evalFrames": [
-                                {
-                                  "summary": {
-                                    "counts": {
-                                      "bindings": 1,
-                                      "transitions": 0,
-                                      "errors": 0
-                                    },
-                                    "reports": {
-                                      "transitions": [],
-                                      "errors": []
-                                    }
-                                  },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                          "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                          "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                          "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      },
-                      "postActionToJSON": {
-                        "mctGtkfiQmeO93Va6WkGZw_CellProcesses": {
-                          "cellProcessMap": {},
-                          "revision": 2
-                        },
-                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
-                          "ownedCellProcesses": {
-                            "revision": 2,
-                            "digraph": {
-                              "name": "Owned Cell Processes Tree Model",
-                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
                               "vlist": [
                                 {
-                                  "u": "U1NTU1paWlqwsLCwxMTExA",
+                                  "u": "8cFow8-OMaRc6MprCps_yA",
                                   "p": {
-                                    "apmBindingPath": "~",
-                                    "name": "Cell Process Manager"
+                                    "role": "owned",
+                                    "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw"
+                                  }
+                                },
+                                {
+                                  "u": "0HbVqoxgvl71Vi4Tx7w8Zg",
+                                  "p": {
+                                    "role": "owned-proxy",
+                                    "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy"
                                   }
                                 }
                               ],
-                              "elist": []
-                            }
-                          },
-                          "sharedCellProcesses": {
-                            "revision": 0,
-                            "digraph": {
-                              "name": "Shared Cell Processes Digraph Model",
-                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
-                              "vlist": [],
-                              "elist": []
+                              "elist": [
+                                {
+                                  "e": {
+                                    "u": "8cFow8-OMaRc6MprCps_yA",
+                                    "v": "0HbVqoxgvl71Vi4Tx7w8Zg"
+                                  },
+                                  "p": {
+                                    "role": "host-to-proxy"
+                                  }
+                                },
+                                {
+                                  "e": {
+                                    "u": "0HbVqoxgvl71Vi4Tx7w8Zg",
+                                    "v": "8cFow8-OMaRc6MprCps_yA"
+                                  },
+                                  "p": {
+                                    "role": "proxy-to-owned"
+                                  }
+                                }
+                              ]
                             }
                           },
                           "__apmiStep": "ready"

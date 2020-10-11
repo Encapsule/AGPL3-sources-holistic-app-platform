@@ -315,6 +315,9 @@ const holarchy = require("@encapsule/holarchy");
                 messageBody.testActorRequests.forEach((testActorRequest_) => { testActorRequests.push(testActorRequest_); });
                 messageBody.actRequests.forEach((actRequest_) => { testActorRequests.push(makeTestActorRequestFilter.request({ actRequest: actRequest_ }).result); });
 
+                if (!cpInstance.isValid()) {
+                    break;
+                }
 
                 while (testActorRequests.length) {
 

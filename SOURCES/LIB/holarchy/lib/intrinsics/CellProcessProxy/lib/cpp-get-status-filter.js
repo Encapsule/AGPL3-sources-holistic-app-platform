@@ -11,27 +11,13 @@ const factoryResponse = arccore.filter.create({
 
     inputFilterSpec: {
         ____types: "jsObject",
-
-        apmBindingPath: { ____accept: "jsString" }, // may be the binding path of the proxy helper cell itself or the path of a parent cell
-
-        proxyPath: {
-            ____accept: [
-                "jsUndefined", // apmBindingPath must be the path of the cell process proxy cell
-                "jsString" // the path of the cell process proxy is deduced via OCD.resolvePath from apmBindingPath and proxyPath
-            ]
-        },
+        proxyHelperPath: { ____accept: "jsString" },
         ocdi: { ____accept: "jsObject" }
     },
 
     outputFilterSpec: {
         ____types: "jsObject",
         data: { ____accept: "jsObject" },
-        paths: {
-            ____types: "jsObject",
-            apmBindingPath: { ____accept: "jsString" },
-            proxyPath: { ____accept: "jsString" },
-            resolvedPath: { ____accept: "jsString" }
-        },
         status: {
             ____accept: "jsString",
             ____inValueSet: [
@@ -50,65 +36,40 @@ const factoryResponse = arccore.filter.create({
 
             inBreakScope = true;
 
-            let ocdResponse = OCD.dataPathResolve({ apmBindingPath: request_.apmBindingPath, dataPath: request_.proxyPath});
+            let ocdResponse = request_.ocdi.getNamespaceSpec(request_.proxyHelperPath);
             if (ocdResponse.error) {
-                errors.push("Unable to resolve the path to the cell process proxy cell.");
-                errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}':`);
-                errors.push(ocdResponse.error);
-                break;
-            }
-            const proxyCellPath = ocdResponse.result;
-
-            ocdResponse = request_.ocdi.getNamespaceSpec(proxyCellPath);
-            if (ocdResponse.error) {
-                errors.push("There isn't even a possibility of there being a cell process proxy (or anything actually) at the path specified for the cell process proxy cell.");
-                errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}' = '${proxyCellPath}':`);
+                errors.push(`Unable to query status of CellProcessProxy helper cell at path '${request_.proxyHelperPath}' because this namespace is not known inside this CellProcessor instance.`);
                 errors.push(ocdResponse.error);
                 break;
             }
 
-            const proxyMemorySpec = ocdResponse.result;
+            const proxyCellSpec = ocdResponse.result;
 
-            if (!proxyMemorySpec.____appdsl || !proxyMemorySpec.____appdsl.apm) {
-                errors.push("There isn't even a possibility of there being a cell process proxy (or even a cell) at the path specified for the cell process proxy cell because it has no APM binding.");
-                errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}' = '${proxyCellPath}':`);
-                errors.push(ocdResponse.error);
+            if (!proxyCellSpec.____appdsl || !proxyCellSpec.____appdsl.apm) {
+                errors.push(`Unable to query status of CellProcessProxy helper cell at path '${request_.proxyHelperPath}' because this namespace is declared as data within a cell but is not itself declared as a cell (i.e. it has no app DSL APM binding annotation).`);
                 break;
             }
 
-            if (proxyMemorySpec.____appdsl.apm !== "CPPU-UPgS8eWiMap3Ixovg") {
-                errors.push("Invalid cell process proxy helper path resolves to cell that is not delcared as a cell process proxy cell!");
-                errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}' = '${proxyCellPath}':`);
-                errors.push(`Found cell with APM binding '${proxyMemorySpec.____appdsl.apm}'.`);
+            if (proxyCellSpec.____appdsl.apm !== "CPPU-UPgS8eWiMap3Ixovg") {
+                errors.push(`Unable to query status of CellProcessProxy helper cell at path '${request_.proxyHelperPath}' because this namespace is declared as a cell bound to APM ID '${proxyCellSpec.____appdsl.apm}' that is not a CellProcessProxy.`);
                 break;
             }
 
-            // Okay. Now, we have established that the caller has provided an apmBindingPath and proxyPath inputs that
-            // resolve to a cell that may or may not exist. Here we are being asked to retrieve the status of a cell presumed
-            // to exist. So, if it doesn't that's an error.
-
-            ocdResponse = request_.ocdi.readNamespace(`${proxyCellPath}.CPPU-UPgS8eWiMap3Ixovg_private`);
+            ocdResponse = request_.ocdi.readNamespace(`${request_.proxyHelperPath}.CPPU-UPgS8eWiMap3Ixovg_private`);
             if (ocdResponse.error) {
-                errors.push("The specified cell process proxy helper does not exist!");
-                errors.push("It is the responsibility of some hosting cell to manage the lifespan of its cell process proxy helpers.");
-                errors.push(`With apmBindingPath='${request_.apmBindingPath}' and dataPath='${request_.proxyPath}' = '${proxyCellPath}':`);
+                errors.push(`Unable to query status of CellProcessProxy helper cell at path '${request_.proxyHelperPath}' because the cell is not active (i.e. it does not exist currently).`);
                 break;
             }
 
-            const cppMemory = ocdResponse.result;
+            const proxyCellMemory = ocdResponse.result;
 
             response.result = {
-                data: cppMemory,
-                paths: {
-                    apmBindingPath: request_.apmBindingPath,
-                    proxyPath: request_.proxyPath,
-                    resolvedPath: proxyCellPath
-                },
+                data: proxyCellMemory,
                 status: {
                     "[object Undefined]": "disconnected",
                     "[object Null]": "broken",
                     "[object String]": "connected"
-                }[Object.prototype.toString.call(cppMemory.lcpConnect)]
+                }[Object.prototype.toString.call(proxyCellMemory.lcpConnect)]
             };
             break;
         }

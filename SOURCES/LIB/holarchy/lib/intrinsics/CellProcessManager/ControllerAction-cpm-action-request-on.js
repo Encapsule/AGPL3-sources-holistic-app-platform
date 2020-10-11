@@ -56,11 +56,7 @@ const controllerAction = new ControllerAction({
                 actorName: "Cell Process Manager: actOn",
                 actorTaskDescription: `Delegating ControllerAction request to cell at path '${targetCellPath}'.`,
                 actionRequest: messageBody.actionRequest,
-                context: {
-                    act: request_.context.act,
-                    apmBindingPath: targetCellPath,
-                    ocdi: request_.context.ocdi,
-                }
+                apmBindingPath: targetCellPath
             });
 
             if (actResponse.error) {

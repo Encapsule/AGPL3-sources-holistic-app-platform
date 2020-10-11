@@ -126,7 +126,7 @@ const controllerAction = new ControllerAction({
 
             // Now, regardless of if we took queryCellPath from the caller-specified apmBindingPath (typically set implicitly during OPC processing of APM operator and action requests),
             // or explicitly by the caller via the parentCellProcess override option, we attempt to deduce which cell should be assigned ownership responsibility for the proposed cell process.
-            cpmLibResponse = cpmLib.getOwnerProcessDescriptor.request({
+            cpmLibResponse = cpmLib.getProcessOwnershipReportDescriptor.request({
                 cellPath: queryCellPath,
                 cpmDataDescriptor: cpmDataDescriptor,
                 ocdi: request_.context.ocdi

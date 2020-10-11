@@ -14,8 +14,7 @@ const transitionOperator = new TransitionOperator({
             CellProcessProxy: {
                 ____types: "jsObject",
                 isBroken: {
-                    ____types: "jsObject",
-                    proxyPath: { ____accept: "jsString", ____defaultValue: "#" }
+                    ____accept: "jsObject",
                 }
             }
         }
@@ -27,12 +26,7 @@ const transitionOperator = new TransitionOperator({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-            const message = request_.operatorRequest.holarchy.CellProcessProxy.isBroken;
-            const cppLibResponse = cppLib.getStatus.request({
-                apmBindingPath: request_.context.apmBindingPath,
-                proxyPath: message.proxyPath,
-                ocdi: request_.context.ocdi
-            });
+            const cppLibResponse = cppLib.getStatus.request({ proxyHelperPath: request_.context.apmBindingPath, ocdi: request_.context.ocdi });
             if (cppLibResponse.error) {
                 errors.push(cppLibResponse.error);
                 break;
