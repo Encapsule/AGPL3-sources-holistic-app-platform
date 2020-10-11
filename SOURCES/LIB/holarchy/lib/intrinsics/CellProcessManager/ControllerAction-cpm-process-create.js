@@ -24,32 +24,15 @@ const controllerAction = new ControllerAction({
 
                         apmID: { ____accept: "jsString" },
 
-                        cellProcessUniqueName: {
+                        instanceName: {
                             ____accept: "jsString",
                             ____defaultValue: "singleton"
                         },
 
-                        cellProcessInitData: {
+                        initData: {
                             ____accept: [ "jsObject", "jsUndefined" ]
-                        },
-
-                        // This override is provided to support CellProcessor's intrinisic CellProcessManager process, ~.
-                        // If you think you actually need to use this facility, please let me know what your use case(s) are.
-                        parentCellProcess: {
-                            ____label: "Parent Cell Process Override",
-                            ____description: "Explicitly overrides default action behavior of using #, the action's outer apmBindingPath value, as the parent cell process for the new cell process.",
-                            ____types: [ "jsUndefined", "jsObject" ],
-                            // Either of
-                            cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] }, // Preferred
-                            // ... or
-                            apmBindingPath: { ____accept: [ "jsUndefined", "jsString" ] }, // Equivalent, but less efficient
-                            // ... or
-                            cellProcessNamespace: {
-                                ____types: [ "jsUndefined", "jsObject" ],
-                                apmID: { ____accept: "jsString" },
-                                cellProcessUniqueName: { ____accept: "jsString", ____defaultValue: "singleton" }
-                            }
                         }
+
                     }
                 }
             }
@@ -94,10 +77,8 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            // Based on how we constructed the query path, apmProcessNamespace, we now know that it is possible to dynamically add a cell bound to the specified APM.
-
-            // Use the caller's cellProcessUniqueName to create an IRUT-format instance identifier...
-            const newCellProcessInstanceID = arccore.identifier.irut.fromReference(message.cellProcessUniqueName).result
+            // Use the caller's instanceName to create an IRUT-format instance identifier...
+            const newCellProcessInstanceID = arccore.identifier.irut.fromReference(message.instanceName).result
 
             // ... from which we can now derive the absolute OCD path of the new cell process (proposed).
             const newCellProcessBindingPath = `${apmProcessesNamespace}.cellProcessMap.${newCellProcessInstanceID}`;
@@ -111,28 +92,14 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            // Now we need to determine the actual cellProcessID of cell process that is to be assigned OWNERSHIP responsibility for the new child cell process.
-            // Note that we are explicitly allowing the case that a helper be able to create a process and then discover this process as its own (as opposed to another cell's) child subsequently.
-
-            let parentCellProcessID = null;
-            let queryCellPath = null;
-            if (!message.parentCellProcess) {
-                // Use the caller's explicitly assigned apmBindingPath as the path to cell that is to be assigned ownership of the new cell process.
-                // This is a bit tricky as this path may not actually correspond to a cell process but rather to a cell in the case that the cell actor making process create request may be doing so as a helper for another process.
-                queryCellPath = request_.context.apmBindingPath;
-            } else {
-                queryCellPath = message.parentCellProcess.apmBindingPath?message.parentCellProcess.apmBindingPath:`~.${message.parentCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.parentCellProcess.cellProcessNamespace.cellProcessUniqueName).result}`;
-            }
-
-            // Now, regardless of if we took queryCellPath from the caller-specified apmBindingPath (typically set implicitly during OPC processing of APM operator and action requests),
-            // or explicitly by the caller via the parentCellProcess override option, we attempt to deduce which cell should be assigned ownership responsibility for the proposed cell process.
+            // Get ownership report.
             cpmLibResponse = cpmLib.getProcessOwnershipReportDescriptor.request({
-                cellPath: queryCellPath,
+                cellPath: request_.context.apmBindingPath,
                 cpmDataDescriptor: cpmDataDescriptor,
                 ocdi: request_.context.ocdi
             });
             if (cpmLibResponse.error) {
-                errors.push(`The cell process could not be created as requested. While examining create process request made by an active cell at '${queryCellPath}' we were not able to deduce which cell process should be given ownership of the requested new cell process ID '${newCellProcessID}' to be activated at path '{newCellProcessBindingPath}'. More detail:`);
+                errors.push(`The cell process could not be created as requested. While examining create process request made by an active cell at '${request_.context.apmBindingPath}' we were not able to deduce which cell process should be given ownership of the requested new cell process ID '${newCellProcessID}' to be activated at path '{newCellProcessBindingPath}'. More detail:`);
                 errors.push(cpmLibResponse.error);
                 break;
             }
@@ -140,7 +107,7 @@ const controllerAction = new ControllerAction({
 
             // At this point we have cleared all hurdles and are prepared to create the new cell process.
             // We will do that first so that if it fails we haven't changed any CPM digraph models of the process table.
-            ocdResponse = request_.context.ocdi.writeNamespace(newCellProcessBindingPath, message.cellProcessInitData);
+            ocdResponse = request_.context.ocdi.writeNamespace(newCellProcessBindingPath, message.initData);
             if (ocdResponse.error) {
                 errors.push(`Failed to create cell process ID '${newCellProcessID}' at path '${newCellProcessBindingPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);

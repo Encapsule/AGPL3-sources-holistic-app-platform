@@ -36,7 +36,7 @@ const controllerAction = new ControllerAction({
                             cellProcessNamespace: {
                                 ____types: [ "jsUndefined", "jsObject" ],
                                 apmID: { ____accept: "jsString" },
-                                cellProcessUniqueName: { ____accept: "jsString", ____defaultValue: "singleton" }
+                                instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
                             }
                         },
                         resultSets: {
@@ -122,9 +122,8 @@ const controllerAction = new ControllerAction({
                     break;
                 }
 
-                cellProcessID = message.queryCellProcesscellProcessID?message.queryCellProcess.cellProcessID:
-                    message.queryCellProcess.apmBindingPath?arccore.identifier.irut.fromReference(message.queryCellProcess.apmBindingPath).result:
-                    arccore.identifier.irut.fromReference(`~.${message.queryCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.queryCellProcess.cellProcessNamespace.cellProcessUniqueName).result}`).result;
+                cellProcessID = message.queryCellProcesscellProcessID?message.queryCellProcess.cellProcessID:message.queryCellProcess.apmBindingPath?arccore.identifier.irut.fromReference(message.queryCellProcess.apmBindingPath).result:
+                arccore.identifier.irut.fromReference(`~.${message.queryCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.queryCellProcess.cellProcessNamespace.instanceName).result}`).result;
 
             } else {
                 cellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;

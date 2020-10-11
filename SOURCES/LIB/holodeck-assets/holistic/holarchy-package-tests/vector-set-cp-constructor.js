@@ -69,7 +69,7 @@ module.exports = [
                                                 process: {
                                                     create: {
                                                         apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                                                        cellProcessUniqueName: "test-process-1"
+                                                        instanceName: "test-process-1"
                                                     }
                                                 }
                                             }
@@ -89,7 +89,7 @@ module.exports = [
                                                 process: {
                                                     create: {
                                                         apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                                                        cellProcessUniqueName: "test-process-1"
+                                                        instanceName: "test-process-1"
                                                     }
                                                 }
                                             }
@@ -108,7 +108,7 @@ module.exports = [
                                                     delete: {
                                                         cellProcessNamespace: {
                                                             apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                                                            cellProcessUniqueName: "test-process-1"
+                                                            instanceName: "test-process-1"
                                                         }
                                                     }
                                                 }
@@ -152,7 +152,7 @@ module.exports = [
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Construct an instance of the Process Test Fixture Model that is declared to create three child processes via self-similar mechanism.",
                                 actionRequest: {
-                                    holarchy: { CellProcessor: { process: { create: { apmID: "itgXQ5RWS66fcdsuZim8AQ", cellProcessUniqueName: "test3" } } } }
+                                    holarchy: { CellProcessor: { process: { create: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
                                 }
                             },
 
@@ -168,7 +168,7 @@ module.exports = [
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
                                 actionRequest: {
-                                    holarchy: { CellProcessor: { process: { query: { queryCellProcess: { cellProcessNamespace: { apmID: "itgXQ5RWS66fcdsuZim8AQ", cellProcessUniqueName: "test3" } } } } } } // get all result sets
+                                    holarchy: { CellProcessor: { process: { query: { queryCellProcess: { cellProcessNamespace: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } } } // get all result sets
                                 }
                             },
 
@@ -176,7 +176,7 @@ module.exports = [
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
                                 actionRequest: {
-                                    holarchy: { CellProcessor: { process: { delete: { cellProcessNamespace: { apmID: "itgXQ5RWS66fcdsuZim8AQ", cellProcessUniqueName: "test3" } } } } }
+                                    holarchy: { CellProcessor: { process: { delete: { cellProcessNamespace: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } }
                                 }
                             }
 

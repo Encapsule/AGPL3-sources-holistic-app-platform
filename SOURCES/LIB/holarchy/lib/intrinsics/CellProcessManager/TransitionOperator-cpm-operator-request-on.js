@@ -2,6 +2,7 @@
 
 const TransitionOperator = require("../../../TransitionOperator");
 const ObservableControllerData = require("../../../lib/ObservableControllerData");
+const cpmLib = require("./lib");
 
 const transitionOperator = new TransitionOperator({
     id: "DxL0zD_ERu-0kNGX2FvoGg",
@@ -20,6 +21,12 @@ const transitionOperator = new TransitionOperator({
                         ____accept: "jsString",
                         ____defaultValue: "#"
                     },
+                    cellProcessCoordinates: {
+                        ____types: [ "jsUndefined", "jsObject" ],
+                        apmID: { ____accept: "jsString" },
+                        instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+                    },
+                    cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] },
                     operatorRequest: { ____accept: "jsObject" }
                 }
             }

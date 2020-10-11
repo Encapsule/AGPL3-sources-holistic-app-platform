@@ -2,6 +2,7 @@
 
 const ControllerAction = require("../../../ControllerAction");
 const ObservableControllerData = require("../../../lib/ObservableControllerData");
+const cpmLib = require("./lib");
 
 const controllerAction = new ControllerAction({
     id: "wB5QKMYtS7yY2-v7Y3tGWA",
@@ -20,6 +21,12 @@ const controllerAction = new ControllerAction({
                         ____accept: "jsString",
                         ____defaultValue: "#"
                     },
+                    cellProcessCoordinates: {
+                        ____types: [ "jsUndefined", "jsObject" ],
+                        apmID: { ____accept: "jsString" },
+                        instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+                    },
+                    cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] },
                     actionRequest: { ____accept: "jsObject" }
                 }
             }
@@ -40,8 +47,30 @@ const controllerAction = new ControllerAction({
 
             const messageBody = request_.actionRequest.holarchy.CellProcessor.actOn;
 
+            let targetCellPath = messageBody.cellPath;
+
+            if (messageBody.cellProcessCoordinates && messageBody.cellProcessID) {
+                errors.push("Please specify either cellProcessCoordinates or cellProcessID (both are set indicating a problem).");
+                break;
+            }
+
+            if (messageBody.cellCoordinates) {
+                let cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({
+                    cellProcessCoordinates: messageBody.cellProcessCoordinates,
+                    ocdi: request_.context.ocdi
+                });
+                if (cpmLibResponse.error) {
+                    errors.push(cpmResponse.error);
+                    break;
+                }
+                targetCellPath = cpmLibResponse.result.cellProcessPath;
+            } else if (messageBody.cellID) {
+                errors.push("NOT SUPPORTED YET!");
+                break;
+            }
+
             let ocdResponse = ObservableControllerData.dataPathResolve({
-                dataPath: messageBody.cellPath,
+                dataPath: targetCellPath,
                 apmBindingPath: request_.context.apmBindingPath
             });
 
@@ -50,7 +79,7 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            const targetCellPath = ocdResponse.result;
+            targetCellPath = ocdResponse.result;
 
             let actResponse = request_.context.act({
                 actorName: "Cell Process Manager: actOn",

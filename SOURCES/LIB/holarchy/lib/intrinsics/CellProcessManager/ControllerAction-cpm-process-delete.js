@@ -29,7 +29,7 @@ const controllerAction = new ControllerAction({
                         cellProcessNamespace: {
                             ____types: [ "jsUndefined", "jsObject" ],
                             apmID: { ____accept: "jsString" },
-                            cellProcessUniqueName: { ____accept: "jsString", ____defaultValue: "singleton" }
+                            instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
                         }
                     }
                 }
@@ -69,7 +69,7 @@ const controllerAction = new ControllerAction({
             // TODO: This should be converted to a cpmLib call
             let cellProcessID = message.cellProcessID?message.cellProcessID:
                 message.apmBindingPath?arccore.identifier.irut.fromReference(message.apmBindingPath).result:
-                arccore.identifier.irut.fromReference(`~.${message.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.cellProcessNamespace.cellProcessUniqueName).result}`).result;
+                arccore.identifier.irut.fromReference(`~.${message.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.cellProcessNamespace.instanceName).result}`).result;
 
             let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {

@@ -163,8 +163,8 @@ const action = new ControllerAction({
                                     process: {
                                         create: {
                                             apmID: message.apmID,
-                                            cellProcessUniqueName: message.instanceName,
-                                            cellProcessInitData: {
+                                            instanceName: message.instanceName,
+                                            initData: {
                                                 construction: {
                                                     instanceName: message.instanceName
                                                 }

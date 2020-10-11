@@ -32,7 +32,7 @@ module.exports = [
                                                 process: {
                                                     create: {
                                                         apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                                                        cellProcessUniqueName: "Test Process A"
+                                                        instanceName: "Test Process A"
                                                     }
                                                 }
                                             }
@@ -54,7 +54,7 @@ module.exports = [
                                                     delete: {
                                                         cellProcessNamespace: {
                                                             apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                                                            cellProcessUniqueName: "Test Process B"
+                                                            instanceName: "Test Process B"
                                                         }
                                                     }
                                                 }
@@ -76,7 +76,7 @@ module.exports = [
                                                     delete: {
                                                         cellProcessNamespace: {
                                                             apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                                                            cellProcessUniqueName: "Test Process A"
+                                                            instanceName: "Test Process A"
 
                                                         }
                                                     }
