@@ -18,13 +18,7 @@ const action = new ControllerAction({
             CellProcessProxy: {
                 ____types: "jsObject",
                 disconnect: {
-                    ____types: "jsObject",
-                    // Disconnect this cell process proxy process instance...
-                    proxyPath: {
-                        ____accept: "jsString",
-                        ____defaultValue: "#"
-                    }
-                    // ... from the local cell process that the proxy is connected to.
+                    ____accept: "jsObject",
                 }
             }
         }
@@ -52,12 +46,12 @@ const action = new ControllerAction({
             const cpmDataDescriptor = cpmLibResponse.result;
             const sharedCellProcesses = cpmDataDescriptor.data.sharedCellProcesses;
 
+            const proxyHelperPath = request_.context.apmBindingPath; // Take request_.context.apmBindingPath to be the path of the cell bound to CellProcessProxy that the caller wishes to disconnect.
+
             // This ensures we're addressing an actuall CellProcessProxy-bound cell.
             // And, get us a copy of its memory and its current connection state.
-
             let cppLibResponse = cppLib.getStatus.request({
-                apmBindingPath: request_.context.apmBindingPath,
-                proxyPath: message.proxyPath,
+                proxyHelperPath,
                 ocdi: request_.context.ocdi
             });
             if (cppLibResponse.error) {
@@ -68,21 +62,20 @@ const action = new ControllerAction({
             const cppMemoryStatusDescriptor = cppLibResponse.result;
 
             if (cppMemoryStatusDescriptor.status === "disconnected") {
-                // We're already disconnected. So, this is a noop.
+                // We're already disconnected. So, there is nothing to do."
                 response.result = { actionTaken: "noop" };
                 break;
             }
 
-            const proxyPath = cppMemoryStatusDescriptor.paths.resolvedPath;
-            const proxyID = arccore.identifier.irut.fromReference(proxyPath).result;
+            const proxyID = arccore.identifier.irut.fromReference(proxyHelperPath).result;
 
             if (!sharedCellProcesses.digraph.isVertex(proxyID)) {
-                errors.push(`INTERNAL ERROR: proxy disconnect action has found your proxy at path '${proxyPath}' in '${cppMemoryStatusDescriptor.status}' status.`);
+                errors.push(`INTERNAL ERROR: proxy disconnect action has found your proxy at path '${proxyHelperPath}' in '${cppMemoryStatusDescriptor.status}' status.`);
                 errors.push(`But, we cannot find the expected sharedCellProcesses.digraph vertex '${proxtID}'? Please report this...`);
                 break;
             }
 
-            let ocdResponse = request_.context.ocdi.writeNamespace(`${proxyPath}.CPPU-UPgS8eWiMap3Ixovg_private`, {}); // resets the state of the proxy cell
+            let ocdResponse = request_.context.ocdi.writeNamespace(`${proxyHelperPath}.CPPU-UPgS8eWiMap3Ixovg_private`, {}); // resets the state of the proxy cell
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;

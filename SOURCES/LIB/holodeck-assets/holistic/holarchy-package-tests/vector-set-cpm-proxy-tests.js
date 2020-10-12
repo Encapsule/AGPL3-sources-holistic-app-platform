@@ -79,7 +79,6 @@ module.exports = [
                                 }
                             },
 
-                            /*
                             {
                                actRequest: {
                                     actorName: "Proxy Test A",
@@ -87,7 +86,7 @@ module.exports = [
                                     actionRequest: { holarchy: { CellProcessor: { process: { delete: { cellProcessNamespace: { apmID: "mctGtkfiQmeO93Va6WkGZw"  } } } } } }
                                 }
                             }
-                            */
+
 
                         ]
                     }

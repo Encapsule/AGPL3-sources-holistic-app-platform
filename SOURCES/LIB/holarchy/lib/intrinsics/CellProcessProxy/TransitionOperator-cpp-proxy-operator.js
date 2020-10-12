@@ -16,11 +16,6 @@ const action = new TransitionOperator({
                 ____types: "jsObject",
                 proxy: {
                     ____types: "jsObject",
-                    // Proxy (i.e. forward through) this proxy to another local cell process...
-                    proxyPath: {
-                        ____accept: "jsString",
-                        ____defaultValue: "#"
-                    },
                     // ... an arbitrary TransitionOperator request.
                     operatorRequest: {
                         ____accept: "jsObject"

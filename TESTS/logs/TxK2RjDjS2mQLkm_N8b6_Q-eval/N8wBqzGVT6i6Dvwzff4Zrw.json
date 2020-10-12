@@ -165,6 +165,25 @@
                           }
                         }
                       }
+                    },
+                    {
+                      "actRequest": {
+                        "actorName": "Proxy Test A",
+                        "actorTaskDescription": "Start test process.",
+                        "actionRequest": {
+                          "holarchy": {
+                            "CellProcessor": {
+                              "process": {
+                                "delete": {
+                                  "cellProcessNamespace": {
+                                    "apmID": "mctGtkfiQmeO93Va6WkGZw"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   ]
                 }
@@ -182,14 +201,13 @@
             "harnessDispatch": {
               "UBSclp3gSqCCmSvoG3W4tw": {
                 "N8wBqzGVT6i6Dvwzff4Zrw": {
-                  "vectorFailed": true,
-                  "vectorFailedReason": "Post-test execution analysis violation: CellProcessManager shared process table is not empty as expected.",
+                  "vectorFailed": false,
                   "construction": {
                     "isValid": true,
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                        "vdid": "y67Omx5zDBRHw-vyQnTh8Q",
+                        "vdid": "bkXOm4SfDBQ64uvyz7Th8Q",
                         "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Model",
                         "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A].",
                         "cmat": {
@@ -199,7 +217,7 @@
                               "type": "INDEX",
                               "hvWG9VRwVHCkHqQediJ2Ig": {
                                 "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                                "vdid": "y67Omx5zDBRHw-vyQnTh8Q",
+                                "vdid": "bkXOm4SfDBQ64uvyz7Th8Q",
                                 "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Model",
                                 "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A].",
                                 "type": "CM",
@@ -331,7 +349,7 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "17zodjX51MrMSGQ5hxfkAg",
+                                  "vdid": "17zMdjX5ZcrMSGU5hxd4Ag",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
@@ -386,7 +404,7 @@
                                   },
                                   "ySiBEGcaRGWVOZmwBRyhrA": {
                                     "id": "ySiBEGcaRGWVOZmwBRyhrA",
-                                    "vdid": "tqAP4Jtz3YIZjer8PMc59w",
+                                    "vdid": "89XKgiepZW7zWm1KB16YkQ",
                                     "name": "Cell Process Proxy: Disconnect Proxy",
                                     "description": "Disconnect a connected cell process proxy from whatever local cell process it is currently connected to.",
                                     "type": "ACT"
@@ -3558,11 +3576,7 @@
                                     "CellProcessProxy": {
                                       "____types": "jsObject",
                                       "disconnect": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        }
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -3572,10 +3586,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "h6l9mMigEod2Xwz_hwJIFA",
-                              "inputTypeVDID": "v5uye5AXrJQqdNwCxhtTpA",
+                              "inputTypeVDID": "7l3odxTKLqQeIrWR0b8_ow",
                               "outputTypeVIID": "QAhxEJeD9pT1iEi640CbKg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "NYEMT9QU_Bq5TXeIFXWSWA"
+                              "operationVDID": "NYvlT9T9SRq5UEeIFSn_WA"
                             }
                           },
                           "rua1glcmTsOlYcfpZuiXnA": {
@@ -4827,6 +4841,136 @@
                                   }
                                 }
                               ]
+                            }
+                          },
+                          "__apmiStep": "ready"
+                        }
+                      }
+                    },
+                    {
+                      "testHarnessActionSummary": {
+                        "testDisposition": "TEST PASS",
+                        "actionRequest": "PASS",
+                        "postActionCellProcessorEval": "PASS"
+                      },
+                      "testHarnessActionDispatch": {
+                        "actRequest": {
+                          "actorName": "Proxy Test A",
+                          "actorTaskDescription": "Start test process.",
+                          "actionRequest": {
+                            "holarchy": {
+                              "CellProcessor": {
+                                "process": {
+                                  "delete": {
+                                    "cellProcessNamespace": {
+                                      "apmID": "mctGtkfiQmeO93Va6WkGZw"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "actResponse": {
+                          "error": null,
+                          "result": {
+                            "actionResult": {
+                              "apmBindingPath": "~",
+                              "cellProcessID": "U1NTU1paWlqwsLCwxMTExA"
+                            },
+                            "lastEvaluation": {
+                              "evalNumber": 2,
+                              "summary": {
+                                "counts": {
+                                  "bindings": 1,
+                                  "frames": 1,
+                                  "errors": 0,
+                                  "transitions": 0
+                                }
+                              },
+                              "evalFrames": [
+                                {
+                                  "summary": {
+                                    "counts": {
+                                      "bindings": 1,
+                                      "transitions": 0,
+                                      "errors": 0
+                                    },
+                                    "reports": {
+                                      "transitions": [],
+                                      "errors": []
+                                    }
+                                  },
+                                  "bindings": {
+                                    "YI9gj9oX2hdfEV8RmbuZuw": {
+                                      "evalRequest": {
+                                        "dataBinding": {
+                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
+                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
+                                        },
+                                        "initialStep": "ready",
+                                        "apmRef": {
+                                          "id": "pxyLsTQOfYCCAwn5efuO5Q",
+                                          "vdid": "V1clEdWvWXlbiluQzRQH1g",
+                                          "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
+                                          "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                        }
+                                      },
+                                      "evalResponse": {
+                                        "status": "noop",
+                                        "finishStep": "ready",
+                                        "phases": {
+                                          "p1_toperator": [],
+                                          "p2_exit": [],
+                                          "p3_enter": [],
+                                          "p4_finalize": null
+                                        },
+                                        "errors": {
+                                          "p1_toperator": 0,
+                                          "p2_exit": 0,
+                                          "p3_enter": 0,
+                                          "p4_finalize": 0,
+                                          "total": 0
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "postActionToJSON": {
+                        "mctGtkfiQmeO93Va6WkGZw_CellProcesses": {
+                          "cellProcessMap": {},
+                          "revision": 2
+                        },
+                        "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
+                          "ownedCellProcesses": {
+                            "revision": 2,
+                            "digraph": {
+                              "name": "Owned Cell Processes Tree Model",
+                              "description": "Tracks parent/child relationships between dynamically created cellular processes executing within a CellProcessor runtime host instance.",
+                              "vlist": [
+                                {
+                                  "u": "U1NTU1paWlqwsLCwxMTExA",
+                                  "p": {
+                                    "apmBindingPath": "~",
+                                    "name": "Cell Process Manager"
+                                  }
+                                }
+                              ],
+                              "elist": []
+                            }
+                          },
+                          "sharedCellProcesses": {
+                            "revision": 2,
+                            "digraph": {
+                              "name": "Shared Cell Processes Digraph Model",
+                              "description": "Tracks reference-counted relationships between shared cell processes and embedded worker cell processes.",
+                              "vlist": [],
+                              "elist": []
                             }
                           },
                           "__apmiStep": "ready"

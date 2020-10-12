@@ -45,7 +45,7 @@ const action = new ControllerAction({
             let runGarbageCollector = false;
             const message = request_.actionRequest.holarchy.CellProcessProxy.connect;
 
-            const proxyHelperPath = request_.context.apmBindingPath; // Take request_.context.apmBindingPath to be proxyHelperPath.
+            const proxyHelperPath = request_.context.apmBindingPath; // Take request_.context.apmBindingPath to be the path of the cell bound to CellProcessProxy that the caller wishes to connected.
 
             // This ensures we're addressing an actuall CellProcessProxy-bound cell.
             // And, get us a copy of its memory and its current connection state.

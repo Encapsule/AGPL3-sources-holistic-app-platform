@@ -48,7 +48,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "7PXs9bNws3DAHsAeMyIzIg",
-                        "vdid": "LuQSqVvVPCBojjAZvw89PQ",
+                        "vdid": "QXwSqdl2PCCwqjAZEGM9PQ",
                         "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test] Model",
                         "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test].",
                         "cmat": {
@@ -58,7 +58,7 @@
                               "type": "INDEX",
                               "7PXs9bNws3DAHsAeMyIzIg": {
                                 "id": "7PXs9bNws3DAHsAeMyIzIg",
-                                "vdid": "LuQSqVvVPCBojjAZvw89PQ",
+                                "vdid": "QXwSqdl2PCCwqjAZEGM9PQ",
                                 "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test] Model",
                                 "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test].",
                                 "type": "CM",
@@ -190,7 +190,7 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "17zodjX51MrMSGQ5hxfkAg",
+                                  "vdid": "17zMdjX5ZcrMSGU5hxd4Ag",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
@@ -245,7 +245,7 @@
                                   },
                                   "ySiBEGcaRGWVOZmwBRyhrA": {
                                     "id": "ySiBEGcaRGWVOZmwBRyhrA",
-                                    "vdid": "tqAP4Jtz3YIZjer8PMc59w",
+                                    "vdid": "89XKgiepZW7zWm1KB16YkQ",
                                     "name": "Cell Process Proxy: Disconnect Proxy",
                                     "description": "Disconnect a connected cell process proxy from whatever local cell process it is currently connected to.",
                                     "type": "ACT"
@@ -3289,11 +3289,7 @@
                                     "CellProcessProxy": {
                                       "____types": "jsObject",
                                       "disconnect": {
-                                        "____types": "jsObject",
-                                        "proxyPath": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "#"
-                                        }
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -3303,10 +3299,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "h6l9mMigEod2Xwz_hwJIFA",
-                              "inputTypeVDID": "v5uye5AXrJQqdNwCxhtTpA",
+                              "inputTypeVDID": "7l3odxTKLqQeIrWR0b8_ow",
                               "outputTypeVIID": "QAhxEJeD9pT1iEi640CbKg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "NYEMT9QU_Bq5TXeIFXWSWA"
+                              "operationVDID": "NYvlT9T9SRq5UEeIFSn_WA"
                             }
                           },
                           "rua1glcmTsOlYcfpZuiXnA": {
