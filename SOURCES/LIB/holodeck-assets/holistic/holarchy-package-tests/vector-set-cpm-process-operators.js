@@ -228,23 +228,29 @@ module.exports = [
                                 actionRequest: {
                                     holarchy: {
                                         CellProcessor: {
-                                            process: {
-                                                create: {
-                                                    // Optionally override the default parent process specification.
-                                                    parentCellProcess: {
-                                                        cellProcessNamespace: {
-                                                            apmID: "LVjhjYUcQXOYcbI_xbepJQ", // CPM Child Processes Active Operator Test Process
-                                                            instanceName: "Test Process"
+                                            actOn: {
+                                                cellProcessCoordinates: {
+                                                    apmID: "LVjhjYUcQXOYcbI_xbepJQ", // CPM Child Processes Active Operator Test Process
+                                                    instanceName: "Test Process"
+                                                },
+                                                actionRequest: {
+                                                    holarchy: {
+                                                        CellProcessor: {
+                                                            process: {
+                                                                create: {
+                                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                                    instanceName: "Child Process",
+                                                                }
+                                                            }
                                                         }
-                                                    },
-                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
-                                                    instanceName: "Child Process",
+                                                    }
                                                 }
                                             }
                                         }
                                     }
                                 }
                             }
+
 
                         ]
                     }
@@ -480,15 +486,15 @@ module.exports = [
                                                 cellProcessCoordinates: {
                                                     apmID:  "cYpoxyyZSwm19CqH3v7eLQ", // "CPM Descendant Processes Active Operator Test Process"
                                                     instanceName: "Test Process"
-                                                }
-                                            },
-                                            actionRequest: {
-                                                holarchy: {
-                                                    CellProcessor: {
-                                                        process: {
-                                                            create: {
-                                                                apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
-                                                                instanceName: "Child Process",
+                                                },
+                                                actionRequest: {
+                                                    holarchy: {
+                                                        CellProcessor: {
+                                                            process: {
+                                                                create: {
+                                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                                    instanceName: "Child Process",
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -498,6 +504,7 @@ module.exports = [
                                     }
                                 }
                             }
+
                         ]
                     }
                 }
@@ -566,15 +573,15 @@ module.exports = [
                                                 cellProcessCoordinates: {
                                                     apmID: "XzNJP6LyTCOnhGPKpJIjzg", // "CPM Descendant Processes ALl In Step Operator Test Process"
                                                     instanceName: "Test Process"
-                                                }
-                                            },
-                                            actionRequest: {
-                                                holarchy: {
-                                                    CellProcessor: {
-                                                        process: {
-                                                            create: {
-                                                                apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
-                                                                instanceName: "Child Process",
+                                                },
+                                                actionRequest: {
+                                                    holarchy: {
+                                                        CellProcessor: {
+                                                            process: {
+                                                                create: {
+                                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                                    instanceName: "Child Process",
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -653,15 +660,15 @@ module.exports = [
                                                 cellProcessCoordinates: {
                                                     apmID: "TR7suTjQSKOBK5bGKztIcg", //  "CPM Descendant Processes Any In Step Test Process"
                                                     instanceName: "Test Process"
-                                                }
-                                            },
-                                            actionRequest: {
-                                                holarchy: {
-                                                    CellProcessor: {
-                                                        process: {
-                                                            create: {
-                                                                apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
-                                                                instanceName: "Child Process",
+                                                },
+                                                actionRequest: {
+                                                    holarchy: {
+                                                        CellProcessor: {
+                                                            process: {
+                                                                create: {
+                                                                    apmID: "3E27IH_CQeqBUFsGm4tIIA", // Dummy Process A Process
+                                                                    instanceName: "Child Process",
+                                                                }
                                                             }
                                                         }
                                                     }

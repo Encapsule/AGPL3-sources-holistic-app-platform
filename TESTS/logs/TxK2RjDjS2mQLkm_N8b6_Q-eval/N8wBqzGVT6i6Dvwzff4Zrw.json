@@ -4354,19 +4354,17 @@
                                                 "error": null,
                                                 "result": {
                                                   "actionResult": {
-                                                    "actionResult": {
-                                                      "host": {
-                                                        "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
-                                                        "processID": "8cFow8-OMaRc6MprCps_yA"
-                                                      },
-                                                      "proxy": {
-                                                        "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy",
-                                                        "proccessID": "0HbVqoxgvl71Vi4Tx7w8Zg"
-                                                      },
-                                                      "connected": {
-                                                        "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
-                                                        "processID": "8cFow8-OMaRc6MprCps_yA"
-                                                      }
+                                                    "host": {
+                                                      "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                      "processID": "8cFow8-OMaRc6MprCps_yA"
+                                                    },
+                                                    "proxy": {
+                                                      "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy",
+                                                      "proccessID": "0HbVqoxgvl71Vi4Tx7w8Zg"
+                                                    },
+                                                    "connected": {
+                                                      "apmBindingPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
+                                                      "processID": "8cFow8-OMaRc6MprCps_yA"
                                                     }
                                                   }
                                                 }

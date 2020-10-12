@@ -94,7 +94,7 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            response.result = actResponse.result;
+            response.result = actResponse.result.actionResult;
             break;
         }
 

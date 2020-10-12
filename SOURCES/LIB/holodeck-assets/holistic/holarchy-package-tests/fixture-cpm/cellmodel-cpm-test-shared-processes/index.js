@@ -9,12 +9,21 @@ const cmCPPTestDroid = require("./cellmodel-droid");
 
 const connectProxyActionRequest = {
     holarchy: {
-        CellProcessProxy: {
-            connect: {
-                proxyPath: "#.proxyTest",
-                localCellProcess: {
-                    apmID: cellspace.apmID("CPP Test 1"),
-                    instanceName: "Test Process B"
+        CellProcessor: {
+            actOn: {
+                cellPath: "#.proxyTest",
+                actionRequest: {
+                    holarchy: {
+                        CellProcessProxy: {
+                            connect: {
+                                proxyPath: "#.proxyTest",
+                                localCellProcess: {
+                                    apmID: cellspace.apmID("CPP Test 1"),
+                                    instanceName: "Test Process B"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -269,11 +278,7 @@ const cppTestModel2 = new holarchy.CellModel({
 
             uninitialized: {
                 description: "Default process starting step.",
-                actions: {
-                    exit: [
-                        { holarchy: { CellProcessProxy: { connect: { proxyPath: "#.proxyTest", localCellProcess: { apmID:  cellspace.apmID("CPP Test Messenger") } } } } }
-                    ]
-                },
+                actions: { exit: [ { holarchy: { CellProcessor: { actOn: { cellPath: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { connect: {  apmID:  cellspace.apmID("CPP Test Messenger") } } } } } } } } ] },
                 transitions: [ { transitionIf: { always: true }, nextStep: "finished" } ]
             },
 
