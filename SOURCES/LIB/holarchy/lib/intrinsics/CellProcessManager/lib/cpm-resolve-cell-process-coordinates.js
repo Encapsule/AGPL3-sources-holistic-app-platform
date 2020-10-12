@@ -30,17 +30,18 @@ const arccore = require("@encapsule/arccore");
             cellProcessID: { ____accept: "jsString" }
         },
         bodyFunction: (request_) => {
-            let resposne = { error: null };
-            let errros = [];
+            let response = { error: null };
+            let errors = [];
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
                 const cacheKey = `${request_.cellProcessCoordinates.apmID}::${request_.cellProcessCoordinates.instanceName}`;
                 if (!resultCache[cacheKey]) {
-                    const cpmXProcessesPath = `${request_.cellProcessCoordinates.apmID}_CellProcesses`;
+                    const cpmXProcessesPath = `~.${request_.cellProcessCoordinates.apmID}_CellProcesses`;
                     let ocdResponse = request_.ocdi.getNamespaceSpec(cpmXProcessesPath);
                     if (ocdResponse.error) {
-                        errors.push(`Cell coordinates cannot be resolved because APM ID '${request_.cellCoordinates.apmID}' is not known inside this CellProcessor instance.`);
+                        errors.push(`Cell process coordinates cannot be resolved to CPM process path/ID because the APM specified, ID '${request_.cellCoordinates.apmID}', is not known inside this CellProcessor instance. Error detail:`);
+                        errors.push(ocdResponse.error);
                         break;
                     }
                     const cellProcessInstanceIdentifier = arccore.identifier.irut.fromReference(request_.cellProcessCoordinates.instanceName).result;

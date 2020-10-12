@@ -54,7 +54,7 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            if (messageBody.cellCoordinates) {
+            if (messageBody.cellProcessCoordinates) {
                 let cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({
                     cellProcessCoordinates: messageBody.cellProcessCoordinates,
                     ocdi: request_.context.ocdi

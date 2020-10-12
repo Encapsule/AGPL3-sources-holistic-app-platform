@@ -7,7 +7,7 @@
 
 module.exports = {
 
-    resolveCellProcessCooordinates: require("./cpm-resolve-cell-process-coordinates"),
+    resolveCellProcessCoordinates: require("./cpm-resolve-cell-process-coordinates"),
     getProcessManagerData: require("./cpm-get-cell-process-manager-data"),
     getProcessAncestorDescriptors: require("./cpm-get-cell-process-ancestor-descriptors"),
     getProcessChildrenDescriptors: require("./cpm-get-cell-process-children-descriptors"),
