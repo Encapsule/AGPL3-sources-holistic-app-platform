@@ -31,8 +31,10 @@ module.exports = [
                                             CellProcessor: {
                                                 process: {
                                                     create: {
-                                                        apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                                                        instanceName: "Test Process A"
+                                                        cellProcessCoordinates: {
+                                                            apmID: cppTestModelSpace.apmID("CPP Test 1"),
+                                                            instanceName: "Test Process A"
+                                                        }
                                                     }
                                                 }
                                             }
@@ -113,7 +115,7 @@ module.exports = [
                             {
                                 actorName: "CPM Shared Process Test #2",
                                 actorTaskDescription: "Start a test process.",
-                                actionRequest: { holarchy: { CellProcessor: { process: { create: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } } }
+                                actionRequest: { holarchy: { CellProcessor: { process: { create: { cellProcessCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } } } }
                             },
                             {
                                 actorName: "CPM Shared Process Test #2",
@@ -149,7 +151,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Shared Process Test #3",
                                     actorTaskDescription: "Start a test process.",
-                                    actionRequest: { holarchy: { CellProcessor: { process: { create: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } } } }
+                                    actionRequest: { holarchy: { CellProcessor: { process: { create: { cellProcessCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } } } } }
                                 }
                             },
 

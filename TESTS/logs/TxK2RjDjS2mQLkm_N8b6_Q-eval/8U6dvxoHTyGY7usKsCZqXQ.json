@@ -16,7 +16,7 @@
                     "description": "Uses the test fixture model to exercise a more complex process create and delete scenario involving deeper nesting of subprocesses.",
                     "cellmodel": {
                       "id": "6GaLWSE-RDi87oMnsTpXow",
-                      "vdid": "t3itcqdZYhOf9kE7D2e6Wg",
+                      "vdid": "pnitcolZYhOL9kE7uWe6Wg",
                       "name": "Cell Process Test Fixture Model",
                       "description": "Used to test cell processor.",
                       "cmat": {
@@ -26,13 +26,13 @@
                             "type": "INDEX",
                             "6GaLWSE-RDi87oMnsTpXow": {
                               "id": "6GaLWSE-RDi87oMnsTpXow",
-                              "vdid": "t3itcqdZYhOf9kE7D2e6Wg",
+                              "vdid": "pnitcolZYhOL9kE7uWe6Wg",
                               "name": "Cell Process Test Fixture Model",
                               "description": "Used to test cell processor.",
                               "type": "CM",
                               "itgXQ5RWS66fcdsuZim8AQ": {
                                 "id": "itgXQ5RWS66fcdsuZim8AQ",
-                                "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                                "vdid": "f2LVhbASZA-2aBjgdex3nA",
                                 "name": "Cell Process Test Fixture Model",
                                 "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions.",
                                 "type": "APM"
@@ -107,8 +107,10 @@
                           "CellProcessor": {
                             "process": {
                               "create": {
-                                "apmID": "itgXQ5RWS66fcdsuZim8AQ",
-                                "instanceName": "test3"
+                                "cellProcessCoordinates": {
+                                  "apmID": "itgXQ5RWS66fcdsuZim8AQ",
+                                  "instanceName": "test3"
+                                }
                               }
                             }
                           }
@@ -188,7 +190,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "DPUM9XpwenDTHtMepiKmIg",
-                        "vdid": "TvNX_ysXkm9kTv-E41CHGQ",
+                        "vdid": "DvMP_2MX9m9yTteE0VCeGQ",
                         "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                         "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                         "cmat": {
@@ -198,7 +200,7 @@
                               "type": "INDEX",
                               "DPUM9XpwenDTHtMepiKmIg": {
                                 "id": "DPUM9XpwenDTHtMepiKmIg",
-                                "vdid": "TvNX_ysXkm9kTv-E41CHGQ",
+                                "vdid": "DvMP_2MX9m9yTteE0VCeGQ",
                                 "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
                                 "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
                                 "type": "CM",
@@ -302,7 +304,7 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "yPD4fKYD1BN5vjBGorAUqA",
+                                  "vdid": "gKxkg5eBTI7sfrB4e-D4ew",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
@@ -547,13 +549,13 @@
                                 },
                                 "6GaLWSE-RDi87oMnsTpXow": {
                                   "id": "6GaLWSE-RDi87oMnsTpXow",
-                                  "vdid": "t3itcqdZYhOf9kE7D2e6Wg",
+                                  "vdid": "pnitcolZYhOL9kE7uWe6Wg",
                                   "name": "Cell Process Test Fixture Model",
                                   "description": "Used to test cell processor.",
                                   "type": "CM",
                                   "itgXQ5RWS66fcdsuZim8AQ": {
                                     "id": "itgXQ5RWS66fcdsuZim8AQ",
-                                    "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                                    "vdid": "f2LVhbASZA-2aBjgdex3nA",
                                     "name": "Cell Process Test Fixture Model",
                                     "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions.",
                                     "type": "APM"
@@ -625,7 +627,7 @@
                           },
                           "itgXQ5RWS66fcdsuZim8AQ": {
                             "id": "itgXQ5RWS66fcdsuZim8AQ",
-                            "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                            "vdid": "f2LVhbASZA-2aBjgdex3nA",
                             "name": "Cell Process Test Fixture Model",
                             "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
                           },
@@ -668,7 +670,7 @@
                             "specPath": "~.itgXQ5RWS66fcdsuZim8AQ_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "itgXQ5RWS66fcdsuZim8AQ",
-                              "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                              "vdid": "f2LVhbASZA-2aBjgdex3nA",
                               "name": "Cell Process Test Fixture Model",
                               "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
                             }
@@ -3263,14 +3265,17 @@
                                         "____types": "jsObject",
                                         "create": {
                                           "____types": "jsObject",
-                                          "apmID": {
-                                            "____accept": "jsString"
+                                          "cellProcessCoordinates": {
+                                            "____types": "jsObject",
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            },
+                                            "instanceName": {
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
+                                            }
                                           },
-                                          "instanceName": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "singleton"
-                                          },
-                                          "initData": {
+                                          "cellProcessData": {
                                             "____accept": [
                                               "jsObject",
                                               "jsUndefined"
@@ -3300,10 +3305,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "Gfrla65qJtL-SURNW0Ey1A",
+                              "inputTypeVDID": "dDgko0YsbXtN-wjKNc5HFA",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z9Yizbu822hH0qMeeYu82Q"
+                              "operationVDID": "Z6xWzbvMdmhHvMUeeRJK2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -4582,8 +4587,10 @@
                               "CellProcessor": {
                                 "process": {
                                   "create": {
-                                    "apmID": "itgXQ5RWS66fcdsuZim8AQ",
-                                    "instanceName": "test3"
+                                    "cellProcessCoordinates": {
+                                      "apmID": "itgXQ5RWS66fcdsuZim8AQ",
+                                      "instanceName": "test3"
+                                    }
                                   }
                                 }
                               }
@@ -4664,7 +4671,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "itgXQ5RWS66fcdsuZim8AQ",
-                                          "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                                          "vdid": "f2LVhbASZA-2aBjgdex3nA",
                                           "name": "Cell Process Test Fixture Model",
                                           "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
                                         }
@@ -4697,8 +4704,10 @@
                                                   "CellProcessor": {
                                                     "process": {
                                                       "create": {
-                                                        "apmID": "Q15zOx5FT-2vt1jSKIIOLQ",
-                                                        "instanceName": "Child Process #1"
+                                                        "cellProcessCoordinates": {
+                                                          "apmID": "Q15zOx5FT-2vt1jSKIIOLQ",
+                                                          "instanceName": "Child Process #1"
+                                                        }
                                                       }
                                                     }
                                                   }
@@ -4720,8 +4729,10 @@
                                                   "CellProcessor": {
                                                     "process": {
                                                       "create": {
-                                                        "apmID": "CW2q-O_CQ0CObmLa1PWb3g",
-                                                        "instanceName": "Child Process #2"
+                                                        "cellProcessCoordinates": {
+                                                          "apmID": "CW2q-O_CQ0CObmLa1PWb3g",
+                                                          "instanceName": "Child Process #2"
+                                                        }
                                                       }
                                                     }
                                                   }
@@ -4743,8 +4754,10 @@
                                                   "CellProcessor": {
                                                     "process": {
                                                       "create": {
-                                                        "apmID": "l_CypcNERjOcr7SxzIGt8A",
-                                                        "instanceName": "Child Process #3"
+                                                        "cellProcessCoordinates": {
+                                                          "apmID": "l_CypcNERjOcr7SxzIGt8A",
+                                                          "instanceName": "Child Process #3"
+                                                        }
                                                       }
                                                     }
                                                   }
@@ -4833,7 +4846,7 @@
                                         "initialStep": "create_child_processes",
                                         "apmRef": {
                                           "id": "itgXQ5RWS66fcdsuZim8AQ",
-                                          "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                                          "vdid": "f2LVhbASZA-2aBjgdex3nA",
                                           "name": "Cell Process Test Fixture Model",
                                           "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
                                         }
@@ -5026,7 +5039,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "itgXQ5RWS66fcdsuZim8AQ",
-                                          "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                                          "vdid": "f2LVhbASZA-2aBjgdex3nA",
                                           "name": "Cell Process Test Fixture Model",
                                           "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
                                         }
@@ -5409,7 +5422,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "itgXQ5RWS66fcdsuZim8AQ",
-                                          "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                                          "vdid": "f2LVhbASZA-2aBjgdex3nA",
                                           "name": "Cell Process Test Fixture Model",
                                           "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
                                         }
@@ -5810,7 +5823,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "itgXQ5RWS66fcdsuZim8AQ",
-                                          "vdid": "RdUkAffEgAGMD-1SPJ_WdA",
+                                          "vdid": "f2LVhbASZA-2aBjgdex3nA",
                                           "name": "Cell Process Test Fixture Model",
                                           "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
                                         }

@@ -48,7 +48,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "7PXs9bNws3DAHsAeMyIzIg",
-                        "vdid": "ZJESqQPmPCCLHjAZufk9PQ",
+                        "vdid": "eZESqSrmPCCzHjAZdfk9PQ",
                         "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test] Model",
                         "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test].",
                         "cmat": {
@@ -58,7 +58,7 @@
                               "type": "INDEX",
                               "7PXs9bNws3DAHsAeMyIzIg": {
                                 "id": "7PXs9bNws3DAHsAeMyIzIg",
-                                "vdid": "ZJESqQPmPCCLHjAZufk9PQ",
+                                "vdid": "eZESqSrmPCCzHjAZdfk9PQ",
                                 "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test] Model",
                                 "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test].",
                                 "type": "CM",
@@ -162,7 +162,7 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "yPD4fKYD1BN5vjBGorAUqA",
+                                  "vdid": "gKxkg5eBTI7sfrB4e-D4ew",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
@@ -2778,14 +2778,17 @@
                                         "____types": "jsObject",
                                         "create": {
                                           "____types": "jsObject",
-                                          "apmID": {
-                                            "____accept": "jsString"
+                                          "cellProcessCoordinates": {
+                                            "____types": "jsObject",
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            },
+                                            "instanceName": {
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
+                                            }
                                           },
-                                          "instanceName": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "singleton"
-                                          },
-                                          "initData": {
+                                          "cellProcessData": {
                                             "____accept": [
                                               "jsObject",
                                               "jsUndefined"
@@ -2815,10 +2818,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "Gfrla65qJtL-SURNW0Ey1A",
+                              "inputTypeVDID": "dDgko0YsbXtN-wjKNc5HFA",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z9Yizbu822hH0qMeeYu82Q"
+                              "operationVDID": "Z6xWzbvMdmhHvMUeeRJK2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {

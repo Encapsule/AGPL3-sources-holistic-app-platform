@@ -16,7 +16,7 @@
                     "description": "Can we use a cell that uses a proxy as a helper?",
                     "cellmodel": {
                       "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                      "vdid": "VxISniLRWqIbtwP5oGyZHA",
+                      "vdid": "V-YhniIiS6Ibfrr5oJISHA",
                       "name": "CPP Test Model 3",
                       "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "7dTIJgcz6Kix1JUYAtzV2g": {
                               "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                              "vdid": "VxISniLRWqIbtwP5oGyZHA",
+                              "vdid": "V-YhniIiS6Ibfrr5oJISHA",
                               "name": "CPP Test Model 3",
                               "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                               "type": "CM",
@@ -67,13 +67,13 @@
                               },
                               "7dTIIAcz6BCx1JV5AtzVSw": {
                                 "id": "7dTIIAcz6BCx1JV5AtzVSw",
-                                "vdid": "A_dufoxR-zRBshlfIvWOjA",
+                                "vdid": "AztufozN-zRBVRlfIqiOjA",
                                 "name": "CPP Test 2A",
                                 "description": "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                 "type": "CM",
                                 "XP3y711ciGxMsHkhdn5i0w": {
                                   "id": "XP3y711ciGxMsHkhdn5i0w",
-                                  "vdid": "t1Jj-Y5vV_157DJWRGQdOQ",
+                                  "vdid": "aaYPy3H4yH81hcmXArXTlQ",
                                   "name": "CPP Test 2A",
                                   "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                   "type": "APM"
@@ -95,7 +95,7 @@
                               },
                               "7dTIOQcz6LOx1JWmAtzVJg": {
                                 "id": "7dTIOQcz6LOx1JWmAtzVJg",
-                                "vdid": "RU-efUxp2D-b4jFSrC5-jg",
+                                "vdid": "RdREfUzHBz-boZZSrNadjg",
                                 "name": "CPP Test Model 2C",
                                 "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                 "type": "CM",
@@ -130,7 +130,9 @@
                             "CellProcessor": {
                               "process": {
                                 "create": {
-                                  "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                                  "cellProcessCoordinates": {
+                                    "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                                  }
                                 }
                               }
                             }
@@ -179,7 +181,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                        "vdid": "v4TbaTYHqCkYRsvtPRc-ew",
+                        "vdid": "fYReiRsHz-e3Rjf_FBf_CQ",
                         "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                         "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                         "cmat": {
@@ -189,7 +191,7 @@
                               "type": "INDEX",
                               "FvUW9UtwS3DDHsMeWSJZIg": {
                                 "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                                "vdid": "v4TbaTYHqCkYRsvtPRc-ew",
+                                "vdid": "fYReiRsHz-e3Rjf_FBf_CQ",
                                 "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                                 "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                                 "type": "CM",
@@ -293,7 +295,7 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "yPD4fKYD1BN5vjBGorAUqA",
+                                  "vdid": "gKxkg5eBTI7sfrB4e-D4ew",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
@@ -538,7 +540,7 @@
                                 },
                                 "7dTIJgcz6Kix1JUYAtzV2g": {
                                   "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                                  "vdid": "VxISniLRWqIbtwP5oGyZHA",
+                                  "vdid": "V-YhniIiS6Ibfrr5oJISHA",
                                   "name": "CPP Test Model 3",
                                   "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                                   "type": "CM",
@@ -579,13 +581,13 @@
                                   },
                                   "7dTIIAcz6BCx1JV5AtzVSw": {
                                     "id": "7dTIIAcz6BCx1JV5AtzVSw",
-                                    "vdid": "A_dufoxR-zRBshlfIvWOjA",
+                                    "vdid": "AztufozN-zRBVRlfIqiOjA",
                                     "name": "CPP Test 2A",
                                     "description": "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                     "type": "CM",
                                     "XP3y711ciGxMsHkhdn5i0w": {
                                       "id": "XP3y711ciGxMsHkhdn5i0w",
-                                      "vdid": "t1Jj-Y5vV_157DJWRGQdOQ",
+                                      "vdid": "aaYPy3H4yH81hcmXArXTlQ",
                                       "name": "CPP Test 2A",
                                       "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                       "type": "APM"
@@ -607,7 +609,7 @@
                                   },
                                   "7dTIOQcz6LOx1JWmAtzVJg": {
                                     "id": "7dTIOQcz6LOx1JWmAtzVJg",
-                                    "vdid": "RU-efUxp2D-b4jFSrC5-jg",
+                                    "vdid": "RdREfUzHBz-boZZSrNadjg",
                                     "name": "CPP Test Model 2C",
                                     "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                     "type": "CM",
@@ -638,7 +640,7 @@
                         "apmMap": {
                           "XP3y711ciGxMsHkhdn5i0w": {
                             "id": "XP3y711ciGxMsHkhdn5i0w",
-                            "vdid": "t1Jj-Y5vV_157DJWRGQdOQ",
+                            "vdid": "aaYPy3H4yH81hcmXArXTlQ",
                             "name": "CPP Test 2A",
                             "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared)."
                           },
@@ -699,7 +701,7 @@
                             "specPath": "~.XP3y711ciGxMsHkhdn5i0w_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "XP3y711ciGxMsHkhdn5i0w",
-                              "vdid": "t1Jj-Y5vV_157DJWRGQdOQ",
+                              "vdid": "aaYPy3H4yH81hcmXArXTlQ",
                               "name": "CPP Test 2A",
                               "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared)."
                             }
@@ -3814,14 +3816,17 @@
                                         "____types": "jsObject",
                                         "create": {
                                           "____types": "jsObject",
-                                          "apmID": {
-                                            "____accept": "jsString"
+                                          "cellProcessCoordinates": {
+                                            "____types": "jsObject",
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            },
+                                            "instanceName": {
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
+                                            }
                                           },
-                                          "instanceName": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "singleton"
-                                          },
-                                          "initData": {
+                                          "cellProcessData": {
                                             "____accept": [
                                               "jsObject",
                                               "jsUndefined"
@@ -3851,10 +3856,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "Gfrla65qJtL-SURNW0Ey1A",
+                              "inputTypeVDID": "dDgko0YsbXtN-wjKNc5HFA",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z9Yizbu822hH0qMeeYu82Q"
+                              "operationVDID": "Z6xWzbvMdmhHvMUeeRJK2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -4978,7 +4983,9 @@
                               "CellProcessor": {
                                 "process": {
                                   "create": {
-                                    "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                                    "cellProcessCoordinates": {
+                                      "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
+                                    }
                                   }
                                 }
                               }

@@ -162,9 +162,11 @@ const action = new ControllerAction({
                                 CellProcessor: {
                                     process: {
                                         create: {
-                                            apmID: message.apmID,
-                                            instanceName: message.instanceName,
-                                            initData: {
+                                            cellProcessCoordinates: {
+                                                apmID: message.apmID,
+                                                instanceName: message.instanceName
+                                            },
+                                            cellProcessData: {
                                                 construction: {
                                                     instanceName: message.instanceName
                                                 }

@@ -21,15 +21,12 @@ const controllerAction = new ControllerAction({
                     ____types: "jsObject",
                     create: { // Is really "activate" cell process by coordinates as owned cell process whose lifespan is tied to the cell this action was called on.
                         ____types: "jsObject",
-
-                        apmID: { ____accept: "jsString" },
-
-                        instanceName: {
-                            ____accept: "jsString",
-                            ____defaultValue: "singleton"
+                        cellProcessCoordinates: {
+                            ____types: "jsObject",
+                            apmID: { ____accept: "jsString" },
+                            instanceName: { ____accept: "jsString",  ____defaultValue: "singleton" },
                         },
-
-                        initData: {
+                        cellProcessData: {
                             ____accept: [ "jsObject", "jsUndefined" ]
                         }
 
@@ -66,7 +63,7 @@ const controllerAction = new ControllerAction({
             // Dereference the body of the action request.
             const message = request_.actionRequest.holarchy.CellProcessor.process.create;
 
-            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ cellProcessCoordinates: { apmID: message.apmID, instanceName: message.instanceName }, ocdi: request_.context.ocdi });
+            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ cellProcessCoordinates: { apmID: message.cellProcessCoordinates.apmID, instanceName: message.cellProcessCoordinates.instanceName }, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -95,7 +92,7 @@ const controllerAction = new ControllerAction({
 
             // At this point we have cleared all hurdles and are prepared to create the new cell process.
             // We will do that first so that if it fails we haven't changed any CPM digraph models of the process table.
-            let ocdResponse = request_.context.ocdi.writeNamespace(cellProcessCoordinates.cellProcessPath, message.initData);
+            let ocdResponse = request_.context.ocdi.writeNamespace(cellProcessCoordinates.cellProcessPath, message.cellProcessData);
             if (ocdResponse.error) {
                 errors.push(`Failed to create cell process ID '${cellProcessCoordinates.cellProcessID}' at path '${cellProcessCoordinates.cellProcessPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);
@@ -113,13 +110,13 @@ const controllerAction = new ControllerAction({
 
             while (cellOwnershipReport.ownershipVector.length > 0) {
                 const cellOwnershipDescriptor = cellOwnershipReport.ownershipVector.pop(); // pop from the end of the vector (ordered) to grab the descriptor of the cell that we know is already in ownedCellProcesses.digraph
-                ownedCellProcesses.digraph.addVertex({ u: cellOwnershipDescriptor.cellID, p: { apmBindingPath: cellOwnershipDescriptor.cellPath, role: "cell-process-helper", apmID: message.apmID } });
+                ownedCellProcesses.digraph.addVertex({ u: cellOwnershipDescriptor.cellID, p: { apmBindingPath: cellOwnershipDescriptor.cellPath, role: "cell-process-helper", apmID: message.cellProcessCoordinates.apmID } });
                 ownedCellProcesses.digraph.addEdge({ e: { u: parentCellOwnershipDescriptor.cellID, v: cellOwnershipDescriptor.cellID } });
                 parentCellOwnershipDescriptor = cellOwnershipDescriptor;
             }
 
             // Record the new cell process in the cell process manager's digraph.
-            ownedCellProcesses.digraph.addVertex({ u: cellProcessCoordinates.cellProcessID, p: { apmBindingPath: cellProcessCoordinates.cellProcessPath, role: "cell-process", apmID: message.apmID }});
+            ownedCellProcesses.digraph.addVertex({ u: cellProcessCoordinates.cellProcessID, p: { apmBindingPath: cellProcessCoordinates.cellProcessPath, role: "cell-process", apmID: message.cellProcessCoordinates.apmID }});
             ownedCellProcesses.digraph.addEdge({ e: { u: parentCellOwnershipDescriptor.cellID, v: cellProcessCoordinates.cellProcessID }});
 
             ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.ownedCellProcesses.revision`, ownedCellProcesses.revision + 1);

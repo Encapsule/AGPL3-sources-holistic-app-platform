@@ -47,8 +47,10 @@
                             "CellProcessor": {
                               "process": {
                                 "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "instanceName": "test-process-1"
+                                  "cellProcessCoordinates": {
+                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                    "instanceName": "test-process-1"
+                                  }
                                 }
                               }
                             }
@@ -71,8 +73,10 @@
                             "CellProcessor": {
                               "process": {
                                 "create": {
-                                  "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                  "instanceName": "test-process-1"
+                                  "cellProcessCoordinates": {
+                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                    "instanceName": "test-process-1"
+                                  }
                                 }
                               }
                             }
@@ -121,7 +125,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                        "vdid": "-FKQajExeZ1_m6tnqD0qCA",
+                        "vdid": "4FKQaoExeZ3Dm6tnMz0qCA",
                         "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
                         "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
                         "cmat": {
@@ -131,7 +135,7 @@
                               "type": "INDEX",
                               "ZfVl9fVw9XBGHkYehCKEIg": {
                                 "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                                "vdid": "-FKQajExeZ1_m6tnqD0qCA",
+                                "vdid": "4FKQaoExeZ3Dm6tnMz0qCA",
                                 "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
                                 "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
                                 "type": "CM",
@@ -235,7 +239,7 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "yPD4fKYD1BN5vjBGorAUqA",
+                                  "vdid": "gKxkg5eBTI7sfrB4e-D4ew",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
@@ -2940,14 +2944,17 @@
                                         "____types": "jsObject",
                                         "create": {
                                           "____types": "jsObject",
-                                          "apmID": {
-                                            "____accept": "jsString"
+                                          "cellProcessCoordinates": {
+                                            "____types": "jsObject",
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            },
+                                            "instanceName": {
+                                              "____accept": "jsString",
+                                              "____defaultValue": "singleton"
+                                            }
                                           },
-                                          "instanceName": {
-                                            "____accept": "jsString",
-                                            "____defaultValue": "singleton"
-                                          },
-                                          "initData": {
+                                          "cellProcessData": {
                                             "____accept": [
                                               "jsObject",
                                               "jsUndefined"
@@ -2977,10 +2984,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "Gfrla65qJtL-SURNW0Ey1A",
+                              "inputTypeVDID": "dDgko0YsbXtN-wjKNc5HFA",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z9Yizbu822hH0qMeeYu82Q"
+                              "operationVDID": "Z6xWzbvMdmhHvMUeeRJK2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -4103,8 +4110,10 @@
                               "CellProcessor": {
                                 "process": {
                                   "create": {
-                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                    "instanceName": "test-process-1"
+                                    "cellProcessCoordinates": {
+                                      "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                      "instanceName": "test-process-1"
+                                    }
                                   }
                                 }
                               }
@@ -4283,8 +4292,10 @@
                               "CellProcessor": {
                                 "process": {
                                   "create": {
-                                    "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
-                                    "instanceName": "test-process-1"
+                                    "cellProcessCoordinates": {
+                                      "apmID": "6OPnhgR9QWyEFaBpaZNb1A",
+                                      "instanceName": "test-process-1"
+                                    }
                                   }
                                 }
                               }
