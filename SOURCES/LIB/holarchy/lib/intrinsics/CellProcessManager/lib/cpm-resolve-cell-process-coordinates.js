@@ -26,6 +26,7 @@ const arccore = require("@encapsule/arccore");
                 apmID: { ____accept: "jsString" },
                 instanceName: { ____accept: "jsString" }
             },
+            cellProcessesPath: { ____accept: "jsString" },
             cellProcessPath: { ____accept: "jsString" },
             cellProcessID: { ____accept: "jsString" }
         },
@@ -49,6 +50,7 @@ const arccore = require("@encapsule/arccore");
                     const cellProcessID = arccore.identifier.irut.fromReference(cellProcessPath).result;
                     resultCache[cacheKey] = {
                         cellProcessCoordinates: request_.cellProcessCoordinates,
+                        cellProcessesPath: cpmXProcessesPath,
                         cellProcessPath,
                         cellProcessID
                     };
