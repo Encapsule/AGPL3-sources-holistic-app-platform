@@ -53,7 +53,7 @@ var controllerAction = new ControllerAction({
                 apmID: {
                   ____accept: "jsString"
                 },
-                cellProcessUniqueName: {
+                instanceName: {
                   ____accept: "jsString",
                   ____defaultValue: "singleton"
                 }
@@ -171,7 +171,7 @@ var controllerAction = new ControllerAction({
           break;
         }
 
-        cellProcessID = message.queryCellProcesscellProcessID ? message.queryCellProcess.cellProcessID : message.queryCellProcess.apmBindingPath ? arccore.identifier.irut.fromReference(message.queryCellProcess.apmBindingPath).result : arccore.identifier.irut.fromReference("~.".concat(message.queryCellProcess.cellProcessNamespace.apmID, "_CellProcesses.cellProcessMap.").concat(arccore.identifier.irut.fromReference(message.queryCellProcess.cellProcessNamespace.cellProcessUniqueName).result)).result;
+        cellProcessID = message.queryCellProcesscellProcessID ? message.queryCellProcess.cellProcessID : message.queryCellProcess.apmBindingPath ? arccore.identifier.irut.fromReference(message.queryCellProcess.apmBindingPath).result : arccore.identifier.irut.fromReference("~.".concat(message.queryCellProcess.cellProcessNamespace.apmID, "_CellProcesses.cellProcessMap.").concat(arccore.identifier.irut.fromReference(message.queryCellProcess.cellProcessNamespace.instanceName).result)).result;
       } else {
         cellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
       } // Get a reference to the Cell Process Manager's process tree descriptor object.

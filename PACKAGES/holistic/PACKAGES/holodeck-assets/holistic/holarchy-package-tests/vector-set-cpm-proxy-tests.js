@@ -35,6 +35,108 @@ module.exports = [{
 
                     }
                   }
+                },
+                steps: {
+                  uninitialized: {
+                    description: "Default process step label.",
+                    transitions: [{
+                      transitionIf: {
+                        always: true
+                      },
+                      nextStep: "connect_proxy"
+                    }]
+                  },
+                  connect_proxy: {
+                    description: "Attempt to connect the proxy.",
+                    actions: {
+                      enter: [{
+                        holarchy: {
+                          CellProcessor: {
+                            actOn: {
+                              cellPath: "#.proxy",
+                              actionRequest: {
+                                holarchy: {
+                                  CellProcessProxy: {
+                                    connect: {
+                                      apmID: "mctGtkfiQmeO93Va6WkGZw"
+                                      /*Back to host*/
+
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }]
+                    },
+                    transitions: [{
+                      transitionIf: {
+                        holarchy: {
+                          CellProcessor: {
+                            opOn: {
+                              cellPath: "#.proxy",
+                              operatorRequest: {
+                                holarchy: {
+                                  CellProcessProxy: {
+                                    isBroken: {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      nextStep: "connect_proxy_error"
+                    }, {
+                      transitionIf: {
+                        holarchy: {
+                          CellProcessor: {
+                            opOn: {
+                              cellPath: "#.proxy",
+                              operatorRequest: {
+                                holarchy: {
+                                  CellProcessProxy: {
+                                    isDisconnected: {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      nextStep: "connect_proxy_error"
+                    }, {
+                      transitionIf: {
+                        holarchy: {
+                          CellProcessor: {
+                            opOn: {
+                              cellPath: "#.proxy",
+                              operatorRequest: {
+                                holarchy: {
+                                  CellProcessProxy: {
+                                    isConnected: {}
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      nextStep: "proxy_connected"
+                    }, {
+                      transitionIf: {
+                        always: true
+                      },
+                      nextStep: "connect_proxy_error"
+                    }]
+                  },
+                  connect_proxy_error: {
+                    description: "The attempt to connect the proxy failed."
+                  },
+                  proxy_connected: {
+                    description: "The proxy is now connected."
+                  }
                 }
               }
             }
@@ -48,7 +150,9 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        apmID: "mctGtkfiQmeO93Va6WkGZw"
+                        cellProcessCoordinates: {
+                          apmID: "mctGtkfiQmeO93Va6WkGZw"
+                        }
                       }
                     }
                   }

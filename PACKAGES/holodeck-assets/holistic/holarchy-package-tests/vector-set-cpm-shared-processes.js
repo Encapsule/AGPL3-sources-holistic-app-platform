@@ -31,8 +31,10 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                        cellProcessUniqueName: "Test Process A"
+                        cellProcessCoordinates: {
+                          apmID: cppTestModelSpace.apmID("CPP Test 1"),
+                          instanceName: "Test Process A"
+                        }
                       }
                     }
                   }
@@ -58,7 +60,7 @@ module.exports = [{
                       "delete": {
                         cellProcessNamespace: {
                           apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                          cellProcessUniqueName: "Test Process B"
+                          instanceName: "Test Process B"
                         }
                       }
                     }
@@ -78,7 +80,7 @@ module.exports = [{
                       "delete": {
                         cellProcessNamespace: {
                           apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                          cellProcessUniqueName: "Test Process A"
+                          instanceName: "Test Process A"
                         }
                       }
                     }
@@ -117,7 +119,9 @@ module.exports = [{
                 CellProcessor: {
                   process: {
                     create: {
-                      apmID: cppTestModelSpace.apmID("CPP Test 2")
+                      cellProcessCoordinates: {
+                        apmID: cppTestModelSpace.apmID("CPP Test 2")
+                      }
                     }
                   }
                 }
@@ -178,7 +182,9 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        apmID: cppTestModelSpace.apmID("CPP Test 3")
+                        cellProcessCoordinates: {
+                          apmID: cppTestModelSpace.apmID("CPP Test 3")
+                        }
                       }
                     }
                   }

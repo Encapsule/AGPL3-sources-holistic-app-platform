@@ -64,8 +64,10 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                        cellProcessUniqueName: "test-process-1"
+                        cellProcessCoordinates: {
+                          apmID: "6OPnhgR9QWyEFaBpaZNb1A",
+                          instanceName: "test-process-1"
+                        }
                       }
                     }
                   }
@@ -88,8 +90,10 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                        cellProcessUniqueName: "test-process-1"
+                        cellProcessCoordinates: {
+                          apmID: "6OPnhgR9QWyEFaBpaZNb1A",
+                          instanceName: "test-process-1"
+                        }
                       }
                     }
                   }
@@ -106,7 +110,7 @@ module.exports = [{
                       "delete": {
                         cellProcessNamespace: {
                           apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                          cellProcessUniqueName: "test-process-1"
+                          instanceName: "test-process-1"
                         }
                       }
                     }
@@ -154,8 +158,10 @@ module.exports = [{
                 CellProcessor: {
                   process: {
                     create: {
-                      apmID: "itgXQ5RWS66fcdsuZim8AQ",
-                      cellProcessUniqueName: "test3"
+                      cellProcessCoordinates: {
+                        apmID: "itgXQ5RWS66fcdsuZim8AQ",
+                        instanceName: "test3"
+                      }
                     }
                   }
                 }
@@ -185,7 +191,7 @@ module.exports = [{
                       queryCellProcess: {
                         cellProcessNamespace: {
                           apmID: "itgXQ5RWS66fcdsuZim8AQ",
-                          cellProcessUniqueName: "test3"
+                          instanceName: "test3"
                         }
                       }
                     }
@@ -204,7 +210,7 @@ module.exports = [{
                     "delete": {
                       cellProcessNamespace: {
                         apmID: "itgXQ5RWS66fcdsuZim8AQ",
-                        cellProcessUniqueName: "test3"
+                        instanceName: "test3"
                       }
                     }
                   }
