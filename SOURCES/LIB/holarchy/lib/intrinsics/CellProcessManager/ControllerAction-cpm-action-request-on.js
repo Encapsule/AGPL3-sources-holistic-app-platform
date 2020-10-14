@@ -50,23 +50,24 @@ const controllerAction = new ControllerAction({
             let targetCellPath = messageBody.cellPath;
 
             if (messageBody.cellProcessCoordinates && messageBody.cellProcessID) {
-                errors.push("Please specify either cellProcessCoordinates or cellProcessID (both are set indicating a problem).");
+                errors.push("Please specify either cellProcessCoordinates XOR cellProcessID to override default cellPath.");
                 break;
             }
 
             if (messageBody.cellProcessCoordinates) {
-                let cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({
-                    cellProcessCoordinates: messageBody.cellProcessCoordinates,
-                    ocdi: request_.context.ocdi
-                });
+                let cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ cellProcessCoordinates: messageBody.cellProcessCoordinates, ocdi: request_.context.ocdi });
                 if (cpmLibResponse.error) {
                     errors.push(cpmResponse.error);
                     break;
                 }
                 targetCellPath = cpmLibResponse.result.cellProcessPath;
-            } else if (messageBody.cellID) {
-                errors.push("NOT SUPPORTED YET!");
-                break;
+            } else if (messageBody.cellProcessID) {
+                let cpmLibResponse = cpmLib.resolveCellProcessID.request({ cellProcessID: messageBody.cellProcessID, ocdi: request_.context.ocdi });
+                if (cpmLibResponse.error) {
+                    errors.push(cpmLibResponse.error);
+                    break;
+                }
+                targetCellPath = cpmLibResponse.result.cellProcessPath;
             }
 
             let ocdResponse = ObservableControllerData.dataPathResolve({

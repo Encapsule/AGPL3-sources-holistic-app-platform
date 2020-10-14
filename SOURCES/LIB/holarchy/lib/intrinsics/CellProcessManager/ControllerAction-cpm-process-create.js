@@ -19,7 +19,7 @@ const controllerAction = new ControllerAction({
                 ____types: "jsObject",
                 process: {
                     ____types: "jsObject",
-                    create: { // Is really "activate" cell process by coordinates as owned cell process whose lifespan is tied to the cell this action was called on.
+                    create: { // Semantically, this should be thought of as a request to CPM to activate an owned process at cellProcessCoordinates lifespan is tied to the cell this action was called on via parent/child relationship.
                         ____types: "jsObject",
                         cellProcessCoordinates: {
                             ____types: "jsObject",

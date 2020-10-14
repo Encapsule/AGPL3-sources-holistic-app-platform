@@ -62,7 +62,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                        "vdid": "Iw38_xnimSdkOU3BSFOekg",
+                        "vdid": "7g38_9bimSfQOU3BTFOekg",
                         "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP] Model",
                         "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP].",
                         "cmat": {
@@ -72,7 +72,7 @@
                               "type": "INDEX",
                               "V_VX9bRwtHA9Hj0ebiJuIg": {
                                 "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                                "vdid": "Iw38_xnimSdkOU3BSFOekg",
+                                "vdid": "7g38_9bimSfQOU3BTFOekg",
                                 "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP] Model",
                                 "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP].",
                                 "type": "CM",
@@ -183,14 +183,14 @@
                                 },
                                 "4s_DUfKnQ4aS-xRjewAfUQ": {
                                   "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                  "vdid": "of1aWsHYrE240t2cp_yP4w",
+                                  "vdid": "RvraZRTL-4Vgf0xfL3pPFQ",
                                   "name": "Cell Process Manager: Process Delete",
                                   "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                   "type": "ACT"
                                 },
                                 "r-JgxABoS_a-mSE2c1nvKA": {
                                   "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                  "vdid": "eW8zXNAngE7oQhytjKajog",
+                                  "vdid": "eZ_SmNCy2K_oM_U5jOOYOQ",
                                   "name": "Cell Process Manager: Process Query",
                                   "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                   "type": "ACT"
@@ -2962,32 +2962,7 @@
                                       "process": {
                                         "____types": "jsObject",
                                         "delete": {
-                                          "____types": "jsObject",
-                                          "cellProcessID": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString"
-                                            ]
-                                          },
-                                          "apmBindingPath": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString"
-                                            ]
-                                          },
-                                          "cellProcessNamespace": {
-                                            "____types": [
-                                              "jsUndefined",
-                                              "jsObject"
-                                            ],
-                                            "apmID": {
-                                              "____accept": "jsString"
-                                            },
-                                            "instanceName": {
-                                              "____accept": "jsString",
-                                              "____defaultValue": "singleton"
-                                            }
-                                          }
+                                          "____accept": "jsObject"
                                         }
                                       }
                                     }
@@ -3004,10 +2979,10 @@
                                 }
                               },
                               "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                              "inputTypeVDID": "lO3mnATrl7pQdzeMwiRP6w",
+                              "inputTypeVDID": "nJtsHnUqWLWRgGiKz3By6Q",
                               "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                               "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                              "operationVDID": "j5PYCQ87d5RKOF70PZ5Jrg"
+                              "operationVDID": "jzcHCQ9IaJRK3Y30PRnfrg"
                             }
                           },
                           "r-JgxABoS_a-mSE2c1nvKA": {
@@ -3084,7 +3059,7 @@
                                                 "jsString"
                                               ]
                                             },
-                                            "cellProcessNamespace": {
+                                            "cellProcessCoordinates": {
                                               "____types": [
                                                 "jsUndefined",
                                                 "jsObject"
@@ -3290,10 +3265,10 @@
                                 }
                               },
                               "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
-                              "inputTypeVDID": "BO54W9-8KxdR7b6qSVLuNw",
+                              "inputTypeVDID": "BO4Lft-8kepR7erfSVLAkA",
                               "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
                               "outputTypeVDID": "rRcfFnGcxrjgQ1q8bpA-Fg",
-                              "operationVDID": "1ukgyF5JyAyp_rAFaWR3Bg"
+                              "operationVDID": "1qZMyF6e3Aypqb0FaQ6FBg"
                             }
                           },
                           "X6ck_Bo4RmWTVHl-vk-urw": {

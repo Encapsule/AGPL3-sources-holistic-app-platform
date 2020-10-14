@@ -82,10 +82,17 @@
                       "actionRequest": {
                         "holarchy": {
                           "CellProcessor": {
-                            "process": {
-                              "delete": {
-                                "cellProcessNamespace": {
-                                  "apmID": "XP3yGl1ciCtMsHnMdn5i3A"
+                            "actOn": {
+                              "cellProcessCoordinates": {
+                                "apmID": "XP3yGl1ciCtMsHnMdn5i3A"
+                              },
+                              "actionRequest": {
+                                "holarchy": {
+                                  "CellProcessor": {
+                                    "process": {
+                                      "delete": {}
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -115,7 +122,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                        "vdid": "INPGCUTvTztJuuKXA2lRKw",
+                        "vdid": "SdPGCdDvTzv4uuKXFGlRKw",
                         "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                         "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                         "cmat": {
@@ -125,7 +132,7 @@
                               "type": "INDEX",
                               "kfWR9Xtwe3BNHk0eBSIFIg": {
                                 "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                                "vdid": "INPGCUTvTztJuuKXA2lRKw",
+                                "vdid": "SdPGCdDvTzv4uuKXFGlRKw",
                                 "name": "Cell Process Manager [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2] Model",
                                 "description": "Cell process manager root process for CellProcessor [FSTf8ckWTFmm-qGt6lvIsA::CPM Shared Process Test #2].",
                                 "type": "CM",
@@ -236,14 +243,14 @@
                                 },
                                 "4s_DUfKnQ4aS-xRjewAfUQ": {
                                   "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                  "vdid": "of1aWsHYrE240t2cp_yP4w",
+                                  "vdid": "RvraZRTL-4Vgf0xfL3pPFQ",
                                   "name": "Cell Process Manager: Process Delete",
                                   "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                   "type": "ACT"
                                 },
                                 "r-JgxABoS_a-mSE2c1nvKA": {
                                   "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                  "vdid": "eW8zXNAngE7oQhytjKajog",
+                                  "vdid": "eZ_SmNCy2K_oM_U5jOOYOQ",
                                   "name": "Cell Process Manager: Process Query",
                                   "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                   "type": "ACT"
@@ -3154,32 +3161,7 @@
                                       "process": {
                                         "____types": "jsObject",
                                         "delete": {
-                                          "____types": "jsObject",
-                                          "cellProcessID": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString"
-                                            ]
-                                          },
-                                          "apmBindingPath": {
-                                            "____accept": [
-                                              "jsUndefined",
-                                              "jsString"
-                                            ]
-                                          },
-                                          "cellProcessNamespace": {
-                                            "____types": [
-                                              "jsUndefined",
-                                              "jsObject"
-                                            ],
-                                            "apmID": {
-                                              "____accept": "jsString"
-                                            },
-                                            "instanceName": {
-                                              "____accept": "jsString",
-                                              "____defaultValue": "singleton"
-                                            }
-                                          }
+                                          "____accept": "jsObject"
                                         }
                                       }
                                     }
@@ -3196,10 +3178,10 @@
                                 }
                               },
                               "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                              "inputTypeVDID": "lO3mnATrl7pQdzeMwiRP6w",
+                              "inputTypeVDID": "nJtsHnUqWLWRgGiKz3By6Q",
                               "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                               "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                              "operationVDID": "j5PYCQ87d5RKOF70PZ5Jrg"
+                              "operationVDID": "jzcHCQ9IaJRK3Y30PRnfrg"
                             }
                           },
                           "r-JgxABoS_a-mSE2c1nvKA": {
@@ -3276,7 +3258,7 @@
                                                 "jsString"
                                               ]
                                             },
-                                            "cellProcessNamespace": {
+                                            "cellProcessCoordinates": {
                                               "____types": [
                                                 "jsUndefined",
                                                 "jsObject"
@@ -3482,10 +3464,10 @@
                                 }
                               },
                               "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
-                              "inputTypeVDID": "BO54W9-8KxdR7b6qSVLuNw",
+                              "inputTypeVDID": "BO4Lft-8kepR7erfSVLAkA",
                               "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
                               "outputTypeVDID": "rRcfFnGcxrjgQ1q8bpA-Fg",
-                              "operationVDID": "1ukgyF5JyAyp_rAFaWR3Bg"
+                              "operationVDID": "1qZMyF6e3Aypqb0FaQ6FBg"
                             }
                           },
                           "X6ck_Bo4RmWTVHl-vk-urw": {
@@ -4728,10 +4710,17 @@
                           "actionRequest": {
                             "holarchy": {
                               "CellProcessor": {
-                                "process": {
-                                  "delete": {
-                                    "cellProcessNamespace": {
-                                      "apmID": "XP3yGl1ciCtMsHnMdn5i3A"
+                                "actOn": {
+                                  "cellProcessCoordinates": {
+                                    "apmID": "XP3yGl1ciCtMsHnMdn5i3A"
+                                  },
+                                  "actionRequest": {
+                                    "holarchy": {
+                                      "CellProcessor": {
+                                        "process": {
+                                          "delete": {}
+                                        }
+                                      }
                                     }
                                   }
                                 }

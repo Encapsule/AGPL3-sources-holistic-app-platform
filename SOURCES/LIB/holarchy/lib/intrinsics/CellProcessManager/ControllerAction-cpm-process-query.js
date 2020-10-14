@@ -23,6 +23,7 @@ const controllerAction = new ControllerAction({
                     query: {
                         ____types: "jsObject",
                         filterBy: cellProcessQueryRequestFilterBySpec,
+                        // TODO: This isn't necessary at all right? actOn should alleviate the need for this entirely no?
                         queryCellProcess: {
                             ____label: "Query Cell Process Override",
                             ____description: "Allows the caller to optionally override that default action behavior to specify the cell process ID to query.",
@@ -33,7 +34,7 @@ const controllerAction = new ControllerAction({
                             // ... or
                             apmBindingPath: { ____accept: [ "jsUndefined", "jsString" ] }, // Equivalent, but less efficient
                             // ... or
-                            cellProcessNamespace: {
+                            cellProcessCoordinates: {
                                 ____types: [ "jsUndefined", "jsObject" ],
                                 apmID: { ____accept: "jsString" },
                                 instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
@@ -117,13 +118,13 @@ const controllerAction = new ControllerAction({
 
             if (message.queryCellProcess) {
 
-                if (!message.queryCellProcess.cellProcessID && !message.queryCellProcess.apmBindingPath && !message.queryCellProcess.cellProcessNamespace) {
-                    errors.push("Invalid cell process query request. If you explicitly set queryCellProcess then you must specify cellProcessID. Or either apmBindingPath or cellProcessNamespace so that cellProcessID can be calculated.");
+                if (!message.queryCellProcess.cellProcessID && !message.queryCellProcess.apmBindingPath && !message.queryCellProcess.cellProcessCoordinates) {
+                    errors.push("Invalid cell process query request. If you explicitly set queryCellProcess then you must specify cellProcessID. Or either apmBindingPath or cellProcessCoordinates so that cellProcessID can be calculated.");
                     break;
                 }
 
                 cellProcessID = message.queryCellProcesscellProcessID?message.queryCellProcess.cellProcessID:message.queryCellProcess.apmBindingPath?arccore.identifier.irut.fromReference(message.queryCellProcess.apmBindingPath).result:
-                arccore.identifier.irut.fromReference(`~.${message.queryCellProcess.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.queryCellProcess.cellProcessNamespace.instanceName).result}`).result;
+                arccore.identifier.irut.fromReference(`~.${message.queryCellProcess.cellProcessCoordinates.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.queryCellProcess.cellProcessCoordinates.instanceName).result}`).result;
 
             } else {
                 cellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;

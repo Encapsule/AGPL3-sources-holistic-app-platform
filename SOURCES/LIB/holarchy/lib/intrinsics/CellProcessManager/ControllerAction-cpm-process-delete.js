@@ -19,19 +19,7 @@ const controllerAction = new ControllerAction({
                 ____types: "jsObject",
                 process: {
                     ____types: "jsObject",
-                    delete: {
-                        ____types: "jsObject",
-                        // Either of
-                        cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] }, // Preferred
-                        // ... or
-                        apmBindingPath: { ____accept: [ "jsUndefined", "jsString" ] }, // Equivalent, but less efficient
-                        // ... or
-                        cellProcessNamespace: {
-                            ____types: [ "jsUndefined", "jsObject" ],
-                            apmID: { ____accept: "jsString" },
-                            instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
-                        }
-                    }
+                    delete: { ____accept: "jsObject" }
                 }
             }
         }
@@ -43,13 +31,6 @@ const controllerAction = new ControllerAction({
         cellProcessID: { ____accept: "jsString" } // this is an IRUT-format hash of parent process' apmBindingPath
     },
 
-    // NOTE: Unlike most ControllerAction bodyFunctions, process delete action DOES NOT consider
-    // request_.context.apmBindingPath at all!
-    //
-    // The process namespace of the cell process to delete is determined from the cell process tree digraph
-    // using cellProcessID that is either specified directly. Or, that is calculated from from apmBindingPath
-    // or cellProcessNamespace.
-
     bodyFunction: function(request_) {
         let response = { error: null };
         let errors = [];
@@ -58,18 +39,8 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log(`[${this.operationID}::${this.operationName}] action start...`);
 
-            // Dereference the body of the action request.
-            const message = request_.actionRequest.holarchy.CellProcessor.process.delete;
-
-            if (!message.cellProcessID && !message.apmBindingPath && !message.cellProcessNamespace) {
-                errors.push("You need to specify cellProcessID. Or eiter apmBindingPath or cellProcessNamespace so that cellProcessID can be calculated.");
-                break;
-            }
-
             // TODO: This should be converted to a cpmLib call
-            let cellProcessID = message.cellProcessID?message.cellProcessID:
-                message.apmBindingPath?arccore.identifier.irut.fromReference(message.apmBindingPath).result:
-                arccore.identifier.irut.fromReference(`~.${message.cellProcessNamespace.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.cellProcessNamespace.instanceName).result}`).result;
+            const cellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
 
             let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
