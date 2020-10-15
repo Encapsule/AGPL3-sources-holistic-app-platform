@@ -19,7 +19,18 @@ const controllerAction = new ControllerAction({
                 ____types: "jsObject",
                 process: {
                     ____types: "jsObject",
-                    delete: { ____accept: "jsObject" }
+                    delete: {
+                        ____types: "jsObject",
+                        cellProcessCoordinates: {
+                            ____types: [
+                                "jsUndefined", // because it's optional. If not specified, then the default behavior is to use request_.context.apmBindingPath to deduce the cell process to delete.
+                                "jsString", // because it might be a cellProcessPath or cellProcessID
+                                "jsObject", // because it might be a raw cellProcessCoordinates apmID, instanceName descriptor
+                            ],
+                            apmID: { ____accept: "jsString" },
+                            instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+                        }
+                    }
                 }
             }
         }
@@ -39,10 +50,22 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log(`[${this.operationID}::${this.operationName}] action start...`);
 
-            // TODO: This should be converted to a cpmLib call
-            const cellProcessID = arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result;
+            const messageBody = request_.actionRequest.holarchy.CellProcessor.process.delete;
 
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            const cellProcessCoordinates = messageBody.cellProcessCoordinates?messageBody.cellProcessCoordinates:request_.context.apmBindingPath;
+
+            let cpmLibResponse  = cpmLib.resolveCellProcessCoordinates.request({ cellProcessCoordinates, ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+
+            let resolvedCellProcessCoordinates = cpmLibResponse.result;
+
+            // TODO: This should be converted to a cpmLib call
+            const cellProcessID = resolvedCellProcessCoordinates.cellProcessID;
+
+            cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;

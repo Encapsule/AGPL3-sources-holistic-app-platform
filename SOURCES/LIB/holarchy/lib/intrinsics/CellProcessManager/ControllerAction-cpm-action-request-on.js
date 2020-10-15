@@ -17,16 +17,16 @@ const controllerAction = new ControllerAction({
                 ____types: "jsObject",
                 actOn: {
                     ____types: "jsObject",
-                    cellPath: {
-                        ____accept: "jsString",
-                        ____defaultValue: "#"
-                    },
-                    cellProcessCoordinates: {
-                        ____types: [ "jsUndefined", "jsObject" ],
+                    coordinates: {
+                        ____types: [
+                            "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
+                            "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                        ],
+                        ____defaultValue: "#",
                         apmID: { ____accept: "jsString" },
                         instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+
                     },
-                    cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] },
                     actionRequest: { ____accept: "jsObject" }
                 }
             }
@@ -47,40 +47,25 @@ const controllerAction = new ControllerAction({
 
             const messageBody = request_.actionRequest.holarchy.CellProcessor.actOn;
 
-            let targetCellPath = messageBody.cellPath;
+            let coordinates = messageBody.coordinates;
 
-            if (messageBody.cellProcessCoordinates && messageBody.cellProcessID) {
-                errors.push("Please specify either cellProcessCoordinates XOR cellProcessID to override default cellPath.");
+            const coordinatesTypeString = Object.prototype.toString.call(coordinates);
+            if (("[object String]" === coordinatesTypeString) && messageBody.coordinates.startsWith("#")) {
+                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: messageBody.coordinates });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                coordinates = ocdResponse.result;
+            }
+
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ cellCoordinates: coordinates, ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
 
-            if (messageBody.cellProcessCoordinates) {
-                let cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ cellProcessCoordinates: messageBody.cellProcessCoordinates, ocdi: request_.context.ocdi });
-                if (cpmLibResponse.error) {
-                    errors.push(cpmResponse.error);
-                    break;
-                }
-                targetCellPath = cpmLibResponse.result.cellProcessPath;
-            } else if (messageBody.cellProcessID) {
-                let cpmLibResponse = cpmLib.resolveCellProcessID.request({ cellProcessID: messageBody.cellProcessID, ocdi: request_.context.ocdi });
-                if (cpmLibResponse.error) {
-                    errors.push(cpmLibResponse.error);
-                    break;
-                }
-                targetCellPath = cpmLibResponse.result.cellProcessPath;
-            }
-
-            let ocdResponse = ObservableControllerData.dataPathResolve({
-                dataPath: targetCellPath,
-                apmBindingPath: request_.context.apmBindingPath
-            });
-
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
-                break;
-            }
-
-            targetCellPath = ocdResponse.result;
+            let targetCellPath = cpmLibResponse.result.cellPath;
 
             let actResponse = request_.context.act({
                 actorName: "Cell Process Manager: actOn",
@@ -90,7 +75,6 @@ const controllerAction = new ControllerAction({
             });
 
             if (actResponse.error) {
-                errors.push("We were not able to delegate your ControllerAction request due to error:");
                 errors.push(actResponse.error);
                 break;
             }

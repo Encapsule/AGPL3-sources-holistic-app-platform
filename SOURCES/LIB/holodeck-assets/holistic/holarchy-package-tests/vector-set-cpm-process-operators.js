@@ -237,7 +237,7 @@ module.exports = [
                                     holarchy: {
                                         CellProcessor: {
                                             actOn: {
-                                                cellProcessCoordinates: {
+                                                coordinates: {
                                                     apmID: "LVjhjYUcQXOYcbI_xbepJQ", // CPM Child Processes Active Operator Test Process
                                                     instanceName: "Test Process"
                                                 },
@@ -329,7 +329,7 @@ module.exports = [
                                     holarchy: {
                                         CellProcessor: {
                                             actOn: {
-                                                cellProcessCoordinates: {
+                                                coordinates: {
                                                     apmID: "vjz7U4NWRE2_UlAvAjmS6g", // "CPM Child Processes All In Step Operator Test Process"
                                                     instanceName: "Test Process"
                                                 },
@@ -420,7 +420,7 @@ module.exports = [
                                     holarchy: {
                                         CellProcessor: {
                                             actOn: {
-                                                cellProcessCoordinates: {
+                                                coordinates: {
                                                     apmID: "8LE0CnuHRMOKoGXn1kHdNA", // "CPM Child Processes Any In Step Operator Test Process"
                                                     instanceName: "Test Process"
                                                 },
@@ -503,7 +503,7 @@ module.exports = [
                                     holarchy: {
                                         CellProcessor: {
                                             actOn: {
-                                                cellProcessCoordinates: {
+                                                coordinates: {
                                                     apmID:  "cYpoxyyZSwm19CqH3v7eLQ", // "CPM Descendant Processes Active Operator Test Process"
                                                     instanceName: "Test Process"
                                                 },
@@ -594,7 +594,7 @@ module.exports = [
                                     holarchy: {
                                         CellProcessor: {
                                             actOn: {
-                                                cellProcessCoordinates: {
+                                                coordinates: {
                                                     apmID: "XzNJP6LyTCOnhGPKpJIjzg", // "CPM Descendant Processes ALl In Step Operator Test Process"
                                                     instanceName: "Test Process"
                                                 },
@@ -685,7 +685,7 @@ module.exports = [
                                     holarchy: {
                                         CellProcessor: {
                                             actOn: {
-                                                cellProcessCoordinates: {
+                                                coordinates: {
                                                     apmID: "TR7suTjQSKOBK5bGKztIcg", //  "CPM Descendant Processes Any In Step Test Process"
                                                     instanceName: "Test Process"
                                                 },

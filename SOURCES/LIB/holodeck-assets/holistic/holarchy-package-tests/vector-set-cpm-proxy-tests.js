@@ -45,7 +45,7 @@ module.exports = [
                                             description: "Attempt to connect the proxy.",
                                             actions: {
                                                 enter: [
-                                                    { holarchy: { CellProcessor: { actOn: { cellPath: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
+                                                    { holarchy: { CellProcessor: { actOn: { coordinates: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
                                                 ]
                                             },
                                             transitions: [
@@ -83,7 +83,7 @@ module.exports = [
                                actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                   actionRequest: { holarchy: { CellProcessor: { actOn: { cellProcessCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {  } } } } } } } } }
+                                   actionRequest: { holarchy: { CellProcessor: { actOn: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {  } } } } } } } } }
                                 }
                             }
 

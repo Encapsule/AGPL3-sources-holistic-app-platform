@@ -11,7 +11,7 @@ const connectProxyActionRequest = {
     holarchy: {
         CellProcessor: {
             actOn: {
-                cellPath: "#.proxyTest",
+                coordinates: "#.proxyTest",
                 actionRequest: {
                     holarchy: {
                         CellProcessProxy: {
@@ -107,7 +107,7 @@ const cppTestModel1 = new holarchy.CellModel({
                             holarchy: {
                                 CellProcessor: {
                                     actOn: {
-                                        cellPath: "#.proxyTest",
+                                        coordinates: "#.proxyTest",
                                         actionRequest: {
                                             // WE EXPECT THIS TO BE DEPRECATED IN v0.0.48 WHEN WE BRING OCD-LEVEL PROXY VIRTUALIZATION ONLINE
                                             holarchy: {
@@ -141,7 +141,7 @@ const cppTestModel1 = new holarchy.CellModel({
 
                 actions: {
                     enter: [
-                        { holarchy: { CellProcessor: { actOn: { cellPath: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { disconnect: {} } } } } } } }
+                        { holarchy: { CellProcessor: { actOn: { coordinates: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { disconnect: {} } } } } } } }
                     ]
                 },
 
@@ -276,7 +276,7 @@ const cppTestModel2 = new holarchy.CellModel({
 
             uninitialized: {
                 description: "Default process starting step.",
-                actions: { exit: [ { holarchy: { CellProcessor: { actOn: { cellPath: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { connect: {  apmID:  cellspace.apmID("CPP Test Messenger") } } } } } } } } ] },
+                actions: { exit: [ { holarchy: { CellProcessor: { actOn: { coordinates: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { connect: {  apmID:  cellspace.apmID("CPP Test Messenger") } } } } } } } } ] },
                 transitions: [ { transitionIf: { always: true }, nextStep: "finished" } ]
             },
 
