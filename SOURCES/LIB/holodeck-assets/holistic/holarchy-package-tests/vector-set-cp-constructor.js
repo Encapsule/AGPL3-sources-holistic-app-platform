@@ -152,7 +152,7 @@ module.exports = [
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
                                 actionRequest: {
-                                    holarchy: { CellProcessor: { process: { query: { } } } } // default all result sets query - can you guess what apmBindingAddress cellProcessID derives from here?
+                                    holarchy: { CellProcessor: { process: { query: { } } } } // get all result sets on ~ namespace (Cell Process Manager)
                                 }
                             },
 
@@ -160,13 +160,15 @@ module.exports = [
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
                                 actionRequest: {
-                                    holarchy: { CellProcessor: { process: { query: { queryCellProcess: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } } } // get all result sets
+                                    holarchy: { CellProcessor: { process: { query: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } }
                                 }
                             },
 
                             {
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
+                                // This is an explicitly verbose call to delete a previously-created cell process that uses actOn to resolve the cell process coordinates before delegating to CPM process delete.
+                                // We could equivalently specify process.delete.coordinates to accomplish the same. Both forms should always work the same.
                                 actionRequest: { holarchy: { CellProcessor: { actOn: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } } }
                             }
 
