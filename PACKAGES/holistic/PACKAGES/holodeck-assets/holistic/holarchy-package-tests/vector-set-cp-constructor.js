@@ -64,7 +64,7 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        cellProcessCoordinates: {
+                        coordinates: {
                           apmID: "6OPnhgR9QWyEFaBpaZNb1A",
                           instanceName: "test-process-1"
                         }
@@ -90,7 +90,7 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        cellProcessCoordinates: {
+                        coordinates: {
                           apmID: "6OPnhgR9QWyEFaBpaZNb1A",
                           instanceName: "test-process-1"
                         }
@@ -103,12 +103,13 @@ module.exports = [{
           }, {
             actRequest: {
               actorName: "CP constructor test #2",
+              // actionRequest: { holarchy: { CellProcessor: { actOn: {  coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } } }
               actionRequest: {
                 holarchy: {
                   CellProcessor: {
                     process: {
                       "delete": {
-                        cellProcessNamespace: {
+                        coordinates: {
                           apmID: "6OPnhgR9QWyEFaBpaZNb1A",
                           instanceName: "test-process-1"
                         }
@@ -158,7 +159,7 @@ module.exports = [{
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "itgXQ5RWS66fcdsuZim8AQ",
                         instanceName: "test3"
                       }
@@ -177,7 +178,7 @@ module.exports = [{
                     query: {}
                   }
                 }
-              } // default all result sets query - can you guess what apmBindingAddress cellProcessID derives from here?
+              } // get all result sets on ~ namespace (Cell Process Manager)
 
             }
           }, {
@@ -188,29 +189,35 @@ module.exports = [{
                 CellProcessor: {
                   process: {
                     query: {
-                      queryCellProcess: {
-                        cellProcessNamespace: {
-                          apmID: "itgXQ5RWS66fcdsuZim8AQ",
-                          instanceName: "test3"
-                        }
+                      coordinates: {
+                        apmID: "itgXQ5RWS66fcdsuZim8AQ",
+                        instanceName: "test3"
                       }
                     }
                   }
                 }
-              } // get all result sets
-
+              }
             }
           }, {
             actorName: "CP constructor test #3",
             actorTaskDescription: "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
+            // This is an explicitly verbose call to delete a previously-created cell process that uses actOn to resolve the cell process coordinates before delegating to CPM process delete.
+            // We could equivalently specify process.delete.coordinates to accomplish the same. Both forms should always work the same.
             actionRequest: {
               holarchy: {
                 CellProcessor: {
-                  process: {
-                    "delete": {
-                      cellProcessNamespace: {
-                        apmID: "itgXQ5RWS66fcdsuZim8AQ",
-                        instanceName: "test3"
+                  actOn: {
+                    coordinates: {
+                      apmID: "itgXQ5RWS66fcdsuZim8AQ",
+                      instanceName: "test3"
+                    },
+                    actionRequest: {
+                      holarchy: {
+                        CellProcessor: {
+                          process: {
+                            "delete": {}
+                          }
+                        }
                       }
                     }
                   }

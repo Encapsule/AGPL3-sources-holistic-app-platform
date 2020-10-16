@@ -13,7 +13,7 @@ var connectProxyActionRequest = {
   holarchy: {
     CellProcessor: {
       actOn: {
-        cellPath: "#.proxyTest",
+        coordinates: "#.proxyTest",
         actionRequest: {
           holarchy: {
             CellProcessProxy: {
@@ -215,7 +215,7 @@ var cppTestModel1 = new holarchy.CellModel({
             holarchy: {
               CellProcessor: {
                 actOn: {
-                  cellPath: "#.proxyTest",
+                  coordinates: "#.proxyTest",
                   actionRequest: {
                     // WE EXPECT THIS TO BE DEPRECATED IN v0.0.48 WHEN WE BRING OCD-LEVEL PROXY VIRTUALIZATION ONLINE
                     holarchy: {
@@ -249,7 +249,7 @@ var cppTestModel1 = new holarchy.CellModel({
             holarchy: {
               CellProcessor: {
                 actOn: {
-                  cellPath: "#.proxyTest",
+                  coordinates: "#.proxyTest",
                   actionRequest: {
                     holarchy: {
                       CellProcessProxy: {
@@ -455,7 +455,7 @@ var cppTestModel2 = new holarchy.CellModel({
             holarchy: {
               CellProcessor: {
                 actOn: {
-                  cellPath: "#.proxyTest",
+                  coordinates: "#.proxyTest",
                   actionRequest: {
                     holarchy: {
                       CellProcessProxy: {
@@ -507,7 +507,7 @@ var cppTestModel2A = new holarchy.CellModel({
               CellProcessor: {
                 process: {
                   create: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: cellspace.apmID("CPP Test Messenger")
                     }
                   }

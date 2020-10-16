@@ -56,7 +56,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "hybdu0VoQjWnOFs5vC3Tzw",
                         //  "CPM Ancestor Processes Active Operator Test Process"
                         instanceName: "Test Process"
@@ -124,7 +124,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "c09ke74xRza4Q9u2Ly0NIA",
                         // "CPM Ancestor Processes All In Step Operator Test Process"
                         instanceName: "Test Process"
@@ -191,7 +191,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "we5IUb__Smqwkl4ghRl3Lw",
                         // "CPM Ancestor Processes Any In Step Operator Test Process"
                         instanceName: "Test Process"
@@ -253,7 +253,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "LVjhjYUcQXOYcbI_xbepJQ",
                         // CPM Child Processes Active Operator Test Process
                         instanceName: "Test Process"
@@ -270,7 +270,7 @@ module.exports = [// -----------------------------------------------------------
               holarchy: {
                 CellProcessor: {
                   actOn: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "LVjhjYUcQXOYcbI_xbepJQ",
                       // CPM Child Processes Active Operator Test Process
                       instanceName: "Test Process"
@@ -280,7 +280,7 @@ module.exports = [// -----------------------------------------------------------
                         CellProcessor: {
                           process: {
                             create: {
-                              cellProcessCoordinates: {
+                              coordinates: {
                                 apmID: "3E27IH_CQeqBUFsGm4tIIA",
                                 // Dummy Process A Process
                                 instanceName: "Child Process"
@@ -352,7 +352,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "vjz7U4NWRE2_UlAvAjmS6g",
                         // "CPM Child Processes All In Step Operator Test Process"
                         instanceName: "Test Process"
@@ -369,7 +369,7 @@ module.exports = [// -----------------------------------------------------------
               holarchy: {
                 CellProcessor: {
                   actOn: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "vjz7U4NWRE2_UlAvAjmS6g",
                       // "CPM Child Processes All In Step Operator Test Process"
                       instanceName: "Test Process"
@@ -379,7 +379,7 @@ module.exports = [// -----------------------------------------------------------
                         CellProcessor: {
                           process: {
                             create: {
-                              cellProcessCoordinates: {
+                              coordinates: {
                                 apmID: "3E27IH_CQeqBUFsGm4tIIA",
                                 // Dummy Process A Process
                                 instanceName: "Child Process"
@@ -452,7 +452,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "8LE0CnuHRMOKoGXn1kHdNA",
                         // "CPM Child Processes Any In Step Operator Test Process"
                         instanceName: "Test Process"
@@ -469,7 +469,7 @@ module.exports = [// -----------------------------------------------------------
               holarchy: {
                 CellProcessor: {
                   actOn: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "8LE0CnuHRMOKoGXn1kHdNA",
                       // "CPM Child Processes Any In Step Operator Test Process"
                       instanceName: "Test Process"
@@ -479,7 +479,7 @@ module.exports = [// -----------------------------------------------------------
                         CellProcessor: {
                           process: {
                             create: {
-                              cellProcessCoordinates: {
+                              coordinates: {
                                 apmID: "3E27IH_CQeqBUFsGm4tIIA",
                                 // Dummy Process A Process
                                 instanceName: "Child Process"
@@ -545,7 +545,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "cYpoxyyZSwm19CqH3v7eLQ",
                         // "CPM Descendant Processes Active Operator Test Process"
                         instanceName: "Test Process"
@@ -562,7 +562,7 @@ module.exports = [// -----------------------------------------------------------
               holarchy: {
                 CellProcessor: {
                   actOn: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "cYpoxyyZSwm19CqH3v7eLQ",
                       // "CPM Descendant Processes Active Operator Test Process"
                       instanceName: "Test Process"
@@ -572,7 +572,7 @@ module.exports = [// -----------------------------------------------------------
                         CellProcessor: {
                           process: {
                             create: {
-                              cellProcessCoordinates: {
+                              coordinates: {
                                 apmID: "3E27IH_CQeqBUFsGm4tIIA",
                                 // Dummy Process A Process
                                 instanceName: "Child Process"
@@ -645,7 +645,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "XzNJP6LyTCOnhGPKpJIjzg",
                         // "CPM Descendant Processes ALl In Step Operator Test Process"
                         instanceName: "Test Process"
@@ -662,7 +662,7 @@ module.exports = [// -----------------------------------------------------------
               holarchy: {
                 CellProcessor: {
                   actOn: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "XzNJP6LyTCOnhGPKpJIjzg",
                       // "CPM Descendant Processes ALl In Step Operator Test Process"
                       instanceName: "Test Process"
@@ -672,7 +672,7 @@ module.exports = [// -----------------------------------------------------------
                         CellProcessor: {
                           process: {
                             create: {
-                              cellProcessCoordinates: {
+                              coordinates: {
                                 apmID: "3E27IH_CQeqBUFsGm4tIIA",
                                 // Dummy Process A Process
                                 instanceName: "Child Process"
@@ -745,7 +745,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "TR7suTjQSKOBK5bGKztIcg",
                         //  "CPM Descendant Processes Any In Step Test Process"
                         instanceName: "Test Process"
@@ -762,7 +762,7 @@ module.exports = [// -----------------------------------------------------------
               holarchy: {
                 CellProcessor: {
                   actOn: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "TR7suTjQSKOBK5bGKztIcg",
                       //  "CPM Descendant Processes Any In Step Test Process"
                       instanceName: "Test Process"
@@ -772,7 +772,7 @@ module.exports = [// -----------------------------------------------------------
                         CellProcessor: {
                           process: {
                             create: {
-                              cellProcessCoordinates: {
+                              coordinates: {
                                 apmID: "3E27IH_CQeqBUFsGm4tIIA",
                                 // Dummy Process A Process
                                 instanceName: "Child Process"
@@ -834,7 +834,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "kAuEmZA9Qn24PEZLBygGyA",
                         // "CPM Parent Process Active Operator Test Process"
                         instanceName: "Test Process"
@@ -896,7 +896,7 @@ module.exports = [// -----------------------------------------------------------
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: "UMlS451nSWq6yDZNwcUTaw",
                         // "CPM Parent Process In Step Operator Test Process"
                         instanceName: "Test Process"

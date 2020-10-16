@@ -206,7 +206,7 @@ var action = new ControllerAction({
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: message.apmID,
                         instanceName: message.instanceName
                       },

@@ -31,7 +31,7 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        cellProcessCoordinates: {
+                        coordinates: {
                           apmID: cppTestModelSpace.apmID("CPP Test 1"),
                           instanceName: "Test Process A"
                         }
@@ -56,11 +56,18 @@ module.exports = [{
               actionRequest: {
                 holarchy: {
                   CellProcessor: {
-                    process: {
-                      "delete": {
-                        cellProcessNamespace: {
-                          apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                          instanceName: "Test Process B"
+                    actOn: {
+                      coordinates: {
+                        apmID: cppTestModelSpace.apmID("CPP Test 1"),
+                        instanceName: "Test Process B"
+                      },
+                      actionRequest: {
+                        holarchy: {
+                          CellProcessor: {
+                            process: {
+                              "delete": {}
+                            }
+                          }
                         }
                       }
                     }
@@ -76,11 +83,18 @@ module.exports = [{
               actionRequest: {
                 holarchy: {
                   CellProcessor: {
-                    process: {
-                      "delete": {
-                        cellProcessNamespace: {
-                          apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                          instanceName: "Test Process A"
+                    actOn: {
+                      coordinates: {
+                        apmID: cppTestModelSpace.apmID("CPP Test 1"),
+                        instanceName: "Test Process A"
+                      },
+                      actionRequest: {
+                        holarchy: {
+                          CellProcessor: {
+                            process: {
+                              "delete": {}
+                            }
+                          }
                         }
                       }
                     }
@@ -119,7 +133,7 @@ module.exports = [{
                 CellProcessor: {
                   process: {
                     create: {
-                      cellProcessCoordinates: {
+                      coordinates: {
                         apmID: cppTestModelSpace.apmID("CPP Test 2")
                       }
                     }
@@ -133,10 +147,17 @@ module.exports = [{
             actionRequest: {
               holarchy: {
                 CellProcessor: {
-                  process: {
-                    "delete": {
-                      cellProcessNamespace: {
-                        apmID: cppTestModelSpace.apmID("CPP Test 2")
+                  actOn: {
+                    coordinates: {
+                      apmID: cppTestModelSpace.apmID("CPP Test 2")
+                    },
+                    actionRequest: {
+                      holarchy: {
+                        CellProcessor: {
+                          process: {
+                            "delete": {}
+                          }
+                        }
                       }
                     }
                   }
@@ -182,7 +203,7 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        cellProcessCoordinates: {
+                        coordinates: {
                           apmID: cppTestModelSpace.apmID("CPP Test 3")
                         }
                       }
@@ -198,10 +219,17 @@ module.exports = [{
               actionRequest: {
                 holarchy: {
                   CellProcessor: {
-                    process: {
-                      "delete": {
-                        cellProcessNamespace: {
-                          apmID: cppTestModelSpace.apmID("CPP Test 3")
+                    actOn: {
+                      coordinates: {
+                        apmID: cppTestModelSpace.apmID("CPP Test 3")
+                      },
+                      actionRequest: {
+                        holarchy: {
+                          CellProcessor: {
+                            process: {
+                              "delete": {}
+                            }
+                          }
                         }
                       }
                     }

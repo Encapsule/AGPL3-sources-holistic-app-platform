@@ -22,9 +22,9 @@ var controllerAction = new ControllerAction({
         process: {
           ____types: "jsObject",
           create: {
-            // Is really "activate" cell process by coordinates as owned cell process whose lifespan is tied to the cell this action was called on.
+            // Semantically, this should be thought of as a request to CPM to activate an owned process at coordinates lifespan is tied to the cell this action was called on via parent/child relationship.
             ____types: "jsObject",
-            cellProcessCoordinates: {
+            coordinates: {
               ____types: "jsObject",
               apmID: {
                 ____accept: "jsString"
@@ -80,9 +80,9 @@ var controllerAction = new ControllerAction({
 
       var message = request_.actionRequest.holarchy.CellProcessor.process.create;
       cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({
-        cellProcessCoordinates: {
-          apmID: message.cellProcessCoordinates.apmID,
-          instanceName: message.cellProcessCoordinates.instanceName
+        coordinates: {
+          apmID: message.coordinates.apmID,
+          instanceName: message.coordinates.instanceName
         },
         ocdi: request_.context.ocdi
       });
@@ -92,10 +92,10 @@ var controllerAction = new ControllerAction({
         break;
       }
 
-      var cellProcessCoordinates = cpmLibResponse.result; // Query ownedCellProcesses.digraph to determine if the new cell process' ID slot has already been allocated (i.e. it's a disallowed duplicate process create request).
+      var coordinates = cpmLibResponse.result; // Query ownedCellProcesses.digraph to determine if the new cell process' ID slot has already been allocated (i.e. it's a disallowed duplicate process create request).
 
-      if (ownedCellProcesses.digraph.isVertex(cellProcessCoordinates.cellProcessID)) {
-        errors.push("The cell process could not be created as requested because cell process ID '".concat(cellProcessCoordinates.cellProcessID, "' is already active at path '").concat(cellProcessCoordinates.cellProcessPath, "'."));
+      if (ownedCellProcesses.digraph.isVertex(coordinates.cellProcessID)) {
+        errors.push("The cell process could not be created as requested because cell process ID '".concat(coordinates.cellProcessID, "' is already active at path '").concat(coordinates.cellProcessPath, "'."));
         break;
       } // Get ownership report.
 
@@ -107,7 +107,7 @@ var controllerAction = new ControllerAction({
       });
 
       if (cpmLibResponse.error) {
-        errors.push("The cell process could not be created as requested. While examining create process request made by an active cell at '".concat(request_.context.apmBindingPath, "' we were not able to deduce which cell process should be given ownership of the requested new cell process ID '").concat(cellProcessCoordinates.cellProcessID, "' to be activated at path '{cellProcessCoordinates.cellProcessPath}'. More detail:"));
+        errors.push("The cell process could not be created as requested. While examining create process request made by an active cell at '".concat(request_.context.apmBindingPath, "' we were not able to deduce which cell process should be given ownership of the requested new cell process ID '").concat(coordinates.cellProcessID, "' to be activated at path '{coordinates.cellProcessPath}'. More detail:"));
         errors.push(cpmLibResponse.error);
         break;
       }
@@ -115,10 +115,10 @@ var controllerAction = new ControllerAction({
       var cellOwnershipReport = cpmLibResponse.result; // At this point we have cleared all hurdles and are prepared to create the new cell process.
       // We will do that first so that if it fails we haven't changed any CPM digraph models of the process table.
 
-      var ocdResponse = request_.context.ocdi.writeNamespace(cellProcessCoordinates.cellProcessPath, message.cellProcessData);
+      var ocdResponse = request_.context.ocdi.writeNamespace(coordinates.cellProcessPath, message.cellProcessData);
 
       if (ocdResponse.error) {
-        errors.push("Failed to create cell process ID '".concat(cellProcessCoordinates.cellProcessID, "' at path '").concat(cellProcessCoordinates.cellProcessPath, "' due to problems with the process initialization data specified."));
+        errors.push("Failed to create cell process ID '".concat(coordinates.cellProcessID, "' at path '").concat(coordinates.cellProcessPath, "' due to problems with the process initialization data specified."));
         errors.push(ocdResponse.error);
       } // Okay - the new cell process was created successfully!
       // Next we need to keep a record of what was done so we can undo it later. Unsuprisingly, this is a major pain in the ass to do this correctly. If you're here hunting bugs, sorry - really did my best! Otherwise, you're welcome.
@@ -139,7 +139,7 @@ var controllerAction = new ControllerAction({
           p: {
             apmBindingPath: cellOwnershipDescriptor.cellPath,
             role: "cell-process-helper",
-            apmID: message.cellProcessCoordinates.apmID
+            apmID: message.coordinates.apmID
           }
         });
         ownedCellProcesses.digraph.addEdge({
@@ -153,17 +153,17 @@ var controllerAction = new ControllerAction({
 
 
       ownedCellProcesses.digraph.addVertex({
-        u: cellProcessCoordinates.cellProcessID,
+        u: coordinates.cellProcessID,
         p: {
-          apmBindingPath: cellProcessCoordinates.cellProcessPath,
+          apmBindingPath: coordinates.cellProcessPath,
           role: "cell-process",
-          apmID: message.cellProcessCoordinates.apmID
+          apmID: message.coordinates.apmID
         }
       });
       ownedCellProcesses.digraph.addEdge({
         e: {
           u: parentCellOwnershipDescriptor.cellID,
-          v: cellProcessCoordinates.cellProcessID
+          v: coordinates.cellProcessID
         }
       });
       ocdResponse = request_.context.ocdi.writeNamespace("".concat(cpmDataDescriptor.path, ".ownedCellProcesses.revision"), ownedCellProcesses.revision + 1);
@@ -173,7 +173,7 @@ var controllerAction = new ControllerAction({
         break;
       }
 
-      var apmProcessesRevisionNamespace = "".concat(cellProcessCoordinates.cellProcessesPath, ".revision");
+      var apmProcessesRevisionNamespace = "".concat(coordinates.cellProcessesPath, ".revision");
       ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
 
       if (ocdResponse.error) {
@@ -191,8 +191,8 @@ var controllerAction = new ControllerAction({
 
 
       response.result = {
-        apmBindingPath: cellProcessCoordinates.cellProcessPath,
-        cellProcessID: cellProcessCoordinates.cellProcessID
+        apmBindingPath: coordinates.cellProcessPath,
+        cellProcessID: coordinates.cellProcessID
       };
       break;
     }

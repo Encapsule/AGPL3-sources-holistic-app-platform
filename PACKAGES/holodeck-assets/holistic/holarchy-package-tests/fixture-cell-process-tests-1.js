@@ -29,7 +29,7 @@ var cellModel = new holarchy.CellModel({
               CellProcessor: {
                 process: {
                   create: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "Q15zOx5FT-2vt1jSKIIOLQ",
                       instanceName: "Child Process #1"
                     }
@@ -42,7 +42,7 @@ var cellModel = new holarchy.CellModel({
               CellProcessor: {
                 process: {
                   create: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "CW2q-O_CQ0CObmLa1PWb3g",
                       instanceName: "Child Process #2"
                     }
@@ -55,7 +55,7 @@ var cellModel = new holarchy.CellModel({
               CellProcessor: {
                 process: {
                   create: {
-                    cellProcessCoordinates: {
+                    coordinates: {
                       apmID: "l_CypcNERjOcr7SxzIGt8A",
                       instanceName: "Child Process #3"
                     }

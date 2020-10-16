@@ -19,12 +19,11 @@ var controllerAction = new ControllerAction({
         ____types: "jsObject",
         actOn: {
           ____types: "jsObject",
-          cellPath: {
-            ____accept: "jsString",
-            ____defaultValue: "#"
-          },
-          cellProcessCoordinates: {
-            ____types: ["jsUndefined", "jsObject"],
+          coordinates: {
+            ____types: ["jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
+            "jsObject" // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+            ],
+            ____defaultValue: "#",
             apmID: {
               ____accept: "jsString"
             },
@@ -32,9 +31,6 @@ var controllerAction = new ControllerAction({
               ____accept: "jsString",
               ____defaultValue: "singleton"
             }
-          },
-          cellProcessID: {
-            ____accept: ["jsUndefined", "jsString"]
           },
           actionRequest: {
             ____accept: "jsObject"
@@ -57,41 +53,34 @@ var controllerAction = new ControllerAction({
     while (!inBreakScope) {
       inBreakScope = true;
       var messageBody = request_.actionRequest.holarchy.CellProcessor.actOn;
-      var targetCellPath = messageBody.cellPath;
+      var coordinates = messageBody.coordinates;
+      var coordinatesTypeString = Object.prototype.toString.call(coordinates);
 
-      if (messageBody.cellProcessCoordinates && messageBody.cellProcessID) {
-        errors.push("Please specify either cellProcessCoordinates or cellProcessID (both are set indicating a problem).");
-        break;
-      }
-
-      if (messageBody.cellProcessCoordinates) {
-        var cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({
-          cellProcessCoordinates: messageBody.cellProcessCoordinates,
-          ocdi: request_.context.ocdi
+      if ("[object String]" === coordinatesTypeString && messageBody.coordinates.startsWith("#")) {
+        var ocdResponse = ObservableControllerData.dataPathResolve({
+          apmBindingPath: request_.context.apmBindingPath,
+          dataPath: messageBody.coordinates
         });
 
-        if (cpmLibResponse.error) {
-          errors.push(cpmResponse.error);
+        if (ocdResponse.error) {
+          errors.push(ocdResponse.error);
           break;
         }
 
-        targetCellPath = cpmLibResponse.result.cellProcessPath;
-      } else if (messageBody.cellID) {
-        errors.push("NOT SUPPORTED YET!");
-        break;
+        coordinates = ocdResponse.result;
       }
 
-      var ocdResponse = ObservableControllerData.dataPathResolve({
-        dataPath: targetCellPath,
-        apmBindingPath: request_.context.apmBindingPath
+      var cpmLibResponse = cpmLib.resolveCellCoordinates.request({
+        coordinates: coordinates,
+        ocdi: request_.context.ocdi
       });
 
-      if (ocdResponse.error) {
-        errors.push(ocdResponse.error);
+      if (cpmLibResponse.error) {
+        errors.push(cpmLibResponse.error);
         break;
       }
 
-      targetCellPath = ocdResponse.result;
+      var targetCellPath = cpmLibResponse.result.cellPath;
       var actResponse = request_.context.act({
         actorName: "Cell Process Manager: actOn",
         actorTaskDescription: "Delegating ControllerAction request to cell at path '".concat(targetCellPath, "'."),
@@ -100,7 +89,6 @@ var controllerAction = new ControllerAction({
       });
 
       if (actResponse.error) {
-        errors.push("We were not able to delegate your ControllerAction request due to error:");
         errors.push(actResponse.error);
         break;
       }

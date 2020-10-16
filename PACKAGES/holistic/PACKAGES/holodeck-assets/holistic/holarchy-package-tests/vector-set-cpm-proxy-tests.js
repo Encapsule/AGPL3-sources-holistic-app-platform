@@ -53,7 +53,7 @@ module.exports = [{
                         holarchy: {
                           CellProcessor: {
                             actOn: {
-                              cellPath: "#.proxy",
+                              coordinates: "#.proxy",
                               actionRequest: {
                                 holarchy: {
                                   CellProcessProxy: {
@@ -150,7 +150,7 @@ module.exports = [{
                   CellProcessor: {
                     process: {
                       create: {
-                        cellProcessCoordinates: {
+                        coordinates: {
                           apmID: "mctGtkfiQmeO93Va6WkGZw"
                         }
                       }
@@ -166,10 +166,17 @@ module.exports = [{
               actionRequest: {
                 holarchy: {
                   CellProcessor: {
-                    process: {
-                      "delete": {
-                        cellProcessNamespace: {
-                          apmID: "mctGtkfiQmeO93Va6WkGZw"
+                    actOn: {
+                      coordinates: {
+                        apmID: "mctGtkfiQmeO93Va6WkGZw"
+                      },
+                      actionRequest: {
+                        holarchy: {
+                          CellProcessor: {
+                            process: {
+                              "delete": {}
+                            }
+                          }
                         }
                       }
                     }

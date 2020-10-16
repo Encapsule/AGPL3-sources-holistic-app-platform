@@ -82,7 +82,7 @@ var action = new ControllerAction({
 
       if (!sharedCellProcesses.digraph.isVertex(proxyID)) {
         errors.push("INTERNAL ERROR: proxy disconnect action has found your proxy at path '".concat(proxyHelperPath, "' in '").concat(cppMemoryStatusDescriptor.status, "' status."));
-        errors.push("But, we cannot find the expected sharedCellProcesses.digraph vertex '".concat(proxtID, "'? Please report this..."));
+        errors.push("But, we cannot find the expected sharedCellProcesses.digraph vertex '".concat(proxyID, "'? Please report this..."));
         break;
       }
 
