@@ -68,7 +68,7 @@ module.exports = [
                                             CellProcessor: {
                                                 process: {
                                                     create: {
-                                                        cellProcessCoordinates: {
+                                                        coordinates: {
                                                             apmID: "6OPnhgR9QWyEFaBpaZNb1A",
                                                             instanceName: "test-process-1"
                                                         }
@@ -90,7 +90,7 @@ module.exports = [
                                             CellProcessor: {
                                                 process: {
                                                     create: {
-                                                        cellProcessCoordinates: {
+                                                        coordinates: {
                                                             apmID: "6OPnhgR9QWyEFaBpaZNb1A",
                                                             instanceName: "test-process-1"
                                                         }
@@ -105,7 +105,8 @@ module.exports = [
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { holarchy: { CellProcessor: { actOn: {  coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } } }
+                                    // actionRequest: { holarchy: { CellProcessor: { actOn: {  coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } } }
+                                    actionRequest: { holarchy: { CellProcessor: { process: { delete: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } } } }
                                 }
                             }
                         ]
@@ -143,7 +144,7 @@ module.exports = [
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Construct an instance of the Process Test Fixture Model that is declared to create three child processes via self-similar mechanism.",
                                 actionRequest: {
-                                    holarchy: { CellProcessor: { process: { create: { cellProcessCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } }
+                                    holarchy: { CellProcessor: { process: { create: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } }
                                 }
                             },
 
@@ -159,7 +160,7 @@ module.exports = [
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
                                 actionRequest: {
-                                    holarchy: { CellProcessor: { process: { query: { queryCellProcess: { cellProcessCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } } } // get all result sets
+                                    holarchy: { CellProcessor: { process: { query: { queryCellProcess: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } } } // get all result sets
                                 }
                             },
 

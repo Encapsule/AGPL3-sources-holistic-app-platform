@@ -5,6 +5,9 @@ const arccore = require("@encapsule/arccore");
 const cpmGetCellProcessManagerData = require("./cpm-get-cell-process-manager-data");
 const ObservableControllerData = require("../../../../lib/ObservableControllerData");
 
+const cpmMountingNamespaceName = require("../../../filters/cpm-mounting-namespace-name"); // Shim for CPM mounting path. Eventually, we'll bind CPM to ~ and remove this entirely.
+const cpmPath = `~.${cpmMountingNamespaceName}`;
+
 (function() {
 
     const cpmCache = {};
@@ -43,7 +46,10 @@ const ObservableControllerData = require("../../../../lib/ObservableControllerDa
         if (!isValidDataPath({ dataPath: cellPath, ocdi })) {
             return false;
         }
-        const ocdResponse = ocdi.getNamespaceSpec(cellPath);
+        // TODO: Once we have addressed current issue w/proxy helper depth, we will move CPM binding to ~ and remove this shim for good.
+        const queryCellPath = (cellPath !== "~")?cellPath:cpmPath;
+
+        const ocdResponse = ocdi.getNamespaceSpec(queryCellPath);
         if (ocdResponse.error) {
             throw new Error("Internal error: invariant assumption violated.");
         }
@@ -83,7 +89,7 @@ const ObservableControllerData = require("../../../../lib/ObservableControllerDa
         }
         const cellProcessID = cache.byCellPath[cellProcessPath].cellPathID;
         cache.byCellProcessCoordinates[apmID].instances[instanceName] = cache.byCellProcessID[cellProcessID] = cache.byCellProcessPath[cellProcessPath] = {
-            cellProcessCoordinates: { apmID, instanceName }, cellProcessesPath: cache.byCellProcessCoordinates[apmID].dataPath, cellProcessPath, instanceID, cellProcessID
+            coordinates: { apmID, instanceName }, cellProcessesPath: cache.byCellProcessCoordinates[apmID].dataPath, cellProcessPath, instanceID, cellProcessID
         };
         return true;
     }
@@ -97,7 +103,7 @@ const ObservableControllerData = require("../../../../lib/ObservableControllerDa
             ____label: "Cell Process Coordinates Resolve Request",
             ____description: "A variant input type that is resolved to the various equivalent representations of a cell process managed by the CellProcessManager daemon.",
             ____types: "jsObject",
-            cellProcessCoordinates: {
+            coordinates: {
                 ____label: "Cell Process Coordinates Variant",
                 ____types: [
                     "jsString", // Either cellProcessID or cellProcessPath.
@@ -110,7 +116,7 @@ const ObservableControllerData = require("../../../../lib/ObservableControllerDa
         },
         outputFilterSpec: {
             ____types: "jsObject",
-            cellProcessCoordinates: {
+            coordinates: {
                 ____types: "jsObject",
                 apmID: { ____accept: "jsString" },
                 instanceName: { ____accept: "jsString" }
@@ -126,30 +132,51 @@ const ObservableControllerData = require("../../../../lib/ObservableControllerDa
             while (!inBreakScope) {
                 inBreakScope = true;
                 let cache = getCache({ ocdi: request_.ocdi });
-                const coordinatesTypeString = Object.prototype.toString.call(request_.cellProcessCoordinates);
+                const coordinatesTypeString = Object.prototype.toString.call(request_.coordinates);
                 switch (coordinatesTypeString) {
                 case "[object String]":
-                    if (arccore.identifier.irut.isIRUT(request_.cellProcessCoordinates).result) {
+                    if (arccore.identifier.irut.isIRUT(request_.coordinates).result) {
                         // Resolve by cellProcessID.
-                        response.result = cache.byCellProcessID[request_.cellProcessCoordinates];
+                        response.result = cache.byCellProcessID[request_.coordinates];
                         if (!response.result) {
-                            errors.push(`Unknown cellProcessID '${request_.cellProcessCoordinates}'.`);
+                            errors.push(`Unknown cellProcessID '${request_.coordinates}'.`);
                         }
                     } else {
                         // Resolve by cellProcessPath.
-                        response.result = cache.byCellProcessPath[request_.cellProcessCoordinates];
+                        // A "cell process" is entirely an abstraction implemented by the Cell Process Manager.
+                        // At this point we know the caller has passed a string value that is not an IRUT.
+                        // So, we have ruled out the possibility that the caller wishes to resolve the cell process
+                        // via cellProcessID. And, now conclude via elimination that if the string value is valid
+                        // that it has to be an OCD path that is a valid data path, a valid cell path, and a valid
+                        // cell process path in this CellProcessor instance. Currently, there are two possibilities:
+                        // 1. request_.coordinates is a previously cached cellProcessPath (i.e. the process was created via CPM activate)
+                        // 2. request_.coordinates is literally === "~" indicating an attempt to resolve the CPM daemon process.
+
+                        // Bias for the 99% case - we're attempting to resolve a cellProcessPath previously cached via resolving raw APM ID, instanceName coordinates.
+                        response.result = cache.byCellProcessPath[request_.coordinates];
+
                         if (!response.result) {
-                            errors.push(`Unknown cellProcessPath '${request_.cellProcessCoordinates}'.`);
+
+                            if (request_.coordinates !== "~") {
+                                errors.push(`Unknown cellProcessPath '${request_.coordinates}'.`);
+                                break;
+                            }
+                            if (!isValidCellPath({ cellPath: "~", ocdi: request_.ocdi })) {
+                                throw new Error("Internal error: violation of invariant assumption.");
+                            }
+                            const cellPathDescriptor = cache.byCellPath["~"];
+
+                            response.result = cache.byCellProcessPath["~"] = { coordinates: { apmID: cellPathDescriptor.apmID, instanceName: "daemon" }, cellProcessesPath: "~", cellProcessPath: "~", instanceID: "daemon", cellProcessID: cellPathDescriptor.cellPathID };
                         }
                     }
                     break;
                 case "[object Object]":
                     // The caller has specified the raw cell process coordinates descriptor object.
-                    const c = request_.cellProcessCoordinates;
+                    const c = request_.coordinates;
                     if (isValidCellProcessInstanceCoordinates({ apmID: c.apmID, instanceName: c.instanceName, ocdi: request_.ocdi })) {
                         response.result = cache.byCellProcessCoordinates[c.apmID].instances[c.instanceName];
                     } else {
-                        errors.push(`No activatable cell process at coordinates apmID '${request_.cellProcessCoordinates.apmID}' instanceName '${request_.cellProcessCoordinates.instanceName}.`);
+                        errors.push(`No activatable cell process at coordinates apmID '${request_.coordinates.apmID}' instanceName '${request_.coordinates.instanceName}.`);
                     }
                     break;
                 default:
@@ -181,7 +208,7 @@ const ObservableControllerData = require("../../../../lib/ObservableControllerDa
         inputFilterSpec: {
             ____label: "Cell Coordinates Variant",
             ____types: "jsObject",
-            cellCoordinates: {
+            coordinates: {
                 ____label: "Cell Process Coordinates Variant",
                 ____types: [
                     "jsString", // Either cellPath or cellProcessPath or cellProcessID.
@@ -204,18 +231,18 @@ const ObservableControllerData = require("../../../../lib/ObservableControllerDa
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                let cpmLibResponse = resolveCellProcessCoordinates.request({ cellProcessCoordinates: request_.cellCoordinates, ocdi: request_.ocdi });
+                let cpmLibResponse = resolveCellProcessCoordinates.request({ coordinates: request_.coordinates, ocdi: request_.ocdi });
                 if (!cpmLibResponse.error) {
-                    const resolvedCoordinates = cpmLibResponse.result;
-                    response.result = { cellPath: resolvedCoordinates.cellProcessPath, apmID: resolvedCoordinates.cellProcessCoordinates.apmID };
+                    let resolvedCoordinates = cpmLibResponse.result;
+                    response.result = { cellPath: resolvedCoordinates.cellProcessPath, apmID: resolvedCoordinates.coordinates.apmID };
                     break;
                 }
-                if (!isValidCellPath({ cellPath: request_.cellCoordinates, ocdi: request_.ocdi })) {
-                    errors.push(`Invalid cellPath '${request_.cellCoordinates}'.`);
+                if (!isValidCellPath({ cellPath: request_.coordinates, ocdi: request_.ocdi })) {
+                    errors.push(`Invalid cellPath '${request_.coordinates}'.`);
                     break;
                 }
                 let cache = getCache({ ocdi: request_.ocdi });
-                response.result = { cellPath: request_.cellCoordinates, apmID: cache.byCellPath[request_.cellCoordinates].apmID };
+                response.result = { cellPath: request_.coordinates, apmID: cache.byCellPath[request_.coordinates].apmID };
                 break;
             }
             if (errors.length) {

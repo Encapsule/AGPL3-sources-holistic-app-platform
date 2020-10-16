@@ -106,14 +106,28 @@ try {
     console.log("@encapusle/holistic-master platform RTL environment setup complete.");
     console.log("This Node.js environment will now resolve @encapsule/holistic platform");
     console.log("RTL require/imports from staged build holistic-master/PACKAGES/");
+    console.log();
+    console.log([
+        "@encapsule/" + holisticBuildManifest.name,
+        "v" + holisticBuildManifest.version,
+        holisticBuildManifest.codename,
+        "buildID " + holisticBuildManifest.buildID,
+        "buildSource " + holisticBuildManifest.buildSource,
+    ].join(" "));
+    console.log();
+    holisticBuildPackages.forEach(function(packageName_) {
+        console.log("RTL package > " + packageName_);
+    });
+    console.log();
     console.log("****************************************************************");
     console.log("****************************************************************");
+    console.log();
     console.log("O       o O       o O       o");
     console.log("| O   o | | O   o | | O   o |");
     console.log("| | O | | | | O | | | | O | |");
     console.log("| o   O | | o   O | | o   O |");
     console.log("o       O o       O o       O");
-    console.log("\n");
+    console.log();
 
 } catch (loadException_) {
     console.log("Oh no... It looks as though it's impossible to load this specific @encapsule/holistic");

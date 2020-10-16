@@ -59,7 +59,7 @@ const controllerAction = new ControllerAction({
                 coordinates = ocdResponse.result;
             }
 
-            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ cellCoordinates: coordinates, ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;

@@ -17,6 +17,7 @@ const holodeckAssets = require("@encapsule/holodeck-assets");
         logsDirectory: path.resolve(path.join(__dirname, "logs")),
         testRunnerOptions: {
             // onlyExecuteVectors: ["N8wBqzGVT6i6Dvwzff4Zrw" ]
+            // onlyExecuteVectors: [ "FSTf8ckWTFmm-qGt6lvIsA" ]
         }
     });
 

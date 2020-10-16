@@ -75,7 +75,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                    actionRequest: { holarchy: { CellProcessor: { process: { create: { cellProcessCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } } } }
+                                    actionRequest: { holarchy: { CellProcessor: { process: { create: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } } } }
                                 }
                             },
 
@@ -83,7 +83,7 @@ module.exports = [
                                actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                   actionRequest: { holarchy: { CellProcessor: { actOn: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {  } } } } } } } } }
+                                   actionRequest: { holarchy: { CellProcessor: { actOn: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: { } } } } } } } } }
                                 }
                             }
 
