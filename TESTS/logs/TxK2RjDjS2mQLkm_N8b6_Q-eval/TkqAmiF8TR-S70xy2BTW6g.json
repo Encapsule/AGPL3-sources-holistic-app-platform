@@ -33,6 +33,21 @@
             "harnessDispatch": {
               "UBSclp3gSqCCmSvoG3W4tw": {
                 "TkqAmiF8TR-S70xy2BTW6g": {
+                  "vectorOptions": {
+                    "failTestIf": {
+                      "CellProcessor": {
+                        "instanceValidity": "fail-if-instance-valid",
+                        "validInstanceHasOPCWarnings": "fail-if-opc-has-warnings",
+                        "validInstanceHasOPCErrors": "fail-if-opc-has-errors"
+                      },
+                      "postTestAnalysis": {
+                        "CellProcessManager": {
+                          "ownedProcessTableEmpty": "fail-if-any-owned-processes",
+                          "sharedProcessTableEmpty": "fail-if-any-shared-processes"
+                        }
+                      }
+                    }
+                  },
                   "vectorFailed": false,
                   "construction": {
                     "isValid": false,

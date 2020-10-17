@@ -16,7 +16,7 @@ module.exports = {
                 errors: { ____types: "jsArray", evalIndex: { ____types: "jsString" } },
                 failures: { ____types: "jsArray", evalIndex: { ____types: "jsString" } }
             }
-        },
+        } /*,
         harnessEvalDescriptors: {
             ____types: "jsArray",
             harnessEvalDescriptor: {
@@ -42,6 +42,6 @@ module.exports = {
                     }
                 }
             }
-        }
+        } */
     }
 };

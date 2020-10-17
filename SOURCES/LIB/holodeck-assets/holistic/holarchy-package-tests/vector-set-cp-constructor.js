@@ -125,28 +125,15 @@ module.exports = [
 
                             {
                                 actorName: "CP constructor test #4",
-                                actorTaskDescription: "Query this cell by specifying nothing (take defaults).",
-                                actionRequest: { CellProcessor: { queryCell: {} } }
-
-                            },
-
-                            {
-                                actorName: "CP constructor test #4",
-                                actorTaskDescription: "Query this cell by specifying relative path coordinates explicitly to queryCell.",
-                                actionRequest: { CellProcessor: { queryCell: { coordinates: "#" } } }
+                                actorTaskDescription: "Query the newly-activated cell process.",
+                                actionRequest: { CellProcessor: { queryCell: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
 
                             },
 
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query this cell by specifying relative path coordinates implicity via delegation.",
-                                actionRequest: { CellProcessor: { delegate: { coordinates: "#", actionRequest: { CellProcessor: { queryCell: {} } } } } }
-                            },
-
-                            {
-                                actorName: "CP constructor test #4",
-                                actorTaskDescription: "Query the root cell process, the cell process manager.",
-                                actionRequest: { CellProcessor: { queryCell: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
+                                actionRequest: { CellProcessor: { delegate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { CellProcessor: { queryCell: {} } } } } }
                             },
 
                             {

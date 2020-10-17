@@ -37,8 +37,7 @@ const factoryResponse = arccore.filter.create({
                     errors: [],
                     failures: [],
                 }
-            },
-            harnessEvalDescriptors: []
+            }
         };
         const response = { error: null, result: result };
         const resultPayload = response.result[idHolodeckRunner];
@@ -205,7 +204,6 @@ const factoryResponse = arccore.filter.create({
                         });
                     }
 
-                    resultPayload.harnessEvalDescriptors.push(testEvalDescriptor);
                     resultPayload.summary.requests++;
                 } // for testNumber
             } // for setNumber
