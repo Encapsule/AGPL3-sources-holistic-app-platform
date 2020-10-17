@@ -45,14 +45,26 @@ module.exports = [
                                             description: "Attempt to connect the proxy.",
                                             actions: {
                                                 enter: [
-                                                    { holarchy: { CellProcessor: { actOn: { coordinates: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
+                                                    { cellplane: { delegate: { coordinates: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } }
                                                 ]
                                             },
                                             transitions: [
-                                                { transitionIf: { holarchy: { CellProcessor: { opOn: { cellPath: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } } }, nextStep: "connect_proxy_error" },
-                                                { transitionIf: { holarchy: { CellProcessor: { opOn: { cellPath: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } } }, nextStep: "connect_proxy_error" },
-                                                { transitionIf: { holarchy: { CellProcessor: { opOn: { cellPath: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } } }, nextStep: "proxy_connected" },
-                                                { transitionIf: { always: true }, nextStep: "connect_proxy_error" }
+                                                {
+                                                    transitionIf: { cellplane: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } },
+                                                    nextStep: "connect_proxy_error"
+                                                },
+                                                {
+                                                    transitionIf: { cellplane: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } },
+                                                    nextStep: "connect_proxy_error"
+                                                },
+                                                {
+                                                    transitionIf: { cellplane: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } },
+                                                    nextStep: "proxy_connected"
+                                                },
+                                                {
+                                                    transitionIf: { always: true },
+                                                    nextStep: "connect_proxy_error"
+                                                }
                                             ],
                                         },
 
@@ -83,7 +95,7 @@ module.exports = [
                                actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                   actionRequest: { holarchy: { CellProcessor: { actOn: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: { } } } } } } } } }
+                                   actionRequest: { cellplane: { delegate: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: { } } } } } } } }
                                 }
                             }
 

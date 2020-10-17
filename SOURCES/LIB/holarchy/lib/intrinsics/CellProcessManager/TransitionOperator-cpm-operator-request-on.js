@@ -11,27 +11,23 @@ const transitionOperator = new TransitionOperator({
 
     operatorRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        cellplane: {
             ____types: "jsObject",
-            CellProcessor: {
+            delegate: {
                 ____types: "jsObject",
-                opOn: {
-                    ____types: "jsObject",
-                    cellPath: {
-                        ____accept: "jsString",
-                        ____defaultValue: "#"
-                    },
-                    cellProcessCoordinates: {
-                        ____types: [ "jsUndefined", "jsObject" ],
-                        apmID: { ____accept: "jsString" },
-                        instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
-                    },
-                    cellProcessID: { ____accept: [ "jsUndefined", "jsString" ] },
-                    operatorRequest: { ____accept: "jsObject" }
+                operatorRequest: { ____accept: "jsObject" },
+                coordinates: {
+                    ____types: [
+                        "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
+                        "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                    ],
+                    ____defaultValue: "#",
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+
                 }
             }
         }
-
     },
 
     bodyFunction: (request_) => {
@@ -41,19 +37,27 @@ const transitionOperator = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const messageBody = request_.operatorRequest.holarchy.CellProcessor.opOn;
+            const messageBody = request_.operatorRequest.cellplane.delegate;
 
-            let ocdResponse = ObservableControllerData.dataPathResolve({
-                dataPath: messageBody.cellPath,
-                apmBindingPath: request_.context.apmBindingPath
-            });
+            let coordinates = messageBody.coordinates;
 
-            if (ocdResponse.error) {
-                errors.push(ocdResponse.error);
+            const coordinatesTypeString = Object.prototype.toString.call(coordinates);
+            if (("[object String]" === coordinatesTypeString) && messageBody.coordinates.startsWith("#")) {
+                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: coordinates });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                coordinates = ocdResponse.result;
+            }
+
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates, ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
 
-            const targetCellPath = ocdResponse.result;
+            let targetCellPath = cpmLibResponse.result.cellPath;
 
             let operatorResponse = request_.context.transitionDispatcher.request({
                 context: {

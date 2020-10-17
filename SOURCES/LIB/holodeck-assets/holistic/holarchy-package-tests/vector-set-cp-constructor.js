@@ -105,7 +105,6 @@ module.exports = [
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    // actionRequest: { holarchy: { CellProcessor: { actOn: {  coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } } }
                                     actionRequest: { holarchy: { CellProcessor: { process: { delete: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } } } }
                                 }
                             }
@@ -167,9 +166,9 @@ module.exports = [
                             {
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
-                                // This is an explicitly verbose call to delete a previously-created cell process that uses actOn to resolve the cell process coordinates before delegating to CPM process delete.
+                                // This is an explicitly verbose call to delete a previously-created cell process that uses delegate to resolve the cell process coordinates before delegating to CPM process delete.
                                 // We could equivalently specify process.delete.coordinates to accomplish the same. Both forms should always work the same.
-                                actionRequest: { holarchy: { CellProcessor: { actOn: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } } }
+                                actionRequest: { cellplane: { delegate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } }
                             }
 
                         ]
