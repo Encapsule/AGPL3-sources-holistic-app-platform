@@ -45,20 +45,20 @@ module.exports = [
                                             description: "Attempt to connect the proxy.",
                                             actions: {
                                                 enter: [
-                                                    { cellplane: { delegate: { coordinates: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } }
+                                                    { CellProcessor: { delegate: { coordinates: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } }
                                                 ]
                                             },
                                             transitions: [
                                                 {
-                                                    transitionIf: { cellplane: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } },
+                                                    transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } },
                                                     nextStep: "connect_proxy_error"
                                                 },
                                                 {
-                                                    transitionIf: { cellplane: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } },
+                                                    transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } },
                                                     nextStep: "connect_proxy_error"
                                                 },
                                                 {
-                                                    transitionIf: { cellplane: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } },
+                                                    transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } },
                                                     nextStep: "proxy_connected"
                                                 },
                                                 {
@@ -82,24 +82,20 @@ module.exports = [
                             }
                         },
                         testActorRequests: [
-
                             {
                                 actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                    actionRequest: { holarchy: { CellProcessor: { process: { create: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } } } }
+                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
                                 }
                             },
-
                             {
-                               actRequest: {
+                                actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                   actionRequest: { cellplane: { delegate: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: { } } } } } } } }
+                                    actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
                                 }
                             }
-
-
                         ]
                     }
                 }

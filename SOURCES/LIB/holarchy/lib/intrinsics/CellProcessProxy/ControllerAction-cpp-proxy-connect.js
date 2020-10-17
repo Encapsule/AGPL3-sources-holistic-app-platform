@@ -157,26 +157,8 @@ const action = new ControllerAction({
                     const actionResponse = request_.context.act({
                         actorName: "Cell Process Proxy: open connection",
                         actorTaskDescription: "Attempting to create a new owned worker process that will be managed as a shared cell process.",
-                        actionRequest: {
-                            holarchy: {
-                                CellProcessor: {
-                                    process: {
-                                        create: {
-                                            coordinates: {
-                                                apmID: message.apmID,
-                                                instanceName: message.instanceName
-                                            },
-                                            cellProcessData: {
-                                                construction: {
-                                                    instanceName: message.instanceName
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        apmBindingPath: "~" // shared cell processes are owned by the CellProcessor instnace's Cell Process Manager daemon process.
+                        actionRequest: { CellProcessor: { activate: { coordinates: { apmID: message.apmID, instanceName: message.instanceName }, initData: { construction: { instanceName: message.instanceName } } } } },
+                        apmBindingPath: "~" // shared cell processes are owned by the CellProcessor instance's Cell Process Manager daemon process.
                     });
                     if (actionResponse.error) {
                         errors.push("Failed to create new shared cell process during cell process proxy connect.");

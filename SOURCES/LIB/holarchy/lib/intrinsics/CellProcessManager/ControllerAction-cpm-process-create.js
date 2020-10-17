@@ -13,25 +13,16 @@ const controllerAction = new ControllerAction({
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessor: {
+            activate: {
                 ____types: "jsObject",
-                process: {
+                coordinates: {
                     ____types: "jsObject",
-                    create: { // Semantically, this should be thought of as a request to CPM to activate an owned process at coordinates lifespan is tied to the cell this action was called on via parent/child relationship.
-                        ____types: "jsObject",
-                        coordinates: {
-                            ____types: "jsObject",
-                            apmID: { ____accept: "jsString" },
-                            instanceName: { ____accept: "jsString",  ____defaultValue: "singleton" },
-                        },
-                        cellProcessData: {
-                            ____accept: [ "jsObject", "jsUndefined" ]
-                        }
-
-                    }
-                }
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString",  ____defaultValue: "singleton" },
+                },
+                data: { ____accept: [ "jsObject", "jsUndefined" ] }
             }
         }
     },
@@ -61,7 +52,7 @@ const controllerAction = new ControllerAction({
             const ownedCellProcesses = cpmDataDescriptor.data.ownedCellProcesses;
 
             // Dereference the body of the action request.
-            const message = request_.actionRequest.holarchy.CellProcessor.process.create;
+            const message = request_.actionRequest.CellProcessor.activate;
 
             cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: { apmID: message.coordinates.apmID, instanceName: message.coordinates.instanceName }, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
@@ -92,7 +83,7 @@ const controllerAction = new ControllerAction({
 
             // At this point we have cleared all hurdles and are prepared to create the new cell process.
             // We will do that first so that if it fails we haven't changed any CPM digraph models of the process table.
-            let ocdResponse = request_.context.ocdi.writeNamespace(coordinates.cellProcessPath, message.cellProcessData);
+            let ocdResponse = request_.context.ocdi.writeNamespace(coordinates.cellProcessPath, message.data);
             if (ocdResponse.error) {
                 errors.push(`Failed to create cell process ID '${coordinates.cellProcessID}' at path '${coordinates.cellProcessPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);

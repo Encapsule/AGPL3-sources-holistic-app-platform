@@ -63,20 +63,7 @@ module.exports = [
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: {
-                                        holarchy: {
-                                            CellProcessor: {
-                                                process: {
-                                                    create: {
-                                                        coordinates: {
-                                                            apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                                                            instanceName: "test-process-1"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             },
 
@@ -85,27 +72,14 @@ module.exports = [
                                 options: { failTestIf: { CellProcessor: { actionError: "fail-if-action-result" } } },
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: {
-                                        holarchy: {
-                                            CellProcessor: {
-                                                process: {
-                                                    create: {
-                                                        coordinates: {
-                                                            apmID: "6OPnhgR9QWyEFaBpaZNb1A",
-                                                            instanceName: "test-process-1"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             },
 
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { holarchy: { CellProcessor: { process: { delete: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } } } }
+                                    actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             }
                         ]
@@ -134,33 +108,45 @@ module.exports = [
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
-                                actionRequest: {
-                                    holarchy: { CellProcessor: { process: { query: { } } } } // get all result sets on ~ namespace (Cell Process Manager)
-                                }
+                                actionRequest: { CellProcessor: { queryCell: { coordinates: "~" } } } // get all result sets on ~ namespace (Cell Process Manager)
                             },
 
                             {
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Construct an instance of the Process Test Fixture Model that is declared to create three child processes via self-similar mechanism.",
-                                actionRequest: {
-                                    holarchy: { CellProcessor: { process: { create: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } }
-                                }
+                                actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
                             },
 
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
-                                actionRequest: {
-                                    holarchy: { CellProcessor: { process: { query: { } } } } // get all result sets on ~ namespace (Cell Process Manager)
-                                }
+                                actionRequest: { CellProcessor: { queryCell: { coordinates: "~" } } } // get all result sets on ~ namespace (Cell Process Manager)
+                            },
+
+                            {
+                                actorName: "CP constructor test #4",
+                                actorTaskDescription: "Query this cell by specifying nothing (take defaults).",
+                                actionRequest: { CellProcessor: { queryCell: {} } }
+
+                            },
+
+                            {
+                                actorName: "CP constructor test #4",
+                                actorTaskDescription: "Query this cell by specifying relative path coordinates explicitly to queryCell.",
+                                actionRequest: { CellProcessor: { queryCell: { coordinates: "#" } } }
+
+                            },
+
+                            {
+                                actorName: "CP constructor test #4",
+                                actorTaskDescription: "Query this cell by specifying relative path coordinates implicity via delegation.",
+                                actionRequest: { CellProcessor: { delegate: { coordinates: "#", actionRequest: { CellProcessor: { queryCell: {} } } } } }
                             },
 
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
-                                actionRequest: {
-                                    holarchy: { CellProcessor: { process: { query: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } } }
-                                }
+                                actionRequest: { CellProcessor: { queryCell: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
                             },
 
                             {
@@ -168,7 +154,7 @@ module.exports = [
                                 actorTaskDescription: "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
                                 // This is an explicitly verbose call to delete a previously-created cell process that uses delegate to resolve the cell process coordinates before delegating to CPM process delete.
                                 // We could equivalently specify process.delete.coordinates to accomplish the same. Both forms should always work the same.
-                                actionRequest: { cellplane: { delegate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } }
+                                actionRequest: { CellProcessor: { delegate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { CellProcessor: { deactivate: {} } } } } }
                             }
 
                         ]

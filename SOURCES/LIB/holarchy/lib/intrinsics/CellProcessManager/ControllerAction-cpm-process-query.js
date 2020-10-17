@@ -2,6 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../../ControllerAction");
+const ObservableControllerData = require("../../../lib/ObservableControllerData");
 const cpmLib = require("./lib");
 
 const cellProcessQueryResponseDescriptorSpec = require("./lib/iospecs/cell-process-query-response-descriptor-spec");
@@ -14,36 +15,30 @@ const controllerAction = new ControllerAction({
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
-            ____types: "jsObject",
-            CellProcessor: {
-                ____types: "jsObject",
-                process: {
-                    ____types: "jsObject",
-                    query: {
-                        ____types: "jsObject",
-                        filterBy: cellProcessQueryRequestFilterBySpec,
-                        coordinates: {
-                            ____types: [
-                                "jsUndefined", // because it's optional. If not specified, then the default behavior is to use request_.context.apmBindingPath to deduce the cell process to delete.
-                                "jsString", // because it might be a cellProcessPath or cellProcessID
-                                "jsObject", // because it might be a raw coordinates apmID, instanceName descriptor
-                            ],
-                            apmID: { ____accept: "jsString" },
-                            instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
-                        },
-                        resultSets: {
-                            ____types: "jsObject",
-                            ____defaultValue: { parent: true, ancestors: true, children: true, descendants: true },
-                            parent: { ____accept: "jsBoolean", ____defaultValue: false },
-                            ancestors: { ____accept: "jsBoolean", ____defaultValue: false },
-                            children: { ____accept: "jsBoolean", ____defaultValue: false },
-                            descendants: { ____accept: "jsBoolean", ____defaultValue: false }
-                        },
-                    }
-                }
-            }
-        }
+       CellProcessor: {
+           ____types: "jsObject",
+           queryCell: {
+               ____types: "jsObject",
+               coordinates: {
+                   ____types: [
+                       "jsString", // because it might be a cellProcessPath or cellProcessID
+                       "jsObject", // because it might be a raw coordinates apmID, instanceName descriptor
+                   ],
+                   ____defaultValue: "#", // i.e. query the current cell
+                   apmID: { ____accept: "jsString" },
+                   instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+               },
+               filterBy: cellProcessQueryRequestFilterBySpec,
+               resultSets: {
+                   ____types: "jsObject",
+                   ____defaultValue: { parent: true, ancestors: true, children: true, descendants: true },
+                   parent: { ____accept: "jsBoolean", ____defaultValue: false },
+                   ancestors: { ____accept: "jsBoolean", ____defaultValue: false },
+                   children: { ____accept: "jsBoolean", ____defaultValue: false },
+                   descendants: { ____accept: "jsBoolean", ____defaultValue: false }
+               },
+           }
+       }
     },
 
     actionResultSpec: {
@@ -99,14 +94,29 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log("Cell Process Manager process query...");
 
-            const messageBody = request_.actionRequest.holarchy.CellProcessor.process.query;
+            const messageBody = request_.actionRequest.CellProcessor.queryCell;
 
             if (!messageBody.resultSets.parent && !messageBody.resultSets.ancestors && !messageBody.resultSets.children && !messageBody.resultSets.descendants ) {
-                errors.push("Invalid cell process query request. If you explicitly set resultSets flags then you must set at least one result set Boolean flag.");
+                errors.push("Invalid cell process query request. If you explicitly set resultSets flags then you must set at least one result set flag true.");
                 break;
             }
 
-            const coordinates = messageBody.coordinates?messageBody.coordinates:request_.context.apmBindingPath;
+            let coordinates = messageBody.coordinates;
+
+            if (Object.prototype.toString.call(coordinates) === "[object String]") {
+                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: coordinates });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                coordinates = ocdResponse.result;
+            }
+
+            // TODO !!!
+            // As we are currently calling this action there would seemingly be little trouble w/this resolution call.
+            // However, when this action is called it will be dispatched w/request_.context.apmBindingPath set to the _cell_ binding path.
+            // This may or may not be a cell process path depending on if the cell was explicity activated. Or, exists by virtue of
+            // being part of (what we call a helper cell) of another cell that was explicitly activated.
 
             let cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates, ocdi: request_.context.ocdi })
             if (cpmLibResponse.error) {

@@ -26,20 +26,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Cell Process Proxy Test #1",
                                     actorTaskDescription: "Instantiate test process that embeds a process proxy worker process.",
-                                    actionRequest: {
-                                        holarchy: {
-                                            CellProcessor: {
-                                                process: {
-                                                    create: {
-                                                        coordinates: {
-                                                            apmID: cppTestModelSpace.apmID("CPP Test 1"),
-                                                            instanceName: "Test Process A"
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
+                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process A" } } } }
                                 }
                             },
 
@@ -49,7 +36,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Cell Process Proxy Test #1",
                                     actorTaskDescription: "Attempt to delete the newly created shared process (should fail).",
-                                    actionRequest: { cellplane: { delegate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process B" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } }
+                                    actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process B" } } } }
                                 }
                             },
 
@@ -58,7 +45,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Cell Process Proxy Test #1",
                                     actorTaskDescription: "Attempt to delete the original test process (should succeed).",
-                                    actionRequest: { cellplane: { delegate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process A" }, actionRequest: { holarchy: { CellProcessor: { process: { delete: {} } } } } } } }
+                                    actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process A" } } } }
                                 }
                             }
                         ]
@@ -88,12 +75,12 @@ module.exports = [
                             {
                                 actorName: "CPM Shared Process Test #2",
                                 actorTaskDescription: "Start a test process.",
-                                actionRequest: { holarchy: { CellProcessor: { process: { create: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } } } }
+                                actionRequest: { CellProcessor: { activate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } }
                             },
                             {
                                 actorName: "CPM Shared Process Test #2",
                                 actorTaskDescription: "Delete the test process.",
-                                actionRequest: { cellplane: { delegate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") }, actionRequest: { holarchy: { CellProcessor: { process: { delete: { } } } } } } } }
+                                actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } }
                             }
                         ]
                     }
@@ -124,7 +111,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Shared Process Test #3",
                                     actorTaskDescription: "Start a test process.",
-                                    actionRequest: { holarchy: { CellProcessor: { process: { create: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } } } } }
+                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } }  }
                                 }
                             },
 
@@ -132,7 +119,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Shared Process Test #3",
                                     actorTaskDescription: "Delete a test process.",
-                                    actionRequest: { cellplane: { delegate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") }, actionRequest: { holarchy: { CellProcessor: { process: { delete: { } } } } } } } }
+                                    actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } } }
                                 }
                             }
 

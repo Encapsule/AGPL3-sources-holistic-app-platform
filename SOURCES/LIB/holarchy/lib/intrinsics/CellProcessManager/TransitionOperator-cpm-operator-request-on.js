@@ -11,7 +11,7 @@ const transitionOperator = new TransitionOperator({
 
     operatorRequestSpec: {
         ____types: "jsObject",
-        cellplane: {
+        CellProcessor: {
             ____types: "jsObject",
             delegate: {
                 ____types: "jsObject",
@@ -37,7 +37,7 @@ const transitionOperator = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const messageBody = request_.operatorRequest.cellplane.delegate;
+            const messageBody = request_.operatorRequest.CellProcessor.delegate;
 
             let coordinates = messageBody.coordinates;
 

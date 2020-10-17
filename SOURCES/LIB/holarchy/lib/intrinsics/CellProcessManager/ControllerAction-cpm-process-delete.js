@@ -13,24 +13,18 @@ const controllerAction = new ControllerAction({
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessor: {
+            deactivate: {
                 ____types: "jsObject",
-                process: {
-                    ____types: "jsObject",
-                    delete: {
-                        ____types: "jsObject",
-                        coordinates: {
-                            ____types: [
-                                "jsUndefined", // because it's optional. If not specified, then the default behavior is to use request_.context.apmBindingPath to deduce the cell process to delete.
-                                "jsString", // because it might be a cellProcessPath or cellProcessID
-                                "jsObject", // because it might be a raw coordinates apmID, instanceName descriptor
-                            ],
-                            apmID: { ____accept: "jsString" },
-                            instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
-                        }
-                    }
+                coordinates: {
+                    ____types: [
+                        "jsUndefined", // because it's optional. If not specified, then the default behavior is to use request_.context.apmBindingPath to deduce the cell process to delete.
+                        "jsString", // because it might be a cellProcessPath or cellProcessID
+                        "jsObject", // because it might be a raw coordinates apmID, instanceName descriptor
+                    ],
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
                 }
             }
         }
@@ -50,7 +44,7 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log(`[${this.operationID}::${this.operationName}] action start...`);
 
-            const messageBody = request_.actionRequest.holarchy.CellProcessor.process.delete;
+            const messageBody = request_.actionRequest.CellProcessor.deactivate;
 
             const coordinates = messageBody.coordinates?messageBody.coordinates:request_.context.apmBindingPath;
 
