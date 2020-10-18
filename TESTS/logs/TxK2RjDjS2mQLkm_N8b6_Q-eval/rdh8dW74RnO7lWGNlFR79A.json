@@ -104,7 +104,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "xvXG9QBwAHADHgMeXyJfIg",
-                        "vdid": "FHDZ814otrZ0qjkVgnRBBQ",
+                        "vdid": "S4EKSIaJV68yfLNvdnHP5A",
                         "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                         "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                         "cmat": {
@@ -114,7 +114,7 @@
                               "type": "INDEX",
                               "xvXG9QBwAHADHgMeXyJfIg": {
                                 "id": "xvXG9QBwAHADHgMeXyJfIg",
-                                "vdid": "FHDZ814otrZ0qjkVgnRBBQ",
+                                "vdid": "S4EKSIaJV68yfLNvdnHP5A",
                                 "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                                 "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                                 "type": "CM",
@@ -246,9 +246,9 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "kbBQdr7KnsqSPaM5X9VVAg",
-                                  "name": "Holarchy Cell Process Proxy Helper Model",
-                                  "description": "",
+                                  "vdid": "rPKyz638Np9iskmr9R0AEw",
+                                  "name": "Cell Process Proxy Helper Model",
+                                  "description": "A resuable helper cell model that allows developers to link namespace(s) defined in their own AbstractProcessModel(s) memory specifications to other cell processes.",
                                   "type": "CM",
                                   "CPPU-UPgS8eWiMap3Ixovg": {
                                     "id": "CPPU-UPgS8eWiMap3Ixovg",
@@ -257,6 +257,13 @@
                                     "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process.",
                                     "type": "APM"
                                   },
+                                  "c-n6U_maQa23j9jWFDsgOw": {
+                                    "id": "c-n6U_maQa23j9jWFDsgOw",
+                                    "vdid": "s3pip6Xw8W7cIFYLMXzfiA",
+                                    "name": "Cell Process Proxy: Proxy Status",
+                                    "description": "Returns Boolean true if the cell process proxy helper cell was logically connected to an owned local cell process that has been deleted.",
+                                    "type": "TOP"
+                                  },
                                   "FTxze-WaRp6HS0Dlr_Ke6A": {
                                     "id": "FTxze-WaRp6HS0Dlr_Ke6A",
                                     "vdid": "wUgsc48Siyg3e3z6hiLMBg",
@@ -264,46 +271,25 @@
                                     "description": "Forwards the specified operator request to the local cell process to which the proxy is currently connected.",
                                     "type": "TOP"
                                   },
-                                  "c-n6U_maQa23j9jWFDsgOw": {
-                                    "id": "c-n6U_maQa23j9jWFDsgOw",
-                                    "vdid": "oIlSozym6sRqzskjoN7N5Q",
-                                    "name": "Cell Process Proxy: Proxy State Broken",
-                                    "description": "Returns Boolean true if the cell process proxy helper cell was logically connected to an owned local cell process that has been deleted.",
-                                    "type": "TOP"
-                                  },
-                                  "aRz-bXOaSY-77jGIvSLFvw": {
-                                    "id": "aRz-bXOaSY-77jGIvSLFvw",
-                                    "vdid": "hvcoVSqTT8l8Ai5G2AFBGA",
-                                    "name": "Cell Process Proxy: Proxy State Connected",
-                                    "description": "Returns Boolean true if the cell process proxy helper cell is logically connected to an owned or shared local cell process.",
-                                    "type": "TOP"
-                                  },
-                                  "1SC437izTgKckxxWUq6cbQ": {
-                                    "id": "1SC437izTgKckxxWUq6cbQ",
-                                    "vdid": "Pv2XmlFVnneMbE4rFCr6wg",
-                                    "name": "Cell Process Proxy: Proxy State Disconnected",
-                                    "description": "Returns Boolean true if the cell process proxy helper cell is logically disconnected from a shared local cell process.",
-                                    "type": "TOP"
-                                  },
-                                  "rua1glcmTsOlYcfpZuiXnA": {
-                                    "id": "rua1glcmTsOlYcfpZuiXnA",
-                                    "vdid": "br9uI-cxQnlsQHN7zdRSjQ",
-                                    "name": "Cell Process Proxy: Proxy Action",
-                                    "description": "Forwards the specified action request to the local cell process to which the proxy is currently connected.",
-                                    "type": "ACT"
-                                  },
                                   "X6ck_Bo4RmWTVHl-vk-urw": {
                                     "id": "X6ck_Bo4RmWTVHl-vk-urw",
-                                    "vdid": "1_ay-0BGJabyFL4qQ5h60w",
+                                    "vdid": "AkuTmpBuX0BpI4rkhlFeVw",
                                     "name": "Cell Process Proxy: Connect Proxy",
                                     "description": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
                                     "type": "ACT"
                                   },
                                   "ySiBEGcaRGWVOZmwBRyhrA": {
                                     "id": "ySiBEGcaRGWVOZmwBRyhrA",
-                                    "vdid": "89XKgiepZW7zWm1KB16YkQ",
+                                    "vdid": "NWQbBUDkvSTmmFDnSCTz7Q",
                                     "name": "Cell Process Proxy: Disconnect Proxy",
                                     "description": "Disconnect a connected cell process proxy from whatever local cell process it is currently connected to.",
+                                    "type": "ACT"
+                                  },
+                                  "rua1glcmTsOlYcfpZuiXnA": {
+                                    "id": "rua1glcmTsOlYcfpZuiXnA",
+                                    "vdid": "br9uI-cxQnlsQHN7zdRSjQ",
+                                    "name": "Cell Process Proxy: Proxy Action",
+                                    "description": "Forwards the specified action request to the local cell process to which the proxy is currently connected.",
                                     "type": "ACT"
                                   }
                                 },
@@ -691,18 +677,17 @@
                         },
                         "transitionDispatcher": {
                           "filterDescriptor": {
-                            "operationID": "e5CM0Nqrb3G2dftGT9Si6g",
+                            "operationID": "LYowiXwdqif3WdB5B8ETOw",
                             "operationName": "Discriminator Filter",
                             "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                            "inputTypeVIID": "WOaFvNIE0LGgYw6ckoMqEA",
+                            "inputTypeVIID": "fZZ7EaciFnAvjxrMGlvNSA",
                             "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "outputTypeVIID": "MrZVNzi5eGSTQpt07pGLig",
+                            "outputTypeVIID": "YaP6zN77ncNTR4dfaX6apA",
                             "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "operationVDID": "Dlz0E7P6NVcvWY7txXYUtA"
+                            "operationVDID": "G9v0EymvNVcd9Y7tbW0UtA"
                           },
                           "supportedFilters": [
                             "[0JIva4IFSm6Xm7i38g8uUA::Logical OR]",
-                            "[1SC437izTgKckxxWUq6cbQ::Cell Process Proxy: Proxy State Disconnected]",
                             "[2w7n6KxdR8mdIliePJesLQ::OCD Namespace A ? B Value Comparison]",
                             "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                             "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
@@ -718,8 +703,7 @@
                             "[UeLs9PcASwuC7KR190eYhA::OCD Boolean Flag Is Set]",
                             "[XxX_a1sQS1OlJbWAYfx6tQ::OCD Namespace Is Less Than Value]",
                             "[YgABX95wR86GCYrYaDLISA::Logical AND]",
-                            "[aRz-bXOaSY-77jGIvSLFvw::Cell Process Proxy: Proxy State Connected]",
-                            "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy State Broken]",
+                            "[c-n6U_maQa23j9jWFDsgOw::Cell Process Proxy: Proxy Status]",
                             "[e89cwnP4Qd6MocAhzdOJgw::Logical TRUE]",
                             "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
                             "[fS5liuD1RBSdaPBEhsoxXw::OCD Namespace Is Map Keyless]",
@@ -1739,10 +1723,10 @@
                           "c-n6U_maQa23j9jWFDsgOw": {
                             "filterDescriptor": {
                               "operationID": "c-n6U_maQa23j9jWFDsgOw",
-                              "operationName": "Cell Process Proxy: Proxy State Broken",
+                              "operationName": "Cell Process Proxy: Proxy Status",
                               "operationDescription": "Returns Boolean true if the cell process proxy helper cell was logically connected to an owned local cell process that has been deleted.",
                               "inputFilterSpec": {
-                                "____label": "Cell Process Proxy: Proxy State Broken Request",
+                                "____label": "Cell Process Proxy: Proxy Status Request",
                                 "____types": "jsObject",
                                 "context": {
                                   "____label": "OPC Context Descriptor",
@@ -1766,12 +1750,25 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessProxy": {
+                                    "proxy": {
                                       "____types": "jsObject",
-                                      "isBroken": {
-                                        "____accept": "jsObject"
+                                      "proxyCoordinates": {
+                                        "____label": "Cell Process Proxy Helper Cell Coordinates Variant (Optional)",
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      },
+                                      "connect": {
+                                        "____types": "jsObject",
+                                        "statusIs": {
+                                          "____accept": "jsString",
+                                          "____inValueSet": [
+                                            "connected",
+                                            "disconnected",
+                                            "broken"
+                                          ]
+                                        }
                                       }
                                     }
                                   }
@@ -1781,112 +1778,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "5RayNO1bsuyAC3nJxgqNYQ",
-                              "inputTypeVDID": "ehCU8-SABHGn9eo54hsVqw",
+                              "inputTypeVDID": "Yss_8yOIwEJc7pMKxWajIw",
                               "outputTypeVIID": "HfQhdWTbdkYrpdNDU5_mFQ",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "OVD2RJ67hZOI07ecXZsPcg"
-                            }
-                          },
-                          "aRz-bXOaSY-77jGIvSLFvw": {
-                            "filterDescriptor": {
-                              "operationID": "aRz-bXOaSY-77jGIvSLFvw",
-                              "operationName": "Cell Process Proxy: Proxy State Connected",
-                              "operationDescription": "Returns Boolean true if the cell process proxy helper cell is logically connected to an owned or shared local cell process.",
-                              "inputFilterSpec": {
-                                "____label": "Cell Process Proxy: Proxy State Connected Request",
-                                "____types": "jsObject",
-                                "context": {
-                                  "____label": "OPC Context Descriptor",
-                                  "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                  "____types": "jsObject",
-                                  "apmBindingPath": {
-                                    "____label": "APM Binding Path",
-                                    "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                    "____accept": "jsString"
-                                  },
-                                  "ocdi": {
-                                    "____label": "OCD Store Instance",
-                                    "____description": "A reference to the OCD store instance managed by OPC.",
-                                    "____accept": "jsObject"
-                                  },
-                                  "transitionDispatcher": {
-                                    "____label": "OPC Transition Dispatcher",
-                                    "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                    "____accept": "jsObject"
-                                  }
-                                },
-                                "operatorRequest": {
-                                  "____types": "jsObject",
-                                  "holarchy": {
-                                    "____types": "jsObject",
-                                    "CellProcessProxy": {
-                                      "____types": "jsObject",
-                                      "isConnected": {
-                                        "____accept": "jsObject"
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "outputFilterSpec": {
-                                "____accept": "jsBoolean"
-                              },
-                              "inputTypeVIID": "qwnNaBFHQrPJaQOkIOZr-Q",
-                              "inputTypeVDID": "LEG0kBE7fxdV1wG63T8ZqQ",
-                              "outputTypeVIID": "u3RSkCmZU0K1DZrNsfDyZA",
-                              "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "KoZURI16NJM7c9OcIF7Ccg"
-                            }
-                          },
-                          "1SC437izTgKckxxWUq6cbQ": {
-                            "filterDescriptor": {
-                              "operationID": "1SC437izTgKckxxWUq6cbQ",
-                              "operationName": "Cell Process Proxy: Proxy State Disconnected",
-                              "operationDescription": "Returns Boolean true if the cell process proxy helper cell is logically disconnected from a shared local cell process.",
-                              "inputFilterSpec": {
-                                "____label": "Cell Process Proxy: Proxy State Disconnected Request",
-                                "____types": "jsObject",
-                                "context": {
-                                  "____label": "OPC Context Descriptor",
-                                  "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                  "____types": "jsObject",
-                                  "apmBindingPath": {
-                                    "____label": "APM Binding Path",
-                                    "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                    "____accept": "jsString"
-                                  },
-                                  "ocdi": {
-                                    "____label": "OCD Store Instance",
-                                    "____description": "A reference to the OCD store instance managed by OPC.",
-                                    "____accept": "jsObject"
-                                  },
-                                  "transitionDispatcher": {
-                                    "____label": "OPC Transition Dispatcher",
-                                    "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                    "____accept": "jsObject"
-                                  }
-                                },
-                                "operatorRequest": {
-                                  "____types": "jsObject",
-                                  "holarchy": {
-                                    "____types": "jsObject",
-                                    "CellProcessProxy": {
-                                      "____types": "jsObject",
-                                      "isDisconnected": {
-                                        "____accept": "jsObject"
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "outputFilterSpec": {
-                                "____accept": "jsBoolean"
-                              },
-                              "inputTypeVIID": "ZfcgwsSs-8GkkSGBIUOrjA",
-                              "inputTypeVDID": "oorjrsRKJgxNacALFrMoQg",
-                              "outputTypeVIID": "yB3Lawcem3cuQveeow25dg",
-                              "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "Ws8qRN_d45ML2CycDk9fcg"
+                              "operationVDID": "OexkRJ5JZJOITt2cXU4ocg"
                             }
                           },
                           "YgABX95wR86GCYrYaDLISA": {
@@ -3294,24 +3189,17 @@
                                   "____types": "jsObject",
                                   "CellProcessor": {
                                     "____types": "jsObject",
-                                    "link": {
+                                    "proxy": {
                                       "____types": "jsObject",
-                                      "proxy": {
-                                        "____types": "jsObject",
-                                        "____defaultValue": {},
-                                        "coordinates": {
-                                          "____label": "Cell Process Proxy Helper Cell Coordinates Variant",
-                                          "____defaultValue": "#",
-                                          "____types": [
-                                            "jsString",
-                                            "jsObject"
-                                          ]
-                                        }
+                                      "proxyCoordinates": {
+                                        "____label": "Cell Process Proxy Helper Cell Coordinates Variant (Optional)",
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
                                       },
-                                      "process": {
+                                      "connect": {
                                         "____types": "jsObject",
-                                        "coordinates": {
-                                          "____label": "Cell Process Coordinates Variant",
+                                        "processCoordinates": {
+                                          "____label": "Cell Process Coordinates Variant (Required)",
                                           "____types": [
                                             "jsString",
                                             "jsObject"
@@ -3333,10 +3221,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "tyyJO-xMV2o0PtVr2ON4CA",
-                              "inputTypeVDID": "sgW40md_rhjEKxiI2-_vjQ",
+                              "inputTypeVDID": "HFNEu3g566SnP9zG9uRULg",
                               "outputTypeVIID": "w46nFkDwQGGu0ASHsdx-Zg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "pQGmT5dx1RruemmIbzFGWA"
+                              "operationVDID": "peFcT5fFbhruYfqIbwIRWA"
                             }
                           },
                           "ySiBEGcaRGWVOZmwBRyhrA": {
@@ -3369,10 +3257,15 @@
                                 },
                                 "actionRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessProxy": {
+                                    "proxy": {
                                       "____types": "jsObject",
+                                      "proxyCoordinates": {
+                                        "____label": "Cell Process Proxy Helper Cell Coordinates Variant (Optional)",
+                                        "____accept": "jsString",
+                                        "____defaultValue": "#"
+                                      },
                                       "disconnect": {
                                         "____accept": "jsObject"
                                       }
@@ -3384,10 +3277,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "h6l9mMigEod2Xwz_hwJIFA",
-                              "inputTypeVDID": "7l3odxTKLqQeIrWR0b8_ow",
+                              "inputTypeVDID": "mvtDLQ-TDTlf0toBzsHihA",
                               "outputTypeVIID": "QAhxEJeD9pT1iEi640CbKg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "NYvlT9T9SRq5UEeIFSn_WA"
+                              "operationVDID": "NWMST9RlkBq5NsWIFfL7WA"
                             }
                           },
                           "rua1glcmTsOlYcfpZuiXnA": {

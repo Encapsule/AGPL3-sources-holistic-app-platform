@@ -46,21 +46,21 @@ module.exports = [
                                             actions: {
                                                 enter: [
                                                     // Note that this is deliberately verbose. We could equivalently write:
-                                                    // { CellProcess: { link: { proxy: { coordindates: "#.proxy" }, process: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } }
-                                                    { CellProcessor: { delegate: { coordinates: "#.proxy", actionRequest: { CellProcessor: { link: { process: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
+                                                    // { CellProcess: { connect: { proxy: { coordindates: "#.proxy" }, process: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } }
+                                                    { CellProcessor: { delegate: { coordinates: "#.proxy", actionRequest: { CellProcessor: { proxy: { connect: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
                                                 ]
                                             },
                                             transitions: [
                                                 {
-                                                    transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } },
+                                                    transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxy", connect: { statusIs: "broken" } } } },
                                                     nextStep: "connect_proxy_error"
                                                 },
                                                 {
-                                                    transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } },
+                                                    transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxy", connect: { statusIs: "disconnected" } } } },
                                                     nextStep: "connect_proxy_error"
                                                 },
                                                 {
-                                                    transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxy", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } },
+                                                    transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxy", connect: { statusIs: "connected" } } } },
                                                     nextStep: "proxy_connected"
                                                 },
                                                 {

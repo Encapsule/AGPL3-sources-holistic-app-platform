@@ -22,8 +22,8 @@
   { CellProcessor: { delegate: { operatorRequest: {...}, coordinates: variant } } } <--- Currently called opOn on v0.0.47
 
 
-  { CellProcessor: { link: { coordinates: variant } } } // ControllerAction (currently CPP proxy connect)
-  { CellProcessor: { unlink: { coordinates: variant (optional) } } } // ControllerAction (currently CPP proxy disconnect)
+  { CellProcessor: { connect: { proxy: {  coordinates: variant } process: { coordinates: { variant } } } // ControllerAction (currently CPP proxy connect)
+  { CellProcessor: { disconnect: { proxy: { coordinates: variant (optional) } } } // ControllerAction (currently CPP proxy disconnect)
   { CellProcessor: { check: { link: { isBroken: {} } } } }
   { CellProcessor: { check: { link: { isConnected: {} } } } }
   { CellProcessor: { check: { link: { isDisconnected: {} } } } }

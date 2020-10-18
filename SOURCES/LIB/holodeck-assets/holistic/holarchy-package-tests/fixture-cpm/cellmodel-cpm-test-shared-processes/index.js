@@ -9,23 +9,17 @@ const cmCPPTestDroid = require("./cellmodel-droid");
 
 const connectProxyActionRequest = {
     CellProcessor: {
-        delegate: {
-            coordinates: "#.proxyTest",
-            actionRequest: {
-                CellProcessor: {
-                    link: {
-                        process: {
-                            coordinates: {
-                                apmID: cellspace.apmID("CPP Test 1"),
-                                instanceName: "Test Process B"
-                            }
-                        }
-                    }
+        proxy: {
+            proxyCoordinates: "#.proxyTest",
+            connect: {
+                processCoordinates: {
+                    apmID: cellspace.apmID("CPP Test 1"),
+                    instanceName: "Test Process B"
                 }
-            }, // delegated actionRequest
+            }
         }
     }
-};
+}; // actionRequest (delegate action)
 
 
 const cppTestModel1 = new holarchy.CellModel({
@@ -46,7 +40,11 @@ const cppTestModel1 = new holarchy.CellModel({
                     ____accept: [ "jsUndefined", "jsString" ]
                 }
             },
-            proxyTest: { ____types: "jsObject", ____defaultValue: {}, ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell process proxy (CPP) */ } }
+            proxyTest: {
+                ____types: "jsObject",
+                ____defaultValue: {},
+                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell process proxy (CPP) */ }
+            }
 
         },
         steps: {
@@ -62,15 +60,15 @@ const cppTestModel1 = new holarchy.CellModel({
                 description: "Test the CPP status operators.",
                 transitions: [
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } },
+                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { CellProcessor: { proxy: { connect: { statusIs: "connected" } } } } } } },
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } },
+                        transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest", connect: { statusIs: "broken" } } } },
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } },
+                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { CellProcessor: { proxy: { connect: { statusIs: "disconnected" } } } } } } },
                         nextStep: "connect_proxy"
                     },
                     {
@@ -93,15 +91,15 @@ const cppTestModel1 = new holarchy.CellModel({
 
                 transitions: [
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } },
+                        transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest", connect: { statusIs: "broken" } } } },
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest:  { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } },
+                        transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest",  connect: { statusIs: "disconnected" } } } },
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } },
+                        transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest", connect: {statusIs: "connected" } } } },
                         nextStep: "proxy_connected"
                     },
                     {
@@ -140,21 +138,38 @@ const cppTestModel1 = new holarchy.CellModel({
 
                 actions: {
                     enter: [
-                        { CellProcessor: { delegate: { coordinates: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { disconnect: {} } } } } } }
+                        // Verbose form proxy disconnect.
+                        /*
+                        {
+                            CellProcessor: {
+                                delegate: {
+                                    coordinates: "#.proxyTest",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            proxy: {
+                                                disconnect: {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        */
+                        { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest", disconnect: {} } } }
                     ]
                 },
 
                 transitions: [
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isBroken: {} } } } } } },
+                        transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest", connect: { statusIs: "broken" } } } },
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isConnected: {} } } } } } },
+                        transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest", connect: { statusIs: "connected" } } } },
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { holarchy: { CellProcessProxy: { isDisconnected: {} } } } } } },
+                        transitionIf: { CellProcessor: { proxy: { proxyCoordinates: "#.proxyTest", connect: { statusIs: "disconnected" } } } },
                         nextStep: "proxy_disconnected"
                     },
                     {
@@ -273,7 +288,29 @@ const cppTestModel2 = new holarchy.CellModel({
 
             uninitialized: {
                 description: "Default process starting step.",
-                actions: { exit: [ { CellProcessor: { delegate: { coordinates: "#.proxyTest", actionRequest: { CellProcessor: { link: { process: { coordinates: {  apmID:  cellspace.apmID("CPP Test Messenger") } } } } } } } } ] },
+                actions: {
+                    exit: [
+                        {
+                            // Test verbose form of proxy connect that uses delegate
+                            CellProcessor: {
+                                delegate: {
+                                    coordinates: "#.proxyTest",
+                                    actionRequest: {
+                                        CellProcessor: {
+                                            proxy: {
+                                                connect: {
+                                                    processCoordinates: {
+                                                        apmID:  cellspace.apmID("CPP Test Messenger")
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
                 transitions: [ { transitionIf: { always: true }, nextStep: "finished" } ]
             },
 

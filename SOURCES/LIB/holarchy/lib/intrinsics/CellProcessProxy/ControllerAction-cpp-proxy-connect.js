@@ -15,24 +15,17 @@ const action = new ControllerAction({
         ____types: "jsObject",
         CellProcessor: {
             ____types: "jsObject",
-            link: {
+            proxy: {
                 ____types: "jsObject",
-                proxy: {
-                    ____types: "jsObject",
-                    ____defaultValue: {},
-                    coordinates: {
-                        ____label: "Cell Process Proxy Helper Cell Coordinates Variant",
-                        ____defaultValue: "#",
-                        ____types: [
-                            "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell process proxy helper cell. Or, an IRUT (that we reject w/custom error message).
-                            "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly. We reject this case w/custom error message in bodyFunction.
-                        ]
-                    }
+                proxyCoordinates: {
+                    ____label: "Cell Process Proxy Helper Cell Coordinates Variant (Optional)",
+                    ____accept: "jsString",
+                    ____defaultValue: "#"
                 },
-                process: {
+                connect: {
                     ____types: "jsObject",
-                    coordinates: {
-                        ____label: "Cell Process Coordinates Variant",
+                    processCoordinates: {
+                        ____label: "Cell Process Coordinates Variant (Required)",
                         ____types: [
                             "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell process. Or, an IRUT that resolves to a known cellProcessID.
                             "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
@@ -57,19 +50,14 @@ const action = new ControllerAction({
             inBreakScope = true;
 
             let runGarbageCollector = false;
-            const messageBody = request_.actionRequest.CellProcessor.link;
+            const messageBody = request_.actionRequest.CellProcessor.proxy;
 
-            if (Object.prototype.toString.call(messageBody.proxy.coordinates) === "[object Object]") {
-                errors.push("Cannot resolve location of the cell process proxy helper cell to link given a cell process coordinates descriptor object!");
-                break;
-            }
-
-            if (arccore.identifier.irut.isIRUT(messageBody.proxy.coordinates).result) {
+            if (arccore.identifier.irut.isIRUT(messageBody.proxyCoordinates).result) {
                 errors.push("Cannot resolve location of the cell process proxy helper cell to link given a cell process ID!");
                 break;
             }
 
-            let ocdResponse = OCD.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: messageBody.proxy.coordinates });
+            let ocdResponse = OCD.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: messageBody.proxyCoordinates });
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
@@ -139,7 +127,7 @@ const action = new ControllerAction({
             //
             // However, we do not yet know anything yet about the local cell process that the caller wishes to connect to via the proxy instance. So, we look at that next.
 
-            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: messageBody.process.coordinates, ocdi: request_.context.ocdi });
+            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: messageBody.connect.processCoordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;

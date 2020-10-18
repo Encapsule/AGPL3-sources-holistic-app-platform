@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../../ControllerAction");
-const OCD = require("../../../lib/ObservableControllerData");
+const ObservableControllerData = require("../../../lib/ObservableControllerData");
 const cpmLib = require("../CellProcessManager/lib");
 const cppLib = require("./lib");
 
@@ -13,10 +13,15 @@ const action = new ControllerAction({
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessProxy: {
+            proxy: {
                 ____types: "jsObject",
+                proxyCoordinates: {
+                    ____label: "Cell Process Proxy Helper Cell Coordinates Variant (Optional)",
+                    ____accept: "jsString",
+                    ____defaultValue: "#"
+                },
                 disconnect: {
                     ____accept: "jsObject",
                 }
@@ -35,18 +40,20 @@ const action = new ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.actionRequest.holarchy.CellProcessProxy.disconnect;
+            const messageBody = request_.actionRequest.CellProcessor.proxy;
 
-            // Get the CPM process' data.
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
-            if (cpmLibResponse.error) {
-                errors.push(cpmLibResponse.error);
+            if (arccore.identifier.irut.isIRUT(messageBody.proxyCoordinates).result) {
+                errors.push("Cannot resolve location of the cell process proxy helper cell to link given a cell process ID!");
                 break;
             }
-            const cpmDataDescriptor = cpmLibResponse.result;
-            const sharedCellProcesses = cpmDataDescriptor.data.sharedCellProcesses;
 
-            const proxyHelperPath = request_.context.apmBindingPath; // Take request_.context.apmBindingPath to be the path of the cell bound to CellProcessProxy that the caller wishes to disconnect.
+            let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: messageBody.proxyCoordinates });
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+
+            let proxyHelperPath = ocdResponse.result;
 
             // This ensures we're addressing an actuall CellProcessProxy-bound cell.
             // And, get us a copy of its memory and its current connection state.
@@ -59,7 +66,18 @@ const action = new ControllerAction({
                 errors.push(cppLibResponse.error);
                 break;
             }
+
+            // Okay - we're talking to an active CellProcessProxy helper cell.
             const cppMemoryStatusDescriptor = cppLibResponse.result;
+
+            // Get the CPM process' data.
+            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+            const cpmDataDescriptor = cpmLibResponse.result;
+            const sharedCellProcesses = cpmDataDescriptor.data.sharedCellProcesses;
 
             if (cppMemoryStatusDescriptor.status === "disconnected") {
                 // We're already disconnected. So, there is nothing to do."
@@ -75,7 +93,7 @@ const action = new ControllerAction({
                 break;
             }
 
-            let ocdResponse = request_.context.ocdi.writeNamespace(`${proxyHelperPath}.CPPU-UPgS8eWiMap3Ixovg_private`, {}); // resets the state of the proxy cell
+            ocdResponse = request_.context.ocdi.writeNamespace(`${proxyHelperPath}.CPPU-UPgS8eWiMap3Ixovg_private`, {}); // resets the state of the proxy cell
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
                 break;
