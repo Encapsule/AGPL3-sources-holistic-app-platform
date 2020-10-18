@@ -45,7 +45,9 @@ module.exports = [
                                             description: "Attempt to connect the proxy.",
                                             actions: {
                                                 enter: [
-                                                    { CellProcessor: { delegate: { coordinates: "#.proxy", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } }
+                                                    // Note that this is deliberately verbose. We could equivalently write:
+                                                    // { CellProcess: { link: { proxy: { coordindates: "#.proxy" }, process: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } }
+                                                    { CellProcessor: { delegate: { coordinates: "#.proxy", actionRequest: { CellProcessor: { link: { process: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
                                                 ]
                                             },
                                             transitions: [

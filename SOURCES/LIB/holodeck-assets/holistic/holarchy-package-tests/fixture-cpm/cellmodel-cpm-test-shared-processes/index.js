@@ -7,7 +7,25 @@ const cellspace = require("../cellspace");
 const cmCPPTestMessenger = require("./cellmodel-messenger");
 const cmCPPTestDroid = require("./cellmodel-droid");
 
-const connectProxyActionRequest = { CellProcessor: { delegate: { coordinates: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { connect: { apmID: cellspace.apmID("CPP Test 1"), instanceName: "Test Process B" } } } } } } };
+const connectProxyActionRequest = {
+    CellProcessor: {
+        delegate: {
+            coordinates: "#.proxyTest",
+            actionRequest: {
+                CellProcessor: {
+                    link: {
+                        process: {
+                            coordinates: {
+                                apmID: cellspace.apmID("CPP Test 1"),
+                                instanceName: "Test Process B"
+                            }
+                        }
+                    }
+                }
+            }, // delegated actionRequest
+        }
+    }
+};
 
 
 const cppTestModel1 = new holarchy.CellModel({
@@ -255,7 +273,7 @@ const cppTestModel2 = new holarchy.CellModel({
 
             uninitialized: {
                 description: "Default process starting step.",
-                actions: { exit: [ { CellProcessor: { delegate: { coordinates: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { connect: {  apmID:  cellspace.apmID("CPP Test Messenger") } } } } } } } ] },
+                actions: { exit: [ { CellProcessor: { delegate: { coordinates: "#.proxyTest", actionRequest: { CellProcessor: { link: { process: { coordinates: {  apmID:  cellspace.apmID("CPP Test Messenger") } } } } } } } } ] },
                 transitions: [ { transitionIf: { always: true }, nextStep: "finished" } ]
             },
 

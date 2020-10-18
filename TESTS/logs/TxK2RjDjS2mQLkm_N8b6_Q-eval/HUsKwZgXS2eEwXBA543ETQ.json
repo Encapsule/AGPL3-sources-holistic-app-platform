@@ -77,7 +77,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                        "vdid": "mg38_9rimSd0OU3Bc1Oekg",
+                        "vdid": "5Bv8_5qHmSd9IE3B7Meekg",
                         "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP] Model",
                         "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP].",
                         "cmat": {
@@ -87,7 +87,7 @@
                               "type": "INDEX",
                               "V_VX9bRwtHA9Hj0ebiJuIg": {
                                 "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                                "vdid": "mg38_9rimSd0OU3Bc1Oekg",
+                                "vdid": "5Bv8_5qHmSd9IE3B7Meekg",
                                 "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP] Model",
                                 "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP].",
                                 "type": "CM",
@@ -191,7 +191,7 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "HaZhzxMIcEvwedj2Hms6Kw",
+                                  "vdid": "ZLHolF6KOrGxxgPjhTVO7A",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
@@ -219,7 +219,7 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "kbB2dr7KYMqSPf45X9WuAg",
+                                  "vdid": "kbBQdr7KnsqSPaM5X9VVAg",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
@@ -267,7 +267,7 @@
                                   },
                                   "X6ck_Bo4RmWTVHl-vk-urw": {
                                     "id": "X6ck_Bo4RmWTVHl-vk-urw",
-                                    "vdid": "sf5wN33aT6edeazh3hDNLQ",
+                                    "vdid": "1_ay-0BGJabyFL4qQ5h60w",
                                     "name": "Cell Process Proxy: Connect Proxy",
                                     "description": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
                                     "type": "ACT"
@@ -2866,7 +2866,10 @@
                                     "activate": {
                                       "____types": "jsObject",
                                       "coordinates": {
-                                        "____types": "jsObject",
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
                                         "apmID": {
                                           "____accept": "jsString"
                                         },
@@ -2903,10 +2906,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "RK83m2fiL44OYWccmGRVzg",
+                              "inputTypeVDID": "KfOOaPbBWeWyNG4EWMf8nQ",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z38hzbuib2hHEs0eeUbP2Q"
+                              "operationVDID": "Z-49zbsMI2hHSAAeeR-G2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -3268,18 +3271,37 @@
                                 },
                                 "actionRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessProxy": {
+                                    "link": {
                                       "____types": "jsObject",
-                                      "connect": {
+                                      "proxy": {
                                         "____types": "jsObject",
-                                        "apmID": {
-                                          "____accept": "jsString"
-                                        },
-                                        "instanceName": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "singleton"
+                                        "____defaultValue": {},
+                                        "coordinates": {
+                                          "____label": "Cell Process Proxy Helper Cell Coordinates Variant",
+                                          "____defaultValue": "#",
+                                          "____types": [
+                                            "jsString",
+                                            "jsObject"
+                                          ]
+                                        }
+                                      },
+                                      "process": {
+                                        "____types": "jsObject",
+                                        "coordinates": {
+                                          "____label": "Cell Process Coordinates Variant",
+                                          "____types": [
+                                            "jsString",
+                                            "jsObject"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          },
+                                          "instanceName": {
+                                            "____accept": "jsString",
+                                            "____defaultValue": "singleton"
+                                          }
                                         }
                                       }
                                     }
@@ -3290,10 +3312,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "tyyJO-xMV2o0PtVr2ON4CA",
-                              "inputTypeVDID": "63a6-QFVzMzlrMs4JwFWqw",
+                              "inputTypeVDID": "sgW40md_rhjEKxiI2-_vjQ",
                               "outputTypeVIID": "w46nFkDwQGGu0ASHsdx-Zg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "pWvfT5fNFhrujCiIb-GSWA"
+                              "operationVDID": "pQGmT5dx1RruemmIbzFGWA"
                             }
                           },
                           "ySiBEGcaRGWVOZmwBRyhrA": {

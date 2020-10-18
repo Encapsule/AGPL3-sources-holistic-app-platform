@@ -16,7 +16,7 @@
                     "description": "A Cell Process Proxy unit test.",
                     "cellmodel": {
                       "id": "7dTI8Acz6N2x1JVgAtzVuw",
-                      "vdid": "OmUsJ0vW_bK_mra0Zw_chQ",
+                      "vdid": "OpAsJ0vH_bK_y7a0ZzjchQ",
                       "name": "CPP Test 1",
                       "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                       "cmat": {
@@ -26,13 +26,13 @@
                             "type": "INDEX",
                             "7dTI8Acz6N2x1JVgAtzVuw": {
                               "id": "7dTI8Acz6N2x1JVgAtzVuw",
-                              "vdid": "OmUsJ0vW_bK_mra0Zw_chQ",
+                              "vdid": "OpAsJ0vH_bK_y7a0ZzjchQ",
                               "name": "CPP Test 1",
                               "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                               "type": "CM",
                               "XP3yJV1ciLVMsHktdn5i9w": {
                                 "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                 "name": "CPP Test 1",
                                 "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                                 "type": "APM"
@@ -143,7 +143,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                        "vdid": "Fyj3WCW31UFbtl6XGsVbAQ",
+                        "vdid": "DkPcl60asDLpyEh0TCQZHQ",
                         "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                         "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                         "cmat": {
@@ -153,7 +153,7 @@
                               "type": "INDEX",
                               "TPVM9ZxwnHBvHm8e1yLXIg": {
                                 "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                                "vdid": "Fyj3WCW31UFbtl6XGsVbAQ",
+                                "vdid": "DkPcl60asDLpyEh0TCQZHQ",
                                 "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                                 "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                                 "type": "CM",
@@ -257,7 +257,7 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "HaZhzxMIcEvwedj2Hms6Kw",
+                                  "vdid": "ZLHolF6KOrGxxgPjhTVO7A",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
@@ -285,7 +285,7 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "kbB2dr7KYMqSPf45X9WuAg",
+                                  "vdid": "kbBQdr7KnsqSPaM5X9VVAg",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
@@ -333,7 +333,7 @@
                                   },
                                   "X6ck_Bo4RmWTVHl-vk-urw": {
                                     "id": "X6ck_Bo4RmWTVHl-vk-urw",
-                                    "vdid": "sf5wN33aT6edeazh3hDNLQ",
+                                    "vdid": "1_ay-0BGJabyFL4qQ5h60w",
                                     "name": "Cell Process Proxy: Connect Proxy",
                                     "description": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
                                     "type": "ACT"
@@ -502,13 +502,13 @@
                                 },
                                 "7dTI8Acz6N2x1JVgAtzVuw": {
                                   "id": "7dTI8Acz6N2x1JVgAtzVuw",
-                                  "vdid": "OmUsJ0vW_bK_mra0Zw_chQ",
+                                  "vdid": "OpAsJ0vH_bK_y7a0ZzjchQ",
                                   "name": "CPP Test 1",
                                   "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                                   "type": "CM",
                                   "XP3yJV1ciLVMsHktdn5i9w": {
                                     "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                    "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                    "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                     "name": "CPP Test 1",
                                     "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                                     "type": "APM"
@@ -539,7 +539,7 @@
                         "apmMap": {
                           "XP3yJV1ciLVMsHktdn5i9w": {
                             "id": "XP3yJV1ciLVMsHktdn5i9w",
-                            "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                            "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                             "name": "CPP Test 1",
                             "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                           },
@@ -570,7 +570,7 @@
                             "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "XP3yJV1ciLVMsHktdn5i9w",
-                              "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                              "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                               "name": "CPP Test 1",
                               "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                             }
@@ -3035,7 +3035,10 @@
                                     "activate": {
                                       "____types": "jsObject",
                                       "coordinates": {
-                                        "____types": "jsObject",
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
                                         "apmID": {
                                           "____accept": "jsString"
                                         },
@@ -3072,10 +3075,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "RK83m2fiL44OYWccmGRVzg",
+                              "inputTypeVDID": "KfOOaPbBWeWyNG4EWMf8nQ",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z38hzbuib2hHEs0eeUbP2Q"
+                              "operationVDID": "Z-49zbsMI2hHSAAeeR-G2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -3437,18 +3440,37 @@
                                 },
                                 "actionRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessProxy": {
+                                    "link": {
                                       "____types": "jsObject",
-                                      "connect": {
+                                      "proxy": {
                                         "____types": "jsObject",
-                                        "apmID": {
-                                          "____accept": "jsString"
-                                        },
-                                        "instanceName": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "singleton"
+                                        "____defaultValue": {},
+                                        "coordinates": {
+                                          "____label": "Cell Process Proxy Helper Cell Coordinates Variant",
+                                          "____defaultValue": "#",
+                                          "____types": [
+                                            "jsString",
+                                            "jsObject"
+                                          ]
+                                        }
+                                      },
+                                      "process": {
+                                        "____types": "jsObject",
+                                        "coordinates": {
+                                          "____label": "Cell Process Coordinates Variant",
+                                          "____types": [
+                                            "jsString",
+                                            "jsObject"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          },
+                                          "instanceName": {
+                                            "____accept": "jsString",
+                                            "____defaultValue": "singleton"
+                                          }
                                         }
                                       }
                                     }
@@ -3459,10 +3481,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "tyyJO-xMV2o0PtVr2ON4CA",
-                              "inputTypeVDID": "63a6-QFVzMzlrMs4JwFWqw",
+                              "inputTypeVDID": "sgW40md_rhjEKxiI2-_vjQ",
                               "outputTypeVIID": "w46nFkDwQGGu0ASHsdx-Zg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "pWvfT5fNFhrujCiIb-GSWA"
+                              "operationVDID": "pQGmT5dx1RruemmIbzFGWA"
                             }
                           },
                           "ySiBEGcaRGWVOZmwBRyhrA": {
@@ -4245,7 +4267,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -4376,7 +4398,7 @@
                                         "initialStep": "test_status_operators",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -4470,11 +4492,13 @@
                                                   "delegate": {
                                                     "coordinates": "#.proxyTest",
                                                     "actionRequest": {
-                                                      "holarchy": {
-                                                        "CellProcessProxy": {
-                                                          "connect": {
-                                                            "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                                            "instanceName": "Test Process B"
+                                                      "CellProcessor": {
+                                                        "link": {
+                                                          "process": {
+                                                            "coordinates": {
+                                                              "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                                              "instanceName": "Test Process B"
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -4608,7 +4632,7 @@
                                         "initialStep": "connect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -4719,7 +4743,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -4883,7 +4907,7 @@
                                         "initialStep": "proxy_connected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -4933,7 +4957,7 @@
                                         "initialStep": "test_status_operators",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -5027,11 +5051,13 @@
                                                   "delegate": {
                                                     "coordinates": "#.proxyTest",
                                                     "actionRequest": {
-                                                      "holarchy": {
-                                                        "CellProcessProxy": {
-                                                          "connect": {
-                                                            "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                                            "instanceName": "Test Process B"
+                                                      "CellProcessor": {
+                                                        "link": {
+                                                          "process": {
+                                                            "coordinates": {
+                                                              "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                                              "instanceName": "Test Process B"
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -5196,7 +5222,7 @@
                                         "initialStep": "test_action_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -5305,7 +5331,7 @@
                                         "initialStep": "connect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -5450,7 +5476,7 @@
                                         "initialStep": "disconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -5642,7 +5668,7 @@
                                         "initialStep": "proxy_disconnected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -5675,11 +5701,13 @@
                                                   "delegate": {
                                                     "coordinates": "#.proxyTest",
                                                     "actionRequest": {
-                                                      "holarchy": {
-                                                        "CellProcessProxy": {
-                                                          "connect": {
-                                                            "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                                            "instanceName": "Test Process B"
+                                                      "CellProcessor": {
+                                                        "link": {
+                                                          "process": {
+                                                            "coordinates": {
+                                                              "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                                              "instanceName": "Test Process B"
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -5813,7 +5841,7 @@
                                         "initialStep": "reconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -5863,7 +5891,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6026,7 +6054,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6099,7 +6127,7 @@
                                         "initialStep": "test_status_operators",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6193,11 +6221,13 @@
                                                   "delegate": {
                                                     "coordinates": "#.proxyTest",
                                                     "actionRequest": {
-                                                      "holarchy": {
-                                                        "CellProcessProxy": {
-                                                          "connect": {
-                                                            "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                                            "instanceName": "Test Process B"
+                                                      "CellProcessor": {
+                                                        "link": {
+                                                          "process": {
+                                                            "coordinates": {
+                                                              "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                                              "instanceName": "Test Process B"
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -6362,7 +6392,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6435,7 +6465,7 @@
                                         "initialStep": "connect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6659,7 +6689,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6732,7 +6762,7 @@
                                         "initialStep": "proxy_connected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6895,7 +6925,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -6968,7 +6998,7 @@
                                         "initialStep": "test_action_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7190,7 +7220,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7263,7 +7293,7 @@
                                         "initialStep": "disconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7487,7 +7517,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7560,7 +7590,7 @@
                                         "initialStep": "proxy_disconnected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7593,11 +7623,13 @@
                                                   "delegate": {
                                                     "coordinates": "#.proxyTest",
                                                     "actionRequest": {
-                                                      "holarchy": {
-                                                        "CellProcessProxy": {
-                                                          "connect": {
-                                                            "apmID": "XP3yJV1ciLVMsHktdn5i9w",
-                                                            "instanceName": "Test Process B"
+                                                      "CellProcessor": {
+                                                        "link": {
+                                                          "process": {
+                                                            "coordinates": {
+                                                              "apmID": "XP3yJV1ciLVMsHktdn5i9w",
+                                                              "instanceName": "Test Process B"
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -7762,7 +7794,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7835,7 +7867,7 @@
                                         "initialStep": "reconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7996,7 +8028,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8069,7 +8101,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "IqrBDGNIT8fsz2hrLiF21g",
+                                          "vdid": "AIANQ43QcZ7KHuGndlpOFw",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8222,7 +8254,9 @@
                               "__apmiStep": "test_operator_through_proxy"
                             },
                             "55pdpYyb8iKw52bqWuYytg": {
-                              "construction": {},
+                              "construction": {
+                                "instanceName": "Test Process B"
+                              },
                               "proxyTest": {
                                 "CPPU-UPgS8eWiMap3Ixovg_private": {
                                   "lcpRequest": {
@@ -8415,7 +8449,9 @@
                               "__apmiStep": "test_operator_through_proxy"
                             },
                             "55pdpYyb8iKw52bqWuYytg": {
-                              "construction": {},
+                              "construction": {
+                                "instanceName": "Test Process B"
+                              },
                               "proxyTest": {
                                 "CPPU-UPgS8eWiMap3Ixovg_private": {
                                   "lcpRequest": {

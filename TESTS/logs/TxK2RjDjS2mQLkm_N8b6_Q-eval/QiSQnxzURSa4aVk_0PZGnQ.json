@@ -16,7 +16,7 @@
                     "description": "Can we use a cell that uses a proxy as a helper?",
                     "cellmodel": {
                       "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                      "vdid": "vNsFnlE_lqIBarH5GxcEHA",
+                      "vdid": "Mdv1nlU_caKaarv5-Bc0HA",
                       "name": "CPP Test Model 3",
                       "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "7dTIJgcz6Kix1JUYAtzV2g": {
                               "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                              "vdid": "vNsFnlE_lqIBarH5GxcEHA",
+                              "vdid": "Mdv1nlU_caKaarv5-Bc0HA",
                               "name": "CPP Test Model 3",
                               "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                               "type": "CM",
@@ -39,13 +39,13 @@
                               },
                               "7dTIsQcz6Jax1JUjAtzVNw": {
                                 "id": "7dTIsQcz6Jax1JUjAtzVNw",
-                                "vdid": "Z3fQsWIQOw0YlTmENx0W-A",
+                                "vdid": "Zy_QsWJnOw0YeTmEN6oW-A",
                                 "name": "CPP Test Model 2",
                                 "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                                 "type": "CM",
                                 "XP3yGl1ciCtMsHnMdn5i3A": {
                                   "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                                  "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                                  "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                                   "name": "CPP Test Model 2",
                                   "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
                                   "type": "APM"
@@ -95,7 +95,7 @@
                               },
                               "7dTIOQcz6LOx1JWmAtzVJg": {
                                 "id": "7dTIOQcz6LOx1JWmAtzVJg",
-                                "vdid": "deVGfesx8z9gnLpSN7nWjg",
+                                "vdid": "ytVGfQDU8z_5sbpSaOjWjg",
                                 "name": "CPP Test Model 2C",
                                 "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                 "type": "CM",
@@ -188,7 +188,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                        "vdid": "K4SEgeIHcljYRvjs_RdFZQ",
+                        "vdid": "d4SDOz0HjgawRs4ArRemfw",
                         "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                         "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                         "cmat": {
@@ -198,7 +198,7 @@
                               "type": "INDEX",
                               "FvUW9UtwS3DDHsMeWSJZIg": {
                                 "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                                "vdid": "K4SEgeIHcljYRvjs_RdFZQ",
+                                "vdid": "d4SDOz0HjgawRs4ArRemfw",
                                 "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                                 "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                                 "type": "CM",
@@ -302,7 +302,7 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "HaZhzxMIcEvwedj2Hms6Kw",
+                                  "vdid": "ZLHolF6KOrGxxgPjhTVO7A",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
@@ -330,7 +330,7 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "kbB2dr7KYMqSPf45X9WuAg",
+                                  "vdid": "kbBQdr7KnsqSPaM5X9VVAg",
                                   "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "",
                                   "type": "CM",
@@ -378,7 +378,7 @@
                                   },
                                   "X6ck_Bo4RmWTVHl-vk-urw": {
                                     "id": "X6ck_Bo4RmWTVHl-vk-urw",
-                                    "vdid": "sf5wN33aT6edeazh3hDNLQ",
+                                    "vdid": "1_ay-0BGJabyFL4qQ5h60w",
                                     "name": "Cell Process Proxy: Connect Proxy",
                                     "description": "Disconnect a connected cell process proxy process (if connected). And, connect the proxy to the specified local cell process.",
                                     "type": "ACT"
@@ -547,7 +547,7 @@
                                 },
                                 "7dTIJgcz6Kix1JUYAtzV2g": {
                                   "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                                  "vdid": "vNsFnlE_lqIBarH5GxcEHA",
+                                  "vdid": "Mdv1nlU_caKaarv5-Bc0HA",
                                   "name": "CPP Test Model 3",
                                   "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                                   "type": "CM",
@@ -560,13 +560,13 @@
                                   },
                                   "7dTIsQcz6Jax1JUjAtzVNw": {
                                     "id": "7dTIsQcz6Jax1JUjAtzVNw",
-                                    "vdid": "Z3fQsWIQOw0YlTmENx0W-A",
+                                    "vdid": "Zy_QsWJnOw0YeTmEN6oW-A",
                                     "name": "CPP Test Model 2",
                                     "description": "A model that embeds a proxy. We use this model to ensure that a cell cannot tell if its role is helper (i.e. embedded in another model's ocdDataSpec via an object namesspace APM binding annotaton).",
                                     "type": "CM",
                                     "XP3yGl1ciCtMsHnMdn5i3A": {
                                       "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                                      "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                                      "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                                       "name": "CPP Test Model 2",
                                       "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared).",
                                       "type": "APM"
@@ -616,7 +616,7 @@
                                   },
                                   "7dTIOQcz6LOx1JWmAtzVJg": {
                                     "id": "7dTIOQcz6LOx1JWmAtzVJg",
-                                    "vdid": "deVGfesx8z9gnLpSN7nWjg",
+                                    "vdid": "ytVGfQDU8z_5sbpSaOjWjg",
                                     "name": "CPP Test Model 2C",
                                     "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                     "type": "CM",
@@ -653,7 +653,7 @@
                           },
                           "XP3yGl1ciCtMsHnMdn5i3A": {
                             "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                            "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                            "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                             "name": "CPP Test Model 2",
                             "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                           },
@@ -717,7 +717,7 @@
                             "specPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                              "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                              "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                               "name": "CPP Test Model 2",
                               "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                             }
@@ -789,7 +789,7 @@
                             "specPath": "~.XP3y-l1ciDBMsHnzdn5iWg_CellProcesses.cellProcessMap.cellProcessID.justADataObjectNamespace.helperCellThatCallsProcessCreate",
                             "opmiRef": {
                               "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                              "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                              "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                               "name": "CPP Test Model 2",
                               "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                             }
@@ -816,7 +816,7 @@
                             "specPath": "~.XP3ymV1ciAdMsHnBdn5ilw_CellProcesses.cellProcessMap.cellProcessID.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate",
                             "opmiRef": {
                               "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                              "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                              "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                               "name": "CPP Test Model 2",
                               "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                             }
@@ -834,7 +834,7 @@
                             "specPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate",
                             "opmiRef": {
                               "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                              "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                              "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                               "name": "CPP Test Model 2",
                               "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                             }
@@ -3795,7 +3795,10 @@
                                     "activate": {
                                       "____types": "jsObject",
                                       "coordinates": {
-                                        "____types": "jsObject",
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
                                         "apmID": {
                                           "____accept": "jsString"
                                         },
@@ -3832,10 +3835,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "RK83m2fiL44OYWccmGRVzg",
+                              "inputTypeVDID": "KfOOaPbBWeWyNG4EWMf8nQ",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z38hzbuib2hHEs0eeUbP2Q"
+                              "operationVDID": "Z-49zbsMI2hHSAAeeR-G2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -4197,18 +4200,37 @@
                                 },
                                 "actionRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessProxy": {
+                                    "link": {
                                       "____types": "jsObject",
-                                      "connect": {
+                                      "proxy": {
                                         "____types": "jsObject",
-                                        "apmID": {
-                                          "____accept": "jsString"
-                                        },
-                                        "instanceName": {
-                                          "____accept": "jsString",
-                                          "____defaultValue": "singleton"
+                                        "____defaultValue": {},
+                                        "coordinates": {
+                                          "____label": "Cell Process Proxy Helper Cell Coordinates Variant",
+                                          "____defaultValue": "#",
+                                          "____types": [
+                                            "jsString",
+                                            "jsObject"
+                                          ]
+                                        }
+                                      },
+                                      "process": {
+                                        "____types": "jsObject",
+                                        "coordinates": {
+                                          "____label": "Cell Process Coordinates Variant",
+                                          "____types": [
+                                            "jsString",
+                                            "jsObject"
+                                          ],
+                                          "apmID": {
+                                            "____accept": "jsString"
+                                          },
+                                          "instanceName": {
+                                            "____accept": "jsString",
+                                            "____defaultValue": "singleton"
+                                          }
                                         }
                                       }
                                     }
@@ -4219,10 +4241,10 @@
                                 "____accept": "jsObject"
                               },
                               "inputTypeVIID": "tyyJO-xMV2o0PtVr2ON4CA",
-                              "inputTypeVDID": "63a6-QFVzMzlrMs4JwFWqw",
+                              "inputTypeVDID": "sgW40md_rhjEKxiI2-_vjQ",
                               "outputTypeVIID": "w46nFkDwQGGu0ASHsdx-Zg",
                               "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "pWvfT5fNFhrujCiIb-GSWA"
+                              "operationVDID": "pQGmT5dx1RruemmIbzFGWA"
                             }
                           },
                           "ySiBEGcaRGWVOZmwBRyhrA": {
@@ -5100,7 +5122,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                                          "vdid": "KU1cmvboj_TJD_VI8Gj3EQ",
+                                          "vdid": "H6pIkSyQdkHwA-x6Z2-X9g",
                                           "name": "CPP Test Model 2",
                                           "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
                                         }
@@ -5132,10 +5154,12 @@
                                                   "delegate": {
                                                     "coordinates": "#.proxyTest",
                                                     "actionRequest": {
-                                                      "holarchy": {
-                                                        "CellProcessProxy": {
-                                                          "connect": {
-                                                            "apmID": "blVAl6l4wc87xvb0Bgdidg"
+                                                      "CellProcessor": {
+                                                        "link": {
+                                                          "process": {
+                                                            "coordinates": {
+                                                              "apmID": "blVAl6l4wc87xvb0Bgdidg"
+                                                            }
                                                           }
                                                         }
                                                       }

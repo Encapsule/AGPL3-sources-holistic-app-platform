@@ -13,18 +13,32 @@ const action = new ControllerAction({
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessProxy: {
+            link: {
                 ____types: "jsObject",
-                connect: {
+                proxy: {
                     ____types: "jsObject",
-                    apmID: {
-                        ____accept: "jsString"
-                    },
-                    instanceName: {
-                        ____accept: "jsString",
-                        ____defaultValue: "singleton"
+                    ____defaultValue: {},
+                    coordinates: {
+                        ____label: "Cell Process Proxy Helper Cell Coordinates Variant",
+                        ____defaultValue: "#",
+                        ____types: [
+                            "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell process proxy helper cell. Or, an IRUT (that we reject w/custom error message).
+                            "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly. We reject this case w/custom error message in bodyFunction.
+                        ]
+                    }
+                },
+                process: {
+                    ____types: "jsObject",
+                    coordinates: {
+                        ____label: "Cell Process Coordinates Variant",
+                        ____types: [
+                            "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell process. Or, an IRUT that resolves to a known cellProcessID.
+                            "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                        ],
+                        apmID: { ____accept: "jsString" },
+                        instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
                     }
                 }
             }
@@ -43,9 +57,25 @@ const action = new ControllerAction({
             inBreakScope = true;
 
             let runGarbageCollector = false;
-            const message = request_.actionRequest.holarchy.CellProcessProxy.connect;
+            const messageBody = request_.actionRequest.CellProcessor.link;
 
-            const proxyHelperPath = request_.context.apmBindingPath; // Take request_.context.apmBindingPath to be the path of the cell bound to CellProcessProxy that the caller wishes to connected.
+            if (Object.prototype.toString.call(messageBody.proxy.coordinates) === "[object Object]") {
+                errors.push("Cannot resolve location of the cell process proxy helper cell to link given a cell process coordinates descriptor object!");
+                break;
+            }
+
+            if (arccore.identifier.irut.isIRUT(messageBody.proxy.coordinates).result) {
+                errors.push("Cannot resolve location of the cell process proxy helper cell to link given a cell process ID!");
+                break;
+            }
+
+            let ocdResponse = OCD.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: messageBody.proxy.coordinates });
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
+
+            let proxyHelperPath = ocdResponse.result;
 
             // This ensures we're addressing an actuall CellProcessProxy-bound cell.
             // And, get us a copy of its memory and its current connection state.
@@ -96,6 +126,7 @@ const action = new ControllerAction({
                 break;
             }
 
+            const proxyHelperID = cellOwnershipReport.ownershipVector[0].cellID;
             const proxyOwnerProcessID = cellOwnershipReport.ownershipVector[1].cellID;
             const proxyOwnerProcessPath = cellOwnershipReport.ownershipVector[1].cellPath
 
@@ -108,17 +139,16 @@ const action = new ControllerAction({
             //
             // However, we do not yet know anything yet about the local cell process that the caller wishes to connect to via the proxy instance. So, we look at that next.
 
-            const lcpBindingPath = `~.${message.apmID}_CellProcesses.cellProcessMap.${arccore.identifier.irut.fromReference(message.instanceName).result}`;
-
-            let ocdResponse = request_.context.ocdi.getNamespaceSpec(lcpBindingPath);
-            if (ocdResponse.error) {
-                errors.push(`Unable to connect CellProcessProxy at path '${proxyHelperPath}' to a cell process with APM ID value '${message.apmID}' as specified. This AbstractProcessModel is not known inside this CellProcessor instance.`);
-                errors.push(ocdResponse.error);
+            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: messageBody.process.coordinates, ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
                 break;
             }
 
-            const lcpProcessID = arccore.identifier.irut.fromReference(lcpBindingPath).result;
-            const proxyHelperID = cellOwnershipReport.ownershipVector[0].cellID;
+            const resolvedProcessCoordinates = cpmLibResponse.result;
+
+            const lcpBindingPath = resolvedProcessCoordinates.cellProcessPath;
+            const lcpProcessID = resolvedProcessCoordinates.cellProcessID;
 
             // We now know it's possible to create an instance of the localCellProcess. But, we still do not know if the lcp is already present in
             // either the sharedCellProcesses.digraph and/or the ownedCellProcesses.digraph. And, the logic is a bit tricky. However, at this point
@@ -157,7 +187,7 @@ const action = new ControllerAction({
                     const actionResponse = request_.context.act({
                         actorName: "Cell Process Proxy: open connection",
                         actorTaskDescription: "Attempting to create a new owned worker process that will be managed as a shared cell process.",
-                        actionRequest: { CellProcessor: { activate: { coordinates: { apmID: message.apmID, instanceName: message.instanceName }, initData: { construction: { instanceName: message.instanceName } } } } },
+                        actionRequest: { CellProcessor: { activate: { coordinates: lcpProcessID, data: { construction: { instanceName: resolvedProcessCoordinates.coordinates.instanceName } } } } },
                         apmBindingPath: "~" // shared cell processes are owned by the CellProcessor instance's Cell Process Manager daemon process.
                     });
                     if (actionResponse.error) {
@@ -174,10 +204,7 @@ const action = new ControllerAction({
                 proxyHelperPath,
                 {
                     "CPPU-UPgS8eWiMap3Ixovg_private": {
-                        lcpRequest: {
-                            apmID: message.apmID,
-                            instanceName: message.instanceName,
-                        },
+                        lcpRequest: resolvedProcessCoordinates.coordinates,
                         lcpConnect: lcpBindingPath
                     }
                 }

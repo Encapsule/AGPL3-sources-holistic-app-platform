@@ -18,7 +18,10 @@ const controllerAction = new ControllerAction({
             activate: {
                 ____types: "jsObject",
                 coordinates: {
-                    ____types: "jsObject",
+                    ____types: [
+                        "jsString",
+                        "jsObject"
+                    ],
                     apmID: { ____accept: "jsString" },
                     instanceName: { ____accept: "jsString",  ____defaultValue: "singleton" },
                 },
@@ -52,19 +55,19 @@ const controllerAction = new ControllerAction({
             const ownedCellProcesses = cpmDataDescriptor.data.ownedCellProcesses;
 
             // Dereference the body of the action request.
-            const message = request_.actionRequest.CellProcessor.activate;
+            const messageBody = request_.actionRequest.CellProcessor.activate;
 
-            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: { apmID: message.coordinates.apmID, instanceName: message.coordinates.instanceName }, ocdi: request_.context.ocdi });
+            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: messageBody.coordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
             }
 
-            const coordinates = cpmLibResponse.result;
+            const resolvedCellProcessCoordinates = cpmLibResponse.result;
 
             // Query ownedCellProcesses.digraph to determine if the new cell process' ID slot has already been allocated (i.e. it's a disallowed duplicate process create request).
-            if (ownedCellProcesses.digraph.isVertex(coordinates.cellProcessID)) {
-                errors.push(`The cell process could not be created as requested because cell process ID '${coordinates.cellProcessID}' is already active at path '${coordinates.cellProcessPath}'.`);
+            if (ownedCellProcesses.digraph.isVertex(resolvedCellProcessCoordinates.cellProcessID)) {
+                errors.push(`The cell process could not be created as requested because cell process ID '${resolvedCellProcessCoordinates.cellProcessID}' is already active at path '${resolvedCellProcessCoordinates.cellProcessPath}'.`);
                 break;
             }
 
@@ -75,7 +78,7 @@ const controllerAction = new ControllerAction({
                 ocdi: request_.context.ocdi
             });
             if (cpmLibResponse.error) {
-                errors.push(`The cell process could not be created as requested. While examining create process request made by an active cell at '${request_.context.apmBindingPath}' we were not able to deduce which cell process should be given ownership of the requested new cell process ID '${coordinates.cellProcessID}' to be activated at path '{coordinates.cellProcessPath}'. More detail:`);
+                errors.push(`The cell process could not be created as requested. While examining create process request made by an active cell at '${request_.context.apmBindingPath}' we were not able to deduce which cell process should be given ownership of the requested new cell process ID '${resolvedCellProcessCoordinates.cellProcessID}' to be activated at path '{resolvedCellProcessCoordinates.cellProcessPath}'. More detail:`);
                 errors.push(cpmLibResponse.error);
                 break;
             }
@@ -83,9 +86,9 @@ const controllerAction = new ControllerAction({
 
             // At this point we have cleared all hurdles and are prepared to create the new cell process.
             // We will do that first so that if it fails we haven't changed any CPM digraph models of the process table.
-            let ocdResponse = request_.context.ocdi.writeNamespace(coordinates.cellProcessPath, message.data);
+            let ocdResponse = request_.context.ocdi.writeNamespace(resolvedCellProcessCoordinates.cellProcessPath, messageBody.data);
             if (ocdResponse.error) {
-                errors.push(`Failed to create cell process ID '${coordinates.cellProcessID}' at path '${coordinates.cellProcessPath}' due to problems with the process initialization data specified.`);
+                errors.push(`Failed to create cell process ID '${resolvedCellProcessCoordinates.cellProcessID}' at path '${resolvedCellProcessCoordinates.cellProcessPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);
             }
 
@@ -101,14 +104,14 @@ const controllerAction = new ControllerAction({
 
             while (cellOwnershipReport.ownershipVector.length > 0) {
                 const cellOwnershipDescriptor = cellOwnershipReport.ownershipVector.pop(); // pop from the end of the vector (ordered) to grab the descriptor of the cell that we know is already in ownedCellProcesses.digraph
-                ownedCellProcesses.digraph.addVertex({ u: cellOwnershipDescriptor.cellID, p: { apmBindingPath: cellOwnershipDescriptor.cellPath, role: "cell-process-helper", apmID: message.coordinates.apmID } });
+                ownedCellProcesses.digraph.addVertex({ u: cellOwnershipDescriptor.cellID, p: { apmBindingPath: cellOwnershipDescriptor.cellPath, role: "cell-process-helper", apmID: resolvedCellProcessCoordinates.coordinates.apmID } });
                 ownedCellProcesses.digraph.addEdge({ e: { u: parentCellOwnershipDescriptor.cellID, v: cellOwnershipDescriptor.cellID } });
                 parentCellOwnershipDescriptor = cellOwnershipDescriptor;
             }
 
             // Record the new cell process in the cell process manager's digraph.
-            ownedCellProcesses.digraph.addVertex({ u: coordinates.cellProcessID, p: { apmBindingPath: coordinates.cellProcessPath, role: "cell-process", apmID: message.coordinates.apmID }});
-            ownedCellProcesses.digraph.addEdge({ e: { u: parentCellOwnershipDescriptor.cellID, v: coordinates.cellProcessID }});
+            ownedCellProcesses.digraph.addVertex({ u: resolvedCellProcessCoordinates.cellProcessID, p: { apmBindingPath: resolvedCellProcessCoordinates.cellProcessPath, role: "cell-process", apmID: resolvedCellProcessCoordinates.coordinates.apmID }});
+            ownedCellProcesses.digraph.addEdge({ e: { u: parentCellOwnershipDescriptor.cellID, v: resolvedCellProcessCoordinates.cellProcessID }});
 
             ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.ownedCellProcesses.revision`, ownedCellProcesses.revision + 1);
             if (ocdResponse.error) {
@@ -116,7 +119,7 @@ const controllerAction = new ControllerAction({
                 break;
             }
 
-            const apmProcessesRevisionNamespace = `${coordinates.cellProcessesPath}.revision`;
+            const apmProcessesRevisionNamespace = `${resolvedCellProcessCoordinates.cellProcessesPath}.revision`;
 
             ocdResponse = request_.context.ocdi.readNamespace(apmProcessesRevisionNamespace);
             if (ocdResponse.error) {
@@ -133,7 +136,7 @@ const controllerAction = new ControllerAction({
             }
 
             // Respond back to the caller w/information about the newly-created cell process.
-            response.result = { apmBindingPath: coordinates.cellProcessPath, cellProcessID: coordinates.cellProcessID };
+            response.result = { apmBindingPath: resolvedCellProcessCoordinates.cellProcessPath, cellProcessID: resolvedCellProcessCoordinates.cellProcessID };
             break;
         }
         if (errors.length) {
