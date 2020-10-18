@@ -345,7 +345,7 @@ const cppTestModel2A = new holarchy.CellModel({
                 ],
                 actions: {
                     exit: [
-                        { CellProcessor: { activate: { coordinates: { apmID: cellspace.apmID("CPP Test Messenger") } } } }
+                        { CellProcessor: { activate: { processCoordinates: { apmID: cellspace.apmID("CPP Test Messenger") } } } }
                     ]
                 }
             },

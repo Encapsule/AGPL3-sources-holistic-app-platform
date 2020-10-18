@@ -17,7 +17,7 @@ const controllerAction = new ControllerAction({
             ____types: "jsObject",
             activate: {
                 ____types: "jsObject",
-                coordinates: {
+                processCoordinates: {
                     ____types: [
                         "jsString",
                         "jsObject"
@@ -25,7 +25,7 @@ const controllerAction = new ControllerAction({
                     apmID: { ____accept: "jsString" },
                     instanceName: { ____accept: "jsString",  ____defaultValue: "singleton" },
                 },
-                data: { ____accept: [ "jsObject", "jsUndefined" ] }
+                processData: { ____accept: [ "jsObject", "jsUndefined" ] }
             }
         }
     },
@@ -57,7 +57,7 @@ const controllerAction = new ControllerAction({
             // Dereference the body of the action request.
             const messageBody = request_.actionRequest.CellProcessor.activate;
 
-            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: messageBody.coordinates, ocdi: request_.context.ocdi });
+            cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: messageBody.processCoordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -86,7 +86,7 @@ const controllerAction = new ControllerAction({
 
             // At this point we have cleared all hurdles and are prepared to create the new cell process.
             // We will do that first so that if it fails we haven't changed any CPM digraph models of the process table.
-            let ocdResponse = request_.context.ocdi.writeNamespace(resolvedCellProcessCoordinates.cellProcessPath, messageBody.data);
+            let ocdResponse = request_.context.ocdi.writeNamespace(resolvedCellProcessCoordinates.cellProcessPath, messageBody.processData);
             if (ocdResponse.error) {
                 errors.push(`Failed to create cell process ID '${resolvedCellProcessCoordinates.cellProcessID}' at path '${resolvedCellProcessCoordinates.cellProcessPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);

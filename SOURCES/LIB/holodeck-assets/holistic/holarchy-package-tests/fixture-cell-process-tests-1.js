@@ -21,9 +21,9 @@ const cellModel = new holarchy.CellModel({
                 description: "Attempt to create a number of child processes.",
                 actions: {
                     enter: [
-                        { CellProcessor: { activate: { coordinates: { apmID: "Q15zOx5FT-2vt1jSKIIOLQ", instanceName: "Child Process #1" } } } },
-                        { CellProcessor: { activate: { coordinates: { apmID: "CW2q-O_CQ0CObmLa1PWb3g", instanceName: "Child Process #2" } } } },
-                        { CellProcessor: { activate: { coordinates: { apmID: "l_CypcNERjOcr7SxzIGt8A", instanceName: "Child Process #3" } } } }
+                        { CellProcessor: { activate: { processCoordinates: { apmID: "Q15zOx5FT-2vt1jSKIIOLQ", instanceName: "Child Process #1" } } } },
+                        { CellProcessor: { activate: { processCoordinates: { apmID: "CW2q-O_CQ0CObmLa1PWb3g", instanceName: "Child Process #2" } } } },
+                        { CellProcessor: { activate: { processCoordinates: { apmID: "l_CypcNERjOcr7SxzIGt8A", instanceName: "Child Process #3" } } } }
                     ]
                 },
                 transitions: [

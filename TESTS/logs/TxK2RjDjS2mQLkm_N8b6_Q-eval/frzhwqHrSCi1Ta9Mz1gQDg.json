@@ -262,7 +262,7 @@
                       "actionRequest": {
                         "CellProcessor": {
                           "activate": {
-                            "coordinates": {
+                            "processCoordinates": {
                               "apmID": "cYpoxyyZSwm19CqH3v7eLQ",
                               "instanceName": "Test Process"
                             }
@@ -283,7 +283,7 @@
                             "actionRequest": {
                               "CellProcessor": {
                                 "activate": {
-                                  "coordinates": {
+                                  "processCoordinates": {
                                     "apmID": "3E27IH_CQeqBUFsGm4tIIA",
                                     "instanceName": "Child Process"
                                   }
@@ -331,7 +331,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                        "vdid": "GcIGBB47PPdPtUCBk7yc2g",
+                        "vdid": "98IGBJU7PPf_tUCBLLyc2g",
                         "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                         "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                         "cmat": {
@@ -341,7 +341,7 @@
                               "type": "INDEX",
                               "EPUQ9YpwinAcHhwe1iLWIg": {
                                 "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                                "vdid": "GcIGBB47PPdPtUCBk7yc2g",
+                                "vdid": "98IGBJU7PPf_tUCBLLyc2g",
                                 "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                                 "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                                 "type": "CM",
@@ -445,14 +445,14 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "ZLHolF6KOrGxxgPjhTVO7A",
+                                  "vdid": "5IPvubR7aCOE6wFG2NRb4A",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
                                 },
                                 "4s_DUfKnQ4aS-xRjewAfUQ": {
                                   "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                  "vdid": "s03Vnp6xfLyTqqwQAbef1Q",
+                                  "vdid": "jxcAKCLtFQyznZLJY_aTIw",
                                   "name": "Cell Process Manager: Process Delete",
                                   "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                   "type": "ACT"
@@ -5621,9 +5621,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -5635,9 +5635,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -5649,9 +5649,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString).apmID(jsString)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString).apmID(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates.apmID",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates.apmID",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -5663,9 +5663,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject).apmID(jsString)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject).apmID(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates.apmID",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates.apmID",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -6279,25 +6279,25 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString)"
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)"
                                 }
                               },
                               {
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject)"
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString).apmID(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString).apmID(jsString)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject).apmID(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject).apmID(jsString)"
                                 }
                               },
                               {
@@ -6606,7 +6606,7 @@
                                     "____types": "jsObject",
                                     "activate": {
                                       "____types": "jsObject",
-                                      "coordinates": {
+                                      "processCoordinates": {
                                         "____types": [
                                           "jsString",
                                           "jsObject"
@@ -6619,7 +6619,7 @@
                                           "____defaultValue": "singleton"
                                         }
                                       },
-                                      "data": {
+                                      "processData": {
                                         "____accept": [
                                           "jsObject",
                                           "jsUndefined"
@@ -6647,10 +6647,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "KfOOaPbBWeWyNG4EWMf8nQ",
+                              "inputTypeVDID": "AUhF48pqQHLHdg6xKNQNEQ",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z-49zbsMI2hHSAAeeR-G2Q"
+                              "operationVDID": "Z_Xpzbv9emhHPrceeeaS2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -6687,12 +6687,12 @@
                                     "____types": "jsObject",
                                     "deactivate": {
                                       "____types": "jsObject",
-                                      "coordinates": {
+                                      "processCoordinates": {
                                         "____types": [
-                                          "jsUndefined",
                                           "jsString",
                                           "jsObject"
                                         ],
+                                        "____defaultValue": "#",
                                         "apmID": {
                                           "____accept": "jsString"
                                         },
@@ -6715,10 +6715,10 @@
                                 }
                               },
                               "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                              "inputTypeVDID": "RHSlrDUN_MI-TbJ5nmy9tw",
+                              "inputTypeVDID": "Kgs58gAXPVDtwGfnetm4_Q",
                               "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                               "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                              "operationVDID": "j0VnCQ-zV5RK1-P0PauOrg"
+                              "operationVDID": "jxVVCQ-PhZRKRST0PQ4zrg"
                             }
                           },
                           "r-JgxABoS_a-mSE2c1nvKA": {
@@ -7822,7 +7822,7 @@
                           "actionRequest": {
                             "CellProcessor": {
                               "activate": {
-                                "coordinates": {
+                                "processCoordinates": {
                                   "apmID": "cYpoxyyZSwm19CqH3v7eLQ",
                                   "instanceName": "Test Process"
                                 }
@@ -8141,7 +8141,7 @@
                                 "actionRequest": {
                                   "CellProcessor": {
                                     "activate": {
-                                      "coordinates": {
+                                      "processCoordinates": {
                                         "apmID": "3E27IH_CQeqBUFsGm4tIIA",
                                         "instanceName": "Child Process"
                                       }

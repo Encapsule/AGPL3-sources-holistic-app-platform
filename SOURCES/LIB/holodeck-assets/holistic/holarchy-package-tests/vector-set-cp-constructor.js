@@ -63,7 +63,7 @@ module.exports = [
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
+                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             },
 
@@ -72,14 +72,14 @@ module.exports = [
                                 options: { failTestIf: { CellProcessor: { actionError: "fail-if-action-result" } } },
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
+                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             },
 
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
+                                    actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             }
                         ]
@@ -114,7 +114,7 @@ module.exports = [
                             {
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Construct an instance of the Process Test Fixture Model that is declared to create three child processes via self-similar mechanism.",
-                                actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
+                                actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
                             },
 
                             {

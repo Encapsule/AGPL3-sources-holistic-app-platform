@@ -2,7 +2,7 @@
 
 const arccore = require("@encapsule/arccore");
 const ControllerAction = require("../../../ControllerAction");
-const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
+const ObservableControllerData = require("../../../lib/ObservableControllerData");
 const cpmLib = require("./lib");
 const cppLib = require("../CellProcessProxy/lib");
 
@@ -17,12 +17,12 @@ const controllerAction = new ControllerAction({
             ____types: "jsObject",
             deactivate: {
                 ____types: "jsObject",
-                coordinates: {
+                processCoordinates: {
                     ____types: [
-                        "jsUndefined", // because it's optional. If not specified, then the default behavior is to use request_.context.apmBindingPath to deduce the cell process to delete.
                         "jsString", // because it might be a cellProcessPath or cellProcessID
                         "jsObject", // because it might be a raw coordinates apmID, instanceName descriptor
                     ],
+                    ____defaultValue: "#",
                     apmID: { ____accept: "jsString" },
                     instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
                 }
@@ -46,9 +46,22 @@ const controllerAction = new ControllerAction({
 
             const messageBody = request_.actionRequest.CellProcessor.deactivate;
 
-            const coordinates = messageBody.coordinates?messageBody.coordinates:request_.context.apmBindingPath;
+            let unresolvedCoordinates = messageBody.processCoordinates;
 
-            let cpmLibResponse  = cpmLib.resolveCellProcessCoordinates.request({ coordinates, ocdi: request_.context.ocdi });
+            if (Object.prototype.toString.call(unresolvedCoordinates) === "[object String]") {
+                if (!arccore.identifier.irut.isIRUT(unresolvedCoordinates).result) {
+                    if (unresolvedCoordinates.startsWith("#")) {
+                        let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: unresolvedCoordinates });
+                        if (ocdResponse.error) {
+                            errors.push(ocdResponse.error);
+                            break;
+                        }
+                        unresolvedCoordinates = ocdResponse.result;
+                    }
+                }
+            }
+
+            let cpmLibResponse  = cpmLib.resolveCellProcessCoordinates.request({ coordinates: unresolvedCoordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;

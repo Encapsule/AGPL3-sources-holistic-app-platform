@@ -3,6 +3,8 @@
 const ControllerAction = require("../../../ControllerAction");
 const cppLib = require("./lib");
 
+// TO BE REMOVED in v0.0.48!
+
 const action = new ControllerAction({
     id: "rua1glcmTsOlYcfpZuiXnA",
     name: "Cell Process Proxy: Proxy Action",

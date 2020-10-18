@@ -24,6 +24,7 @@ module.exports = [
                                     ocdDataSpec: {
                                         ____types: "jsObject",
                                         ____defaultValue: {},
+                                        construction: { ____accept: "jsObject", ____defaultValue: {} },
                                         count: {
                                             ____types: "jsNumber",
                                             ____defaultValue: 0
@@ -46,7 +47,7 @@ module.exports = [
                                             actions: {
                                                 enter: [
                                                     // Note that this is deliberately verbose. We could equivalently write:
-                                                    // { CellProcess: { connect: { proxy: { coordindates: "#.proxy" }, process: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } }
+                                                    // { CellProcess: { connect: { proxy: { proxyCoordindates: "#.proxy" processCoordinates: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } }
                                                     { CellProcessor: { delegate: { coordinates: "#.proxy", actionRequest: { CellProcessor: { proxy: { connect: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
                                                 ]
                                             },
@@ -88,14 +89,14 @@ module.exports = [
                                 actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                    actionRequest: { CellProcessor: { activate: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
+                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
                                 }
                             },
                             {
                                 actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                    actionRequest: { CellProcessor: { deactivate: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
+                                    actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
                                 }
                             }
                         ]

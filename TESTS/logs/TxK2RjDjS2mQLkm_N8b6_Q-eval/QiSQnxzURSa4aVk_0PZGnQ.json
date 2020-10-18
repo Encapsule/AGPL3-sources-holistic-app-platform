@@ -16,7 +16,7 @@
                     "description": "Can we use a cell that uses a proxy as a helper?",
                     "cellmodel": {
                       "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                      "vdid": "Y9tDnpU_aaKSau_5-BdMHA",
+                      "vdid": "Y6jPnpV4W6KSOW75-DvzHA",
                       "name": "CPP Test Model 3",
                       "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                       "cmat": {
@@ -26,7 +26,7 @@
                             "type": "INDEX",
                             "7dTIJgcz6Kix1JUYAtzV2g": {
                               "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                              "vdid": "Y9tDnpU_aaKSau_5-BdMHA",
+                              "vdid": "Y6jPnpV4W6KSOW75-DvzHA",
                               "name": "CPP Test Model 3",
                               "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                               "type": "CM",
@@ -67,13 +67,13 @@
                               },
                               "7dTIIAcz6BCx1JV5AtzVSw": {
                                 "id": "7dTIIAcz6BCx1JV5AtzVSw",
-                                "vdid": "A8xufoxh-zRBKBlfIk6OjA",
+                                "vdid": "A_Fufoyn-zRBpBlfIhiOjA",
                                 "name": "CPP Test 2A",
                                 "description": "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                 "type": "CM",
                                 "XP3y711ciGxMsHkhdn5i0w": {
                                   "id": "XP3y711ciGxMsHkhdn5i0w",
-                                  "vdid": "xVc-_ZMNzSsrr_ZoJBc-Lg",
+                                  "vdid": "VN9jQNc8VwFVyjIrmPYdZg",
                                   "name": "CPP Test 2A",
                                   "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                   "type": "APM"
@@ -95,7 +95,7 @@
                               },
                               "7dTIOQcz6LOx1JWmAtzVJg": {
                                 "id": "7dTIOQcz6LOx1JWmAtzVJg",
-                                "vdid": "ZidGfZC_8z_3dbpSPLjWjg",
+                                "vdid": "ZqX-fZB0Bz_3PuhSPCY8jg",
                                 "name": "CPP Test Model 2C",
                                 "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                 "type": "CM",
@@ -128,7 +128,7 @@
                         "actionRequest": {
                           "CellProcessor": {
                             "activate": {
-                              "coordinates": {
+                              "processCoordinates": {
                                 "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
                               }
                             }
@@ -143,7 +143,7 @@
                         "actionRequest": {
                           "CellProcessor": {
                             "deactivate": {
-                              "coordinates": {
+                              "processCoordinates": {
                                 "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
                               }
                             }
@@ -188,7 +188,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                        "vdid": "w7f3SuuWfXJzSq3ibAG6ww",
+                        "vdid": "Trd0qTeWYXvrSkzF1QFwiA",
                         "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                         "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                         "cmat": {
@@ -198,7 +198,7 @@
                               "type": "INDEX",
                               "FvUW9UtwS3DDHsMeWSJZIg": {
                                 "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                                "vdid": "w7f3SuuWfXJzSq3ibAG6ww",
+                                "vdid": "Trd0qTeWYXvrSkzF1QFwiA",
                                 "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
                                 "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
                                 "type": "CM",
@@ -302,14 +302,14 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "ZLHolF6KOrGxxgPjhTVO7A",
+                                  "vdid": "5IPvubR7aCOE6wFG2NRb4A",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
                                 },
                                 "4s_DUfKnQ4aS-xRjewAfUQ": {
                                   "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                  "vdid": "s03Vnp6xfLyTqqwQAbef1Q",
+                                  "vdid": "jxcAKCLtFQyznZLJY_aTIw",
                                   "name": "Cell Process Manager: Process Delete",
                                   "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                   "type": "ACT"
@@ -533,7 +533,7 @@
                                 },
                                 "7dTIJgcz6Kix1JUYAtzV2g": {
                                   "id": "7dTIJgcz6Kix1JUYAtzV2g",
-                                  "vdid": "Y9tDnpU_aaKSau_5-BdMHA",
+                                  "vdid": "Y6jPnpV4W6KSOW75-DvzHA",
                                   "name": "CPP Test Model 3",
                                   "description": "Embeds CPP Test Model 2 as a helper cell to test if the CPM memory manager can correctly handle the helper cell's requests when it's functioning as a helper.",
                                   "type": "CM",
@@ -574,13 +574,13 @@
                                   },
                                   "7dTIIAcz6BCx1JV5AtzVSw": {
                                     "id": "7dTIIAcz6BCx1JV5AtzVSw",
-                                    "vdid": "A8xufoxh-zRBKBlfIk6OjA",
+                                    "vdid": "A_Fufoyn-zRBpBlfIhiOjA",
                                     "name": "CPP Test 2A",
                                     "description": "A model that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                     "type": "CM",
                                     "XP3y711ciGxMsHkhdn5i0w": {
                                       "id": "XP3y711ciGxMsHkhdn5i0w",
-                                      "vdid": "xVc-_ZMNzSsrr_ZoJBc-Lg",
+                                      "vdid": "VN9jQNc8VwFVyjIrmPYdZg",
                                       "name": "CPP Test 2A",
                                       "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared).",
                                       "type": "APM"
@@ -602,7 +602,7 @@
                                   },
                                   "7dTIOQcz6LOx1JWmAtzVJg": {
                                     "id": "7dTIOQcz6LOx1JWmAtzVJg",
-                                    "vdid": "ZidGfZC_8z_3dbpSPLjWjg",
+                                    "vdid": "ZqX-fZB0Bz_3PuhSPCY8jg",
                                     "name": "CPP Test Model 2C",
                                     "description": "A model that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies.",
                                     "type": "CM",
@@ -633,7 +633,7 @@
                         "apmMap": {
                           "XP3y711ciGxMsHkhdn5i0w": {
                             "id": "XP3y711ciGxMsHkhdn5i0w",
-                            "vdid": "xVc-_ZMNzSsrr_ZoJBc-Lg",
+                            "vdid": "VN9jQNc8VwFVyjIrmPYdZg",
                             "name": "CPP Test 2A",
                             "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared)."
                           },
@@ -694,7 +694,7 @@
                             "specPath": "~.XP3y711ciGxMsHkhdn5i0w_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "XP3y711ciGxMsHkhdn5i0w",
-                              "vdid": "xVc-_ZMNzSsrr_ZoJBc-Lg",
+                              "vdid": "VN9jQNc8VwFVyjIrmPYdZg",
                               "name": "CPP Test 2A",
                               "description": "A process that attempts to create a child process. We use this model to ensure that a cell cannot tell if its role is helper. Or, is active as a cell process (either owned or shared)."
                             }
@@ -6088,9 +6088,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -6102,9 +6102,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -6116,9 +6116,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString).apmID(jsString)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString).apmID(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates.apmID",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates.apmID",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -6130,9 +6130,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject).apmID(jsString)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject).apmID(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.coordinates.apmID",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates.apmID",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -6700,25 +6700,25 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString)"
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)"
                                 }
                               },
                               {
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject)"
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsString).apmID(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString).apmID(jsString)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).coordinates(jsObject).apmID(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject).apmID(jsString)"
                                 }
                               },
                               {
@@ -7009,7 +7009,7 @@
                                     "____types": "jsObject",
                                     "activate": {
                                       "____types": "jsObject",
-                                      "coordinates": {
+                                      "processCoordinates": {
                                         "____types": [
                                           "jsString",
                                           "jsObject"
@@ -7022,7 +7022,7 @@
                                           "____defaultValue": "singleton"
                                         }
                                       },
-                                      "data": {
+                                      "processData": {
                                         "____accept": [
                                           "jsObject",
                                           "jsUndefined"
@@ -7050,10 +7050,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "KfOOaPbBWeWyNG4EWMf8nQ",
+                              "inputTypeVDID": "AUhF48pqQHLHdg6xKNQNEQ",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z-49zbsMI2hHSAAeeR-G2Q"
+                              "operationVDID": "Z_Xpzbv9emhHPrceeeaS2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -7090,12 +7090,12 @@
                                     "____types": "jsObject",
                                     "deactivate": {
                                       "____types": "jsObject",
-                                      "coordinates": {
+                                      "processCoordinates": {
                                         "____types": [
-                                          "jsUndefined",
                                           "jsString",
                                           "jsObject"
                                         ],
+                                        "____defaultValue": "#",
                                         "apmID": {
                                           "____accept": "jsString"
                                         },
@@ -7118,10 +7118,10 @@
                                 }
                               },
                               "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                              "inputTypeVDID": "RHSlrDUN_MI-TbJ5nmy9tw",
+                              "inputTypeVDID": "Kgs58gAXPVDtwGfnetm4_Q",
                               "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                               "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                              "operationVDID": "j0VnCQ-zV5RK1-P0PauOrg"
+                              "operationVDID": "jxVVCQ-PhZRKRST0PQ4zrg"
                             }
                           },
                           "r-JgxABoS_a-mSE2c1nvKA": {
@@ -8158,7 +8158,7 @@
                           "actionRequest": {
                             "CellProcessor": {
                               "activate": {
-                                "coordinates": {
+                                "processCoordinates": {
                                   "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
                                 }
                               }
@@ -8553,7 +8553,7 @@
                           "actionRequest": {
                             "CellProcessor": {
                               "deactivate": {
-                                "coordinates": {
+                                "processCoordinates": {
                                   "apmID": "XP3yxl1ciE5MsHkhdn5iQQ"
                                 }
                               }

@@ -3,6 +3,8 @@
 const TransitionOperator = require("../../../TransitionOperator");
 const cppLib = require("./lib");
 
+// TO BE REMOVED in v0.0.48!
+
 const action = new TransitionOperator({
     id: "FTxze-WaRp6HS0Dlr_Ke6A",
     name: "Cell Process Proxy: Proxy Operator",
