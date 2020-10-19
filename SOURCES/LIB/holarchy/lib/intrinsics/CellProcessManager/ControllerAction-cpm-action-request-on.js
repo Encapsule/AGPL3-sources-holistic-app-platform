@@ -1,36 +1,5 @@
 // ControllerAction-cpm-action-request-on.js
 
-/*
-
-  { CellProcessor: { activate: { coordinates: variant, data: {...} } } } } // Currently, CPM process create action
-  { CellProcessor: { deactivate: { coordinates: variant (optional) } } } } // Currently, CPM process delete action
-  { CellProcessor: { query: { coordinates: variant (optional) } } } } // Currently, CPM process query action
-
-  { CellProcessor: { check: { ancestors: { active: {...} } } } }
-  { CellProcessor: { check: { ancestors: { allInStep: {...} } } } }
-  { CellProcessor: { check: { ancestors: { anyInStep: {...} } } } }
-  { CellProcessor: { check: { children: { active: {...} } } } }
-  { CellProcessor: { check: { children: { allInStep: {...} } } } }
-  { CellProcessor: { check: { children: { anyInStep: {...} } } } }
-  { CellProcessor: { check: { desdendants: { active: {...} } } } }
-  { CellProcessor: { check: { descendants: { allInStep: {...} } } } }
-  { CellProcessor: { check: { descendants: { anyInStep: {...} } } } }
-  { CellProcessor: { check: { parent: { active: {...} } } } }
-  { CellProcessor: { check: { parent: { inStep: {...} } } } }
-
-  { CellProcessor: { delegate: { actionRequest: {...}, coordinates: variant } } } <-- Currently called actOn in v0.0.47
-  { CellProcessor: { delegate: { operatorRequest: {...}, coordinates: variant } } } <--- Currently called opOn on v0.0.47
-
-
-  { CellProcessor: { connect: { proxy: {  coordinates: variant } process: { coordinates: { variant } } } // ControllerAction (currently CPP proxy connect)
-  { CellProcessor: { disconnect: { proxy: { coordinates: variant (optional) } } } // ControllerAction (currently CPP proxy disconnect)
-  { CellProcessor: { check: { link: { isBroken: {} } } } }
-  { CellProcessor: { check: { link: { isConnected: {} } } } }
-  { CellProcessor: { check: { link: { isDisconnected: {} } } } }
-
-
-*/
-
 const ControllerAction = require("../../../ControllerAction");
 const ObservableControllerData = require("../../../lib/ObservableControllerData");
 const cpmLib = require("./lib");
@@ -44,16 +13,20 @@ const controllerAction = new ControllerAction({
         ____types: "jsObject",
         CellProcessor: {
             ____types: "jsObject",
-            delegate: {
+            cell: {
                 ____types: "jsObject",
-                actionRequest: { ____accept: "jsObject" },
-                coordinates: {
+                cellCoordinates: {
                     ____types: [
                         "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
                         "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
                     ],
+                    ____defaultValue: "#", // i.e. query the current cell
                     apmID: { ____accept: "jsString" },
                     instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+                },
+                delegate: {
+                    ____types: "jsObject",
+                    actionRequest: { ____accept: "jsObject" },
                 }
             }
         }
@@ -71,21 +44,20 @@ const controllerAction = new ControllerAction({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const messageBody = request_.actionRequest.CellProcessor.delegate;
+            const messageBody = request_.actionRequest.CellProcessor.cell;
 
-            let coordinates = messageBody.coordinates;
+            let unresolvedCoordinates = messageBody.cellCoordinates;
 
-            const coordinatesTypeString = Object.prototype.toString.call(coordinates);
-            if (Object.prototype.toString.call(coordinates) === "[object String]") {
-                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: coordinates });
+            if (Object.prototype.toString.call(unresolvedCoordinates) === "[object String]") {
+                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: unresolvedCoordinates });
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
-                coordinates = ocdResponse.result;
+                unresolvedCoordinates = ocdResponse.result;
             }
 
-            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates, ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates: unresolvedCoordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -96,7 +68,7 @@ const controllerAction = new ControllerAction({
             let actResponse = request_.context.act({
                 actorName: "Cell Process Manager: actOn",
                 actorTaskDescription: `Delegating ControllerAction request to cell at path '${targetCellPath}'.`,
-                actionRequest: messageBody.actionRequest,
+                actionRequest: messageBody.delegate.actionRequest,
                 apmBindingPath: targetCellPath
             });
 

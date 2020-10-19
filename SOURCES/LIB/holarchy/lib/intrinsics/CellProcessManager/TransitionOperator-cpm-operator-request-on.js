@@ -13,10 +13,9 @@ const transitionOperator = new TransitionOperator({
         ____types: "jsObject",
         CellProcessor: {
             ____types: "jsObject",
-            delegate: {
+            cell: {
                 ____types: "jsObject",
-                operatorRequest: { ____accept: "jsObject" },
-                coordinates: {
+                cellCoordinates: {
                     ____types: [
                         "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
                         "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
@@ -25,6 +24,10 @@ const transitionOperator = new TransitionOperator({
                     apmID: { ____accept: "jsString" },
                     instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
 
+                },
+                delegate: {
+                    ____types: "jsObject",
+                    operatorRequest: { ____accept: "jsObject" },
                 }
             }
         }
@@ -37,21 +40,20 @@ const transitionOperator = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const messageBody = request_.operatorRequest.CellProcessor.delegate;
+            const messageBody = request_.operatorRequest.CellProcessor.cell;
 
-            let coordinates = messageBody.coordinates;
+            let unresolvedCoordinates = messageBody.cellCoordinates;
 
-            const coordinatesTypeString = Object.prototype.toString.call(coordinates);
-            if (("[object String]" === coordinatesTypeString) && messageBody.coordinates.startsWith("#")) {
-                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: coordinates });
+            if ((Object.prototype.toString.call(unresolvedCoordinates) === "[object String]") && unresolvedCoordinates.startsWith("#")) {
+                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: unresolvedCoordinates });
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
-                coordinates = ocdResponse.result;
+                unresolvedCoordinates = ocdResponse.result;
             }
 
-            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates, ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates: unresolvedCoordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -64,12 +66,11 @@ const transitionOperator = new TransitionOperator({
                     ...request_.context,
                     apmBindingPath: targetCellPath
                 },
-                operatorRequest: messageBody.operatorRequest,
+                operatorRequest: messageBody.delegate.operatorRequest,
             });
             if (operatorResponse.error) {
-                errors.push("Unable to resolve TransitionOperator plug-in to process specified request:");
+                errors.push("Unrecognized TransitionOperator request format; unable to resolve plug-in filter.");
                 errors.push(operatorResponse.error);
-                errros.push("Check the format of your TransitionOperator request for syntax error(s). Failing that, possibly you have failed to register CellModel's?");
                 break;
             }
 
@@ -80,12 +81,11 @@ const transitionOperator = new TransitionOperator({
                     ...request_.context,
                     apmBindingPath: targetCellPath
                 },
-                operatorRequest: messageBody.operatorRequest,
+                operatorRequest: messageBody.delegate.operatorRequest,
             });
             if (operatorResponse.error) {
-                errors.push("We were not able to delegate your TransitionOperator request to a plug-in. However, the plug-in subsequently rejected your request with error:");
+                errors.push("TransitionOperator plug-in failed while processing delegated operator request.");
                 errors.push(operatorResponse.error);
-                errors.push("Check the details of TransitionOperator plug-in to ensure you're calling it correctly.");
                 break;
             }
 

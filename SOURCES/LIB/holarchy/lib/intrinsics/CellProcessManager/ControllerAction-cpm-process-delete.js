@@ -15,7 +15,7 @@ const controllerAction = new ControllerAction({
         ____types: "jsObject",
         CellProcessor: {
             ____types: "jsObject",
-            deactivate: {
+            process: {
                 ____types: "jsObject",
                 processCoordinates: {
                     ____types: [
@@ -25,7 +25,8 @@ const controllerAction = new ControllerAction({
                     ____defaultValue: "#",
                     apmID: { ____accept: "jsString" },
                     instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
-                }
+                },
+                deactivate: { ____accept: "jsObject" }
             }
         }
     },
@@ -44,7 +45,7 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log(`[${this.operationID}::${this.operationName}] action start...`);
 
-            const messageBody = request_.actionRequest.CellProcessor.deactivate;
+            const messageBody = request_.actionRequest.CellProcessor.process;
 
             let unresolvedCoordinates = messageBody.processCoordinates;
 

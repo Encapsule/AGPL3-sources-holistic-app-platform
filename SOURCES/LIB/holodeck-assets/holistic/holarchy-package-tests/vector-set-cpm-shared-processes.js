@@ -26,7 +26,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Cell Process Proxy Test #1",
                                     actorTaskDescription: "Instantiate test process that embeds a process proxy worker process.",
-                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process A" } } } }
+                                    actionRequest: { CellProcessor: { process: { activate: { /*default processData*/ }, processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process A" } } } }
                                 }
                             },
 
@@ -36,7 +36,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Cell Process Proxy Test #1",
                                     actorTaskDescription: "Attempt to delete the newly created shared process (should fail).",
-                                    actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process B" } } } }
+                                    actionRequest: { CellProcessor: { process: { deactivate: {}, processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process B" } } } }
                                 }
                             },
 
@@ -45,7 +45,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Cell Process Proxy Test #1",
                                     actorTaskDescription: "Attempt to delete the original test process (should succeed).",
-                                    actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process A" } } } }
+                                    actionRequest: { CellProcessor: { process: { deactivate: {}, processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 1"), instanceName: "Test Process A" } } } }
                                 }
                             }
                         ]
@@ -75,12 +75,12 @@ module.exports = [
                             {
                                 actorName: "CPM Shared Process Test #2",
                                 actorTaskDescription: "Start a test process.",
-                                actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } }
+                                actionRequest: { CellProcessor: { process: { activate: { /* default processData */ },  processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } }
                             },
                             {
                                 actorName: "CPM Shared Process Test #2",
                                 actorTaskDescription: "Delete the test process.",
-                                actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } }
+                                actionRequest: { CellProcessor: { process: {  deactivate: {}, processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 2") } } } }
                             }
                         ]
                     }
@@ -92,7 +92,7 @@ module.exports = [
     {
         id: "QiSQnxzURSa4aVk_0PZGnQ",
         name: "CPM Shared Process Test #3",
-        description: "Can we use a cell that uses a proxy as a helper?",
+        description: "Can we use a cell that uses a proxy as a helper? NO! WE CANNOT DO THIS YET. THIS IS PLANNED FOR v0.0.49.",
         vectorRequest: {
             holistic: {
                 holarchy: {
@@ -107,11 +107,11 @@ module.exports = [
                         testActorRequests: [
 
                             {
-                                options: { failTestIf: { CellProcessor: { evaluateError: "fail-if-opc-no-errors" } } }, // THIS IS WRONG! THIS TEST SHOULD PASS. THERE IS WHERE I LEFT OFF WHEN I WENT TO LOCK DOWN CELLPROCESS TEST HARNESS
+                                options: { failTestIf: { CellProcessor: { evaluateError: "fail-if-opc-no-errors" } } }, // TODO: THIS IS WRONG! THIS TEST SHOULD PASS. THERE IS WHERE I LEFT OFF WHEN I WENT TO LOCK DOWN CELLPROCESS TEST HARNESS
                                 actRequest: {
                                     actorName: "CPM Shared Process Test #3",
                                     actorTaskDescription: "Start a test process.",
-                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } }  }
+                                    actionRequest: { CellProcessor: { process: { activate: { /* default processData */ }, processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } } }
                                 }
                             },
 
@@ -119,7 +119,7 @@ module.exports = [
                                 actRequest: {
                                     actorName: "CPM Shared Process Test #3",
                                     actorTaskDescription: "Delete a test process.",
-                                    actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } } }
+                                    actionRequest: { CellProcessor: { process: { deactivate: {}, processCoordinates: { apmID: cppTestModelSpace.apmID("CPP Test 3") } } } }
                                 }
                             }
 

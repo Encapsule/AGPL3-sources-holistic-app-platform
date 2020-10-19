@@ -48,7 +48,7 @@ module.exports = [
                                                 enter: [
                                                     // Note that this is deliberately verbose. We could equivalently write:
                                                     // { CellProcess: { connect: { proxy: { proxyCoordindates: "#.proxy" processCoordinates: { coordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } }
-                                                    { CellProcessor: { delegate: { coordinates: "#.proxy", actionRequest: { CellProcessor: { proxy: { connect: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } }
+                                                    { CellProcessor: { cell: { cellCoordinates: "#.proxy", delegate: { actionRequest: { CellProcessor: { proxy: { connect: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" /*Back to host*/ } } } } } } } } }
                                                 ]
                                             },
                                             transitions: [
@@ -89,14 +89,14 @@ module.exports = [
                                 actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
+                                    actionRequest: { CellProcessor: { process: { activate: { /* default processData */ },  processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
                                 }
                             },
                             {
                                 actRequest: {
                                     actorName: "Proxy Test A",
                                     actorTaskDescription: "Start test process.",
-                                    actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
+                                    actionRequest: { CellProcessor: { process: { deactivate: {}, processCoordinates: { apmID: "mctGtkfiQmeO93Va6WkGZw" } } } }
                                 }
                             }
                         ]

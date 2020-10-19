@@ -175,7 +175,20 @@ const action = new ControllerAction({
                     const actionResponse = request_.context.act({
                         actorName: "Cell Process Proxy: open connection",
                         actorTaskDescription: "Attempting to create a new owned worker process that will be managed as a shared cell process.",
-                        actionRequest: { CellProcessor: { activate: { processCoordinates: lcpProcessID, processData: { construction: { instanceName: resolvedProcessCoordinates.coordinates.instanceName } } } } },
+                        actionRequest: {
+                            CellProcessor: {
+                                process: {
+                                    processCoordinates: lcpProcessID,
+                                    activate: {
+                                        processData: {
+                                            construction: {
+                                                instanceName: resolvedProcessCoordinates.coordinates.instanceName
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
                         apmBindingPath: "~" // shared cell processes are owned by the CellProcessor instance's Cell Process Manager daemon process.
                     });
                     if (actionResponse.error) {

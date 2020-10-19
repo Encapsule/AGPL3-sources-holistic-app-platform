@@ -200,7 +200,7 @@ const factoryResponse = arccore.filter.create({
                     const actResponse = request_.act({
                         actorName: "Cell Process Proxy: Garbage Collector",
                         actorTaskDescription: "Deleting unneeded shared cell process.",
-                        actionRequest: { CellProcessor: { deactivate: { processCoordinates: deleteProcessID } } }
+                        actionRequest: { CellProcessor: { process: { deactivate: {}, processCoordinates: deleteProcessID } } }
                     });
                     if (actResponse.error) {
                         errors.push(actResponse.error);

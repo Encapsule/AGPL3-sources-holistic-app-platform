@@ -15,17 +15,26 @@ const controllerAction = new ControllerAction({
         ____types: "jsObject",
         CellProcessor: {
             ____types: "jsObject",
-            activate: {
+            process: {
                 ____types: "jsObject",
                 processCoordinates: {
                     ____types: [
-                        "jsString",
-                        "jsObject"
+                        "jsString", // because it might be a cellProcessPath or cellProcessID
+                        "jsObject" // because it might be a raw coordinates apmID, instanceName descriptor
                     ],
+                    ____defaultValue: "#", // NOTE: That taking the default here will _never_ work by definition.
                     apmID: { ____accept: "jsString" },
                     instanceName: { ____accept: "jsString",  ____defaultValue: "singleton" },
                 },
-                processData: { ____accept: [ "jsObject", "jsUndefined" ] }
+                activate: {
+                    ____types: "jsObject",
+                    processData: {
+                        ____accept: [
+                            "jsUndefined", // Most APM's define a memory specification that allows derived cells to be activated w/out process initialization data (i.e. the cell is initialized using APM-defined default values).
+                            "jsObject"     // ... if this is not the case for a specific APM, or if the caller wishes to override the defaults specified by the APM then we know processData must be some object value (the details of which we don't care about at this level).
+                        ]
+                    }
+                }
             }
         }
     },
@@ -55,7 +64,7 @@ const controllerAction = new ControllerAction({
             const ownedCellProcesses = cpmDataDescriptor.data.ownedCellProcesses;
 
             // Dereference the body of the action request.
-            const messageBody = request_.actionRequest.CellProcessor.activate;
+            const messageBody = request_.actionRequest.CellProcessor.process;
 
             cpmLibResponse = cpmLib.resolveCellProcessCoordinates.request({ coordinates: messageBody.processCoordinates, ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
@@ -86,7 +95,7 @@ const controllerAction = new ControllerAction({
 
             // At this point we have cleared all hurdles and are prepared to create the new cell process.
             // We will do that first so that if it fails we haven't changed any CPM digraph models of the process table.
-            let ocdResponse = request_.context.ocdi.writeNamespace(resolvedCellProcessCoordinates.cellProcessPath, messageBody.processData);
+            let ocdResponse = request_.context.ocdi.writeNamespace(resolvedCellProcessCoordinates.cellProcessPath, messageBody.activate.processData);
             if (ocdResponse.error) {
                 errors.push(`Failed to create cell process ID '${resolvedCellProcessCoordinates.cellProcessID}' at path '${resolvedCellProcessCoordinates.cellProcessPath}' due to problems with the process initialization data specified.`);
                 errors.push(ocdResponse.error);

@@ -60,7 +60,7 @@ const cppTestModel1 = new holarchy.CellModel({
                 description: "Test the CPP status operators.",
                 transitions: [
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { CellProcessor: { proxy: { connect: { statusIs: "connected" } } } } } } },
+                        transitionIf: { CellProcessor: { cell: { cellCoordinates: "#.proxyTest", delegate: { operatorRequest: { CellProcessor: { proxy: { connect: { statusIs: "connected" } } } } } } } },
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
@@ -68,7 +68,7 @@ const cppTestModel1 = new holarchy.CellModel({
                         nextStep: "test_status_operators_unexpected_response"
                     },
                     {
-                        transitionIf: { CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: { CellProcessor: { proxy: { connect: { statusIs: "disconnected" } } } } } } },
+                        transitionIf: { CellProcessor: { cell: { cellCoordinates: "#.proxyTest", delegate: {operatorRequest: { CellProcessor: { proxy: { connect: { statusIs: "disconnected" } } } } } } } },
                         nextStep: "connect_proxy"
                     },
                     {
@@ -123,7 +123,7 @@ const cppTestModel1 = new holarchy.CellModel({
             test_action_through_proxy: {
                 description: "Attempt to call a ControllerAction through the proxy.",
                 actions: {
-                    exit: [ { CellProcessor: { delegate: { coordinates: "#.proxyTest", actionRequest: { holarchy: { CellProcessProxy: { proxy: { /* THIS ACTION WILL BE REMOVED IN v0.0.48 */  actionRequest: { CPPTestProcess1: { helloWorld: "Hello, other cell process that I have established a proxy connection to! How are are you doing?" } } } } } } } } } ]
+                    exit: [ { CellProcessor: { cell: { cellCoordinates: "#.proxyTest", delegate: { actionRequest: { holarchy: { CellProcessProxy: { proxy: { /* THIS ACTION WILL BE REMOVED IN v0.0.48 */  actionRequest: { CPPTestProcess1: { helloWorld: "Hello, other cell process that I have established a proxy connection to! How are are you doing?" } } } } } } } } } } ]
                 },
                 transitions: [
                     {
@@ -208,12 +208,23 @@ const cppTestModel1 = new holarchy.CellModel({
                 transitions: [
                     {
                         transitionIf: {
-                            CellProcessor: { delegate: { coordinates: "#.proxyTest", operatorRequest: {
-                                // WE EXPECT THIS TO BE DEPRECATED IN v0.0.48 WHEN WE BRING OCD-LEVEL PROXY VIRTUALIZATION ONLINE
-                                holarchy: { CellProcessProxy: { proxy: {
-                                    operatorRequest: { holarchy: { cm: { operators: { cell: { atStep: { path: "#", step: "test_process_complete" } } } } } }
-                                } } }
-                            }}}
+                            CellProcessor: {
+                                cell: {
+                                    cellCoordinates: "#.proxyTest",
+                                    delegate: {
+                                        operatorRequest: {
+                                            // WE EXPECT THIS TO BE DEPRECATED IN v0.0.48 WHEN WE BRING OCD-LEVEL PROXY VIRTUALIZATION ONLINE
+                                            holarchy: {
+                                                CellProcessProxy: {
+                                                    proxy: {
+                                                        operatorRequest: { holarchy: { cm: { operators: { cell: { atStep: { path: "#", step: "test_process_complete" } } } } } }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         },
                         nextStep: "test_complete"
                     }
@@ -293,14 +304,16 @@ const cppTestModel2 = new holarchy.CellModel({
                         {
                             // Test verbose form of proxy connect that uses delegate
                             CellProcessor: {
-                                delegate: {
-                                    coordinates: "#.proxyTest",
-                                    actionRequest: {
-                                        CellProcessor: {
-                                            proxy: {
-                                                connect: {
-                                                    processCoordinates: {
-                                                        apmID:  cellspace.apmID("CPP Test Messenger")
+                                cell: {
+                                    cellCoordinates: "#.proxyTest",
+                                    delegate: {
+                                        actionRequest: {
+                                            CellProcessor: {
+                                                proxy: {
+                                                    connect: {
+                                                        processCoordinates: {
+                                                            apmID:  cellspace.apmID("CPP Test Messenger")
+                                                        }
                                                     }
                                                 }
                                             }
@@ -345,7 +358,7 @@ const cppTestModel2A = new holarchy.CellModel({
                 ],
                 actions: {
                     exit: [
-                        { CellProcessor: { activate: { processCoordinates: { apmID: cellspace.apmID("CPP Test Messenger") } } } }
+                        { CellProcessor: { process: { activate: { /* default processData*/ }, processCoordinates: { apmID: cellspace.apmID("CPP Test Messenger") } } } }
                     ]
                 }
             },

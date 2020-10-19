@@ -63,7 +63,7 @@ module.exports = [
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
+                                    actionRequest: { CellProcessor: { process: { activate: { /* default processData */ }, processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             },
 
@@ -72,14 +72,14 @@ module.exports = [
                                 options: { failTestIf: { CellProcessor: { actionError: "fail-if-action-result" } } },
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
+                                    actionRequest: { CellProcessor: { process: { activate: { /* default processData */ }, processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             },
 
                             {
                                 actRequest: {
                                     actorName: "CP constructor test #2",
-                                    actionRequest: { CellProcessor: { deactivate: { processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
+                                    actionRequest: { CellProcessor: { process: { deactivate: {}, processCoordinates: { apmID: "6OPnhgR9QWyEFaBpaZNb1A", instanceName: "test-process-1" } } } }
                                 }
                             }
                         ]
@@ -108,32 +108,47 @@ module.exports = [
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
-                                actionRequest: { CellProcessor: { queryCell: { coordinates: "~" } } } // get all result sets on ~ namespace (Cell Process Manager)
+                                actionRequest: { CellProcessor: { cell: { query: { /*take defaults*/ }, cellCoordinates: "~" } } } // get all result sets on ~ namespace (Cell Process Manager)
                             },
 
                             {
                                 actorName: "CP constructor test #3",
                                 actorTaskDescription: "Construct an instance of the Process Test Fixture Model that is declared to create three child processes via self-similar mechanism.",
-                                actionRequest: { CellProcessor: { activate: { processCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
+                                actionRequest: { CellProcessor: { process: { activate: { /* default processData */ }, processCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
                             },
 
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the root cell process, the cell process manager.",
-                                actionRequest: { CellProcessor: { queryCell: { coordinates: "~" } } } // get all result sets on ~ namespace (Cell Process Manager)
+                                actionRequest: { CellProcessor: { cell: { query: {},  cellCoordinates: "~" } } }// get all result sets on ~ namespace (Cell Process Manager)
                             },
 
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query the newly-activated cell process.",
-                                actionRequest: { CellProcessor: { queryCell: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
+                                actionRequest: { CellProcessor: { cell: { query: {}, cellCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" } } } }
 
                             },
 
                             {
                                 actorName: "CP constructor test #4",
                                 actorTaskDescription: "Query this cell by specifying relative path coordinates implicity via delegation.",
-                                actionRequest: { CellProcessor: { delegate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { CellProcessor: { queryCell: {} } } } } }
+                                actionRequest: {
+                                    CellProcessor: {
+                                        cell: {
+                                            delegate: {
+                                                actionRequest: {
+                                                    CellProcessor: {
+                                                        cell: {
+                                                            query: {}
+                                                        }
+                                                    }
+                                                },
+                                            },
+                                            cellCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }
+                                        }
+                                    }
+                                }
                             },
 
                             {
@@ -141,7 +156,22 @@ module.exports = [
                                 actorTaskDescription: "Now let's delete the cell process we just created supposing that it will actually delete four cell processes and reset the CellProcessor to default state.",
                                 // This is an explicitly verbose call to delete a previously-created cell process that uses delegate to resolve the cell process coordinates before delegating to CPM process delete.
                                 // We could equivalently specify process.delete.coordinates to accomplish the same. Both forms should always work the same.
-                                actionRequest: { CellProcessor: { delegate: { coordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" }, actionRequest: { CellProcessor: { deactivate: {} } } } } }
+                                actionRequest: {
+                                    CellProcessor: {
+                                        cell: {
+                                            delegate: {
+                                                actionRequest: {
+                                                    CellProcessor: {
+                                                        process: {
+                                                            deactivate: {}
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            cellCoordinates: { apmID: "itgXQ5RWS66fcdsuZim8AQ", instanceName: "test3" },
+                                        }
+                                    }
+                                }
                             }
 
                         ]
