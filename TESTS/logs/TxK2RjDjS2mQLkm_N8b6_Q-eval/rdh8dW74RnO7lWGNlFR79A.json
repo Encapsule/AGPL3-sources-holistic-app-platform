@@ -58,7 +58,8 @@
                       "actorTaskDescription": "Start the first process instance. We will use this process as our test.",
                       "actionRequest": {
                         "CellProcessor": {
-                          "activate": {
+                          "process": {
+                            "activate": {},
                             "processCoordinates": {
                               "apmID": "kAuEmZA9Qn24PEZLBygGyA",
                               "instanceName": "Test Process"
@@ -104,7 +105,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "xvXG9QBwAHADHgMeXyJfIg",
-                        "vdid": "nYEKSPiJV6-tfLNv1HHP5A",
+                        "vdid": "yIEKSOiJV6-UfLNvNnHP5A",
                         "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                         "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                         "cmat": {
@@ -114,7 +115,7 @@
                               "type": "INDEX",
                               "xvXG9QBwAHADHgMeXyJfIg": {
                                 "id": "xvXG9QBwAHADHgMeXyJfIg",
-                                "vdid": "nYEKSPiJV6-tfLNv1HHP5A",
+                                "vdid": "yIEKSOiJV6-UfLNvNnHP5A",
                                 "name": "Cell Process Manager [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test] Model",
                                 "description": "Cell process manager root process for CellProcessor [rdh8dW74RnO7lWGNlFR79A::CPM Parent Process Active Test].",
                                 "type": "CM",
@@ -127,7 +128,7 @@
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
                                   "id": "DxL0zD_ERu-0kNGX2FvoGg",
-                                  "vdid": "EOCuj36p4sxrZP_a1Gh9yg",
+                                  "vdid": "SCCLmlJih8_upULrPln89A",
                                   "name": "Cell Process Manager: Operator Request On Cell (opOn)",
                                   "description": "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
                                   "type": "TOP"
@@ -218,28 +219,28 @@
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
                                   "id": "SdL0-5kmTuiNrWNu7zGZhg",
-                                  "vdid": "5IPvubR7aCOE6wFG2NRb4A",
+                                  "vdid": "WDm3PgR-m2S3ILVJuyQQWw",
                                   "name": "Cell Process Manager: Process Create",
                                   "description": "Create a new child cell process bound to the specified APM that is owned by the requesting cell process, #. Or, the specified parent cell process (via override).",
                                   "type": "ACT"
                                 },
                                 "4s_DUfKnQ4aS-xRjewAfUQ": {
                                   "id": "4s_DUfKnQ4aS-xRjewAfUQ",
-                                  "vdid": "jxcAKCLtFQyznZLJY_aTIw",
+                                  "vdid": "gTH_grWRmSBhxNXs3I0Ckg",
                                   "name": "Cell Process Manager: Process Delete",
                                   "description": "Requests that the Cell Process Manager delete a branch of the cell process tree.",
                                   "type": "ACT"
                                 },
                                 "r-JgxABoS_a-mSE2c1nvKA": {
                                   "id": "r-JgxABoS_a-mSE2c1nvKA",
-                                  "vdid": "I_fUQ6ztqgYCNhFvrG6yvA",
+                                  "vdid": "lJGhthBCfZCuwe5PAlOdHw",
                                   "name": "Cell Process Manager: Process Query",
                                   "description": "Performs a query on a specific cell process managed by the Cell Process Manager.",
                                   "type": "ACT"
                                 },
                                 "wB5QKMYtS7yY2-v7Y3tGWA": {
                                   "id": "wB5QKMYtS7yY2-v7Y3tGWA",
-                                  "vdid": "9rM-rqDDSL5K2hmXisTexA",
+                                  "vdid": "KNMJ-uyVFAg_Bp0UF8sEvA",
                                   "name": "Cell Process Manager: ControllerAction Request On Cell (actOn)",
                                   "description": "Generically re-routes the ControllerAction request specified by actRequest to the active cell specified by apmBindingPath + path, or path (iff path is fully-qualified).",
                                   "type": "ACT"
@@ -1655,9 +1656,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)",
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.operatorRequest.CellProcessor.delegate",
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell",
                                   "filters": [
                                     "DxL0zD_ERu-0kNGX2FvoGg"
                                   ],
@@ -1669,9 +1670,23 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).operatorRequest(jsObject)",
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.operatorRequest.CellProcessor.delegate.operatorRequest",
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.delegate",
+                                  "filters": [
+                                    "DxL0zD_ERu-0kNGX2FvoGg"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "DxL0zD_ERu-0kNGX2FvoGg"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject).operatorRequest(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.delegate.operatorRequest",
                                   "filters": [
                                     "DxL0zD_ERu-0kNGX2FvoGg"
                                   ],
@@ -2635,7 +2650,7 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)"
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject)"
                                 }
                               },
                               {
@@ -2646,8 +2661,14 @@
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).operatorRequest(jsObject)"
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject).operatorRequest(jsObject)"
                                 }
                               },
                               {
@@ -3646,12 +3667,9 @@
                                   "____types": "jsObject",
                                   "CellProcessor": {
                                     "____types": "jsObject",
-                                    "delegate": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "operatorRequest": {
-                                        "____accept": "jsObject"
-                                      },
-                                      "coordinates": {
+                                      "cellCoordinates": {
                                         "____types": [
                                           "jsString",
                                           "jsObject"
@@ -3664,6 +3682,12 @@
                                           "____accept": "jsString",
                                           "____defaultValue": "singleton"
                                         }
+                                      },
+                                      "delegate": {
+                                        "____types": "jsObject",
+                                        "operatorRequest": {
+                                          "____accept": "jsObject"
+                                        }
                                       }
                                     }
                                   }
@@ -3673,10 +3697,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "YLFJL6iCghMv4NEjeMpjUg",
-                              "inputTypeVDID": "8djbfWS_vWB1Uvgak2hJ7A",
+                              "inputTypeVDID": "Q-D0uRXRxgtMHqHPg3rtvg",
                               "outputTypeVIID": "yhlYdTxhXIXWTUsdh8nWEQ",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "5HWgRH4h4JPZSj6cn_rbcg"
+                              "operationVDID": "5F54RH4lIpPZVDacnzxZcg"
                             }
                           },
                           "9HNGDusyTtKpleXFae7O5A": {
@@ -5026,9 +5050,25 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.delegate",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.cell",
+                                  "filters": [
+                                    "r-JgxABoS_a-mSE2c1nvKA",
+                                    "wB5QKMYtS7yY2-v7Y3tGWA"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "r-JgxABoS_a-mSE2c1nvKA",
+                                    "wB5QKMYtS7yY2-v7Y3tGWA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.cell.delegate",
                                   "filters": [
                                     "wB5QKMYtS7yY2-v7Y3tGWA"
                                   ],
@@ -5040,70 +5080,14 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).actionRequest(jsObject)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject).actionRequest(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.delegate.actionRequest",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.cell.delegate.actionRequest",
                                   "filters": [
                                     "wB5QKMYtS7yY2-v7Y3tGWA"
                                   ],
                                   "color": "gold",
                                   "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.delegate.coordinates",
-                                  "filters": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.delegate.coordinates",
-                                  "filters": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsString).apmID(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.delegate.coordinates.apmID",
-                                  "filters": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsObject).apmID(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.delegate.coordinates.apmID",
-                                  "filters": [
-                                    "wB5QKMYtS7yY2-v7Y3tGWA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
                                   "filters1": [
                                     "wB5QKMYtS7yY2-v7Y3tGWA"
                                   ]
@@ -5166,9 +5150,25 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.process",
+                                  "filters": [
+                                    "4s_DUfKnQ4aS-xRjewAfUQ",
+                                    "SdL0-5kmTuiNrWNu7zGZhg"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "4s_DUfKnQ4aS-xRjewAfUQ",
+                                    "SdL0-5kmTuiNrWNu7zGZhg"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject).activate(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.process.activate",
                                   "filters": [
                                     "SdL0-5kmTuiNrWNu7zGZhg"
                                   ],
@@ -5180,65 +5180,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject).deactivate(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates",
-                                  "filters": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates",
-                                  "filters": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString).apmID(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates.apmID",
-                                  "filters": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject).apmID(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.activate.processCoordinates.apmID",
-                                  "filters": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "SdL0-5kmTuiNrWNu7zGZhg"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).deactivate(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.deactivate",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.process.deactivate",
                                   "filters": [
                                     "4s_DUfKnQ4aS-xRjewAfUQ"
                                   ],
@@ -5250,9 +5194,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).queryCell(jsObject)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.CellProcessor.queryCell",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor.cell.query",
                                   "filters": [
                                     "r-JgxABoS_a-mSE2c1nvKA"
                                   ],
@@ -5696,25 +5640,13 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)"
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject)"
                                 }
                               },
                               {
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).deactivate(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).queryCell(jsObject)"
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject)"
                                 }
                               },
                               {
@@ -5725,32 +5657,20 @@
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).actionRequest(jsObject)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsString)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsString).apmID(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).delegate(jsObject).coordinates(jsObject).apmID(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject).actionRequest(jsObject)"
                                 }
                               },
                               {
@@ -5791,26 +5711,14 @@
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject).activate(jsObject)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsString).apmID(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).activate(jsObject).processCoordinates(jsObject).apmID(jsString)"
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).process(jsObject).deactivate(jsObject)"
                                 }
                               },
                               {
@@ -5978,22 +5886,26 @@
                                   "____types": "jsObject",
                                   "CellProcessor": {
                                     "____types": "jsObject",
-                                    "delegate": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "actionRequest": {
-                                        "____accept": "jsObject"
-                                      },
-                                      "coordinates": {
+                                      "cellCoordinates": {
                                         "____types": [
                                           "jsString",
                                           "jsObject"
                                         ],
+                                        "____defaultValue": "#",
                                         "apmID": {
                                           "____accept": "jsString"
                                         },
                                         "instanceName": {
                                           "____accept": "jsString",
                                           "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "delegate": {
+                                        "____types": "jsObject",
+                                        "actionRequest": {
+                                          "____accept": "jsObject"
                                         }
                                       }
                                     }
@@ -6004,10 +5916,10 @@
                                 "____opaque": true
                               },
                               "inputTypeVIID": "xlhmOyBVsNE2aEhprpj6vg",
-                              "inputTypeVDID": "AYOmMKUMJpMF85-iBhlMEQ",
+                              "inputTypeVDID": "QZ6DlSj0BUWnSHV_q0FDRQ",
                               "outputTypeVIID": "L35hYFmSkJGtY4epRd-hcw",
                               "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                              "operationVDID": "XNMsE3OI8ldv4tLtRyAStA"
+                              "operationVDID": "XBn7E3ND1ldv18XtR_kEtA"
                             }
                           },
                           "VNaA0AMsTXawb32xLaNGTA": {
@@ -6099,13 +6011,14 @@
                                   "____types": "jsObject",
                                   "CellProcessor": {
                                     "____types": "jsObject",
-                                    "activate": {
+                                    "process": {
                                       "____types": "jsObject",
                                       "processCoordinates": {
                                         "____types": [
                                           "jsString",
                                           "jsObject"
                                         ],
+                                        "____defaultValue": "#",
                                         "apmID": {
                                           "____accept": "jsString"
                                         },
@@ -6114,11 +6027,14 @@
                                           "____defaultValue": "singleton"
                                         }
                                       },
-                                      "processData": {
-                                        "____accept": [
-                                          "jsObject",
-                                          "jsUndefined"
-                                        ]
+                                      "activate": {
+                                        "____types": "jsObject",
+                                        "processData": {
+                                          "____accept": [
+                                            "jsUndefined",
+                                            "jsObject"
+                                          ]
+                                        }
                                       }
                                     }
                                   }
@@ -6142,10 +6058,10 @@
                                 }
                               },
                               "inputTypeVIID": "QDRiVzJHN1R8D34LBGwj7w",
-                              "inputTypeVDID": "AUhF48pqQHLHdg6xKNQNEQ",
+                              "inputTypeVDID": "wDSnQe4xOsAMGc15hAu3Xw",
                               "outputTypeVIID": "I_uaQqYwTc6JXEjnIn7x1w",
                               "outputTypeVDID": "SiNf_yYQsz88lV04PLIrIQ",
-                              "operationVDID": "Z_Xpzbv9emhHPrceeeaS2Q"
+                              "operationVDID": "Z_ONzbt6sGhHW0ceeQro2Q"
                             }
                           },
                           "4s_DUfKnQ4aS-xRjewAfUQ": {
@@ -6180,7 +6096,7 @@
                                   "____types": "jsObject",
                                   "CellProcessor": {
                                     "____types": "jsObject",
-                                    "deactivate": {
+                                    "process": {
                                       "____types": "jsObject",
                                       "processCoordinates": {
                                         "____types": [
@@ -6195,6 +6111,9 @@
                                           "____accept": "jsString",
                                           "____defaultValue": "singleton"
                                         }
+                                      },
+                                      "deactivate": {
+                                        "____accept": "jsObject"
                                       }
                                     }
                                   }
@@ -6210,10 +6129,10 @@
                                 }
                               },
                               "inputTypeVIID": "03zn7aDOwRLqUUx_Yoxxjg",
-                              "inputTypeVDID": "Kgs58gAXPVDtwGfnetm4_Q",
+                              "inputTypeVDID": "afoNsW5qDEH-SV7WF0GYMA",
                               "outputTypeVIID": "Q3j31XEnUGjaNC_FN5gxcw",
                               "outputTypeVDID": "9eKi_3wFnxJsHWIU3kSK7Q",
-                              "operationVDID": "jxVVCQ-PhZRKRST0PQ4zrg"
+                              "operationVDID": "j1kuCQ9Ix5RKIVj0PVpPrg"
                             }
                           },
                           "r-JgxABoS_a-mSE2c1nvKA": {
@@ -6248,9 +6167,9 @@
                                   "____types": "jsObject",
                                   "CellProcessor": {
                                     "____types": "jsObject",
-                                    "queryCell": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "coordinates": {
+                                      "cellCoordinates": {
                                         "____types": [
                                           "jsString",
                                           "jsObject"
@@ -6264,46 +6183,49 @@
                                           "____defaultValue": "singleton"
                                         }
                                       },
-                                      "filterBy": {
-                                        "____label": "Optional Filter-By APM Binding",
-                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
-                                        "____types": [
-                                          "jsUndefined",
-                                          "jsObject"
-                                        ],
-                                        "apmIDs": {
-                                          "____types": [
-                                            "jsString",
-                                            "jsArray"
-                                          ],
-                                          "apmID": {
-                                            "____accept": "jsString"
-                                          }
-                                        }
-                                      },
-                                      "resultSets": {
+                                      "query": {
                                         "____types": "jsObject",
-                                        "____defaultValue": {
-                                          "parent": true,
-                                          "ancestors": true,
-                                          "children": true,
-                                          "descendants": true
+                                        "filterBy": {
+                                          "____label": "Optional Filter-By APM Binding",
+                                          "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                          "____types": [
+                                            "jsUndefined",
+                                            "jsObject"
+                                          ],
+                                          "apmIDs": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            }
+                                          }
                                         },
-                                        "parent": {
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": false
-                                        },
-                                        "ancestors": {
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": false
-                                        },
-                                        "children": {
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": false
-                                        },
-                                        "descendants": {
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": false
+                                        "resultSets": {
+                                          "____types": "jsObject",
+                                          "____defaultValue": {
+                                            "parent": true,
+                                            "ancestors": true,
+                                            "children": true,
+                                            "descendants": true
+                                          },
+                                          "parent": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "ancestors": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "children": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "descendants": {
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          }
                                         }
                                       }
                                     }
@@ -6471,10 +6393,10 @@
                                 }
                               },
                               "inputTypeVIID": "vtARkNRniM94mES9BVDdDg",
-                              "inputTypeVDID": "XxF7rvh1xOHCNRZtEJ1yiQ",
+                              "inputTypeVDID": "PPuoreuQdRpBD0zG3SWnEw",
                               "outputTypeVIID": "JtnG3qmcahv2W5qo9IoPnw",
                               "outputTypeVDID": "rRcfFnGcxrjgQ1q8bpA-Fg",
-                              "operationVDID": "1nEFyF5RHAype3oFaQwRBg"
+                              "operationVDID": "1sLSyF6l6Aypbz4FaZi9Bg"
                             }
                           },
                           "X6ck_Bo4RmWTVHl-vk-urw": {
@@ -7249,7 +7171,8 @@
                           "actorTaskDescription": "Start the first process instance. We will use this process as our test.",
                           "actionRequest": {
                             "CellProcessor": {
-                              "activate": {
+                              "process": {
+                                "activate": {},
                                 "processCoordinates": {
                                   "apmID": "kAuEmZA9Qn24PEZLBygGyA",
                                   "instanceName": "Test Process"
