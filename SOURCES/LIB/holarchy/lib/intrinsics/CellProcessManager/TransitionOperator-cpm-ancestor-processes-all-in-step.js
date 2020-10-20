@@ -58,27 +58,30 @@ const transitionOperator = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.operatorRequest.holarchy.CellProcessor.ancestorProcessesAllInStep;
-
             // This is all we can ever be 100% sure about based on the apmBindingPath.
             if (request_.context.apmBindingPath === "~") {
                 break; // response.result === false
             }
 
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            const messageBody = request_.operatorRequest.CellProcessor.cell;
+
+            let cpmLibResponse = cpmLib.cellProcessFamilyOperatorPrologue.request({
+                unresolvedCellCoordinates: messageBody.cellCoordinates,
+                apmBindingPath: request_.context.apmBindingPath,
+                ocdi: request_.context.ocdi
+            });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
             }
-            const cpmDataDescriptor = cpmLibResponse.result;
 
-            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+            const prologueData = cpmLibResponse.result;
 
             cpmLibResponse = cpmLib.getProcessAncestorDescriptors.request({
-                cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
-                filterBy: message.filterBy,
+                cellProcessID: prologueData.resolvedCellCoordinates.cellPathID,
+                filterBy: messageBody.query.filterBy,
                 ocdi: request_.context.ocdi,
-                treeData: ownedCellProcessesData
+                treeData: prologueData.ownedCellProcessesData
             });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
@@ -90,23 +93,25 @@ const transitionOperator = new TransitionOperator({
 
             const operatorRequest = { and: [] };
 
+            const queryBody = messageBody.query.ancestorProcessesAllInStep;
+
             ancestorCellProcessDescriptors.forEach((ancestorCellProcessDescriptor_) => {
                 // Alias the anonymous root namespace to the Cell Process Manger (CPM).
                 if (ancestorCellProcessDescriptor_.apmBindingPath === "~") {
-                    if (message.omitCellProcessor) {
+                    if (queryBody.omitCellProcessor) {
                         return;
                     }
                     ancestorCellProcessDescriptor_.apmBindingPath = cpmApmBindingPath;
                 }
 
-                if (!Array.isArray(message.apmStep)) {
+                if (!Array.isArray(queryBody.apmStep)) {
                     operatorRequest.and.push({
                         holarchy: {
                             cm: {
                                 operators: {
                                     cell: {
                                         atStep: {
-                                            step: message.apmStep,
+                                            step: queryBody.apmStep,
                                             path: ancestorCellProcessDescriptor_.apmBindingPath
                                         }
                                     }
@@ -116,7 +121,7 @@ const transitionOperator = new TransitionOperator({
                     });
                 } else {
                     const suboperatorRequest = { or: [] };
-                    message.apmStep.forEach((stepName_) => {
+                    queryBody.apmStep.forEach((stepName_) => {
                         subOperatorRequest.or.push({
                             holarchy: {
                                 cm: {

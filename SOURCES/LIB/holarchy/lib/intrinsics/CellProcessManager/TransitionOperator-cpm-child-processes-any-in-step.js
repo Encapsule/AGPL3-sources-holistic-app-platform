@@ -44,7 +44,7 @@ module.exports = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const messageBody = request_.operatorRequest.holarchy.CellProcessor.childProcessesAnyInStep;
+            const messageBody = request_.operatorRequest.CellProcessor.cell;
 
             let cpmLibResponse = cpmLib.cellProcessFamilyOperatorPrologue.request({
                 unresolvedCellCoordinates: messageBody.cellCoordinates,
