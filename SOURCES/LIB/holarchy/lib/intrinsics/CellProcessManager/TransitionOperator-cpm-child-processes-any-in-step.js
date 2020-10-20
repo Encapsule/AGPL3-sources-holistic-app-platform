@@ -44,21 +44,25 @@ module.exports = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.operatorRequest.holarchy.CellProcessor.childProcessesAnyInStep;
+            const messageBody = request_.operatorRequest.holarchy.CellProcessor.childProcessesAnyInStep;
 
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.cellProcessFamilyOperatorPrologue.request({
+                unresolvedCellCoordinates: messageBody.cellCoordinates,
+                apmBindingPath: request_.context.apmBindingPath,
+                ocdi: request_.context.ocdi
+            });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
             }
-            const cpmDataDescriptor = cpmLibResponse.result;
-            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+
+            const prologueData = cpmLibResponse.result;
 
             cpmLibResponse = cpmLib.getProcessChildrenDescriptors.request({
-                cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
-                filterBy: message.filterBy,
+                cellProcessID: prologueData.resolvedCellCoordinates.cellPathID,
+                filterBy: messageBody.query.filterBy,
                 ocdi: request_.context.ocdi,
-                treeData: ownedCellProcessesData
+                treeData: prologueData.ownedCellProcessesData
             });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
@@ -73,15 +77,17 @@ module.exports = new TransitionOperator({
 
             const operatorRequest = { or: [] };
 
+            const queryBody = messageBody.query.childProcessesAnyInStep;
+
             childCellProcessDescriptors.forEach((childCellProcessDescriptor_) => {
-                if (!Array.isArray(message.apmStep)) {
+                if (!Array.isArray(queryBody.apmStep)) {
                     operatorRequest.or.push({
                         holarchy: {
                             cm: {
                                 operators: {
                                     cell: {
                                         atStep: {
-                                            step: message.apmStep,
+                                            step: queryBody.apmStep,
                                             path: childCellProcessDescriptor_.apmBindingPath
                                         }
                                     }
@@ -91,7 +97,7 @@ module.exports = new TransitionOperator({
                     });
                 } else {
                     const suboperatorRequest = { or: [] };
-                    message.apmStep.forEach((stepName_) => {
+                    queryBody.apmStep.forEach((stepName_) => {
                         subOperatorRequest.or.push({
                             holarchy: {
                                 cm: {
