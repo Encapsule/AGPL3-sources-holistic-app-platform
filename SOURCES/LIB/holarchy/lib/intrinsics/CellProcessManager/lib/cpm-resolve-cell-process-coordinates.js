@@ -222,6 +222,7 @@ const cpmPath = `~.${cpmMountingNamespaceName}`;
         outputFilterSpec: {
             ____types: "jsObject",
             cellPath: { ____accept: "jsString" },
+            cellPathID: { ____accept: "jsString" },
             apmID: { ____accept: "jsString" }
         },
         bodyFunction: (request_) => {
@@ -234,7 +235,7 @@ const cpmPath = `~.${cpmMountingNamespaceName}`;
                 let cpmLibResponse = resolveCellProcessCoordinates.request({ coordinates: request_.coordinates, ocdi: request_.ocdi });
                 if (!cpmLibResponse.error) {
                     let resolvedCoordinates = cpmLibResponse.result;
-                    response.result = { cellPath: resolvedCoordinates.cellProcessPath, apmID: resolvedCoordinates.coordinates.apmID };
+                    response.result = { cellPath: resolvedCoordinates.cellProcessPath, cellPathID: resolvedCoordinates.cellProcessID, apmID: resolvedCoordinates.coordinates.apmID };
                     break;
                 }
                 if (!isValidCellPath({ cellPath: request_.coordinates, ocdi: request_.ocdi })) {
@@ -242,7 +243,7 @@ const cpmPath = `~.${cpmMountingNamespaceName}`;
                     break;
                 }
                 let cache = getCache({ ocdi: request_.ocdi });
-                response.result = { cellPath: request_.coordinates, apmID: cache.byCellPath[request_.coordinates].apmID };
+                response.result = { cellPath: request_.coordinates, cellPathID: cache.byCellPath[request_.coordinates].cellPathID, apmID: cache.byCellPath[request_.coordinates].apmID };
                 break;
             }
             if (errors.length) {

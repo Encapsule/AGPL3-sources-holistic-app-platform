@@ -3,6 +3,7 @@
 const arccore = require("@encapsule/arccore");
 const cpmLib = require("./lib");
 const TransitionOperator = require("../../../TransitionOperator");
+const ObservableControllerData = require("../../../lib/ObservableControllerData");
 const cpmMountingNamespaceName = require("../../filters/cpm-mounting-namespace-name");
 const cpmApmBindingPath = `~.${cpmMountingNamespaceName}`;
 const cellProcessQueryRequestFilterBySpec = require("./lib/iospecs/cell-process-query-request-filterby-spec");
@@ -13,19 +14,32 @@ module.exports = new TransitionOperator({
     description: "Returns Boolean true request.context.apmBindingPath is a cell process whose parent cell process is in the specified process step.",
     operatorRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessor: {
+            cell: {
                 ____types: "jsObject",
-                parentProcessInStep: {
+                cellCoordinates: {
+                    ____types: [
+                        "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
+                        "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                    ],
+                    ____defaultValue: "#",
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+
+                },
+                query: {
                     ____types: "jsObject",
-                    apmStep: {
-                        // If apmStep is a single step name (string) then all child cell processes must be in that step.
-                        // If apmStep is an array of step names (strings), then all child cell processes must be in any of the indicated steps.
-                        ____types: [ "jsString", "jsArray" ],
-                        stepName: { ____accept: "jsString" }
-                    },
-                    filterBy: cellProcessQueryRequestFilterBySpec
+                    filterBy: cellProcessQueryRequestFilterBySpec,
+                    parentProcessInStep: {
+                        ____types: "jsObject",
+                        apmStep: {
+                            // If apmStep is a single step name (string) then all child cell processes must be in that step.
+                            // If apmStep is an array of step names (strings), then all child cell processes must be in any of the indicated steps.
+                            ____types: [ "jsString", "jsArray" ],
+                            stepName: { ____accept: "jsString" }
+                        }
+                    }
                 }
             }
         }
@@ -38,15 +52,33 @@ module.exports = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.operatorRequest.holarchy.CellProcessor.parentProcessInStep;
-
             // This is all we can ever be 100% sure about based on the apmBindingPath.
             if (request_.context.apmBindingPath === "~") {
                 break; // response.result === false
             }
 
-            // So, we have to query the CPM process tree.
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            const messageBody = request_.operatorRequest.CellProcessor.cell;
+
+            let unresolvedCoordinates = messageBody.cellCoordinates;
+
+            if ((Object.prototype.toString.call(unresolvedCoordinates) === "[object String]") && unresolvedCoordinates.startsWith("#")) {
+                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: unresolvedCoordinates });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                unresolvedCoordinates = ocdResponse.result;
+            }
+
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates: unresolvedCoordinates, ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+
+            const resolvedCoordinates = cpmLibResponse.result;
+
+            cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -56,8 +88,8 @@ module.exports = new TransitionOperator({
 
             // Get the parent process descriptor.
             cpmLibResponse = cpmLib.getProcessParentDescriptor.request({
-                cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
-                filterBy: message.filterBy,
+                cellProcessID: resolvedCoordinates.cellPathID,
+                filterBy: messageBody.query.filterBy,
                 ocdi: request_.context.ocdi,
                 treeData: ownedCellProcessesData
             });
@@ -76,13 +108,15 @@ module.exports = new TransitionOperator({
 
             const operatorRequest = {};
 
-            if (!Array.isArray(message.apmStep)) {
+            const queryBody = messageBody.query.parentProcessInStep;
+
+            if (!Array.isArray(queryBody.apmStep)) {
                 operatorRequest.holarchy = {
                     cm: {
                         operators: {
                             cell: {
                                 atStep: {
-                                    step: message.apmStep,
+                                    step: queryBody.apmStep,
                                     path: parentCellProcessDescriptor.apmBindingPath
                                 }
                             }
@@ -91,7 +125,7 @@ module.exports = new TransitionOperator({
                 };
             } else {
                 operatorRequest.or = [];
-                message.apmStep.forEach((stepName_) => {
+                queryBody.apmStep.forEach((stepName_) => {
                     operatorRequest.or.push({
                         holarchy: {
                             cm: {

@@ -12,13 +12,24 @@ module.exports = new TransitionOperator({
 
     operatorRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessor: {
+            cell: {
                 ____types: "jsObject",
-                childProcessesActive: {
+                cellCoordinates: {
+                    ____types: [
+                        "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
+                        "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                    ],
+                    ____defaultValue: "#",
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+
+                },
+                query: {
                     ____types: "jsObject",
-                    filterBy: cellProcessQueryRequestFilterBySpec
+                    filterBy: cellProcessQueryRequestFilterBySpec,
+                    childProcessesActive: { ____accept: "jsObject" }
                 }
             }
         }

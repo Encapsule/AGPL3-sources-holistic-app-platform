@@ -14,24 +14,37 @@ const transitionOperator = new TransitionOperator({
 
     operatorRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessor: {
+            cell: {
                 ____types: "jsObject",
-                ancestorProcessesAnyInStep: {
+                cellCoordinates: {
+                    ____types: [
+                        "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
+                        "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                    ],
+                    ____defaultValue: "#",
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+
+                },
+                query: {
                     ____types: "jsObject",
-                    apmStep: {
-                        // If apmStep is a single step name (string) then all child cell processes must be in that step.
-                        // If apmStep is an array of step names (strings), then all child cell processes must be in any of the indicated steps.
-                        ____types: [ "jsString", "jsArray" ],
-                        stepName: { ____accept: "jsString" }
-                    },
                     filterBy:  cellProcessQueryRequestFilterBySpec,
-                    omitCellProcessor: {
-                        ____label: "Omit CellProcessor",
-                        ____description: "Exclude the CellProcessor's Cell Process Manger process step.",
-                        ____accept: "jsBoolean",
-                        ____defaultValue: true
+                    ancestorProcessesAnyInStep: {
+                        ____types: "jsObject",
+                        apmStep: {
+                            // If apmStep is a single step name (string) then all child cell processes must be in that step.
+                            // If apmStep is an array of step names (strings), then all child cell processes must be in any of the indicated steps.
+                            ____types: [ "jsString", "jsArray" ],
+                            stepName: { ____accept: "jsString" }
+                        },
+                        omitCellProcessor: {
+                            ____label: "Omit CellProcessor",
+                            ____description: "Exclude the CellProcessor's Cell Process Manger process step.",
+                            ____accept: "jsBoolean",
+                            ____defaultValue: true
+                        }
                     }
                 }
             }

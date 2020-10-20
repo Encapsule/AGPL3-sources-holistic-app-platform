@@ -11,15 +11,28 @@ module.exports = new TransitionOperator({
     description: "Returns Boolean true request.context.apmBindingPath is a cell process with any child cell process in the specified process step.",
     operatorRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessor: {
+            cell: {
                 ____types: "jsObject",
-                childProcessesAnyInStep: {
-                    ____types: "jsObject",
-                    apmStep: { ____accept: "jsString" },
+                cellCoordinates: {
+                    ____types: [
+                        "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
+                        "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                    ],
+                    ____defaultValue: "#",
+                    apmID: { ____accept: "jsString" },
+                    instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
+
                 },
-                filterBy: cellProcessQueryRequestFilterBySpec
+                query: {
+                    ____types: "jsObject",
+                    filterBy: cellProcessQueryRequestFilterBySpec,
+                    childProcessesAnyInStep: {
+                        ____types: "jsObject",
+                        apmStep: { ____accept: "jsString" }
+                    }
+                },
             }
         }
     },

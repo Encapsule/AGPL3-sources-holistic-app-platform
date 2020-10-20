@@ -28,15 +28,7 @@ const cellModel = new holarchy.CellModel({
                 description: "Wait for parent process in step.",
                 transitions: [
                     {
-                        transitionIf: {
-                            holarchy: {
-                                CellProcessor: {
-                                    parentProcessInStep: {
-                                        apmStep: "ready"
-                                    }
-                                }
-                            }
-                        },
+                        transitionIf: { CellProcessor: { cell: { query: {  parentProcessInStep: { apmStep: "ready" } } } } },
                         nextStep: "test_pass_1"
                     }
                 ]

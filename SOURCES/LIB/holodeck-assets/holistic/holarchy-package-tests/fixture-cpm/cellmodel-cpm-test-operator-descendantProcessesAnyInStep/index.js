@@ -28,15 +28,7 @@ const cellModel = new holarchy.CellModel({
                 description: "Wait for active descendant process(es) any in step.",
                 transitions: [
                     {
-                        transitionIf: {
-                            holarchy: {
-                                CellProcessor: {
-                                    descendantProcessesAnyInStep: {
-                                        apmStep: "ready"
-                                    }
-                                }
-                            }
-                        }, // transitionIf
+                        transitionIf: { CellProcessor: { cell: { query: { descendantProcessesAnyInStep: { apmStep: "ready" } } } } },
                         nextStep: "test_pass_1"
                     }
                 ]
