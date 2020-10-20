@@ -55,39 +55,25 @@ const transitionOperator = new TransitionOperator({
             }
 
             const messageBody = request_.operatorRequest.CellProcessor.cell;
-            let unresolvedCoordinates = messageBody.cellCoordinates;
 
-            if ((Object.prototype.toString.call(unresolvedCoordinates) === "[object String]") && unresolvedCoordinates.startsWith("#")) {
-                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: unresolvedCoordinates });
-                if (ocdResponse.error) {
-                    errors.push(ocdResponse.error);
-                    break;
-                }
-                unresolvedCoordinates = ocdResponse.result;
-            }
-
-            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates: unresolvedCoordinates, ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.cellProcessFamilyOperatorPrologue.request({
+                unresolvedCellCoordinates: messageBody.cellCoordinates,
+                apmBindingPath: request_.context.apmBindingPath,
+                ocdi: request_.context.ocdi
+            });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
             }
 
-            const resolvedCoordinates = cpmLibResponse.result;
-
-            cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
-            if (cpmLibResponse.error) {
-                errors.push(cpmLibResponse.error);
-                break;
-            }
-            const cpmDataDescriptor = cpmLibResponse.result;
-            const ownedCellProcessesData = cpmDataDescriptor.data.ownedCellProcesses;
+            const prologueData = cpmLibResponse.result;
 
             // Get the parent process descriptor.
             cpmLibResponse = cpmLib.getProcessParentDescriptor.request({
-                cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
-                filterBy: messageBody.filterBy,
+                cellProcessID: prologueData.resolvedCellCoordinates.cellPathID,
+                filterBy: messageBody.query.filterBy,
                 ocdi: request_.context.ocdi,
-                treeData: ownedCellProcessesData
+                treeData: prologueData.ownedCellProcessesData
             });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);

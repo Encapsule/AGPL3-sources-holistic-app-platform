@@ -23,7 +23,7 @@ const factoryResponse = arccore.filter.create({
                 "jsObject",
             ],
             ____defaultValue: "#",
-            apmID: { ____accept: "jsString" },
+            apmBindingPath: { ____accept: "jsString" },
             instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
 
         },
@@ -39,7 +39,7 @@ const factoryResponse = arccore.filter.create({
 
     bodyFunction: (request_) => {
         let response = { error: null };
-        let errrors = [];
+        let errors = [];
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
@@ -55,7 +55,7 @@ const factoryResponse = arccore.filter.create({
                 unresolvedCellCoordinates = ocdResponse.result;
             }
 
-            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates: unresolvedCellCoordinates, ocdi: request_.context.ocdi });
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates: unresolvedCellCoordinates, ocdi: request_.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -63,7 +63,7 @@ const factoryResponse = arccore.filter.create({
 
             const resolvedCellCoordinates = cpmLibResponse.result;
 
-            cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
