@@ -1,101 +1,11 @@
 // cpm-resolve-cell-process-coordinates.js
 
 const arccore = require("@encapsule/arccore");
-
-const cpmGetCellProcessManagerData = require("./cpm-get-cell-process-manager-data");
-const ObservableControllerData = require("../../../../lib/ObservableControllerData");
-
-const cpmMountingNamespaceName = require("../../../filters/cpm-mounting-namespace-name"); // Shim for CPM mounting path. Eventually, we'll bind CPM to ~ and remove this entirely.
-const cpmPath = `~.${cpmMountingNamespaceName}`;
+const cellCoordinatesCache = require("./cpm-resolve-cell-process-coordinates-cache");
 
 (function() {
 
-    const cpmCache = {};
-
-    function getMemoryMapVDID({ ocdi }) {
-        return ocdi._private.accessFilters.read["~"].filterDescriptor.outputTypeVDID;
-    }
-
-    function getCache({ ocdi }) {
-        const cpmVDID = getMemoryMapVDID({ ocdi });
-        let cache = cpmCache[cpmVDID];
-        if (!cache) {
-            cache = cpmCache[cpmVDID] = { byDataPath: {}, byCellPath: {}, byCellProcessPath: {}, byCellProcessCoordinates: {}, byCellProcessID: {} };
-        }
-        return cache;
-    }
-
-    function isValidDataPath({ dataPath, ocdi }) {
-        let cache = getCache({ ocdi });
-        if (cache.byDataPath[dataPath]) {
-            return true;
-        }
-        let ocdResponse = ocdi.getNamespaceSpec(dataPath);
-        if (ocdResponse.error) {
-            return false;
-        }
-        cache.byDataPath[dataPath] = { dataPathID: arccore.identifier.irut.fromReference(dataPath).result };
-        return true;
-    }
-
-    function isValidCellPath({ cellPath, ocdi }) {
-        let cache = getCache({ ocdi });
-        if (cache.byCellPath[cellPath]) {
-            return true;
-        }
-        if (!isValidDataPath({ dataPath: cellPath, ocdi })) {
-            return false;
-        }
-        // TODO: Once we have addressed current issue w/proxy helper depth, we will move CPM binding to ~ and remove this shim for good.
-        const queryCellPath = (cellPath !== "~")?cellPath:cpmPath;
-
-        const ocdResponse = ocdi.getNamespaceSpec(queryCellPath);
-        if (ocdResponse.error) {
-            throw new Error("Internal error: invariant assumption violated.");
-        }
-        const namespaceSpec = ocdResponse.result;
-        if (!namespaceSpec.____appdsl || !namespaceSpec.____appdsl.apm) {
-            return false;
-        }
-        cache.byCellPath[cellPath] = { cellPathID: cache.byDataPath[cellPath].dataPathID, apmID: namespaceSpec.____appdsl.apm };
-        return true;
-    }
-
-    function isCellProcessActivatable({ apmID, ocdi }) {
-        let cache = getCache({ ocdi });
-        if (cache.byCellProcessCoordinates[apmID]) {
-            return true;
-        }
-        const dataPath = `~.${apmID}_CellProcesses`;
-        if (!isValidDataPath({ dataPath, ocdi })) {
-            return false;
-        }
-        cache.byCellProcessCoordinates[apmID] = { dataPath, apmID, instances: {} };
-        return true;
-    }
-
-    function isValidCellProcessInstanceCoordinates({ apmID, instanceName, ocdi }) {
-        let cache = getCache({ ocdi });
-        if (!isCellProcessActivatable({ apmID, ocdi })) {
-            return false;
-        }
-        if (cache.byCellProcessCoordinates[apmID].instances[instanceName]) {
-            return true;
-        }
-        const instanceID = arccore.identifier.irut.fromReference(instanceName).result;
-        const cellProcessPath = `${cache.byCellProcessCoordinates[apmID].dataPath}.cellProcessMap.${instanceID}`;
-        if (!isValidCellPath({ cellPath: cellProcessPath, ocdi })) {
-            return false;
-        }
-        const cellProcessID = cache.byCellPath[cellProcessPath].cellPathID;
-        cache.byCellProcessCoordinates[apmID].instances[instanceName] = cache.byCellProcessID[cellProcessID] = cache.byCellProcessPath[cellProcessPath] = {
-            coordinates: { apmID, instanceName }, cellProcessesPath: cache.byCellProcessCoordinates[apmID].dataPath, cellProcessPath, instanceID, cellProcessID
-        };
-        return true;
-    }
-
-
-    factoryResponse = arccore.filter.create({
+    let factoryResponse = arccore.filter.create({
         operationID: "6qK5QrJ4Tu2kWi3HOLlbKw",
         operationName: "cpmLib: Resolve Cell Process Coordinates",
         operationDescription: "Converts variant input type into a normalized cell process coordinates descriptor object.",
@@ -131,7 +41,7 @@ const cpmPath = `~.${cpmMountingNamespaceName}`;
             let inBreakScope = false;
             while (!inBreakScope) {
                 inBreakScope = true;
-                let cache = getCache({ ocdi: request_.ocdi });
+                let cache = cellCoordinatesCache.getCache({ ocdi: request_.ocdi });
                 const coordinatesTypeString = Object.prototype.toString.call(request_.coordinates);
                 switch (coordinatesTypeString) {
                 case "[object String]":
@@ -161,7 +71,7 @@ const cpmPath = `~.${cpmMountingNamespaceName}`;
                                 errors.push(`Unknown cellProcessPath '${request_.coordinates}'.`);
                                 break;
                             }
-                            if (!isValidCellPath({ cellPath: "~", ocdi: request_.ocdi })) {
+                            if (!cellCoordinatesCache.isValidCellPath({ cellPath: "~", ocdi: request_.ocdi })) {
                                 throw new Error("Internal error: violation of invariant assumption.");
                             }
                             const cellPathDescriptor = cache.byCellPath["~"];
@@ -173,7 +83,7 @@ const cpmPath = `~.${cpmMountingNamespaceName}`;
                 case "[object Object]":
                     // The caller has specified the raw cell process coordinates descriptor object.
                     const c = request_.coordinates;
-                    if (isValidCellProcessInstanceCoordinates({ apmID: c.apmID, instanceName: c.instanceName, ocdi: request_.ocdi })) {
+                    if (cellCoordinatesCache.isValidCellProcessInstanceCoordinates({ apmID: c.apmID, instanceName: c.instanceName, ocdi: request_.ocdi })) {
                         response.result = cache.byCellProcessCoordinates[c.apmID].instances[c.instanceName];
                     } else {
                         errors.push(`No activatable cell process at coordinates apmID '${request_.coordinates.apmID}' instanceName '${request_.coordinates.instanceName}.`);
@@ -198,70 +108,6 @@ const cpmPath = `~.${cpmMountingNamespaceName}`;
 
     const resolveCellProcessCoordinates = factoryResponse.result;
 
-
-
-
-    let factoryResponse = arccore.filter.create({
-        operationID: "0XCZSfBSRSuwYgeIfLHhVw",
-        operationName: "cpmLib: Resolve Cell Coordindates",
-        operationDescription: "Converts variant input type into a normalized cell coordinates descriptor object.",
-        inputFilterSpec: {
-            ____label: "Cell Coordinates Variant",
-            ____types: "jsObject",
-            coordinates: {
-                ____label: "Cell Process Coordinates Variant",
-                ____types: [
-                    "jsString", // Either cellPath or cellProcessPath or cellProcessID.
-                    "jsObject", // Raw cellplane coordinate descriptor object.
-                ],
-                apmID: { ____accept: "jsString" },
-                instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
-            },
-            ocdi: { ____accept: "jsObject" }
-        },
-        outputFilterSpec: {
-            ____types: "jsObject",
-            cellPath: { ____accept: "jsString" },
-            cellPathID: { ____accept: "jsString" },
-            apmID: { ____accept: "jsString" }
-        },
-        bodyFunction: (request_) => {
-            let response = { error: null };
-            let errors = [];
-            let inBreakScope = false;
-            while (!inBreakScope) {
-                inBreakScope = true;
-
-                let cpmLibResponse = resolveCellProcessCoordinates.request({ coordinates: request_.coordinates, ocdi: request_.ocdi });
-                if (!cpmLibResponse.error) {
-                    let resolvedCoordinates = cpmLibResponse.result;
-                    response.result = { cellPath: resolvedCoordinates.cellProcessPath, cellPathID: resolvedCoordinates.cellProcessID, apmID: resolvedCoordinates.coordinates.apmID };
-                    break;
-                }
-                if (!isValidCellPath({ cellPath: request_.coordinates, ocdi: request_.ocdi })) {
-                    errors.push(`Invalid cellPath '${request_.coordinates}'.`);
-                    break;
-                }
-                let cache = getCache({ ocdi: request_.ocdi });
-                response.result = { cellPath: request_.coordinates, cellPathID: cache.byCellPath[request_.coordinates].cellPathID, apmID: cache.byCellPath[request_.coordinates].apmID };
-                break;
-            }
-            if (errors.length) {
-                response.error = errors.join(" ");
-            }
-            return response;
-        }
-    });
-
-    if (factoryResponse.error) {
-        throw new Error(factoryResponse.error);
-    }
-
-    const resolveCellCoordinates = factoryResponse.result;
-
-    module.exports = {
-        resolveCellCoordinates,
-        resolveCellProcessCoordinates
-    };
+    module.exports = resolveCellProcessCoordinates;
 
 })();

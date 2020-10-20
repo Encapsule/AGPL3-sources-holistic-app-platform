@@ -7,7 +7,8 @@
 
 module.exports = {
 
-    ...require("./cpm-resolve-cell-process-coordinates"),
+    resolveCellCoordinates: require("./cpm-resolve-cell-coordinates"),
+    resolveCellProcessCoordinates: require("./cpm-resolve-cell-process-coordinates"),
     getProcessManagerData: require("./cpm-get-cell-process-manager-data"),
     getProcessAncestorDescriptors: require("./cpm-get-cell-process-ancestor-descriptors"),
     getProcessChildrenDescriptors: require("./cpm-get-cell-process-children-descriptors"),
@@ -15,5 +16,8 @@ module.exports = {
     getProcessParentDescriptor: require("./cpm-get-cell-process-parent-descriptor"),
     getProcessDescriptor: require("./cpm-get-cell-process-descriptor"),
     getProcessOwnershipReportDescriptor: require("./cpm-get-cell-process-ownership-report-descriptor"),
+
+    cellProcessFamilyOperatorPrologue: require("./cpm-cell-process-family-operator-prologue")
+
 };
 

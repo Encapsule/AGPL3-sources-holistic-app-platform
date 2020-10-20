@@ -22,8 +22,11 @@ const transitionOperator = new TransitionOperator({
                 ____types: "jsObject",
                 cellCoordinates: {
                     ____types: [
-                        "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
-                        "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                        // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell.
+                        // Or, an IRUT that resolves to a known cellProcessID (that by definition must resolve to an active cell).
+                        "jsString",
+                        // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                        "jsObject",
                     ],
                     ____defaultValue: "#",
                     apmID: { ____accept: "jsString" },
@@ -46,15 +49,32 @@ const transitionOperator = new TransitionOperator({
         while (!inBreakScope) {
             inBreakScope = true;
 
-            const message = request_.operatorRequest.holarchy.CellProcessor.parentProcessActive;
-
             // This is all we can ever be 100% sure about based on the apmBindingPath.
             if (request_.context.apmBindingPath === "~") {
                 break; // response.result === false
             }
 
-            // So, we have to query the CPM process tree.
-            let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
+            const messageBody = request_.operatorRequest.CellProcessor.cell;
+            let unresolvedCoordinates = messageBody.cellCoordinates;
+
+            if ((Object.prototype.toString.call(unresolvedCoordinates) === "[object String]") && unresolvedCoordinates.startsWith("#")) {
+                let ocdResponse = ObservableControllerData.dataPathResolve({ apmBindingPath: request_.context.apmBindingPath, dataPath: unresolvedCoordinates });
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+                unresolvedCoordinates = ocdResponse.result;
+            }
+
+            let cpmLibResponse = cpmLib.resolveCellCoordinates.request({ coordinates: unresolvedCoordinates, ocdi: request_.context.ocdi });
+            if (cpmLibResponse.error) {
+                errors.push(cpmLibResponse.error);
+                break;
+            }
+
+            const resolvedCoordinates = cpmLibResponse.result;
+
+            cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
                 errors.push(cpmLibResponse.error);
                 break;
@@ -65,7 +85,7 @@ const transitionOperator = new TransitionOperator({
             // Get the parent process descriptor.
             cpmLibResponse = cpmLib.getProcessParentDescriptor.request({
                 cellProcessID: arccore.identifier.irut.fromReference(request_.context.apmBindingPath).result,
-                filterBy: message.filterBy,
+                filterBy: messageBody.filterBy,
                 ocdi: request_.context.ocdi,
                 treeData: ownedCellProcessesData
             });

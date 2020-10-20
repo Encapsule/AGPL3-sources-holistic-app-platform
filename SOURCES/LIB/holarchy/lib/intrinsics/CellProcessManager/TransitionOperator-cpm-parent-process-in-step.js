@@ -20,8 +20,11 @@ module.exports = new TransitionOperator({
                 ____types: "jsObject",
                 cellCoordinates: {
                     ____types: [
-                        "jsString", // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell. Or, an IRUT that resolves to a known cellProcessID.
-                        "jsObject", // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                        // If a string, then the caller-supplied value must be either a fully-qualified or relative path to a cell.
+                        // Or, an IRUT that resolves to a known cellProcessID (that by definition must resolve to an active cell).
+                        "jsString",
+                        // If an object, then the caller has specified the low-level apmID, instanceName coordinates directly.
+                        "jsObject",
                     ],
                     ____defaultValue: "#",
                     apmID: { ____accept: "jsString" },
@@ -58,7 +61,6 @@ module.exports = new TransitionOperator({
             }
 
             const messageBody = request_.operatorRequest.CellProcessor.cell;
-
             let unresolvedCoordinates = messageBody.cellCoordinates;
 
             if ((Object.prototype.toString.call(unresolvedCoordinates) === "[object String]") && unresolvedCoordinates.startsWith("#")) {
