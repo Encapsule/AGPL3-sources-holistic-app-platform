@@ -25,7 +25,7 @@
                     "description": "Tests the CPM descendant processes active transition operator implementation.",
                     "cellmodel": {
                       "id": "L0L3o-vqTOOli8Lio96e8w",
-                      "vdid": "IvooN6RmAaHxSjrYxTSOcg",
+                      "vdid": "a_ooNzRmAaFkSjrY2TSOcg",
                       "name": "CPM Descendant Processes Active Operator Test Model",
                       "description": "A model to test the descendant processes active operator.",
                       "cmat": {
@@ -35,13 +35,13 @@
                             "type": "INDEX",
                             "L0L3o-vqTOOli8Lio96e8w": {
                               "id": "L0L3o-vqTOOli8Lio96e8w",
-                              "vdid": "IvooN6RmAaHxSjrYxTSOcg",
+                              "vdid": "a_ooNzRmAaFkSjrY2TSOcg",
                               "name": "CPM Descendant Processes Active Operator Test Model",
                               "description": "A model to test the descendant processes active operator.",
                               "type": "CM",
                               "cYpoxyyZSwm19CqH3v7eLQ": {
                                 "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                                 "name": "CPM Descendant Processes Active Operator Test Process",
                                 "description": "A process to test the descendant processes active operator.",
                                 "type": "APM"
@@ -335,7 +335,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                        "vdid": "mMIGBDw7PPdltUCBk7yc2g",
+                        "vdid": "-FYSBNbs1_edBXeB3cBd2g",
                         "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                         "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                         "cmat": {
@@ -345,7 +345,7 @@
                               "type": "INDEX",
                               "EPUQ9YpwinAcHhwe1iLWIg": {
                                 "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                                "vdid": "mMIGBDw7PPdltUCBk7yc2g",
+                                "vdid": "-FYSBNbs1_edBXeB3cBd2g",
                                 "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
                                 "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
                                 "type": "CM",
@@ -365,77 +365,77 @@
                                 },
                                 "gJnA-VJTTLa0g9TKFmjv1Q": {
                                   "id": "gJnA-VJTTLa0g9TKFmjv1Q",
-                                  "vdid": "y-xRl4DOL-gi2uIYjI2hww",
+                                  "vdid": "-4GitYYnl3Xx5Fb-8EDSxw",
                                   "name": "Cell Process Manager: Ancestor Processes Active",
                                   "description": "Return Boolean true if request.context.apmBindingPath is a cell process with active ancestor processes.",
                                   "type": "TOP"
                                 },
                                 "6j5F3HmKTLG9Q8kD1-QWYA": {
                                   "id": "6j5F3HmKTLG9Q8kD1-QWYA",
-                                  "vdid": "aXbMEvEGPywjcXDoZ13SZg",
+                                  "vdid": "TuodjWXV_UwGKA70s9qq9g",
                                   "name": "Cell Process Manager: Ancestor Processes All In Step",
                                   "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) all in the specified process step(s).",
                                   "type": "TOP"
                                 },
                                 "jFxFmpHSSPaeWEFfLh8eWw": {
                                   "id": "jFxFmpHSSPaeWEFfLh8eWw",
-                                  "vdid": "vz7gbmgfU5OK2pXFhM3A1g",
+                                  "vdid": "pMNCIG2HZRQNnbW7fo0hPg",
                                   "name": "Cell Process Manager: Ancestor Processes Any In Step",
                                   "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with ancestor process(es) any of which are in the specified process step(s).",
                                   "type": "TOP"
                                 },
                                 "xIRhBHueTRGO0xq63UUbyQ": {
                                   "id": "xIRhBHueTRGO0xq63UUbyQ",
-                                  "vdid": "OFzuXGR-DYNPAAi61oYiPg",
+                                  "vdid": "xlPHi8-AGHvBBDpxxE1jEw",
                                   "name": "Cell Process Manager: Child Processes Active",
                                   "description": "Returns Boolean true iff request.context.apmBindingPath is a cell process with one or more child cell processes.",
                                   "type": "TOP"
                                 },
                                 "5P2MHjL4TXCqScp_xNrJyA": {
                                   "id": "5P2MHjL4TXCqScp_xNrJyA",
-                                  "vdid": "6pGUpIQmzzdLlxVLO9hKwA",
+                                  "vdid": "F31SQobBk-8B1FAh8qTQLw",
                                   "name": "Cell Process Manager: Child Processes All In Step",
                                   "description": "Returns Boolean true request.context.apmBindingPath is a cell process whose child processes are all in the specified process step.",
                                   "type": "TOP"
                                 },
                                 "esuJGgmERrSV3AFvFOMyhw": {
                                   "id": "esuJGgmERrSV3AFvFOMyhw",
-                                  "vdid": "rDk-xYKSEq5T0ahLSByvFg",
+                                  "vdid": "p5PwQb6vyqR3_BfwrUNVkg",
                                   "name": "Cell Process Manager: Child Processes Any In Step",
                                   "description": "Returns Boolean true request.context.apmBindingPath is a cell process with any child cell process in the specified process step.",
                                   "type": "TOP"
                                 },
                                 "Fs6tE76WR5yTOdbwQ_N_FQ": {
                                   "id": "Fs6tE76WR5yTOdbwQ_N_FQ",
-                                  "vdid": "DhLnD_0ZPsKdrbW2yP97Xw",
+                                  "vdid": "Lyd_1YunX3Uu88i2WHOUBA",
                                   "name": "Cell Process Manager: Descendant Processes Active",
                                   "description": "Returns Boolean true if request.context.apmBindingPath is a cell process with active dependant cell processes.",
                                   "type": "TOP"
                                 },
                                 "DX5GfJcwRNq0xW20KzMSJQ": {
                                   "id": "DX5GfJcwRNq0xW20KzMSJQ",
-                                  "vdid": "Y3w780SgErIOMj9o-9lp5Q",
+                                  "vdid": "Bq7qyiK-_kNCUE3-j7FE3g",
                                   "name": "Cell Process Manager: Descendant Processes All In Step",
                                   "description": "Returns Boolean true request.context.apmBindingPath is a cell process with all descendant cell processes in the specified process step.",
                                   "type": "TOP"
                                 },
                                 "DzlsRZBOReO03GSPsU3CIg": {
                                   "id": "DzlsRZBOReO03GSPsU3CIg",
-                                  "vdid": "FE4VAXrfngpLBvAkksFkBw",
+                                  "vdid": "mcOi_9eI9HifU_IJKnIFMQ",
                                   "name": "Cell Process Manager: Descendant Processes Any In Step",
                                   "description": "Returns Boolean true request.context.apmBindingPath is a cell process whose descendant cell processes contain any cell process(es) in the specified process step.",
                                   "type": "TOP"
                                 },
                                 "9HNGDusyTtKpleXFae7O5A": {
                                   "id": "9HNGDusyTtKpleXFae7O5A",
-                                  "vdid": "rpDuOEOIQYFwvxXLfXTr8A",
+                                  "vdid": "hON7P5mqvkUAp_97L121Eg",
                                   "name": "Cell Process Manager: Parent Process Active",
                                   "description": "Returns Boolean true iff request.context.apmBindingPath is a cell process with an active parent process.",
                                   "type": "TOP"
                                 },
                                 "PHPSWivjRyK80Gtymsp-pA": {
                                   "id": "PHPSWivjRyK80Gtymsp-pA",
-                                  "vdid": "Ehoabii3vNoSVexq-eInNA",
+                                  "vdid": "cVctW-ugMbwGS5qHLZVaZQ",
                                   "name": "Cell Process Manager: Parent Process In Step",
                                   "description": "Returns Boolean true request.context.apmBindingPath is a cell process whose parent cell process is in the specified process step.",
                                   "type": "TOP"
@@ -680,13 +680,13 @@
                                 },
                                 "L0L3o-vqTOOli8Lio96e8w": {
                                   "id": "L0L3o-vqTOOli8Lio96e8w",
-                                  "vdid": "IvooN6RmAaHxSjrYxTSOcg",
+                                  "vdid": "a_ooNzRmAaFkSjrY2TSOcg",
                                   "name": "CPM Descendant Processes Active Operator Test Model",
                                   "description": "A model to test the descendant processes active operator.",
                                   "type": "CM",
                                   "cYpoxyyZSwm19CqH3v7eLQ": {
                                     "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                    "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                    "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                                     "name": "CPM Descendant Processes Active Operator Test Process",
                                     "description": "A process to test the descendant processes active operator.",
                                     "type": "APM"
@@ -765,7 +765,7 @@
                           },
                           "cYpoxyyZSwm19CqH3v7eLQ": {
                             "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                            "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                            "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                             "name": "CPM Descendant Processes Active Operator Test Process",
                             "description": "A process to test the descendant processes active operator."
                           },
@@ -811,7 +811,7 @@
                             "specPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                              "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                              "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                               "name": "CPM Descendant Processes Active Operator Test Process",
                               "description": "A process to test the descendant processes active operator."
                             }
@@ -1516,53 +1516,31 @@
                                   "filterSpecPath": "request.operatorRequest.holarchy",
                                   "filters": [
                                     "2w7n6KxdR8mdIliePJesLQ",
-                                    "5P2MHjL4TXCqScp_xNrJyA",
-                                    "6j5F3HmKTLG9Q8kD1-QWYA",
-                                    "9HNGDusyTtKpleXFae7O5A",
                                     "9tNY7o5GTUGH_xda2GhP-w",
-                                    "DX5GfJcwRNq0xW20KzMSJQ",
-                                    "DzlsRZBOReO03GSPsU3CIg",
                                     "FTxze-WaRp6HS0Dlr_Ke6A",
-                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
-                                    "PHPSWivjRyK80Gtymsp-pA",
                                     "UeLs9PcASwuC7KR190eYhA",
                                     "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "esuJGgmERrSV3AFvFOMyhw",
                                     "fS5liuD1RBSdaPBEhsoxXw",
-                                    "gJnA-VJTTLa0g9TKFmjv1Q",
                                     "ggsavKiARsq7rjwn-lxdfA",
-                                    "jFxFmpHSSPaeWEFfLh8eWw",
                                     "k7THIKKDQMKOac1Rxh9tEQ",
                                     "kD1PcgqYQlm7fJatNG2ZsA",
                                     "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ",
-                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
                                   ],
                                   "color": "green",
                                   "typeConstraint": "jsObject",
                                   "filters1": [
                                     "2w7n6KxdR8mdIliePJesLQ",
-                                    "5P2MHjL4TXCqScp_xNrJyA",
-                                    "6j5F3HmKTLG9Q8kD1-QWYA",
-                                    "9HNGDusyTtKpleXFae7O5A",
                                     "9tNY7o5GTUGH_xda2GhP-w",
-                                    "DX5GfJcwRNq0xW20KzMSJQ",
-                                    "DzlsRZBOReO03GSPsU3CIg",
                                     "FTxze-WaRp6HS0Dlr_Ke6A",
-                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
-                                    "PHPSWivjRyK80Gtymsp-pA",
                                     "UeLs9PcASwuC7KR190eYhA",
                                     "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "esuJGgmERrSV3AFvFOMyhw",
                                     "fS5liuD1RBSdaPBEhsoxXw",
-                                    "gJnA-VJTTLa0g9TKFmjv1Q",
                                     "ggsavKiARsq7rjwn-lxdfA",
-                                    "jFxFmpHSSPaeWEFfLh8eWw",
                                     "k7THIKKDQMKOac1Rxh9tEQ",
                                     "kD1PcgqYQlm7fJatNG2ZsA",
                                     "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ",
-                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
                                   ]
                                 }
                               },
@@ -1687,402 +1665,40 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor",
-                                  "filters": [
-                                    "5P2MHjL4TXCqScp_xNrJyA",
-                                    "6j5F3HmKTLG9Q8kD1-QWYA",
-                                    "9HNGDusyTtKpleXFae7O5A",
-                                    "DX5GfJcwRNq0xW20KzMSJQ",
-                                    "DzlsRZBOReO03GSPsU3CIg",
-                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
-                                    "PHPSWivjRyK80Gtymsp-pA",
-                                    "esuJGgmERrSV3AFvFOMyhw",
-                                    "gJnA-VJTTLa0g9TKFmjv1Q",
-                                    "jFxFmpHSSPaeWEFfLh8eWw",
-                                    "xIRhBHueTRGO0xq63UUbyQ"
-                                  ],
-                                  "color": "green",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "5P2MHjL4TXCqScp_xNrJyA",
-                                    "6j5F3HmKTLG9Q8kD1-QWYA",
-                                    "9HNGDusyTtKpleXFae7O5A",
-                                    "DX5GfJcwRNq0xW20KzMSJQ",
-                                    "DzlsRZBOReO03GSPsU3CIg",
-                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
-                                    "PHPSWivjRyK80Gtymsp-pA",
-                                    "esuJGgmERrSV3AFvFOMyhw",
-                                    "gJnA-VJTTLa0g9TKFmjv1Q",
-                                    "jFxFmpHSSPaeWEFfLh8eWw",
-                                    "xIRhBHueTRGO0xq63UUbyQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesActive(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesActive",
-                                  "filters": [
-                                    "gJnA-VJTTLa0g9TKFmjv1Q"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "gJnA-VJTTLa0g9TKFmjv1Q"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAllInStep",
-                                  "filters": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAllInStep.apmStep",
-                                  "filters": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsArray)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAllInStep.apmStep",
-                                  "filters": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsArray",
-                                  "filters1": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAllInStep.apmStep.stepName",
-                                  "filters": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "6j5F3HmKTLG9Q8kD1-QWYA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAnyInStep",
-                                  "filters": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAnyInStep.apmStep",
-                                  "filters": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsArray)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAnyInStep.apmStep",
-                                  "filters": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsArray",
-                                  "filters1": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.ancestorProcessesAnyInStep.apmStep.stepName",
-                                  "filters": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "jFxFmpHSSPaeWEFfLh8eWw"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesActive(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.childProcessesActive",
-                                  "filters": [
-                                    "xIRhBHueTRGO0xq63UUbyQ"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "xIRhBHueTRGO0xq63UUbyQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.childProcessesAllInStep",
-                                  "filters": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.childProcessesAllInStep.apmStep",
-                                  "filters": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject).apmStep(jsArray)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.childProcessesAllInStep.apmStep",
-                                  "filters": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsArray",
-                                  "filters1": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.childProcessesAllInStep.apmStep.stepName",
-                                  "filters": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "5P2MHjL4TXCqScp_xNrJyA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAnyInStep(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.childProcessesAnyInStep",
-                                  "filters": [
-                                    "esuJGgmERrSV3AFvFOMyhw"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "esuJGgmERrSV3AFvFOMyhw"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.childProcessesAnyInStep.apmStep",
-                                  "filters": [
-                                    "esuJGgmERrSV3AFvFOMyhw"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "esuJGgmERrSV3AFvFOMyhw"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesActive(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesActive",
-                                  "filters": [
-                                    "Fs6tE76WR5yTOdbwQ_N_FQ"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "Fs6tE76WR5yTOdbwQ_N_FQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAllInStep",
-                                  "filters": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAllInStep.apmStep",
-                                  "filters": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsArray)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAllInStep.apmStep",
-                                  "filters": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsArray",
-                                  "filters1": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAllInStep.apmStep.stepName",
-                                  "filters": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "DX5GfJcwRNq0xW20KzMSJQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAnyInStep",
-                                  "filters": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAnyInStep.apmStep",
-                                  "filters": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsArray)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAnyInStep.apmStep",
-                                  "filters": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsArray",
-                                  "filters1": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.descendantProcessesAnyInStep.apmStep.stepName",
-                                  "filters": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "DzlsRZBOReO03GSPsU3CIg"
-                                  ]
-                                }
-                              },
-                              {
                                 "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject)",
                                 "p": {
                                   "filterSpecPath": "request.operatorRequest.CellProcessor",
                                   "filters": [
+                                    "5P2MHjL4TXCqScp_xNrJyA",
+                                    "6j5F3HmKTLG9Q8kD1-QWYA",
+                                    "9HNGDusyTtKpleXFae7O5A",
+                                    "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DxL0zD_ERu-0kNGX2FvoGg",
-                                    "c-n6U_maQa23j9jWFDsgOw"
+                                    "DzlsRZBOReO03GSPsU3CIg",
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
+                                    "PHPSWivjRyK80Gtymsp-pA",
+                                    "c-n6U_maQa23j9jWFDsgOw",
+                                    "esuJGgmERrSV3AFvFOMyhw",
+                                    "gJnA-VJTTLa0g9TKFmjv1Q",
+                                    "jFxFmpHSSPaeWEFfLh8eWw",
+                                    "xIRhBHueTRGO0xq63UUbyQ"
                                   ],
                                   "color": "green",
                                   "typeConstraint": "jsObject",
                                   "filters1": [
+                                    "5P2MHjL4TXCqScp_xNrJyA",
+                                    "6j5F3HmKTLG9Q8kD1-QWYA",
+                                    "9HNGDusyTtKpleXFae7O5A",
+                                    "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DxL0zD_ERu-0kNGX2FvoGg",
-                                    "c-n6U_maQa23j9jWFDsgOw"
+                                    "DzlsRZBOReO03GSPsU3CIg",
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
+                                    "PHPSWivjRyK80Gtymsp-pA",
+                                    "c-n6U_maQa23j9jWFDsgOw",
+                                    "esuJGgmERrSV3AFvFOMyhw",
+                                    "gJnA-VJTTLa0g9TKFmjv1Q",
+                                    "jFxFmpHSSPaeWEFfLh8eWw",
+                                    "xIRhBHueTRGO0xq63UUbyQ"
                                   ]
                                 }
                               },
@@ -2091,12 +1707,418 @@
                                 "p": {
                                   "filterSpecPath": "request.operatorRequest.CellProcessor.cell",
                                   "filters": [
-                                    "DxL0zD_ERu-0kNGX2FvoGg"
+                                    "5P2MHjL4TXCqScp_xNrJyA",
+                                    "6j5F3HmKTLG9Q8kD1-QWYA",
+                                    "9HNGDusyTtKpleXFae7O5A",
+                                    "DX5GfJcwRNq0xW20KzMSJQ",
+                                    "DxL0zD_ERu-0kNGX2FvoGg",
+                                    "DzlsRZBOReO03GSPsU3CIg",
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
+                                    "PHPSWivjRyK80Gtymsp-pA",
+                                    "esuJGgmERrSV3AFvFOMyhw",
+                                    "gJnA-VJTTLa0g9TKFmjv1Q",
+                                    "jFxFmpHSSPaeWEFfLh8eWw",
+                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "5P2MHjL4TXCqScp_xNrJyA",
+                                    "6j5F3HmKTLG9Q8kD1-QWYA",
+                                    "9HNGDusyTtKpleXFae7O5A",
+                                    "DX5GfJcwRNq0xW20KzMSJQ",
+                                    "DxL0zD_ERu-0kNGX2FvoGg",
+                                    "DzlsRZBOReO03GSPsU3CIg",
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
+                                    "PHPSWivjRyK80Gtymsp-pA",
+                                    "esuJGgmERrSV3AFvFOMyhw",
+                                    "gJnA-VJTTLa0g9TKFmjv1Q",
+                                    "jFxFmpHSSPaeWEFfLh8eWw",
+                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query",
+                                  "filters": [
+                                    "5P2MHjL4TXCqScp_xNrJyA",
+                                    "6j5F3HmKTLG9Q8kD1-QWYA",
+                                    "9HNGDusyTtKpleXFae7O5A",
+                                    "DX5GfJcwRNq0xW20KzMSJQ",
+                                    "DzlsRZBOReO03GSPsU3CIg",
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
+                                    "PHPSWivjRyK80Gtymsp-pA",
+                                    "esuJGgmERrSV3AFvFOMyhw",
+                                    "gJnA-VJTTLa0g9TKFmjv1Q",
+                                    "jFxFmpHSSPaeWEFfLh8eWw",
+                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "5P2MHjL4TXCqScp_xNrJyA",
+                                    "6j5F3HmKTLG9Q8kD1-QWYA",
+                                    "9HNGDusyTtKpleXFae7O5A",
+                                    "DX5GfJcwRNq0xW20KzMSJQ",
+                                    "DzlsRZBOReO03GSPsU3CIg",
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ",
+                                    "PHPSWivjRyK80Gtymsp-pA",
+                                    "esuJGgmERrSV3AFvFOMyhw",
+                                    "gJnA-VJTTLa0g9TKFmjv1Q",
+                                    "jFxFmpHSSPaeWEFfLh8eWw",
+                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesActive(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesActive",
+                                  "filters": [
+                                    "gJnA-VJTTLa0g9TKFmjv1Q"
                                   ],
                                   "color": "gold",
                                   "typeConstraint": "jsObject",
                                   "filters1": [
-                                    "DxL0zD_ERu-0kNGX2FvoGg"
+                                    "gJnA-VJTTLa0g9TKFmjv1Q"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAllInStep",
+                                  "filters": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAllInStep.apmStep",
+                                  "filters": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsArray)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAllInStep.apmStep",
+                                  "filters": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsArray",
+                                  "filters1": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAllInStep.apmStep.stepName",
+                                  "filters": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "6j5F3HmKTLG9Q8kD1-QWYA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAnyInStep",
+                                  "filters": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAnyInStep.apmStep",
+                                  "filters": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsArray)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAnyInStep.apmStep",
+                                  "filters": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsArray",
+                                  "filters1": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.ancestorProcessesAnyInStep.apmStep.stepName",
+                                  "filters": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesActive(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesActive",
+                                  "filters": [
+                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "xIRhBHueTRGO0xq63UUbyQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAllInStep",
+                                  "filters": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAllInStep.apmStep",
+                                  "filters": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsArray)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAllInStep.apmStep",
+                                  "filters": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsArray",
+                                  "filters1": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAllInStep.apmStep.stepName",
+                                  "filters": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "5P2MHjL4TXCqScp_xNrJyA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAnyInStep",
+                                  "filters": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.childProcessesAnyInStep.apmStep",
+                                  "filters": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "esuJGgmERrSV3AFvFOMyhw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesActive(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesActive",
+                                  "filters": [
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "Fs6tE76WR5yTOdbwQ_N_FQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAllInStep",
+                                  "filters": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAllInStep.apmStep",
+                                  "filters": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsArray)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAllInStep.apmStep",
+                                  "filters": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsArray",
+                                  "filters1": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAllInStep.apmStep.stepName",
+                                  "filters": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "DX5GfJcwRNq0xW20KzMSJQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAnyInStep",
+                                  "filters": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAnyInStep.apmStep",
+                                  "filters": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsArray)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAnyInStep.apmStep",
+                                  "filters": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsArray",
+                                  "filters1": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.descendantProcessesAnyInStep.apmStep.stepName",
+                                  "filters": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "DzlsRZBOReO03GSPsU3CIg"
                                   ]
                                 }
                               },
@@ -2129,9 +2151,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessActive(jsObject)",
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessActive(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.parentProcessActive",
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.parentProcessActive",
                                   "filters": [
                                     "9HNGDusyTtKpleXFae7O5A"
                                   ],
@@ -2143,9 +2165,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject)",
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.parentProcessInStep",
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.parentProcessInStep",
                                   "filters": [
                                     "PHPSWivjRyK80Gtymsp-pA"
                                   ],
@@ -2157,9 +2179,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject).apmStep(jsString)",
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject).apmStep(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.parentProcessInStep.apmStep",
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.parentProcessInStep.apmStep",
                                   "filters": [
                                     "PHPSWivjRyK80Gtymsp-pA"
                                   ],
@@ -2171,9 +2193,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject).apmStep(jsArray)",
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject).apmStep(jsArray)",
                                 "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.parentProcessInStep.apmStep",
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.parentProcessInStep.apmStep",
                                   "filters": [
                                     "PHPSWivjRyK80Gtymsp-pA"
                                   ],
@@ -2185,9 +2207,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject).apmStep(jsString).stepName(jsString)",
                                 "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.CellProcessor.parentProcessInStep.apmStep.stepName",
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.parentProcessInStep.apmStep.stepName",
                                   "filters": [
                                     "PHPSWivjRyK80Gtymsp-pA"
                                   ],
@@ -2871,12 +2893,6 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject)"
                                 }
                               },
@@ -2918,168 +2934,6 @@
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesActive(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesActive(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAnyInStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesActive(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessActive(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsArray)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsArray)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject).apmStep(jsArray)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAnyInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsArray)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsArray)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject)"
                                 }
@@ -3093,7 +2947,175 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesActive(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesActive(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesActive(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessActive(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsArray)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsArray)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsArray)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAnyInStep(jsObject).apmStep(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsArray)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAllInStep(jsObject).apmStep(jsString).stepName(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsArray)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).descendantProcessesAnyInStep(jsObject).apmStep(jsString).stepName(jsString)"
                                 }
                               },
                               {
@@ -3104,20 +3126,20 @@
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject).apmStep(jsString)"
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject).apmStep(jsString)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject).apmStep(jsArray)"
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject).apmStep(jsArray)"
                                 }
                               },
                               {
                                 "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject).apmStep(jsString)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).parentProcessInStep(jsObject).apmStep(jsString).stepName(jsString)"
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).parentProcessInStep(jsObject).apmStep(jsString).stepName(jsString)"
                                 }
                               },
                               {
@@ -3424,11 +3446,25 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "ancestorProcessesActive": {
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
                                         "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
@@ -3446,6 +3482,9 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "ancestorProcessesActive": {
+                                          "____accept": "jsObject"
                                         }
                                       }
                                     }
@@ -3456,10 +3495,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "q31ohudaRnc-2yxFujIWLQ",
-                              "inputTypeVDID": "WCawc_9fm1fn1P9rCKngdw",
+                              "inputTypeVDID": "1adLBO9BcJMOkVVhV4f-ig",
                               "outputTypeVIID": "7rmmJsOAG_On-Qsu_aOLCw",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "yJ8qRLEdOpMPhd-cbvDRcg"
+                              "operationVDID": "yPAIRLFbtZMPz4ScbhSwcg"
                             }
                           },
                           "6j5F3HmKTLG9Q8kD1-QWYA": {
@@ -3492,21 +3531,26 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "ancestorProcessesAllInStep": {
-                                        "____types": "jsObject",
-                                        "apmStep": {
-                                          "____types": [
-                                            "jsString",
-                                            "jsArray"
-                                          ],
-                                          "stepName": {
-                                            "____accept": "jsString"
-                                          }
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
                                         },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
                                           "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
@@ -3524,11 +3568,23 @@
                                             }
                                           }
                                         },
-                                        "omitCellProcessor": {
-                                          "____label": "Omit CellProcessor",
-                                          "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": true
+                                        "ancestorProcessesAllInStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
+                                          },
+                                          "omitCellProcessor": {
+                                            "____label": "Omit CellProcessor",
+                                            "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": true
+                                          }
                                         }
                                       }
                                     }
@@ -3539,10 +3595,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "LCjyzgMewHLQtavsni6ugw",
-                              "inputTypeVDID": "r_0n2X8GYuxqZ6iEaMu32A",
+                              "inputTypeVDID": "s-89F8jui_EQZNcuJEAMtQ",
                               "outputTypeVIID": "cPIdL7lhl0gnxyaDt0xclw",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "Vwh1RHMhkJN7Bx6c0Ppjcg"
+                              "operationVDID": "Vw4xRHNl3JN7ABac0KEpcg"
                             }
                           },
                           "jFxFmpHSSPaeWEFfLh8eWw": {
@@ -3575,21 +3631,26 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "ancestorProcessesAnyInStep": {
-                                        "____types": "jsObject",
-                                        "apmStep": {
-                                          "____types": [
-                                            "jsString",
-                                            "jsArray"
-                                          ],
-                                          "stepName": {
-                                            "____accept": "jsString"
-                                          }
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
                                         },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
                                           "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
@@ -3607,11 +3668,23 @@
                                             }
                                           }
                                         },
-                                        "omitCellProcessor": {
-                                          "____label": "Omit CellProcessor",
-                                          "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
-                                          "____accept": "jsBoolean",
-                                          "____defaultValue": true
+                                        "ancestorProcessesAnyInStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
+                                          },
+                                          "omitCellProcessor": {
+                                            "____label": "Omit CellProcessor",
+                                            "____description": "Exclude the CellProcessor's Cell Process Manger process step.",
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": true
+                                          }
                                         }
                                       }
                                     }
@@ -3622,10 +3695,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "qh7wt5MghqHkf8TA970Isg",
-                              "inputTypeVDID": "X_1T2QwGxuw_Z7WE8csw2A",
+                              "inputTypeVDID": "9O89jojui_qKZNcSFkAMpQ",
                               "outputTypeVIID": "dVyh7xX7wxDVc-vzANMU_Q",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "EVQTRLvQC5OSswWcim98cg"
+                              "operationVDID": "ES9dRLsnUJOS7xOciuWLcg"
                             }
                           },
                           "xIRhBHueTRGO0xq63UUbyQ": {
@@ -3658,11 +3731,25 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "childProcessesActive": {
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
                                         "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
@@ -3680,6 +3767,9 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "childProcessesActive": {
+                                          "____accept": "jsObject"
                                         }
                                       }
                                     }
@@ -3690,10 +3780,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "4UQ1MuswyqVTGQqxY3GkxQ",
-                              "inputTypeVDID": "LzKmQdZq-KaYhdhjDH2hvQ",
+                              "inputTypeVDID": "zjrQa4NVsxyEGYv-32eBBw",
                               "outputTypeVIID": "IlcDahOM8PmLJGCSc8LYWA",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "RU58RKTsmpNeA1KcUtxRcg"
+                              "operationVDID": "RdQrRKRRv5Ne54ycUjkEcg"
                             }
                           },
                           "5P2MHjL4TXCqScp_xNrJyA": {
@@ -3726,21 +3816,26 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "childProcessesAllInStep": {
-                                        "____types": "jsObject",
-                                        "apmStep": {
-                                          "____types": [
-                                            "jsString",
-                                            "jsArray"
-                                          ],
-                                          "stepName": {
-                                            "____accept": "jsString"
-                                          }
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
                                         },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
                                           "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
@@ -3757,6 +3852,18 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "childProcessesAllInStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
+                                          }
                                         }
                                       }
                                     }
@@ -3767,10 +3874,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "CyItwqKglka3fL_yymT2Hw",
-                              "inputTypeVDID": "Xl8ANNnAYEunlHcsVtaq7A",
+                              "inputTypeVDID": "2vNtggMLdy0h6q-JQYnZhw",
                               "outputTypeVIID": "2lRyd2mNBpsj8UUItbMgfA",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "xyQdRN4Wq5NLTEmcp4bVcg"
+                              "operationVDID": "x_A9RN5kT5NLrqucp39acg"
                             }
                           },
                           "esuJGgmERrSV3AFvFOMyhw": {
@@ -3803,29 +3910,46 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "childProcessesAnyInStep": {
-                                        "____types": "jsObject",
-                                        "apmStep": {
-                                          "____accept": "jsString"
-                                        }
-                                      },
-                                      "filterBy": {
-                                        "____label": "Optional Filter-By APM Binding",
-                                        "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
+                                      "cellCoordinates": {
                                         "____types": [
-                                          "jsUndefined",
+                                          "jsString",
                                           "jsObject"
                                         ],
-                                        "apmIDs": {
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
+                                        "filterBy": {
+                                          "____label": "Optional Filter-By APM Binding",
+                                          "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
                                           "____types": [
-                                            "jsString",
-                                            "jsArray"
+                                            "jsUndefined",
+                                            "jsObject"
                                           ],
-                                          "apmID": {
+                                          "apmIDs": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "apmID": {
+                                              "____accept": "jsString"
+                                            }
+                                          }
+                                        },
+                                        "childProcessesAnyInStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
                                             "____accept": "jsString"
                                           }
                                         }
@@ -3838,10 +3962,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "oZS-VRf4CsfWWzLjNiCBig",
-                              "inputTypeVDID": "0stdcRrNGivlQy2n2c6OjA",
+                              "inputTypeVDID": "I96B4ynyZdTUGqD3lugS8g",
                               "outputTypeVIID": "KBov9UbxYf95j29LOwQo_Q",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "qqv_RNZqz5NtiS-cMFlMcg"
+                              "operationVDID": "qk9tRNblOpNts3ucMFSEcg"
                             }
                           },
                           "Fs6tE76WR5yTOdbwQ_N_FQ": {
@@ -3874,11 +3998,25 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "descendantProcessesActive": {
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
                                         "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
@@ -3896,6 +4034,9 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "descendantProcessesActive": {
+                                          "____accept": "jsObject"
                                         }
                                       }
                                     }
@@ -3906,10 +4047,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "Vtu0SajLKSxee9YIxyp_gg",
-                              "inputTypeVDID": "oZR4cY-IUWFcmPbU4DXozA",
+                              "inputTypeVDID": "v4tIiq2MEGhWH2NDs42_Rw",
                               "outputTypeVIID": "aIHtnWnyQJxHUdYGWTiOYw",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "wA3ZRHRHGpPSZ5ycfTY7cg"
+                              "operationVDID": "wCHBRHRHg5PSohecfSgecg"
                             }
                           },
                           "DX5GfJcwRNq0xW20KzMSJQ": {
@@ -3942,21 +4083,26 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "descendantProcessesAllInStep": {
-                                        "____types": "jsObject",
-                                        "apmStep": {
-                                          "____types": [
-                                            "jsString",
-                                            "jsArray"
-                                          ],
-                                          "stepName": {
-                                            "____accept": "jsString"
-                                          }
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
                                         },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
                                           "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
@@ -3973,6 +4119,18 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "descendantProcessesAllInStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
+                                          }
                                         }
                                       }
                                     }
@@ -3983,10 +4141,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "G97lcJCcq1Rx4hW8oXkDLA",
-                              "inputTypeVDID": "1fFZORahrWSduYn5YxXxAQ",
+                              "inputTypeVDID": "J7XlhVO8Ovop8hsJiqGJZw",
                               "outputTypeVIID": "77mlDPUzGqgBoJa9TdESRg",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "hcekRC6VhpOuovacLAQucg"
+                              "operationVDID": "hbPYRC6yqZOu07qcLH01cg"
                             }
                           },
                           "DzlsRZBOReO03GSPsU3CIg": {
@@ -4019,21 +4177,26 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "descendantProcessesAnyInStep": {
-                                        "____types": "jsObject",
-                                        "apmStep": {
-                                          "____types": [
-                                            "jsString",
-                                            "jsArray"
-                                          ],
-                                          "stepName": {
-                                            "____accept": "jsString"
-                                          }
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
                                         },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
                                           "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
@@ -4050,6 +4213,18 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "descendantProcessesAnyInStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
+                                          }
                                         }
                                       }
                                     }
@@ -4060,10 +4235,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "rMeX5xCbb1ya4Li0DCcFoQ",
-                              "inputTypeVDID": "2PF6Oa-hK2TauSf5UxW4AQ",
+                              "inputTypeVDID": "xbXlnnm8OpAM8hsjXKGJUQ",
                               "outputTypeVIID": "wgVg3qZpo0RYtr_G6szN5A",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "8CNgRANUQJOe1dWcJokkcg"
+                              "operationVDID": "8GtMRAPYQ5OeYWmcJuUMcg"
                             }
                           },
                           "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -4164,11 +4339,25 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "parentProcessActive": {
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
                                         "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
@@ -4186,6 +4375,9 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "parentProcessActive": {
+                                          "____accept": "jsObject"
                                         }
                                       }
                                     }
@@ -4196,10 +4388,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "58apLhwPX-DwA865eK8Njw",
-                              "inputTypeVDID": "b47qZVNg6S1-CsEeVL4tMQ",
+                              "inputTypeVDID": "mtRMYnGblaU-TYBdsAIhbw",
                               "outputTypeVIID": "sh_MqQTDccMxBIGxw7FQaw",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "L7CARLxwPJNX74qctR05cg"
+                              "operationVDID": "L6GPRLzhVJNXJDGctUdhcg"
                             }
                           },
                           "PHPSWivjRyK80Gtymsp-pA": {
@@ -4232,21 +4424,26 @@
                                 },
                                 "operatorRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "cell": {
                                       "____types": "jsObject",
-                                      "parentProcessInStep": {
-                                        "____types": "jsObject",
-                                        "apmStep": {
-                                          "____types": [
-                                            "jsString",
-                                            "jsArray"
-                                          ],
-                                          "stepName": {
-                                            "____accept": "jsString"
-                                          }
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
                                         },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
                                         "filterBy": {
                                           "____label": "Optional Filter-By APM Binding",
                                           "____description": "An optional APM ID or array of APM ID's that must be matched in query response result.",
@@ -4263,6 +4460,18 @@
                                               "____accept": "jsString"
                                             }
                                           }
+                                        },
+                                        "parentProcessInStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
+                                          }
                                         }
                                       }
                                     }
@@ -4273,10 +4482,10 @@
                                 "____accept": "jsBoolean"
                               },
                               "inputTypeVIID": "M2yeGPTmuArpYN5z5fWfGQ",
-                              "inputTypeVDID": "rRdrNBYv_0tBJScsyCeA7A",
+                              "inputTypeVDID": "iQZF-0oDkIWrnQV1vOyY0w",
                               "outputTypeVIID": "bvlMy4KaarvmQhlFw7HvKQ",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "oZJ6RHexkpOzBYmcgMUscg"
+                              "operationVDID": "of3IRHcfqpOz_JecgBr0cg"
                             }
                           },
                           "FTxze-WaRp6HS0Dlr_Ke6A": {
@@ -7830,7 +8039,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                                           "name": "CPM Descendant Processes Active Operator Test Process",
                                           "description": "A process to test the descendant processes active operator."
                                         }
@@ -7927,7 +8136,7 @@
                                         "initialStep": "wait_for_descendant_processes_1",
                                         "apmRef": {
                                           "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                                           "name": "CPM Descendant Processes Active Operator Test Process",
                                           "description": "A process to test the descendant processes active operator."
                                         }
@@ -7943,9 +8152,11 @@
                                                   "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
                                                 },
                                                 "operatorRequest": {
-                                                  "holarchy": {
-                                                    "CellProcessor": {
-                                                      "descendantProcessesActive": {}
+                                                  "CellProcessor": {
+                                                    "cell": {
+                                                      "query": {
+                                                        "descendantProcessesActive": {}
+                                                      }
                                                     }
                                                   }
                                                 }
@@ -8156,7 +8367,7 @@
                                         "initialStep": "wait_for_descendant_processes_1",
                                         "apmRef": {
                                           "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                                           "name": "CPM Descendant Processes Active Operator Test Process",
                                           "description": "A process to test the descendant processes active operator."
                                         }
@@ -8172,9 +8383,11 @@
                                                   "apmBindingPath": "~.cYpoxyyZSwm19CqH3v7eLQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ"
                                                 },
                                                 "operatorRequest": {
-                                                  "holarchy": {
-                                                    "CellProcessor": {
-                                                      "descendantProcessesActive": {}
+                                                  "CellProcessor": {
+                                                    "cell": {
+                                                      "query": {
+                                                        "descendantProcessesActive": {}
+                                                      }
                                                     }
                                                   }
                                                 }
@@ -8309,7 +8522,7 @@
                                         "initialStep": "test_pass_1",
                                         "apmRef": {
                                           "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                                           "name": "CPM Descendant Processes Active Operator Test Process",
                                           "description": "A process to test the descendant processes active operator."
                                         }
@@ -8438,7 +8651,7 @@
                                         "initialStep": "test_pass_1",
                                         "apmRef": {
                                           "id": "cYpoxyyZSwm19CqH3v7eLQ",
-                                          "vdid": "dCUoyBGlbilHgqsDyiE7OA",
+                                          "vdid": "FQt9UROgeB3n1RiMoX02Pg",
                                           "name": "CPM Descendant Processes Active Operator Test Process",
                                           "description": "A process to test the descendant processes active operator."
                                         }
