@@ -86,14 +86,12 @@ module.exports = new TransitionOperator({
             childCellProcessDescriptors.forEach((childCellProcessDescriptor_) => {
                 if (!Array.isArray(queryBody.apmStep)) {
                     operatorRequest.and.push({
-                        holarchy: {
-                            cm: {
-                                operators: {
-                                    cell: {
-                                        atStep: {
-                                            step: queryBody.apmStep,
-                                            path: childCellProcessDescriptor_.apmBindingPath
-                                        }
+                        CellProcessor: {
+                            cell: {
+                                cellCoordinates: childCellProcessDescriptor_.apmBindingPath,
+                                query: {
+                                    inStep: {
+                                        apmStep: queryBody.apmStep
                                     }
                                 }
                             }
@@ -103,14 +101,12 @@ module.exports = new TransitionOperator({
                     const suboperatorRequest = { or: [] };
                     queryBody.apmStep.forEach((stepName_) => {
                         subOperatorRequest.or.push({
-                            holarchy: {
-                                cm: {
-                                    operators: {
-                                        cell: {
-                                            atStep: {
-                                                step: stepName_,
-                                                path: childCellProcessDescriptor_.apmBindingPath
-                                            }
+                            CellProcessor: {
+                                cell: {
+                                    cellCoordinates: childCellProcessDescriptor_.apmBindingPath,
+                                    query: {
+                                        inStep: {
+                                            apmStep: stepName_
                                         }
                                     }
                                 }

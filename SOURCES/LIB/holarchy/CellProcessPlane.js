@@ -1,4 +1,4 @@
-// CellT2Point.js
+// CellProcessPlane.js
 
 const arccore = require("@encapsule/arccore");
 const constructorFilter = require("./lib/filters/cpp-method-constructor-filter");

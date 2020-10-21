@@ -1,4 +1,4 @@
-// cs-method-constructor-input-spec.js
+// ct2p-method-constructor-input-spec.js
 
 module.exports = {
     ____accept: "jsObject",

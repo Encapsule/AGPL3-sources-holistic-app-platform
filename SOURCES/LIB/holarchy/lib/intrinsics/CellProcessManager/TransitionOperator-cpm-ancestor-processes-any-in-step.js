@@ -106,14 +106,12 @@ const transitionOperator = new TransitionOperator({
 
                 if (!Array.isArray(queryBody.apmStep)) {
                     operatorRequest.or.push({
-                        holarchy: {
-                            cm: {
-                                operators: {
-                                    cell: {
-                                        atStep: {
-                                            step: queryBody.apmStep,
-                                            path: ancestorCellProcessDescriptor_.apmBindingPath
-                                        }
+                        CellProcessor: {
+                            cell: {
+                                cellCoordinates: ancestorCellProcessDescriptor_.apmBindingPath,
+                                query: {
+                                    inStep: {
+                                        apmStep:  queryBody.apmStep
                                     }
                                 }
                             }
@@ -123,14 +121,12 @@ const transitionOperator = new TransitionOperator({
                     const suboperatorRequest = { or: [] };
                     queryBody.apmStep.forEach((stepName_) => {
                         subOperatorRequest.or.push({
-                            holarchy: {
-                                cm: {
-                                    operators: {
-                                        cell: {
-                                            atStep: {
-                                                step: stepName_,
-                                                path: ancestorCellProcessDescriptor_.apmBindingPath
-                                            }
+                            CellProcessor: {
+                                cell: {
+                                    cellCoordinates: ancestorCellProcessDescriptor_.apmBindingPath,
+                                    query: {
+                                        inStep: {
+                                            apmStep: stepName_
                                         }
                                     }
                                 }

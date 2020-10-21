@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "SCpzX7xonyIhLn3drcLNlQ",
+                    "vdid": "YWf-TC8QQZLpSg1tkoWX4w",
                     "name": "Holistic App Client Kernel",
                     "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "SCpzX7xonyIhLn3drcLNlQ",
+                            "vdid": "YWf-TC8QQZLpSg1tkoWX4w",
                             "name": "Holistic App Client Kernel",
                             "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                             "type": "CM",
                             "ENENGxq1TkCa6Sk9YXaLlw": {
                               "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                              "vdid": "c78TuXF_hJRUjLZWeUDDIA",
+                              "vdid": "gcc_DJdJNameh2VuFfy1qQ",
                               "name": "Holistic App Client Runtime",
                               "description": "Holistic client application core runtime.",
                               "type": "CM",
@@ -55,19 +55,19 @@
                               },
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "6Oat2CPw6kIm-sG7Mezkhg",
+                                "vdid": "pPcApoyhQrdnUpiDGp9qow",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "Z1cm66QPdtZ1N7PZw-FU_w",
+                                  "vdid": "oqIHQlRLd5fXsiuA0wE19A",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "1oddR4AAuAJb5MBrqckdzQ",
+                                    "vdid": "YLfR0G3tLWTqBamCxHXTag",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -87,24 +87,10 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "e_0rmtOonaXDWo3oekmQsA",
+                                      "vdid": "-hAMe3rgTcwy4rIqEPi7eQ",
                                       "name": "Holarchy Core",
                                       "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                       "type": "CM",
-                                      "orTbEFR_Q-u-qqEqP8OUBA": {
-                                        "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                        "vdid": "uvllVSSpQeMfNj6urucS8Q",
-                                        "name": "Holarchy Core Cell",
-                                        "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
-                                        "type": "CM",
-                                        "9tNY7o5GTUGH_xda2GhP-w": {
-                                          "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                          "vdid": "zmPeG6lSvXidCjr_XyENrQ",
-                                          "name": "Cell Process In Step Operator",
-                                          "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
-                                          "type": "TOP"
-                                        }
-                                      },
                                       "RW8Y2O-kRNSv87yXT962wQ": {
                                         "id": "RW8Y2O-kRNSv87yXT962wQ",
                                         "vdid": "e4dxj77HMqe_v4l_aOzwwA",
@@ -245,7 +231,7 @@
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
                               "id": "qzMWhMstQ4Ki06O75y5hMA",
-                              "vdid": "1A8O_o7a4B1w_KWyL_LQaQ",
+                              "vdid": "zgtMkuidb__YD_al0wkJyw",
                               "name": "DOM Location Processor",
                               "description": "Abstracts monitoring and setting the window.location and hashroute.",
                               "type": "CM",
@@ -273,7 +259,7 @@
                             },
                             "vrmv3WMRQXql7Bx3DDEIDw": {
                               "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                              "vdid": "cnXhyfqjpwH3SjkoAZJgUA",
+                              "vdid": "Y4iTkU_nCfM4lTs_Jin3Cg",
                               "name": "Holistic Client App View Manager",
                               "description": "Provides management of client view cells in a holistic client app.",
                               "type": "CM",
@@ -329,12 +315,12 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 45,
-                      "edges": 83,
+                      "vertices": 43,
+                      "edges": 79,
                       "artifacts": {
-                        "cm": 12,
+                        "cm": 11,
                         "apm": 5,
-                        "top": 14,
+                        "top": 13,
                         "act": 10
                       }
                     }
@@ -375,12 +361,6 @@
                         }
                       ],
                       "top": [
-                        {
-                          "id": "9tNY7o5GTUGH_xda2GhP-w",
-                          "vdid": "zmPeG6lSvXidCjr_XyENrQ",
-                          "name": "Cell Process In Step Operator",
-                          "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step."
-                        },
                         {
                           "id": "YgABX95wR86GCYrYaDLISA",
                           "vdid": "5Ebtc8mARWrvCY6U_wzdDA",
@@ -531,13 +511,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "SCpzX7xonyIhLn3drcLNlQ",
+                          "vdid": "YWf-TC8QQZLpSg1tkoWX4w",
                           "name": "Holistic App Client Kernel",
                           "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
                           "type": "CM",
                           "ENENGxq1TkCa6Sk9YXaLlw": {
                             "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                            "vdid": "c78TuXF_hJRUjLZWeUDDIA",
+                            "vdid": "gcc_DJdJNameh2VuFfy1qQ",
                             "name": "Holistic App Client Runtime",
                             "description": "Holistic client application core runtime.",
                             "type": "CM",
@@ -564,19 +544,19 @@
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
                               "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                              "vdid": "6Oat2CPw6kIm-sG7Mezkhg",
+                              "vdid": "pPcApoyhQrdnUpiDGp9qow",
                               "name": "Holarchy CML",
                               "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                               "type": "CM",
                               "c2cq2OE9SiaLKahL3Mk0KA": {
                                 "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                "vdid": "Z1cm66QPdtZ1N7PZw-FU_w",
+                                "vdid": "oqIHQlRLd5fXsiuA0wE19A",
                                 "name": "Holarchy Base Cell Model",
                                 "description": "A collection of low-level building blocks.",
                                 "type": "CM",
                                 "U5iIpgd8SHCk7pvaciVLTQ": {
                                   "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                  "vdid": "1oddR4AAuAJb5MBrqckdzQ",
+                                  "vdid": "YLfR0G3tLWTqBamCxHXTag",
                                   "name": "Holarchy Base Memory Mailbox Flag",
                                   "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                   "type": "CM",
@@ -596,24 +576,10 @@
                                   },
                                   "MDVBKW89TvO9T62Ge7GmNg": {
                                     "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                    "vdid": "e_0rmtOonaXDWo3oekmQsA",
+                                    "vdid": "-hAMe3rgTcwy4rIqEPi7eQ",
                                     "name": "Holarchy Core",
                                     "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                     "type": "CM",
-                                    "orTbEFR_Q-u-qqEqP8OUBA": {
-                                      "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                      "vdid": "uvllVSSpQeMfNj6urucS8Q",
-                                      "name": "Holarchy Core Cell",
-                                      "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
-                                      "type": "CM",
-                                      "9tNY7o5GTUGH_xda2GhP-w": {
-                                        "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                        "vdid": "zmPeG6lSvXidCjr_XyENrQ",
-                                        "name": "Cell Process In Step Operator",
-                                        "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
-                                        "type": "TOP"
-                                      }
-                                    },
                                     "RW8Y2O-kRNSv87yXT962wQ": {
                                       "id": "RW8Y2O-kRNSv87yXT962wQ",
                                       "vdid": "e4dxj77HMqe_v4l_aOzwwA",
@@ -754,7 +720,7 @@
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {
                             "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "1A8O_o7a4B1w_KWyL_LQaQ",
+                            "vdid": "zgtMkuidb__YD_al0wkJyw",
                             "name": "DOM Location Processor",
                             "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
@@ -782,7 +748,7 @@
                           },
                           "vrmv3WMRQXql7Bx3DDEIDw": {
                             "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                            "vdid": "cnXhyfqjpwH3SjkoAZJgUA",
+                            "vdid": "Y4iTkU_nCfM4lTs_Jin3Cg",
                             "name": "Holistic Client App View Manager",
                             "description": "Provides management of client view cells in a holistic client app.",
                             "type": "CM",

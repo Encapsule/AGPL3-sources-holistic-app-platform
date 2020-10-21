@@ -16,7 +16,7 @@
                     "description": "A Cell Process Proxy unit test.",
                     "cellmodel": {
                       "id": "7dTI8Acz6N2x1JVgAtzVuw",
-                      "vdid": "OnUsJ0vM_bK_s7a0Z0DchQ",
+                      "vdid": "Om8sJ0sW_bK_nra0Z5HchQ",
                       "name": "CPP Test 1",
                       "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                       "cmat": {
@@ -26,13 +26,13 @@
                             "type": "INDEX",
                             "7dTI8Acz6N2x1JVgAtzVuw": {
                               "id": "7dTI8Acz6N2x1JVgAtzVuw",
-                              "vdid": "OnUsJ0vM_bK_s7a0Z0DchQ",
+                              "vdid": "Om8sJ0sW_bK_nra0Z5HchQ",
                               "name": "CPP Test 1",
                               "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                               "type": "CM",
                               "XP3yJV1ciLVMsHktdn5i9w": {
                                 "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                 "name": "CPP Test 1",
                                 "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                                 "type": "APM"
@@ -146,7 +146,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                        "vdid": "0CAAJAbVcOShoz9oRRWkTQ",
+                        "vdid": "86OTkLCGSxzX-bw1iXG8Kw",
                         "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                         "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                         "cmat": {
@@ -156,7 +156,7 @@
                               "type": "INDEX",
                               "TPVM9ZxwnHBvHm8e1yLXIg": {
                                 "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                                "vdid": "0CAAJAbVcOShoz9oRRWkTQ",
+                                "vdid": "86OTkLCGSxzX-bw1iXG8Kw",
                                 "name": "Cell Process Manager [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1] Model",
                                 "description": "Cell process manager root process for CellProcessor [kZ5M4SOwRdOWp_zWumRtYg::CPM Cell Process Proxy Test #1].",
                                 "type": "CM",
@@ -172,6 +172,13 @@
                                   "vdid": "SCCLmlJih8_upULrPln89A",
                                   "name": "Cell Process Manager: Operator Request On Cell (opOn)",
                                   "description": "Generically re-routes the TransitionOperator request specified by operatorRequest to the active cell indicated by apmBindingPath + path, or path (iff path is fully-qualified).",
+                                  "type": "TOP"
+                                },
+                                "9tNY7o5GTUGH_xda2GhP-w": {
+                                  "id": "9tNY7o5GTUGH_xda2GhP-w",
+                                  "vdid": "1LEwnh2s1u8LRnUeqbEV6Q",
+                                  "name": "Cell Process Manager: Cell In Step Operator",
+                                  "description": "Returns Boolean true iff the indicated cell is active and is in one of N >=1 APM process step label(s).",
                                   "type": "TOP"
                                 },
                                 "gJnA-VJTTLa0g9TKFmjv1Q": {
@@ -337,24 +344,10 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "e_0rmtOonaXDWo3oekmQsA",
+                                  "vdid": "-hAMe3rgTcwy4rIqEPi7eQ",
                                   "name": "Holarchy Core",
                                   "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                   "type": "CM",
-                                  "orTbEFR_Q-u-qqEqP8OUBA": {
-                                    "id": "orTbEFR_Q-u-qqEqP8OUBA",
-                                    "vdid": "uvllVSSpQeMfNj6urucS8Q",
-                                    "name": "Holarchy Core Cell",
-                                    "description": "Shared low-level TransitionOperator and ControllerAction's for interacting with cell processes running inside of an ObservableProcessController instance.",
-                                    "type": "CM",
-                                    "9tNY7o5GTUGH_xda2GhP-w": {
-                                      "id": "9tNY7o5GTUGH_xda2GhP-w",
-                                      "vdid": "zmPeG6lSvXidCjr_XyENrQ",
-                                      "name": "Cell Process In Step Operator",
-                                      "description": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
-                                      "type": "TOP"
-                                    }
-                                  },
                                   "RW8Y2O-kRNSv87yXT962wQ": {
                                     "id": "RW8Y2O-kRNSv87yXT962wQ",
                                     "vdid": "e4dxj77HMqe_v4l_aOzwwA",
@@ -491,13 +484,13 @@
                                 },
                                 "7dTI8Acz6N2x1JVgAtzVuw": {
                                   "id": "7dTI8Acz6N2x1JVgAtzVuw",
-                                  "vdid": "OnUsJ0vM_bK_s7a0Z0DchQ",
+                                  "vdid": "Om8sJ0sW_bK_nra0Z5HchQ",
                                   "name": "CPP Test 1",
                                   "description": "A model that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                                   "type": "CM",
                                   "XP3yJV1ciLVMsHktdn5i9w": {
                                     "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                    "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                    "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                     "name": "CPP Test 1",
                                     "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role.",
                                     "type": "APM"
@@ -528,7 +521,7 @@
                         "apmMap": {
                           "XP3yJV1ciLVMsHktdn5i9w": {
                             "id": "XP3yJV1ciLVMsHktdn5i9w",
-                            "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                            "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                             "name": "CPP Test 1",
                             "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                           },
@@ -559,7 +552,7 @@
                             "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID",
                             "opmiRef": {
                               "id": "XP3yJV1ciLVMsHktdn5i9w",
-                              "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                              "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                               "name": "CPP Test 1",
                               "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                             }
@@ -779,20 +772,20 @@
                         },
                         "transitionDispatcher": {
                           "filterDescriptor": {
-                            "operationID": "OocBPhjM8NWoh4LVt3ip8g",
+                            "operationID": "HO1zVbhpLTT0Nb7ZdE5UWg",
                             "operationName": "Discriminator Filter",
                             "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                            "inputTypeVIID": "a0tWQOWyQtVZ2LlWXbsEoA",
+                            "inputTypeVIID": "_Jljnn1ufDY6sHDYWIjC4Q",
                             "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "outputTypeVIID": "H9OzcJT37lrc7Fklv0zcPw",
+                            "outputTypeVIID": "YFN4T-NG8C_KlehunsbXsA",
                             "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "operationVDID": "FZn0E5gINVeFJ47tuOEUtA"
+                            "operationVDID": "4YT0E3MvNVeuV47tQ4IUtA"
                           },
                           "supportedFilters": [
-                            "[9tNY7o5GTUGH_xda2GhP-w::Cell Process In Step Operator]",
                             "[gJnA-VJTTLa0g9TKFmjv1Q::Cell Process Manager: Ancestor Processes Active]",
                             "[6j5F3HmKTLG9Q8kD1-QWYA::Cell Process Manager: Ancestor Processes All In Step]",
                             "[jFxFmpHSSPaeWEFfLh8eWw::Cell Process Manager: Ancestor Processes Any In Step]",
+                            "[9tNY7o5GTUGH_xda2GhP-w::Cell Process Manager: Cell In Step Operator]",
                             "[xIRhBHueTRGO0xq63UUbyQ::Cell Process Manager: Child Processes Active]",
                             "[5P2MHjL4TXCqScp_xNrJyA::Cell Process Manager: Child Processes All In Step]",
                             "[esuJGgmERrSV3AFvFOMyhw::Cell Process Manager: Child Processes Any In Step]",
@@ -820,7 +813,7 @@
                           ],
                           "requestSpace": {
                             "name": "Discriminator Decission Tree Model",
-                            "description": "Models the combined input filter specifications of Filter ID's: [9tNY7o5GTUGH_xda2GhP-w, gJnA-VJTTLa0g9TKFmjv1Q, 6j5F3HmKTLG9Q8kD1-QWYA, jFxFmpHSSPaeWEFfLh8eWw, xIRhBHueTRGO0xq63UUbyQ, 5P2MHjL4TXCqScp_xNrJyA, esuJGgmERrSV3AFvFOMyhw, Fs6tE76WR5yTOdbwQ_N_FQ, DX5GfJcwRNq0xW20KzMSJQ, DzlsRZBOReO03GSPsU3CIg, DxL0zD_ERu-0kNGX2FvoGg, 9HNGDusyTtKpleXFae7O5A, PHPSWivjRyK80Gtymsp-pA, FTxze-WaRp6HS0Dlr_Ke6A, c-n6U_maQa23j9jWFDsgOw, YgABX95wR86GCYrYaDLISA, TLSHkl73SO-utuzM7dyN2g, 0JIva4IFSm6Xm7i38g8uUA, e89cwnP4Qd6MocAhzdOJgw, oaF3-dXwQkusjD3I2o9-8g, UeLs9PcASwuC7KR190eYhA, 2w7n6KxdR8mdIliePJesLQ, pj9a6tQpSXWp7WZZ8VbKLQ, ggsavKiARsq7rjwn-lxdfA, k7THIKKDQMKOac1Rxh9tEQ, XxX_a1sQS1OlJbWAYfx6tQ, fS5liuD1RBSdaPBEhsoxXw, kD1PcgqYQlm7fJatNG2ZsA].",
+                            "description": "Models the combined input filter specifications of Filter ID's: [gJnA-VJTTLa0g9TKFmjv1Q, 6j5F3HmKTLG9Q8kD1-QWYA, jFxFmpHSSPaeWEFfLh8eWw, 9tNY7o5GTUGH_xda2GhP-w, xIRhBHueTRGO0xq63UUbyQ, 5P2MHjL4TXCqScp_xNrJyA, esuJGgmERrSV3AFvFOMyhw, Fs6tE76WR5yTOdbwQ_N_FQ, DX5GfJcwRNq0xW20KzMSJQ, DzlsRZBOReO03GSPsU3CIg, DxL0zD_ERu-0kNGX2FvoGg, 9HNGDusyTtKpleXFae7O5A, PHPSWivjRyK80Gtymsp-pA, FTxze-WaRp6HS0Dlr_Ke6A, c-n6U_maQa23j9jWFDsgOw, YgABX95wR86GCYrYaDLISA, TLSHkl73SO-utuzM7dyN2g, 0JIva4IFSm6Xm7i38g8uUA, e89cwnP4Qd6MocAhzdOJgw, oaF3-dXwQkusjD3I2o9-8g, UeLs9PcASwuC7KR190eYhA, 2w7n6KxdR8mdIliePJesLQ, pj9a6tQpSXWp7WZZ8VbKLQ, ggsavKiARsq7rjwn-lxdfA, k7THIKKDQMKOac1Rxh9tEQ, XxX_a1sQS1OlJbWAYfx6tQ, fS5liuD1RBSdaPBEhsoxXw, kD1PcgqYQlm7fJatNG2ZsA].",
                             "vlist": [
                               {
                                 "u": "request",
@@ -1181,160 +1174,6 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy",
-                                  "filters": [
-                                    "2w7n6KxdR8mdIliePJesLQ",
-                                    "9tNY7o5GTUGH_xda2GhP-w",
-                                    "FTxze-WaRp6HS0Dlr_Ke6A",
-                                    "UeLs9PcASwuC7KR190eYhA",
-                                    "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "fS5liuD1RBSdaPBEhsoxXw",
-                                    "ggsavKiARsq7rjwn-lxdfA",
-                                    "k7THIKKDQMKOac1Rxh9tEQ",
-                                    "kD1PcgqYQlm7fJatNG2ZsA",
-                                    "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
-                                  ],
-                                  "color": "green",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "2w7n6KxdR8mdIliePJesLQ",
-                                    "9tNY7o5GTUGH_xda2GhP-w",
-                                    "FTxze-WaRp6HS0Dlr_Ke6A",
-                                    "UeLs9PcASwuC7KR190eYhA",
-                                    "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "fS5liuD1RBSdaPBEhsoxXw",
-                                    "ggsavKiARsq7rjwn-lxdfA",
-                                    "k7THIKKDQMKOac1Rxh9tEQ",
-                                    "kD1PcgqYQlm7fJatNG2ZsA",
-                                    "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.cm",
-                                  "filters": [
-                                    "2w7n6KxdR8mdIliePJesLQ",
-                                    "9tNY7o5GTUGH_xda2GhP-w",
-                                    "UeLs9PcASwuC7KR190eYhA",
-                                    "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "fS5liuD1RBSdaPBEhsoxXw",
-                                    "ggsavKiARsq7rjwn-lxdfA",
-                                    "k7THIKKDQMKOac1Rxh9tEQ",
-                                    "kD1PcgqYQlm7fJatNG2ZsA",
-                                    "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
-                                  ],
-                                  "color": "green",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "2w7n6KxdR8mdIliePJesLQ",
-                                    "9tNY7o5GTUGH_xda2GhP-w",
-                                    "UeLs9PcASwuC7KR190eYhA",
-                                    "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "fS5liuD1RBSdaPBEhsoxXw",
-                                    "ggsavKiARsq7rjwn-lxdfA",
-                                    "k7THIKKDQMKOac1Rxh9tEQ",
-                                    "kD1PcgqYQlm7fJatNG2ZsA",
-                                    "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.cm.operators",
-                                  "filters": [
-                                    "2w7n6KxdR8mdIliePJesLQ",
-                                    "9tNY7o5GTUGH_xda2GhP-w",
-                                    "UeLs9PcASwuC7KR190eYhA",
-                                    "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "fS5liuD1RBSdaPBEhsoxXw",
-                                    "ggsavKiARsq7rjwn-lxdfA",
-                                    "k7THIKKDQMKOac1Rxh9tEQ",
-                                    "kD1PcgqYQlm7fJatNG2ZsA",
-                                    "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
-                                  ],
-                                  "color": "green",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "2w7n6KxdR8mdIliePJesLQ",
-                                    "9tNY7o5GTUGH_xda2GhP-w",
-                                    "UeLs9PcASwuC7KR190eYhA",
-                                    "XxX_a1sQS1OlJbWAYfx6tQ",
-                                    "fS5liuD1RBSdaPBEhsoxXw",
-                                    "ggsavKiARsq7rjwn-lxdfA",
-                                    "k7THIKKDQMKOac1Rxh9tEQ",
-                                    "kD1PcgqYQlm7fJatNG2ZsA",
-                                    "oaF3-dXwQkusjD3I2o9-8g",
-                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.cm.operators.cell",
-                                  "filters": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.cm.operators.cell.atStep",
-                                  "filters": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject).path(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.cm.operators.cell.atStep.path",
-                                  "filters": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject).step(jsString)",
-                                "p": {
-                                  "filterSpecPath": "request.operatorRequest.holarchy.cm.operators.cell.atStep.step",
-                                  "filters": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsString",
-                                  "filters1": [
-                                    "9tNY7o5GTUGH_xda2GhP-w"
-                                  ]
-                                }
-                              },
-                              {
                                 "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject)",
                                 "p": {
                                   "filterSpecPath": "request.operatorRequest.CellProcessor",
@@ -1342,6 +1181,7 @@
                                     "5P2MHjL4TXCqScp_xNrJyA",
                                     "6j5F3HmKTLG9Q8kD1-QWYA",
                                     "9HNGDusyTtKpleXFae7O5A",
+                                    "9tNY7o5GTUGH_xda2GhP-w",
                                     "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DxL0zD_ERu-0kNGX2FvoGg",
                                     "DzlsRZBOReO03GSPsU3CIg",
@@ -1359,6 +1199,7 @@
                                     "5P2MHjL4TXCqScp_xNrJyA",
                                     "6j5F3HmKTLG9Q8kD1-QWYA",
                                     "9HNGDusyTtKpleXFae7O5A",
+                                    "9tNY7o5GTUGH_xda2GhP-w",
                                     "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DxL0zD_ERu-0kNGX2FvoGg",
                                     "DzlsRZBOReO03GSPsU3CIg",
@@ -1380,6 +1221,7 @@
                                     "5P2MHjL4TXCqScp_xNrJyA",
                                     "6j5F3HmKTLG9Q8kD1-QWYA",
                                     "9HNGDusyTtKpleXFae7O5A",
+                                    "9tNY7o5GTUGH_xda2GhP-w",
                                     "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DxL0zD_ERu-0kNGX2FvoGg",
                                     "DzlsRZBOReO03GSPsU3CIg",
@@ -1396,6 +1238,7 @@
                                     "5P2MHjL4TXCqScp_xNrJyA",
                                     "6j5F3HmKTLG9Q8kD1-QWYA",
                                     "9HNGDusyTtKpleXFae7O5A",
+                                    "9tNY7o5GTUGH_xda2GhP-w",
                                     "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DxL0zD_ERu-0kNGX2FvoGg",
                                     "DzlsRZBOReO03GSPsU3CIg",
@@ -1416,6 +1259,7 @@
                                     "5P2MHjL4TXCqScp_xNrJyA",
                                     "6j5F3HmKTLG9Q8kD1-QWYA",
                                     "9HNGDusyTtKpleXFae7O5A",
+                                    "9tNY7o5GTUGH_xda2GhP-w",
                                     "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DzlsRZBOReO03GSPsU3CIg",
                                     "Fs6tE76WR5yTOdbwQ_N_FQ",
@@ -1431,6 +1275,7 @@
                                     "5P2MHjL4TXCqScp_xNrJyA",
                                     "6j5F3HmKTLG9Q8kD1-QWYA",
                                     "9HNGDusyTtKpleXFae7O5A",
+                                    "9tNY7o5GTUGH_xda2GhP-w",
                                     "DX5GfJcwRNq0xW20KzMSJQ",
                                     "DzlsRZBOReO03GSPsU3CIg",
                                     "Fs6tE76WR5yTOdbwQ_N_FQ",
@@ -1565,6 +1410,62 @@
                                   "typeConstraint": "jsString",
                                   "filters1": [
                                     "jFxFmpHSSPaeWEFfLh8eWw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.inStep",
+                                  "filters": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject).apmStep(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.inStep.apmStep",
+                                  "filters": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject).apmStep(jsArray)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.inStep.apmStep",
+                                  "filters": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsArray",
+                                  "filters1": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject).apmStep(jsString).stepName(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.CellProcessor.cell.query.inStep.apmStep.stepName",
+                                  "filters": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "9tNY7o5GTUGH_xda2GhP-w"
                                   ]
                                 }
                               },
@@ -1891,6 +1792,38 @@
                                 }
                               },
                               {
+                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.holarchy",
+                                  "filters": [
+                                    "2w7n6KxdR8mdIliePJesLQ",
+                                    "FTxze-WaRp6HS0Dlr_Ke6A",
+                                    "UeLs9PcASwuC7KR190eYhA",
+                                    "XxX_a1sQS1OlJbWAYfx6tQ",
+                                    "fS5liuD1RBSdaPBEhsoxXw",
+                                    "ggsavKiARsq7rjwn-lxdfA",
+                                    "k7THIKKDQMKOac1Rxh9tEQ",
+                                    "kD1PcgqYQlm7fJatNG2ZsA",
+                                    "oaF3-dXwQkusjD3I2o9-8g",
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "2w7n6KxdR8mdIliePJesLQ",
+                                    "FTxze-WaRp6HS0Dlr_Ke6A",
+                                    "UeLs9PcASwuC7KR190eYhA",
+                                    "XxX_a1sQS1OlJbWAYfx6tQ",
+                                    "fS5liuD1RBSdaPBEhsoxXw",
+                                    "ggsavKiARsq7rjwn-lxdfA",
+                                    "k7THIKKDQMKOac1Rxh9tEQ",
+                                    "kD1PcgqYQlm7fJatNG2ZsA",
+                                    "oaF3-dXwQkusjD3I2o9-8g",
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
+                                  ]
+                                }
+                              },
+                              {
                                 "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject)",
                                 "p": {
                                   "filterSpecPath": "request.operatorRequest.holarchy.CellProcessProxy",
@@ -2027,6 +1960,66 @@
                                   "typeConstraint": "jsBoolean",
                                   "filters1": [
                                     "e89cwnP4Qd6MocAhzdOJgw"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.holarchy.cm",
+                                  "filters": [
+                                    "2w7n6KxdR8mdIliePJesLQ",
+                                    "UeLs9PcASwuC7KR190eYhA",
+                                    "XxX_a1sQS1OlJbWAYfx6tQ",
+                                    "fS5liuD1RBSdaPBEhsoxXw",
+                                    "ggsavKiARsq7rjwn-lxdfA",
+                                    "k7THIKKDQMKOac1Rxh9tEQ",
+                                    "kD1PcgqYQlm7fJatNG2ZsA",
+                                    "oaF3-dXwQkusjD3I2o9-8g",
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "2w7n6KxdR8mdIliePJesLQ",
+                                    "UeLs9PcASwuC7KR190eYhA",
+                                    "XxX_a1sQS1OlJbWAYfx6tQ",
+                                    "fS5liuD1RBSdaPBEhsoxXw",
+                                    "ggsavKiARsq7rjwn-lxdfA",
+                                    "k7THIKKDQMKOac1Rxh9tEQ",
+                                    "kD1PcgqYQlm7fJatNG2ZsA",
+                                    "oaF3-dXwQkusjD3I2o9-8g",
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.operatorRequest.holarchy.cm.operators",
+                                  "filters": [
+                                    "2w7n6KxdR8mdIliePJesLQ",
+                                    "UeLs9PcASwuC7KR190eYhA",
+                                    "XxX_a1sQS1OlJbWAYfx6tQ",
+                                    "fS5liuD1RBSdaPBEhsoxXw",
+                                    "ggsavKiARsq7rjwn-lxdfA",
+                                    "k7THIKKDQMKOac1Rxh9tEQ",
+                                    "kD1PcgqYQlm7fJatNG2ZsA",
+                                    "oaF3-dXwQkusjD3I2o9-8g",
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "2w7n6KxdR8mdIliePJesLQ",
+                                    "UeLs9PcASwuC7KR190eYhA",
+                                    "XxX_a1sQS1OlJbWAYfx6tQ",
+                                    "fS5liuD1RBSdaPBEhsoxXw",
+                                    "ggsavKiARsq7rjwn-lxdfA",
+                                    "k7THIKKDQMKOac1Rxh9tEQ",
+                                    "kD1PcgqYQlm7fJatNG2ZsA",
+                                    "oaF3-dXwQkusjD3I2o9-8g",
+                                    "pj9a6tQpSXWp7WZZ8VbKLQ"
                                   ]
                                 }
                               },
@@ -2521,13 +2514,13 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)"
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject)"
                                 }
                               },
                               {
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject)"
+                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)"
                                 }
                               },
                               {
@@ -2552,54 +2545,6 @@
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).always(jsBoolean)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).ocd(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject).path(jsString)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject)",
-                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).cell(jsObject).atStep(jsObject).step(jsString)"
                                 }
                               },
                               {
@@ -2642,6 +2587,12 @@
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).ancestorProcessesAnyInStep(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject)"
                                 }
                               },
                               {
@@ -2730,6 +2681,24 @@
                               },
                               {
                                 "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject).apmStep(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject).apmStep(jsArray)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject).apmStep(jsString)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).inStep(jsObject).apmStep(jsString).stepName(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).cell(jsObject).query(jsObject).childProcessesAllInStep(jsObject).apmStep(jsString)"
                                 }
@@ -2814,6 +2783,18 @@
                               },
                               {
                                 "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject).proxy(jsObject)"
                                 }
@@ -2834,6 +2815,18 @@
                                 "e": {
                                   "u": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).proxy(jsObject).connect(jsObject)",
                                   "v": "request(jsObject).operatorRequest(jsObject).CellProcessor(jsObject).proxy(jsObject).connect(jsObject).statusIs(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject)",
+                                  "v": "request(jsObject).operatorRequest(jsObject).holarchy(jsObject).cm(jsObject).operators(jsObject).ocd(jsObject)"
                                 }
                               },
                               {
@@ -3023,69 +3016,6 @@
                           }
                         },
                         "transitionDispatcherFilterMap": {
-                          "9tNY7o5GTUGH_xda2GhP-w": {
-                            "filterDescriptor": {
-                              "operationID": "9tNY7o5GTUGH_xda2GhP-w",
-                              "operationName": "Cell Process In Step Operator",
-                              "operationDescription": "Returns Boolean true iff the indicated APM instance is in the indicated process step.",
-                              "inputFilterSpec": {
-                                "____label": "Cell Process In Step Operator Request",
-                                "____types": "jsObject",
-                                "context": {
-                                  "____label": "OPC Context Descriptor",
-                                  "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                                  "____types": "jsObject",
-                                  "apmBindingPath": {
-                                    "____label": "APM Binding Path",
-                                    "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
-                                    "____accept": "jsString"
-                                  },
-                                  "ocdi": {
-                                    "____label": "OCD Store Instance",
-                                    "____description": "A reference to the OCD store instance managed by OPC.",
-                                    "____accept": "jsObject"
-                                  },
-                                  "transitionDispatcher": {
-                                    "____label": "OPC Transition Dispatcher",
-                                    "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
-                                    "____accept": "jsObject"
-                                  }
-                                },
-                                "operatorRequest": {
-                                  "____types": "jsObject",
-                                  "holarchy": {
-                                    "____types": "jsObject",
-                                    "cm": {
-                                      "____types": "jsObject",
-                                      "operators": {
-                                        "____types": "jsObject",
-                                        "cell": {
-                                          "____types": "jsObject",
-                                          "atStep": {
-                                            "____types": "jsObject",
-                                            "path": {
-                                              "____accept": "jsString"
-                                            },
-                                            "step": {
-                                              "____accept": "jsString"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "outputFilterSpec": {
-                                "____accept": "jsBoolean"
-                              },
-                              "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
-                              "inputTypeVDID": "q9TocAv3KDWF1D8TwFOj0A",
-                              "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
-                              "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
-                              "operationVDID": "wlRcRFbU4pO6f_ictPVicg"
-                            }
-                          },
                           "gJnA-VJTTLa0g9TKFmjv1Q": {
                             "filterDescriptor": {
                               "operationID": "gJnA-VJTTLa0g9TKFmjv1Q",
@@ -3369,6 +3299,83 @@
                               "outputTypeVIID": "dVyh7xX7wxDVc-vzANMU_Q",
                               "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
                               "operationVDID": "ES9dRLsnUJOS7xOciuWLcg"
+                            }
+                          },
+                          "9tNY7o5GTUGH_xda2GhP-w": {
+                            "filterDescriptor": {
+                              "operationID": "9tNY7o5GTUGH_xda2GhP-w",
+                              "operationName": "Cell Process Manager: Cell In Step Operator",
+                              "operationDescription": "Returns Boolean true iff the indicated cell is active and is in one of N >=1 APM process step label(s).",
+                              "inputFilterSpec": {
+                                "____label": "Cell Process Manager: Cell In Step Operator Request",
+                                "____types": "jsObject",
+                                "context": {
+                                  "____label": "OPC Context Descriptor",
+                                  "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                  "____types": "jsObject",
+                                  "apmBindingPath": {
+                                    "____label": "APM Binding Path",
+                                    "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD.",
+                                    "____accept": "jsString"
+                                  },
+                                  "ocdi": {
+                                    "____label": "OCD Store Instance",
+                                    "____description": "A reference to the OCD store instance managed by OPC.",
+                                    "____accept": "jsObject"
+                                  },
+                                  "transitionDispatcher": {
+                                    "____label": "OPC Transition Dispatcher",
+                                    "____description": "A reference to an OPC instance's transition operator dispatcher instance.",
+                                    "____accept": "jsObject"
+                                  }
+                                },
+                                "operatorRequest": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "cell": {
+                                      "____types": "jsObject",
+                                      "cellCoordinates": {
+                                        "____types": [
+                                          "jsString",
+                                          "jsObject"
+                                        ],
+                                        "____defaultValue": "#",
+                                        "apmID": {
+                                          "____accept": "jsString"
+                                        },
+                                        "instanceName": {
+                                          "____accept": "jsString",
+                                          "____defaultValue": "singleton"
+                                        }
+                                      },
+                                      "query": {
+                                        "____types": "jsObject",
+                                        "inStep": {
+                                          "____types": "jsObject",
+                                          "apmStep": {
+                                            "____types": [
+                                              "jsString",
+                                              "jsArray"
+                                            ],
+                                            "stepName": {
+                                              "____accept": "jsString"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "outputFilterSpec": {
+                                "____accept": "jsBoolean"
+                              },
+                              "inputTypeVIID": "knid7eOPhDEUkIr1WhyHiw",
+                              "inputTypeVDID": "aI4QIJhguitjCjfhlL545A",
+                              "outputTypeVIID": "VWoiQV-oR4XaKTrRp-c6vA",
+                              "outputTypeVDID": "UD3UqnNuxwSJpW-kQ0DxUA",
+                              "operationVDID": "woacRFYIn5O6_v2ctBUIcg"
                             }
                           },
                           "xIRhBHueTRGO0xq63UUbyQ": {
@@ -7664,7 +7671,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -7795,7 +7802,7 @@
                                         "initialStep": "test_status_operators",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8027,7 +8034,7 @@
                                         "initialStep": "connect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8126,7 +8133,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8290,7 +8297,7 @@
                                         "initialStep": "proxy_connected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8340,7 +8347,7 @@
                                         "initialStep": "test_status_operators",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8603,7 +8610,7 @@
                                         "initialStep": "test_action_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8708,7 +8715,7 @@
                                         "initialStep": "connect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -8853,7 +8860,7 @@
                                         "initialStep": "disconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -9033,7 +9040,7 @@
                                         "initialStep": "proxy_disconnected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -9200,7 +9207,7 @@
                                         "initialStep": "reconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -9250,7 +9257,7 @@
                                         "initialStep": "uninitialized",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -9413,7 +9420,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -9438,14 +9445,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -9488,7 +9493,7 @@
                                         "initialStep": "test_status_operators",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -9751,7 +9756,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -9776,14 +9781,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -9826,7 +9829,7 @@
                                         "initialStep": "connect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10038,7 +10041,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10063,14 +10066,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -10113,7 +10114,7 @@
                                         "initialStep": "proxy_connected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10276,7 +10277,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10301,14 +10302,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -10351,7 +10350,7 @@
                                         "initialStep": "test_action_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10569,7 +10568,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10594,14 +10593,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -10644,7 +10641,7 @@
                                         "initialStep": "disconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10856,7 +10853,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -10881,14 +10878,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -10931,7 +10926,7 @@
                                         "initialStep": "proxy_disconnected",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -11129,7 +11124,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -11154,14 +11149,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -11204,7 +11197,7 @@
                                         "initialStep": "reconnect_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -11365,7 +11358,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -11390,14 +11383,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
@@ -11440,7 +11431,7 @@
                                         "initialStep": "test_operator_through_proxy",
                                         "apmRef": {
                                           "id": "XP3yJV1ciLVMsHktdn5i9w",
-                                          "vdid": "YEERKhvUsp8Ljlt2J6TUEg",
+                                          "vdid": "xVvd9uO1_JuhXJeCDyeLbg",
                                           "name": "CPP Test 1",
                                           "description": "A process that tests embedding of reusable generic local cell process proxy model in embedded worker role."
                                         }
@@ -11465,14 +11456,12 @@
                                                             "CellProcessProxy": {
                                                               "proxy": {
                                                                 "operatorRequest": {
-                                                                  "holarchy": {
-                                                                    "cm": {
-                                                                      "operators": {
-                                                                        "cell": {
-                                                                          "atStep": {
-                                                                            "path": "#",
-                                                                            "step": "test_process_complete"
-                                                                          }
+                                                                  "CellProcessor": {
+                                                                    "cell": {
+                                                                      "cellCoordinates": "#",
+                                                                      "query": {
+                                                                        "inStep": {
+                                                                          "apmStep": "test_process_complete"
                                                                         }
                                                                       }
                                                                     }
