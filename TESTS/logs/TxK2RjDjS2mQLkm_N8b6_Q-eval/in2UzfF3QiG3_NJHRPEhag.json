@@ -31,6 +31,12 @@
                     {
                       "methodName": "readNamespace",
                       "argv": [
+                        "~.foo.bar"
+                      ]
+                    },
+                    {
+                      "methodName": "readNamespace",
+                      "argv": [
                         "~.testMap"
                       ]
                     },
@@ -82,6 +88,27 @@
                     }
                   },
                   "methodCallDispatchDescriptors": [
+                    {
+                      "request": {
+                        "methodName": "readNamespace",
+                        "argv": [
+                          "~.foo.bar"
+                        ]
+                      },
+                      "response": {
+                        "error": "Filter [wjTFsXoyQ_ehUHIdegBumQ::OCD::readNamespace Method Filter] failed while performing main operation. Cannot read controller data store namespace path '~.foo.bar' because it is not possible to construct a read filter for this namespace. Filter [Z7Z7OvwnQL-bRrOGfEy-ZQ::OCD Get Namespace Data In Reference From Path] failed while performing main operation. Failed to resolve namespace path '~.foo.bar': Expected namespace '~.foo' to be either an array or object so that we can dereference the next namespace token 'foo'. But, '~.foo' is actually an \"jsUndefined\" entity type that does not have subnamespaces."
+                      },
+                      "toJSON": {
+                        "testMap": {
+                          "testKey": {
+                            "testMessage": "This seems to work?"
+                          },
+                          "notakey": {
+                            "similarly": "This also seems to work."
+                          }
+                        }
+                      }
+                    },
                     {
                       "request": {
                         "methodName": "readNamespace",

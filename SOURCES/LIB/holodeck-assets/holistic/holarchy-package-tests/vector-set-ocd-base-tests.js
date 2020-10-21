@@ -29,6 +29,10 @@ module.exports = [
                         methodCalls: [
                             {
                                 methodName: "readNamespace",
+                                argv: [ "~.foo.bar" ] // should fail gracefully
+                            },
+                            {
+                                methodName: "readNamespace",
                                 argv: [ "~.testMap" ]
                             },
                             {

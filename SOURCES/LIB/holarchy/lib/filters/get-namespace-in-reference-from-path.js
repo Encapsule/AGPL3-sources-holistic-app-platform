@@ -104,17 +104,20 @@ const arccore = require("@encapsule/arccore");
 
                 while (pathTokens.length) {
                     let resolveFilterSpecContainerElementDescriptor = false;
-                    if (specRef.____asMap) {
-                        resolveFilterSpecContainerElementDescriptor = true;
-                    } else {
-                        if (specRef.____types) {
-                            if (Object.prototype.toString.call(specRef.____types) === "[object String]") {
-                                if (specRef.____types === "jsArray") {
-                                    resolveFilterSpecContainerElementDescriptor = true;
-                                }
-                            } else {
-                                if (-1 < specRef.____types.indexOf("jsArray")) {
-                                    resolveFilterSpecContainerElementDescriptor = true;
+
+                    if (specRef/*may be undefined if last specPath token is invalid per spec*/) {
+                        if (specRef.____asMap) {
+                            resolveFilterSpecContainerElementDescriptor = true;
+                        } else {
+                            if (specRef.____types) {
+                                if (Object.prototype.toString.call(specRef.____types) === "[object String]") {
+                                    if (specRef.____types === "jsArray") {
+                                        resolveFilterSpecContainerElementDescriptor = true;
+                                    }
+                                } else {
+                                    if (-1 < specRef.____types.indexOf("jsArray")) {
+                                        resolveFilterSpecContainerElementDescriptor = true;
+                                    }
                                 }
                             }
                         }
