@@ -181,7 +181,7 @@ const factoryResponse = arccore.filter.create({
                         `%cOPC::act <${request_.opc.iid.substr(0,4)}...> actor stack: ${actorStack}`
                     ];
 
-                    const border = `4px solid ${consoleColorsLUT.opc.act.borderColor}`
+                    const border = `8px solid ${consoleColorsLUT.opc.act.borderColor}`
                     const marginLeft = `${12 * (request_.opc.actorStack.length - 1)}px`;
 
                     styles += `border-left: ${border}; margin-left: ${marginLeft};`;

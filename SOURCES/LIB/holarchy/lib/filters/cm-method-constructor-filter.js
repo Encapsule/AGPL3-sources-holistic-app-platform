@@ -43,7 +43,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
             if (!idResponse.result) {
-                errors.push("Bad SMR ID specified:");
+                errors.push("Bad CellModel ID IRUT specified:");
                 errors.push(idResponse.guidance);
             }
 
