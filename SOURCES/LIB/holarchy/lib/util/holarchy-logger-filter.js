@@ -181,14 +181,14 @@ const factoryResponse = arccore.filter.create({
                         `%cOPC::act <${request_.opc.iid.substr(0,4)}...> actor stack: ${actorStack}`
                     ];
 
-                    const border = `2px solid ${consoleColorsLUT.opc.act.borderColor}`
+                    const border = `4px solid ${consoleColorsLUT.opc.act.borderColor}`
                     const marginLeft = `${12 * (request_.opc.actorStack.length - 1)}px`;
 
                     styles += `border-left: ${border}; margin-left: ${marginLeft};`;
 
                     switch (request_.phase) {
                     case "prologue":
-                        styles += `border-top: 2px solid ${consoleColorsLUT.opc.act.borderTopColor};`;
+                        styles += `border-top: 4px solid ${consoleColorsLUT.opc.act.borderTopColor};`;
                         if (request_.opc.actorStack.length === 1) { styles += "margin-top: 1em"; }
                         message.push(request_.message);
                         break;
@@ -197,7 +197,7 @@ const factoryResponse = arccore.filter.create({
                         message.push(request_.message);
                         break;
                     case "epilogue":
-                        styles += `border-bottom: 2px solid ${consoleColorsLUT.opc.act.borderBottomColor};`;
+                        styles += `border-bottom: 4px solid ${consoleColorsLUT.opc.act.borderBottomColor};`;
                         message.push(request_.message);
                         break;
                     default:

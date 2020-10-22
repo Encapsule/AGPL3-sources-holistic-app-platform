@@ -33,6 +33,9 @@ const factoryResponse = arccore.filter.create({
         while (!inBreakScope) {
             inBreakScope = true;
 
+            console.log(`OPC::constructor [${request_.id}::${request_.name}] enter...`);
+            console.log("> Processing cellular service class definition...");
+
             // Note that if no failure occurs in this filter then response.result
             // will be assigned to OPCI this._private namespace.
 
@@ -97,6 +100,8 @@ const factoryResponse = arccore.filter.create({
             // Note that there's a 1:N relationship between an APM declaration and binding instances of an APM.
             // This is because a single APM declaration may be bound to an arbitrary number of OCD namespaces.
 
+            console.log("> Registering AbstractProcessModel instances...");
+
             request_.abstractProcessModelSets.push(intrinsics.models);
 
             for (let index0 = 0 ; index0 < request_.abstractProcessModelSets.length ; index0++) {
@@ -125,6 +130,8 @@ const factoryResponse = arccore.filter.create({
                 result.constructionWarnings.push(message);
             }
 
+            console.log("> Processing cell runtime plane memory specification...");
+
             // ================================================================
             // Instantiate a temporary filter for the purposes of validating and normalizing the developer-specified OCD template spec.
             let factoryResponse = arccore.filter.create({  operationID: "demo", inputFilterSpec: request_.ocdTemplateSpec });
@@ -142,6 +149,8 @@ const factoryResponse = arccore.filter.create({
             // Traverse the controller data filter specification and find all namespace declarations containing an APM binding.
 
             const errorRootNamespace = `Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: "jsObject" quanderscore directive; no other directives are allowed in ~ namespace.`
+
+            console.log("> Locating cell activation coordinates in cell runtime plane memory...");
 
             // Analyze the type constraint on the root namespace, ~, of the ocdTemplateSpec.
             if (result.ocdTemplateSpec.____opaque ||
@@ -307,6 +316,8 @@ const factoryResponse = arccore.filter.create({
             // ================================================================
             // Construct the contained Observable Controller Data that the OPC instance uses to manage the state associated with APM instances.
 
+            console.log("> Configuring cell runtime plane memory controller...");
+
             let ocdInstance = new ObservableControllerData({ spec: result.ocdRuntimeSpec, data: request_.ocdInitData });
             if (!ocdInstance.isValid()) {
                 errors.push("Unable to initialize the OPC instance's shared OCD store due to constructor failure:");
@@ -316,12 +327,64 @@ const factoryResponse = arccore.filter.create({
             result.ocdi = ocdInstance;
 
             // ================================================================
+            // Build an arccore.discrimintor filter instance to route controller
+            // action request messages to a registitered controller action filter
+            // for processing. This is an application of the Discriminated Message
+            // Routing (DMR) pattern.
+            let controllerActionFilters = [];
+            // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
+
+            console.log("> Configuring cell runtime plane action request space processor...");
+
+            request_.controllerActionSets.push(intrinsics.actions);
+
+            request_.controllerActionSets.forEach(controllerActionSet_ => {
+                controllerActionSet_.forEach(controllerActionInstance_ => {
+                    if (!controllerActionInstance_.isValid()) {
+                        const warningMessage = `WARNING: Ignoring invalid ControllerAction class instance: ${controllerActionInstance_.toJSON()}`;
+                        result.constructionWarnings.push(warningMessage);
+                    } else {
+                        const filter = controllerActionInstance_.getFilter();
+                        const id = filter.filterDescriptor.operationID;
+                        // Silently de-duplicate.
+                        if (!result.actionDispatcherFilterMap[id]) {
+                            result.actionDispatcherFilterMap[id] = filter;
+                            controllerActionFilters.push(filter);
+                        }
+                    }
+                });
+            });
+            if (controllerActionFilters.length >= 2) {
+
+                filterResponse = arccore.discriminator.create({
+                    // TODO: At some point we will probably switch this is force resolution of the target filter ID
+                    // add another layer of detail to the evaluation algorithm. (we would like to know the ID of the
+                    // controller action filters that are called and we otherwise do not know this because it's
+                    // not encoded obviously in a controller action's request.
+                    options: { action: "getFilter" },
+                    filters: controllerActionFilters
+                });
+                if (filterResponse.error) {
+                    errors.push(filterResponse.error);
+                    break;
+                }
+                result.actionDispatcher = filterResponse.result;
+            } else {
+                const warningMessage = "WARNING: No ControllerAction class instances have been registered!";
+                result.constructionWarnings.push(warningMessage);
+                console.warn(warningMessage);
+                result.actionDispatcher = { request: function() { return { error: "No ControllerAction class instances registered!" }; } };
+            }
+
+            // ================================================================
             // Build an arccore.discriminator filter instance to route transition
             // operatror request messages to a registered transition operator
             // filter for processing. This is an application of the Discriminated
             // Message Routing (DMR) pattern.
             let transitionOperatorFilters = [];
             // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
+
+            console.log("> Configuring cell runtime plane operator request space processor...");
 
             request_.transitionOperatorSets.push(intrinsics.operators);
 
@@ -365,56 +428,9 @@ const factoryResponse = arccore.filter.create({
             }
 
             // ================================================================
-            // Build an arccore.discrimintor filter instance to route controller
-            // action request messages to a registitered controller action filter
-            // for processing. This is an application of the Discriminated Message
-            // Routing (DMR) pattern.
-            let controllerActionFilters = [];
-            // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
-
-            request_.controllerActionSets.push(intrinsics.actions);
-
-            request_.controllerActionSets.forEach(controllerActionSet_ => {
-                controllerActionSet_.forEach(controllerActionInstance_ => {
-                    if (!controllerActionInstance_.isValid()) {
-                        const warningMessage = `WARNING: Ignoring invalid ControllerAction class instance: ${controllerActionInstance_.toJSON()}`;
-                        result.constructionWarnings.push(warningMessage);
-                    } else {
-                        const filter = controllerActionInstance_.getFilter();
-                        const id = filter.filterDescriptor.operationID;
-                        // Silently de-duplicate.
-                        if (!result.actionDispatcherFilterMap[id]) {
-                            result.actionDispatcherFilterMap[id] = filter;
-                            controllerActionFilters.push(filter);
-                        }
-                    }
-                });
-            });
-            if (controllerActionFilters.length >= 2) {
-
-                filterResponse = arccore.discriminator.create({
-                    // TODO: At some point we will probably switch this is force resolution of the target filter ID
-                    // add another layer of detail to the evaluation algorithm. (we would like to know the ID of the
-                    // controller action filters that are called and we otherwise do not know this because it's
-                    // not encoded obviously in a controller action's request.
-                    options: { action: "getFilter" },
-                    filters: controllerActionFilters
-                });
-                if (filterResponse.error) {
-                    errors.push(filterResponse.error);
-                    break;
-                }
-                result.actionDispatcher = filterResponse.result;
-            } else {
-                const warningMessage = "WARNING: No ControllerAction class instances have been registered!";
-                result.constructionWarnings.push(warningMessage);
-                console.warn(warningMessage);
-                result.actionDispatcher = { request: function() { return { error: "No ControllerAction class instances registered!" }; } };
-            }
-
-            // ================================================================
             // Finish up if no error(s).
             if (!errors.length) {
+                console.log("> Cellular service class definition accepted. Cell runtime plane is now ACTIVE.");
                 response.result = { request_, ...result }; // validated+normalized request_ overwritten with ...result
             }
 
@@ -422,6 +438,7 @@ const factoryResponse = arccore.filter.create({
         if (errors.length) {
             response.error = errors.join(" ");
         }
+        console.log(`OPC::constructor [${request_.id}::${request_.name}] exit.`);
         return response;
     } // bodyFunction
 } // request descriptor object

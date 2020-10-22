@@ -1,6 +1,18 @@
+
+/*
+  O       o O       o O       o
+  | O   o | | O   o | | O   o |
+  | | O | | | | O | | | | O | |
+  | o   O | | o   O | | o   O |
+  o       O o       O o       O
+*/
+
+// @encapsule/holarchy Copyright (C) 2020 Christopher D. Russell for Encapsule Project
+
 // CellProcessor.js
 
 const constructorFilter = require("./lib/filters/cp-method-constructor-filter");
+const logger = require("./lib/util/holarchy-logger-filter");
 
 module.exports = class CellProcessor {
 
@@ -9,6 +21,7 @@ module.exports = class CellProcessor {
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
             this._private = { constructorError: null };
             this.isValid = this.isValid.bind(this);
             this.toJSON = this.toJSON.bind(this);

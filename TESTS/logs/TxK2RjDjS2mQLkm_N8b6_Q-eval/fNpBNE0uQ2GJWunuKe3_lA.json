@@ -774,8 +774,8 @@
                     "lastEvalResponse": null,
                     "constructionWarnings": [
                       "WARNING: No AbstractProcessModel class instances registered!",
-                      "WARNING: No TransitionOperator class instances have been registered!",
-                      "WARNING: Ignoring invalid ControllerAction class instance: ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction]."
+                      "WARNING: Ignoring invalid ControllerAction class instance: ControllerAction::constructor for [BO184bcvSzmr9oF4KJynSA::Bogus Controller Test Action #1] failed yielding a zombie instance. Filter [actXQlKYQ9KDriZba3t00w::Controller Action Filter Factory] failed while normalizing request input. Error at path '~.bodyFunction': Value of type 'jsUndefined' not in allowed type set [jsFunction].",
+                      "WARNING: No TransitionOperator class instances have been registered!"
                     ]
                   },
                   "actionEvaluations": [
