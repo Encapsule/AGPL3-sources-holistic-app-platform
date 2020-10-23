@@ -15,8 +15,6 @@ const holarchy = require("@encapsule/holarchy");
             ____description: "A descriptor object that declares the configuration and defines the runtime details of a class HTML5 client application service derived from @encapsule/holistic-app-client-cm and @encapsule/holarchy RTL package services.",
             ____types: "jsObject",
 
-            appBuildMetadata: { ____accept: "jsObject" },
-
             name: {
                 ____label: "Client Application Name",
                 ____description: "The client application name string should be taken (generally) from holistic platform Makefile-generated app-build.json app.name value. Client is implied by context; don't include that in the name.",
@@ -47,43 +45,62 @@ const holarchy = require("@encapsule/holarchy");
                 // Note that you provide the bodyFunction's. But, the input and output filter specifications for the synthesized ControllerAction plug-ins inferred here
                 // are set and controlled by this factory (as they are closely-coupled to @encapsule/holistic-app-client-cm HolisticAppClientKernel CellModel and its submodels).
 
-                appClientInitialize: {
-                    ____label: "Application Client Init Function",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.init ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}].appClientInit (default implementation).`);
-                        return { error: null };
-                    }
-                },
-
-                appClientQuery: {
-                    ____label: "Application Client Query Function",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.query ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}].appClientQuery (default implementation).`);
-                        return { error: null };
-                    }
-                },
-
-                appClientDeserialize: {
-                    ____label: "Application Client Deserialize Function",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.deserialize ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}].appClientDeserialize (default implementation).`);
-                        return { error: null };
-                    }
-                },
-
-                appClientStart: {
-                    ____label: "Application Client Start Function",
-                    ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.start ControllerAction plug-in.",
-                    ____accept: "jsFunction",
-                    ____defaultValue: function(request_) {
-                        console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}].appClientDeserialize (default implementation).`);
-                        return { error: null };
+                lifecycleSignalActions: {
+                    ____types: "jsObject",
+                    ____defaultValue: {},
+                    initializeFunction: {
+                        ____label: "Application Client Lifecyle Signal Action: Initialize",
+                        ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.init ControllerAction plug-in.",
+                        ____accept: "jsFunction",
+                        ____defaultValue: function(request_) {
+                            console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}] holistic.app.client.lifecycle.initialize signal action default handler.`);
+                            return { error: null };
+                        }
+                    },
+                    queryFunction: {
+                        ____label: "Application Client Lifecycle Signal Action: Query",
+                        ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.query ControllerAction plug-in.",
+                        ____accept: "jsFunction",
+                        ____defaultValue: function(request_) {
+                            console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}] holistic.app.client.lifecycle.query signal action default handler.`);
+                            return { error: null };
+                        }
+                    },
+                    deserializeFunction: {
+                        ____label: "Application Client Lifecycle Signal Action: Deserialize",
+                        ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.deserialize ControllerAction plug-in.",
+                        ____accept: "jsFunction",
+                        ____defaultValue: function(request_) {
+                            console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}] holistic.app.client.lifecycle.deserialize signal action default handler.`);
+                            return { error: null };
+                        }
+                    },
+                    configureFunction: {
+                        ____label: "Application Client Lifecycle Signal Action: Config",
+                        ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.config ControllerAction plug-in.",
+                        ____accept: "jsFunction",
+                        ____defaultValue: function(request_) {
+                            console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}] holistic.app.client.lifecycle.configure signal action default handler.`);
+                            return { error: null };
+                        }
+                    },
+                    startFunction: {
+                        ____label: "Application Client Lifecycle Signal Action: Start",
+                        ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.start ControllerAction plug-in.",
+                        ____accept: "jsFunction",
+                        ____defaultValue: function(request_) {
+                            console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}] holistic.app.client.lifecycle.start signal action default handler.`);
+                            return { error: null };
+                        }
+                    },
+                    errorFunction: {
+                        ____label: "Application Client Lifecycle Signal Action: Error",
+                        ____description: "A filter bodyFunction that defines client application-specific behaviors for the synthesized CellModel's holistic.app.client.lifecycle.error ControllerAction plug-in.",
+                        ____accept: "jsFunction",
+                        ____defaultValue: function(request_) {
+                            console.log(`[${filterDeclaration.operationID}::${filterDeclaration.operationName}] holistic.app.client.lifecycle.error signal action default handler.`);
+                            return { error: null };
+                        }
                     }
                 }
             },
@@ -118,93 +135,193 @@ const holarchy = require("@encapsule/holarchy");
             while (!inBreakScope) {
                 inBreakScope = true;
 
-                const request = request_;
-
                 const appClientCellModel = new holarchy.CellModel({ // CellModel declaration description object.
-
-                    id: request.cellModelID,
-                    name: `${request.name} CellModel (synthesized)`,
-                    description: `Model description: ${request.description}`,
-
+                    id: request_.cellModelID,
+                    name: `${request_.name} CellModel (synthesized)`,
+                    description: `Model description: ${request_.description}`,
                     apm: { // AbstractProcessModel declaration descriptor object
-
-                        id: request.apmID,
-                        name: `${request.name} AbtractProcessModel (synthesized)`,
-                        description: `Process description: ${request.description}`,
-
+                        id: request_.apmID,
+                        name: `${request_.name} AbtractProcessModel (synthesized)`,
+                        description: `Process description: ${request_.description}`,
                         ocdDataSpec: {
-                            ____label: `${request.name} Process Memory`,
-                            ____description: `ObservableControllerData specification for APM ID '${request.apmID}'.`,
+                            ____label: `${request_.name} Process Memory`,
+                            ____description: `ObservableControllerData specification for APM ID '${request_.apmID}'.`,
                             ____types: "jsObject",
                             ____defaultValue: {},
-
-                            appBuildMetdata: { ____accept: "jsObject", ____defaultValue: request.appBuildMetadata },
-
-                            appMetadataProcessProxy: {
-                                ____types: "jsObject",
-                                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ }
-                            },
-
-                            appClientKernelProcessProxy: {
-                                ____types: "jsObject",
-                                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ }
-                            },
-
-                            appDisplayAdaptorProcessProxy: {
-                                ____types: "jsObject",
-                                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ }
-                            },
-
-                            appDOMLocationAdaptorProcessProxy: {
-                                ____types: "jsObject",
-                                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ }
-                            },
-
-                            appServerAdaptorProcessProxy: {
-                                ____types: "jsObject",
-                                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ }
-                            },
-
-                            appWebworkerAdaptorProcessProxy: {
-                                ____types: "jsObject",
-                                ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ }
-                            }
-
-
+                            // TBD
                         }, // ocdDataSpec
-
                         steps: {
-
                             uninitialized: {
                                 description: "Default APM starting step.",
-                                transitions: [
-                                    { transitionIf: { always: true }, nextStep: "start_app_client_kernel_process" }
-                                ]
+                                transitions: [ { transitionIf: { always: true }, nextStep: "ready" } ]
                             },
-
-                            start_app_client_kernel_process: {
-                                description: "Attempting to start the Holistic App Client Kernel process.",
-                                actions: {
-                                    enter: [
-                                        { CellProcessor: { process: { processCoordinates: { apmID: "PPL45jw5RDWSMNsB97WIWg", instanceName: "daemon" }, activate: { processData: { appBuildMetadata: request.appBuildMetadata } } } } }
-                                    ]
-                                },
-                                transitions: [
-                                    { transitionIf: { always: true }, nextStep: "wait_app_client_kernel_process" }
-                                ]
-                            },
-
-                            wait_app_client_kernel_process: {
-                                description: "Waiting for the Holistic App Client Kernel process."
+                            ready: {
+                                description: "Placeholder terminal step."
                             }
-
+                        }
+                    }, // apm
+                    subcells: [ ...request_.appClientCellModels, require("./HolisticAppClientKernel") ],
+                    actions: [
+                        // ----------------------------------------------------------------
+                        // ControllerAction: holistic.app.client.lifecycle.initialize
+                        {
+                            id: arccore.identifier.irut.fromReference(`${request_.cellModelID}::holistic.app.client.lifecycle.initialize`).result,
+                            name: "Holistic App Client Lifecycle Action: Initialize",
+                            description: "This action is invoked by the Holistic App Client Kernel process to inform the derived app client process to initialize itself.",
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holistic: {
+                                    ____types: "jsObject",
+                                    app: {
+                                        ____types: "jsObject",
+                                        client: {
+                                            ____types: "jsObject",
+                                            lifecycle: {
+                                                ____types: "jsObject",
+                                                initialize: {
+                                                    ____accept: "jsObject"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ____opaque: true /* TODO */ },
+                            bodyFunction: request_.appClientKernelIntegrations.lifecycleSignalActions.initializeFunction
+                        },
+                        // ----------------------------------------------------------------
+                        // ControllerAction: holistic.app.client.lifecycle.query
+                        {
+                            id: arccore.identifier.irut.fromReference(`{request_.cellModelID}::holistic.app.client.lifecycle.query`).result,
+                            name: "Holistic App Client Lifecycle Action: Query",
+                            description: "This action is invoked by the Holistic App Client Kernel process to query the derived app client process for information needed to complete the initialization of the kernel process.",
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holistic: {
+                                    ____types: "jsObject",
+                                    app: {
+                                        ____types: "jsObject",
+                                        client: {
+                                            ____types: "jsObject",
+                                            lifecycle: {
+                                                ____types: "jsObject",
+                                                query: {
+                                                    ____accept: "jsObject"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ____opaque: true /*TODO*/ },
+                            bodyFunction: request_.appClientKernelIntegrations.lifecycleSignalActions.queryFunction
+                        },
+                        // ----------------------------------------------------------------
+                        // ControllerAction: holistic.app.client.lifecycle.deserialize
+                        {
+                            id: arccore.identifier.irut.fromReference(`{request_.cellModelID}::holistic.app.client.lifecycle.deserialize`).result,
+                            name: "Holistic App Client Lifecycle Action: Query",
+                            description: "This action is invoked by the Holistic App Client Kernel process to query the derived app client process for information needed to complete the initialization of the kernel process.",
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holistic: {
+                                    ____types: "jsObject",
+                                    app: {
+                                        ____types: "jsObject",
+                                        client: {
+                                            ____types: "jsObject",
+                                            lifecycle: {
+                                                ____types: "jsObject",
+                                                deserialize: {
+                                                    ____accept: "jsObject"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ____opaque: true /*TODO*/ },
+                            bodyFunction: request_.appClientKernelIntegrations.lifecycleSignalActions.deserializeFunction
+                        },
+                        // ----------------------------------------------------------------
+                        // ControllerAction: holistic.app.client.lifecycle.configure
+                        {
+                            id: arccore.identifier.irut.fromReference(`{request_.cellModelID}::holistic.app.client.lifecycle.configure`).result,
+                            name: "Holistic App Client Lifecycle Action: Query",
+                            description: "This action is invoked by the Holistic App Client Kernel process to query the derived app client process for information needed to complete the initialization of the kernel process.",
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holistic: {
+                                    ____types: "jsObject",
+                                    app: {
+                                        ____types: "jsObject",
+                                        client: {
+                                            ____types: "jsObject",
+                                            deserialize: {
+                                                ____accept: "jsObject"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ____opaque: true /*TODO*/ },
+                            bodyFunction: request_.appClientKernelIntegrations.lifecycleSignalActions.configureFunction
+                        },
+                        // ----------------------------------------------------------------
+                        // ControllerAction: holistic.app.client.lifecycle.start
+                        {
+                            id: arccore.identifier.irut.fromReference(`{request_.cellModelID}::holistic.app.client.lifecycle.start`).result,
+                            name: "Holistic App Client Lifecycle Action: Query",
+                            description: "This action is invoked by the Holistic App Client Kernel process to query the derived app client process for information needed to complete the initialization of the kernel process.",
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holistic: {
+                                    ____types: "jsObject",
+                                    app: {
+                                        ____types: "jsObject",
+                                        client: {
+                                            ____types: "jsObject",
+                                            lifecycle: {
+                                                ____types: "jsObject",
+                                                start: {
+                                                    ____accept: "jsObject"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ____opaque: true /*TODO*/ },
+                            bodyFunction: request_.appClientKernelIntegrations.lifecycleSignalActions.startFunction
+                        },
+                        // ----------------------------------------------------------------
+                        // ControllerAction: holistic.app.client.lifecycle.error
+                        {
+                            id: arccore.identifier.irut.fromReference(`{request_.cellModelID}::holistic.app.client.lifecycle.error`).result,
+                            name: "Holistic App Client Lifecycle Action: Query",
+                            description: "This action is invoked by the Holistic App Client Kernel process to query the derived app client process for information needed to complete the initialization of the kernel process.",
+                            actionRequestSpec: {
+                                ____types: "jsObject",
+                                holistic: {
+                                    ____types: "jsObject",
+                                    app: {
+                                        ____types: "jsObject",
+                                        client: {
+                                            ____types: "jsObject",
+                                            lifecycle: {
+                                                ____types: "jsObject",
+                                                error: {
+                                                    ____accept: "jsObject"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            actionResultSpec: { ____opaque: true /*TODO*/ },
+                            bodyFunction: request_.appClientKernelIntegrations.lifecycleSignalActions.errorFunction
                         }
 
-                    }, // apm
-
-                    subcells: [
-                        ...request.appClientCellModels,
-                        require("./HolisticAppClientKernel")
                     ]
 
                 });

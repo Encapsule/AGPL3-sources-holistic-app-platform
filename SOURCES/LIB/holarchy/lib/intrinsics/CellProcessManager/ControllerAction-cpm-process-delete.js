@@ -197,14 +197,14 @@ const controllerAction = new ControllerAction({
 
             let cppLibResponse = cppLib.removeOwnedProcesses.request({ cpmData: cpmDataDescriptor.data, deletedOwnedCellProcesses: processesToDelete });
             if (cppLibResponse.error) {
-                errors.push(cppResponse.error);
+                errors.push(cppLibResponse.error);
                 break;
             }
 
             if (cppLibResponse.result.runGarbageCollector) {
                 cppLibResponse = cppLib.collectGarbage.request({ act: request_.context.act, cpmData: cpmDataDescriptor.data, ocdi: request_.context.ocdi });
                 if (cppLibResponse.error) {
-                    errors.push(cppResponse.error);
+                    errors.push(cppLibResponse.error);
                     break;
                 }
                 ocdResponse = request_.context.ocdi.writeNamespace(`${cpmDataDescriptor.path}.sharedCellProcesses.revision`, sharedCellProcessesData.revision + 1);
