@@ -104,7 +104,7 @@ const factoryResponse = arccore.filter.create({
                     // ****************************************************************
                     // ****************************************************************
                     // ****************************************************************
-                    // Analyze the current edge vertex set.
+                    // Analyze the current leaf vertex set.
                     while (leafVertices.length) {
                         const examineVertex = leafVertices.pop();
                         const examineVertexProp = sharedDigraph.getVertexProperty(examineVertex);
@@ -116,7 +116,7 @@ const factoryResponse = arccore.filter.create({
                             // only occur when the connection was from a proxy cell to an owned cell process that has been deleted.
                             // So, we want to update the cell process proxy helper cell's state (put it in broken state), and then
                             // we want to remove the proxy vertex as we only allow connected proxies in the shared digraph.
-                            const ocdResponse = request_.ocdi.writeNamespace( { apmBindingPath: examineVertexProp.apmBindingPath, dataPath: "#.lcpConnect" }, null );
+                            const ocdResponse = request_.ocdi.writeNamespace( { apmBindingPath: examineVertexProp.apmBindingPath, dataPath: "#.CPPU-UPgS8eWiMap3Ixovg_private.lcpConnect" }, null );
                             if (ocdResponse.error) {
                                 errors.push(ocdResponse.error);
                                 break;
@@ -199,7 +199,7 @@ const factoryResponse = arccore.filter.create({
                     sharedDigraph.removeVertex(deleteProcessID);
                     const actResponse = request_.act({
                         actorName: "Cell Process Proxy: Garbage Collector",
-                        actorTaskDescription: "Deleting unneeded shared cell process.",
+                        actorTaskDescription: "Deleting unreferenced shared cell process.",
                         actionRequest: { CellProcessor: { process: { deactivate: {}, processCoordinates: deleteProcessID } } }
                     });
                     if (actResponse.error) {
