@@ -150,7 +150,7 @@ const factoryResponse = arccore.filter.create({
 
             const errorRootNamespace = `Rejecting OCD spec template. The root namespace must be declared with literally just the ____types: "jsObject" quanderscore directive; no other directives are allowed in ~ namespace.`
 
-            console.log("> Locating cell activation coordinates in cell runtime plane memory...");
+            console.log("> Locating cell activation coordinates in cell runtime plane memory specification...");
 
             // Analyze the type constraint on the root namespace, ~, of the ocdTemplateSpec.
             if (result.ocdTemplateSpec.____opaque ||
@@ -325,6 +325,7 @@ const factoryResponse = arccore.filter.create({
                 break;
             }
             result.ocdi = ocdInstance;
+            console.log(`+ Cell plane memory controller configured; read/write access to cellplane enabled.`);
 
             // ================================================================
             // Build an arccore.discrimintor filter instance to route controller
@@ -334,7 +335,7 @@ const factoryResponse = arccore.filter.create({
             let controllerActionFilters = [];
             // Flatten the array of array of ControllerAction classes and extract their arccore.filter references.
 
-            console.log("> Configuring cell runtime plane action request space processor...");
+            console.log("> Configuring cell runtime plane action request bus...");
 
             request_.controllerActionSets.push(intrinsics.actions);
 
@@ -369,6 +370,7 @@ const factoryResponse = arccore.filter.create({
                     break;
                 }
                 result.actionDispatcher = filterResponse.result;
+                console.log(`+ Action request bus configured to route arbitrary request object to 1 of ${controllerActionFilters.length} registered ControllerAction plug-in filters.`);
             } else {
                 const warningMessage = "WARNING: No ControllerAction class instances have been registered!";
                 result.constructionWarnings.push(warningMessage);
@@ -384,7 +386,7 @@ const factoryResponse = arccore.filter.create({
             let transitionOperatorFilters = [];
             // Flatten the array of array of TransitionOperator classes and extract their arccore.filter references.
 
-            console.log("> Configuring cell runtime plane operator request space processor...");
+            console.log("> Configuring cell runtime plane operator request bus...");
 
             request_.transitionOperatorSets.push(intrinsics.operators);
 
@@ -419,6 +421,7 @@ const factoryResponse = arccore.filter.create({
                     break;
                 }
                 result.transitionDispatcher = filterResponse.result;
+                console.log(`+ Operator request bus configured to route arbitrary request object to 1 of ${transitionOperatorFilters.length} registered TransitionOperator plug-in filters.`);
             } else {
                 const warningMessage = "WARNING: No TransitionOperator class instances have been registered!";
                 result.constructionWarnings.push(warningMessage);

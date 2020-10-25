@@ -28,7 +28,7 @@
                       [
                         {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "PZm8_r7O3NFEVgHwhn-gzg",
+                          "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
                           "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                         }
@@ -77,7 +77,7 @@
                     "apmMap": {
                       "IxoJ83u0TXmG7PLUYBvsyg": {
                         "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                        "vdid": "PZm8_r7O3NFEVgHwhn-gzg",
+                        "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
                         "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                         "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                       }
@@ -87,7 +87,7 @@
                         "specPath": "~.d2r2ReactClientOutputProcessor",
                         "opmiRef": {
                           "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                          "vdid": "PZm8_r7O3NFEVgHwhn-gzg",
+                          "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
                           "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                         }
@@ -802,7 +802,7 @@
                                   "initialStep": "uninitialized",
                                   "apmRef": {
                                     "id": "IxoJ83u0TXmG7PLUYBvsyg",
-                                    "vdid": "PZm8_r7O3NFEVgHwhn-gzg",
+                                    "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
                                     "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                                     "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
                                   }

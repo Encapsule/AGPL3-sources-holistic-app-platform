@@ -23,7 +23,7 @@ const factoryResponse = arccore.filter.create({
                 "jsObject",
             ],
             ____defaultValue: "#",
-            apmBindingPath: { ____accept: "jsString" },
+            apmID: { ____accept: "jsString" },
             instanceName: { ____accept: "jsString", ____defaultValue: "singleton" }
 
         },
