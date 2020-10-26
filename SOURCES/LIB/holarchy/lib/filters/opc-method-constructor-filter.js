@@ -239,7 +239,6 @@ const factoryResponse = arccore.filter.create({
                             }
                         }
 
-
                         if (!acceptBinding) {
 
                             // Issue a warning and move on. No binding.

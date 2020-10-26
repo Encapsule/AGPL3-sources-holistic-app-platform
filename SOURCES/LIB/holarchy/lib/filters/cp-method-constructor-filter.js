@@ -32,9 +32,9 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 console.log("| o   O | | o   O | | o   O |");
                 console.log("o       O o       O o       O");
                 console.log(`CellProcessor::constructor [${request_.id}::${request_.name}] enter...`);
-                console.log("> Configuring process controller for the requested cellular runtime service class...");
+                console.log("> Configuring a contained ObservableProcessController instance to host this specific class of cellular runtime service...");
 
-                const cpName = `[${request_.id}::${request_.name}]`;
+                const cpName = `${request_.name} Runtime Host`;
 
                 // Dereference the input CellModel.
                 const cellmodel = (request_.cellmodel instanceof CellModel)?request_.cellmodel:new CellModel(request_.cellmodel);
@@ -90,7 +90,7 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
 
                 } // end for apmConfig.length
 
-                const cpAPMID =  arccore.identifier.irut.fromReference(`${request_.id}_CellProcess_AbstractProcessModel`).result;
+                const cpAPMID =  arccore.identifier.irut.fromReference(`${request_.id}_CellProcessManager_AbstractProcessModel`).result;
 
                 // Define the CellProcessor process manager process namespace in shared memory and bind our APM.
                 // Note that we specifiy a default value here ensuring that the process manager cell process is
@@ -107,11 +107,11 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
 
                 const cpCM = new CellModel({
                     id: cpCMID,
-                    name: `Cell Process Manager ${cpName} Model`,
+                    name: `${cpName} CellProcessManager`,
                     description: `Cell process manager root process for CellProcessor ${cpName}.`,
                     apm: {
                         id: cpAPMID,
-                        name: `Cell Process Manager ${cpName}`,
+                        name: `${cpName} Cell Process Manager`,
                         description: `Cell process manager root process for CellProcessor ${cpName}.`,
                         ocdDataSpec: {
                             ____label: "Cell Process Manager",
@@ -205,8 +205,8 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 // Now instantiate an ObservableProcessController runtime host instance using configuration derived from the Cell Processor's model.
                 const cpOPC = new ObservableProcessController({
                     id: arccore.identifier.irut.fromReference(`${request_.id}_CellProcessor_ObservableProcessController`).result,
-                    name: `${cpName} Observable Process Controller`,
-                    description: `Provides shared memory and runtime automata process orchestration for ${cpName} CellProcessor-resident cell processes.`,
+                    name: `${cpName} ObservableProcessController`,
+                    description: `Provides generic shared memory and runtime evaluation services (aka \"cell plane") for '${cpName}' CellProcessor instance.`,
                     ocdTemplateSpec,
                     abstractProcessModelSets: [ opcConfig.apm ],
                     transitionOperatorSets: [ opcConfig.top ],
@@ -229,7 +229,8 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 response.error = errors.join(" ");
             }
             if (!response.error) {
-                console.log("> Process controller configuration succeeded. CellProcessor instance is online awaiting actions.");
+                console.log("> ObservableProcessController instance initialized.");
+                console.log("> CellProcessor instance initialized. Call method 'act' to interact w/this cellular process.");
                 console.log(`CellProcessor::constructor [${request_.id}::${request_.name}] exit.`);
                 console.log("O       o O       o O       o");
                 console.log("| O   o | | O   o | | O   o |");

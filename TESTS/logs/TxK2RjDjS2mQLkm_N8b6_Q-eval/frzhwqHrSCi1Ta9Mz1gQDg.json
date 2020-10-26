@@ -321,9 +321,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                        "vdid": "Hb1zK6ObcjSBPbW_N8gTqQ",
-                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
-                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
+                        "vdid": "hGwK0s2lbQLzeOhz_AGmag",
+                        "name": "CPM Descendant Processes Active Test Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -331,15 +331,15 @@
                               "type": "INDEX",
                               "EPUQ9YpwinAcHhwe1iLWIg": {
                                 "id": "EPUQ9YpwinAcHhwe1iLWIg",
-                                "vdid": "Hb1zK6ObcjSBPbW_N8gTqQ",
-                                "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Model",
-                                "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
+                                "vdid": "hGwK0s2lbQLzeOhz_AGmag",
+                                "name": "CPM Descendant Processes Active Test Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host.",
                                 "type": "CM",
-                                "8QyasQskrIDJKjf52YSZ5Q": {
-                                  "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                  "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                  "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                  "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test].",
+                                "CtUK1YbmhuZVMlUyxqzGrA": {
+                                  "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                  "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                  "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -727,8 +727,8 @@
                       },
                       "opc": {
                         "id": "tNTKS3Z7pT8avUFuuOaPrw",
-                        "name": "[frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] CellProcessor-resident cell processes.",
+                        "name": "CPM Descendant Processes Active Test Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Descendant Processes Active Test Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -748,11 +748,11 @@
                             "name": "CPM Descendant Processes Active Operator Test Process",
                             "description": "A process to test the descendant processes active operator."
                           },
-                          "8QyasQskrIDJKjf52YSZ5Q": {
-                            "id": "8QyasQskrIDJKjf52YSZ5Q",
-                            "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                            "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                            "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                          "CtUK1YbmhuZVMlUyxqzGrA": {
+                            "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                            "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                            "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                           },
                           "3E27IH_CQeqBUFsGm4tIIA": {
                             "id": "3E27IH_CQeqBUFsGm4tIIA",
@@ -771,10 +771,10 @@
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "8QyasQskrIDJKjf52YSZ5Q",
-                              "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                              "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                              "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                              "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                              "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                              "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                             }
                           },
                           {
@@ -886,13 +886,13 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "8QyasQskrIDJKjf52YSZ5Q"
+                              "apm": "CtUK1YbmhuZVMlUyxqzGrA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [tNTKS3Z7pT8avUFuuOaPrw::[frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [tNTKS3Z7pT8avUFuuOaPrw::[frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [tNTKS3Z7pT8avUFuuOaPrw::CPM Descendant Processes Active Test Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [tNTKS3Z7pT8avUFuuOaPrw::CPM Descendant Processes Active Test Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "z_mTe02hSWmaM1iRO1pBeA_CellProcesses": {
@@ -993,7 +993,7 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "8QyasQskrIDJKjf52YSZ5Q"
+                              "apm": "CtUK1YbmhuZVMlUyxqzGrA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -7748,10 +7748,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                        "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                        "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7829,10 +7829,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                        "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                        "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7894,10 +7894,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                        "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                        "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                        "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                        "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                        "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7999,10 +7999,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                          "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                          "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                          "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8096,10 +8096,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                          "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                          "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                          "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8327,10 +8327,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                          "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                          "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                          "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8482,10 +8482,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                          "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                          "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                          "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8611,10 +8611,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "8QyasQskrIDJKjf52YSZ5Q",
-                                          "vdid": "5280Sp9Cq6wUAPHzit8ubg",
-                                          "name": "Cell Process Manager [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [frzhwqHrSCi1Ta9Mz1gQDg::CPM Descendant Processes Active Test]."
+                                          "id": "CtUK1YbmhuZVMlUyxqzGrA",
+                                          "vdid": "XMHu3auIVMvTnDlk_cIXsw",
+                                          "name": "CPM Descendant Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Descendant Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {

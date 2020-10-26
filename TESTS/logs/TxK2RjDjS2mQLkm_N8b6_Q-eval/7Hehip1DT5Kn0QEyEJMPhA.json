@@ -12,9 +12,9 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "V2f-bkIQQf1jSg2-SIWX8g",
+                    "vdid": "KBDQUUNHRM34x92H8vj5KQ",
                     "name": "Holistic App Client Kernel",
-                    "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
+                    "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
                       "error": null,
                       "result": {
@@ -22,35 +22,56 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "V2f-bkIQQf1jSg2-SIWX8g",
+                            "vdid": "KBDQUUNHRM34x92H8vj5KQ",
                             "name": "Holistic App Client Kernel",
-                            "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
+                            "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
-                            "ENENGxq1TkCa6Sk9YXaLlw": {
-                              "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                              "vdid": "0cc_DBNJNalBh2Vue_y1qQ",
-                              "name": "Holistic App Client Runtime",
-                              "description": "Holistic client application core runtime.",
+                            "PPL45jw5RDWSMNsB97WIWg": {
+                              "id": "PPL45jw5RDWSMNsB97WIWg",
+                              "vdid": "P7ssQqBpjD6e3OKriW9IKg",
+                              "name": "Holistic Client App Kernel",
+                              "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                              "type": "APM"
+                            },
+                            "JwE4LMvpRGC3Jsg1RDjJ1Q": {
+                              "id": "JwE4LMvpRGC3Jsg1RDjJ1Q",
+                              "vdid": "ZERdngvXY8Z8kA5jLip_Hw",
+                              "name": "Holistic App Client Hook Events",
+                              "description": "Hooks DOM events on behalf of the Holistic App Client Runtime APM.",
+                              "type": "ACT"
+                            },
+                            "h-auSE-OSP2TG1jh_3EQ1Q": {
+                              "id": "h-auSE-OSP2TG1jh_3EQ1Q",
+                              "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
+                              "name": "Holistic App Client Runtime Receive DOM Event",
+                              "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred.",
+                              "type": "ACT"
+                            },
+                            "qzMWhMstQ4Ki06O75y5hMA": {
+                              "id": "qzMWhMstQ4Ki06O75y5hMA",
+                              "vdid": "zgtMkuidb__YD_al0wkJyw",
+                              "name": "DOM Location Processor",
+                              "description": "Abstracts monitoring and setting the window.location and hashroute.",
                               "type": "CM",
-                              "PPL45jw5RDWSMNsB97WIWg": {
-                                "id": "PPL45jw5RDWSMNsB97WIWg",
-                                "vdid": "P7ssQqBpjD6e3OKriW9IKg",
-                                "name": "Holistic Client App Kernel",
-                                "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                              "-1Ptaq_zTUa8Gfv_3ODtDg": {
+                                "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
+                                "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                                "name": "Holistic App Client Kernel: DOM Location Processor",
+                                "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                                 "type": "APM"
                               },
-                              "JwE4LMvpRGC3Jsg1RDjJ1Q": {
-                                "id": "JwE4LMvpRGC3Jsg1RDjJ1Q",
-                                "vdid": "ZERdngvXY8Z8kA5jLip_Hw",
-                                "name": "Holistic App Client Hook Events",
-                                "description": "Hooks DOM events on behalf of the Holistic App Client Runtime APM.",
+                              "TlGPCf7uSf2cZMGZCcU85A": {
+                                "id": "TlGPCf7uSf2cZMGZCcU85A",
+                                "vdid": "134XV9KkzwK2X1tD0xJbBA",
+                                "name": "DOM Client Location Proccessor: Initialize",
+                                "description": "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
                                 "type": "ACT"
                               },
-                              "h-auSE-OSP2TG1jh_3EQ1Q": {
-                                "id": "h-auSE-OSP2TG1jh_3EQ1Q",
-                                "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
-                                "name": "Holistic App Client Runtime Receive DOM Event",
-                                "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred.",
+                              "peTmTek_SB64-ofd_PSGjg": {
+                                "id": "peTmTek_SB64-ofd_PSGjg",
+                                "vdid": "hkoKsJ4KqLqhFDM8MG8ACg",
+                                "name": "DOM Client Location Processor: 'hashchange'",
+                                "description": "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor APM memory to record the event details.",
                                 "type": "ACT"
                               },
                               "RyMcv3MpTI-Co1EyVOIvlw": {
@@ -229,48 +250,6 @@
                                 }
                               }
                             },
-                            "qzMWhMstQ4Ki06O75y5hMA": {
-                              "id": "qzMWhMstQ4Ki06O75y5hMA",
-                              "vdid": "zgtMkuidb__YD_al0wkJyw",
-                              "name": "DOM Location Processor",
-                              "description": "Abstracts monitoring and setting the window.location and hashroute.",
-                              "type": "CM",
-                              "-1Ptaq_zTUa8Gfv_3ODtDg": {
-                                "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                                "vdid": "rUyFIUkDsTq_--p1alJJdw",
-                                "name": "Holistic App Client Kernel: DOM Location Processor",
-                                "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
-                                "type": "APM"
-                              },
-                              "TlGPCf7uSf2cZMGZCcU85A": {
-                                "id": "TlGPCf7uSf2cZMGZCcU85A",
-                                "vdid": "134XV9KkzwK2X1tD0xJbBA",
-                                "name": "DOM Client Location Proccessor: Initialize",
-                                "description": "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
-                                "type": "ACT"
-                              },
-                              "peTmTek_SB64-ofd_PSGjg": {
-                                "id": "peTmTek_SB64-ofd_PSGjg",
-                                "vdid": "hkoKsJ4KqLqhFDM8MG8ACg",
-                                "name": "DOM Client Location Processor: 'hashchange'",
-                                "description": "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor APM memory to record the event details.",
-                                "type": "ACT"
-                              }
-                            },
-                            "vrmv3WMRQXql7Bx3DDEIDw": {
-                              "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                              "vdid": "Y4iTkU_nCfM4lTs_Jin3Cg",
-                              "name": "Holistic Client App View Manager",
-                              "description": "Provides management of client view cells in a holistic client app.",
-                              "type": "CM",
-                              "Hsu-43zBRgqHItCPWPiBng": {
-                                "id": "Hsu-43zBRgqHItCPWPiBng",
-                                "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
-                                "name": "Holistic App Client Kernel: Client View Processor",
-                                "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
-                                "type": "APM"
-                              }
-                            },
                             "UX7JquBhSZO0QyEk7u9-sw": {
                               "id": "UX7JquBhSZO0QyEk7u9-sw",
                               "vdid": "cgpg7OLCSwMTSy5fT_o1ag",
@@ -290,6 +269,55 @@
                                 "name": "d2r2/React Client Display Adaptor: Rydrate/Render",
                                 "description": "Rehydrate and/or render/re-render client application view via d2r2/React transport using context and render data obtained from specified input paths in the OCD.",
                                 "type": "ACT"
+                              }
+                            },
+                            "vrmv3WMRQXql7Bx3DDEIDw": {
+                              "id": "vrmv3WMRQXql7Bx3DDEIDw",
+                              "vdid": "Y4iTkU_nCfM4lTs_Jin3Cg",
+                              "name": "Holistic Client App View Manager",
+                              "description": "Provides management of client view cells in a holistic client app.",
+                              "type": "CM",
+                              "Hsu-43zBRgqHItCPWPiBng": {
+                                "id": "Hsu-43zBRgqHItCPWPiBng",
+                                "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                                "name": "Holistic App Client Kernel: Client View Processor",
+                                "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
+                                "type": "APM"
+                              }
+                            },
+                            "74npOB-3S8GEgHwdtWwHrg": {
+                              "id": "74npOB-3S8GEgHwdtWwHrg",
+                              "vdid": "AWQDG9-dhuK2OAf4Mnl7Gg",
+                              "name": "Holistic App Common Kernel",
+                              "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
+                              "type": "CM",
+                              "ABn1MUgSQT2dy8Lri8xDbA": {
+                                "id": "ABn1MUgSQT2dy8Lri8xDbA",
+                                "vdid": "HsFTBsuTcg7zgoCo3S7w1g",
+                                "name": "View Theme Processor",
+                                "description": "The ViewThemeProcessor cell model provides a simple service for generating a Holistic App Theme JSON document used to dynamically style display elements via React.",
+                                "type": "CM",
+                                "zzvzLbm2RTyQN1lWFcjpVA": {
+                                  "id": "zzvzLbm2RTyQN1lWFcjpVA",
+                                  "vdid": "DxngxWcSscYXnIUgZbZb7g",
+                                  "name": "Theme Processor Model",
+                                  "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
+                                  "type": "APM"
+                                },
+                                "e2kGs2nLRwW7RtFDPi8REg": {
+                                  "id": "e2kGs2nLRwW7RtFDPi8REg",
+                                  "vdid": "oPuCf2bVhrEZCH3NRj3tRw",
+                                  "name": "Read Theme Palette",
+                                  "description": "Reads (and updates if necessary) the current theme output.",
+                                  "type": "ACT"
+                                },
+                                "UK08qja3QiaHFGhl99fbmg": {
+                                  "id": "UK08qja3QiaHFGhl99fbmg",
+                                  "vdid": "yGTtQ-FAv_UvOMc7W65VGw",
+                                  "name": "ViewThemeProcessor::Write Settings",
+                                  "description": "Update the whole or part of the ViewThemeProcessor model's input theme settings document.",
+                                  "type": "ACT"
+                                }
                               }
                             }
                           }
@@ -315,13 +343,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 43,
-                      "edges": 79,
+                      "vertices": 47,
+                      "edges": 88,
                       "artifacts": {
-                        "cm": 11,
-                        "apm": 5,
+                        "cm": 12,
+                        "apm": 6,
                         "top": 13,
-                        "act": 10
+                        "act": 12
                       }
                     }
                   },
@@ -358,6 +386,12 @@
                           "vdid": "ddbCC4gMbcFS6IkV4gpjKw",
                           "name": "Holistic Client App Kernel: d2r2/React Client Display Adaptor",
                           "description": "Manages the details of initializing and dynamically updating the client application view (DOM display surface) via @encapsule/d2r2 and Facebook React."
+                        },
+                        {
+                          "id": "zzvzLbm2RTyQN1lWFcjpVA",
+                          "vdid": "DxngxWcSscYXnIUgZbZb7g",
+                          "name": "Theme Processor Model",
+                          "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
                         }
                       ],
                       "top": [
@@ -490,6 +524,18 @@
                           "description": "Reads and returns the value of OCD namespace via path indirection."
                         },
                         {
+                          "id": "e2kGs2nLRwW7RtFDPi8REg",
+                          "vdid": "oPuCf2bVhrEZCH3NRj3tRw",
+                          "name": "Read Theme Palette",
+                          "description": "Reads (and updates if necessary) the current theme output."
+                        },
+                        {
+                          "id": "UK08qja3QiaHFGhl99fbmg",
+                          "vdid": "yGTtQ-FAv_UvOMc7W65VGw",
+                          "name": "ViewThemeProcessor::Write Settings",
+                          "description": "Update the whole or part of the ViewThemeProcessor model's input theme settings document."
+                        },
+                        {
                           "id": "aXju3wSBQnufe0r51Y04wg",
                           "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
                           "name": "Write Sub-Action Response",
@@ -511,35 +557,56 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "V2f-bkIQQf1jSg2-SIWX8g",
+                          "vdid": "KBDQUUNHRM34x92H8vj5KQ",
                           "name": "Holistic App Client Kernel",
-                          "description": "Provides core HTML5 client application runtime kernel services as an extensible celluar process.",
+                          "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
-                          "ENENGxq1TkCa6Sk9YXaLlw": {
-                            "id": "ENENGxq1TkCa6Sk9YXaLlw",
-                            "vdid": "0cc_DBNJNalBh2Vue_y1qQ",
-                            "name": "Holistic App Client Runtime",
-                            "description": "Holistic client application core runtime.",
+                          "PPL45jw5RDWSMNsB97WIWg": {
+                            "id": "PPL45jw5RDWSMNsB97WIWg",
+                            "vdid": "P7ssQqBpjD6e3OKriW9IKg",
+                            "name": "Holistic Client App Kernel",
+                            "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                            "type": "APM"
+                          },
+                          "JwE4LMvpRGC3Jsg1RDjJ1Q": {
+                            "id": "JwE4LMvpRGC3Jsg1RDjJ1Q",
+                            "vdid": "ZERdngvXY8Z8kA5jLip_Hw",
+                            "name": "Holistic App Client Hook Events",
+                            "description": "Hooks DOM events on behalf of the Holistic App Client Runtime APM.",
+                            "type": "ACT"
+                          },
+                          "h-auSE-OSP2TG1jh_3EQ1Q": {
+                            "id": "h-auSE-OSP2TG1jh_3EQ1Q",
+                            "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
+                            "name": "Holistic App Client Runtime Receive DOM Event",
+                            "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred.",
+                            "type": "ACT"
+                          },
+                          "qzMWhMstQ4Ki06O75y5hMA": {
+                            "id": "qzMWhMstQ4Ki06O75y5hMA",
+                            "vdid": "zgtMkuidb__YD_al0wkJyw",
+                            "name": "DOM Location Processor",
+                            "description": "Abstracts monitoring and setting the window.location and hashroute.",
                             "type": "CM",
-                            "PPL45jw5RDWSMNsB97WIWg": {
-                              "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "P7ssQqBpjD6e3OKriW9IKg",
-                              "name": "Holistic Client App Kernel",
-                              "description": "This model manages, tracks, and controls the lifecycle of the client application.",
+                            "-1Ptaq_zTUa8Gfv_3ODtDg": {
+                              "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
+                              "vdid": "rUyFIUkDsTq_--p1alJJdw",
+                              "name": "Holistic App Client Kernel: DOM Location Processor",
+                              "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
                               "type": "APM"
                             },
-                            "JwE4LMvpRGC3Jsg1RDjJ1Q": {
-                              "id": "JwE4LMvpRGC3Jsg1RDjJ1Q",
-                              "vdid": "ZERdngvXY8Z8kA5jLip_Hw",
-                              "name": "Holistic App Client Hook Events",
-                              "description": "Hooks DOM events on behalf of the Holistic App Client Runtime APM.",
+                            "TlGPCf7uSf2cZMGZCcU85A": {
+                              "id": "TlGPCf7uSf2cZMGZCcU85A",
+                              "vdid": "134XV9KkzwK2X1tD0xJbBA",
+                              "name": "DOM Client Location Proccessor: Initialize",
+                              "description": "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
                               "type": "ACT"
                             },
-                            "h-auSE-OSP2TG1jh_3EQ1Q": {
-                              "id": "h-auSE-OSP2TG1jh_3EQ1Q",
-                              "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
-                              "name": "Holistic App Client Runtime Receive DOM Event",
-                              "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred.",
+                            "peTmTek_SB64-ofd_PSGjg": {
+                              "id": "peTmTek_SB64-ofd_PSGjg",
+                              "vdid": "hkoKsJ4KqLqhFDM8MG8ACg",
+                              "name": "DOM Client Location Processor: 'hashchange'",
+                              "description": "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor APM memory to record the event details.",
                               "type": "ACT"
                             },
                             "RyMcv3MpTI-Co1EyVOIvlw": {
@@ -718,48 +785,6 @@
                               }
                             }
                           },
-                          "qzMWhMstQ4Ki06O75y5hMA": {
-                            "id": "qzMWhMstQ4Ki06O75y5hMA",
-                            "vdid": "zgtMkuidb__YD_al0wkJyw",
-                            "name": "DOM Location Processor",
-                            "description": "Abstracts monitoring and setting the window.location and hashroute.",
-                            "type": "CM",
-                            "-1Ptaq_zTUa8Gfv_3ODtDg": {
-                              "id": "-1Ptaq_zTUa8Gfv_3ODtDg",
-                              "vdid": "rUyFIUkDsTq_--p1alJJdw",
-                              "name": "Holistic App Client Kernel: DOM Location Processor",
-                              "description": "Hooks and monitors DOM location events and publishes them via an observable frame latch. Also, provids programmatic control over DOM location.",
-                              "type": "APM"
-                            },
-                            "TlGPCf7uSf2cZMGZCcU85A": {
-                              "id": "TlGPCf7uSf2cZMGZCcU85A",
-                              "vdid": "134XV9KkzwK2X1tD0xJbBA",
-                              "name": "DOM Client Location Proccessor: Initialize",
-                              "description": "Adds a listener to the brower's 'hashchange' event and redirects subsequent event callbacks to the ControllerAction peTmTek_SB64-ofd_PSGj.",
-                              "type": "ACT"
-                            },
-                            "peTmTek_SB64-ofd_PSGjg": {
-                              "id": "peTmTek_SB64-ofd_PSGjg",
-                              "vdid": "hkoKsJ4KqLqhFDM8MG8ACg",
-                              "name": "DOM Client Location Processor: 'hashchange'",
-                              "description": "Accepts info about the 'hashchange' event and encapsulates the details of updating the DOM Client Locaiton Processor APM memory to record the event details.",
-                              "type": "ACT"
-                            }
-                          },
-                          "vrmv3WMRQXql7Bx3DDEIDw": {
-                            "id": "vrmv3WMRQXql7Bx3DDEIDw",
-                            "vdid": "Y4iTkU_nCfM4lTs_Jin3Cg",
-                            "name": "Holistic Client App View Manager",
-                            "description": "Provides management of client view cells in a holistic client app.",
-                            "type": "CM",
-                            "Hsu-43zBRgqHItCPWPiBng": {
-                              "id": "Hsu-43zBRgqHItCPWPiBng",
-                              "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
-                              "name": "Holistic App Client Kernel: Client View Processor",
-                              "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
-                              "type": "APM"
-                            }
-                          },
                           "UX7JquBhSZO0QyEk7u9-sw": {
                             "id": "UX7JquBhSZO0QyEk7u9-sw",
                             "vdid": "cgpg7OLCSwMTSy5fT_o1ag",
@@ -779,6 +804,55 @@
                               "name": "d2r2/React Client Display Adaptor: Rydrate/Render",
                               "description": "Rehydrate and/or render/re-render client application view via d2r2/React transport using context and render data obtained from specified input paths in the OCD.",
                               "type": "ACT"
+                            }
+                          },
+                          "vrmv3WMRQXql7Bx3DDEIDw": {
+                            "id": "vrmv3WMRQXql7Bx3DDEIDw",
+                            "vdid": "Y4iTkU_nCfM4lTs_Jin3Cg",
+                            "name": "Holistic Client App View Manager",
+                            "description": "Provides management of client view cells in a holistic client app.",
+                            "type": "CM",
+                            "Hsu-43zBRgqHItCPWPiBng": {
+                              "id": "Hsu-43zBRgqHItCPWPiBng",
+                              "vdid": "aFFKyNWIZQYCjpXkuE8FYw",
+                              "name": "Holistic App Client Kernel: Client View Processor",
+                              "description": "Encapsulates the high-level details of selecting, creating, and updating d2r2/React Client Display Adaptor update signals.",
+                              "type": "APM"
+                            }
+                          },
+                          "74npOB-3S8GEgHwdtWwHrg": {
+                            "id": "74npOB-3S8GEgHwdtWwHrg",
+                            "vdid": "AWQDG9-dhuK2OAf4Mnl7Gg",
+                            "name": "Holistic App Common Kernel",
+                            "description": "Provides core kernel cell process models shared by the holistic app server and holistic app client application cell models.",
+                            "type": "CM",
+                            "ABn1MUgSQT2dy8Lri8xDbA": {
+                              "id": "ABn1MUgSQT2dy8Lri8xDbA",
+                              "vdid": "HsFTBsuTcg7zgoCo3S7w1g",
+                              "name": "View Theme Processor",
+                              "description": "The ViewThemeProcessor cell model provides a simple service for generating a Holistic App Theme JSON document used to dynamically style display elements via React.",
+                              "type": "CM",
+                              "zzvzLbm2RTyQN1lWFcjpVA": {
+                                "id": "zzvzLbm2RTyQN1lWFcjpVA",
+                                "vdid": "DxngxWcSscYXnIUgZbZb7g",
+                                "name": "Theme Processor Model",
+                                "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes.",
+                                "type": "APM"
+                              },
+                              "e2kGs2nLRwW7RtFDPi8REg": {
+                                "id": "e2kGs2nLRwW7RtFDPi8REg",
+                                "vdid": "oPuCf2bVhrEZCH3NRj3tRw",
+                                "name": "Read Theme Palette",
+                                "description": "Reads (and updates if necessary) the current theme output.",
+                                "type": "ACT"
+                              },
+                              "UK08qja3QiaHFGhl99fbmg": {
+                                "id": "UK08qja3QiaHFGhl99fbmg",
+                                "vdid": "yGTtQ-FAv_UvOMc7W65VGw",
+                                "name": "ViewThemeProcessor::Write Settings",
+                                "description": "Update the whole or part of the ViewThemeProcessor model's input theme settings document.",
+                                "type": "ACT"
+                              }
                             }
                           }
                         }

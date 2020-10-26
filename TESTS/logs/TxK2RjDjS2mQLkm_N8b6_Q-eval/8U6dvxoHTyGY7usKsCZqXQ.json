@@ -223,9 +223,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "DPUM9XpwenDTHtMepiKmIg",
-                        "vdid": "2IL11lg0NXPg2jzh_Xnbfw",
-                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
-                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
+                        "vdid": "y-ML4KLaiyW7AGLxbiIfIQ",
+                        "name": "CellProcessor Constructur Test #3 Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -233,15 +233,15 @@
                               "type": "INDEX",
                               "DPUM9XpwenDTHtMepiKmIg": {
                                 "id": "DPUM9XpwenDTHtMepiKmIg",
-                                "vdid": "2IL11lg0NXPg2jzh_Xnbfw",
-                                "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Model",
-                                "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
+                                "vdid": "y-ML4KLaiyW7AGLxbiIfIQ",
+                                "name": "CellProcessor Constructur Test #3 Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host.",
                                 "type": "CM",
-                                "MEbYsSZHdoADWwD5kjfu5Q": {
-                                  "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                  "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                  "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                  "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3].",
+                                "KtUq1fjm-ObmMuYyW6xbrA": {
+                                  "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                  "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                  "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -622,8 +622,8 @@
                       },
                       "opc": {
                         "id": "9IzKS8ngpT8tiUFuo-mPrw",
-                        "name": "[8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] CellProcessor-resident cell processes.",
+                        "name": "CellProcessor Constructur Test #3 Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CellProcessor Constructur Test #3 Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -631,17 +631,17 @@
                           }
                         },
                         "apmMap": {
-                          "MEbYsSZHdoADWwD5kjfu5Q": {
-                            "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                            "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                            "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                            "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
-                          },
                           "itgXQ5RWS66fcdsuZim8AQ": {
                             "id": "itgXQ5RWS66fcdsuZim8AQ",
                             "vdid": "Ab0z8CPnckZY9X7eQdkB-Q",
                             "name": "Cell Process Test Fixture Model",
                             "description": "A CellModel instance that aggregates several other small test CellModels. Used for testing CellProcessor process create, delete, and query actions."
+                          },
+                          "KtUq1fjm-ObmMuYyW6xbrA": {
+                            "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                            "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                            "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                           },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
@@ -672,10 +672,10 @@
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                              "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                              "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                              "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                              "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                              "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                              "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                             }
                           },
                           {
@@ -821,13 +821,13 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "MEbYsSZHdoADWwD5kjfu5Q"
+                              "apm": "KtUq1fjm-ObmMuYyW6xbrA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [9IzKS8ngpT8tiUFuo-mPrw::[8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [9IzKS8ngpT8tiUFuo-mPrw::[8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [9IzKS8ngpT8tiUFuo-mPrw::CellProcessor Constructur Test #3 Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [9IzKS8ngpT8tiUFuo-mPrw::CellProcessor Constructur Test #3 Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "itgXQ5RWS66fcdsuZim8AQ_CellProcesses": {
@@ -954,7 +954,7 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "MEbYsSZHdoADWwD5kjfu5Q"
+                              "apm": "KtUq1fjm-ObmMuYyW6xbrA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -7569,10 +7569,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                        "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                        "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                        "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                        "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7650,10 +7650,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                        "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                        "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                        "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                        "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7715,10 +7715,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                        "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                        "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                        "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                        "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                        "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                        "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7783,7 +7783,7 @@
                               "query": {
                                 "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                                 "apmBindingPath": "~",
-                                "apmID": "MEbYsSZHdoADWwD5kjfu5Q",
+                                "apmID": "KtUq1fjm-ObmMuYyW6xbrA",
                                 "resultSets": {
                                   "parent": true,
                                   "ancestors": true,
@@ -7832,10 +7832,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -7982,10 +7982,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8148,10 +8148,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8341,10 +8341,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8655,7 +8655,7 @@
                               "query": {
                                 "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                                 "apmBindingPath": "~",
-                                "apmID": "MEbYsSZHdoADWwD5kjfu5Q",
+                                "apmID": "KtUq1fjm-ObmMuYyW6xbrA",
                                 "resultSets": {
                                   "parent": true,
                                   "ancestors": true,
@@ -8731,10 +8731,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -9059,13 +9059,13 @@
                               "parent": {
                                 "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                                 "apmBindingPath": "~",
-                                "apmID": "MEbYsSZHdoADWwD5kjfu5Q"
+                                "apmID": "KtUq1fjm-ObmMuYyW6xbrA"
                               },
                               "ancestors": [
                                 {
                                   "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                                   "apmBindingPath": "~",
-                                  "apmID": "MEbYsSZHdoADWwD5kjfu5Q"
+                                  "apmID": "KtUq1fjm-ObmMuYyW6xbrA"
                                 }
                               ],
                               "children": [
@@ -9135,10 +9135,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -9471,13 +9471,13 @@
                               "parent": {
                                 "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                                 "apmBindingPath": "~",
-                                "apmID": "MEbYsSZHdoADWwD5kjfu5Q"
+                                "apmID": "KtUq1fjm-ObmMuYyW6xbrA"
                               },
                               "ancestors": [
                                 {
                                   "cellProcessID": "U1NTU1paWlqwsLCwxMTExA",
                                   "apmBindingPath": "~",
-                                  "apmID": "MEbYsSZHdoADWwD5kjfu5Q"
+                                  "apmID": "KtUq1fjm-ObmMuYyW6xbrA"
                                 }
                               ],
                               "children": [
@@ -9547,10 +9547,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -9904,10 +9904,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "MEbYsSZHdoADWwD5kjfu5Q",
-                                          "vdid": "zXbHwJpnZLDslZFBLWaqaQ",
-                                          "name": "Cell Process Manager [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [8U6dvxoHTyGY7usKsCZqXQ::CellProcessor Constructur Test #3]."
+                                          "id": "KtUq1fjm-ObmMuYyW6xbrA",
+                                          "vdid": "VUzwtcmMUnk9IAIh-bMHNQ",
+                                          "name": "CellProcessor Constructur Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructur Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {

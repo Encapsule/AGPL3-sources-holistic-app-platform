@@ -76,6 +76,12 @@ try {
     console.log("> Registering mock for @encapsule/holarchy-cm");
     mockery.registerMock("@encapsule/holarchy-cm", local_holarchyCM);
 
+    console.log("> Loading repo-local copy of @encapsule/holistic-app-common-cm");
+    const local_holisticAppCommonCM = require("../PACKAGES/holistic-app-common-cm");
+
+    console.log("> Registering mock for @encapsule/holistic-app-common-cm");
+    mockery.registerMock("@encapsule/holistic-app-common-cm", local_holisticAppCommonCM);
+
     console.log("> Loading repo-local copy of @encapsule/holistic-app-client-cm");
     const local_holisticAppClientCM = require("../PACKAGES/holistic-app-client-cm");
 
@@ -87,12 +93,6 @@ try {
 
     console.log("> Registering mock for @encapsule/holistic-app-server-cm");
     mockery.registerMock("@encapsule/holistic-app-server-cm", local_holisticAppServerCM);
-
-    console.log("> Loading repo-local copy of @encapsule/holistic-app-common-cm");
-    const local_holisticAppCommonCM = require("../PACKAGES/holistic-app-common-cm");
-
-    console.log("> Registering mock for @encapsule/holistic-app-common-cm");
-    mockery.registerMock("@encapsule/holistic-app-common-cm", local_holisticAppCommonCM);
 
     console.log("> Loading repo-local copy of @encapsule/holodeck-assets");
     const local_holodeckAssets = require("../PACKAGES/holodeck-assets");

@@ -77,9 +77,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                        "vdid": "zi_pHR6e1_gVvAjsI_Tuog",
-                        "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP] Model",
-                        "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP].",
+                        "vdid": "sQSe2kQ2GS3Or-AdfwMZSg",
+                        "name": "Useless CP Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -87,15 +87,15 @@
                               "type": "INDEX",
                               "V_VX9bRwtHA9Hj0ebiJuIg": {
                                 "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                                "vdid": "zi_pHR6e1_gVvAjsI_Tuog",
-                                "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP] Model",
-                                "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP].",
+                                "vdid": "sQSe2kQ2GS3Or-AdfwMZSg",
+                                "name": "Useless CP Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host.",
                                 "type": "CM",
-                                "UnB4saOEVIBgsJb5neW95Q": {
-                                  "id": "UnB4saOEVIBgsJb5neW95Q",
-                                  "vdid": "wb6YinixW6jr6m4UBx_98w",
-                                  "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP]",
-                                  "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP].",
+                                "-9X71SvmK-YNMg0yTqxOrA": {
+                                  "id": "-9X71SvmK-YNMg0yTqxOrA",
+                                  "vdid": "EY70u7pfR98IxpoOLD-lzw",
+                                  "name": "Useless CP Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -434,8 +434,8 @@
                       },
                       "opc": {
                         "id": "fxLKS3sOpT_ZuUFuvvePrw",
-                        "name": "[jkFqt42KQNmArvuMk3gwoA::Useless CP] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [jkFqt42KQNmArvuMk3gwoA::Useless CP] CellProcessor-resident cell processes.",
+                        "name": "Useless CP Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Useless CP Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -443,12 +443,6 @@
                           }
                         },
                         "apmMap": {
-                          "UnB4saOEVIBgsJb5neW95Q": {
-                            "id": "UnB4saOEVIBgsJb5neW95Q",
-                            "vdid": "wb6YinixW6jr6m4UBx_98w",
-                            "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP]",
-                            "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP]."
-                          },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
                             "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
@@ -460,16 +454,22 @@
                             "vdid": "JpoXbVlVwh2fPHXZK9sM1Q",
                             "name": "Test",
                             "description": "Test"
+                          },
+                          "-9X71SvmK-YNMg0yTqxOrA": {
+                            "id": "-9X71SvmK-YNMg0yTqxOrA",
+                            "vdid": "EY70u7pfR98IxpoOLD-lzw",
+                            "name": "Useless CP Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
                           }
                         },
                         "opmiSpecPaths": [
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "UnB4saOEVIBgsJb5neW95Q",
-                              "vdid": "wb6YinixW6jr6m4UBx_98w",
-                              "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP]",
-                              "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP]."
+                              "id": "-9X71SvmK-YNMg0yTqxOrA",
+                              "vdid": "EY70u7pfR98IxpoOLD-lzw",
+                              "name": "Useless CP Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
                             }
                           },
                           {
@@ -513,13 +513,13 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "UnB4saOEVIBgsJb5neW95Q"
+                              "apm": "-9X71SvmK-YNMg0yTqxOrA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [fxLKS3sOpT_ZuUFuvvePrw::[jkFqt42KQNmArvuMk3gwoA::Useless CP] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [fxLKS3sOpT_ZuUFuvvePrw::[jkFqt42KQNmArvuMk3gwoA::Useless CP] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [fxLKS3sOpT_ZuUFuvvePrw::Useless CP Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [fxLKS3sOpT_ZuUFuvvePrw::Useless CP Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "8lO-N2bGSWCvTLSQ6qjuDA_CellProcesses": {
@@ -562,7 +562,7 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "UnB4saOEVIBgsJb5neW95Q"
+                              "apm": "-9X71SvmK-YNMg0yTqxOrA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -7165,10 +7165,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "UnB4saOEVIBgsJb5neW95Q",
-                                        "vdid": "wb6YinixW6jr6m4UBx_98w",
-                                        "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP]",
-                                        "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP]."
+                                        "id": "-9X71SvmK-YNMg0yTqxOrA",
+                                        "vdid": "EY70u7pfR98IxpoOLD-lzw",
+                                        "name": "Useless CP Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7246,10 +7246,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "UnB4saOEVIBgsJb5neW95Q",
-                                        "vdid": "wb6YinixW6jr6m4UBx_98w",
-                                        "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP]",
-                                        "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP]."
+                                        "id": "-9X71SvmK-YNMg0yTqxOrA",
+                                        "vdid": "EY70u7pfR98IxpoOLD-lzw",
+                                        "name": "Useless CP Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7311,10 +7311,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "UnB4saOEVIBgsJb5neW95Q",
-                                        "vdid": "wb6YinixW6jr6m4UBx_98w",
-                                        "name": "Cell Process Manager [jkFqt42KQNmArvuMk3gwoA::Useless CP]",
-                                        "description": "Cell process manager root process for CellProcessor [jkFqt42KQNmArvuMk3gwoA::Useless CP]."
+                                        "id": "-9X71SvmK-YNMg0yTqxOrA",
+                                        "vdid": "EY70u7pfR98IxpoOLD-lzw",
+                                        "name": "Useless CP Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
                                       }
                                     },
                                     "evalResponse": {

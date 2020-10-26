@@ -190,9 +190,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                        "vdid": "jzzrHTT7KJdT_ukuie3BgA",
-                        "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
-                        "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
+                        "vdid": "LpIrnBvqDjK4pLUMrGuCFw",
+                        "name": "CPM Shared Process Test #3 Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -200,15 +200,15 @@
                               "type": "INDEX",
                               "FvUW9UtwS3DDHsMeWSJZIg": {
                                 "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                                "vdid": "jzzrHTT7KJdT_ukuie3BgA",
-                                "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Model",
-                                "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
+                                "vdid": "LpIrnBvqDjK4pLUMrGuCFw",
+                                "name": "CPM Shared Process Test #3 Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
                                 "type": "CM",
-                                "XKzisde2voALMnP5NP2m5Q": {
-                                  "id": "XKzisde2voALMnP5NP2m5Q",
-                                  "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                                  "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                                  "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3].",
+                                "ZtVm1b_mv-b3Mvcy7KzsrA": {
+                                  "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                                  "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                                  "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -617,8 +617,8 @@
                       },
                       "opc": {
                         "id": "_8jKS8WQpT9llkFuHaKPrw",
-                        "name": "[QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] CellProcessor-resident cell processes.",
+                        "name": "CPM Shared Process Test #3 Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Shared Process Test #3 Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -626,6 +626,12 @@
                           }
                         },
                         "apmMap": {
+                          "ZtVm1b_mv-b3Mvcy7KzsrA": {
+                            "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                            "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                            "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
+                          },
                           "XP3y711ciGxMsHkhdn5i0w": {
                             "id": "XP3y711ciGxMsHkhdn5i0w",
                             "vdid": "Vw4tMNH5hgS3LkbMWz1z3A",
@@ -656,12 +662,6 @@
                             "name": "CPP Test Process 3",
                             "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in)."
                           },
-                          "XKzisde2voALMnP5NP2m5Q": {
-                            "id": "XKzisde2voALMnP5NP2m5Q",
-                            "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                            "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                            "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
-                          },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
                             "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
@@ -679,10 +679,10 @@
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "XKzisde2voALMnP5NP2m5Q",
-                              "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                              "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                              "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
+                              "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                              "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                              "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
                             }
                           },
                           {
@@ -986,13 +986,13 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "XKzisde2voALMnP5NP2m5Q"
+                              "apm": "ZtVm1b_mv-b3Mvcy7KzsrA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [_8jKS8WQpT9llkFuHaKPrw::[QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [_8jKS8WQpT9llkFuHaKPrw::[QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [_8jKS8WQpT9llkFuHaKPrw::CPM Shared Process Test #3 Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [_8jKS8WQpT9llkFuHaKPrw::CPM Shared Process Test #3 Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "XP3y711ciGxMsHkhdn5i0w_CellProcesses": {
@@ -1473,7 +1473,7 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "XKzisde2voALMnP5NP2m5Q"
+                              "apm": "ZtVm1b_mv-b3Mvcy7KzsrA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -8096,10 +8096,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "XKzisde2voALMnP5NP2m5Q",
-                                        "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                                        "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                                        "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
+                                        "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                                        "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -8177,10 +8177,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "XKzisde2voALMnP5NP2m5Q",
-                                        "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                                        "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                                        "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
+                                        "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                                        "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -8242,10 +8242,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "XKzisde2voALMnP5NP2m5Q",
-                                        "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                                        "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                                        "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
+                                        "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                                        "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -8346,10 +8346,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "XKzisde2voALMnP5NP2m5Q",
-                                          "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                                          "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
+                                          "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                                          "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                                          "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8742,10 +8742,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "XKzisde2voALMnP5NP2m5Q",
-                                          "vdid": "iGhTwbEKs4pu3cCsmjRt3A",
-                                          "name": "Cell Process Manager [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]",
-                                          "description": "Cell process manager root process for CellProcessor [QiSQnxzURSa4aVk_0PZGnQ::CPM Shared Process Test #3]."
+                                          "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
+                                          "vdid": "oovB3SqTTP8gS4a0hJfkQA",
+                                          "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {

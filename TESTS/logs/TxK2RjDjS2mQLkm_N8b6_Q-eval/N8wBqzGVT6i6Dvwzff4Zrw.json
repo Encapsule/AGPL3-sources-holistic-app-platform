@@ -206,9 +206,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                        "vdid": "gaOf0zutnBLvrr7lA30rlw",
-                        "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Model",
-                        "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A].",
+                        "vdid": "KN-TP1Gj_NMQ8WuqOYskYQ",
+                        "name": "Proxy Test A Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -216,15 +216,15 @@
                               "type": "INDEX",
                               "hvWG9VRwVHCkHqQediJ2Ig": {
                                 "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                                "vdid": "gaOf0zutnBLvrr7lA30rlw",
-                                "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Model",
-                                "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A].",
+                                "vdid": "KN-TP1Gj_NMQ8WuqOYskYQ",
+                                "name": "Proxy Test A Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host.",
                                 "type": "CM",
-                                "pxyLsTQOfYCCAwn5efuO5Q": {
-                                  "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                  "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                  "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                  "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A].",
+                                "jtWO1eLm4ubqMuoyLawtrA": {
+                                  "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                  "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                  "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -563,8 +563,8 @@
                       },
                       "opc": {
                         "id": "-JrKSzu4pT95q0Fu4wWPrw",
-                        "name": "[m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] CellProcessor-resident cell processes.",
+                        "name": "Proxy Test A Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Proxy Test A Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -572,12 +572,6 @@
                           }
                         },
                         "apmMap": {
-                          "pxyLsTQOfYCCAwn5efuO5Q": {
-                            "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                            "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                            "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                            "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
-                          },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
                             "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
@@ -589,16 +583,22 @@
                             "vdid": "Mv4Ta2Y0mLJLkuVM4ua5kg",
                             "name": "Proxy Test A Process",
                             "description": "A test process."
+                          },
+                          "jtWO1eLm4ubqMuoyLawtrA": {
+                            "id": "jtWO1eLm4ubqMuoyLawtrA",
+                            "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                            "name": "Proxy Test A Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                           }
                         },
                         "opmiSpecPaths": [
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                              "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                              "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                              "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                              "id": "jtWO1eLm4ubqMuoyLawtrA",
+                              "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                              "name": "Proxy Test A Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                             }
                           },
                           {
@@ -651,13 +651,13 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "pxyLsTQOfYCCAwn5efuO5Q"
+                              "apm": "jtWO1eLm4ubqMuoyLawtrA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [-JrKSzu4pT95q0Fu4wWPrw::[m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [-JrKSzu4pT95q0Fu4wWPrw::[m6Wno85ESaCtnWyzFb9Adw::Proxy Test A] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [-JrKSzu4pT95q0Fu4wWPrw::Proxy Test A Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [-JrKSzu4pT95q0Fu4wWPrw::Proxy Test A Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "mctGtkfiQmeO93Va6WkGZw_CellProcesses": {
@@ -736,7 +736,7 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "pxyLsTQOfYCCAwn5efuO5Q"
+                              "apm": "jtWO1eLm4ubqMuoyLawtrA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -7339,10 +7339,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                        "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                        "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                        "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                        "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                        "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                        "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7420,10 +7420,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                        "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                        "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                        "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                        "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                        "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                        "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7485,10 +7485,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                        "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                        "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                        "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                        "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                        "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                        "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7589,10 +7589,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                          "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                          "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                          "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                          "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -7762,10 +7762,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                          "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                          "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                          "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                          "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -7940,10 +7940,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                          "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                          "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                          "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                          "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8204,10 +8204,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "pxyLsTQOfYCCAwn5efuO5Q",
-                                          "vdid": "V1clEdWvWXlbiluQzRQH1g",
-                                          "name": "Cell Process Manager [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]",
-                                          "description": "Cell process manager root process for CellProcessor [m6Wno85ESaCtnWyzFb9Adw::Proxy Test A]."
+                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
+                                          "vdid": "3xXUbn_jMWQMlu3vkVYZrw",
+                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
                                         }
                                       },
                                       "evalResponse": {

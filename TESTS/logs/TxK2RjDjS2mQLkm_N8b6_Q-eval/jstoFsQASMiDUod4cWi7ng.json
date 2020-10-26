@@ -63,9 +63,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "7PXs9bNws3DAHsAeMyIzIg",
-                        "vdid": "waZansPf1LubwPKx2TCm4g",
-                        "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test] Model",
-                        "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test].",
+                        "vdid": "ZG1OFsL_ZVIRXo7vbg3nOA",
+                        "name": "Test Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor Test Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -73,15 +73,15 @@
                               "type": "INDEX",
                               "7PXs9bNws3DAHsAeMyIzIg": {
                                 "id": "7PXs9bNws3DAHsAeMyIzIg",
-                                "vdid": "waZansPf1LubwPKx2TCm4g",
-                                "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test] Model",
-                                "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test].",
+                                "vdid": "ZG1OFsL_ZVIRXo7vbg3nOA",
+                                "name": "Test Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor Test Runtime Host.",
                                 "type": "CM",
-                                "17ZBsS8x_4D6gwn5dpfN5Q": {
-                                  "id": "17ZBsS8x_4D6gwn5dpfN5Q",
-                                  "vdid": "WlxqpRD-7-bbCPm5gRfZfQ",
-                                  "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test]",
-                                  "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test].",
+                                "4tXi1d7m3uYMMgwyIKwgrA": {
+                                  "id": "4tXi1d7m3uYMMgwyIKwgrA",
+                                  "vdid": "XVfkLUDKhXBuamHozVtRrw",
+                                  "name": "Test Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor Test Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -413,8 +413,8 @@
                       },
                       "opc": {
                         "id": "N_XKS1_hpT-r0UFu5UCPrw",
-                        "name": "[XJvdfr3rSMGQqBouaokSyw::Test] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [XJvdfr3rSMGQqBouaokSyw::Test] CellProcessor-resident cell processes.",
+                        "name": "Test Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Test Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -422,27 +422,27 @@
                           }
                         },
                         "apmMap": {
-                          "17ZBsS8x_4D6gwn5dpfN5Q": {
-                            "id": "17ZBsS8x_4D6gwn5dpfN5Q",
-                            "vdid": "WlxqpRD-7-bbCPm5gRfZfQ",
-                            "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test]",
-                            "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test]."
-                          },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
                             "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
                             "name": "Holarchy Cell Process Proxy Helper Process",
                             "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
+                          },
+                          "4tXi1d7m3uYMMgwyIKwgrA": {
+                            "id": "4tXi1d7m3uYMMgwyIKwgrA",
+                            "vdid": "XVfkLUDKhXBuamHozVtRrw",
+                            "name": "Test Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor Test Runtime Host."
                           }
                         },
                         "opmiSpecPaths": [
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "17ZBsS8x_4D6gwn5dpfN5Q",
-                              "vdid": "WlxqpRD-7-bbCPm5gRfZfQ",
-                              "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test]",
-                              "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test]."
+                              "id": "4tXi1d7m3uYMMgwyIKwgrA",
+                              "vdid": "XVfkLUDKhXBuamHozVtRrw",
+                              "name": "Test Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor Test Runtime Host."
                             }
                           }
                         ],
@@ -452,20 +452,20 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "17ZBsS8x_4D6gwn5dpfN5Q"
+                              "apm": "4tXi1d7m3uYMMgwyIKwgrA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [N_XKS1_hpT-r0UFu5UCPrw::[XJvdfr3rSMGQqBouaokSyw::Test] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [N_XKS1_hpT-r0UFu5UCPrw::[XJvdfr3rSMGQqBouaokSyw::Test] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [N_XKS1_hpT-r0UFu5UCPrw::Test Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [N_XKS1_hpT-r0UFu5UCPrw::Test Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "17ZBsS8x_4D6gwn5dpfN5Q"
+                              "apm": "4tXi1d7m3uYMMgwyIKwgrA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -7064,10 +7064,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "17ZBsS8x_4D6gwn5dpfN5Q",
-                                        "vdid": "WlxqpRD-7-bbCPm5gRfZfQ",
-                                        "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test]",
-                                        "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test]."
+                                        "id": "4tXi1d7m3uYMMgwyIKwgrA",
+                                        "vdid": "XVfkLUDKhXBuamHozVtRrw",
+                                        "name": "Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7145,10 +7145,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "17ZBsS8x_4D6gwn5dpfN5Q",
-                                        "vdid": "WlxqpRD-7-bbCPm5gRfZfQ",
-                                        "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test]",
-                                        "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test]."
+                                        "id": "4tXi1d7m3uYMMgwyIKwgrA",
+                                        "vdid": "XVfkLUDKhXBuamHozVtRrw",
+                                        "name": "Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7210,10 +7210,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "17ZBsS8x_4D6gwn5dpfN5Q",
-                                        "vdid": "WlxqpRD-7-bbCPm5gRfZfQ",
-                                        "name": "Cell Process Manager [XJvdfr3rSMGQqBouaokSyw::Test]",
-                                        "description": "Cell process manager root process for CellProcessor [XJvdfr3rSMGQqBouaokSyw::Test]."
+                                        "id": "4tXi1d7m3uYMMgwyIKwgrA",
+                                        "vdid": "XVfkLUDKhXBuamHozVtRrw",
+                                        "name": "Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {

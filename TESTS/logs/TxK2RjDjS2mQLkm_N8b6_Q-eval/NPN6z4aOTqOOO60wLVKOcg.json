@@ -131,9 +131,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                        "vdid": "rnWUaeTm1k_4fMXikzQ4fw",
-                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
-                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                        "vdid": "Dc5p_5VoSYzM4JWTV_G24A",
+                        "name": "CellProcessor Constructor #2 Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -141,15 +141,15 @@
                               "type": "INDEX",
                               "ZfVl9fVw9XBGHkYehCKEIg": {
                                 "id": "ZfVl9fVw9XBGHkYehCKEIg",
-                                "vdid": "rnWUaeTm1k_4fMXikzQ4fw",
-                                "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Model",
-                                "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                                "vdid": "Dc5p_5VoSYzM4JWTV_G24A",
+                                "name": "CellProcessor Constructor #2 Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host.",
                                 "type": "CM",
-                                "3M28sc9PL4B_c1v5qwFC5Q": {
-                                  "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                  "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                  "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                  "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2].",
+                                "wdXB1eTm5Ob2MvYyUaxRrA": {
+                                  "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                                  "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                                  "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -488,8 +488,8 @@
                       },
                       "opc": {
                         "id": "O7jKS-rSpT-eQUFuRaSPrw",
-                        "name": "[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] CellProcessor-resident cell processes.",
+                        "name": "CellProcessor Constructor #2 Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CellProcessor Constructor #2 Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -497,11 +497,11 @@
                           }
                         },
                         "apmMap": {
-                          "3M28sc9PL4B_c1v5qwFC5Q": {
-                            "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                            "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                            "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                            "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                          "wdXB1eTm5Ob2MvYyUaxRrA": {
+                            "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                            "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                            "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host."
                           },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
@@ -520,10 +520,10 @@
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                              "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                              "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                              "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                              "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                              "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                              "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host."
                             }
                           },
                           {
@@ -567,13 +567,13 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                              "apm": "wdXB1eTm5Ob2MvYyUaxRrA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [O7jKS-rSpT-eQUFuRaSPrw::[NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [O7jKS-rSpT-eQUFuRaSPrw::CellProcessor Constructor #2 Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [O7jKS-rSpT-eQUFuRaSPrw::CellProcessor Constructor #2 Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "6OPnhgR9QWyEFaBpaZNb1A_CellProcesses": {
@@ -618,7 +618,7 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "3M28sc9PL4B_c1v5qwFC5Q"
+                              "apm": "wdXB1eTm5Ob2MvYyUaxRrA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -7221,10 +7221,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                                        "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                                        "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7302,10 +7302,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                                        "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                                        "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7367,10 +7367,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                        "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                        "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                        "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                        "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                                        "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                                        "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7469,10 +7469,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                          "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                          "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                          "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                          "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                                          "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                                          "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -7745,10 +7745,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "3M28sc9PL4B_c1v5qwFC5Q",
-                                          "vdid": "DPAlZUIZMp88ScpbzyM4xg",
-                                          "name": "Cell Process Manager [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]",
-                                          "description": "Cell process manager root process for CellProcessor [NPN6z4aOTqOOO60wLVKOcg::CellProcessor Constructor #2]."
+                                          "id": "wdXB1eTm5Ob2MvYyUaxRrA",
+                                          "vdid": "BvLyEa9Gnl07fhhdchdHew",
+                                          "name": "CellProcessor Constructor #2 Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CellProcessor Constructor #2 Runtime Host."
                                         }
                                       },
                                       "evalResponse": {

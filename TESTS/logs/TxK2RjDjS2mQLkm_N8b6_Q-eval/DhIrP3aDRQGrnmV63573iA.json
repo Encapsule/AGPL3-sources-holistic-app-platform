@@ -146,9 +146,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "s_Wz9RVwFXATHhMeiiKKIg",
-                        "vdid": "5Fk3Tt5QN1RrJBRJmAWBmg",
-                        "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test] Model",
-                        "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test].",
+                        "vdid": "IXTUyamGEYeSlFHman--sg",
+                        "name": "CPM Child Processes Active Test Runtime Host CellProcessManager",
+                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -156,15 +156,15 @@
                               "type": "INDEX",
                               "s_Wz9RVwFXATHhMeiiKKIg": {
                                 "id": "s_Wz9RVwFXATHhMeiiKKIg",
-                                "vdid": "5Fk3Tt5QN1RrJBRJmAWBmg",
-                                "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test] Model",
-                                "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test].",
+                                "vdid": "IXTUyamGEYeSlFHman--sg",
+                                "name": "CPM Child Processes Active Test Runtime Host CellProcessManager",
+                                "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host.",
                                 "type": "CM",
-                                "harIsS0-H4DY4LL5dk5S5Q": {
-                                  "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                  "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                  "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                  "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test].",
+                                "KNUo1SXmJeYpMikyrqyurA": {
+                                  "id": "KNUo1SXmJeYpMikyrqyurA",
+                                  "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                  "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                  "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -517,8 +517,8 @@
                       },
                       "opc": {
                         "id": "MX3KS27spT8iukFuH0yPrw",
-                        "name": "[DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test] Observable Process Controller",
-                        "description": "Provides shared memory and runtime automata process orchestration for [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test] CellProcessor-resident cell processes.",
+                        "name": "CPM Child Processes Active Test Runtime Host ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Child Processes Active Test Runtime Host' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -532,11 +532,11 @@
                             "name": "CPM Child Processes Active Operator Test Process",
                             "description": "Test process"
                           },
-                          "harIsS0-H4DY4LL5dk5S5Q": {
-                            "id": "harIsS0-H4DY4LL5dk5S5Q",
-                            "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                            "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                            "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                          "KNUo1SXmJeYpMikyrqyurA": {
+                            "id": "KNUo1SXmJeYpMikyrqyurA",
+                            "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                            "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                            "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                           },
                           "3E27IH_CQeqBUFsGm4tIIA": {
                             "id": "3E27IH_CQeqBUFsGm4tIIA",
@@ -555,10 +555,10 @@
                           {
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
-                              "id": "harIsS0-H4DY4LL5dk5S5Q",
-                              "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                              "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                              "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                              "id": "KNUo1SXmJeYpMikyrqyurA",
+                              "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                              "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                              "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                             }
                           },
                           {
@@ -636,13 +636,13 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "harIsS0-H4DY4LL5dk5S5Q"
+                              "apm": "KNUo1SXmJeYpMikyrqyurA"
                             }
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [MX3KS27spT8iukFuH0yPrw::[DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test] Observable Process Controller] Observable Controller Data Store",
-                          "____description": "OPC [MX3KS27spT8iukFuH0yPrw::[DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test] Observable Process Controller] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [MX3KS27spT8iukFuH0yPrw::CPM Child Processes Active Test Runtime Host ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [MX3KS27spT8iukFuH0yPrw::CPM Child Processes Active Test Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "LVjhjYUcQXOYcbI_xbepJQ_CellProcesses": {
@@ -709,7 +709,7 @@
                             "____types": "jsObject",
                             "____defaultValue": {},
                             "____appdsl": {
-                              "apm": "harIsS0-H4DY4LL5dk5S5Q"
+                              "apm": "KNUo1SXmJeYpMikyrqyurA"
                             },
                             "____label": "Cell Process Manager",
                             "____description": "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",
@@ -7316,10 +7316,10 @@
                                       },
                                       "initialStep": "uninitialized",
                                       "apmRef": {
-                                        "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                        "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                        "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                        "id": "KNUo1SXmJeYpMikyrqyurA",
+                                        "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                        "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7397,10 +7397,10 @@
                                       },
                                       "initialStep": "initializing",
                                       "apmRef": {
-                                        "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                        "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                        "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                        "id": "KNUo1SXmJeYpMikyrqyurA",
+                                        "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                        "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7462,10 +7462,10 @@
                                       },
                                       "initialStep": "ready",
                                       "apmRef": {
-                                        "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                        "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                        "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                        "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                        "id": "KNUo1SXmJeYpMikyrqyurA",
+                                        "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                        "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                       }
                                     },
                                     "evalResponse": {
@@ -7567,10 +7567,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                          "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                          "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                          "id": "KNUo1SXmJeYpMikyrqyurA",
+                                          "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -7664,10 +7664,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                          "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                          "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                          "id": "KNUo1SXmJeYpMikyrqyurA",
+                                          "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -7891,10 +7891,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                          "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                          "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                          "id": "KNUo1SXmJeYpMikyrqyurA",
+                                          "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8046,10 +8046,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                          "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                          "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                          "id": "KNUo1SXmJeYpMikyrqyurA",
+                                          "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
@@ -8175,10 +8175,10 @@
                                         },
                                         "initialStep": "ready",
                                         "apmRef": {
-                                          "id": "harIsS0-H4DY4LL5dk5S5Q",
-                                          "vdid": "fuZqVpXuO0-ibiajcD4Ujg",
-                                          "name": "Cell Process Manager [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]",
-                                          "description": "Cell process manager root process for CellProcessor [DhIrP3aDRQGrnmV63573iA::CPM Child Processes Active Test]."
+                                          "id": "KNUo1SXmJeYpMikyrqyurA",
+                                          "vdid": "GONOD39TdXPOCNp7NxsL8A",
+                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
+                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
                                         }
                                       },
                                       "evalResponse": {
