@@ -2738,7 +2738,7 @@
                                           "badControllerActionResponseError": true
                                         },
                                         "response": {
-                                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1]. But, the plug-in rejected the request with error: Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
+                                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Action request was routed and subsequently rejected by the selected ControllerAction plug-in with error: Filter [NpfrgiF1QTS6qp9vAMv4Dw::Bad Controller Action #1] failed while performing main operation. This controller action is hard-wired to return an error."
                                         }
                                       }
                                     ],

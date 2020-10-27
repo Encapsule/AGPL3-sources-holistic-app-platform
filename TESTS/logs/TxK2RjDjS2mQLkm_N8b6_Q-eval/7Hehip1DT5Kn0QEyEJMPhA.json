@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "KBDQUUNHRM34x92H8vj5KQ",
+                    "vdid": "Nj5YVF0dbqDWfDCePYwTsw",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,13 +22,13 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "KBDQUUNHRM34x92H8vj5KQ",
+                            "vdid": "Nj5YVF0dbqDWfDCePYwTsw",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
                             "PPL45jw5RDWSMNsB97WIWg": {
                               "id": "PPL45jw5RDWSMNsB97WIWg",
-                              "vdid": "P7ssQqBpjD6e3OKriW9IKg",
+                              "vdid": "CjueLxlTIOTcvzV6sDMp8A",
                               "name": "Holistic Client App Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "type": "APM"
@@ -45,6 +45,13 @@
                               "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
                               "name": "Holistic App Client Runtime Receive DOM Event",
                               "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred.",
+                              "type": "ACT"
+                            },
+                            "mmLcuWywTe6lUL9OtMJisg": {
+                              "id": "mmLcuWywTe6lUL9OtMJisg",
+                              "vdid": "2qH9EJakNEJ9psRgL7pRDg",
+                              "name": "Holistic App Client Kernel: Signal Lifecycle Event",
+                              "description": "Forwards a holistic app client lifecycle signal to the derived client application's daemon proces.",
                               "type": "ACT"
                             },
                             "qzMWhMstQ4Ki06O75y5hMA": {
@@ -343,13 +350,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 47,
-                      "edges": 88,
+                      "vertices": 48,
+                      "edges": 90,
                       "artifacts": {
                         "cm": 12,
                         "apm": 6,
                         "top": 13,
-                        "act": 12
+                        "act": 13
                       }
                     }
                   },
@@ -377,7 +384,7 @@
                         },
                         {
                           "id": "PPL45jw5RDWSMNsB97WIWg",
-                          "vdid": "P7ssQqBpjD6e3OKriW9IKg",
+                          "vdid": "CjueLxlTIOTcvzV6sDMp8A",
                           "name": "Holistic Client App Kernel",
                           "description": "This model manages, tracks, and controls the lifecycle of the client application."
                         },
@@ -500,6 +507,12 @@
                           "description": "Hooks DOM events on behalf of the Holistic App Client Runtime APM."
                         },
                         {
+                          "id": "mmLcuWywTe6lUL9OtMJisg",
+                          "vdid": "2qH9EJakNEJ9psRgL7pRDg",
+                          "name": "Holistic App Client Kernel: Signal Lifecycle Event",
+                          "description": "Forwards a holistic app client lifecycle signal to the derived client application's daemon proces."
+                        },
+                        {
                           "id": "h-auSE-OSP2TG1jh_3EQ1Q",
                           "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
                           "name": "Holistic App Client Runtime Receive DOM Event",
@@ -557,13 +570,13 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "KBDQUUNHRM34x92H8vj5KQ",
+                          "vdid": "Nj5YVF0dbqDWfDCePYwTsw",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
                           "PPL45jw5RDWSMNsB97WIWg": {
                             "id": "PPL45jw5RDWSMNsB97WIWg",
-                            "vdid": "P7ssQqBpjD6e3OKriW9IKg",
+                            "vdid": "CjueLxlTIOTcvzV6sDMp8A",
                             "name": "Holistic Client App Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"
@@ -580,6 +593,13 @@
                             "vdid": "8iKdC1jZzmzrTHnmTDpoKw",
                             "name": "Holistic App Client Runtime Receive DOM Event",
                             "description": "ControllerAction that signals the HolisticAppClientRuntime CM that the window.onload event has occurred.",
+                            "type": "ACT"
+                          },
+                          "mmLcuWywTe6lUL9OtMJisg": {
+                            "id": "mmLcuWywTe6lUL9OtMJisg",
+                            "vdid": "2qH9EJakNEJ9psRgL7pRDg",
+                            "name": "Holistic App Client Kernel: Signal Lifecycle Event",
+                            "description": "Forwards a holistic app client lifecycle signal to the derived client application's daemon proces.",
                             "type": "ACT"
                           },
                           "qzMWhMstQ4Ki06O75y5hMA": {

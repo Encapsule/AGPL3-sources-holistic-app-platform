@@ -7618,7 +7618,7 @@
                           }
                         },
                         "actResponse": {
-                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]. But, the plug-in rejected the request with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. The cell process could not be created as requested because cell process ID 'GnZD29qpnZdyarMnoUPHEg' is already active at path '~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ'."
+                          "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Action request was routed and subsequently rejected by the selected ControllerAction plug-in with error: Filter [SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create] failed while performing main operation. The cell process could not be created as requested because cell process ID 'GnZD29qpnZdyarMnoUPHEg' is already active at path '~.6OPnhgR9QWyEFaBpaZNb1A_CellProcesses.cellProcessMap.ZDzHy574xd-FjPLB2rTCcQ'."
                         }
                       },
                       "postActionToJSON": {

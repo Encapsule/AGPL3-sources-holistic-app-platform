@@ -43761,7 +43761,7 @@
                         "apmBindingPath": "~.themeProcessor"
                       },
                       "actResponse": {
-                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. ControllerAction request was successfully parsed and routed to plug-in filter delegate [e2kGs2nLRwW7RtFDPi8REg::Read Theme Palette]. But, the plug-in rejected the request with error: Filter [e2kGs2nLRwW7RtFDPi8REg::Read Theme Palette] failed while performing main operation. Filter [NqAyu1cLQQyX0w95zaQt6A::OCD::writeNamespace Method Filter] failed while performing main operation. Filter [AtkC2b7gvuDPqc-pEmASYA::Controller Data Write Filter AtkC2b7gvuDPqc-pEmASYA] failed while normalizing request input. Error at path '~.holisticAppTheme.page': Value of type 'jsUndefined' not in allowed type set [jsObject]."
+                        "error": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Action request was routed and subsequently rejected by the selected ControllerAction plug-in with error: Filter [e2kGs2nLRwW7RtFDPi8REg::Read Theme Palette] failed while performing main operation. Filter [NqAyu1cLQQyX0w95zaQt6A::OCD::writeNamespace Method Filter] failed while performing main operation. Filter [AtkC2b7gvuDPqc-pEmASYA::Controller Data Write Filter AtkC2b7gvuDPqc-pEmASYA] failed while normalizing request input. Error at path '~.holisticAppTheme.page': Value of type 'jsUndefined' not in allowed type set [jsObject]."
                       }
                     }
                   ]
