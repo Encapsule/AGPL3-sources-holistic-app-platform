@@ -100,21 +100,24 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+                const appQueryResult = actResponse.result.actionResult;
+                ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#._private.appQueryResult" }, appQueryResult);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
                 break;
             case "deserialize":
-
                 const bootROMElement = document.getElementById(kernelPrivateData.bootROMElementID);
                 const bootDataBase64 = bootROMElement.textContent;
                 const bootDataJSON = new Buffer(bootDataBase64, 'base64').toString('utf8');
                 const bootROMData = JSON.parse(bootDataJSON);
                 bootROMElement.parentNode.removeChild(bootROMElement); // delete the DOM node
-
                 ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#._private.bootROMData" }, bootROMData);
                 if (ocdResponse.error) {
                     errors.push(ocdResponse.error);
                     break;
                 }
-
                 actResponse = request_.context.act({
                     actorName,
                     actorTaskDescription: "Delegating app client kernel query lifecycle event to the derived app client process.",
@@ -131,8 +134,26 @@ const controllerAction = new holarchy.ControllerAction({
                     errors.push(actResponse.error);
                     break;
                 }
+                const appBootROMData = actResponse.result.actionResult;
+                ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#._private.appBootROMData"}, appBootROMData);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
                 break;
             case "config":
+                actResponse = request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Querying the holistic app client kernel cell process to obtain information about shared subsystem cell processes.",
+                    actionRequest: { CellProcessor: { cell: { cellCoordinates: "#", query: {} } } },
+                    apmBindingPath: request_.context.apmBindingPath
+                });
+                if (actResponse.error) {
+                    errors.push(actResponse.error);
+                    break;
+                }
+                const cellProcessQueryResult = actResponse.result.actionResult;
+
                 actResponse = request_.context.act({
                     actorName,
                     actorTaskDescription: "Delegating app client kernel query lifecycle event to the derived app client process.",
@@ -140,7 +161,26 @@ const controllerAction = new holarchy.ControllerAction({
                         CellProcessor: {
                             cell: {
                                 cellCoordinates: kernelPrivateData.derivedAppClientProcessCoordinates,
-                                delegate: { actionRequest: { holistic: { app: { client: { lifecycle: { config: {} } } } } } }
+                                delegate: {
+                                    actionRequest: {
+                                        holistic: {
+                                            app: {
+                                                client: {
+                                                    lifecycle: {
+                                                        config: {
+                                                            appBootROMData: kernelPrivateData.appBootROMData,
+                                                            appRuntimeServiceProcesses: {
+                                                                appClientKernelProcessID: cellProcessQueryResult.query.cellProcessID,
+                                                                d2r2DisplayAdapterProcessID: kernelPrivateData.serviceProcesses.d2r2DisplayAdapter.result.cellProcessID,
+                                                                domLocationProcessorProcessID: kernelPrivateData.serviceProcesses.domLocationProcessor.result.cellProcessID
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

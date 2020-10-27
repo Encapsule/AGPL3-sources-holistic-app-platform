@@ -3,10 +3,15 @@
 
 const CellModel = require("../../../../CellModel");
 
-module.exports = new CellModel({
+const cellModel = new CellModel({
     id: "jQxlhOe-RDilxY0sNIierQ",
     name: "Holarchy Core Memory Actions & Operators",
-    description: "A collection of TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
+    description: "A collection of ControllerAction & TransitionOperator plug-ins that perform logical comparisons operatations on cell processs memory.",
+    actions: [
+        require("./ControllerAction-ocd-read-namespace-indirect"),
+        require("./ControllerAction-ocd-set-boolean-flag"),
+        require("./ControllerAction-ocd-clear-boolean-flag")
+    ],
     operators: [
         require("./TransitionOperator-ocd-array-length-equal-to-value"),
         require("./TransitionOperator-ocd-compare-values"),
@@ -18,11 +23,11 @@ module.exports = new CellModel({
         require("./TransitionOperator-ocd-array-is-empty"),
         require("./TransitionOperator-ocd-map-is-keyless")
     ],
-    actions: [
-        require("./ControllerAction-ocd-read-namespace-indirect"),
-        require("./ControllerAction-ocd-set-boolean-flag"),
-        require("./ControllerAction-ocd-clear-boolean-flag"),
-        require("./ControllerAction-ocd-subaction-response-writer")
-    ]
 });
+
+if (!cellModel.isValid()) {
+    throw new Error(cellModel.toJSON());
+}
+
+module.exports = cellModel;
 

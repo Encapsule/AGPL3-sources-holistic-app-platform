@@ -4,37 +4,25 @@ const ObservableControllerData = require("../../../ObservableControllerData");
 
 const controllerAction = new ControllerAction({
     id: "aXju3wSBQnufe0r51Y04wg",
-    name: "Write Sub-Action Response",
+    name: "Holarchy Core Util: Action Response Writer",
     description: "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            core: {
+            util: {
                 ____types: "jsObject",
-                writeSubactionResponse: {
+                writeActionResponseToPath: {
                     ____types: "jsObject",
-                    subactionRequest: {
-                        ____label: "Sub-Action Request",
-                        ____description: "Some caller-specified action request that we're to dispatch on their behalf so that we can save the response in shared memory.",
-                        ____accept: "jsObject"
-                    },
-                    writeResponsePath: {
-                        ____label: "Write Response Path",
-                        ____description: "Absolute (begins in ~), cell-relative (begins in #), OCD path to write the subaction response. Note that relative paths are also supported here.",
-                        ____accept: "jsString"
-                    }
+                    actionRequest: { ____accept: "jsObject" },
+                    dataPath: { ____accept: "jsString" }
                 }
             }
         }
     },
 
-    actionResult: {
-        ____types: "jsObject",
-        error: { ____accept: [ "jsNull", "jsString" ] },
-        result: { ____opaque: true }
-    },
+    actionResultSpec: { ____accept: "jsObject" },
 
     bodyFunction: function(request_) {
 
@@ -43,29 +31,29 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
-
-            const message = request_.actionRequest.holarchy.core.writeSubactionResponse;
-
+            const messageBody = request_.actionRequest.CellProcessor.util.writeActionResponseToPath;
             const rpResponse = ObservableControllerData.dataPathResolve({
-                dataPath: message.writeResponsePath,
+                dataPath: messageBody.dataPath,
                 apmBindingPath: request_.context.apmBindingPath
             });
-
             if (rpResponse.error) {
                 errors.push(rpResponse.error);
                 break;
             }
-
             const writeResponsePath = rpResponse.result; // resolved to absolute OCD path (that may be invalid).
 
+            let ocdResponse = request_.context.ocdi.getNamespaceSpec(writeResponsePath);
+            if (ocdResponse.error) {
+                errors.push(ocdResponse.error);
+                break;
+            }
             // Dispatch the subaction...
             const subactionResponse = request_.context.act({
                 actorName: "Write Subaction Response",
                 actorTaskDescription: "Dispatching caller-specified subaction in order to write the response to a caller-specified OCD namespace.",
-                actionRequest: message.subactionRequest,
+                actionRequest: messageBody.actionRequest,
                 apmBindingPath: request_.context.apmBindingPath
             });
-
             if (subactionResponse.error) {
                 errors.push(subactionResponse.error);
             } else {
@@ -73,9 +61,9 @@ const controllerAction = new ControllerAction({
             }
 
             // Attempt to write the subaction response to the indicated namespace path.
-            const ocdResponse = request_.context.ocdi.writeNamespace(writeResponsePath, response);
+            ocdResponse = request_.context.ocdi.writeNamespace(writeResponsePath, response);
             if (ocdResponse.error) {
-                errors.push(`Failed to write subaction response to OCD path '${writeResponsePath}'. Operation failed with error:`);
+                errors.push(`Failed to write subaction response to dataPath '${writeResponsePath}'. Operation failed with error:`);
                 errors.push(ocdResponse.error);
                 errors.push("See response.result for the actual subaction response that we were not able to write."); // TODO?
                 response.result = subactionResponse;
@@ -92,7 +80,7 @@ const controllerAction = new ControllerAction({
 });
 
 if (!controllerAction.isValid()) {
-    throw new Error(controllerAction.jsJSON());
+    throw new Error(controllerAction.toJSON());
 }
 
 module.exports = controllerAction;

@@ -7,7 +7,8 @@ const cellModel = new CellModel({
     description: "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
     subcells: [
         require("./HolarchyCoreLogic"),
-        require("./HolarchyCoreMemory")
+        require("./HolarchyCoreMemory"),
+        require("./HolarchyCoreUtil"),
     ]
 });
 
