@@ -230,7 +230,7 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
             }
             if (!response.error) {
                 console.log("> ObservableProcessController instance initialized.");
-                console.log("> CellProcessor instance initialized. Call method 'act' to interact w/this cellular process.");
+                console.log("> CellProcessor cell runtime plane has been initialized and is ready for action(s).");
                 console.log(`CellProcessor::constructor [${request_.id}::${request_.name}] exit.`);
                 console.log("O       o O       o O       o");
                 console.log("| O   o | | O   o | | O   o |");
@@ -238,7 +238,8 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 console.log("| o   O | | o   O | | o   O |");
                 console.log("o       O o       O o       O");
             } else {
-                console.log("> Process controller configuration FAILED. CellProcessor instance is OFFLINE and unable to process actions.");
+                console.log("> CellProcessor instance initialization FAILED.");
+                console.log("> All subsequent calls to methods on this instance will return an response.error.");
                 console.log(`CellProcessor::constructor [${request_.id}::${request_.name}] exit.`);
                 console.error(response.error);
             }

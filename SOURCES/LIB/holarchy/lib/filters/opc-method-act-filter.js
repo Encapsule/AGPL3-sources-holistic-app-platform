@@ -77,14 +77,7 @@ const factoryResponse = arccore.filter.create({
                     opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
                            evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
                     subsystem: "opc", method: "act", phase: "body",
-                    message: `ACTOR: ${request_.actorName}`
-                });
-
-                logger.request({
-                    opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
-                           evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
-                    subsystem: "opc", method: "act", phase: "body",
-                    message: `WANTS TO: ${request_.actorTaskDescription}`
+                    message: request_.actorTaskDescription
                 });
 
                 // Dispatch the action on behalf of the actor.
@@ -94,7 +87,7 @@ const factoryResponse = arccore.filter.create({
                     actionResponse = opcRef._private.actionDispatcher.request(controllerActionRequest);
                     if (actionResponse.error) {
                         actionResponse = {
-                            error: `ControllerAction request value type cannot be routed to any registered ControllerAction plug-in filters based on runtime type feature analysis. ${actionResponse.error} Please check your request format vs. registered ControllerAction plug-in filter request signatures.`
+                            error: "Invalid action request cannot be routed to any ControllerAction plug-in delegate."
                         };
                     } else {
                         let actionFilter = actionResponse.result;
@@ -103,13 +96,13 @@ const factoryResponse = arccore.filter.create({
                             opc: { id: opcRef._private.id, iid: opcRef._private.iid, name: opcRef._private.name,
                                    evalCount: opcRef._private.evalCount, frameCount: 0, actorStack: opcRef._private.opcActorStack },
                             subsystem: "opc", method: "act", phase: "body",
-                            message: `Dispatching ControllerAction filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]...`
+                            message: `... action request routed to delegate filter [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}].`
                         });
 
                         actionResponse = actionFilter.request(controllerActionRequest);
                         if (actionResponse.error) {
                             actionResponse = {
-                                error: `ControllerAction request was successfully parsed and routed to plug-in filter delegate [${actionFilter.filterDescriptor.operationID}::${actionFilter.filterDescriptor.operationName}]. But, the plug-in rejected the request with error: ${actionResponse.error}`
+                                error: `Action request was routed and subsequently rejected by the selected ControllerAction plug-in with error: ${actionResponse.error}`
                             };
                         }
                     }
