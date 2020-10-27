@@ -648,6 +648,7 @@ platform_update: source_packages_clean dist_packages_clean dist_packages_update
 
 	$(DIR_ROOT)/TESTS/run-tests.js
 	@echo FINISH TARGET: platform_update
+	cat $(DIR_PLATFORM_RTL_PACKAGES)/holistic.json
 
 # ================================================================
 # Utility

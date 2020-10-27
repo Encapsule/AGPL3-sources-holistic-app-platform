@@ -128,6 +128,12 @@
                           "description": "Writes the value made observable by frame latch APM instance."
                         },
                         {
+                          "id": "aXju3wSBQnufe0r51Y04wg",
+                          "vdid": "u-cS3rQLmLgpmIoMxJDXRg",
+                          "name": "Holarchy Core Util: Action Response Writer",
+                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
+                        },
+                        {
                           "id": "_yxWfFLnTqqN-UxRdd7W5w",
                           "vdid": "3DsbArVA3LNYWuE7ucmIpQ",
                           "name": "OCD Boolean Flag Clear",
@@ -144,12 +150,6 @@
                           "vdid": "DPKyvFjaLnWwv-4AP4IYQw",
                           "name": "OCD Read Namespace Indirect",
                           "description": "Reads and returns the value of OCD namespace via path indirection."
-                        },
-                        {
-                          "id": "aXju3wSBQnufe0r51Y04wg",
-                          "vdid": "1cu2zJ4iw9XB4K-RljVPPQ",
-                          "name": "Write Sub-Action Response",
-                          "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         }
                       ]
                     ]
@@ -2183,27 +2183,27 @@
                     },
                     "actionDispatcher": {
                       "filterDescriptor": {
-                        "operationID": "cGLNN7qALIe5-gduUmJguA",
+                        "operationID": "0m29sPqRx1LURuyskHsAfw",
                         "operationName": "Discriminator Filter",
                         "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                        "inputTypeVIID": "lwNJapbObl6ytjChO8NSEQ",
+                        "inputTypeVIID": "OHvcZX1SkT5Qf5gO9b2yMw",
                         "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "outputTypeVIID": "me0rNOqRu5baaGuZd1WHqQ",
+                        "outputTypeVIID": "Pu-h76B1XKMxSYG7SzzfYg",
                         "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                        "operationVDID": "98r0E2TONVdkcY7tw9gUtA"
+                        "operationVDID": "P330E2uTNVc4to7t_eUUtA"
                       },
                       "supportedFilters": [
                         "[iyvk_9vhRn2qvrjOes5v7Q::Frame Latch: Write]",
+                        "[aXju3wSBQnufe0r51Y04wg::Holarchy Core Util: Action Response Writer]",
                         "[_yxWfFLnTqqN-UxRdd7W5w::OCD Boolean Flag Clear]",
                         "[5rFEDGLYRSiZCeChMnkCHQ::OCD Boolean Flag Set]",
                         "[Ve_kEFkGSMSgOqUWu9Yo_w::OCD Read Namespace Indirect]",
-                        "[aXju3wSBQnufe0r51Y04wg::Write Sub-Action Response]",
                         "[KX0V_aQ3RzG01tzBS24MGw::OPC Intrinsic NOOP Action]",
                         "[S1GqYjTtSQazSxkIL9vtpA::OPC Intrinsic Status Action]"
                       ],
                       "requestSpace": {
                         "name": "Discriminator Decission Tree Model",
-                        "description": "Models the combined input filter specifications of Filter ID's: [iyvk_9vhRn2qvrjOes5v7Q, _yxWfFLnTqqN-UxRdd7W5w, 5rFEDGLYRSiZCeChMnkCHQ, Ve_kEFkGSMSgOqUWu9Yo_w, aXju3wSBQnufe0r51Y04wg, KX0V_aQ3RzG01tzBS24MGw, S1GqYjTtSQazSxkIL9vtpA].",
+                        "description": "Models the combined input filter specifications of Filter ID's: [iyvk_9vhRn2qvrjOes5v7Q, aXju3wSBQnufe0r51Y04wg, _yxWfFLnTqqN-UxRdd7W5w, 5rFEDGLYRSiZCeChMnkCHQ, Ve_kEFkGSMSgOqUWu9Yo_w, KX0V_aQ3RzG01tzBS24MGw, S1GqYjTtSQazSxkIL9vtpA].",
                         "vlist": [
                           {
                             "u": "request",
@@ -2363,7 +2363,6 @@
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "Ve_kEFkGSMSgOqUWu9Yo_w",
                                 "_yxWfFLnTqqN-UxRdd7W5w",
-                                "aXju3wSBQnufe0r51Y04wg",
                                 "iyvk_9vhRn2qvrjOes5v7Q"
                               ],
                               "color": "green",
@@ -2374,7 +2373,6 @@
                                 "S1GqYjTtSQazSxkIL9vtpA",
                                 "Ve_kEFkGSMSgOqUWu9Yo_w",
                                 "_yxWfFLnTqqN-UxRdd7W5w",
-                                "aXju3wSBQnufe0r51Y04wg",
                                 "iyvk_9vhRn2qvrjOes5v7Q"
                               ]
                             }
@@ -2458,6 +2456,76 @@
                               "typeConstraint": "jsString",
                               "filters1": [
                                 "iyvk_9vhRn2qvrjOes5v7Q"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.CellProcessor",
+                              "filters": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsObject",
+                              "filters1": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.CellProcessor.util",
+                              "filters": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsObject",
+                              "filters1": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.CellProcessor.util.writeActionResponseToPath",
+                              "filters": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsObject",
+                              "filters1": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject).actionRequest(jsObject)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.CellProcessor.util.writeActionResponseToPath.actionRequest",
+                              "filters": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsObject",
+                              "filters1": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ]
+                            }
+                          },
+                          {
+                            "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject).dataPath(jsString)",
+                            "p": {
+                              "filterSpecPath": "request.actionRequest.CellProcessor.util.writeActionResponseToPath.dataPath",
+                              "filters": [
+                                "aXju3wSBQnufe0r51Y04wg"
+                              ],
+                              "color": "gold",
+                              "typeConstraint": "jsString",
+                              "filters1": [
+                                "aXju3wSBQnufe0r51Y04wg"
                               ]
                             }
                           },
@@ -2564,62 +2632,6 @@
                             }
                           },
                           {
-                            "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject)",
-                            "p": {
-                              "filterSpecPath": "request.actionRequest.holarchy.core",
-                              "filters": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ],
-                              "color": "gold",
-                              "typeConstraint": "jsObject",
-                              "filters1": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ]
-                            }
-                          },
-                          {
-                            "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject)",
-                            "p": {
-                              "filterSpecPath": "request.actionRequest.holarchy.core.writeSubactionResponse",
-                              "filters": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ],
-                              "color": "gold",
-                              "typeConstraint": "jsObject",
-                              "filters1": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ]
-                            }
-                          },
-                          {
-                            "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject).subactionRequest(jsObject)",
-                            "p": {
-                              "filterSpecPath": "request.actionRequest.holarchy.core.writeSubactionResponse.subactionRequest",
-                              "filters": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ],
-                              "color": "gold",
-                              "typeConstraint": "jsObject",
-                              "filters1": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ]
-                            }
-                          },
-                          {
-                            "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject).writeResponsePath(jsString)",
-                            "p": {
-                              "filterSpecPath": "request.actionRequest.holarchy.core.writeSubactionResponse.writeResponsePath",
-                              "filters": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ],
-                              "color": "gold",
-                              "typeConstraint": "jsString",
-                              "filters1": [
-                                "aXju3wSBQnufe0r51Y04wg"
-                              ]
-                            }
-                          },
-                          {
                             "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).opc(jsObject)",
                             "p": {
                               "filterSpecPath": "request.actionRequest.holarchy.opc",
@@ -2709,14 +2721,14 @@
                           },
                           {
                             "e": {
-                              "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
-                              "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject)"
+                              "u": "request(jsObject).actionRequest(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)"
                             }
                           },
                           {
                             "e": {
                               "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
-                              "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject)"
+                              "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject)"
                             }
                           },
                           {
@@ -2757,6 +2769,30 @@
                           },
                           {
                             "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject)"
+                            }
+                          },
+                          {
+                            "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject)"
+                            }
+                          },
+                          {
+                            "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject).actionRequest(jsObject)"
+                            }
+                          },
+                          {
+                            "e": {
+                              "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject)",
+                              "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).util(jsObject).writeActionResponseToPath(jsObject).dataPath(jsString)"
+                            }
+                          },
+                          {
+                            "e": {
                               "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject).actions(jsObject).ocd(jsObject)",
                               "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject).actions(jsObject).ocd(jsObject).clearBooleanFlag(jsObject)"
                             }
@@ -2789,24 +2825,6 @@
                             "e": {
                               "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject).actions(jsObject).ocd(jsObject).readNamespaceIndirect(jsObject)",
                               "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject).actions(jsObject).ocd(jsObject).readNamespaceIndirect(jsObject).path2(jsString)"
-                            }
-                          },
-                          {
-                            "e": {
-                              "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject)",
-                              "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject)"
-                            }
-                          },
-                          {
-                            "e": {
-                              "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject)",
-                              "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject).subactionRequest(jsObject)"
-                            }
-                          },
-                          {
-                            "e": {
-                              "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject)",
-                              "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).core(jsObject).writeSubactionResponse(jsObject).writeResponsePath(jsString)"
                             }
                           },
                           {
@@ -2893,6 +2911,63 @@
                           "outputTypeVIID": "LPeeiMV42LNeAhthe2myDQ",
                           "outputTypeVDID": "8-d-OpyoAkX4G5bt5_5T_Q",
                           "operationVDID": "E7NA-ISmB6dh6uB3b1wMSw"
+                        }
+                      },
+                      "aXju3wSBQnufe0r51Y04wg": {
+                        "filterDescriptor": {
+                          "operationID": "aXju3wSBQnufe0r51Y04wg",
+                          "operationName": "Holarchy Core Util: Action Response Writer",
+                          "operationDescription": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
+                          "inputFilterSpec": {
+                            "____label": "Holarchy Core Util: Action Response Writer Request",
+                            "____types": "jsObject",
+                            "context": {
+                              "____label": "OPC Context Descriptor",
+                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                              "____types": "jsObject",
+                              "apmBindingPath": {
+                                "____label": "APM Binding Path",
+                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                "____accept": "jsString"
+                              },
+                              "ocdi": {
+                                "____label": "OCD Store Instance",
+                                "____description": "A reference to the OCD store instance managed by OPC.",
+                                "____accept": "jsObject"
+                              },
+                              "act": {
+                                "____label": "OPC.act Method",
+                                "____description": "A reference to ObservableProcessController.act method.",
+                                "____accept": "jsFunction"
+                              }
+                            },
+                            "actionRequest": {
+                              "____types": "jsObject",
+                              "CellProcessor": {
+                                "____types": "jsObject",
+                                "util": {
+                                  "____types": "jsObject",
+                                  "writeActionResponseToPath": {
+                                    "____types": "jsObject",
+                                    "actionRequest": {
+                                      "____accept": "jsObject"
+                                    },
+                                    "dataPath": {
+                                      "____accept": "jsString"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "outputFilterSpec": {
+                            "____accept": "jsObject"
+                          },
+                          "inputTypeVIID": "HiwULbPvbF4NiFgugv_ZSg",
+                          "inputTypeVDID": "qZKIHQk6dnHKI5Ze6jCDKA",
+                          "outputTypeVIID": "YXPCMgl_OxPwupnLbcirow",
+                          "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
+                          "operationVDID": "CHplT1RE2RopPz6Ih1JcWA"
                         }
                       },
                       "_yxWfFLnTqqN-UxRdd7W5w": {
@@ -3075,69 +3150,6 @@
                           "outputTypeVIID": "QKKFgPFZL00DATFNfFLfiQ",
                           "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
                           "operationVDID": "0IU7E_qFb1e52MDt_6IqtA"
-                        }
-                      },
-                      "aXju3wSBQnufe0r51Y04wg": {
-                        "filterDescriptor": {
-                          "operationID": "aXju3wSBQnufe0r51Y04wg",
-                          "operationName": "Write Sub-Action Response",
-                          "operationDescription": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
-                          "inputFilterSpec": {
-                            "____label": "Write Sub-Action Response Request",
-                            "____types": "jsObject",
-                            "context": {
-                              "____label": "OPC Context Descriptor",
-                              "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
-                              "____types": "jsObject",
-                              "apmBindingPath": {
-                                "____label": "APM Binding Path",
-                                "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
-                                "____accept": "jsString"
-                              },
-                              "ocdi": {
-                                "____label": "OCD Store Instance",
-                                "____description": "A reference to the OCD store instance managed by OPC.",
-                                "____accept": "jsObject"
-                              },
-                              "act": {
-                                "____label": "OPC.act Method",
-                                "____description": "A reference to ObservableProcessController.act method.",
-                                "____accept": "jsFunction"
-                              }
-                            },
-                            "actionRequest": {
-                              "____types": "jsObject",
-                              "holarchy": {
-                                "____types": "jsObject",
-                                "core": {
-                                  "____types": "jsObject",
-                                  "writeSubactionResponse": {
-                                    "____types": "jsObject",
-                                    "subactionRequest": {
-                                      "____label": "Sub-Action Request",
-                                      "____description": "Some caller-specified action request that we're to dispatch on their behalf so that we can save the response in shared memory.",
-                                      "____accept": "jsObject"
-                                    },
-                                    "writeResponsePath": {
-                                      "____label": "Write Response Path",
-                                      "____description": "Absolute (begins in ~), cell-relative (begins in #), OCD path to write the subaction response. Note that relative paths are also supported here.",
-                                      "____accept": "jsString"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "outputFilterSpec": {
-                            "____label": "No Result (Default)",
-                            "____description": "If you need your ControllerAction to return a response.result, declare actionResultSpec in your ControllerAction declaration.",
-                            "____accept": "jsUndefined"
-                          },
-                          "inputTypeVIID": "HiwULbPvbF4NiFgugv_ZSg",
-                          "inputTypeVDID": "nUNjRm6k756h54bBy4S8Eg",
-                          "outputTypeVIID": "YXPCMgl_OxPwupnLbcirow",
-                          "outputTypeVDID": "AV_f6Y45sFu_Mc8VmIkk7g",
-                          "operationVDID": "CHvoeVRpOtYpgVSkh0mYBw"
                         }
                       },
                       "KX0V_aQ3RzG01tzBS24MGw": {
