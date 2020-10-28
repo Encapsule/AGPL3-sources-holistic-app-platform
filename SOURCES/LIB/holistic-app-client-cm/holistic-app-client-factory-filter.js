@@ -105,6 +105,9 @@ const holarchy = require("@encapsule/holarchy");
                 }
             },
 
+            appClientRuntimeSpec: { ____accept: "jsObject", ____defaultValue: { ____accept: "jsObject", ____defaultValue: {} } },
+            appClientRuntimeProcessData: { ____accept: "jsObject", ____defaultValue: {} },
+
             appClientCellModelLibrary: {
                 ____label: "Client Application CellModels",
                 ____description: "An array of application-defined CellModel artifacts to be included in the synthesized app client CellModel.",
@@ -119,8 +122,6 @@ const holarchy = require("@encapsule/holarchy");
 
 
         },
-
-
 
         outputFilterSpec: {
             ____label: "Holistic App Client CellModel",
@@ -144,23 +145,44 @@ const holarchy = require("@encapsule/holarchy");
                         name: `${clientFactoryRequest_.name} App Client Runtime (synthesized)`,
                         description: `Synthesized holistic app client runtime AbstractProcessModel for derived application '${clientFactoryRequest_.name}'.`,
                         ocdDataSpec: {
-                            ____label: `${clientFactoryRequest_.name} Process Memory`,
+                            ____label: `${clientFactoryRequest_.name} App Client Process Memory`,
                             ____description: `ObservableControllerData specification for APM ID '${clientFactoryRequest_.apmID}'.`,
                             ____types: "jsObject",
                             ____defaultValue: {},
-                            // TBD
+                            kernelProxy: { ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } },
+                            locationProxy: {  ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } },
+                            displayProxy: {  ____types: "jsObject", ____appdsl: { apm: "CPPU-UPgS8eWiMap3Ixovg" /* cell proxy APM */ } },
+                            appClientRuntime: { ...clientFactoryRequest_.appClientRuntimeSpec }
                         }, // ocdDataSpec
-                        /*
+
                         steps: {
                             uninitialized: {
                                 description: "Default APM starting step.",
-                                transitions: [ { transitionIf: { always: true }, nextStep: "ready" } ]
+                                transitions: [ { transitionIf: { always: true }, nextStep: "app-client-boot" } ]
                             },
-                            ready: {
-                                description: "Placeholder terminal step."
+                            "app-client-boot": {
+                                description: "App client process is booting.",
+                                transitions: [
+                                    {
+                                        transitionIf: {
+                                            CellProcessor: {
+                                                proxy: {
+                                                    proxyCoordinates: "#.kernelProxy",
+                                                    connect: {
+                                                        statusIs: "connected"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        nextStep: "app-client-kernel-connected"
+                                    }
+                                ]
+                            },
+                            "app-client-kernel-connected": {
+                                description: "Our local proxy to the app client kernel process has been connected."
                             }
+
                         }
-                        */
                     }, // apm
                     subcells: [ ...clientFactoryRequest_.appClientCellModelLibrary, require("./HolisticAppClientKernel") ],
                     actions: [
@@ -226,10 +248,26 @@ const holarchy = require("@encapsule/holarchy");
                                         errors.push(actResponse.error);
                                         break;
                                     }
+                                    const appClientKernelActivateResult = actResponse.result;
+
                                     actResponse = controllerActionRequest_.context.act({
                                         actorName,
                                         actorTaskDescription: `Attempting to launch derived application '${clientFactoryRequest_.name}' process.`,
-                                        actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: clientFactoryRequest_.apmID, instanceName: "daemon" } } } }
+                                        actionRequest: {
+                                            CellProcessor: {
+                                                process: {
+                                                    processCoordinates: {
+                                                        apmID: clientFactoryRequest_.apmID, // X App Client (synthesized)
+                                                        instanceName: "daemon"
+                                                    },
+                                                    activate: {
+                                                        processData: {
+                                                            appClientRuntime: clientFactoryRequest_.appClientRuntimeProcessData
+                                                        }
+                                                    },
+                                                }
+                                            }
+                                        }
                                     });
                                     if (actResponse.error) {
                                         errors.push(actResponse.error);
