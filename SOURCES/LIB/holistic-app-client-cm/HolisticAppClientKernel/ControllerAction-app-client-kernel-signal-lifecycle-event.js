@@ -42,7 +42,7 @@ const controllerAction = new holarchy.ControllerAction({
             inBreakScope = true;
             const actorName = `[${this.operationID}::${this.operationName}]`;
             const messageBody = request_.actionRequest.holistic.app.client.kernel._private.signalLifecycleEvent;
-            console.log(`${actorName} signalling lifecycle event '${messageBody.eventLabel}'...`);
+            console.log(`${actorName} signaling lifecycle event '${messageBody.eventLabel}'...`);
             let ocdResponse = request_.context.ocdi.getNamespaceSpec(request_.context.apmBindingPath);
             if (ocdResponse.error) {
                 errors.push(ocdResponse.error);
