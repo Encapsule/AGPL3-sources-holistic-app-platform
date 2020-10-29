@@ -12,6 +12,7 @@
 // CellProcessor.js
 
 const constructorFilter = require("./lib/filters/cp-method-constructor-filter");
+const actFilter = require("./lib/filters/cp-method-act-filter");
 const logger = require("./lib/util/holarchy-logger-filter");
 
 module.exports = class CellProcessor {
@@ -42,12 +43,8 @@ module.exports = class CellProcessor {
 
     isValid() { return (!this._private.constructorError); }
 
-    // This method will undergo some considerable transformation in the future.
-    // It's not nearly done yet. But, done enough to use CellProcessor for many
-    // jobs...Just not yet jobs that require that we save/restore the contents
-    // of a CellProcessor and or specific subgraphs of the process digraph.
     toJSON() { return (this.isValid()?this._private:this._private.constructorError); }
 
-    act(request_) { return (this.isValid()?this._private.opc.act(request_):{ error: this.toJSON() }); }
+    act(request_) { return (this.isValid()?actFilter.request({ ...request_, opcRef: this._private.opc }):{ error: this.toJSON() }); }
 
 } // class CellProcessor

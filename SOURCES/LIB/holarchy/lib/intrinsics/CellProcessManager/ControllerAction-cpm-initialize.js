@@ -24,7 +24,10 @@ const controllerAction = new ControllerAction({
         }
     }, // actionRequestSpec
 
-    actionResultSpec: { ____accept: "jsUndefined" }, // calling this action returns no result whatsoever
+    actionResultSpec: {
+        ____accept: "jsString",
+        ____defaultValue: "okay"
+    },
 
     bodyFunction: function(request_) {
         let response = { error: null };
