@@ -146,7 +146,7 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                        "vdid": "mbDhu3Okfn_eHGxunPLYpA",
+                        "vdid": "cczMxQHy5exLNm7gN9KxFQ",
                         "name": "CPM Cell Process Proxy Test #1 Runtime Host CellProcessManager",
                         "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host.",
                         "cmat": {
@@ -156,13 +156,13 @@
                               "type": "INDEX",
                               "TPVM9ZxwnHBvHm8e1yLXIg": {
                                 "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                                "vdid": "mbDhu3Okfn_eHGxunPLYpA",
+                                "vdid": "cczMxQHy5exLNm7gN9KxFQ",
                                 "name": "CPM Cell Process Proxy Test #1 Runtime Host CellProcessManager",
                                 "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host.",
                                 "type": "CM",
                                 "LtUu1cLmwuYPMg8yaqxqrA": {
                                   "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                  "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                  "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                   "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                   "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host.",
                                   "type": "APM"
@@ -260,9 +260,16 @@
                                 },
                                 "VNaA0AMsTXawb32xLaNGTA": {
                                   "id": "VNaA0AMsTXawb32xLaNGTA",
-                                  "vdid": "V4GPOwexeEfFbNqLhwpiCg",
+                                  "vdid": "16hJ7rPSViRJLTwhMawp7g",
                                   "name": "Cell Process Manager: Initialize",
                                   "description": "Performs initialization of Cell Process Manager cell process (the root and parent process of all cell processes executing in a CellProcess runtime host instance).",
+                                  "type": "ACT"
+                                },
+                                "Rd5sgBjkSyq25-xIwydPRA": {
+                                  "id": "Rd5sgBjkSyq25-xIwydPRA",
+                                  "vdid": "M5V6FwLX5Je_TqrGhdgd9Q",
+                                  "name": "Cell Process Manager: Cell Plane Error Handler",
+                                  "description": "This action is dispatched generically from OPC.act when an external actor makes an action request that produces a response.error. Or, a response.result.lastEvaluation containing transport error(s).",
                                   "type": "ACT"
                                 },
                                 "SdL0-5kmTuiNrWNu7zGZhg": {
@@ -528,7 +535,7 @@
                         "apmMap": {
                           "LtUu1cLmwuYPMg8yaqxqrA": {
                             "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                            "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                            "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                             "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                             "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                           },
@@ -550,7 +557,7 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                              "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                              "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                               "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                               "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                             }
@@ -5102,17 +5109,18 @@
                         },
                         "actionDispatcher": {
                           "filterDescriptor": {
-                            "operationID": "GjMLvHJi90l49DKm_HMRcA",
+                            "operationID": "m24-uG9JmaP9OlJH5ZO6xg",
                             "operationName": "Discriminator Filter",
                             "operationDescription": "Retrieves a reference to the subfilter that should be used to process this request.",
-                            "inputTypeVIID": "6Vh5EdH3ZzW3ZJ8iy4IJAA",
+                            "inputTypeVIID": "esTlyyI8c3wzrO_8lfVrPQ",
                             "inputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "outputTypeVIID": "NrYaMkmG-r8F49d9FvtoCQ",
+                            "outputTypeVIID": "cg895TfC1b4p_FdIwGayGw",
                             "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
-                            "operationVDID": "jir0E1l2NVem447tp9sUtA"
+                            "operationVDID": "yar0E0DFNVeum47tIisUtA"
                           },
                           "supportedFilters": [
                             "[0MRiyw8rSnmdcN7uL2WWrQ::CPPTestProcess1: Test Action]",
+                            "[Rd5sgBjkSyq25-xIwydPRA::Cell Process Manager: Cell Plane Error Handler]",
                             "[wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request On Cell (actOn)]",
                             "[VNaA0AMsTXawb32xLaNGTA::Cell Process Manager: Initialize]",
                             "[SdL0-5kmTuiNrWNu7zGZhg::Cell Process Manager: Process Create]",
@@ -5130,7 +5138,7 @@
                           ],
                           "requestSpace": {
                             "name": "Discriminator Decission Tree Model",
-                            "description": "Models the combined input filter specifications of Filter ID's: [0MRiyw8rSnmdcN7uL2WWrQ, wB5QKMYtS7yY2-v7Y3tGWA, VNaA0AMsTXawb32xLaNGTA, SdL0-5kmTuiNrWNu7zGZhg, 4s_DUfKnQ4aS-xRjewAfUQ, r-JgxABoS_a-mSE2c1nvKA, X6ck_Bo4RmWTVHl-vk-urw, ySiBEGcaRGWVOZmwBRyhrA, rua1glcmTsOlYcfpZuiXnA, aXju3wSBQnufe0r51Y04wg, _yxWfFLnTqqN-UxRdd7W5w, 5rFEDGLYRSiZCeChMnkCHQ, Ve_kEFkGSMSgOqUWu9Yo_w, KX0V_aQ3RzG01tzBS24MGw, S1GqYjTtSQazSxkIL9vtpA].",
+                            "description": "Models the combined input filter specifications of Filter ID's: [0MRiyw8rSnmdcN7uL2WWrQ, Rd5sgBjkSyq25-xIwydPRA, wB5QKMYtS7yY2-v7Y3tGWA, VNaA0AMsTXawb32xLaNGTA, SdL0-5kmTuiNrWNu7zGZhg, 4s_DUfKnQ4aS-xRjewAfUQ, r-JgxABoS_a-mSE2c1nvKA, X6ck_Bo4RmWTVHl-vk-urw, ySiBEGcaRGWVOZmwBRyhrA, rua1glcmTsOlYcfpZuiXnA, aXju3wSBQnufe0r51Y04wg, _yxWfFLnTqqN-UxRdd7W5w, 5rFEDGLYRSiZCeChMnkCHQ, Ve_kEFkGSMSgOqUWu9Yo_w, KX0V_aQ3RzG01tzBS24MGw, S1GqYjTtSQazSxkIL9vtpA].",
                             "vlist": [
                               {
                                 "u": "request",
@@ -5141,6 +5149,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5158,6 +5167,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5181,6 +5191,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5200,6 +5211,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5223,6 +5235,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5249,6 +5262,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5268,6 +5282,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5291,6 +5306,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5317,6 +5333,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5343,6 +5360,7 @@
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
                                     "5rFEDGLYRSiZCeChMnkCHQ",
                                     "KX0V_aQ3RzG01tzBS24MGw",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "S1GqYjTtSQazSxkIL9vtpA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
                                     "VNaA0AMsTXawb32xLaNGTA",
@@ -5394,7 +5412,9 @@
                                   "filterSpecPath": "request.actionRequest.CellProcessor",
                                   "filters": [
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
+                                    "VNaA0AMsTXawb32xLaNGTA",
                                     "X6ck_Bo4RmWTVHl-vk-urw",
                                     "aXju3wSBQnufe0r51Y04wg",
                                     "r-JgxABoS_a-mSE2c1nvKA",
@@ -5405,12 +5425,72 @@
                                   "typeConstraint": "jsObject",
                                   "filters1": [
                                     "4s_DUfKnQ4aS-xRjewAfUQ",
+                                    "Rd5sgBjkSyq25-xIwydPRA",
                                     "SdL0-5kmTuiNrWNu7zGZhg",
+                                    "VNaA0AMsTXawb32xLaNGTA",
                                     "X6ck_Bo4RmWTVHl-vk-urw",
                                     "aXju3wSBQnufe0r51Y04wg",
                                     "r-JgxABoS_a-mSE2c1nvKA",
                                     "wB5QKMYtS7yY2-v7Y3tGWA",
                                     "ySiBEGcaRGWVOZmwBRyhrA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.actionRequest.CellProcessor._private",
+                                  "filters": [
+                                    "Rd5sgBjkSyq25-xIwydPRA",
+                                    "VNaA0AMsTXawb32xLaNGTA"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "Rd5sgBjkSyq25-xIwydPRA",
+                                    "VNaA0AMsTXawb32xLaNGTA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.actionRequest.CellProcessor._private.opcCellPlaneErrorNotification",
+                                  "filters": [
+                                    "Rd5sgBjkSyq25-xIwydPRA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "Rd5sgBjkSyq25-xIwydPRA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject).errorType(jsString)",
+                                "p": {
+                                  "filterSpecPath": "request.actionRequest.CellProcessor._private.opcCellPlaneErrorNotification.errorType",
+                                  "filters": [
+                                    "Rd5sgBjkSyq25-xIwydPRA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsString",
+                                  "filters1": [
+                                    "Rd5sgBjkSyq25-xIwydPRA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject).opcActResponse(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.actionRequest.CellProcessor._private.opcCellPlaneErrorNotification.opcActResponse",
+                                  "filters": [
+                                    "Rd5sgBjkSyq25-xIwydPRA"
+                                  ],
+                                  "color": "gold",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "Rd5sgBjkSyq25-xIwydPRA"
                                   ]
                                 }
                               },
@@ -5459,49 +5539,9 @@
                                 }
                               },
                               {
-                                "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
+                                "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).initialize(jsObject)",
                                 "p": {
-                                  "filterSpecPath": "request.actionRequest.holarchy",
-                                  "filters": [
-                                    "5rFEDGLYRSiZCeChMnkCHQ",
-                                    "KX0V_aQ3RzG01tzBS24MGw",
-                                    "S1GqYjTtSQazSxkIL9vtpA",
-                                    "VNaA0AMsTXawb32xLaNGTA",
-                                    "Ve_kEFkGSMSgOqUWu9Yo_w",
-                                    "_yxWfFLnTqqN-UxRdd7W5w",
-                                    "rua1glcmTsOlYcfpZuiXnA"
-                                  ],
-                                  "color": "green",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "5rFEDGLYRSiZCeChMnkCHQ",
-                                    "KX0V_aQ3RzG01tzBS24MGw",
-                                    "S1GqYjTtSQazSxkIL9vtpA",
-                                    "VNaA0AMsTXawb32xLaNGTA",
-                                    "Ve_kEFkGSMSgOqUWu9Yo_w",
-                                    "_yxWfFLnTqqN-UxRdd7W5w",
-                                    "rua1glcmTsOlYcfpZuiXnA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.holarchy.CellProcessor",
-                                  "filters": [
-                                    "VNaA0AMsTXawb32xLaNGTA"
-                                  ],
-                                  "color": "gold",
-                                  "typeConstraint": "jsObject",
-                                  "filters1": [
-                                    "VNaA0AMsTXawb32xLaNGTA"
-                                  ]
-                                }
-                              },
-                              {
-                                "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).initialize(jsObject)",
-                                "p": {
-                                  "filterSpecPath": "request.actionRequest.holarchy.CellProcessor.initialize",
+                                  "filterSpecPath": "request.actionRequest.CellProcessor._private.initialize",
                                   "filters": [
                                     "VNaA0AMsTXawb32xLaNGTA"
                                   ],
@@ -5667,6 +5707,30 @@
                                   "typeConstraint": "jsObject",
                                   "filters1": [
                                     "ySiBEGcaRGWVOZmwBRyhrA"
+                                  ]
+                                }
+                              },
+                              {
+                                "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
+                                "p": {
+                                  "filterSpecPath": "request.actionRequest.holarchy",
+                                  "filters": [
+                                    "5rFEDGLYRSiZCeChMnkCHQ",
+                                    "KX0V_aQ3RzG01tzBS24MGw",
+                                    "S1GqYjTtSQazSxkIL9vtpA",
+                                    "Ve_kEFkGSMSgOqUWu9Yo_w",
+                                    "_yxWfFLnTqqN-UxRdd7W5w",
+                                    "rua1glcmTsOlYcfpZuiXnA"
+                                  ],
+                                  "color": "green",
+                                  "typeConstraint": "jsObject",
+                                  "filters1": [
+                                    "5rFEDGLYRSiZCeChMnkCHQ",
+                                    "KX0V_aQ3RzG01tzBS24MGw",
+                                    "S1GqYjTtSQazSxkIL9vtpA",
+                                    "Ve_kEFkGSMSgOqUWu9Yo_w",
+                                    "_yxWfFLnTqqN-UxRdd7W5w",
+                                    "rua1glcmTsOlYcfpZuiXnA"
                                   ]
                                 }
                               },
@@ -6015,6 +6079,12 @@
                               {
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)",
                                   "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject)"
                                 }
                               },
@@ -6038,6 +6108,30 @@
                               },
                               {
                                 "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).initialize(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject).errorType(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject)._private(jsObject).opcCellPlaneErrorNotification(jsObject).opcActResponse(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject)",
                                   "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)"
                                 }
@@ -6052,36 +6146,6 @@
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject)",
                                   "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).cell(jsObject).delegate(jsObject).actionRequest(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).opc(jsObject)"
-                                }
-                              },
-                              {
-                                "e": {
-                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject)",
-                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).CellProcessor(jsObject).initialize(jsObject)"
                                 }
                               },
                               {
@@ -6130,6 +6194,24 @@
                                 "e": {
                                   "u": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).proxy(jsObject).connect(jsObject).processCoordinates(jsObject)",
                                   "v": "request(jsObject).actionRequest(jsObject).CellProcessor(jsObject).proxy(jsObject).connect(jsObject).processCoordinates(jsObject).apmID(jsString)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).CellProcessProxy(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).cm(jsObject)"
+                                }
+                              },
+                              {
+                                "e": {
+                                  "u": "request(jsObject).actionRequest(jsObject).holarchy(jsObject)",
+                                  "v": "request(jsObject).actionRequest(jsObject).holarchy(jsObject).opc(jsObject)"
                                 }
                               },
                               {
@@ -6277,6 +6359,68 @@
                               "operationVDID": "p05hT-9r_xrIde-IfopzWA"
                             }
                           },
+                          "Rd5sgBjkSyq25-xIwydPRA": {
+                            "filterDescriptor": {
+                              "operationID": "Rd5sgBjkSyq25-xIwydPRA",
+                              "operationName": "Cell Process Manager: Cell Plane Error Handler",
+                              "operationDescription": "This action is dispatched generically from OPC.act when an external actor makes an action request that produces a response.error. Or, a response.result.lastEvaluation containing transport error(s).",
+                              "inputFilterSpec": {
+                                "____label": "Cell Process Manager: Cell Plane Error Handler Request",
+                                "____types": "jsObject",
+                                "context": {
+                                  "____label": "OPC Context Descriptor",
+                                  "____description": "An object containing references to OPC instance-managed runtime API's available to transition operator filters.",
+                                  "____types": "jsObject",
+                                  "apmBindingPath": {
+                                    "____label": "APM Binding Path",
+                                    "____description": "Fully-qualified dot-delimited path to the current APM instance's associated data in the OCD instance.",
+                                    "____accept": "jsString"
+                                  },
+                                  "ocdi": {
+                                    "____label": "OCD Store Instance",
+                                    "____description": "A reference to the OCD store instance managed by OPC.",
+                                    "____accept": "jsObject"
+                                  },
+                                  "act": {
+                                    "____label": "OPC.act Method",
+                                    "____description": "A reference to ObservableProcessController.act method.",
+                                    "____accept": "jsFunction"
+                                  }
+                                },
+                                "actionRequest": {
+                                  "____types": "jsObject",
+                                  "CellProcessor": {
+                                    "____types": "jsObject",
+                                    "_private": {
+                                      "____types": "jsObject",
+                                      "opcCellPlaneErrorNotification": {
+                                        "____types": "jsObject",
+                                        "errorType": {
+                                          "____accept": "jsString",
+                                          "____inValueSet": [
+                                            "action-error",
+                                            "transport-error"
+                                          ]
+                                        },
+                                        "opcActResponse": {
+                                          "____accept": "jsObject"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "outputFilterSpec": {
+                                "____accept": "jsString",
+                                "____defaultValue": "okay"
+                              },
+                              "inputTypeVIID": "1fW356ml23UyAlLT6mSD8g",
+                              "inputTypeVDID": "sqF404fJXc_ZqF9--jyrtQ",
+                              "outputTypeVIID": "CF5zxTny6pSJpqW4IHYbVQ",
+                              "outputTypeVDID": "dXUuwlxR5gXEr31QN2mCtQ",
+                              "operationVDID": "QpuzA-KnRA9Fo3PN8WP_sg"
+                            }
+                          },
                           "wB5QKMYtS7yY2-v7Y3tGWA": {
                             "filterDescriptor": {
                               "operationID": "wB5QKMYtS7yY2-v7Y3tGWA",
@@ -6375,9 +6519,9 @@
                                 },
                                 "actionRequest": {
                                   "____types": "jsObject",
-                                  "holarchy": {
+                                  "CellProcessor": {
                                     "____types": "jsObject",
-                                    "CellProcessor": {
+                                    "_private": {
                                       "____types": "jsObject",
                                       "initialize": {
                                         "____types": "jsObject",
@@ -6393,13 +6537,14 @@
                                 }
                               },
                               "outputFilterSpec": {
-                                "____accept": "jsUndefined"
+                                "____accept": "jsString",
+                                "____defaultValue": "okay"
                               },
                               "inputTypeVIID": "9Z4DiWZgE5FZWn8BWGELxQ",
-                              "inputTypeVDID": "x-u1EofawpIc4T7FPkAGYQ",
+                              "inputTypeVDID": "x-u1z4fawkcc4T5uPkAG3Q",
                               "outputTypeVIID": "lMKXDxhWJyUadol-UoiO1w",
-                              "outputTypeVDID": "xHanI1kT9ivLTVhizlh1ng",
-                              "operationVDID": "329Gkp9dLDHMBCEweD_BSA"
+                              "outputTypeVDID": "dXUuwlxR5gXEr31QN2mCtQ",
+                              "operationVDID": "31lVA5_9zg_MPITNeOAfsg"
                             }
                           },
                           "SdL0-5kmTuiNrWNu7zGZhg": {
@@ -7389,7 +7534,7 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                        "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                        "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                         "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                         "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                       }
@@ -7418,15 +7563,17 @@
                                         "p3_enter": [
                                           {
                                             "request": {
-                                              "holarchy": {
-                                                "CellProcessor": {
+                                              "CellProcessor": {
+                                                "_private": {
                                                   "initialize": {}
                                                 }
                                               }
                                             },
                                             "response": {
                                               "error": null,
-                                              "result": {}
+                                              "result": {
+                                                "actionResult": "okay"
+                                              }
                                             }
                                           }
                                         ],
@@ -7470,7 +7617,7 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                        "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                        "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                         "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                         "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                       }
@@ -7535,7 +7682,7 @@
                                       "initialStep": "ready",
                                       "apmRef": {
                                         "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                        "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                        "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                         "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                         "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                       }
@@ -7640,7 +7787,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -7771,7 +7918,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -8003,7 +8150,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -8266,7 +8413,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -8579,7 +8726,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -8829,7 +8976,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -9009,7 +9156,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -9176,7 +9323,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -9389,7 +9536,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -9725,7 +9872,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -10010,7 +10157,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -10246,7 +10393,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -10537,7 +10684,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -10822,7 +10969,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -11093,7 +11240,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -11327,7 +11474,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }
@@ -11760,7 +11907,7 @@
                           }
                         },
                         "actResponse": {
-                          "error": "Filter [izxx6c96QCu0g8jl6TjAlw::CellProcessor::act Filter] failed while performing main operation. Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Action request was routed and subsequently rejected by the selected ControllerAction plug-in with error: Filter [4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete] failed while performing main operation. Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID 'XlbFCVKUrdmQNG_lFYZfwQ' is a shared process that cannot be deleted w/Cell Process Manager process delete."
+                          "error": "Filter [izxx6c96QCu0g8jl6TjAlw::CellProcessor::act Filter] failed while performing main operation. Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Invalid action request rejected by selected ControllerAction plug-in with error: Filter [4s_DUfKnQ4aS-xRjewAfUQ::Cell Process Manager: Process Delete] failed while performing main operation. Invalid cell process apmBindingPath or cellProcess ID specified in cell process delete. Cell process ID 'XlbFCVKUrdmQNG_lFYZfwQ' is a shared process that cannot be deleted w/Cell Process Manager process delete."
                         }
                       },
                       "postActionToJSON": {
@@ -11995,7 +12142,7 @@
                                         "initialStep": "ready",
                                         "apmRef": {
                                           "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "_2wyEMrx3Ww4emMgqGFsrw",
+                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
                                           "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
                                           "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
                                         }

@@ -12,7 +12,7 @@
                 "CellModel": {
                   "constructorRequest": {
                     "id": "JatYSE8JQj6GxT8AOsbssQ",
-                    "vdid": "XGIwV4vX4U7OEhdW0Cuoyg",
+                    "vdid": "3y4S1R5OFSKr21VUTqiGAg",
                     "name": "Holistic App Client Kernel",
                     "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                     "cmat": {
@@ -22,7 +22,7 @@
                           "type": "INDEX",
                           "JatYSE8JQj6GxT8AOsbssQ": {
                             "id": "JatYSE8JQj6GxT8AOsbssQ",
-                            "vdid": "XGIwV4vX4U7OEhdW0Cuoyg",
+                            "vdid": "3y4S1R5OFSKr21VUTqiGAg",
                             "name": "Holistic App Client Kernel",
                             "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                             "type": "CM",
@@ -32,6 +32,13 @@
                               "name": "Holistic Client App Kernel",
                               "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                               "type": "APM"
+                            },
+                            "ZE1JY82CQ5uRlWQ-zgqz5g": {
+                              "id": "ZE1JY82CQ5uRlWQ-zgqz5g",
+                              "vdid": "iI_l2VwvUW-MsXedl6ZeEQ",
+                              "name": "Holistic App Client Kernel: Cell Plane Error Handler",
+                              "description": "This action is dispatched generically by a CellProcessor's intrinsic Cell Process Manager process when it receives a notification from its contained OPC instance of a cell plane error(s) that occurred during the processing of the last external call to CellProcessor.act method.",
+                              "type": "ACT"
                             },
                             "JwE4LMvpRGC3Jsg1RDjJ1Q": {
                               "id": "JwE4LMvpRGC3Jsg1RDjJ1Q",
@@ -357,13 +364,13 @@
                   "isValid": true,
                   "summary": {
                     "counts": {
-                      "vertices": 49,
-                      "edges": 92,
+                      "vertices": 50,
+                      "edges": 94,
                       "artifacts": {
                         "cm": 13,
                         "apm": 6,
                         "top": 13,
-                        "act": 13
+                        "act": 14
                       }
                     }
                   },
@@ -520,6 +527,12 @@
                           "description": "Hooks DOM events on behalf of the Holistic App Client Runtime APM."
                         },
                         {
+                          "id": "ZE1JY82CQ5uRlWQ-zgqz5g",
+                          "vdid": "iI_l2VwvUW-MsXedl6ZeEQ",
+                          "name": "Holistic App Client Kernel: Cell Plane Error Handler",
+                          "description": "This action is dispatched generically by a CellProcessor's intrinsic Cell Process Manager process when it receives a notification from its contained OPC instance of a cell plane error(s) that occurred during the processing of the last external call to CellProcessor.act method."
+                        },
+                        {
                           "id": "mmLcuWywTe6lUL9OtMJisg",
                           "vdid": "2qH9EJakNEJ9psRgL7pRDg",
                           "name": "Holistic App Client Kernel: Signal Lifecycle Event",
@@ -577,7 +590,7 @@
                         "type": "INDEX",
                         "JatYSE8JQj6GxT8AOsbssQ": {
                           "id": "JatYSE8JQj6GxT8AOsbssQ",
-                          "vdid": "XGIwV4vX4U7OEhdW0Cuoyg",
+                          "vdid": "3y4S1R5OFSKr21VUTqiGAg",
                           "name": "Holistic App Client Kernel",
                           "description": "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
                           "type": "CM",
@@ -587,6 +600,13 @@
                             "name": "Holistic Client App Kernel",
                             "description": "This model manages, tracks, and controls the lifecycle of the client application.",
                             "type": "APM"
+                          },
+                          "ZE1JY82CQ5uRlWQ-zgqz5g": {
+                            "id": "ZE1JY82CQ5uRlWQ-zgqz5g",
+                            "vdid": "iI_l2VwvUW-MsXedl6ZeEQ",
+                            "name": "Holistic App Client Kernel: Cell Plane Error Handler",
+                            "description": "This action is dispatched generically by a CellProcessor's intrinsic Cell Process Manager process when it receives a notification from its contained OPC instance of a cell plane error(s) that occurred during the processing of the last external call to CellProcessor.act method.",
+                            "type": "ACT"
                           },
                           "JwE4LMvpRGC3Jsg1RDjJ1Q": {
                             "id": "JwE4LMvpRGC3Jsg1RDjJ1Q",
