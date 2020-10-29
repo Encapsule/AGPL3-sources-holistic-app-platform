@@ -7,6 +7,7 @@ const cellModel = new holarchy.CellModel({
     description: "Holistic app client kernel process manages the overall lifecycle of a derived HTML5 client application defined as a directed graph of active cell processes executing within a CellProcessor instance in the browser tab.",
     apm: require("./AbstractProcessModel-app-client-kernel"),
     actions: [
+        require("./ControllerAction-app-client-kernel-cell-plane-error"),
         require("./ControllerAction-app-client-kernel-hook-events"),
         require("./ControllerAction-app-client-kernel-notify-event"),
         require("./ControllerAction-app-client-kernel-signal-lifecycle-event")

@@ -165,11 +165,7 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                                 transitions: [
                                     { transitionIf: { always: true }, nextStep: "ready" }
                                 ],
-                                actions: {
-                                    enter: [
-                                        { holarchy: { CellProcessor: { initialize: {} } } }
-                                    ]
-                                }
+                                actions: { enter: [ { CellProcessor: { _private: { initialize: {} } } } ] }
                             },
                             ready: {
                                 description: "CellProcessor manager process is ready to accept commands and queries."

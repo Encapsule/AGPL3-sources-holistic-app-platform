@@ -12,9 +12,9 @@ const controllerAction = new ControllerAction({
 
     actionRequestSpec: {
         ____types: "jsObject",
-        holarchy: {
+        CellProcessor: {
             ____types: "jsObject",
-            CellProcessor: {
+            _private: {
                 ____types: "jsObject",
                 initialize: {
                     ____types: "jsObject",
@@ -37,7 +37,7 @@ const controllerAction = new ControllerAction({
             inBreakScope = true;
             console.log("Cell Process Manager process initializing...");
 
-            const message = request_.actionRequest.holarchy.CellProcessor.initialize;
+            // const messageBody = request_.actionRequest.CellProcessor._private.initialize;
 
             let cpmLibResponse = cpmLib.getProcessManagerData.request({ ocdi: request_.context.ocdi });
             if (cpmLibResponse.error) {
