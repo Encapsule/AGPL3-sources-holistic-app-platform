@@ -22,7 +22,7 @@ const controllerAction = new ControllerAction({
         }
     },
 
-    actionResultSpec: { ____accept: "jsObject" },
+    actionResultSpec: { ____opaque: true /* We do not know and we do not care */ },
 
     bodyFunction: function(request_) {
 

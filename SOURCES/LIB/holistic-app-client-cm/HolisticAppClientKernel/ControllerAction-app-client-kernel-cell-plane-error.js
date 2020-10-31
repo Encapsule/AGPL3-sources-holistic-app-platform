@@ -1,6 +1,8 @@
 
 const holarchy = require("@encapsule/holarchy");
 
+const hackLib = require("./lib");
+
 const controllerAction = new holarchy.ControllerAction({
     id: "ZE1JY82CQ5uRlWQ-zgqz5g",
     name: "Holistic App Client Kernel: Cell Plane Error Handler",
@@ -44,7 +46,30 @@ const controllerAction = new holarchy.ControllerAction({
             inBreakScope = true;
 
             const actorName = `[${this.operationID}::${this.operationName}]`;
-            console.log(`${actorName} processing cell plane error notification from OPC.`);
+            console.log(`${actorName} processing OPC cell plane error via Cell Process Manager process.`);
+
+            // This action is called by the CellProcessor's Cell Process Manager process that does
+            // not know our process coordinates. So, request_.context.apmBindingPath === "~" (CPM).
+
+            let hackLibResponse = hackLib.getStatus.request({ ocdi: request_.context.ocdi, act: request_.context.act });
+            if (hackLibResponse.error) {
+                errors.push(hackLibResponse.error);
+                break;
+            }
+
+            const kernelStatus = hackLibResponse.result;
+
+            if ((kernelStatus.cellMemory.__apmiStep !== "kernel-started" && !kernelStatus.cellMemory.bootstrapFailureStep)) {
+                // The app client kernel process is still booting and the derived app client process has not yet been started.
+
+                // We'll let the kernel APM know about this.
+                let ocdResponse = request_.context.ocdi.writeNamespace({ apmBindingPath: kernelStatus.kernelProcess.apmBindingPath, dataPath: "#.bootstrapFailureStep" }, kernelStatus.cellMemory.__apmiStep);
+                if (ocdResponse.error) {
+                    errors.push(ocdResponse.error);
+                    break;
+                }
+
+            }
 
             // TODO: We will want to do some things here at the app client kernel level as it's
             // not necessarily the case that this error is occurring when the kernel is even active
