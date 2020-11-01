@@ -132,7 +132,7 @@
                         },
                         {
                           "id": "aXju3wSBQnufe0r51Y04wg",
-                          "vdid": "u-cS3rQLmLgpmIoMxJDXRg",
+                          "vdid": "6XkClZKOh7k55dmnITvs5Q",
                           "name": "Holarchy Core Util: Action Response Writer",
                           "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         },
@@ -24647,6 +24647,22 @@
                                     },
                                     "dataPath": {
                                       "____accept": "jsString"
+                                    },
+                                    "options": {
+                                      "____types": "jsObject",
+                                      "____defaultValue": {},
+                                      "reportInnerError": {
+                                        "____label": "Report Inner Error",
+                                        "____description": "If false (default) then response.error returned by inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                                        "____accept": "jsBoolean",
+                                        "____defaultValue": false
+                                      },
+                                      "reportInnerResult": {
+                                        "____label": "Report Inner Result",
+                                        "____description": "If false (default) the response.result value of a successful inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                                        "____accept": "jsBoolean",
+                                        "____defaultValue": false
+                                      }
                                     }
                                   }
                                 }
@@ -24654,13 +24670,13 @@
                             }
                           },
                           "outputFilterSpec": {
-                            "____accept": "jsObject"
+                            "____opaque": true
                           },
                           "inputTypeVIID": "HiwULbPvbF4NiFgugv_ZSg",
-                          "inputTypeVDID": "qZKIHQk6dnHKI5Ze6jCDKA",
+                          "inputTypeVDID": "IUdkGeSiluXaWE4uhUbcqg",
                           "outputTypeVIID": "YXPCMgl_OxPwupnLbcirow",
-                          "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                          "operationVDID": "CHplT1RE2RopPz6Ih1JcWA"
+                          "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                          "operationVDID": "CChOE1TiW1cphX_th_NItA"
                         }
                       },
                       "_yxWfFLnTqqN-UxRdd7W5w": {

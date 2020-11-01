@@ -17,7 +17,7 @@
                     "subcells": [
                       {
                         "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                        "vdid": "7LWTU-cGZk3Ckg3qhh6b9w",
+                        "vdid": "oZ6ZoYZRkiiZicDxlvaaEA",
                         "name": "Holarchy CML",
                         "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                         "cmat": {
@@ -27,19 +27,19 @@
                               "type": "INDEX",
                               "RyMcv3MpTI-Co1EyVOIvlw": {
                                 "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                                "vdid": "7LWTU-cGZk3Ckg3qhh6b9w",
+                                "vdid": "oZ6ZoYZRkiiZicDxlvaaEA",
                                 "name": "Holarchy CML",
                                 "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                                 "type": "CM",
                                 "c2cq2OE9SiaLKahL3Mk0KA": {
                                   "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                                  "vdid": "96ltP_ZPlLrCwXFXabqHeQ",
+                                  "vdid": "QoXEthxCjMi85bkoYxQOBA",
                                   "name": "Holarchy Base Cell Model",
                                   "description": "A collection of low-level building blocks.",
                                   "type": "CM",
                                   "U5iIpgd8SHCk7pvaciVLTQ": {
                                     "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                    "vdid": "a4ohkmPf2XaAkLE1TBuFGA",
+                                    "vdid": "s7f9RxEOioWUc0JCsNXdwA",
                                     "name": "Holarchy Base Memory Mailbox Flag",
                                     "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                     "type": "CM",
@@ -59,14 +59,14 @@
                                     },
                                     "MDVBKW89TvO9T62Ge7GmNg": {
                                       "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                      "vdid": "xKTb-pkiGJCCFcJ23bzbRg",
-                                      "name": "Holarchy Core",
+                                      "vdid": "UEqtiv90WnIsAOBW80jNzA",
+                                      "name": "Holarchy Core Actions & Operators",
                                       "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                       "type": "CM",
                                       "RW8Y2O-kRNSv87yXT962wQ": {
                                         "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                        "vdid": "e4dxj77HMqe_v4l_aOzwwA",
-                                        "name": "Holarchy Core Logic",
+                                        "vdid": "PI5u770RnhZX2csFq-5wrA",
+                                        "name": "Holarchy Core Logic Actions & Operators",
                                         "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                         "type": "CM",
                                         "YgABX95wR86GCYrYaDLISA": {
@@ -191,13 +191,13 @@
                                       },
                                       "YtwGXxryRyaNnxwc9NGJiQ": {
                                         "id": "YtwGXxryRyaNnxwc9NGJiQ",
-                                        "vdid": "hRKYl49rOnOTUcnYbvTQGQ",
+                                        "vdid": "hRJ0l49rW3OTUabYbvScGQ",
                                         "name": "Holarchy Core Utility Actions & Operators",
                                         "description": "A collection of ControllerAction & TransitionOperator plug-ins that are of general use when building custom APM's in particular.",
                                         "type": "CM",
                                         "aXju3wSBQnufe0r51Y04wg": {
                                           "id": "aXju3wSBQnufe0r51Y04wg",
-                                          "vdid": "u-cS3rQLmLgpmIoMxJDXRg",
+                                          "vdid": "6XkClZKOh7k55dmnITvs5Q",
                                           "name": "Holarchy Core Util: Action Response Writer",
                                           "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                           "type": "ACT"
@@ -341,7 +341,7 @@
                         },
                         {
                           "id": "aXju3wSBQnufe0r51Y04wg",
-                          "vdid": "u-cS3rQLmLgpmIoMxJDXRg",
+                          "vdid": "6XkClZKOh7k55dmnITvs5Q",
                           "name": "Holarchy Core Util: Action Response Writer",
                           "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace."
                         },
@@ -373,25 +373,25 @@
                         "type": "INDEX",
                         "kSrV2fJ_S-aXkSmJwxYpDQ": {
                           "id": "kSrV2fJ_S-aXkSmJwxYpDQ",
-                          "vdid": "UZO-yxZBgUHscQ93A618lw",
+                          "vdid": "EED3wFhZN9GSw6mYeZjqFg",
                           "name": "@encapsule/holarchy-cm CellModel Export Test",
                           "description": "Attempt to instantiate the exported CML using the CellModel harness.",
                           "type": "CM",
                           "RyMcv3MpTI-Co1EyVOIvlw": {
                             "id": "RyMcv3MpTI-Co1EyVOIvlw",
-                            "vdid": "7LWTU-cGZk3Ckg3qhh6b9w",
+                            "vdid": "oZ6ZoYZRkiiZicDxlvaaEA",
                             "name": "Holarchy CML",
                             "description": "Holarchy Cell Model Library (CML) provides cellular process primitive operations, actions, and cell models for re-use in higher-order cell models.",
                             "type": "CM",
                             "c2cq2OE9SiaLKahL3Mk0KA": {
                               "id": "c2cq2OE9SiaLKahL3Mk0KA",
-                              "vdid": "96ltP_ZPlLrCwXFXabqHeQ",
+                              "vdid": "QoXEthxCjMi85bkoYxQOBA",
                               "name": "Holarchy Base Cell Model",
                               "description": "A collection of low-level building blocks.",
                               "type": "CM",
                               "U5iIpgd8SHCk7pvaciVLTQ": {
                                 "id": "U5iIpgd8SHCk7pvaciVLTQ",
-                                "vdid": "a4ohkmPf2XaAkLE1TBuFGA",
+                                "vdid": "s7f9RxEOioWUc0JCsNXdwA",
                                 "name": "Holarchy Base Memory Mailbox Flag",
                                 "description": "A primitive cell process that signals (via process step transition) when some actor has put a message in the mailbox namespace.",
                                 "type": "CM",
@@ -411,14 +411,14 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "xKTb-pkiGJCCFcJ23bzbRg",
-                                  "name": "Holarchy Core",
+                                  "vdid": "UEqtiv90WnIsAOBW80jNzA",
+                                  "name": "Holarchy Core Actions & Operators",
                                   "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                   "type": "CM",
                                   "RW8Y2O-kRNSv87yXT962wQ": {
                                     "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                    "vdid": "e4dxj77HMqe_v4l_aOzwwA",
-                                    "name": "Holarchy Core Logic",
+                                    "vdid": "PI5u770RnhZX2csFq-5wrA",
+                                    "name": "Holarchy Core Logic Actions & Operators",
                                     "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                     "type": "CM",
                                     "YgABX95wR86GCYrYaDLISA": {
@@ -543,13 +543,13 @@
                                   },
                                   "YtwGXxryRyaNnxwc9NGJiQ": {
                                     "id": "YtwGXxryRyaNnxwc9NGJiQ",
-                                    "vdid": "hRKYl49rOnOTUcnYbvTQGQ",
+                                    "vdid": "hRJ0l49rW3OTUabYbvScGQ",
                                     "name": "Holarchy Core Utility Actions & Operators",
                                     "description": "A collection of ControllerAction & TransitionOperator plug-ins that are of general use when building custom APM's in particular.",
                                     "type": "CM",
                                     "aXju3wSBQnufe0r51Y04wg": {
                                       "id": "aXju3wSBQnufe0r51Y04wg",
-                                      "vdid": "u-cS3rQLmLgpmIoMxJDXRg",
+                                      "vdid": "6XkClZKOh7k55dmnITvs5Q",
                                       "name": "Holarchy Core Util: Action Response Writer",
                                       "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                       "type": "ACT"

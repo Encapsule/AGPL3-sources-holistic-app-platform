@@ -190,8 +190,8 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                        "vdid": "GormShdxe43QY4r7cTmGxA",
-                        "name": "CPM Shared Process Test #3 Runtime Host CellProcessManager",
+                        "vdid": "3UsvcL7TBUbzfwoZuPLXiQ",
+                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
                         "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
                         "cmat": {
                           "error": null,
@@ -200,8 +200,8 @@
                               "type": "INDEX",
                               "FvUW9UtwS3DDHsMeWSJZIg": {
                                 "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                                "vdid": "GormShdxe43QY4r7cTmGxA",
-                                "name": "CPM Shared Process Test #3 Runtime Host CellProcessManager",
+                                "vdid": "3UsvcL7TBUbzfwoZuPLXiQ",
+                                "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
                                 "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
                                 "type": "CM",
                                 "ZtVm1b_mv-b3Mvcy7KzsrA": {
@@ -346,8 +346,8 @@
                                 },
                                 "LG9CCSEmSYaU6Mp9J0wZ5g": {
                                   "id": "LG9CCSEmSYaU6Mp9J0wZ5g",
-                                  "vdid": "rPKyz638Np9iskmr9R0AEw",
-                                  "name": "Cell Process Proxy Helper Model",
+                                  "vdid": "n2rXEN7MtTteslmwoTBCTA",
+                                  "name": "Holarchy Cell Process Proxy Helper Model",
                                   "description": "A resuable helper cell model that allows developers to link namespace(s) defined in their own AbstractProcessModel(s) memory specifications to other cell processes.",
                                   "type": "CM",
                                   "CPPU-UPgS8eWiMap3Ixovg": {
@@ -395,14 +395,14 @@
                                 },
                                 "MDVBKW89TvO9T62Ge7GmNg": {
                                   "id": "MDVBKW89TvO9T62Ge7GmNg",
-                                  "vdid": "xKTb-pkiGJCCFcJ23bzbRg",
-                                  "name": "Holarchy Core",
+                                  "vdid": "UEqtiv90WnIsAOBW80jNzA",
+                                  "name": "Holarchy Core Actions & Operators",
                                   "description": "Low-level glue models, actions, and operators for building re-usable infrastructure for execution within an ObservableProcessController (OPC) runtime host instance.",
                                   "type": "CM",
                                   "RW8Y2O-kRNSv87yXT962wQ": {
                                     "id": "RW8Y2O-kRNSv87yXT962wQ",
-                                    "vdid": "e4dxj77HMqe_v4l_aOzwwA",
-                                    "name": "Holarchy Core Logic",
+                                    "vdid": "PI5u770RnhZX2csFq-5wrA",
+                                    "name": "Holarchy Core Logic Actions & Operators",
                                     "description": "A collection of TranitionOperator plug-ins that implement generic logic functions AND, OR, NOT, TRUE.",
                                     "type": "CM",
                                     "YgABX95wR86GCYrYaDLISA": {
@@ -527,13 +527,13 @@
                                   },
                                   "YtwGXxryRyaNnxwc9NGJiQ": {
                                     "id": "YtwGXxryRyaNnxwc9NGJiQ",
-                                    "vdid": "hRKYl49rOnOTUcnYbvTQGQ",
+                                    "vdid": "hRJ0l49rW3OTUabYbvScGQ",
                                     "name": "Holarchy Core Utility Actions & Operators",
                                     "description": "A collection of ControllerAction & TransitionOperator plug-ins that are of general use when building custom APM's in particular.",
                                     "type": "CM",
                                     "aXju3wSBQnufe0r51Y04wg": {
                                       "id": "aXju3wSBQnufe0r51Y04wg",
-                                      "vdid": "u-cS3rQLmLgpmIoMxJDXRg",
+                                      "vdid": "6XkClZKOh7k55dmnITvs5Q",
                                       "name": "Holarchy Core Util: Action Response Writer",
                                       "description": "A low-level utility action that dispatches a subaction returning the response to the caller and writing it also to the indicated OCD response namespace.",
                                       "type": "ACT"
@@ -7897,6 +7897,22 @@
                                         },
                                         "dataPath": {
                                           "____accept": "jsString"
+                                        },
+                                        "options": {
+                                          "____types": "jsObject",
+                                          "____defaultValue": {},
+                                          "reportInnerError": {
+                                            "____label": "Report Inner Error",
+                                            "____description": "If false (default) then response.error returned by inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          },
+                                          "reportInnerResult": {
+                                            "____label": "Report Inner Result",
+                                            "____description": "If false (default) the response.result value of a successful inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                                            "____accept": "jsBoolean",
+                                            "____defaultValue": false
+                                          }
                                         }
                                       }
                                     }
@@ -7904,13 +7920,13 @@
                                 }
                               },
                               "outputFilterSpec": {
-                                "____accept": "jsObject"
+                                "____opaque": true
                               },
                               "inputTypeVIID": "HiwULbPvbF4NiFgugv_ZSg",
-                              "inputTypeVDID": "qZKIHQk6dnHKI5Ze6jCDKA",
+                              "inputTypeVDID": "IUdkGeSiluXaWE4uhUbcqg",
                               "outputTypeVIID": "YXPCMgl_OxPwupnLbcirow",
-                              "outputTypeVDID": "Pn9jkiuUyFDMIvHds8fQ2A",
-                              "operationVDID": "CHplT1RE2RopPz6Ih1JcWA"
+                              "outputTypeVDID": "dHR0dNnZ2dlUVFRUyMjIyA",
+                              "operationVDID": "CChOE1TiW1cphX_th_NItA"
                             }
                           },
                           "_yxWfFLnTqqN-UxRdd7W5w": {
