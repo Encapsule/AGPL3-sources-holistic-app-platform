@@ -20,7 +20,9 @@ module.exports = {
     ocdDataSpec: {
         ____types: "jsObject",
         ____defaultValue: {},
+
         bootROMElementID: { ____types: "jsString", ____defaultValue: "idClientBootROM" },
+
         derivedAppClientProcessCoordinates: {
             ____label: "Derived App Client Runtime Process Coordinates",
             ____description: "The cell process coordinates to be used to launch the derived app client cell process.",
@@ -28,6 +30,7 @@ module.exports = {
             apmID: { ____accept: "jsString" },
             instanceName: { ____accept: "jsString" }
         },
+
         serviceProcesses: {
             ____types: "jsObject",
             ____defaultValue: {},
@@ -35,6 +38,7 @@ module.exports = {
             d2r2DisplayAdapter: optionalFilterResponseSpec,
             clientViewProcessor: optionalFilterResponseSpec,
         },
+
         lifecycleResponses: {
             ____types: "jsObject",
             ____defaultValue: {},
@@ -45,16 +49,15 @@ module.exports = {
             start: optionalFilterResponseSpec
         },
 
-        appQueryResult: { ____accept: [ "jsUndefined", "jsObject" ] },
-        bootROMData: { ____accept: [ "jsUndefined", "jsObject" ] },
-        appBootROMData: { ____accept: [ "jsUndefined", "jsObject" ] },
-        appConfigResult: { ____accept: [ "jsUndefined", "jsObject" ] },
         windowLoaded: {
             ____label: "window.onload Completed Flag",
             ____description: "Boolean flag set when the window.onload event occurs.",
             ____accept: "jsBoolean",
             ____defaultValue: false
         },
+
+        bootROMData: { ____accept: [ "jsUndefined", "jsObject" ] },
+
         bootstrapFailureStep: {
             ____accept: [
                 "jsNull" /*no failure*/,

@@ -148,10 +148,10 @@ const factoryResponse = arccore.filter.create({
             // TODO: Parameterize this.
             switch (request_.logLevel) {
             case "error":
-                styles += "background-color: #FF7700;";
+                styles += "background-color: #FFFF00;";
                 break;
             case "warning":
-                styles += "background-color: #FFCC99;";
+                styles += "background-color: #FFCC00;";
                 break;
             default:
                 break;

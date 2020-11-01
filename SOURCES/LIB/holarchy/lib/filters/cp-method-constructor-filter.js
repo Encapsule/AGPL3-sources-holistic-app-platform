@@ -107,7 +107,7 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
 
                 const cpCM = new CellModel({
                     id: cpCMID,
-                    name: `${cpName} CellProcessManager`,
+                    name: `${cpName} Cell Process Manager`,
                     description: `Cell process manager root process for CellProcessor ${cpName}.`,
                     apm: {
                         id: cpAPMID,

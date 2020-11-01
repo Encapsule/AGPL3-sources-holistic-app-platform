@@ -16,7 +16,23 @@ const controllerAction = new ControllerAction({
                 writeActionResponseToPath: {
                     ____types: "jsObject",
                     actionRequest: { ____accept: "jsObject" },
-                    dataPath: { ____accept: "jsString" }
+                    dataPath: { ____accept: "jsString" },
+                    options: {
+                        ____types: "jsObject",
+                        ____defaultValue: {},
+                        reportInnerError: {
+                            ____label: "Report Inner Error",
+                            ____description: "If false (default) then response.error returned by inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                            ____accept: "jsBoolean",
+                            ____defaultValue: false
+                        },
+                        reportInnerResult: {
+                            ____label: "Report Inner Result",
+                            ____description: "If false (default) the response.result value of a successful inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                            ____accept: "jsBoolean",
+                            ____defaultValue: false
+                        }
+                    }
                 }
             }
         }
@@ -31,6 +47,7 @@ const controllerAction = new ControllerAction({
         let inBreakScope = false;
         while (!inBreakScope) {
             inBreakScope = true;
+
             const messageBody = request_.actionRequest.CellProcessor.util.writeActionResponseToPath;
             const rpResponse = ObservableControllerData.dataPathResolve({
                 dataPath: messageBody.dataPath,
@@ -47,6 +64,9 @@ const controllerAction = new ControllerAction({
                 errors.push(ocdResponse.error);
                 break;
             }
+
+            // ^--- Errors while we're setting up are always reported to the caller. These mean something is badly broken.
+
             // Dispatch the subaction...
             const subactionResponse = request_.context.act({
                 actorName: "Write Subaction Response",
@@ -55,27 +75,40 @@ const controllerAction = new ControllerAction({
                 apmBindingPath: request_.context.apmBindingPath
             });
             if (subactionResponse.error) {
-                errors.push(subactionResponse.error);
+                if (messageBody.options.reportInnerError) {
+                    // Override default behavior and report the inner action request response.error to the caller.
+                    errors.push(subactionResponse.error);
+                }
             } else {
-                response.result = subactionResponse.result.actionResult;
+                if (messageBody.options.reportInnerActionResult) {
+                    // Override default behavior and report the response.result.actionResult to the caller.
+                    response.result = subactionResponse.result;
+                } else {
+                    response.result = writeResponsePath;
+                }
             }
 
-            // Attempt to write the subaction response to the indicated namespace path.
-            ocdResponse = request_.context.ocdi.writeNamespace(writeResponsePath, response);
+            // Now, regardless of what happened and what we
+            ocdResponse = request_.context.ocdi.writeNamespace(writeResponsePath, subactionResponse);
             if (ocdResponse.error) {
+                // We will always report any error that occurs when we attempt to write the inner action response.
                 errors.push(`Failed to write subaction response to dataPath '${writeResponsePath}'. Operation failed with error:`);
                 errors.push(ocdResponse.error);
                 errors.push("See response.result for the actual subaction response that we were not able to write."); // TODO?
                 response.result = subactionResponse;
             }
+
             break;
+
         } // end while
+
         if (errors.length) {
             response.error = errors.join(" ");
         }
-        return response;
-    }
 
+        return response;
+
+    }
 
 });
 
