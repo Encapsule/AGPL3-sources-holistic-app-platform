@@ -34,7 +34,7 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 console.log(`CellProcessor::constructor [${request_.id}::${request_.name}] enter...`);
                 console.log("> Configuring a contained ObservableProcessController instance to host this specific class of cellular runtime service...");
 
-                const cpName = `${request_.name} Runtime Host`;
+                const cpName = `${request_.name} Service`;
 
                 // Dereference the input CellModel.
                 const cellmodel = (request_.cellmodel instanceof CellModel)?request_.cellmodel:new CellModel(request_.cellmodel);
@@ -104,15 +104,16 @@ const cpmMountingNamespaceName = require("./cpm-mounting-namespace-name");
                 // Now create a new CellModel for the Cell Process Managager that will manage the data in the cpmMountingNamespaceName namespace.
 
                 const cpCMID = arccore.identifier.irut.fromReference(`${request_.id}_CellProcessor_CellModel`).result;
+                const cmDescription = `Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the ${cpName} cell plane.`;
 
                 const cpCM = new CellModel({
                     id: cpCMID,
-                    name: `${cpName} Cell Process Manager`,
-                    description: `Cell process manager root process for CellProcessor ${cpName}.`,
+                    name: `${cpName} Cell Process Manager (synthesized)`,
+                    description: cmDescription,
                     apm: {
                         id: cpAPMID,
-                        name: `${cpName} Cell Process Manager`,
-                        description: `Cell process manager root process for CellProcessor ${cpName}.`,
+                        name: `${cpName} Cell Process Manager (synthesized)`,
+                        description: cmDescription,
                         ocdDataSpec: {
                             ____label: "Cell Process Manager",
                             ____description: "Namespace reserved for storage of root cell process manager data structures. Access this information only via ControllerActions and TransitionOperators.",

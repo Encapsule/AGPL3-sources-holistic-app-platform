@@ -565,6 +565,7 @@ const factoryResponse = arccore.filter.create({
                             evalFrame.summary.counts.errors++;
                             evalFrame.summary.reports.errors.push(ocdPathIRUT_);
                             result.summary.counts.errors++;
+                            break;
                         }
 
                     } // for enterActionIndex

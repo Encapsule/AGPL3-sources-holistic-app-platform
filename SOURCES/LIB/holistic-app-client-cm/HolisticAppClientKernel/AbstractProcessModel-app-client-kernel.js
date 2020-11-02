@@ -80,6 +80,7 @@ module.exports = {
             description: "Initializing the holistic app client kernel process...",
             actions: {
                 enter: [
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { command: "initialize" } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { hookDOMEvents: {} } } } } } },
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.domLocationProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } } } } } },
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.d2r2DisplayAdapter", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } } } } } },
