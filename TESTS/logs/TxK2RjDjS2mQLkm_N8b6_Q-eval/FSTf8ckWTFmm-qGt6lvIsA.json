@@ -124,9 +124,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                        "vdid": "szvlrMOA-ex3u3ciiO-91w",
-                        "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host.",
+                        "vdid": "q-b9Lqmc1NCCdf045q8kyA",
+                        "name": "CPM Shared Process Test #2 Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #2 Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -134,15 +134,15 @@
                               "type": "INDEX",
                               "kfWR9Xtwe3BNHk0eBSIFIg": {
                                 "id": "kfWR9Xtwe3BNHk0eBSIFIg",
-                                "vdid": "szvlrMOA-ex3u3ciiO-91w",
-                                "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host.",
+                                "vdid": "q-b9Lqmc1NCCdf045q8kyA",
+                                "name": "CPM Shared Process Test #2 Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #2 Service cell plane.",
                                 "type": "CM",
                                 "V9VX1T_mP-bDMsMyj6yPrA": {
                                   "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                                  "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                                  "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host.",
+                                  "vdid": "OGnnbnrNOP5_wziCb0ma8g",
+                                  "name": "CPM Shared Process Test #2 Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #2 Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -509,8 +509,8 @@
                       },
                       "opc": {
                         "id": "XzvKS1LCpT8FHUFumCqPrw",
-                        "name": "CPM Shared Process Test #2 Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Shared Process Test #2 Runtime Host' CellProcessor instance.",
+                        "name": "CPM Shared Process Test #2 Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Shared Process Test #2 Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -520,9 +520,9 @@
                         "apmMap": {
                           "V9VX1T_mP-bDMsMyj6yPrA": {
                             "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                            "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                            "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
+                            "vdid": "OGnnbnrNOP5_wziCb0ma8g",
+                            "name": "CPM Shared Process Test #2 Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #2 Service cell plane."
                           },
                           "XP3yGl1ciCtMsHnMdn5i3A": {
                             "id": "XP3yGl1ciCtMsHnMdn5i3A",
@@ -548,9 +548,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                              "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                              "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
+                              "vdid": "OGnnbnrNOP5_wziCb0ma8g",
+                              "name": "CPM Shared Process Test #2 Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #2 Service cell plane."
                             }
                           },
                           {
@@ -642,8 +642,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [XzvKS1LCpT8FHUFumCqPrw::CPM Shared Process Test #2 Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [XzvKS1LCpT8FHUFumCqPrw::CPM Shared Process Test #2 Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [XzvKS1LCpT8FHUFumCqPrw::CPM Shared Process Test #2 Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [XzvKS1LCpT8FHUFumCqPrw::CPM Shared Process Test #2 Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "XP3yGl1ciCtMsHnMdn5i3A_CellProcesses": {
@@ -708,11 +708,27 @@
                                   "__apmiStep": {
                                     "____accept": "jsString",
                                     "____defaultValue": "uninitialized"
+                                  },
+                                  "__apmiEvalError": {
+                                    "____label": "Abstract Process Model Evaluation Error",
+                                    "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                    "____accept": [
+                                      "jsUndefined",
+                                      "jsString"
+                                    ]
                                   }
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -746,6 +762,14 @@
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -805,6 +829,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -7483,7 +7515,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -7514,9 +7546,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                                        "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                                        "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
+                                        "vdid": "OGnnbnrNOP5_wziCb0ma8g",
+                                        "name": "CPM Shared Process Test #2 Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #2 Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7597,9 +7629,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                                        "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                                        "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
+                                        "vdid": "OGnnbnrNOP5_wziCb0ma8g",
+                                        "name": "CPM Shared Process Test #2 Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #2 Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7643,7 +7675,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7652,40 +7684,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                                        "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                                        "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }
@@ -7735,7 +7734,7 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 7,
+                                  "bindings": 1,
                                   "frames": 2,
                                   "errors": 0,
                                   "transitions": 1
@@ -7745,7 +7744,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7757,38 +7756,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                                          "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                                          "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "EGhowyUAMaSs-MprRxI_yA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -7880,45 +7847,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "Ljc7thmGyOh4ejg8hXNbdQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxyTest",
-                                          "specPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 4,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -7927,136 +7862,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                                          "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                                          "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "EGhowyUAMaSs-MprRxI_yA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
-                                          "specPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "finished",
-                                        "apmRef": {
-                                          "id": "XP3yGl1ciCtMsHnMdn5i3A",
-                                          "vdid": "CNBNl_1BmKkQkkTp10GbMA",
-                                          "name": "CPP Test Model 2",
-                                          "description": "A process that tests a cell's ability to use a cell proxy equivalent regardless of it itself is a helper cell (owned by a cell process). Or, a cell process (either owned or shared)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "finished",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "n6Jow1StMaRPdcprPTY_yA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
-                                          "specPath": "~.blVAl6l4wc87xvb0Bgdidg_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "blVAl6l4wc87xvb0Bgdidg",
-                                          "vdid": "78EAjGKYuTPqjJVE2zB4fQ",
-                                          "name": "Messenger Process",
-                                          "description": "A simple cell process declaration that models an untyped containter cell intended to be used for testing generic message passing protocols using the CPM as the means of delivery."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "Ljc7thmGyOh4ejg8hXNbdQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxyTest",
-                                          "specPath": "~.XP3yGl1ciCtMsHnMdn5i3A_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }
@@ -8234,7 +8040,7 @@
                               "evalNumber": 2,
                               "summary": {
                                 "counts": {
-                                  "bindings": 1,
+                                  "bindings": 0,
                                   "frames": 1,
                                   "errors": 0,
                                   "transitions": 0
@@ -8244,7 +8050,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 1,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -8253,40 +8059,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "V9VX1T_mP-bDMsMyj6yPrA",
-                                          "vdid": "fovyEvST8zPsS_qIfZdm2g",
-                                          "name": "CPM Shared Process Test #2 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #2 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }

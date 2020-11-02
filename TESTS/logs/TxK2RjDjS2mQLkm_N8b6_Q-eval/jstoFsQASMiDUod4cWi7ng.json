@@ -63,9 +63,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "7PXs9bNws3DAHsAeMyIzIg",
-                        "vdid": "E0nPHc1RQCVglbt9vy3ISg",
-                        "name": "Test Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor Test Runtime Host.",
+                        "vdid": "HSkDlDKTLOF_x9SY7PB_mw",
+                        "name": "Test Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Test Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -73,15 +73,15 @@
                               "type": "INDEX",
                               "7PXs9bNws3DAHsAeMyIzIg": {
                                 "id": "7PXs9bNws3DAHsAeMyIzIg",
-                                "vdid": "E0nPHc1RQCVglbt9vy3ISg",
-                                "name": "Test Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor Test Runtime Host.",
+                                "vdid": "HSkDlDKTLOF_x9SY7PB_mw",
+                                "name": "Test Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Test Service cell plane.",
                                 "type": "CM",
                                 "4tXi1d7m3uYMMgwyIKwgrA": {
                                   "id": "4tXi1d7m3uYMMgwyIKwgrA",
-                                  "vdid": "FVdTnTnKZ4ZzasxQMlurfA",
-                                  "name": "Test Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor Test Runtime Host.",
+                                  "vdid": "mS_yaccJ5bIZOAeSVqw_mA",
+                                  "name": "Test Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Test Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -427,8 +427,8 @@
                       },
                       "opc": {
                         "id": "N_XKS1_hpT-r0UFu5UCPrw",
-                        "name": "Test Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Test Runtime Host' CellProcessor instance.",
+                        "name": "Test Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Test Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -444,9 +444,9 @@
                           },
                           "4tXi1d7m3uYMMgwyIKwgrA": {
                             "id": "4tXi1d7m3uYMMgwyIKwgrA",
-                            "vdid": "FVdTnTnKZ4ZzasxQMlurfA",
-                            "name": "Test Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor Test Runtime Host."
+                            "vdid": "mS_yaccJ5bIZOAeSVqw_mA",
+                            "name": "Test Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Test Service cell plane."
                           }
                         },
                         "opmiSpecPaths": [
@@ -454,9 +454,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "4tXi1d7m3uYMMgwyIKwgrA",
-                              "vdid": "FVdTnTnKZ4ZzasxQMlurfA",
-                              "name": "Test Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor Test Runtime Host."
+                              "vdid": "mS_yaccJ5bIZOAeSVqw_mA",
+                              "name": "Test Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Test Service cell plane."
                             }
                           }
                         ],
@@ -471,8 +471,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [N_XKS1_hpT-r0UFu5UCPrw::Test Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [N_XKS1_hpT-r0UFu5UCPrw::Test Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [N_XKS1_hpT-r0UFu5UCPrw::Test Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [N_XKS1_hpT-r0UFu5UCPrw::Test Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
@@ -526,6 +526,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -7196,7 +7204,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -7227,9 +7235,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "4tXi1d7m3uYMMgwyIKwgrA",
-                                        "vdid": "FVdTnTnKZ4ZzasxQMlurfA",
-                                        "name": "Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Test Runtime Host."
+                                        "vdid": "mS_yaccJ5bIZOAeSVqw_mA",
+                                        "name": "Test Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Test Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7310,9 +7318,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "4tXi1d7m3uYMMgwyIKwgrA",
-                                        "vdid": "FVdTnTnKZ4ZzasxQMlurfA",
-                                        "name": "Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Test Runtime Host."
+                                        "vdid": "mS_yaccJ5bIZOAeSVqw_mA",
+                                        "name": "Test Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Test Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7356,7 +7364,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7365,40 +7373,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "4tXi1d7m3uYMMgwyIKwgrA",
-                                        "vdid": "FVdTnTnKZ4ZzasxQMlurfA",
-                                        "name": "Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Test Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }

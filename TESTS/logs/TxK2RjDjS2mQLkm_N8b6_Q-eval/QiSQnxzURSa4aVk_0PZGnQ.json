@@ -190,9 +190,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                        "vdid": "3UsvcL7TBUbzfwoZuPLXiQ",
-                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
+                        "vdid": "7U7nrVi2GhJVJcyjwhEB5w",
+                        "name": "CPM Shared Process Test #3 Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #3 Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -200,15 +200,15 @@
                               "type": "INDEX",
                               "FvUW9UtwS3DDHsMeWSJZIg": {
                                 "id": "FvUW9UtwS3DDHsMeWSJZIg",
-                                "vdid": "3UsvcL7TBUbzfwoZuPLXiQ",
-                                "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
+                                "vdid": "7U7nrVi2GhJVJcyjwhEB5w",
+                                "name": "CPM Shared Process Test #3 Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #3 Service cell plane.",
                                 "type": "CM",
                                 "ZtVm1b_mv-b3Mvcy7KzsrA": {
                                   "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                                  "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                                  "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host.",
+                                  "vdid": "imnnAwfNOLR6wzi2Okma9w",
+                                  "name": "CPM Shared Process Test #3 Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #3 Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -631,8 +631,8 @@
                       },
                       "opc": {
                         "id": "_8jKS8WQpT9llkFuHaKPrw",
-                        "name": "CPM Shared Process Test #3 Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Shared Process Test #3 Runtime Host' CellProcessor instance.",
+                        "name": "CPM Shared Process Test #3 Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Shared Process Test #3 Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -642,9 +642,9 @@
                         "apmMap": {
                           "ZtVm1b_mv-b3Mvcy7KzsrA": {
                             "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                            "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                            "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
+                            "vdid": "imnnAwfNOLR6wzi2Okma9w",
+                            "name": "CPM Shared Process Test #3 Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #3 Service cell plane."
                           },
                           "XP3y711ciGxMsHkhdn5i0w": {
                             "id": "XP3y711ciGxMsHkhdn5i0w",
@@ -694,9 +694,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                              "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                              "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
+                              "vdid": "imnnAwfNOLR6wzi2Okma9w",
+                              "name": "CPM Shared Process Test #3 Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #3 Service cell plane."
                             }
                           },
                           {
@@ -1005,8 +1005,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [_8jKS8WQpT9llkFuHaKPrw::CPM Shared Process Test #3 Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [_8jKS8WQpT9llkFuHaKPrw::CPM Shared Process Test #3 Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [_8jKS8WQpT9llkFuHaKPrw::CPM Shared Process Test #3 Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [_8jKS8WQpT9llkFuHaKPrw::CPM Shared Process Test #3 Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "XP3y711ciGxMsHkhdn5i0w_CellProcesses": {
@@ -1031,6 +1031,14 @@
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -1101,11 +1109,27 @@
                                   "__apmiStep": {
                                     "____accept": "jsString",
                                     "____defaultValue": "uninitialized"
+                                  },
+                                  "__apmiEvalError": {
+                                    "____label": "Abstract Process Model Evaluation Error",
+                                    "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                    "____accept": [
+                                      "jsUndefined",
+                                      "jsString"
+                                    ]
                                   }
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -1196,17 +1220,41 @@
                                       "__apmiStep": {
                                         "____accept": "jsString",
                                         "____defaultValue": "uninitialized"
+                                      },
+                                      "__apmiEvalError": {
+                                        "____label": "Abstract Process Model Evaluation Error",
+                                        "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                        "____accept": [
+                                          "jsUndefined",
+                                          "jsString"
+                                        ]
                                       }
                                     },
                                     "__apmiStep": {
                                       "____accept": "jsString",
                                       "____defaultValue": "uninitialized"
+                                    },
+                                    "__apmiEvalError": {
+                                      "____label": "Abstract Process Model Evaluation Error",
+                                      "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                      "____accept": [
+                                        "jsUndefined",
+                                        "jsString"
+                                      ]
                                     }
                                   }
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -1303,22 +1351,54 @@
                                         "__apmiStep": {
                                           "____accept": "jsString",
                                           "____defaultValue": "uninitialized"
+                                        },
+                                        "__apmiEvalError": {
+                                          "____label": "Abstract Process Model Evaluation Error",
+                                          "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                          "____accept": [
+                                            "jsUndefined",
+                                            "jsString"
+                                          ]
                                         }
                                       },
                                       "__apmiStep": {
                                         "____accept": "jsString",
                                         "____defaultValue": "uninitialized"
+                                      },
+                                      "__apmiEvalError": {
+                                        "____label": "Abstract Process Model Evaluation Error",
+                                        "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                        "____accept": [
+                                          "jsUndefined",
+                                          "jsString"
+                                        ]
                                       }
                                     }
                                   },
                                   "__apmiStep": {
                                     "____accept": "jsString",
                                     "____defaultValue": "uninitialized"
+                                  },
+                                  "__apmiEvalError": {
+                                    "____label": "Abstract Process Model Evaluation Error",
+                                    "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                    "____accept": [
+                                      "jsUndefined",
+                                      "jsString"
+                                    ]
                                   }
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -1421,27 +1501,67 @@
                                           "__apmiStep": {
                                             "____accept": "jsString",
                                             "____defaultValue": "uninitialized"
+                                          },
+                                          "__apmiEvalError": {
+                                            "____label": "Abstract Process Model Evaluation Error",
+                                            "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                            "____accept": [
+                                              "jsUndefined",
+                                              "jsString"
+                                            ]
                                           }
                                         },
                                         "__apmiStep": {
                                           "____accept": "jsString",
                                           "____defaultValue": "uninitialized"
+                                        },
+                                        "__apmiEvalError": {
+                                          "____label": "Abstract Process Model Evaluation Error",
+                                          "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                          "____accept": [
+                                            "jsUndefined",
+                                            "jsString"
+                                          ]
                                         }
                                       }
                                     },
                                     "__apmiStep": {
                                       "____accept": "jsString",
                                       "____defaultValue": "uninitialized"
+                                    },
+                                    "__apmiEvalError": {
+                                      "____label": "Abstract Process Model Evaluation Error",
+                                      "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                      "____accept": [
+                                        "jsUndefined",
+                                        "jsString"
+                                      ]
                                     }
                                   },
                                   "__apmiStep": {
                                     "____accept": "jsString",
                                     "____defaultValue": "uninitialized"
+                                  },
+                                  "__apmiEvalError": {
+                                    "____label": "Abstract Process Model Evaluation Error",
+                                    "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                    "____accept": [
+                                      "jsUndefined",
+                                      "jsString"
+                                    ]
                                   }
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -1475,6 +1595,14 @@
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -1534,6 +1662,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -8228,7 +8364,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -8259,9 +8395,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                                        "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
+                                        "vdid": "imnnAwfNOLR6wzi2Okma9w",
+                                        "name": "CPM Shared Process Test #3 Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #3 Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -8342,9 +8478,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                                        "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
+                                        "vdid": "imnnAwfNOLR6wzi2Okma9w",
+                                        "name": "CPM Shared Process Test #3 Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Shared Process Test #3 Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -8388,7 +8524,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -8397,40 +8533,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                                        "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                                        "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }
@@ -8480,7 +8583,7 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 6,
+                                  "bindings": 1,
                                   "frames": 1,
                                   "errors": 1,
                                   "transitions": 0
@@ -8490,7 +8593,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 6,
+                                      "bindings": 1,
                                       "transitions": 0,
                                       "errors": 1
                                     },
@@ -8502,134 +8605,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                                          "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                                          "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "p-9ow7wWMaS8bMpr6Xg_yA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
-                                          "specPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "XP3yxl1ciE5MsHkhdn5iQQ",
-                                          "vdid": "dQG1GRPlcu1mboVdp1YWYQ",
-                                          "name": "CPP Test Process 3",
-                                          "description": "Declares that this cell uses and owns a copy of CPP Test Model 2 whose lifespan is tied to this cell's lifespan (whatever role it's functioning in)."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "4us73Sx1yFEqCDhkj6Nbng": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E",
-                                          "specPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.cellProcessID.helper1E"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "XP3ymV1ciAdMsHnBdn5ilw",
-                                          "vdid": "dKHKebLzSnid_vj-vOouig",
-                                          "name": "CPP Test Process 2C",
-                                          "description": "A process that embeds our other experiments to test yet more combinations of various cell and helper cell interconnect topologies."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "XmrK-dBuNYdPFj8CdBmWPA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B",
-                                          "specPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "XP3y-l1ciDBMsHnzdn5iWg",
-                                          "vdid": "m2dkwYeGbVpWJlbP8WEObw",
-                                          "name": "CPP Test Process 2B",
-                                          "description": "A process that embeds owned helper processes at various depths of its process memory space to test CPM's ability to track cell ownership correctly."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "f6twhe_Rw0JINaXi5wLAfQ": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8702,38 +8677,6 @@
                                           "total": 1
                                         }
                                       }
-                                    },
-                                    "TpErdmXNJukqnuYUZ2RYwQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest",
-                                          "specPath": "~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.cellProcessID.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 }
@@ -8776,7 +8719,8 @@
                                         "CPPU-UPgS8eWiMap3Ixovg_private": {},
                                         "__apmiStep": "uninitialized"
                                       },
-                                      "__apmiStep": "uninitialized"
+                                      "__apmiStep": "uninitialized",
+                                      "__apmiEvalError": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Invalid action request rejected by selected ControllerAction plug-in with error: Filter [wB5QKMYtS7yY2-v7Y3tGWA::Cell Process Manager: ControllerAction Request On Cell (actOn)] failed while performing main operation. Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Invalid action request rejected by selected ControllerAction plug-in with error: Filter [X6ck_Bo4RmWTVHl-vk-urw::Cell Process Proxy: Connect Proxy] failed while performing main operation. Unsupported connection request on CellProcessProxy helper cell at path '~.XP3yxl1ciE5MsHkhdn5iQQ_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.helper1E.testProcess2B.justADataObjectNamespace.helperCellThatCallsProcessCreate.proxyTest' that is declared at namespace height 5 > 2 relative to its owning cell process. NOTE: I am working to remove this restriction now..."
                                     }
                                   },
                                   "__apmiStep": "uninitialized"
@@ -8878,7 +8822,7 @@
                               "evalNumber": 2,
                               "summary": {
                                 "counts": {
-                                  "bindings": 1,
+                                  "bindings": 0,
                                   "frames": 1,
                                   "errors": 0,
                                   "transitions": 0
@@ -8888,7 +8832,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 1,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -8897,40 +8841,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "ZtVm1b_mv-b3Mvcy7KzsrA",
-                                          "vdid": "RYvyhBmT86PuS_p1Mpdm7A",
-                                          "name": "CPM Shared Process Test #3 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Shared Process Test #3 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }

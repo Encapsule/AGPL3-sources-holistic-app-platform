@@ -146,9 +146,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                        "vdid": "9P3SjK60M3t9TviK4Ghttg",
-                        "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host.",
+                        "vdid": "tZRt78slCcnwsD8wymhcwg",
+                        "name": "CPM Cell Process Proxy Test #1 Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Cell Process Proxy Test #1 Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -156,15 +156,15 @@
                               "type": "INDEX",
                               "TPVM9ZxwnHBvHm8e1yLXIg": {
                                 "id": "TPVM9ZxwnHBvHm8e1yLXIg",
-                                "vdid": "9P3SjK60M3t9TviK4Ghttg",
-                                "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host.",
+                                "vdid": "tZRt78slCcnwsD8wymhcwg",
+                                "name": "CPM Cell Process Proxy Test #1 Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Cell Process Proxy Test #1 Service cell plane.",
                                 "type": "CM",
                                 "LtUu1cLmwuYPMg8yaqxqrA": {
                                   "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                  "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                  "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host.",
+                                  "vdid": "PL4L6udN_EDHwyHUmLdvag",
+                                  "name": "CPM Cell Process Proxy Test #1 Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Cell Process Proxy Test #1 Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -524,8 +524,8 @@
                       },
                       "opc": {
                         "id": "FdDKS3sYpT-gYUFuPaCPrw",
-                        "name": "CPM Cell Process Proxy Test #1 Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Cell Process Proxy Test #1 Runtime Host' CellProcessor instance.",
+                        "name": "CPM Cell Process Proxy Test #1 Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Cell Process Proxy Test #1 Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -535,9 +535,9 @@
                         "apmMap": {
                           "LtUu1cLmwuYPMg8yaqxqrA": {
                             "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                            "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                            "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
+                            "vdid": "PL4L6udN_EDHwyHUmLdvag",
+                            "name": "CPM Cell Process Proxy Test #1 Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Cell Process Proxy Test #1 Service cell plane."
                           },
                           "XP3yJV1ciLVMsHktdn5i9w": {
                             "id": "XP3yJV1ciLVMsHktdn5i9w",
@@ -557,9 +557,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                              "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                              "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
+                              "vdid": "PL4L6udN_EDHwyHUmLdvag",
+                              "name": "CPM Cell Process Proxy Test #1 Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Cell Process Proxy Test #1 Service cell plane."
                             }
                           },
                           {
@@ -617,8 +617,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [FdDKS3sYpT-gYUFuPaCPrw::CPM Cell Process Proxy Test #1 Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [FdDKS3sYpT-gYUFuPaCPrw::CPM Cell Process Proxy Test #1 Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [FdDKS3sYpT-gYUFuPaCPrw::CPM Cell Process Proxy Test #1 Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [FdDKS3sYpT-gYUFuPaCPrw::CPM Cell Process Proxy Test #1 Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "XP3yJV1ciLVMsHktdn5i9w_CellProcesses": {
@@ -682,11 +682,27 @@
                                   "__apmiStep": {
                                     "____accept": "jsString",
                                     "____defaultValue": "uninitialized"
+                                  },
+                                  "__apmiEvalError": {
+                                    "____label": "Abstract Process Model Evaluation Error",
+                                    "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                    "____accept": [
+                                      "jsUndefined",
+                                      "jsString"
+                                    ]
                                   }
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -746,6 +762,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -7519,7 +7543,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -7550,9 +7574,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                        "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                        "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
+                                        "vdid": "PL4L6udN_EDHwyHUmLdvag",
+                                        "name": "CPM Cell Process Proxy Test #1 Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Cell Process Proxy Test #1 Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7633,9 +7657,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                        "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                        "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
+                                        "vdid": "PL4L6udN_EDHwyHUmLdvag",
+                                        "name": "CPM Cell Process Proxy Test #1 Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Cell Process Proxy Test #1 Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7679,7 +7703,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7688,40 +7712,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                        "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                        "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }
@@ -7772,7 +7763,7 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 72,
+                                  "bindings": 28,
                                   "frames": 16,
                                   "errors": 0,
                                   "transitions": 18
@@ -7782,7 +7773,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7794,38 +7785,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -7875,45 +7834,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7925,38 +7852,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8106,45 +8001,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 2,
                                       "errors": 0
                                     },
@@ -8157,38 +8020,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8337,77 +8168,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 2,
                                       "errors": 0
                                     },
@@ -8420,38 +8187,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8651,77 +8386,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -8733,38 +8404,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8901,77 +8540,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "cell-deleted",
-                                        "finishStep": "death",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -8983,38 +8558,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -9113,45 +8656,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -9163,38 +8674,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -9279,45 +8758,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 2,
                                       "errors": 0
                                     },
@@ -9330,38 +8777,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -9461,77 +8876,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -9543,38 +8894,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -9797,77 +9116,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -9879,38 +9134,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -10082,77 +9305,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -10164,38 +9323,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -10318,77 +9445,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -10400,38 +9463,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -10609,77 +9640,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -10691,38 +9658,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -10894,77 +9829,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -10976,38 +9847,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -11165,77 +10004,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -11247,38 +10022,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -11401,77 +10144,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 5,
+                                      "bindings": 2,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -11481,38 +10160,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Xlbs_1KUdNOQNHJOFYaIBA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -11646,70 +10293,6 @@
                                               }
                                             }
                                           ],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwbEkzb1mhM5xM86bHwgXQ": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.f1CSvqlIFdfDuyOaCvdx7w.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "zwYR7Tb1PLM5xBhFbHzo0A": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.55pdpYyb8iKw52bqWuYytg.proxyTest",
-                                          "specPath": "~.XP3yJV1ciLVMsHktdn5i9w_CellProcesses.cellProcessMap.cellProcessID.proxyTest"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
                                           "p2_exit": [],
                                           "p3_enter": [],
                                           "p4_finalize": null
@@ -12129,7 +10712,7 @@
                               "evalNumber": 2,
                               "summary": {
                                 "counts": {
-                                  "bindings": 1,
+                                  "bindings": 0,
                                   "frames": 1,
                                   "errors": 0,
                                   "transitions": 0
@@ -12139,7 +10722,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 1,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -12148,40 +10731,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "LtUu1cLmwuYPMg8yaqxqrA",
-                                          "vdid": "3myJ41Dxo4ALek5TvGF7pg",
-                                          "name": "CPM Cell Process Proxy Test #1 Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Cell Process Proxy Test #1 Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }

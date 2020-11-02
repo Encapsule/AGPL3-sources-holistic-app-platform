@@ -206,9 +206,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                        "vdid": "nAxeY6o9yw71fpOVfZ7PXA",
-                        "name": "Proxy Test A Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host.",
+                        "vdid": "-SHgTT925mXs4oFVUMV4jg",
+                        "name": "Proxy Test A Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -216,15 +216,15 @@
                               "type": "INDEX",
                               "hvWG9VRwVHCkHqQediJ2Ig": {
                                 "id": "hvWG9VRwVHCkHqQediJ2Ig",
-                                "vdid": "nAxeY6o9yw71fpOVfZ7PXA",
-                                "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host.",
+                                "vdid": "-SHgTT925mXs4oFVUMV4jg",
+                                "name": "Proxy Test A Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane.",
                                 "type": "CM",
                                 "jtWO1eLm4ubqMuoyLawtrA": {
                                   "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                  "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                  "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host.",
+                                  "vdid": "G3_kcwraq5iw3cKpKHN1pQ",
+                                  "name": "Proxy Test A Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -577,8 +577,8 @@
                       },
                       "opc": {
                         "id": "-JrKSzu4pT95q0Fu4wWPrw",
-                        "name": "Proxy Test A Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Proxy Test A Runtime Host' CellProcessor instance.",
+                        "name": "Proxy Test A Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Proxy Test A Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -600,9 +600,9 @@
                           },
                           "jtWO1eLm4ubqMuoyLawtrA": {
                             "id": "jtWO1eLm4ubqMuoyLawtrA",
-                            "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                            "name": "Proxy Test A Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
+                            "vdid": "G3_kcwraq5iw3cKpKHN1pQ",
+                            "name": "Proxy Test A Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane."
                           }
                         },
                         "opmiSpecPaths": [
@@ -610,9 +610,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "jtWO1eLm4ubqMuoyLawtrA",
-                              "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                              "name": "Proxy Test A Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
+                              "vdid": "G3_kcwraq5iw3cKpKHN1pQ",
+                              "name": "Proxy Test A Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane."
                             }
                           },
                           {
@@ -670,8 +670,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [-JrKSzu4pT95q0Fu4wWPrw::Proxy Test A Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [-JrKSzu4pT95q0Fu4wWPrw::Proxy Test A Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [-JrKSzu4pT95q0Fu4wWPrw::Proxy Test A Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [-JrKSzu4pT95q0Fu4wWPrw::Proxy Test A Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "mctGtkfiQmeO93Va6WkGZw_CellProcesses": {
@@ -733,11 +733,27 @@
                                   "__apmiStep": {
                                     "____accept": "jsString",
                                     "____defaultValue": "uninitialized"
+                                  },
+                                  "__apmiEvalError": {
+                                    "____label": "Abstract Process Model Evaluation Error",
+                                    "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                    "____accept": [
+                                      "jsUndefined",
+                                      "jsString"
+                                    ]
                                   }
                                 },
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -797,6 +813,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -7471,7 +7495,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -7502,9 +7526,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                        "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                        "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
+                                        "vdid": "G3_kcwraq5iw3cKpKHN1pQ",
+                                        "name": "Proxy Test A Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7585,9 +7609,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                        "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                        "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
+                                        "vdid": "G3_kcwraq5iw3cKpKHN1pQ",
+                                        "name": "Proxy Test A Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Proxy Test A Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7631,7 +7655,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7640,40 +7664,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                        "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                        "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }
@@ -7723,7 +7714,7 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 9,
+                                  "bindings": 2,
                                   "frames": 3,
                                   "errors": 0,
                                   "transitions": 2
@@ -7733,7 +7724,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7745,38 +7736,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                          "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "8cFow8-OMaRc6MprCps_yA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -7868,45 +7827,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "0HbVqoxgvl71Vi4Tx7w8Zg": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy",
-                                          "specPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.cellProcessID.proxy"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7918,38 +7845,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                          "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "8cFow8-OMaRc6MprCps_yA": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8048,45 +7943,13 @@
                                           "total": 0
                                         }
                                       }
-                                    },
-                                    "0HbVqoxgvl71Vi4Tx7w8Zg": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy",
-                                          "specPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.cellProcessID.proxy"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
                                     }
                                   }
                                 },
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -8095,104 +7958,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                          "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "8cFow8-OMaRc6MprCps_yA": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw",
-                                          "specPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "proxy_connected",
-                                        "apmRef": {
-                                          "id": "mctGtkfiQmeO93Va6WkGZw",
-                                          "vdid": "Mv4Ta2Y0mLJLkuVM4ua5kg",
-                                          "name": "Proxy Test A Process",
-                                          "description": "A test process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "proxy_connected",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "0HbVqoxgvl71Vi4Tx7w8Zg": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.4ODg4BoaGhqkpKSkX19fXw.proxy",
-                                          "specPath": "~.mctGtkfiQmeO93Va6WkGZw_CellProcesses.cellProcessMap.cellProcessID.proxy"
-                                        },
-                                        "initialStep": "uninitialized",
-                                        "apmRef": {
-                                          "id": "CPPU-UPgS8eWiMap3Ixovg",
-                                          "vdid": "t1ic1gI5tpJcj5Oc8OQheg",
-                                          "name": "Holarchy Cell Process Proxy Helper Process",
-                                          "description": "Defines a helper process that functions as a proxy for action and operator calls to some (any) shared cell process."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "uninitialized",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }
@@ -8340,7 +8106,7 @@
                               "evalNumber": 2,
                               "summary": {
                                 "counts": {
-                                  "bindings": 1,
+                                  "bindings": 0,
                                   "frames": 1,
                                   "errors": 0,
                                   "transitions": 0
@@ -8350,7 +8116,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 1,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -8359,40 +8125,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "jtWO1eLm4ubqMuoyLawtrA",
-                                          "vdid": "fxUF1uvjuz2JljCyclYoEg",
-                                          "name": "Proxy Test A Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor Proxy Test A Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }

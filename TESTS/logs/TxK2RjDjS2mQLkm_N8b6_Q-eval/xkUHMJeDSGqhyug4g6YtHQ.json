@@ -21225,6 +21225,14 @@
                         "__apmiStep": {
                           "____accept": "jsString",
                           "____defaultValue": "uninitialized"
+                        },
+                        "__apmiEvalError": {
+                          "____label": "Abstract Process Model Evaluation Error",
+                          "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                          "____accept": [
+                            "jsUndefined",
+                            "jsString"
+                          ]
                         }
                       }
                     },
@@ -43713,7 +43721,7 @@
                         "evalNumber": 0,
                         "summary": {
                           "counts": {
-                            "bindings": 1,
+                            "bindings": 0,
                             "frames": 1,
                             "errors": 0,
                             "transitions": 0
@@ -43723,7 +43731,7 @@
                           {
                             "summary": {
                               "counts": {
-                                "bindings": 1,
+                                "bindings": 0,
                                 "transitions": 0,
                                 "errors": 0
                               },
@@ -43732,40 +43740,7 @@
                                 "errors": []
                               }
                             },
-                            "bindings": {
-                              "5ubm5kVFRUUzMzMzIiIiIg": {
-                                "evalRequest": {
-                                  "dataBinding": {
-                                    "dataPath": "~.themeProcessor",
-                                    "specPath": "~.themeProcessor"
-                                  },
-                                  "initialStep": "uninitialized",
-                                  "apmRef": {
-                                    "id": "zzvzLbm2RTyQN1lWFcjpVA",
-                                    "vdid": "DxngxWcSscYXnIUgZbZb7g",
-                                    "name": "Theme Processor Model",
-                                    "description": "Encapsulates the details of generating and updating current programmatic style settings consumed by client application view and display processes."
-                                  }
-                                },
-                                "evalResponse": {
-                                  "status": "noop",
-                                  "finishStep": "uninitialized",
-                                  "phases": {
-                                    "p1_toperator": [],
-                                    "p2_exit": [],
-                                    "p3_enter": [],
-                                    "p4_finalize": null
-                                  },
-                                  "errors": {
-                                    "p1_toperator": 0,
-                                    "p2_exit": 0,
-                                    "p3_enter": 0,
-                                    "p4_finalize": 0,
-                                    "total": 0
-                                  }
-                                }
-                              }
-                            }
+                            "bindings": {}
                           }
                         ]
                       }

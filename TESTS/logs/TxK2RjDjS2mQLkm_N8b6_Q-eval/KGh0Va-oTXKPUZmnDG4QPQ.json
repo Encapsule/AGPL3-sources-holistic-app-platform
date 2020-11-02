@@ -235,12 +235,21 @@
                         "__apmiStep": {
                           "____accept": "jsString",
                           "____defaultValue": "uninitialized"
+                        },
+                        "__apmiEvalError": {
+                          "____label": "Abstract Process Model Evaluation Error",
+                          "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                          "____accept": [
+                            "jsUndefined",
+                            "jsString"
+                          ]
                         }
                       }
                     },
                     "ocdi": {
                       "test": {
-                        "__apmiStep": "uninitialized"
+                        "__apmiStep": "uninitialized",
+                        "__apmiEvalError": "TransitionOperator request was successfully parsed and routed to plug-in filter delegate [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1]. But, the plug-in rejected the request with error: Filter [AODn0L3GQLK_21Msl1W8-g::Bad Transition Operator #1] failed while performing main operation. This transition operator is hardwired to return an error."
                       }
                     },
                     "transitionDispatcher": {

@@ -105,9 +105,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "gPWA9W1wbXBwHnAeYyJjIg",
-                        "vdid": "P6-TiytxQA4bnKueQDp45A",
-                        "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host.",
+                        "vdid": "J-vK0wFGxlVbPcpfiZ1DGg",
+                        "name": "CPM Ancestor Processes Active Test Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Active Test Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -115,15 +115,15 @@
                               "type": "INDEX",
                               "gPWA9W1wbXBwHnAeYyJjIg": {
                                 "id": "gPWA9W1wbXBwHnAeYyJjIg",
-                                "vdid": "P6-TiytxQA4bnKueQDp45A",
-                                "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host.",
+                                "vdid": "J-vK0wFGxlVbPcpfiZ1DGg",
+                                "name": "CPM Ancestor Processes Active Test Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Active Test Service cell plane.",
                                 "type": "CM",
                                 "r9Wv1QLmAub2MvYyx6zHrA": {
                                   "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                                  "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                                  "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host.",
+                                  "vdid": "CYFNznZS74h5GoKQGwSwag",
+                                  "name": "CPM Ancestor Processes Active Test Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Active Test Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -476,8 +476,8 @@
                       },
                       "opc": {
                         "id": "wb3KS51rpT_UGkFuHvePrw",
-                        "name": "CPM Ancestor Processes Active Test Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Ancestor Processes Active Test Runtime Host' CellProcessor instance.",
+                        "name": "CPM Ancestor Processes Active Test Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Ancestor Processes Active Test Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -493,9 +493,9 @@
                           },
                           "r9Wv1QLmAub2MvYyx6zHrA": {
                             "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                            "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                            "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
+                            "vdid": "CYFNznZS74h5GoKQGwSwag",
+                            "name": "CPM Ancestor Processes Active Test Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Active Test Service cell plane."
                           },
                           "CPPU-UPgS8eWiMap3Ixovg": {
                             "id": "CPPU-UPgS8eWiMap3Ixovg",
@@ -509,9 +509,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                              "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                              "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
+                              "vdid": "CYFNznZS74h5GoKQGwSwag",
+                              "name": "CPM Ancestor Processes Active Test Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Active Test Service cell plane."
                             }
                           },
                           {
@@ -560,8 +560,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [wb3KS51rpT_UGkFuHvePrw::CPM Ancestor Processes Active Test Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [wb3KS51rpT_UGkFuHvePrw::CPM Ancestor Processes Active Test Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [wb3KS51rpT_UGkFuHvePrw::CPM Ancestor Processes Active Test Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [wb3KS51rpT_UGkFuHvePrw::CPM Ancestor Processes Active Test Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "hybdu0VoQjWnOFs5vC3Tzw_CellProcesses": {
@@ -586,6 +586,14 @@
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -645,6 +653,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -7319,7 +7335,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -7350,9 +7366,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                                        "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                                        "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
+                                        "vdid": "CYFNznZS74h5GoKQGwSwag",
+                                        "name": "CPM Ancestor Processes Active Test Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Active Test Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7433,9 +7449,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                                        "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                                        "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
+                                        "vdid": "CYFNznZS74h5GoKQGwSwag",
+                                        "name": "CPM Ancestor Processes Active Test Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Ancestor Processes Active Test Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7479,7 +7495,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7488,40 +7504,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                                        "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                                        "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }
@@ -7572,7 +7555,7 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 6,
+                                  "bindings": 2,
                                   "frames": 3,
                                   "errors": 0,
                                   "transitions": 2
@@ -7582,7 +7565,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 2,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7594,38 +7577,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                                          "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                                          "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Kx6uOGbe0hKwSR8qfdHJ_Q": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -7681,7 +7632,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 2,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7693,38 +7644,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                                          "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                                          "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "Kx6uOGbe0hKwSR8qfdHJ_Q": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -7786,7 +7705,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 2,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -7795,72 +7714,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "r9Wv1QLmAub2MvYyx6zHrA",
-                                          "vdid": "b-1wKGnLQZWv3AbyuQcJSA",
-                                          "name": "CPM Ancestor Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Ancestor Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "Kx6uOGbe0hKwSR8qfdHJ_Q": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.hybdu0VoQjWnOFs5vC3Tzw_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                          "specPath": "~.hybdu0VoQjWnOFs5vC3Tzw_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "test_pass_1",
-                                        "apmRef": {
-                                          "id": "hybdu0VoQjWnOFs5vC3Tzw",
-                                          "vdid": "EMIm11lB506IRyzzAuOwRg",
-                                          "name": "CPM Ancestor Processes Active Operator Test Process",
-                                          "description": "A process to test CPM ancestor active operator."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "test_pass_1",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }

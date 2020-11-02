@@ -235,12 +235,21 @@
                         "__apmiStep": {
                           "____accept": "jsString",
                           "____defaultValue": "uninitialized"
+                        },
+                        "__apmiEvalError": {
+                          "____label": "Abstract Process Model Evaluation Error",
+                          "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                          "____accept": [
+                            "jsUndefined",
+                            "jsString"
+                          ]
                         }
                       }
                     },
                     "ocdi": {
                       "test": {
-                        "__apmiStep": "uninitialized"
+                        "__apmiStep": "uninitialized",
+                        "__apmiEvalError": "TransitionOperator threw an illegal exception that was handled by OPC: This is a forced exception thrown from a transition operator's body function."
                       }
                     },
                     "transitionDispatcher": {

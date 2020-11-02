@@ -225,12 +225,21 @@
                         "__apmiStep": {
                           "____accept": "jsString",
                           "____defaultValue": "uninitialized"
+                        },
+                        "__apmiEvalError": {
+                          "____label": "Abstract Process Model Evaluation Error",
+                          "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                          "____accept": [
+                            "jsUndefined",
+                            "jsString"
+                          ]
                         }
                       }
                     },
                     "ocdi": {
                       "test": {
-                        "__apmiStep": "uninitialized"
+                        "__apmiStep": "uninitialized",
+                        "__apmiEvalError": "Filter [PgH0_QIhSs2c6nsw53uCjQ::OPC Act Filter] failed while performing main operation. Handled exception during controller action dispatch: This is a forced exception thrown from a controller action body function."
                       }
                     },
                     "transitionDispatcher": {

@@ -146,9 +146,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "s_Wz9RVwFXATHhMeiiKKIg",
-                        "vdid": "v2lRN8Sn6M01Jtp8Ycqr0w",
-                        "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host.",
+                        "vdid": "ATooAWvOuFgGiHi1J8lCOQ",
+                        "name": "CPM Child Processes Active Test Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Child Processes Active Test Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -156,15 +156,15 @@
                               "type": "INDEX",
                               "s_Wz9RVwFXATHhMeiiKKIg": {
                                 "id": "s_Wz9RVwFXATHhMeiiKKIg",
-                                "vdid": "v2lRN8Sn6M01Jtp8Ycqr0w",
-                                "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host.",
+                                "vdid": "ATooAWvOuFgGiHi1J8lCOQ",
+                                "name": "CPM Child Processes Active Test Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Child Processes Active Test Service cell plane.",
                                 "type": "CM",
                                 "KNUo1SXmJeYpMikyrqyurA": {
                                   "id": "KNUo1SXmJeYpMikyrqyurA",
-                                  "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                  "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host.",
+                                  "vdid": "JmbrM0Jz1hvcwBccy-nUDA",
+                                  "name": "CPM Child Processes Active Test Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Child Processes Active Test Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -531,8 +531,8 @@
                       },
                       "opc": {
                         "id": "MX3KS27spT8iukFuH0yPrw",
-                        "name": "CPM Child Processes Active Test Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Child Processes Active Test Runtime Host' CellProcessor instance.",
+                        "name": "CPM Child Processes Active Test Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'CPM Child Processes Active Test Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -548,9 +548,9 @@
                           },
                           "KNUo1SXmJeYpMikyrqyurA": {
                             "id": "KNUo1SXmJeYpMikyrqyurA",
-                            "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                            "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
+                            "vdid": "JmbrM0Jz1hvcwBccy-nUDA",
+                            "name": "CPM Child Processes Active Test Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Child Processes Active Test Service cell plane."
                           },
                           "3E27IH_CQeqBUFsGm4tIIA": {
                             "id": "3E27IH_CQeqBUFsGm4tIIA",
@@ -570,9 +570,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "KNUo1SXmJeYpMikyrqyurA",
-                              "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                              "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
+                              "vdid": "JmbrM0Jz1hvcwBccy-nUDA",
+                              "name": "CPM Child Processes Active Test Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Child Processes Active Test Service cell plane."
                             }
                           },
                           {
@@ -655,8 +655,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [MX3KS27spT8iukFuH0yPrw::CPM Child Processes Active Test Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [MX3KS27spT8iukFuH0yPrw::CPM Child Processes Active Test Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [MX3KS27spT8iukFuH0yPrw::CPM Child Processes Active Test Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [MX3KS27spT8iukFuH0yPrw::CPM Child Processes Active Test Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "LVjhjYUcQXOYcbI_xbepJQ_CellProcesses": {
@@ -681,6 +681,14 @@
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -711,6 +719,14 @@
                                 "__apmiStep": {
                                   "____accept": "jsString",
                                   "____defaultValue": "uninitialized"
+                                },
+                                "__apmiEvalError": {
+                                  "____label": "Abstract Process Model Evaluation Error",
+                                  "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                                  "____accept": [
+                                    "jsUndefined",
+                                    "jsString"
+                                  ]
                                 }
                               }
                             },
@@ -770,6 +786,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -7448,7 +7472,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -7479,9 +7503,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "KNUo1SXmJeYpMikyrqyurA",
-                                        "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                        "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
+                                        "vdid": "JmbrM0Jz1hvcwBccy-nUDA",
+                                        "name": "CPM Child Processes Active Test Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Child Processes Active Test Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7562,9 +7586,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "KNUo1SXmJeYpMikyrqyurA",
-                                        "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                        "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
+                                        "vdid": "JmbrM0Jz1hvcwBccy-nUDA",
+                                        "name": "CPM Child Processes Active Test Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the CPM Child Processes Active Test Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7608,7 +7632,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7617,40 +7641,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "KNUo1SXmJeYpMikyrqyurA",
-                                        "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                        "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }
@@ -7701,7 +7692,7 @@
                               "evalNumber": 1,
                               "summary": {
                                 "counts": {
-                                  "bindings": 4,
+                                  "bindings": 2,
                                   "frames": 2,
                                   "errors": 0,
                                   "transitions": 1
@@ -7711,7 +7702,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 2,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -7723,38 +7714,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "KNUo1SXmJeYpMikyrqyurA",
-                                          "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "gnGuOOKI0hLTDh8qSKfJ_Q": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -7810,7 +7769,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 2,
+                                      "bindings": 1,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -7820,38 +7779,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "KNUo1SXmJeYpMikyrqyurA",
-                                          "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "gnGuOOKI0hLTDh8qSKfJ_Q": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8024,7 +7951,7 @@
                               "evalNumber": 2,
                               "summary": {
                                 "counts": {
-                                  "bindings": 9,
+                                  "bindings": 3,
                                   "frames": 3,
                                   "errors": 0,
                                   "transitions": 3
@@ -8034,7 +7961,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 2,
                                       "transitions": 2,
                                       "errors": 0
                                     },
@@ -8047,38 +7974,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "KNUo1SXmJeYpMikyrqyurA",
-                                          "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "gnGuOOKI0hLTDh8qSKfJ_Q": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8190,7 +8085,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 1,
                                       "transitions": 1,
                                       "errors": 0
                                     },
@@ -8202,70 +8097,6 @@
                                     }
                                   },
                                   "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "KNUo1SXmJeYpMikyrqyurA",
-                                          "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "gnGuOOKI0hLTDh8qSKfJ_Q": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.LVjhjYUcQXOYcbI_xbepJQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                          "specPath": "~.LVjhjYUcQXOYcbI_xbepJQ_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "test_pass_1",
-                                        "apmRef": {
-                                          "id": "LVjhjYUcQXOYcbI_xbepJQ",
-                                          "vdid": "d2t5rYYM3UpcIT_IF1XEQQ",
-                                          "name": "CPM Child Processes Active Operator Test Process",
-                                          "description": "Test process"
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "test_pass_1",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
                                     "viZxXd_JP4ujghfxAcO5yw": {
                                       "evalRequest": {
                                         "dataBinding": {
@@ -8321,7 +8152,7 @@
                                 {
                                   "summary": {
                                     "counts": {
-                                      "bindings": 3,
+                                      "bindings": 0,
                                       "transitions": 0,
                                       "errors": 0
                                     },
@@ -8330,104 +8161,7 @@
                                       "errors": []
                                     }
                                   },
-                                  "bindings": {
-                                    "YI9gj9oX2hdfEV8RmbuZuw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                          "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "KNUo1SXmJeYpMikyrqyurA",
-                                          "vdid": "b-MFBcdT6hCKCHgISRtIUw",
-                                          "name": "CPM Child Processes Active Test Runtime Host Cell Process Manager",
-                                          "description": "Cell process manager root process for CellProcessor CPM Child Processes Active Test Runtime Host."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "gnGuOOKI0hLTDh8qSKfJ_Q": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.LVjhjYUcQXOYcbI_xbepJQ_CellProcesses.cellProcessMap.xILEgi3ALcCoB6gHzL3MvQ",
-                                          "specPath": "~.LVjhjYUcQXOYcbI_xbepJQ_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "test_pass_1",
-                                        "apmRef": {
-                                          "id": "LVjhjYUcQXOYcbI_xbepJQ",
-                                          "vdid": "d2t5rYYM3UpcIT_IF1XEQQ",
-                                          "name": "CPM Child Processes Active Operator Test Process",
-                                          "description": "Test process"
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "test_pass_1",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    },
-                                    "viZxXd_JP4ujghfxAcO5yw": {
-                                      "evalRequest": {
-                                        "dataBinding": {
-                                          "dataPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.aQsQp_v0Jw3HgE76DYzb8w",
-                                          "specPath": "~.3E27IH_CQeqBUFsGm4tIIA_CellProcesses.cellProcessMap.cellProcessID"
-                                        },
-                                        "initialStep": "ready",
-                                        "apmRef": {
-                                          "id": "3E27IH_CQeqBUFsGm4tIIA",
-                                          "vdid": "9OnXus4mvB4GxhPoXMwTlw",
-                                          "name": "Dummy Process A Process",
-                                          "description": "Implements a trivial cell process that does nothing."
-                                        }
-                                      },
-                                      "evalResponse": {
-                                        "status": "noop",
-                                        "finishStep": "ready",
-                                        "phases": {
-                                          "p1_toperator": [],
-                                          "p2_exit": [],
-                                          "p3_enter": [],
-                                          "p4_finalize": null
-                                        },
-                                        "errors": {
-                                          "p1_toperator": 0,
-                                          "p2_exit": 0,
-                                          "p3_enter": 0,
-                                          "p4_finalize": 0,
-                                          "total": 0
-                                        }
-                                      }
-                                    }
-                                  }
+                                  "bindings": {}
                                 }
                               ]
                             }

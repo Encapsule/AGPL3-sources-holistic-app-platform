@@ -154,45 +154,73 @@ const factoryResponse = arccore.filter.create({
                         // - ID IRUT identifies a specific APM registered with this OPC instance.
                         const apmID = record.specRef.____appdsl.apm;
 
-                        // ****************************************************************
-                        // ****************************************************************
-                        // We found an APM-bound namespace in the controller data.
-                        const apmInstanceFrame = {
-                            evalRequest: {
-                                dataBinding: record,
-                                initialStep: record.dataRef.__apmiStep,
-                                apmRef: opcRef._private.apmMap[apmID]
-                            },
-                            evalResponse: {
-                                status: "pending",
-                                finishStep: null,
-                                phases: {
-                                    p1_toperator: [],
-                                    p2_exit: [],
-                                    p3_enter: [],
-                                    p4_finalize: null
-                                },
-                                errors: {
-                                    p0: 0,
-                                    p1_toperator: 0,
-                                    p2_exit: 0,
-                                    p3_enter: 0,
-                                    p4_finalize: 0,
-                                    total: 0
+                        // If the cell has __apmiEvalError set in its cell memory
+                        // If the cell has __apmiStep value the resolves to a terminal process step in the APM
+                        // ... then do not include this cell in the evaluation frame.
+
+                        let includeCellInEvalFrame = true;
+
+                        if (record.dataRef.__apmiEvalError) {
+                            console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame due to previous evaluation error.`);
+                            includeCellInEvalFrame = false;
+                        } else {
+                            let apmRef = opcRef._private.apmMap[apmID];
+                            let apmStepDescriptor = apmRef.getStepDescriptor(record.dataRef.__apmiStep);
+                            if (!apmStepDescriptor) {
+                                console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame because it is just data; it does not define process step rules to evaluate.`);
+                                includeCellInEvalFrame = false;
+                            } else {
+                                if (!apmStepDescriptor.transitions || !apmStepDescriptor.transitions.length) {
+                                    console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame because it has reached a terminal (i.e. no-way-out) step.`);
+                                    includeCellInEvalFrame = false;
                                 }
                             }
-                        };
+                        }
 
-                        // Generate an IRUT based on the CDS path to use as key in the binding map.
-                        const key = arccore.identifier.irut.fromReference(record.dataPath).result;
+                        if (includeCellInEvalFrame) {
 
-                        // Register the new binding the the evalFrame.
-                        evalFrame.bindings[key] = apmInstanceFrame;
-                        result.summary.counts.bindings++;
-                        evalFrame.summary.counts.bindings++;
+                            // ****************************************************************
+                            // ****************************************************************
+                            // We found an APM-bound namespace in the controller data.
+                            const apmInstanceFrame = {
+                                evalRequest: {
+                                    dataBinding: record,
+                                    initialStep: record.dataRef.__apmiStep,
+                                    apmRef: opcRef._private.apmMap[apmID]
+                                },
+                                evalResponse: {
+                                    status: "pending",
+                                    finishStep: null,
+                                    phases: {
+                                        p1_toperator: [],
+                                        p2_exit: [],
+                                        p3_enter: [],
+                                        p4_finalize: null
+                                    },
+                                    errors: {
+                                        p0: 0,
+                                        p1_toperator: 0,
+                                        p2_exit: 0,
+                                        p3_enter: 0,
+                                        p4_finalize: 0,
+                                        total: 0
+                                    }
+                                }
+                            };
 
-                        // ****************************************************************
-                        // ****************************************************************
+                            // Generate an IRUT based on the CDS path to use as key in the binding map.
+                            // TODO: This looks obviously a bit too expensive for this already heavy-but-essential frame prologue operation.
+                            const key = arccore.identifier.irut.fromReference(record.dataPath).result;
+
+                            // Register the new binding the the evalFrame.
+                            evalFrame.bindings[key] = apmInstanceFrame;
+                            result.summary.counts.bindings++;
+                            evalFrame.summary.counts.bindings++;
+
+                            // ****************************************************************
+                            // ****************************************************************
+
+                        } // if include cell in eval frame
 
                     } // end if apm binding on current namespace?
 
@@ -426,6 +454,11 @@ const factoryResponse = arccore.filter.create({
                             evalFrame.summary.counts.errors++;
                             evalFrame.summary.reports.errors.push(ocdPathIRUT_);
                             result.summary.counts.errors++;
+                            let ocdWriteResponse = opcRef._private.ocdi.writeNamespace(`${apmBindingPath}.__apmiEvalError`, transitionResponse.error);
+                            if (ocdWriteResponse.error) {
+                                // Should never fail.
+                                throw new Error("Internal error attempting to write __apmiEvalError on cell due to OPC._evaluate transport error >:/");
+                            }
                             break; // abort evaluation of transition rules for this APM instance...
                         }
                         if (transitionResponse.result) {
@@ -508,6 +541,11 @@ const factoryResponse = arccore.filter.create({
                             evalFrame.summary.counts.errors++;
                             evalFrame.summary.reports.errors.push(ocdPathIRUT_);
                             result.summary.counts.errors++;
+                            let ocdWriteResponse = opcRef._private.ocdi.writeNamespace(`${apmBindingPath}.__apmiEvalError`, actionResponse.error);
+                            if (ocdWriteResponse.error) {
+                                // Should never fail.
+                                throw new Error("Internal error attempting to write __apmiEvalError on cell due to OPC._evaluate transport error >:/");
+                            }
                             break;
                         }
 
@@ -565,6 +603,11 @@ const factoryResponse = arccore.filter.create({
                             evalFrame.summary.counts.errors++;
                             evalFrame.summary.reports.errors.push(ocdPathIRUT_);
                             result.summary.counts.errors++;
+                            let ocdWriteResponse = opcRef._private.ocdi.writeNamespace(`${apmBindingPath}.__apmiEvalError`, actionResponse.error);
+                            if (ocdWriteResponse.error) {
+                                // Should never fail.
+                                throw new Error("Internal error attempting to write __apmiEvalError on cell due to OPC._evaluate transport error >:/");
+                            }
                             break;
                         }
 
@@ -610,6 +653,7 @@ const factoryResponse = arccore.filter.create({
                         result.summary.counts.transitions++;
                         apmInstanceFrame.evalResponse.finishStep = nextStep;
                     }
+
                 } // apmBindingPath in evalFrame
 
                 evalStopwatch.mark(`frame ${result.evalFrames.length} end APM instance evaluation`);

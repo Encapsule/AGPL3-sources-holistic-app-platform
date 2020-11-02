@@ -63,9 +63,9 @@
                     "postConstructionToJSON": {
                       "cm": {
                         "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                        "vdid": "yXJROofMpPdSi7nFntqcOw",
-                        "name": "Useless CP Runtime Host Cell Process Manager",
-                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host.",
+                        "vdid": "-7Y5aSs1s0LeIa48J_oblA",
+                        "name": "Useless CP Service Cell Process Manager (synthesized)",
+                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane.",
                         "cmat": {
                           "error": null,
                           "result": {
@@ -73,15 +73,15 @@
                               "type": "INDEX",
                               "V_VX9bRwtHA9Hj0ebiJuIg": {
                                 "id": "V_VX9bRwtHA9Hj0ebiJuIg",
-                                "vdid": "yXJROofMpPdSi7nFntqcOw",
-                                "name": "Useless CP Runtime Host Cell Process Manager",
-                                "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host.",
+                                "vdid": "-7Y5aSs1s0LeIa48J_oblA",
+                                "name": "Useless CP Service Cell Process Manager (synthesized)",
+                                "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane.",
                                 "type": "CM",
                                 "-9X71SvmK-YNMg0yTqxOrA": {
                                   "id": "-9X71SvmK-YNMg0yTqxOrA",
-                                  "vdid": "oI4g7ppfk_dtxum8NT_1xQ",
-                                  "name": "Useless CP Runtime Host Cell Process Manager",
-                                  "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host.",
+                                  "vdid": "Dm3gDFUTOf2TKdh3aJO2dw",
+                                  "name": "Useless CP Service Cell Process Manager (synthesized)",
+                                  "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane.",
                                   "type": "APM"
                                 },
                                 "DxL0zD_ERu-0kNGX2FvoGg": {
@@ -427,8 +427,8 @@
                       },
                       "opc": {
                         "id": "fxLKS3sOpT_ZuUFuvvePrw",
-                        "name": "Useless CP Runtime Host ObservableProcessController",
-                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Useless CP Runtime Host' CellProcessor instance.",
+                        "name": "Useless CP Service ObservableProcessController",
+                        "description": "Provides generic shared memory and runtime evaluation services (aka \"cell plane\") for 'Useless CP Service' CellProcessor instance.",
                         "options": {
                           "evaluate": {
                             "maxFrames": 64,
@@ -444,9 +444,9 @@
                           },
                           "-9X71SvmK-YNMg0yTqxOrA": {
                             "id": "-9X71SvmK-YNMg0yTqxOrA",
-                            "vdid": "oI4g7ppfk_dtxum8NT_1xQ",
-                            "name": "Useless CP Runtime Host Cell Process Manager",
-                            "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
+                            "vdid": "Dm3gDFUTOf2TKdh3aJO2dw",
+                            "name": "Useless CP Service Cell Process Manager (synthesized)",
+                            "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane."
                           }
                         },
                         "opmiSpecPaths": [
@@ -454,9 +454,9 @@
                             "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
                             "opmiRef": {
                               "id": "-9X71SvmK-YNMg0yTqxOrA",
-                              "vdid": "oI4g7ppfk_dtxum8NT_1xQ",
-                              "name": "Useless CP Runtime Host Cell Process Manager",
-                              "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
+                              "vdid": "Dm3gDFUTOf2TKdh3aJO2dw",
+                              "name": "Useless CP Service Cell Process Manager (synthesized)",
+                              "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane."
                             }
                           }
                         ],
@@ -471,8 +471,8 @@
                           }
                         },
                         "ocdRuntimeSpec": {
-                          "____label": "OPC [fxLKS3sOpT_ZuUFuvvePrw::Useless CP Runtime Host ObservableProcessController] Observable Controller Data Store",
-                          "____description": "OPC [fxLKS3sOpT_ZuUFuvvePrw::Useless CP Runtime Host ObservableProcessController] system process runtime state data managed by OPC instance.",
+                          "____label": "OPC [fxLKS3sOpT_ZuUFuvvePrw::Useless CP Service ObservableProcessController] Observable Controller Data Store",
+                          "____description": "OPC [fxLKS3sOpT_ZuUFuvvePrw::Useless CP Service ObservableProcessController] system process runtime state data managed by OPC instance.",
                           "____types": "jsObject",
                           "____defaultValue": {},
                           "x7pM9bwcReupSRh0fcYTgw_CellProcessor": {
@@ -526,6 +526,14 @@
                             "__apmiStep": {
                               "____accept": "jsString",
                               "____defaultValue": "uninitialized"
+                            },
+                            "__apmiEvalError": {
+                              "____label": "Abstract Process Model Evaluation Error",
+                              "____description": "A possible response.error returned by an action or operator called by OPC._evaluate while it was last evaluating this cell's APM process step rules. OPC._evaluate will set this value as a note to itself that it should not further attempt to evaluate this cell.",
+                              "____accept": [
+                                "jsUndefined",
+                                "jsString"
+                              ]
                             }
                           }
                         },
@@ -7196,7 +7204,7 @@
                             "evalNumber": 0,
                             "summary": {
                               "counts": {
-                                "bindings": 3,
+                                "bindings": 2,
                                 "frames": 3,
                                 "errors": 0,
                                 "transitions": 2
@@ -7227,9 +7235,9 @@
                                       "initialStep": "uninitialized",
                                       "apmRef": {
                                         "id": "-9X71SvmK-YNMg0yTqxOrA",
-                                        "vdid": "oI4g7ppfk_dtxum8NT_1xQ",
-                                        "name": "Useless CP Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
+                                        "vdid": "Dm3gDFUTOf2TKdh3aJO2dw",
+                                        "name": "Useless CP Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7310,9 +7318,9 @@
                                       "initialStep": "initializing",
                                       "apmRef": {
                                         "id": "-9X71SvmK-YNMg0yTqxOrA",
-                                        "vdid": "oI4g7ppfk_dtxum8NT_1xQ",
-                                        "name": "Useless CP Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
+                                        "vdid": "Dm3gDFUTOf2TKdh3aJO2dw",
+                                        "name": "Useless CP Service Cell Process Manager (synthesized)",
+                                        "description": "Cell process mamanger provides cell process activation, deactivation, query, proxy, and memory management services for activatable cell processes in the Useless CP Service cell plane."
                                       }
                                     },
                                     "evalResponse": {
@@ -7356,7 +7364,7 @@
                               {
                                 "summary": {
                                   "counts": {
-                                    "bindings": 1,
+                                    "bindings": 0,
                                     "transitions": 0,
                                     "errors": 0
                                   },
@@ -7365,40 +7373,7 @@
                                     "errors": []
                                   }
                                 },
-                                "bindings": {
-                                  "YI9gj9oX2hdfEV8RmbuZuw": {
-                                    "evalRequest": {
-                                      "dataBinding": {
-                                        "dataPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor",
-                                        "specPath": "~.x7pM9bwcReupSRh0fcYTgw_CellProcessor"
-                                      },
-                                      "initialStep": "ready",
-                                      "apmRef": {
-                                        "id": "-9X71SvmK-YNMg0yTqxOrA",
-                                        "vdid": "oI4g7ppfk_dtxum8NT_1xQ",
-                                        "name": "Useless CP Runtime Host Cell Process Manager",
-                                        "description": "Cell process manager root process for CellProcessor Useless CP Runtime Host."
-                                      }
-                                    },
-                                    "evalResponse": {
-                                      "status": "noop",
-                                      "finishStep": "ready",
-                                      "phases": {
-                                        "p1_toperator": [],
-                                        "p2_exit": [],
-                                        "p3_enter": [],
-                                        "p4_finalize": null
-                                      },
-                                      "errors": {
-                                        "p1_toperator": 0,
-                                        "p2_exit": 0,
-                                        "p3_enter": 0,
-                                        "p4_finalize": 0,
-                                        "total": 0
-                                      }
-                                    }
-                                  }
-                                }
+                                "bindings": {}
                               }
                             ]
                           }
