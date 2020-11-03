@@ -403,7 +403,7 @@ const holarchy = require("@encapsule/holarchy");
                                                     appInitialClientRoute: { ____opaque: true }, // TODO: not even sure I want/need this yet.
                                                     appBootROMData: { ____accept: "jsObject" },
                                                     appRuntimeServiceProcesses: {
-                                                        ____types: "jsObject",
+                                                         ____types: "jsObject",
                                                         appClientKernelProcessID: { ____accept: "jsString" },
                                                         d2r2DisplayAdapterProcessID: { ____accept: "jsString" },
                                                         domLocationProcessorProcessID: { ____accept: "jsString" }
@@ -462,11 +462,31 @@ const holarchy = require("@encapsule/holarchy");
                                                 ____types: "jsObject",
                                                 error: {
                                                     ____types: "jsObject",
+                                                    lifecyclePhase: {
+                                                        ____accept: "jsString",
+                                                        ____inValueSet: [
+                                                            // Whatever error is indicated by badResponse is fatal; the app client service process cannot be started.
+                                                            "app-client-boot",
+                                                            // Whatever error is indicated by badResponse is considered anomalous by the app client kernel
+                                                            // and is likely an indication of a fatal application-level error (and likely active cells
+                                                            // that are no longer being evaluated due to evaluation error(s)). But, we just pass this along
+                                                            // here and keep the app client kernel and all other subsystems active.
+                                                            "app-client-runtime",
+                                                        ]
+                                                    },
+                                                    kernelProcessStep: { ____accept: "jsString" },
                                                     errorType: {
                                                         ____accept: "jsString",
-                                                        ____inValueSet: [ "action-error", "transport-error" ]
+                                                        ____inValueSet: [
+                                                            // An unhandled/unexpected error occurred when an external actor called CellProcessor.act.
+                                                            // Or, a closure scope inside of a ControllerAction calls OPC.act in an async callback.
+                                                            "action-error",
+                                                            // An unhandled/unexpected error occurred during OPC._evaluate cell plane evaluation that
+                                                            // was undertaken in response to some external actor request to CellProcessor.act/OPC.act.
+                                                            "evaluation-error"
+                                                        ]
                                                     },
-                                                    opcActResponse: { ____accept: "jsObject" }
+                                                    badResponse: { ____accept: "jsObject" }
                                                 }
                                             }
                                         }

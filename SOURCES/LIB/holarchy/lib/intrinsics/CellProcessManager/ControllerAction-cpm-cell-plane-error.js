@@ -17,7 +17,11 @@ const controllerAction = new ControllerAction({
                     ____types: "jsObject",
                     errorType: {
                         ____accept: "jsString",
-                        ____inValueSet: [ "action-error", "transport-error" ]
+                        ____inValueSet: [
+                            "fatal-lifecycle-error",
+                            "unhandled-action-error",
+                            "unhandled-evaluation-error"
+                        ]
                     },
                     opcActResponse: { ____accept: "jsObject" }
                 }

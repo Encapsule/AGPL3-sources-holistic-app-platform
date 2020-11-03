@@ -296,6 +296,15 @@ const controllerAction = new holarchy.ControllerAction({
                 break;
 
                 // ----------------------------------------------------------------
+                // OKAY... Wait a second... This is thought crime here.
+                // The purpose of the private signal action is to provide
+                // kernel APM process declaration w/action it can easily
+                // use to orchestrate calls to the derived app client
+                // service process. Does the kernel APM orchestrate error
+                // notifications back to the derived app client proces via
+                // a lifecycle action request via the signal lifecycle action?
+                // NO NO NO NO. This is wrong I think.
+                /*
             case "error":
                 actResponse = request_.context.act({
                     actorName,
@@ -304,7 +313,30 @@ const controllerAction = new holarchy.ControllerAction({
                         CellProcessor: {
                             cell: {
                                 cellCoordinates: kernelCellData.derivedAppClientProcessCoordinates,
-                                delegate: { actionRequest: { holistic: { app: { client: { lifecycle: { error: {} } } } } } }
+                                delegate: {
+                                    actionRequest: {
+                                        holistic: {
+                                            app: {
+                                                client: {
+                                                    lifecycle: {
+                                                        error: {
+                                                            lifecyclePhase: ((kernelCellData.__apmiStep === "kernel-service-ready")?"app-client-runtime":"app-client-boot"),
+                                                            kernelProcessStep: kernelCellData.__apmiStep,
+                                                            errorType: "fatal-lifecycle-error",
+                                                            badResponse: {
+                                                                error: "Holistic app client kernel boot has failed. The derived app client service cannot be started.",
+                                                                result: {
+                                                                    bootstrapFailureStep: kernelCellData.bootstrapFailureStep,
+                                                                    lifecycleResponses: kernelCellData.lifecycleResponses
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -315,6 +347,7 @@ const controllerAction = new holarchy.ControllerAction({
                 }
                 response.result = actResponse.result.actionResult;
                 break;
+                */
 
 
                 // ----------------------------------------------------------------

@@ -161,17 +161,17 @@ const factoryResponse = arccore.filter.create({
                         let includeCellInEvalFrame = true;
 
                         if (record.dataRef.__apmiEvalError) {
-                            console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame due to previous evaluation error.`);
+                            // console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame due to previous evaluation error.`);
                             includeCellInEvalFrame = false;
                         } else {
                             let apmRef = opcRef._private.apmMap[apmID];
                             let apmStepDescriptor = apmRef.getStepDescriptor(record.dataRef.__apmiStep);
                             if (!apmStepDescriptor) {
-                                console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame because it is just data; it does not define process step rules to evaluate.`);
+                                // console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame because it is just data; it does not define process step rules to evaluate.`);
                                 includeCellInEvalFrame = false;
                             } else {
                                 if (!apmStepDescriptor.transitions || !apmStepDescriptor.transitions.length) {
-                                    console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame because it has reached a terminal (i.e. no-way-out) step.`);
+                                    // console.log(`> Excluding cell at apmBindingPath '${record.dataPath}' from cell evaluation frame because it has reached a terminal (i.e. no-way-out) step.`);
                                     includeCellInEvalFrame = false;
                                 }
                             }

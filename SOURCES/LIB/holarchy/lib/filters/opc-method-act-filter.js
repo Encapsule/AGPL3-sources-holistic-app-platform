@@ -130,8 +130,8 @@ const factoryResponse = arccore.filter.create({
                                 CellProcessor: {
                                     _private: {
                                         opcCellPlaneErrorNotification: {
-                                            errorType: "action-error",
-                                            opcActResponse: actionResponse
+                                            errorType: "unhandled-action-error",
+                                            badResponse: actionResponse
                                         }
                                     }
                                 }
@@ -197,8 +197,8 @@ const factoryResponse = arccore.filter.create({
                             CellProcessor: {
                                 _private: {
                                     opcCellPlaneErrorNotification: {
-                                        errorType: "transport-error",
-                                        opcActResponse: response
+                                        errorType: "unhandled-evaluation-error",
+                                        badResponse: response
                                     }
                                 }
                             }
