@@ -18,14 +18,17 @@ const controllerAction = new holarchy.ControllerAction({
                     ____types: "jsObject",
                     _private: {
                         ____types: "jsObject",
-                        opcCellPlaneErrorNotification: {
+                        cpmCellPlaneErrorNotification: {
                             ____types: "jsObject",
                             errorType: {
                                 ____accept: "jsString",
                                 ____inValueSet: [
-                                    "fatal-lifecycle-error",
-                                    "unhandled-action-error",
-                                    "unhandled-evaluation-error"
+                                    // An unhandled/unexpected error occurred when an external actor called CellProcessor.act.
+                                    // Or, a closure scope inside of a ControllerAction calls OPC.act in an async callback.
+                                    "action-error",
+                                    // An unhandled/unexpected error occurred during OPC._evaluate cell plane evaluation that
+                                    // was undertaken in response to some external actor request to CellProcessor.act/OPC.act.
+                                    "evaluation-error"
                                 ]
                             },
                             badResponse: { ____accept: "jsObject" }
@@ -63,7 +66,7 @@ const controllerAction = new holarchy.ControllerAction({
 
             const kernelStatus = hackLibResponse.result;
 
-            if ((kernelStatus.cellMemory.__apmiStep !== "kernel-started" && !kernelStatus.cellMemory.bootstrapFailureStep)) {
+            if ((kernelStatus.cellMemory.__apmiStep !== "kernel-service-ready" && !kernelStatus.cellMemory.bootstrapFailureStep)) {
                 // The app client kernel process is still booting and the derived app client process has not yet been started.
 
                 // We'll let the kernel APM know about this.
@@ -75,14 +78,28 @@ const controllerAction = new holarchy.ControllerAction({
 
             }
 
+            const messageBody = request_.actionRequest.holistic.app.kernel._private.cpmCellPlaneErrorNotification;
+
             // TODO: We will want to do some things here at the app client kernel level as it's
             // not necessarily the case that this error is occurring when the kernel is even active
             // (and if it is then what we do depends on what state the app client kernel is in).
 
-            // For now, let's just notify the derived app client process that there's been a cell plane error.
+            const lifecyclePhase = ((kernelStatus.cellMemory.__apmiStep === "kernel-service-ready")?"app-client-runtime":"app-client-boot");
 
-            const messageBody = request_.actionRequest.holistic.app.kernel._private.opcCellPlaneErrorNotification;
+            if (lifecyclePhase === "app-client-boot") {
+                request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Logging error to app client kernel console display.",
+                    actionRequest: { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel boot has failed!" } } } } } } }
+                });
+                request_.context.act({
+                    actorName,
+                    actorTaskDescription: "Logging error to app client kernel console display.",
+                    actionRequest: { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { command: "hide" } } } } } } }
+                });
+            }
 
+            // Notify the derived app client process that there's been a cell plane error.
             let errorNotificationActResponse = request_.context.act({
                 actorName,
                 actorTaskDescription: "Attempting to notifiy derived app client process that a cell plane error has occured.",
@@ -91,7 +108,12 @@ const controllerAction = new holarchy.ControllerAction({
                         app: {
                             client: {
                                 lifecycle: {
-                                    error: messageBody
+                                    error: {
+                                        lifecyclePhase,
+                                        kernelProcessStep: kernelStatus.cellMemory.__apmiStep,
+                                        errorType: messageBody.errorType,
+                                        badResponse: messageBody.badResponse
+                                    }
                                 }
                             }
                         }

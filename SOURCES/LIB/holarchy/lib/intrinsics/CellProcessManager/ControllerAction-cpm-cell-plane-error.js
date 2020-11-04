@@ -18,9 +18,8 @@ const controllerAction = new ControllerAction({
                     errorType: {
                         ____accept: "jsString",
                         ____inValueSet: [
-                            "fatal-lifecycle-error",
-                            "unhandled-action-error",
-                            "unhandled-evaluation-error"
+                            "action-error",
+                            "evaluation-error"
                         ]
                     },
                     opcActResponse: { ____accept: "jsObject" }
@@ -66,6 +65,33 @@ const controllerAction = new ControllerAction({
 
             const messageBody = request_.actionRequest.CellProcessor._private.opcCellPlaneErrorNotification;
 
+            let cpmCellPlaneErrorString = null;
+
+            if (messageBody.opcActResponse.error) {
+                // We received the notification because some ControllerAction returned repsonse.error.
+                cpmCellPlaneErrorString = messageBody.opcActResponse.error;
+            } else {
+                // We received the notification because OPC_.evaluate caught error(s) dispatching TransitionOperator(s) and/or ControllerAction(s).
+                // Calculate an error string based on analysis of the OPC._evaluate algorithm's lastEvaluation telemetry result.
+                const lastEvaluation = messageBody.opcActResponse.result.lastEvaluation;
+                let failedEvalFrames = [];
+                for (let evalFrameIndex_ = 0 ; evalFrameIndex_ < lastEvaluation.evalFrames.length ; evalFrameIndex_++) {
+                    const evalFrame = lastEvaluation.evalFrames[evalFrameIndex_];
+                    evalFrame.summary.reports.errors.forEach((errorCellID_) => {
+                        failedEvalFrames.push({
+                            evalNumber: lastEvaluation.evalNumber,
+                            frameNumber: evalFrameIndex_,
+                            errorFrame: evalFrame.bindings[errorCellID_]
+                        });
+                    });
+                }
+                const errorMessage = [ `A total of ${failedEvalFrames.length} failed cell evaluations were found:` ];
+                failedEvalFrames.forEach((failedEvalFrameDescriptor_) => {
+                    errorMessage.push(JSON.stringify(failedEvalFrameDescriptor_));
+                });
+                cpmCellPlaneErrorString = errorMessage.join(" ");
+            }
+
             let errorNotificationActResponse = request_.context.act({
                 actorName,
                 actorTaskDescription: "Attempting to notifiy an active holistic app server/client kernel process about the OPC cell plane error.",
@@ -74,7 +100,13 @@ const controllerAction = new ControllerAction({
                         app: {
                             kernel: {
                                 _private: {
-                                    opcCellPlaneErrorNotification: messageBody
+                                    cpmCellPlaneErrorNotification: {
+                                        errorType: messageBody.errorType,
+                                        badResponse: {
+                                            error: cpmCellPlaneErrorString,
+                                            result: messageBody.opcActResponse.result
+                                        }
+                                    } // messageBody
                                 }
                             }
                         }

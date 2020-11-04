@@ -3,32 +3,29 @@ const holarchy = require("@encapsule/holarchy");
 
 const kernelConsoleStyles = {
     outerContainerDiv: [
-        "position: absolute",
-        "bottom: -0px",
+        "position: fixed",
+        "top: 0px",
         "left: 0px",
-        "right: -0px",
+        "width: 100%",
+        "height: 100%",
         "opacity: 0",
         "overflow: hidden",
-        "border-top: 1px solid #999999",
         "padding: 1em",
-        "padding-bottom: 3em",
-        "box-shadow: 0px 0px 1em 0px #999999",
         "font-family: Play",
         "font-size: 12pt",
-        "background-color: white",
-        "opacity: 0",
         "color: black",
-        "z-index: 1000"
+        "z-index: -1"
     ].join("; "),
 
     logMessageContainerDiv: [
-        "border-bottom: 1px solid rgba(0,0,0,0.1)",
-        "margin-left: 1em",
-        "margin-right: 1em",
-        "padding-left: 1em",
+        "margin-left: 0.5em",
+        "margin-right: 0.5em",
+        "padding-left: 0.5em",
         "padding-top: 0.25em",
         "padding-bottom: 0.25em",
         "font-family: 'Share Tech Mono'",
+        "font-size: larger",
+        "color: #999999"
     ].join("; "),
 
 };
@@ -100,7 +97,7 @@ const controllerAction = new holarchy.ControllerAction({
                 rootDisplayDOMElement.setAttribute("style", kernelConsoleStyles.outerContainerDiv);
 
                 let innerHTML = `
-<h3>App Client Kernel Console</h3>
+<h2>App Client Kernel Console</h2>
 <p><strong>@encapsule/holistic-app-client-cm v${holarchy.__meta.version}-${holarchy.__meta.codename} buildID ${holarchy.__meta.build}</strong><br/><br/></p>
 `;
                 rootDisplayDOMElement.innerHTML = innerHTML;
@@ -110,11 +107,10 @@ const controllerAction = new holarchy.ControllerAction({
             case "show":
                 rootDisplayDOMElement.animate(
                     [
-                        { opacity: 0, backgroundColor: "white" },
-                        { opacity: 1, backgroundColor: "#66CCFF" }
+                        { opacity: 1 }
                     ],
                     {
-                        duration: 1250,
+                        duration: 750,
                         fill: "forwards"
                     }
                 );
@@ -122,11 +118,11 @@ const controllerAction = new holarchy.ControllerAction({
             case "hide":
                 rootDisplayDOMElement.animate(
                     [
-                        { backgroundColor: "99FFCC" },
-                        { backgroundColor: "white", opacity: 0 }
+                        { opacity: 0 }
                     ],
                     {
-                        duration: 5000,
+                        delay: 3500,
+                        duration: 1000,
                         fill: "forwards",
                     }
                 );
@@ -135,7 +131,7 @@ const controllerAction = new holarchy.ControllerAction({
             case "log":
                 const newLogMessageElement = document.createElement("div");
                 newLogMessageElement.setAttribute("style", kernelConsoleStyles.logMessageContainerDiv);
-                const newLogContent = document.createTextNode(`[hack::${request_.context.ocdi.readNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.__apmiStep" }).result}] > ${messageBody.message}`);
+                const newLogContent = document.createTextNode(messageBody.message);
                 newLogMessageElement.appendChild(newLogContent);
                 rootDisplayDOMElement.appendChild(newLogMessageElement);
                 document.title = request_.context.ocdi.readNamespace({ apmBindingPath: request_.context.apmBindingPath, dataPath: "#.__apmiStep" }).result;

@@ -28,9 +28,9 @@ const controllerAction = new ControllerAction({
                         },
                         reportInnerResult: {
                             ____label: "Report Inner Result",
-                            ____description: "If false (default) the response.result value of a successful inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
+                            ____description: "If false (override you should not use) the response.result value of a successful inner action request is not reported to the caller (we presume the caller looks at the inner action response written to dataPath).",
                             ____accept: "jsBoolean",
-                            ____defaultValue: false
+                            ____defaultValue: true
                         }
                     }
                 }

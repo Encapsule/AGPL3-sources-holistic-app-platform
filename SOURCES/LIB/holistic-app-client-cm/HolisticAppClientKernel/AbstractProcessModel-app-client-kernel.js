@@ -79,19 +79,15 @@ module.exports = {
         "kernel-boot-start": {
             description: "Holistic app client kernel process services startup.",
             actions: {
-                enter: [
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel process attempting to boot..." } } } } } } },
-                ],
                 exit: [
                     // These are dispatched while the cell is in process step "kernel-start-services" iff transition === true
                     { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { command: "initialize" } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { command: "show" } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel process is booting..." } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel process is booting..." } } } } } } },
                     { holistic: { app: { client: { kernel: { _private: { hookDOMEvents: {} } } } } } },
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.domLocationProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "-1Ptaq_zTUa8Gfv_3ODtDg" /* "Holistic App Client Kernel: DOM Location Processor" */ } } } } } } } },
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.d2r2DisplayAdapter", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "IxoJ83u0TXmG7PLUYBvsyg" /* "Holistic Client App Kernel: d2r2/React Client Display Adaptor" */ } } } } } } } },
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.serviceProcesses.clientViewProcessor", actionRequest: { CellProcessor: { process: { activate: {}, processCoordinates: { apmID: "Hsu-43zBRgqHItCPWPiBng" /* "Holistic App Client Kernel: Client View Processor" */ } } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel process has booted." } } } } } } },
                 ]
             },
             transitions: [
@@ -104,7 +100,7 @@ module.exports = {
             actions: {
                 exit: [
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.init", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "init" } } } } } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel signaled lifecycle action init." } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has initialized the derived app client process." } } } } } } },
                 ]
             },
             transitions: [
@@ -116,7 +112,7 @@ module.exports = {
             description: "Waiting for holistic app client kernel subprocesses to come online...",
             actions: {
                 exit: [
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel service processes are ready." } } } } } } }
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel is waiting on subprocess services to become ready..." } } } } } } }
                 ]
             },
             transitions: [
@@ -138,7 +134,7 @@ module.exports = {
             actions: {
                 exit: [
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.query", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "query" } } } } } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel signaled lifecycle action query." } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has queried the derived app client process." } } } } } } },
                 ]
             },
             transitions: [
@@ -150,10 +146,7 @@ module.exports = {
             description: "Waiting for the browser to finish load/parse of the current HTML5 document so that we can safely presume all the resources that it references are accessible.",
             actions: {
                 enter: [
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel going to sleep to wait for the browser tab to finish loading..." } } } } } } }
-                ],
-                exit: [
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel now able to access all HTML5 document resources." } } } } } } }
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel is waiting for the browser tab to load..." } } } } } } }
                 ]
             },
             transitions: [
@@ -167,7 +160,7 @@ module.exports = {
             actions: {
                 exit: [
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.deserialize", actionRequest: { holistic:{ app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "deserialize" } } } } } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel signaled lifecycle action deserialize." } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has received deserialized application data from the derived app client process." } } } } } } },
                 ]
             },
             transitions: [
@@ -180,7 +173,7 @@ module.exports = {
             actions: {
                 exit: [
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.config", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "config" } } } } } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Signaling app client lifecycle config action..." } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has configured the derived app client process." } } } } } } },
                 ]
             },
             transitions: [
@@ -193,7 +186,7 @@ module.exports = {
             actions: {
                 exit: [
                     { CellProcessor: { util: { writeActionResponseToPath: { dataPath: "#.lifecycleResponses.start", actionRequest: { holistic: { app: { client: { kernel: { _private: { signalLifecycleEvent: { eventLabel: "start" } } } } } } } } } } },
-                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "Holistic app client kernel signaled lifecycle action start." } } } } } } },
+                    { holistic: { app: { client: { kernel: { _private: { rootDisplayCommand: { message: "App client kernel has started the derived app client process." } } } } } } },
                ]
             },
             transitions: [
